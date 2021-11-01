@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400&display=swap');
+
+$branco: #fff;
+$preto: #000;
+$dark-green: #24733F;
+$light-green: #72A67F;
+$light-blue: #A4BFAB;
+$orange: #DE7440;
+$yellow-green: #DED040;
+$offWhite: #F2F2F2;
+
+:root {
+
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+
+}
+
+::-webkit-scrollbar {
+
+    background: $offWhite;
+
+}
+
+::-webkit-scrollbar-thumb { 
+
+    background-color: $light-blue;
+    
+}
+
