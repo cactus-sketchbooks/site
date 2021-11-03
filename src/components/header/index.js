@@ -1,7 +1,7 @@
 import React, {useState, createRef} from 'react';
 import {Link} from 'react-router-dom'
 import './style.scss';
-import logo from '../../images/cactopng2.png';
+import logo from '../../images/cactopng.png';
 
 function Header() {
 
@@ -47,14 +47,16 @@ function Header() {
 
                 </div>
 
-                <div className="menu">
+                <div className='menu' >
+
                     <ul>
                         <li><Link to="/"> Quem Somos </Link></li>
                         <li><Link to="/"> Contato </Link></li>
                         <li><Link to="/"> Nossos Clientes </Link></li>
                         <li><Link to="/"> Carrinho </Link></li>
-                        <li><Link to="/"> Login </Link></li>                    
+                        <li><Link to="/"> Login </Link></li>  
                     </ul>
+
                 </div>
 
                 <div className="sandwich" >
@@ -76,7 +78,6 @@ function Header() {
                     </label>
 
                 </div>
-
             </header>
 
             <div className='menu-mobile' ref={menuMobile} >
@@ -86,7 +87,7 @@ function Header() {
                     <li><Link to="/"> Contato </Link></li>
                     <li><Link to="/"> Nossos Clientes </Link></li>
                     <li><Link to="/"> Carrinho </Link></li>
-                    <li><Link to="/"> Login </Link></li>                    
+                    <li><Link to="/"> Login </Link></li>  
                 </ul>
 
             </div>

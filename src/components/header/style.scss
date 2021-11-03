@@ -1,21 +1,25 @@
 @import "../../global.scss";
 
 .header {
-    width: 100%;
+    width: 100vw;
     background-color: transparent;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     position: fixed;
-    padding: 1ch;
+    padding-top: 1em;
+    height: auto;
+    z-index: 2;
 
     .logo {
 
         a {
 
             img {
-                height: 11vh;
+                height: 10vh;
+                margin: 0.5rem;
+
             }
         }
 
@@ -25,143 +29,182 @@
         ul {
             display: flex;
             flex-direction: row;
-            padding-left: 0;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+            list-style: none;
+            position: relative;
+            z-index: 2;
 
             li {
 
-                padding: 1ch;
-                background-color: $light-blue;
-                border-radius: 5px;
-                padding: 1ch;
-                margin: 1ch;
-                transition: transform .45s ease, background .45s ease;
-
-
-                &:hover {
-                    background-color: $branco;
-                    transition: transform .45s ease, background .45s ease;
-
-                    a {
-                        color: $light-blue;
-                    }
-                }
-
+                margin: 0.5rem;
                 a {
                     text-decoration: none;
-                    color: $branco;
+                    color: $dark-green;
+					background-color: $offWhite;
+					padding: 0.5rem;
+					border-radius: 5px;
+
+					&:hover {
+						background-color: $light-green;
+						color: $branco;
+					}
                 }
             }
+
+            .mobileAdjustHeader {
+                margin: 0.5rem;
+
+                #mobileDropDown {
+                    
+                    h1 {
+                        font-size: 1.5em;
+                        font-family: Noto Sans;
+                    }
+    
+                    p {
+                        font-size: 1em;
+                    }
+    
+                    h2 {
+                        font-size: 1em;
+                        padding-left: 1em; 
+                    }
+    
+                    .dropDownInfo {
+                        h3 {
+                            font-size: 1em;
+                        }
+                    }
+                }
+            }
+
+
         }
-    }
-
-    .sandwich {
-
-        display: none;
-
-        input {
-
-            opacity: 0;
-        
-        }
-
     }
 }
 
 .menu-mobile {
-    display: none;
+    ul {
+        display: none;
+
+        li {
+            display: none;
+        }
+
+        #dropdown-custom-1 {
+            display: none;
+        }
+
+        .super-colors {
+            display: none;
+        }
+    }
 }
 
+.sandwich {
+
+    display: none;
+
+    input {
+
+        opacity: 0;
+    
+    }
+
+}
 
 .header.active {
     background: linear-gradient(45deg, $light-green, $dark-green);
 }
 
+@media screen and (max-width: 1000px) {
+    .logo {
+        padding-left: 20px;
 
-@media screen and (max-width: 768px) {
+        img {
+            height: 5vh;
+        }
+    }
 
-    header {
-        .logo {
-            
-            img {
-                height: 5vh;
-            }
+    .menu {
+        display: none;
+    }
+
+    .sandwich {
+
+        display: flex;
+        align-items: center;
+        padding-right: 20px;
+
+        input {
+            opacity: 100;
         }
 
-        .menu {
+        #checkbox {
             display: none;
         }
 
-        .sandwich {
+    }
 
-            display: flex;
-            align-items: center;
-            background-color: red;
+    .sandwich label {
 
-            #checkbox {
-                display: flex;
-            }
+        cursor: pointer;
+        position: relative;
+        display: block;
+        height: 5px;
+        width: 50px;
 
-        }
+    }
 
-        .sandwich label {
+    .sandwich span {
 
-            cursor: pointer;
-            position: relative;
-            display: block;
-            height: 5px;
-            width: 50px;
+        position: absolute;
+        height: 3px;
+        width: 30px;
+        background: $offWhite;
+        transition: .5s ease-in-out;
 
-        }
+    }
 
-        .sandwich span {
+    .sandwich span:nth-child(1) {
 
-            position: absolute;
-            height: 3px;
-            width: 30px;
-            background: $offWhite;
-            transition: .5s ease-in-out;
+        position: absolute;
+        top: -8px;
+        height: 3px;
+        width: 30px;
+        background: $offWhite;
 
-        }
+    }
 
-        .sandwich span:nth-child(1) {
+    .sandwich span:nth-child(3) {
 
-            position: absolute;
-            top: -8px;
-            height: 3px;
-            width: 30px;
-            background: $offWhite;
+        position: absolute;
+        top: 8px;
+        height: 3px;
+        width: 30px;
+        background: $offWhite;
 
-        }
+    }
 
-        .sandwich span:nth-child(3) {
+    #checkbox:checked + label span:nth-child(1) {
 
-            position: absolute;
-            top: 8px;
-            height: 3px;
-            width: 30px;
-            background: $offWhite;
+        transform: rotate(-225deg);
+        top: 0px;
 
-        }
+    }
 
-        #checkbox:checked + label span:nth-child(1) {
+    #checkbox:checked + label span:nth-child(2) {
 
-            transform: rotate(-225deg);
-            top: 0px;
+        opacity: 0;
 
-        }
+    }
 
-        #checkbox:checked + label span:nth-child(2) {
+    #checkbox:checked + label span:nth-child(3) {
 
-            opacity: 0;
-
-        }
-
-        #checkbox:checked + label span:nth-child(3) {
-
-            transform: rotate(225deg);
-            top: 0px;
-
-        }
+        transform: rotate(225deg);
+        top: 0px;
 
     }
 
@@ -172,8 +215,6 @@
         justify-content: center;
         flex-direction: column;
         display: none;
-        background: linear-gradient(45deg, $light-green, $dark-green);
-
 
         ul {
             display: flex;
@@ -184,6 +225,41 @@
             list-style: none;
             margin-top: 5em;
             margin-bottom: 0em;
+
+            .mobileAdjustHeader {
+                margin: 0.5em 0;
+            }
+
+            #mobileDropDown {
+
+                margin: 0.5em 0;
+
+                h2 {
+                    font-size: 1em;
+                    padding-left: 1em; 
+                }
+
+                .dropDownInfo {
+
+                    h1 {
+                        font-size: 1.5em;
+                        font-family: Noto Sans;
+                    }
+
+                    p {
+                        font-size: 1em;
+                        flex-wrap: wrap;
+                    }
+
+                    h3 {
+                        font-size: 1em;
+                    }
+
+                    h4 {
+                        font-size: 0.8em;
+                    }
+                }
+            }
 
             li {
                 display: flex;
@@ -198,6 +274,8 @@
                     background-color: #0D6EFD;
                 }
             }
+
+
         }
     }
 }
