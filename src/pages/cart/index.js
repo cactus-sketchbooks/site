@@ -4,14 +4,14 @@ import Header from '../../components/header/index.js';
 import Footer from '../../components/footer/index.js';
 
 
-function About() {
+function Cart() {
     return (
         <div>
             <Header />
-            <section id="about-body">
-                <h1>Sobre Nós</h1>
+            <section id="cart-body">
+                <h1>Cart</h1>
             </section >
             <Footer />
         </div>
     )
-} export default About;
+} export default Cart;
