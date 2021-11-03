@@ -1,16 +1,159 @@
 @import "../../global.scss";
 
 * {
+
     font-family: 'Urbanist', sans-serif;
+
 }
 
 h1, h2, h3, h4, p {
+
     margin: 0;
     padding: 0;
+
 }
 
-#login-body {
-    background: linear-gradient(45deg, $light-green, $dark-green);
-    padding-top: 155px;
-    height: 90vh;
+#SectionLogin {
+
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+
+    .loginDiv {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 40%;
+        height: 100%;
+        position: relative;
+
+        background-color: $branco;
+
+        .imageLogoWrapper {
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 15%;
+            height: 10%;
+
+            position: absolute;
+            top: 3%;
+            left: 5%;
+
+            img {
+
+                width: 70px;
+                object-fit: cover;
+
+            }
+
+        }
+
+        h1 {
+
+            font-size: 3rem;
+            margin-bottom: 5rem;
+
+        }
+
+        fieldset {
+
+            display: flex;
+            flex-direction: column;
+            width: 75%;
+
+            border: none;
+
+            input {
+
+                margin: .3rem 0;
+                padding: .7rem 1rem;
+                border-radius: 5px;
+
+                border: 1.7px solid #e8e8e8;
+                outline-color: $orange;
+
+            }
+
+        }
+
+        .optionsLogin {
+
+            display: flex;
+            width: 75%;
+            justify-content: space-between;
+
+            .loginRedirects {
+
+                display: flex;
+                width: 55%;
+                align-items: center;
+                justify-content: space-between;
+
+                a {
+
+                    text-decoration: none;
+                    color: rgb(148, 148, 148);
+
+                    &:hover {
+
+                        color: $orange;
+
+                    }
+
+                }
+
+            }
+
+            button {
+
+                display: block;
+                padding: 0.5rem 1.5rem;
+
+                background-color: $orange;
+                color: $branco;
+
+                border: none;
+                border-radius: 5px;
+
+                cursor: pointer;
+
+                font-size: .9rem;
+
+                transition: all .2s ease-in-out;
+
+                &:hover {
+
+                    background-color: $light-orange;
+
+                }
+
+            }
+
+        }
+
+    }
+
+    .loginImageWrapper {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60%;
+        height: 100%;
+
+        img {
+
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            
+        }
+
+    }
+
 }

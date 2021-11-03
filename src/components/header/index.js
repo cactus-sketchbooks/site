@@ -50,11 +50,11 @@ function Header() {
                 <div className='menu' >
 
                     <ul>
-                        <li><Link to="/about"> Quem Somos </Link></li>
-                        <li><Link to="/contact"> Contato </Link></li>
-                        <li><Link to="/clients"> Nossos Clientes </Link></li>
-                        <li><Link to="/cart"> Carrinho </Link></li>
-                        <li><Link to="/login"> Login </Link></li>  
+                        <li><Link onClick={scrollToTop} to="/about"> Quem Somos </Link></li>
+                        <li><Link onClick={scrollToTop} to="/contact"> Contato </Link></li>
+                        <li><Link onClick={scrollToTop} to="/clients"> Nossos Clientes </Link></li>
+                        <li><Link onClick={scrollToTop} to="/cart"> Carrinho </Link></li>
+                        <li><Link onClick={scrollToTop} to="/login"> Login </Link></li>  
                     </ul>
 
                 </div>

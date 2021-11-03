@@ -5,6 +5,11 @@ import Footer from '../../components/footer/index.js'
 
 import cacto1 from '../../images/cactopng2.png'
 import foto from '../../images/foto1.png'
+import mandacaru from '../../images/mandacaru.png'
+import baiao from '../../images/baiao.png'
+import facheiro from '../../images/facheiro.png'
+import sertao from '../../images/sertao.png'
+import kindle from '../../images/buriti-kindle.png'
 
 function Home() {
 
@@ -31,21 +36,31 @@ function Home() {
             </div>
 
             <section id="services-section">
+                <h2>Nossos produtos</h2>
                 <div class="service-wrapper">
                     <div class="service-card">
                         <h3>mandacaru</h3>
+                        <img src={mandacaru} alt="Mandacaru" />
                     </div>
 
                     <div class="service-card">
                         <h3>baião</h3>
+                        <img src={baiao} alt="Baião" />
                     </div>
 
                     <div class="service-card">
                         <h3>facheiro</h3>
+                        <img src={facheiro} alt="Facheiro" />
                     </div>
 
                     <div class="service-card">
-                        <h3>carcará</h3>
+                        <h3>sertão</h3>
+                        <img src={sertao} alt="Sertão" />
+                    </div>
+
+                    <div class="service-card">
+                        <h3>buriti</h3>
+                        <img src={kindle} alt="Buriti kindle" />
                     </div>
                 </div>
             </section>
@@ -64,12 +79,16 @@ function Home() {
 
                 <div className="showcase-text">
 
-                    <h1>Lorem Ipsum dale dale xesque brtt eh o daddy</h1>
-                    <h3>Lorem Ipsum dale dale xesque brtt eh o daddy</h3>
+                    <h1>Nosso objetivo</h1>
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <p>Queremos que a Cactus seja mais do que uma loja de encadernação artesanal. Trabalhamos para que ela se torne uma plataforma que compartilhe, inspire e crie arte junto com você. Por isso, acima de tudo, ADORAMOS compartilhar as etapas da produção, criação de você nos cactus e tudo que envolve o processo de criatividade. E tornar tudo isso ainda maior.</p>
 
-                    <button>AAAAAAA</button>
+                    <h2>Artistas e criativos,</h2>
+                    <h2 className="highlight-showcase-text">contem com a Cactus</h2>
+
+                    <h3>🌵use #cactussketchbooks</h3>
+
+                    <button>Fazer arte</button>
                     
                 </div>
 

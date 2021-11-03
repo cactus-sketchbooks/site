@@ -12,5 +12,71 @@ h1, h2, h3, h4, p {
 #contact-body {
     background: linear-gradient(45deg, $light-green, $dark-green);
     padding-top: 155px;
-    height: 90vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1, p {
+        color: $branco;
+        text-align: center;
+        width: 80%;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1.5em;
+    }
+
+    .contact-form {
+        width: 80vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 1rem;
+
+        input, textarea {
+            width: 50%;
+            margin: 0.5rem;
+            padding: 1rem;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .button-contact {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+
+            input {
+                background-color: $dark-green;
+                color: $branco;
+                transition: transform .45s ease, background .15s ease;
+
+                &:hover {
+                    background-color: $offWhite;
+                    color: $dark-green;
+                    cursor: pointer;
+                    transition: transform .45s ease, background .15s ease;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    #contact-body {
+        .contact-form {
+            input, textarea {
+                width: 100%;
+                padding: 0.8rem;
+            }
+        }
+    }
 }

@@ -8,7 +8,7 @@ import About from './pages/about'
 import Cart from './pages/cart'
 import Clients from './pages/clients'
 import Login from './pages/login'
-
+import SignUp from './pages/signUp'
 
 const Routes = () => {
 
@@ -23,6 +23,7 @@ const Routes = () => {
             <Route component={Cart} path='/cart' exact />
             <Route component={Clients} path='/clients' exact />
             <Route component={Login} path='/login' exact />
+            <Route component={SignUp} path='/cadastro' exact />
 
         </BrowserRouter>
 

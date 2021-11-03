@@ -9,8 +9,125 @@ h1, h2, h3, h4, p {
     padding: 0;
 }
 
-#about-body {
+#about-section {
     background: linear-gradient(45deg, $light-green, $dark-green);
-    padding-top: 155px;
-    height: 90vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .about-background {
+        padding: 0;
+        margin-top: 115px;
+        height: 45vh;
+
+        img {
+            height: 250px;
+        }
+    }
+    
+    .about-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 85vh;
+        width: 100vw;
+        background: $light-blue;
+        position: relative;
+
+        article {
+            position: absolute;
+            background: $offWhite;
+            width: 60vw;
+            top: -40px;
+            border-radius: 5px;
+            color: $offBlack;
+            padding: 2.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8rem;
+
+            h1 {
+                font-size: 2.3rem;
+                padding-bottom: 1rem;
+                margin-bottom: 1rem;
+                background: linear-gradient(
+                        to right, 
+                        $dark-green, 
+                        $light-blue
+                    );
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+            }
+
+            .about-container-images {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+
+                img {
+                    height: 230px;
+                    transition: 300ms ease-in-out;
+
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+                }
+            }
+
+            .about-container-contact {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: row;
+
+                a.about-button {
+                    width: 15%;
+                    padding: .5rem 1rem;
+                    border: none;
+                    background-color: $dark-green;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    text-decoration: none;
+                    text-align: center;
+                    transition: .2s ease-in-out;
+                    color: $offWhite;
+                    font-weight: bold;
+                    font-size: 1.25rem;
+    
+                    &:hover {
+                        background-color: $light-green;
+                    }
+                }
+
+                a.about-hashtag {
+                    color: $offWhite;
+                    font-size: 1.3rem;
+                    text-decoration: none;
+                    letter-spacing: .2rem;
+                    background-image: linear-gradient(
+                        transparent, 
+                        $light-orange 1px,
+                    );
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                    display: inline;
+                }
+            }
+
+        }
+    }
+
+
 }
+
+// #about-photo-side {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+
+//     img {
+//         height: 100vh;
+//     }
+// }
