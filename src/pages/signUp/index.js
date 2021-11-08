@@ -18,9 +18,9 @@ export default function SignUp() {
 
                     </div>
 
-                    <h1>Vai mexe o bumbum tamtam treme o bumbum tantattamtan</h1>
+                    <h1>Faça arte. Crie com a Cactus.</h1>
 
-                    <p>trae young 33ppg NÃO IAI NÃO A GENTE SEMPRE JOGOU JUNTO QUANDO CRUCIFICARAM O YETZ VOCE NÃO É CRIANÇA E NEM EU SOU XIU É O CARALHO, 1 VEZ VOCÊ ME DESRESPEITO E FALOU DA MINHA FAMÍLIA E AGORA EU TO FALANDO CONTIGO IGUAL HOMEM É ENTÃO BELEZA ENTÃO FODA-SE SEU MERDA SEU BABACA SEU CRIANÇA SEU MERDA</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
                 </div>
 
