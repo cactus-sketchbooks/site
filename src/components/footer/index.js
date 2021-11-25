@@ -6,8 +6,8 @@ import instagram from "../../images/instagram.svg";
 import whatsapp from "../../images/whatsapp.svg";
 import telephone from "../../images/telephone.png";
 // import instagramIcon from "../../img/instagramIcon.png";
-// import facebookIcon from "../../img/facebookIcon.png";
-// import logoAurea from "../../img/Logos_Aurea2.png"
+// import facebookIcon from "../../images/facebookIcon.png";
+import logoAurea from "../../images/Logos_Aurea.png"
 
 import './style.scss'
 
@@ -25,7 +25,7 @@ export default function Footer (props) {
 
                 <div className='footerContent'>
 
-                    <img draggable="false" src={logoCactus} alt='Logo Cactus' />
+                    <img draggable="false" className="logoCactus" src={logoCactus} alt='Logo Cactus' />
 
                     <ul>
                         <li> <Link to='/' > Início </Link> </li>
@@ -53,21 +53,14 @@ export default function Footer (props) {
                         </ul>
                     </div>
 
+                    <div className='copyright' >
+
+                        <p>Desenvolvido por :</p>
+                        <a href='https://aureaej.com/' ><img src={logoAurea} alt='' /></a>
+
+                    </div>
                 </div>
-                
-            {/* <div className='socialMedias' >
 
-                <a href='https://www.instagram.com/armazem.dovinho/?utm_medium=copy_link'  > <img src={instagramIcon} alt='logoInstagram' /> </a>
-                <a href='https://www.facebook.com/Armaz%C3%A9m-do-Vinho-107327764956105'  > <img src={facebookIcon} alt='logoFacebook' /> </a>
-
-            </div> */}
-
-            {/* <div className='copyright' >
-                
-                <p>Desenvolvido por :</p>
-                <a href='https://aureaej.com/' ><img src={logoAurea} alt='' /></a>
-
-            </div> */}
 
         </footer>
 

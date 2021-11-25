@@ -2,7 +2,6 @@ import React from 'react';
 import './style.scss';
 import Header from '../../components/header/index.js'
 import Footer from '../../components/footer/index.js'
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 //import cacto1 from '../../images/cactopng2.png'
 //import product from '../../images/wrapped-sketchbook.png'
@@ -44,7 +43,7 @@ function About() {
                     </div>
 
                     <div className="about-container-contact">
-                        <a className="about-hashtag" href="https://www.instagram.com/explore/tags/cactussketchbooks/?hl=en" target="_blank"> 🌵use #cactussketchbooks </a>
+                        <a className="about-hashtag" href="https://www.instagram.com/explore/tags/cactussketchbooks/?hl=en" target="_blank"rel="noreferrer"> 🌵use #cactussketchbooks </a>
 
                         <a className="about-button" href="/cart">Fazer arte</a>                    
                     </div>

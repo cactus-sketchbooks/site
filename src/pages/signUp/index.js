@@ -2,7 +2,7 @@ import React from 'react';
 import './style.scss';
 
 import logo from '../../images/cactopng2.png';
-import sapo from '../../images/sapofoto.png';
+// import sapo from '../../images/sapofoto.png';
 
 export default function SignUp() {
 
