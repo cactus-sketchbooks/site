@@ -28,17 +28,7 @@ function About() {
                 <article>
                     <h1>Sua arte. Nossa criação.</h1>
 
-                    <p>A Cactus foi plantada por Bruno Matos e Helen Cristina no ano de 2018. Lorem ipsum dolor sit amet, consectetur lorem, sed do eiusmod tempor incididunt ut lab lorem Queria sair daqui, jogando de Lucian top
-                    Lucian top de cleptomância
-                    Para dar diversson à minha stream
-                    Entretenimento, de graça
-                    E acima de tudo: Diverson!
-                    Porque sem diverson, no és una stream boa
-                    Agora, com Lucian banido
-                    O objetivo mudou
-                    Está mais claro do que nunca
-                    Hoje comeremos cu
-                    Venha, venha comigo nessa jornada!
+                    <p>A Cactus foi plantada por Bruno Matos e Helen Cristina no ano de 2018. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
 
                     <div className="about-container-images">
@@ -56,7 +46,7 @@ function About() {
                     <div className="about-container-contact">
                         <a className="about-hashtag" href="https://www.instagram.com/explore/tags/cactussketchbooks/?hl=en" target="_blank"> 🌵use #cactussketchbooks </a>
 
-                        <a className="about-butto" href="/cart">Fazer arte</a>                    
+                        <a className="about-button" href="/cart">Fazer arte</a>                    
                     </div>
                         
                 </article>
