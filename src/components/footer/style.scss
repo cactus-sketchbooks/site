@@ -43,7 +43,7 @@ footer {
         img {
 
             margin-top: 1rem;
-            max-width: 200px;
+            height: 20vh;
             border-radius: 200px;
 
         }
@@ -52,7 +52,7 @@ footer {
 
             display: flex;
             justify-content: space-around;
-            width: 40vw;
+            width: 80vw;
             padding: 0;
             list-style: none;
 
@@ -92,7 +92,7 @@ footer {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                width: 40vw;
+                width: 80vw;
                 padding: 0;
 
                 li {
@@ -127,6 +127,8 @@ footer {
                 img {
                     border-radius: 0px; 
                     margin: 5px;
+                    height: 10vh;
+
                 }
             }
         }
