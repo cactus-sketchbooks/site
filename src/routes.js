@@ -17,11 +17,11 @@ const Routes = () => {
         <BrowserRouter>
 
             <Route component={Home} path='/' exact />
-            <Route component={Contact} path='/contact' exact />
+            <Route component={Contact} path='/contato' exact />
             <Route component={Admin} path='/admin' exact />
-            <Route component={About} path='/about' exact />
-            <Route component={Cart} path='/cart' exact />
-            <Route component={Clients} path='/clients' exact />
+            <Route component={About} path='/sobre' exact />
+            <Route component={Cart} path='/carrinho' exact />
+            <Route component={Clients} path='/clientes' exact />
             <Route component={Login} path='/login' exact />
             <Route component={SignUp} path='/cadastro' exact />
 

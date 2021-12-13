@@ -27,17 +27,17 @@ function About() {
                 <article>
                     <h1>Sua arte. Nossa criação.</h1>
 
-                    <p>A Cactus foi plantada por Bruno Matos e Helen Cristina no ano de 2018. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <p>A cactus foi plantada por Bruno Matos e Helen Cristina no ano de 2018. De lá pra cá esses dois jovens artistas cresceram com ela, tornando essa loja de encadernação artesanal e plataforma de criação. Estamos aqui pra somar com todos que confiam na cactus e espalhar a nossa arte e quem cria com ela pelo mundo, vamos com a gente plantar e gerar arte?
                     </p>
 
                     <div className="about-container-images">
-                        <a href="https://www.instagram.com/p/CUGBF8xp4mi/">
+                        <a target="_blank" rel="noreferrer" href="https://www.instagram.com/p/CUGBF8xp4mi/">
                             <img draggable="false" src={img3} alt="" />
                         </a>
-                        <a href="https://www.instagram.com/p/CUV9t5ZJoye/">
+                        <a target="_blank" rel="noreferrer" href="https://www.instagram.com/p/CUV9t5ZJoye/">
                             <img draggable="false" src={img1} alt="" />
                         </a>
-                        <a href="https://www.instagram.com/p/B5kriJKp5n7/">
+                        <a target="_blank" rel="noreferrer" href="https://www.instagram.com/p/B5kriJKp5n7/">
                             <img draggable="false" src={img2} alt="" />
                         </a>
                     </div>

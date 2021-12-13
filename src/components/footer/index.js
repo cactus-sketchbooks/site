@@ -12,7 +12,7 @@ import logoAurea from "../../images/Logos_Aurea.png"
 import './style.scss'
 
 export default function Footer (props) {
-
+    
     return (
 
         <footer>
@@ -29,9 +29,9 @@ export default function Footer (props) {
 
                     <ul>
                         <li> <Link to='/' > Início </Link> </li>
-                        <li> <Link to='/quemsomos'> Quem Somos </Link> </li>
+                        <li> <Link to='/sobre'> Quem Somos </Link> </li>
                         <li> <Link to='/contato'> Contato </Link> </li>
-                        <li> <Link to='/entrar'> Login/Perfil </Link> </li>
+                        <li> <Link to='/login'> Login/Perfil </Link> </li>
                     </ul>
 
                     <div className="footerSocialMedia">
