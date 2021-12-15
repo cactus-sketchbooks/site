@@ -1,8 +1,14 @@
 import React from 'react';
-import './style.scss';
-import Header from '../../components/header/index.js';
-import Footer from '../../components/footer/index.js';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
+import Header from '../../components/header';
+import Footer from '../../components/footer';
+
+import './style.scss';
+
+// import firebase from 'firebase/app';
+// import 'firebase/auth';
 
 function Admin() {
     return (
