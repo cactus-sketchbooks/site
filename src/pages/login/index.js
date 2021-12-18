@@ -16,11 +16,11 @@ export default function Login() {
     var carouselSettings = {
         dots: false,
         infinite: true,
-        speed: 300,
+        speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 4000,
+        autoplaySpeed: 3200,
         adaptiveHeight: true,
         pauseOnHover: false,
     };

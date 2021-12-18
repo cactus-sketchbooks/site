@@ -22,53 +22,53 @@ function Home() {
 
         <section id="hero-section">
 
-            <div class="hero-wrapper">
+            <div className="hero-wrapper">
 
-                <div class="hero-title">
+                <div className="hero-title">
                     <h1>cactus</h1>
                     <img src={cacto1} alt="Imagem de um cacto" />
                     <h1>sketchbooks</h1>
                 </div>
 
-                <div class="hero-data">
+                <div className="hero-data">
                     <p>Você cria, nós fazemos 🌵💚</p>
                 </div>
             </div>
 
             <section id="services-section">
                 <h2>Monte seu Cactus: modelos, cores, tudo!</h2>
-                <div class="service-wrapper">
-                    <div class="service-card">
+                <div className="service-wrapper">
+                    <div className="service-card">
                         <h3>mandacaru</h3>
                         <h4>Sketchbook costura copta</h4>
                         <img src={mandacaru} alt="Mandacaru" />
                     </div>
 
-                    <div class="service-card">
+                    <div className="service-card">
                         <h3>baião</h3>
                         <h4>Sketchbook quadrado copta</h4>
                         <img src={baiao} alt="Baião" />
                     </div>
 
-                    <div class="service-card">
+                    <div className="service-card">
                         <h3>facheiro</h3>
                         <h4>Sketchbook espiral</h4>
                         <img src={facheiro} alt="Facheiro" />
                     </div>
 
-                    <div class="service-card">
+                    <div className="service-card">
                         <h3>Carcará</h3>
                         <h4>Moleskine</h4>
-                        <img src={carcara} alt="Carcará" />
+                        <img id="carcara" src={carcara} alt="Carcará" />
                     </div>
 
-                    <div class="service-card">
+                    <div className="service-card">
                         <h3>sertão</h3>
                         <h4>Journal</h4>
                         <img src={sertao} alt="Sertão" />
                     </div>
 
-                    <div class="service-card">
+                    <div className="service-card">
                         <h3>buriti</h3>
                         <h4>Cases para kindle e tablet</h4>
                         <img src={kindle} alt="Buriti kindle" />
