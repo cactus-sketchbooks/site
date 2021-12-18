@@ -1,53 +1,120 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './style.scss';
 import Header from '../../components/header/index.js';
 import Footer from '../../components/footer/index.js';
 import clientPhoto from '../../images/talin.JPG';
 
-
 function Clients() {
 
-
+    const [displayModal, setDisplayModal] = useState("none");
+    const [modalDataPost, setModalDataPost] = useState({});
     const clients = [
         {
-            name: "Fulano de tal da silva souza",
+            title: "A arte de falar merda",
+            name: "Micaeela condoiseele barcle",
             description: "lorem ipsum dolor sit amet, consectetur adipiscing elit",
             feedback: "Lorem Ipsum Ips sit amet consect et dolor",
             picture: clientPhoto,
             key: "1",
         },
         {
-            name: "Sicrano dos santos das neves carvalho",
+            title: "Como ser gostoso",
+            name: "hanry cavill da silva",
             description: "lorem ipsum dolor sit amet, consectetur adipiscing elit",
             feedback: "Lorem Ipsum Ips sit amet consect et dolor",
             picture: clientPhoto,
             key: "2",
         },
+        {
+            title: "aha ha ha",
+            name: "kawai o foof",
+            description: "lorem ipsum dolor sit amet, consectetur adipiscing elit",
+            feedback: "Lorem Ipsum Ips sit amet consect et dolor",
+            picture: clientPhoto,
+            key: "3",
+        },
+        {
+            title: "homiaranha",
+            name: "Beltrano dos santos das neves carvalho",
+            description: "lorem ipsum dolor sit amet, consectetur adipiscing elit",
+            feedback: "Lorem Ipsum Ips sit amet consect et dolor",
+            picture: clientPhoto,
+            key: "4",
+        },
     ];
 
+    function handleModalInfo(item) {
+        setModalDataPost(item)
+        displayModal === "none" ? setDisplayModal("flex") : setDisplayModal("none")
+    }
+
+    function closeModal() {
+        if(displayModal === "none") setDisplayModal("flex")
+        else setDisplayModal("none")
+    }
     return (
-        <div>
+
+        <main>
+
             <Header />
-            <section id="clients-body">
-                {clients.map((item, index) => (
-                    <nav className="clientInfos">
-                        <header>
-                            <img src={item.picture} alt=""></img>
-                            <h1>{item.name}</h1>
-                        </header>
-                        <article>
-                            <aside className="clientWork">
-                                <h2>{item.description}</h2>
-                                <img src={item.picture} alt=""></img>
-                            </aside>
-                            <aside className="clientWork">
-                                <h3>{item.feedback}</h3>
-                            </aside>
-                        </article>
-                    </nav>
-                ))}
-            </section >
+
+                <section id="BlogCardsSection">
+
+                    {clients.map((item) => {
+
+                        return (
+
+                            <div className="blogCards">
+
+                                <div className="thumbWrapper">
+        
+                                    <img src={item.picture} alt="imagem do post" />
+        
+                                </div>
+
+                                <div className="postInfos">
+
+                                    <h1>{item.title}</h1>
+
+                                    <div className="autorInfos">
+
+                                        <div className="pictureWrapper">
+
+                                            {/* <img src={item.picture} alt="foto do autor" /> */}
+
+                                        </div>
+
+                                        <h4>{item.name}</h4>
+
+                                    </div>
+
+                                    <p>{item.description}</p>
+
+                                </div>
+
+                                <div className="postText" style={{ display: displayModal}} role="dialog">
+                                    <span onClick={closeModal}>X</span> 
+                                    <div className="postContent">
+
+                                        <h1>{item.name}</h1>
+
+                                        <p>{item.feedback}</p>
+
+                                    </div>
+                                </div>
+    
+                            </div>
+
+                        )
+
+                    })}
+
+                </section>
+
             <Footer />
-        </div>
+
+        </main>
+
     )
+
 } export default Clients;

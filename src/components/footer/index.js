@@ -55,7 +55,7 @@ export default function Footer (props) {
 
                     <div className='copyright' >
 
-                        <p>Desenvolvido por :</p>
+                        <p>Desenvolvido por</p>
                         <a href='https://aureaej.com/' ><img src={logoAurea} alt='' /></a>
 
                     </div>
