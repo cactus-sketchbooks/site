@@ -1,13 +1,18 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 import './style.scss';
+
 import Header from '../../components/header/index.js';
 import Footer from '../../components/footer/index.js';
+
 import clientPhoto from '../../images/talin.JPG';
 
 function Clients() {
 
     const [displayModal, setDisplayModal] = useState("none");
     const [modalDataPost, setModalDataPost] = useState({});
+
     const clients = [
         {
             title: "A arte de falar merda",
@@ -41,6 +46,22 @@ function Clients() {
             picture: clientPhoto,
             key: "4",
         },
+        {
+            title: "homiaranha",
+            name: "Beltrano dos santos das neves carvalho",
+            description: "lorem ipsum dolor sit amet, consectetur adipiscing elit",
+            feedback: "Lorem Ipsum Ips sit amet consect et dolor",
+            picture: clientPhoto,
+            key: "4",
+        },
+        {
+            title: "homiaranha",
+            name: "Beltrano dos santos das neves carvalho",
+            description: "lorem ipsum dolor sit amet, consectetur adipiscing elit",
+            feedback: "Lorem Ipsum Ips sit amet consect et dolor",
+            picture: clientPhoto,
+            key: "4",
+        },
     ];
 
     function handleModalInfo(item) {
@@ -49,27 +70,37 @@ function Clients() {
     }
 
     function closeModal() {
-        if(displayModal === "none") setDisplayModal("flex")
+        if (displayModal === "none") setDisplayModal("flex")
         else setDisplayModal("none")
     }
+
     return (
 
         <main>
 
             <Header />
 
-                <section id="BlogCardsSection">
+            <section id="BlogCardsSection">
+
+                <div className="headingText">
+
+                    <h1>Use e apareça</h1>
+                    <p>Adquira nossos sketchbooks e tenha a oportunidade de compartilhar sua experiência e arte conosco!</p>
+
+                </div>
+
+                <div className="cardsWrapper">
 
                     {clients.map((item) => {
 
                         return (
 
-                            <div className="blogCards">
+                            <div className="blogCard">
 
                                 <div className="thumbWrapper">
-        
+
                                     <img src={item.picture} alt="imagem do post" />
-        
+
                                 </div>
 
                                 <div className="postInfos">
@@ -80,7 +111,7 @@ function Clients() {
 
                                         <div className="pictureWrapper">
 
-                                            {/* <img src={item.picture} alt="foto do autor" /> */}
+                                            <img src={item.picture} alt="foto do autor" />
 
                                         </div>
 
@@ -92,8 +123,8 @@ function Clients() {
 
                                 </div>
 
-                                <div className="postText" style={{ display: displayModal}} role="dialog">
-                                    <span onClick={closeModal}>X</span> 
+                                <div className="postText" style={{ display: displayModal }} role="dialog">
+                                    <span onClick={closeModal}>X</span>
                                     <div className="postContent">
 
                                         <h1>{item.name}</h1>
@@ -102,14 +133,22 @@ function Clients() {
 
                                     </div>
                                 </div>
-    
+
+                                <div className="btnWrapper">
+
+                                    <Link to={`/post/${item.title}`}>Ler mais</Link>
+
+                                </div>
+
                             </div>
 
                         )
 
                     })}
 
-                </section>
+                </div>
+
+            </section>
 
             <Footer />
 

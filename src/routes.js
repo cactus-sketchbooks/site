@@ -9,6 +9,7 @@ import Cart from './pages/cart'
 import Clients from './pages/clients'
 import Login from './pages/login'
 import SignUp from './pages/signUp'
+import SinglePost from './pages/singlePost'
 
 const Routes = () => {
 
@@ -17,13 +18,14 @@ const Routes = () => {
         <BrowserRouter>
 
             <Route component={Home} path='/' exact />
-            <Route component={Contact} path='/contato' exact />
-            <Route component={Admin} path='/admin' exact />
-            <Route component={About} path='/sobre' exact />
-            <Route component={Cart} path='/carrinho' exact />
-            <Route component={Clients} path='/clientes' exact />
-            <Route component={Login} path='/login' exact />
-            <Route component={SignUp} path='/cadastro' exact />
+            <Route component={Contact} path='/contato' />
+            <Route component={Admin} path='/admin' />
+            <Route component={About} path='/sobre' />
+            <Route component={Cart} path='/carrinho' />
+            <Route component={Clients} path='/clientes' />
+            <Route component={Login} path='/login' />
+            <Route component={SignUp} path='/cadastro' />
+            <Route component={SinglePost} path='/post' />
 
         </BrowserRouter>
 
