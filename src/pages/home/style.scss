@@ -89,6 +89,7 @@ h1, h2, h3, h4, p {
     .service-wrapper {
         margin: 0 5rem;
         margin-top: .5rem;
+        padding-bottom: 3rem;
         width: 95%;
         display: flex;
         flex-direction: row;
@@ -107,7 +108,7 @@ h1, h2, h3, h4, p {
 
             img {
                 padding-top: 1rem;
-                height: 200px;
+                height: 170px;
                 filter: opacity(.85);
                 transition: 400ms ease-in-out;
 
@@ -120,9 +121,9 @@ h1, h2, h3, h4, p {
 
             #carcara {
 
-                width: 200px;
-                height: 200px;
-                border-radius: 100px;
+                width: 170px;
+                height: 170px;
+                border-radius: 50%;
     
             }
 
@@ -132,6 +133,11 @@ h1, h2, h3, h4, p {
                 font-family: 'Bebas Neue', sans-serif;
                 letter-spacing: .32rem;
                 text-shadow: 4.25px 0px $dark-green;
+            }
+
+            h4 {
+                color: $offWhite;
+                font-weight: 200;
             }
 
         }
@@ -231,7 +237,7 @@ h1, h2, h3, h4, p {
                 font-size: 1.2rem;
             }
 
-            button {
+            a {
                 
                 width: 20%;
                 margin: .8rem 0;
@@ -244,6 +250,8 @@ h1, h2, h3, h4, p {
                 color: $offWhite;
                 font-weight: bold;
                 font-size: 1.25rem;
+                text-decoration: none;
+                text-align: center;
 
                 &:hover {
 

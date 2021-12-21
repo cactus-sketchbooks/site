@@ -3,6 +3,8 @@ import './style.scss';
 import Header from '../../components/header/index.js'
 import Footer from '../../components/footer/index.js'
 
+import { Link } from 'react-router-dom'
+ 
 import cacto1 from '../../images/cactopng2.png'
 import foto from '../../images/foto1.png'
 import mandacaru from '../../images/mandacaru.png'
@@ -57,9 +59,10 @@ function Home() {
                     </div>
 
                     <div className="service-card">
-                        <h3>Carcará</h3>
+                        <h3>carcará</h3>
                         <h4>Moleskine</h4>
-                        <img id="carcara" src={carcara} alt="Carcará" />
+                        <img id="carcara" src={carcara} alt="Carcará" /> 
+                        {/* TEM QUE TROCAR ESSA IMAGEM PRAUMA QUADRADA P ELA PEGAR O STYLE DO RESTOOOOOO */}
                     </div>
 
                     <div className="service-card">
@@ -99,7 +102,7 @@ function Home() {
 
                     <h3>🌵use #cactussketchbooks</h3>
 
-                    <button>Fazer arte</button>
+                    <Link to="/montar">Fazer arte</Link>
                     
                 </div>
 

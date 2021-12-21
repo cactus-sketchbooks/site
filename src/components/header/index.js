@@ -51,10 +51,11 @@ function Header() {
 
                     <ul>
                         <li><Link onClick={scrollToTop} to="/sobre"> Quem Somos </Link></li>
+                        <li><Link onClick={scrollToTop} to="/admin"> Admin </Link></li>
                         <li><Link onClick={scrollToTop} to="/contato"> Contato </Link></li>
                         <li><Link onClick={scrollToTop} to="/clientes"> Nossos Clientes </Link></li>
                         <li><Link onClick={scrollToTop} to="/carrinho"> Carrinho </Link></li>
-                        <li><Link onClick={scrollToTop} to="/login"> Login </Link></li>  
+                        <li><Link onClick={scrollToTop} to="/login"> Login </Link></li>
                     </ul>
 
                 </div>
@@ -83,10 +84,11 @@ function Header() {
             <div className='menu-mobile' ref={menuMobile} >
 
                 <ul>
-                    <li><Link to="/about"> Quem Somos </Link></li>
-                    <li><Link to="/contact"> Contato </Link></li>
-                    <li><Link to="/clients"> Nossos Clientes </Link></li>
-                    <li><Link to="/cart"> Carrinho </Link></li>
+                    <li><Link to="/sobre"> Quem Somos </Link></li>
+                    <li><Link to="/admin"> Adim </Link></li>
+                    <li><Link to="/contato"> Contato </Link></li>
+                    <li><Link to="/clientes"> Nossos Clientes </Link></li>
+                    <li><Link to="/carrinho"> Carrinho </Link></li>
                     <li><Link to="/login"> Login </Link></li>  
                 </ul>
 

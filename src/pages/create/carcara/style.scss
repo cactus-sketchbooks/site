@@ -1,0 +1,47 @@
+@import "../../../global.scss";
+
+* {
+    font-family: 'Urbanist', sans-serif;
+}
+
+h1, h2, h3, h4, p {
+    margin: 0;
+    padding: 0;
+}
+
+#CreateSketchbookSection {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    margin-top: 10rem;
+
+    .textIntro {
+
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+
+    }
+
+    fieldset {
+
+        display: flex;
+        flex-direction: column;
+        border: none;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    select {
+
+        width: 40%;
+
+    }
+
+}

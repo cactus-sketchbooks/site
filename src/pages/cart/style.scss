@@ -9,8 +9,38 @@ h1, h2, h3, h4, p {
     padding: 0;
 }
 
-#cart-body {
+#cart {
     background: linear-gradient(45deg, $light-green, $dark-green);
-    padding-top: 155px;
-    height: 90vh;
+    padding-top: 100px;
+}
+
+#purchaseInfo {
+    background-color: $offWhite;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    margin: 1rem auto;
+    border-radius: 7px;
+    padding: 1rem 0;
+}
+
+.buyerInfo {
+    ul {
+        list-style: none;
+    }
+}
+
+.productsInfo {
+    display: flex;
+    flex-direction: row;
+}
+
+.checkout {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem 0;
+    justify-content: space-around;
+    align-items: center;
 }

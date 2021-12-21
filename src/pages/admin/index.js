@@ -11,13 +11,30 @@ import './style.scss';
 // import 'firebase/auth';
 
 function Admin() {
+
     return (
+
         <div>
+
             <Header />
-            <section id="admin-body">
-                <h1>Admin</h1>
-            </section >
+
+                <section id="SectionAdmin">
+
+                    <ul>
+
+                        <Link to="listaDeUsuarios">Lista de clientes</Link>
+                        <Link to="">Cadastrar/Alterar produtos</Link>
+                        <Link to=""> Pedidos em andamento</Link>
+                        <Link to="">Alterar conteúdo</Link>
+                        
+                    </ul>
+
+                </section >
+
             <Footer />
+
         </div>
+
     )
+
 } export default Admin;

@@ -9,8 +9,34 @@ h1, h2, h3, h4, p {
     padding: 0;
 }
 
-#admin-body {
+#SectionAdmin {
+
     background: linear-gradient(45deg, $light-green, $dark-green);
     padding-top: 155px;
     height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    ul {
+
+        display: flex;
+        flex-direction: column;
+
+        a {
+
+            list-style: none;
+            background-color: $orange;
+            margin: 10px 0;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            color: $offWhite;
+            text-decoration: none;
+
+        }
+
+    }
+
 }

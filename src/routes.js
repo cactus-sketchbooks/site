@@ -10,6 +10,10 @@ import Clients from './pages/clients'
 import Login from './pages/login'
 import SignUp from './pages/signUp'
 import SinglePost from './pages/singlePost'
+import Mandacaru from './pages/create/mandacaru'
+import Baiao from './pages/create/baiao'
+import Facheiro from './pages/create/facheiro'
+import Carcara from './pages/create/carcara'
 
 const Routes = () => {
 
@@ -26,6 +30,10 @@ const Routes = () => {
             <Route component={Login} path='/login' />
             <Route component={SignUp} path='/cadastro' />
             <Route component={SinglePost} path='/post' />
+            <Route component={Mandacaru} path='/mandacaru' />
+            <Route component={Baiao} path='/baiao' />
+            <Route component={Facheiro} path='/facheiro' />
+            <Route component={Carcara} path='/carcara' />
 
         </BrowserRouter>
 
