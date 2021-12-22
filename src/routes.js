@@ -9,6 +9,7 @@ import Cart from './pages/cart'
 import Clients from './pages/clients'
 import Login from './pages/login'
 import SignUp from './pages/signUp'
+import Profile from './pages/profile'
 import SinglePost from './pages/singlePost'
 import Mandacaru from './pages/create/mandacaru'
 import Baiao from './pages/create/baiao'
@@ -29,6 +30,7 @@ const Routes = () => {
             <Route component={Clients} path='/clientes' />
             <Route component={Login} path='/login' />
             <Route component={SignUp} path='/cadastro' />
+            <Route component={Profile} path='/Perfil' />
             <Route component={SinglePost} path='/post' />
             <Route component={Mandacaru} path='/mandacaru' />
             <Route component={Baiao} path='/baiao' />

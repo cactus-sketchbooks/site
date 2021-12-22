@@ -1,101 +1,296 @@
 import React from 'react';
+import { useEffect, useState } from 'react'
+
+import InputMask from 'react-input-mask';
+
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import FirebaseConfig from '../../FirebaseConfig.js'
+
+import { Link, Redirect } from 'react-router-dom';
+
 import './style.scss';
 
 import logo from '../../images/cactopng2.png';
-// import sapo from '../../images/sapofoto.png';
 
 export default function SignUp() {
 
-    return (
+    const [selectedUf, setSelectedUf] = useState('')
+    const [userIsLogged, setUserIsLogged] = useState(false);
+    const [registerDone, setRegisterDone] = useState(false);
 
-            <section id="SectionSignUp">
+    const [registerData, setRegisterData] = useState({
 
-                <div className="textIntroSignUp">
+        name: '',
+        email: '',
+        phoneNumber: '',
+        birthDate: '',
+        cepNumber: '',
+        address: '',
+        city: '',
+        state: '',
+        houseNumber: '',
+        district: '',
+        complement: '',
+        password: '',
+        passwordConfirm: '',
 
-                    <div className="imageLogoWrapper">
+    })
 
-                       <a href="/"> <img src={logo} alt="logo cactus" /> </a>
+    function makeRegister() {
 
-                    </div>
+        firebase.auth()
+            .createUserWithEmailAndPassword(registerData.email, registerData.password)
+            .then((user) => {
 
-                    <h1>Faça arte. <br />Crie com a Cactus.</h1>
+                const id = firebase.database().ref().child('posts').push().key
 
-                </div>
+                firebase.database().ref('users/' + id).set({
 
-                <div className="signUpDiv">
+                    name: registerData.name,
+                    email: registerData.email,
+                    phoneNumber: registerData.phoneNumber,
+                    birthDate: registerData.birthDate,
+                    cepNumber: registerData.cepNumber,
+                    address: registerData.address,
+                    city: registerData.city,
+                    state: selectedUf,
+                    houseNumber: registerData.houseNumber,
+                    district: registerData.district,
+                    complement: registerData.complement,
+                    id: id
 
-                    <form className="formRegister">
+                })
 
-                        <input id='name' name='name' placeholder='Nome completo' />
-                        <input id='email' name='email' placeholder='E-mail' />
+                localStorage.setItem('id', id)
 
-                        <div className="passwordDiv">
+                alert('Cadastro realizado com sucesso!')
 
-                            <input id='password' name='password' type="password" placeholder='Senha' />
-                            <input id='passwordConfirm' name='passwordConfirm' type="password" placeholder='Confirmação de senha' />
+                setRegisterDone(true)
+
+            })
+            // .catch((error) => {
+            //     var errorCode = error.code;
+            //     var errorMessage = error.message;
+            //     // alert(errorMessage)
+            //     alert('A senha deve possuir pelo menos 6 caracteres')
+            // });
+
+    }
+
+    function handleInputRegisterChange(event) {
+
+        const { name, value } = event.target
+
+        setRegisterData({
+
+            ...registerData, [name]: value
+
+        })
+
+    }
+
+    function onAuthStateChanged(user) {
+
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user)
+                setUserIsLogged(true)
+        });
+
+    }
+
+    useEffect(() => {
+
+        window.scrollTo(0, 0);
+        if (!firebase.apps.length)
+            firebase.initializeApp(FirebaseConfig)
+        onAuthStateChanged();
+
+    }, []);
+
+    function handleSelectedUf(event) {
+
+        setSelectedUf(event.target.value)
+
+    }
+
+    function makeVerifications() {
+
+        var counter = 0
+
+        registerData.name !== '' ? counter = counter + 1 : counter = counter
+        registerData.email !== '' ? counter++ : counter = counter
+        registerData.password !== '' ? counter++ : counter = counter
+        registerData.passwordConfirm !== '' ? counter++ : counter = counter
+        registerData.phoneNumber !== '' ? counter++ : counter = counter
+        registerData.birthDate !== '' ? counter++ : counter = counter
+        registerData.cepNumber !== '' ? counter++ : counter = counter
+        registerData.city !== '' ? counter++ : counter = counter
+        selectedUf !== '' ? counter++ : counter = counter
+        registerData.houseNumber !== '' ? counter++ : counter = counter
+        registerData.address !== '' ? counter++ : counter = counter
+        registerData.district !== '' ? counter++ : counter = counter
+        registerData.complement !== '' ? counter++ : counter = counter
+
+        if (counter === 13) {
+
+            if (registerData.password !== registerData.passwordConfirm) {
+
+                alert('As senhas não são iguais!');
+
+            }
+
+            else {
+
+                makeRegister();
+
+            }
+
+        }
+
+        else {
+
+            alert('Você precisa preencher todos os campos!')
+            console.log(counter)
+
+        }
+
+    }
+
+    if (userIsLogged) {
+
+        return (
+
+            <Redirect to='/' />
+
+        )
+
+    } else {
+
+        if (registerDone) {
+
+            return (
+
+                <Redirect to='/' />
+
+            )
+
+        } else {
+
+            return (
+
+                <section id="SectionSignUp">
+
+                    <div className="textIntroSignUp">
+
+                        <div className="imageLogoWrapper">
+
+                            <Link to="/"> <img src={logo} alt="logo cactus" /> </Link>
 
                         </div>
 
-                        <input id='phoneNumber' name='phoneNumber' placeholder='Telefone' />
-                        <input id='birthDate' name='birthDate' type='date' placeholder='Data de nascimento' />
-                        <input id='cepNumber' name='cepNumber' placeholder='CEP' />
-
-                        <div className="cityDiv">
-
-                            <select name="state" id="uf">
-
-                                <option disabled selected value="0" >Estado</option>
-
-                                <option value="Acre">Acre</option>
-                                <option value="Alagoas">Alagoas</option>
-                                <option value="Amapá">Amapá</option>
-                                <option value="Amazonas">Amazonas</option>
-                                <option value="Bahia">Bahia</option>
-                                <option value="Ceará">Ceará</option>
-                                <option value="Distrito Federal">Distrito Federal</option>
-                                <option value="Espírito Santo">Espírito Santo</option>
-                                <option value="Centro-Oeste">Centro-Oeste</option>
-                                <option value="Maranhão">Maranhão</option>
-                                <option value="Mato Grosso">Mato Grosso</option>
-                                <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
-                                <option value="Minas Gerais">Minas Gerais</option>
-                                <option value="Pará">Pará</option>
-                                <option value="Paraíba">Paraíba</option>
-                                <option value="Paraná">Paraná</option>
-                                <option value="Pernambuco">Pernambuco</option>
-                                <option value="Piauí">Piauí</option>
-                                <option value="Rio de Janeiro">Rio de Janeiro</option>
-                                <option value="Rio Grande do Norte">Rio Grande do Norte</option>
-                                <option value="Rio Grande do Sul">Rio Grande do Sul</option>
-                                <option value="Rondônia">Rondônia</option>
-                                <option value="Roraima">Roraima</option>
-                                <option value="Santa Catarina">Santa Catarina</option>
-                                <option value="São Paulo">São Paulo</option>
-                                <option value="Sergipe">Sergipe</option>
-                                <option value="Tocantins">Tocantins</option>
-
-                            </select>
-
-                            <input name="city" id="localidade" placeholder="Cidade" />
-
-                            {/* <select name="city" id="localidade" onChange={handleSelectedCity} value={selectedCity} >
-                                <option value="0">Selecione uma cidade</option>
-                                {city.map(city => (
-                                    <option key={city} value={city} >{city}</option>
-                                ))}
-                            </select> */}
-
-                        </div>
-                        <input id='address' name='address' placeholder='Endereço' />
-                        <input id='houseNumber' name='houseNumber' placeholder='Número da residência' />
-                        <input id='district' name='district' placeholder='Bairro' />
-                        <input id='complement' name='complement' placeholder='Complemento' />
-
-                        </form>
+                        <h1>Faça arte. <br />Crie com a Cactus.</h1>
 
                     </div>
 
-            </section >
+                    <div className="signUpDiv">
 
-    )
+                        <div className="formRegister">
+
+                            <input id='name' name='name' onChange={handleInputRegisterChange} placeholder='Nome completo' />
+                            <input id='email' name='email' onChange={handleInputRegisterChange} placeholder='E-mail' />
+
+                            <div className="passwordDiv">
+
+                                <input id='password' name='password' type="password" onChange={handleInputRegisterChange} placeholder='Senha' />
+                                <input id='passwordConfirm' name='passwordConfirm' type="password" onChange={handleInputRegisterChange} placeholder='Confirmação de senha' />
+
+                            </div>
+
+                            <InputMask
+                                id='phoneNumber' 
+                                name='phoneNumber' 
+                                type='tel' 
+                                mask="(99) 99999-9999" 
+                                maskChar="" 
+                                onChange={handleInputRegisterChange} 
+                                placeholder='Telefone com DDD' 
+                            />
+
+                            <InputMask 
+                                id='birthDate' 
+                                name='birthDate' 
+                                type='text'
+                                mask="99/99/9999" 
+                                maskChar="" 
+                                onChange={handleInputRegisterChange} 
+                                placeholder="Data de nascimento" 
+                            />
+                            
+                            <InputMask 
+                                id='cepNumber' 
+                                name="cepNumber" 
+                                type='text' 
+                                mask="99999-999" 
+                                maskChar="" 
+                                onChange={handleInputRegisterChange} 
+                                placeholder="CEP" 
+                            />
+
+                            <div className="cityDiv">
+
+                                <select onChange={handleSelectedUf} name="state" id="uf">
+
+                                    <option disabled selected value="" >Estado</option>
+
+                                        <option value="AC">AC</option>
+                                        <option value="AL">AL</option>
+                                        <option value="AP">AP</option>
+                                        <option value="AM">AM</option>
+                                        <option value="BA">BA</option>
+                                        <option value="CE">CE</option>
+                                        <option value="DF">DF</option>
+                                        <option value="ES">ES</option>
+                                        <option value="GO">GO</option>
+                                        <option value="MA">MA</option>
+                                        <option value="MT">MT</option>
+                                        <option value="MS">MS</option>
+                                        <option value="MG">MG</option>
+                                        <option value="PA">PA</option>
+                                        <option value="PB">PB</option>
+                                        <option value="PR">PR</option>
+                                        <option value="PE">PE</option>
+                                        <option value="PI">PI</option>
+                                        <option value="RJ">RJ</option>
+                                        <option value="RN">RN</option>
+                                        <option value="RS">RS</option>
+                                        <option value="RO">RO</option>
+                                        <option value="RR">RR</option>
+                                        <option value="SC">SC</option>
+                                        <option value="SP">SP</option>
+                                        <option value="SE">SE</option>
+                                        <option value="TO">TO</option>
+
+                                </select>
+
+                                <input name="city" id="localidade" onChange={handleInputRegisterChange} placeholder="Cidade" />
+
+                            </div>
+
+                            <input id='address' name='address' onChange={handleInputRegisterChange} placeholder='Endereço' />
+                            <input id='houseNumber' name='houseNumber' onChange={handleInputRegisterChange} placeholder='Número' />
+                            <input id='district' name='district' onChange={handleInputRegisterChange} placeholder='Bairro' />
+                            <input id='complement' name='complement' onChange={handleInputRegisterChange} placeholder='Complemento' />
+
+                            <button onClick={() => { makeVerifications() }}>Cadastrar</button>
+
+                        </div>
+
+                    </div>
+
+                </section >
+
+            )
+        }
+    }
 }

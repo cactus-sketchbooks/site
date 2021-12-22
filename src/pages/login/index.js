@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react'
+import { Link, Redirect } from "react-router-dom"
+
 import './style.scss';
 
 import logo from '../../images/cactopng2.png';
 import sapo from '../../images/sapofoto.png';
 import garota from '../../images/garota.jpg';
 import olhos from '../../images/olhos.jpg';
+
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import FirebaseConfig from '../../FirebaseConfig.js'
 
 import Slider from "react-slick";
 
@@ -25,6 +31,75 @@ export default function Login() {
         pauseOnHover: false,
     };
 
+    const [loginData,setLoginData] = useState({
+
+        email: '',
+        password: ''
+
+    })
+
+    const [userIsLogged, setUserIsLogged] = useState(false);
+    const [requestData, setRequestData] = useState([{}]);
+
+    function makeLogin () {
+
+        firebase.auth().signInWithEmailAndPassword(loginData.email, loginData.password)
+        .then((userCredential) => {
+            var user = userCredential.user;
+            localStorage.setItem('userEmail',loginData.email)
+
+        })
+        .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            alert(errorMessage)
+        }); 
+        
+    }
+
+    function handleInputLoginChange(event) {
+
+        const {name, value} = event.target
+
+        setLoginData ({
+
+            ...loginData, [name]: value
+
+        })
+        
+    }
+
+    function onAuthStateChanged(user) {
+
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) 
+              setUserIsLogged(true)
+          });
+        
+    }
+    
+    useEffect(() => {
+        
+        window.scrollTo(0, 0);
+
+        if(!firebase.apps.length)
+            firebase.initializeApp(FirebaseConfig)
+        onAuthStateChanged();
+
+    }, []);
+    
+    if (userIsLogged) {
+
+        return (
+
+            <Redirect to='/Perfil' />
+
+        )
+        
+    }
+
+    else {
+
     return (
 
         <section id="SectionLogin">
@@ -33,7 +108,7 @@ export default function Login() {
 
                 <div className="imageLogoWrapper">
 
-                    <a href="/"> <img src={logo} alt="logo cactus" /> </a>
+                    <Link to="/" > <img src={logo} alt="logo cactus" /> </Link>
 
                 </div>
 
@@ -41,9 +116,9 @@ export default function Login() {
 
                 <fieldset>
 
-                    <input name='email' placeholder='E-mail' />
+                    <input name='email' onChange={handleInputLoginChange} placeholder='E-mail' />
 
-                    <input name='password' type='password' placeholder='Senha' />
+                    <input name='password' onChange={handleInputLoginChange} type='password' placeholder='Senha' />
 
                 </fieldset>
 
@@ -56,7 +131,7 @@ export default function Login() {
 
                     </div>
 
-                    <button>Login</button>
+                    <button onClick={makeLogin}>Login</button>
 
                 </div>
 
@@ -91,4 +166,5 @@ export default function Login() {
         </section >
 
     )
+}
 }

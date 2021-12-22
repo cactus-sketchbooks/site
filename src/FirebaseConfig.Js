@@ -1,7 +1,4 @@
 
-import firebase from 'firebase';
-import 'firebase/analytics';
-
 const firebaseConfig = {
     apiKey: "AIzaSyBFKdALM-tQ5BXODhe5hsZSHxUgUgWQM-E",
     authDomain: "cactus-sketchbooks.firebaseapp.com",
@@ -13,6 +10,4 @@ const firebaseConfig = {
     measurementId: "G-YFYMTZ2910"
   };
   
-firebase.initializeApp(firebaseConfig)
-
 export default firebaseConfig;
