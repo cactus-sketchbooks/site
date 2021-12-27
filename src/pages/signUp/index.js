@@ -3,9 +3,10 @@ import { useEffect, useState } from 'react'
 
 import InputMask from 'react-input-mask';
 
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import FirebaseConfig from '../../FirebaseConfig.js'
+import firebase from 'firebase/app';
+// import 'firebase/database';
+import 'firebase/auth';
+import firebaseConfig from '../../FirebaseConfig.js'
 
 import { Link, Redirect } from 'react-router-dom';
 
@@ -72,8 +73,8 @@ export default function SignUp() {
             // .catch((error) => {
             //     var errorCode = error.code;
             //     var errorMessage = error.message;
-            //     // alert(errorMessage)
-            //     alert('A senha deve possuir pelo menos 6 caracteres')
+            //     alert(errorMessage)
+                // alert('A senha deve possuir pelo menos 6 caracteres')
             // });
 
     }
@@ -103,7 +104,7 @@ export default function SignUp() {
 
         window.scrollTo(0, 0);
         if (!firebase.apps.length)
-            firebase.initializeApp(FirebaseConfig)
+            firebase.initializeApp(firebaseConfig)
         onAuthStateChanged();
 
     }, []);

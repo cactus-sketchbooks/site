@@ -8,8 +8,8 @@ import sapo from '../../images/sapofoto.png';
 import garota from '../../images/garota.jpg';
 import olhos from '../../images/olhos.jpg';
 
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import FirebaseConfig from '../../FirebaseConfig.js'
 
 import Slider from "react-slick";
