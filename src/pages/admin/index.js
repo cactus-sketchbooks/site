@@ -1,40 +1,174 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 
 import './style.scss';
 
-// import firebase from 'firebase/app';
-// import 'firebase/auth';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
-function Admin() {
+export default function Admin() {
 
-    return (
+    const [loginData, setLoginData] = useState({
 
-        <div>
+        email: '',
+        password: ''
 
-            <Header />
+    })
+
+    const [userIsLogged, setUserIsLogged] = useState(false);
+
+    function makeLogin() {
+
+        firebase.auth().signInWithEmailAndPassword(loginData.email, loginData.password)
+            .then(() => {
+
+                var userEmail = localStorage.getItem('userEmail')
+
+                firebase.database().ref('admins').get('/admins')
+                    .then(function (snapshot) {
+
+                        if (snapshot.exists()) {
+
+                            var data = snapshot.val()
+                            var temp = Object.keys(data).map((key) => data[key])
+
+                            temp.map((item) => {
+
+                                if (item.email === userEmail)
+                                    setUserIsLogged(true)
+
+                            })
+                        }
+                        else {
+                            console.log("No data available");
+                        }
+                    })
+
+
+                localStorage.setItem('userEmail', loginData.email)
+
+            })
+            .catch((error) => {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                alert(errorMessage)
+            });
+
+    }
+
+    function handleInputLoginChange(event) {
+
+        const { name, value } = event.target
+
+        setLoginData({
+
+            ...loginData, [name]: value
+
+        })
+
+    }
+
+    useEffect(() => {
+
+        var userEmail = localStorage.getItem('userEmail')
+
+        firebase.database().ref('admins').get('/admins')
+            .then(function (snapshot) {
+
+                if (snapshot.exists()) {
+
+                    var data = snapshot.val()
+                    var temp = Object.keys(data).map((key) => data[key])
+
+                    temp.map((item) => {
+
+                        if (item.email === userEmail)
+                            setUserIsLogged(true)
+
+                    })
+                }
+                else {
+                    console.log("No data available");
+                }
+            })
+
+    }, []);
+
+    if (userIsLogged) {
+
+        return (
+
+            <main>
+
+                <Header />
 
                 <section id="SectionAdmin">
 
                     <ul>
 
-                        <Link to="listaDeUsuarios">Lista de clientes</Link>
+                        <Link to="listaDeClientes">Lista de clientes</Link>
                         <Link to="">Cadastrar/Alterar produtos</Link>
                         <Link to=""> Pedidos em andamento</Link>
                         <Link to="">Alterar conteúdo</Link>
-                        
+
                     </ul>
 
                 </section >
 
-            <Footer />
+                <Footer />
 
-        </div>
+            </main>
 
-    )
+        )
 
-} export default Admin;
+    } else {
+
+        return (
+
+            <div className='Admin'>
+
+                <Header />
+
+                <main id='mainRegister'>
+
+                    <div className='adminRegister'>
+
+                        <div className='titleAdmin' >
+
+                            <h1>Bem vindos, equipe da Cactus 🌵</h1>
+
+                        </div>
+
+                        <fieldset>
+
+                            <h1>Entrar</h1>
+
+                            <input name='email' onChange={handleInputLoginChange} placeholder='E-mail' />
+
+                            <input name='password' type='password' onChange={handleInputLoginChange} placeholder='Senha' />
+
+                        </fieldset>
+
+                        <div className='buttonsFormRegister' >
+
+                            <Link id='enterButtonSignIn' onClick={makeLogin}>Entrar</Link>
+
+                        </div>
+
+                    </div>
+
+                </main>
+
+                <Footer />
+
+            </div>
+
+        )
+
+    }
+
+}
+

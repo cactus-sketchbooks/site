@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import InputMask from 'react-input-mask';
 
 import firebase from 'firebase/app';
-// import 'firebase/database';
+import 'firebase/database';
 import 'firebase/auth';
 import firebaseConfig from '../../FirebaseConfig.js'
 
@@ -70,12 +70,12 @@ export default function SignUp() {
                 setRegisterDone(true)
 
             })
-            // .catch((error) => {
-            //     var errorCode = error.code;
-            //     var errorMessage = error.message;
-            //     alert(errorMessage)
-                // alert('A senha deve possuir pelo menos 6 caracteres')
-            // });
+            .catch((error) => {
+                // var errorCode = error.code;
+                // var errorMessage = error.message;
+                // alert(errorMessage)
+                alert('A senha deve possuir pelo menos 6 caracteres')
+            });
 
     }
 

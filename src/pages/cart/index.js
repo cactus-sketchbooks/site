@@ -1,8 +1,16 @@
 import React from 'react';
+
 import './style.scss';
 import Header from '../../components/header/index.js';
 import Footer from '../../components/footer/index.js';
 
+import carcara from '../../images/carcara.jpg'
+import mandacaru from '../../images/mandacaru.png'
+
+import logo from '../../images/cactopng2.png';
+import sapo from '../../images/sapofoto.png';
+import garota from '../../images/garota.jpg';
+import olhos from '../../images/olhos.jpg';
 
 export default function Cart() {
 
@@ -23,13 +31,13 @@ export default function Cart() {
             cover: 'kraft',
             cover_color: 'azul'
         },
-        {
-            id: 3,
-            model: 'buriti',
-            paperWidth: 'A3',
-            size: 'A4',
-            type: 'kindle 3a geracao'
-        }
+        // {
+        //     id: 3,
+        //     model: 'buriti',
+        //     paperWidth: 'A3',
+        //     size: 'A4',
+        //     type: 'kindle 3a geracao'
+        // }
     ]
 
     const purchaseInfo = [
@@ -51,48 +59,58 @@ export default function Cart() {
             <Header />
 
             <div id="cart">
+                {products 
+                ? (
+                    <section id="purchaseInfo">
+                        {/* <section  className="buyerInfo">
+                            {purchaseInfo.map(purchase => (
+                                <ul>
+                                    <li>Código da compra: {purchase.codigo}</li>
+                                    <li>Endereço de entrega: {purchase.address}</li>
+                                    <li>Pagamento: {purchase.payment}</li>
+                                    <li>Cupom: {purchase.discountCupom}</li>
+                                    <li>Frete: {purchase.freight}</li>
+                                </ul>
+                            ))}     
+                        </section> */}
 
-                <section id="purchaseInfo">
-                    <h3>Informação sobre a compra</h3>
-                    <div className="buyerInfo">
-                        {purchaseInfo.map(purchase => (
-                            <ul>
-                                <li>Código da compra: {purchase.codigo}</li>
-                                <li>Endereço de entrega: {purchase.address}</li>
-                                <li>Pagamento: {purchase.payment}</li>
-                                <li>Cupom: {purchase.discountCupom}</li>
-                                <li>Frete: {purchase.freight}</li>
-                            </ul>
-                        ))}     
-                    </div>
+                        <h2>Seu carrinho</h2>
+                        <section className="productsInfo">
+                            {products.map(product => (
+                                <div>
+                                    <img src={mandacaru} alt="aa"/>
 
-                    <h3>Itens selecionados</h3>
-                    <div className="productsInfo">
-                        {products.map(product => (
-                            <ul>
-                                Imagem do produto
-                                <li>Modelo: {product.model}</li>
-                                <li>Tamanho: {product.paperWidth}</li>
-                                <li>Papel do miolo: {product.paper}</li>
-                                <li>Capa: {product.cover}</li>
-                                <li>Cores da capa: {product.cover_color}</li>
-                            </ul>
-                        ))}
-                    </div>
+                                    <ul>
+                                        <li><strong>Modelo:</strong> {product.model}</li>
+                                        <li><strong>Tamanho:</strong> {product.paperWidth}</li>
+                                        <li><strong>Papel do miolo:</strong> {product.paper}</li>
+                                        <li><strong>Capa:</strong> {product.cover}</li>
+                                        <li><strong>Cores da capa:</strong> {product.cover_color}</li>
+                                    </ul>
 
-                    <div className="checkout">
-                        <h3>Preço: R$ 60,00</h3>
-                        <button>Concluir compra!</button>
-                        <a href="/">Continuar comprando...</a>
-                    </div>
+                                    <button>Excluir</button>
+                                </div>
+                            ))}
+                        </section>
 
+                        <section className="checkout">
+                            <a href="/">Continuar comprando...</a>
+                            <h3>Preço: R$ 60,00</h3>
+                            <button>Concluir compra!</button>
+                        </section>
 
-                    <div className="emptyCart">
+                        <section className="ourClients">
+                            <p>**Alguma coisa mostrando os produtos deles**</p>
+                        </section>
+                    </section >
+                ) 
+                : (    
+                    <section className="emptyCart">
                         <h3>Opa.. parece que seu carrinho está vazio! Bora fazer arte?</h3>
                         <a href="/">Bora!</a>
-                    </div>
+                    </section>
+                )}
 
-                </section >
             </div>
             
             <Footer />

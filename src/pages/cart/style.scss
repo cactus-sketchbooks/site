@@ -15,32 +15,157 @@ h1, h2, h3, h4, p {
 }
 
 #purchaseInfo {
-    background-color: $offWhite;
+    //background-color: $offWhite;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 60%;
+    width: 70%;
     margin: 1rem auto;
     border-radius: 7px;
     padding: 1rem 0;
-}
 
-.buyerInfo {
-    ul {
-        list-style: none;
+    h2 {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 2.5rem;
+        color: $light-green;text-shadow: 2px 1px 3px rgba(29, 29, 29, 0.5);
+        letter-spacing: .3rem;
+        text-align: center;
     }
 }
 
+// .buyerInfo {
+//     border: 1px solid $dark-green;
+//     width: 85%;
+//     padding: 1rem;
+//     margin: 1rem 0;
+//     ul {
+//         list-style: none;
+//     }
+// }
+
+.ourClients {
+   width: 70%;
+   height: 20vh;
+
+   .sliderImg {
+
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        max-width: 100%;
+        max-height: 100vh;
+        outline: none;
+
+        img {
+
+            height: 200px;
+            object-fit: cover;
+            overflow: hidden;
+            
+        }
+   }
+
+}
+
 .productsInfo {
+    width: 90%;
+    background: rgba( 255, 255, 255, 0.15 );
+    //box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    color: $offWhite;
+    //box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.24);
+    margin: 1rem 0;
+    padding: 2rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+
+        ul {
+            //margin: .75rem 0;
+            list-style: none;
+            
+            li {
+                margin-bottom: .5rem;
+            }
+        }
+    
+        img {
+            height: 165px;
+            margin-bottom: 1rem;
+        }
+    }
 }
 
 .checkout {
+    border: 1px solid $light-green;
+    border-radius: 5px;
+    padding: .7rem;
+    width: 90%;
     display: flex;
     flex-direction: row;
     margin: 1rem 0;
     justify-content: space-around;
     align-items: center;
+
+    button {
+        // padding: .75rem;
+        //width: 30%;
+        margin: .8rem 0;
+        padding: .5rem 1rem;
+        border: none;
+        background-color: $light-orange;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: .2s ease-in-out;
+        color: $offWhite;
+        font-size: 1rem;
+        text-decoration: none;
+        text-align: center;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 1rem;
+        letter-spacing: .1rem;
+
+        &:hover {
+            background-color: $orange;
+        }
+    }
+
+    h3 {
+        color: $offWhite;
+        font-family: 'Bebas Neue', sans-serif;
+        letter-spacing: .4rem;
+        font-size: 2rem;
+    }
+
+    a {
+        text-decoration: none;
+        cursor: pointer;
+        border-radius: 5px;
+        background: $light-green;
+        color: $offWhite;
+        padding: .5rem 1rem;
+        justify-content: center;
+        align-items: center;
+        transition: .2s ease-in-out;
+
+        &:hover {
+            background-color: $dark-green;
+        }
+    }
+
+
 }

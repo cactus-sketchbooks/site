@@ -90,14 +90,15 @@ h1, h2, h3, h4, p {
             .loginRedirects {
 
                 display: flex;
-                width: 55%;
                 align-items: center;
-                justify-content: space-between;
+                width: 100%;
+                justify-content: flex-start;
 
                 a {
 
                     text-decoration: none;
                     color: rgb(148, 148, 148);
+                    margin: 0 1rem 0 0;
 
                     &:hover {
 

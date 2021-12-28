@@ -15,6 +15,8 @@ import Mandacaru from './pages/create/mandacaru'
 import Baiao from './pages/create/baiao'
 import Facheiro from './pages/create/facheiro'
 import Carcara from './pages/create/carcara'
+import ClientList from './pages/admin/clientList'
+import CreatePost from './pages/admin/createPost'
 
 const Routes = () => {
 
@@ -36,6 +38,8 @@ const Routes = () => {
             <Route component={Baiao} path='/baiao' />
             <Route component={Facheiro} path='/facheiro' />
             <Route component={Carcara} path='/carcara' />
+            <Route component={ClientList} path='/listaDeClientes' />
+            <Route component={CreatePost} path='/criarPost' />
 
         </BrowserRouter>
 

@@ -10,8 +10,10 @@ h1, h2, h3, h4, p {
     padding: 0;
 }
 
-main {
+#MainBlog {
 
+    background: linear-gradient(45deg, $light-green, $dark-green);
+    //padding-top: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,6 +27,7 @@ main {
         justify-content: center;
         width: 100vw;
         margin-top: 7rem;
+        color: $offWhite;
 
         .headingText {
 
@@ -36,8 +39,12 @@ main {
 
             h1 {
 
-                font-family: 'Poppins', sans-serif;
+                font-family: 'Bebas Neue', sans-serif;
                 font-size: 4rem;
+                color: $light-green;
+                text-shadow: 2px 1px 3px rgba(29, 29, 29, 0.5);
+                letter-spacing: .3rem;
+                text-align: center;
     
             }
 
@@ -57,10 +64,11 @@ main {
                 flex-direction: column;
                 width: 21%;
                 margin: 2rem 1rem;
-                height: 550px;
-                background-color: #fff;
+                height: 500px;
+                background-color: $offWhite;
                 box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
                 border-radius: 10px;
+                color: #303030;
 
                 .thumbWrapper {
 
@@ -93,6 +101,7 @@ main {
 
                         font-family: 'Poppins', sans-serif;
                         font-weight: 700;
+                        line-height: 1.45rem;
                         color: #303030;
 
                     }
@@ -147,6 +156,7 @@ main {
                         background-color: $light-orange;
                         color: $branco;
                         font-weight: 600;
+                        transition: .2s ease-in-out;
                         letter-spacing: 2px;
                         border-radius: 4px;
                         text-decoration: none;

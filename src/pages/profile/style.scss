@@ -1,0 +1,78 @@
+@import "../../global.scss";
+
+.profilePage {
+
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    background: linear-gradient(45deg, $light-green, $dark-green);
+
+    #DataSection {
+
+        margin-top: 110px;
+
+        h1 {
+
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            color: $light-green;
+            text-shadow: 2px 1px 3px rgba(29, 29, 29, 0.5);
+            letter-spacing: .3rem;
+            text-align: center;
+
+        }
+
+        .userData {
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+
+            .boxInfoUser {
+
+                display: flex;
+                justify-content: space-between;
+                width: 80vw;
+                padding: 1rem .2rem;
+                background-color: $light-green;
+                border-radius: 5px;
+                margin: .6rem 0;
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+                h4 {
+
+                    color: $branco;
+                    padding: 0 5px;
+
+                }
+
+            }
+
+            button {
+
+                margin: 2rem 0;
+                background-color: $orange;
+                color: $branco;
+                padding: 1rem 4rem;
+                transition: transform .45s ease, background .15s ease;
+                cursor: pointer;
+                border: none;
+                border-radius: 5px;
+
+                &:hover {
+
+                    background-color: $offWhite;
+                    color: $orange;
+                    transition: transform .45s ease, background .15s ease;
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

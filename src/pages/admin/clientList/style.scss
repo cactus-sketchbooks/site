@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import '../../../global.scss';
+
+* {
+
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+
+}
+
+.ClientListPage {
+
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(45deg, #72A67F, #24733F);
+
+    main {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding-top: 3vh;
+        margin: 110px 0 24px 0;
+
+    }
+
+    h1 {
+        color: #fff;
+    }
+
+    span {
+        margin-top: .7rem;
+        width: 80%;
+        text-align: center;
+        color:white;
+    }
+
+}
+
+.divModalUser {
+
+    width: 100vw;
+    position: relative;
+
+    span{
+
+        width: 35px;
+        height: 35px;
+        padding: 8px;
+        color: white;
+        position: absolute;
+        top: 30px;
+        left: 83.5%;
+        z-index: 400;
+        cursor: pointer;
+        border-radius: 50%;
+        text-align: center;
+        background-color: $orange;
+    
+    }
+
+}
+
+.filterName h3 {  
+    margin-top: 1rem;
+    text-align: center;
+    color: #fff;
+}
+
+.searchName {
+
+    input {
+        width: 30vw;
+        height: 3vw;
+        border: none;
+        // text-align: center;
+        font-size: .9rem;
+        margin-top: 1rem;
+        border-radius: 5px;
+        background-color: $dark-green;
+        outline: none;
+        color: white;
+        padding-left: 15px;
+    }
+
+    ::placeholder {
+        color: white;
+    }
+}
+
+.divSearchNameResult {
+
+    a {
+        display: flex;
+        color: $preto;
+        padding: 15px;
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+        cursor: pointer;
+        background-color: #ebebeb;
+        border-radius: 10px;
+        justify-content: center;
+        font-weight: 700;
+    }
+
+    h2 {
+        color: white;
+    }
+
+}
+
+.boxClientList {
+
+    width: 90vw;
+    color: white;
+    margin: .8rem 0;
+    padding: 1rem 2.5rem;
+    border-radius: 20px;
+    background-color: $orange;
+    // cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h3 {
+
+        text-align: center;
+
+    }
+
+    > div {
+        width: 78%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        line-height: 1.65rem;
+        margin: .5rem;
+    }
+
+    p {
+        text-align: left;
+        
+        b {
+            font-style: italic;
+        }
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    .ClientListPage {
+        font-size: .9rem;
+    }
+
+    #mainClientList {
+        h1 {
+            font-size: 1rem;
+        }
+    }
+
+    .searchName input {
+
+        width: 79vw;
+        height: 5vh;
+        font-size: .75rem;
+
+
+    }
+
+    .divModalUser span {
+
+        top: 10px;
+        left: 78%;
+
+    }
+
+    .boxClientList {
+        
+        flex-direction: column;
+
+        h3{
+
+            margin: 5px;
+    
+        }
+
+        > div {
+
+            width: 100%;
+    
+            align-items: flex-start;
+            flex-direction: column;
+            justify-content: center;
+    
+            > div p {
+
+                margin: .2rem;
+            }
+        }
+
+    }
+
+}

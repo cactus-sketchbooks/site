@@ -19,17 +19,9 @@ h1, h2, h3, h4, p {
     align-items: center;
 
     h1, p {
-        color: $branco;
+        color: $offWhite;
         text-align: center;
         width: 80%;
-    }
-
-    h1 {
-        font-size: 2em;
-    }
-
-    p {
-        font-size: 1.5em;
     }
 
     .contact-form {
@@ -42,10 +34,12 @@ h1, h2, h3, h4, p {
 
         input, textarea {
             width: 50%;
-            margin: 0.5rem;
-            padding: 1rem;
+            margin: .3rem 0;
+            padding: .7rem 1rem;
             border-radius: 5px;
-            border: none;
+            border: 1.7px solid #e8e8e8;
+            outline-color: $orange;
+            background: $offWhite;
         }
 
         .button-contact {
@@ -56,14 +50,14 @@ h1, h2, h3, h4, p {
 
             input {
                 background-color: $dark-green;
-                color: $branco;
-                transition: transform .45s ease, background .15s ease;
+                color: $offWhite;
+                transition: .2s ease-in-out;
+                cursor: pointer;
+                border: none;
 
                 &:hover {
                     background-color: $offWhite;
                     color: $dark-green;
-                    cursor: pointer;
-                    transition: transform .45s ease, background .15s ease;
                 }
             }
         }

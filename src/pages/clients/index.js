@@ -76,7 +76,7 @@ function Clients() {
 
     return (
 
-        <main>
+        <main id="MainBlog">
 
             <Header />
 

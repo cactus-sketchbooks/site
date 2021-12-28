@@ -16,7 +16,7 @@ function Contact() {
 
                     <input type="text" className="text-box" name="user_name" placeholder="Nome*"/>
 
-                    <input type="text" className="text-box" name="user_email" placeholder="Seu E-mail*"/>
+                    <input type="text" className="text-box" name="user_email" placeholder="E-mail*"/>
 
                     <input type="text" className="text-box" name="user_number" placeholder="Telefone*"/>
 
