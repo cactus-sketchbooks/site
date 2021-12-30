@@ -45,7 +45,7 @@ function About() {
                     <div className="about-container-contact">
                         <a className="about-hashtag" href="https://www.instagram.com/explore/tags/cactussketchbooks/?hl=en" target="_blank"rel="noreferrer"> 🌵use #cactussketchbooks </a>
 
-                        <a className="about-button" href="/cart">Fazer arte</a>                    
+                        <a className="about-button" href="/carrinho">Fazer arte</a>                    
                     </div>
                         
                 </article>

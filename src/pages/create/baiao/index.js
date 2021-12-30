@@ -6,6 +6,24 @@ import Footer from '../../../components/footer/index.js';
 
 export default function Baiao() {
 
+    function handleSelectedPaperWidth(event) {
+
+        console.log(event.target.value)
+
+    }
+
+    function handleSelectedPaper(event) {
+
+        console.log(event.target.value)
+
+    }
+
+    function handleSelectedCover(event) {
+
+        console.log(event.target.value)
+
+    }
+
     return (
 
         <main>
@@ -25,7 +43,7 @@ export default function Baiao() {
 
                     <label for="paperWidth">Selecione o tamanho do papel</label>
 
-                    <select className="paperWidth">
+                    <select onChange={handleSelectedPaperWidth} className="paperWidth">
 
                         <option value="0" selected disabled>Tamanho do papel</option>
                         <option value="21x21">21x21</option>
@@ -40,7 +58,7 @@ export default function Baiao() {
 
                     <label for="paper">Selecione o papel do miolo</label>
 
-                    <select className="paper">
+                    <select onChange={handleSelectedPaper} className="paper">
 
                         <option value="0" selected disabled>Papel do miolo</option>
                         <option value="Pólen Bold 90g">Pólen Bold 90g</option>
@@ -60,7 +78,7 @@ export default function Baiao() {
 
                     <label for="cover">Selecione o modelo da capa</label>
 
-                    <select className="cover">
+                    <select onChange={handleSelectedCover} className="cover">
 
                         <option value="0" selected disabled>Modelo da Capa</option>
                         <option value="1 Cor">1 Cor</option>
@@ -71,6 +89,8 @@ export default function Baiao() {
                     </select>
 
                 </fieldset>
+
+                <button>Finalizar</button>
 
             </section>
 

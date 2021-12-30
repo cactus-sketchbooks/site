@@ -4,13 +4,17 @@ import './style.scss';
 import Header from '../../components/header/index.js';
 import Footer from '../../components/footer/index.js';
 
-import carcara from '../../images/carcara.jpg'
-import mandacaru from '../../images/mandacaru.png'
-
 import logo from '../../images/cactopng2.png';
 import sapo from '../../images/sapofoto.png';
 import garota from '../../images/garota.jpg';
 import olhos from '../../images/olhos.jpg';
+
+import mandacaru from '../../images/mandacaru.png'
+import baiao from '../../images/baiao.png'
+import facheiro from '../../images/facheiro.png'
+import sertao from '../../images/sertao.png'
+import kindle from '../../images/buriti-kindle.png'
+import carcara from '../../images/carcara.jpg'
 
 export default function Cart() {
 
@@ -88,7 +92,10 @@ export default function Cart() {
                                         <li><strong>Cores da capa:</strong> {product.cover_color}</li>
                                     </ul>
 
-                                    <button>Excluir</button>
+                                    <div className="productsButtons">
+                                        <button>Adicionar observação</button>
+                                        <button>Excluir</button>
+                                    </div>
                                 </div>
                             ))}
                         </section>
@@ -98,11 +105,36 @@ export default function Cart() {
                             <h3>Preço: R$ 60,00</h3>
                             <button>Concluir compra!</button>
                         </section>
-
+                        
+                        <h2>Confira as artes de nossos clientes</h2>
                         <section className="ourClients">
                             <p>**Alguma coisa mostrando os produtos deles**</p>
                         </section>
+
+                        <section className="ourServices">
+                            <h1>Os cactus mais vendidos!</h1>
+
+                            <div className="service-card">
+                                <h3>mandacaru</h3>
+                                <h4>Sketchbook costura copta</h4>
+                                <img src={mandacaru} alt="Mandacaru" />
+                            </div>
+
+                            <div className="service-card">
+                                <h3>baião</h3>
+                                <h4>Sketchbook quadrado copta</h4>
+                                <img src={baiao} alt="Baião" />
+                            </div>
+
+                            <div className="service-card">
+                                <h3>facheiro</h3>
+                                <h4>Sketchbook espiral</h4>
+                                <img src={facheiro} alt="Facheiro" />
+                            </div>
+
+                        </section>
                     </section >
+
                 ) 
                 : (    
                     <section className="emptyCart">

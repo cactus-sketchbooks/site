@@ -6,6 +6,30 @@ import Footer from '../../../components/footer/index.js';
 
 export default function Mandacaru() {
 
+    function handleSelectedPaperWidth(event) {
+
+        console.log(event.target.value)
+
+    }
+
+    function handleSelectedPaper(event) {
+
+        console.log(event.target.value)
+
+    }
+
+    function handleSelectedCover(event) {
+
+        console.log(event.target.value)
+
+    }
+
+    function handleSelectedCoverColor(event) {
+
+        console.log(event.target.value)
+
+    }
+
     return (
 
         <main>
@@ -21,12 +45,11 @@ export default function Mandacaru() {
 
                 </div>
 
-
                 <fieldset>
 
                     <label for="paperWidth">Selecione o tamanho do papel</label>
 
-                    <select className="paperWidth">
+                    <select onChange={handleSelectedPaperWidth} className="paperWidth">
 
                         <option value="0" selected disabled>Tamanho do papel</option>
                         <option value="A4">A4</option>
@@ -42,7 +65,7 @@ export default function Mandacaru() {
 
                     <label for="paper">Selecione o papel do miolo</label>
 
-                    <select className="paper">
+                    <select onChange={handleSelectedPaper} className="paper">
 
                         <option value="0" selected disabled>Papel do miolo</option>
                         <option value="Pólen Bold 90g">Pólen Bold 90g</option>
@@ -62,7 +85,7 @@ export default function Mandacaru() {
 
                     <label for="cover">Selecione o modelo da capa</label>
 
-                    <select className="cover">
+                    <select onChange={handleSelectedCover} className="cover">
 
                         <option value="0" selected disabled>Modelo da Capa</option>
                         <option value="1 Cor">1 Cor</option>
@@ -78,9 +101,9 @@ export default function Mandacaru() {
 
                     <label for="cover-color">Selecione a cor da capa da capa</label>
 
-                    <select className="cover">
+                    <select onChange={handleSelectedCoverColor} className="cover">
 
-                        <option value="0" selected disabled>Modelo da Capa</option>
+                        <option value="0" selected disabled>Cor da Capa</option>
                         <option value="1 Cor">1 Cor</option>
                         <option value="2 Cores">2 Cores</option>
                         <option value="Cor + Kraft">Cor + Kraft</option>
@@ -89,6 +112,8 @@ export default function Mandacaru() {
                     </select>
 
                 </fieldset>
+
+                <button>Finalizar</button>
 
             </section>
 

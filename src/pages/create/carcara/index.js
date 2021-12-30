@@ -6,6 +6,30 @@ import Footer from '../../../components/footer/index.js';
 
 export default function Carcara() {
 
+    function handleSelectedPaperWidth(event) {
+
+        console.log(event.target.value)
+
+    }
+
+    function handleSelectedPaper(event) {
+
+        console.log(event.target.value)
+
+    }
+
+    function handleSelectedCoverColor(event) {
+
+        console.log(event.target.value)
+
+    }
+
+    function handleSelectedElasticColor(event) {
+
+        console.log(event.target.value)
+
+    }
+
     return (
 
         <main>
@@ -23,41 +47,15 @@ export default function Carcara() {
 
                 <fieldset>
 
-                    <label for="paperFormat">Selecione o formato do sketchbook</label>
-
-                    <select className="paperFormat">
-
-                        <option value="0" selected disabled>Formato do sketchbook</option>
-                        <option value="Retangular">Retangular</option>
-                        <option value="Quadrado">Quadrado</option>
-
-                    </select>
-
-                </fieldset>
-
-                <fieldset>
-
                     <label for="paperWidth">Selecione o tamanho do papel</label>
 
-                    <select className="paperWidth">
+                    <select onChannge={handleSelectedPaperWidth} className="paperWidth">
 
                         <option value="0" selected disabled>Tamanho do papel</option>
                         <option value="A4">A4</option>
                         <option value="A5">A5</option>
                         <option value="A6">A6</option>
                         <option value="A7">A7</option>
-
-                    </select>
-
-                </fieldset>
-
-                <fieldset>
-
-                    <label for="paperWidth">Selecione o tamanho do papel</label>
-
-                    <select className="paperWidth">
-
-                        <option value="0" selected disabled>Tamanho do papel</option>
                         <option value="21x21">21x21</option>
                         <option value="15x15">15x15</option>
                         <option value="10x10">10x10</option>
@@ -70,7 +68,7 @@ export default function Carcara() {
 
                     <label for="paper">Selecione o papel do miolo</label>
 
-                    <select className="paper">
+                    <select onChange={handleSelectedPaper} className="paper">
 
                         <option value="0" selected disabled>Papel do miolo</option>
                         <option value="Pólen Bold 90g">Pólen Bold 90g</option>
@@ -90,7 +88,7 @@ export default function Carcara() {
 
                     <label for="cover-color">Selecione a cor da capa da capa</label>
 
-                    <select className="cover">
+                    <select onChange={handleSelectedCoverColor} className="cover">
 
                         <option value="0" selected disabled>Modelo da Capa</option>
                         <option value="1 Cor">1 Cor</option>
@@ -106,7 +104,7 @@ export default function Carcara() {
 
                     <label for="elastic-color">Selecione a cor do elástico</label>
 
-                    <select className="elastic color">
+                    <select onChange={handleSelectedElasticColor} className="elastic color">
 
                         <option value="0" selected disabled>Cor do elástico</option>
                         <option value="Branco">Branco</option>
@@ -116,6 +114,8 @@ export default function Carcara() {
                     </select>
 
                 </fieldset>
+
+                <button>Finalizar</button>
 
             </section>
 

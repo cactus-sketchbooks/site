@@ -4,7 +4,31 @@ import './style.scss'
 import Header from '../../../components/header/index.js';
 import Footer from '../../../components/footer/index.js';
 
-export default function Carcara() {
+export default function Buriti() {
+
+    function handleSelectedModel(event) {
+
+        console.log(event.target.value)
+
+    }
+
+    function handleSelectedPaper(event) {
+
+        console.log(event.target.value)
+
+    }
+
+    function handleSelectedCover(event) {
+
+        console.log(event.target.value)
+
+    }
+
+    function handleSelectedElasticColor(event) {
+
+        console.log(event.target.value)
+
+    }
 
     return (
 
@@ -25,7 +49,7 @@ export default function Carcara() {
 
                     <label for="paperFormat">Selecione o modelo do Kindle</label>
 
-                    <select className="paperFormat">
+                    <select onChange={handleSelectedModel} className="paperFormat">
 
                         <option value="0" selected disabled>Formato do sketchbook</option>
                         <option value="10ª geração">10ª geração</option>
@@ -37,15 +61,12 @@ export default function Carcara() {
 
                 <fieldset>
 
-                    <label for="cover-color">Selecione a cor da capa da capa</label>
+                    <label for="cover-color">Selecione a cor do tecido da capa da capa</label>
 
                     <select className="cover">
 
-                        <option value="0" selected disabled>Modelo da Capa</option>
-                        <option value="1 Cor">1 Cor</option>
-                        <option value="2 Cores">2 Cores</option>
-                        <option value="Cor + Kraft">Cor + Kraft</option>
-                        <option value="Kraft">Kraft</option>
+                        <option value="0" selected disabled>Cor da Capa</option>
+                        
 
                     </select>
 
@@ -58,12 +79,12 @@ export default function Carcara() {
                     <select className="elastic color">
 
                         <option value="0" selected disabled>Cor do elástico</option>
-                        <option value="Branco">Branco</option>
-                        <option value="Preto">Preto</option>
 
                     </select>
 
                 </fieldset>
+
+                <button>Finalizar</button>
 
             </section>
 

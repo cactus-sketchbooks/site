@@ -79,7 +79,7 @@ function Home() {
 
                     </div>
 
-                    <h2>Selecione um dos modelos acima e conheça mais</h2>
+                    <h2>Selecione um dos modelos acima e conheça mais!</h2>
 
                 </section>
 

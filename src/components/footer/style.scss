@@ -122,10 +122,10 @@ footer {
                     button {
                         padding: .3rem 1rem;
                         border: none;
-                        background-color: $light-orange;
+                        background-color: $orange;
                         border-radius: 5px;
                         cursor: pointer;
-                        transition: .2s ease-in-out;
+                        transition: .4s ease-in-out;
                         
                         a {
                             font-size: 1.5rem;
@@ -135,11 +135,16 @@ footer {
                             font-family: 'Bebas Neue', sans-serif;
                             color: $offWhite;
                             text-decoration: none;
+
+                            &:hover {
+                                letter-spacing: .5rem;
+                            }
                         }
 
                         &:hover {
-                            background-color: $orange;
+                            background-color: $light-orange;
                         }
+
                     }
                 }
 

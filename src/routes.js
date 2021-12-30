@@ -13,6 +13,7 @@ import Profile from './pages/profile'
 import SinglePost from './pages/singlePost'
 import Mandacaru from './pages/create/mandacaru'
 import Baiao from './pages/create/baiao'
+import Buriti from './pages/create/buriti'
 import Facheiro from './pages/create/facheiro'
 import Carcara from './pages/create/carcara'
 import ClientList from './pages/admin/clientList'
@@ -38,6 +39,7 @@ const Routes = () => {
             <Route component={Baiao} path='/baiao' />
             <Route component={Facheiro} path='/facheiro' />
             <Route component={Carcara} path='/carcara' />
+            <Route component={Buriti} path='/buriti' />
             <Route component={ClientList} path='/listaDeClientes' />
             <Route component={CreatePost} path='/criarPost' />
 
