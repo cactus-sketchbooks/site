@@ -16,6 +16,11 @@ import sertao from '../../images/sertao.png'
 import kindle from '../../images/buriti-kindle.png'
 import carcara from '../../images/carcara.jpg'
 
+import produto1 from '../../images/products1.png'
+import produto2 from '../../images/products2.png'
+import produto3 from '../../images/products3.png'
+import produto4 from '../../images/products4.png'
+
 export default function Cart() {
 
     const products = [
@@ -108,7 +113,10 @@ export default function Cart() {
                         
                         <h2>Confira as artes de nossos clientes</h2>
                         <section className="ourClients">
-                            <p>**Alguma coisa mostrando os produtos deles**</p>
+                            <img src={produto1} alt=""/>
+                            <img src={produto2} alt=""/>
+                            <img src={produto3} alt=""/>
+                            <img src={produto4} alt=""/>
                         </section>
 
                         <section className="ourServices">

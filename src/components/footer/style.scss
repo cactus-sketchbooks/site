@@ -49,8 +49,6 @@ footer {
 
         }
 
-        
-
         .footerLinks {
             display: flex;
             margin: 0 1rem;
@@ -120,6 +118,7 @@ footer {
                     margin: .4rem 0;
 
                     button {
+                        width: 95%;
                         padding: .3rem 1rem;
                         border: none;
                         background-color: $orange;
