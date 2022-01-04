@@ -77,6 +77,8 @@ export default function CreateProduct() {
 
                 </section>
 
+                
+
             <Footer />
 
         </main>

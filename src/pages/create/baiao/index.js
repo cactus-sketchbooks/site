@@ -1,10 +1,44 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import './style.scss'
 
 import Header from '../../../components/header/index.js';
 import Footer from '../../../components/footer/index.js';
 
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import FirebaseConfig from '../../../FirebaseConfig.js'
+
 export default function Baiao() {
+
+    const [dataColors, setDataColors] = useState([])
+
+    useEffect(() => {
+
+        if (!firebase.apps.length)
+            firebase.initializeApp(FirebaseConfig);
+
+        var firebaseRef = firebase.database().ref('colors/');
+
+        firebaseRef.on('value', (snapshot) => {
+
+            if (snapshot.exists()) {
+
+                var data = snapshot.val()
+                var temp = Object.keys(data).map((key) => data[key])
+                setDataColors(temp)
+                console.log(temp)
+
+            }
+
+            else {
+
+                console.log("No data available");
+
+            }
+
+        });
+
+    }, []);
 
     function handleSelectedPaperWidth(event) {
 
@@ -19,6 +53,12 @@ export default function Baiao() {
     }
 
     function handleSelectedCover(event) {
+
+        console.log(event.target.value)
+
+    }
+
+    function selectColor(event) {
 
         console.log(event.target.value)
 
@@ -89,6 +129,52 @@ export default function Baiao() {
                     </select>
 
                 </fieldset>
+
+                <div className="coverColorWrapper">
+                    <h2>Selecione as cores da capa</h2>
+
+                    {dataColors.map((item) => {
+
+                        return (
+
+                            <div onClick={() => selectColor()} style={{backgroundColor: item.colorCode}} className="cardColor">
+                        
+                                <label>
+                                    {item.colorName}
+                                    <input type="checkbox"></input>
+                                </label>
+
+                            </div>
+
+                        )
+
+                    })}
+
+                </div>
+
+                <div className="lineColor">
+                    <h2>Selecione as cores da linha</h2>
+
+                    {dataColors.map(item => {
+                        return (
+                            <div>
+                                <p>{item.colorName}</p>
+                            </div>
+                        )
+                    })}
+                </div>
+
+                <div className="elasticColor">
+                    <h2>Selecione as cores do elástico</h2>
+
+                    {dataColors.map(item => {
+                        return (
+                            <div>
+                                <p>{item.colorName}</p>
+                            </div>
+                        )
+                    })}
+                </div>
 
                 <button>Finalizar</button>
 

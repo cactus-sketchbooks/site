@@ -10,6 +10,9 @@ import Clients from './pages/clients'
 import Login from './pages/login'
 import SignUp from './pages/signUp'
 import Profile from './pages/profile'
+import Blog from './pages/blog'
+import SinglePostBlog from './pages/singlePostBlog'
+import BlogAdm from './pages/blogAdmin'
 import SinglePost from './pages/singlePost'
 import Mandacaru from './pages/create/mandacaru'
 import Baiao from './pages/create/baiao'
@@ -35,6 +38,9 @@ const Routes = () => {
             <Route component={Login} path='/login' />
             <Route component={SignUp} path='/cadastro' />
             <Route component={Profile} path='/Perfil' />
+            <Route component={Blog} path='/blog' />
+            <Route component={SinglePostBlog} path='/post/:idPost' />
+            <Route component={BlogAdm} path='/blogadmin'/>
             <Route component={SinglePost} path='/post' />
             <Route component={Mandacaru} path='/mandacaru' />
             <Route component={Baiao} path='/baiao' />

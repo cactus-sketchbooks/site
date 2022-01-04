@@ -67,4 +67,22 @@ h1, h2, h3, h4, p {
 
     }
 
+    .coverColorWrapper {
+
+        display: flex;
+        width: 90vw;
+        height: 50vh; //apagar
+        background-color: #e5e5e5;
+
+        .cardColor {
+
+            display: flex;
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+
+        }
+
+    }
+
 }
