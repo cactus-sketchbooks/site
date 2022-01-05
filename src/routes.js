@@ -6,7 +6,6 @@ import Contact from './pages/contact'
 import Admin from './pages/admin'
 import About from './pages/about'
 import Cart from './pages/cart'
-import Clients from './pages/clients'
 import Login from './pages/login'
 import SignUp from './pages/signUp'
 import Profile from './pages/profile'
@@ -34,7 +33,6 @@ const Routes = () => {
             <Route component={Admin} path='/admin' />
             <Route component={About} path='/sobre' />
             <Route component={Cart} path='/carrinho' />
-            <Route component={Clients} path='/clientes' />
             <Route component={Login} path='/login' />
             <Route component={SignUp} path='/cadastro' />
             <Route component={Profile} path='/Perfil' />

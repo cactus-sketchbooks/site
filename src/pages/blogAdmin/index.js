@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import Header from '../../components/header/'
 import Footer from '../../components/footer/'
@@ -7,6 +7,7 @@ import './style.scss';
 
 import firebase from 'firebase/app'
 import "firebase/database";
+import 'firebase/storage';
 import firebaseConfig from '../../FirebaseConfig.js'
 
 
@@ -142,17 +143,6 @@ export default function BlogAdm() {
 
     }
 
-    function SignIn() {
-        firebase.auth()
-            .signInWithEmailAndPassword(email, password)
-            .then((admins) => {
-                setHaveLogIn(true)
-            })
-            .catch((error) => {
-                console.log(error.message)
-            });
-    }
-
     function uploadImage(event) {
 
         const file = event.target.files[0]
@@ -198,7 +188,35 @@ export default function BlogAdm() {
 
     }
 
-    if (haveLogIn) {
+    const [userIsLogged, setUserIsLogged] = useState(false);
+
+    useEffect(() => {
+
+        var userEmail = localStorage.getItem('userEmail')
+
+        firebase.database().ref('admins').get('/admins')
+            .then(function (snapshot) {
+
+                if (snapshot.exists()) {
+
+                    var data = snapshot.val()
+                    var temp = Object.keys(data).map((key) => data[key])
+
+                    temp.map((item) => {
+
+                        if (item.email === userEmail)
+                            setUserIsLogged(true)
+
+                    })
+                }
+                else {
+                    console.log("No data available");
+                }
+            })
+
+    }, []);
+
+    if (userIsLogged) {
 
         return (
 
@@ -358,49 +376,8 @@ export default function BlogAdm() {
 
         return (
 
-            <section id="BlogLogin">
+            <a>AAAAAAAAAAAAAAAAA</a>
 
-                <div className="leftSideBlogLogin">
-
-                    <div className="leftSideContentWrapper">
-
-                        {/* <img draggable='false' id="paperImg" src={papel} alt="papel" /> */}
-
-                        <div className="loginForms">
-
-                            <h1>Bem-vinde de volta!</h1>
-
-                            <p>
-
-                                Se você não é da Aurea, provavelmente está se aventurando por galáxias desconhecidas. <Link to='/Blog'>Clique aqui </Link>para acessar o blog.
-
-                            </p>
-
-                            {/* <img draggable='false' src={logoAurea} alt="" /> */}
-
-                            <input placeholder='E-mail' onChange={(txt) => setEmail(txt.target.value)} />
-                            <input type="password" placeholder='Senha' onChange={(txt) => setPassword(txt.target.value)} />
-
-                            <a id="signInButton" onClick={SignIn} >Entrar</a>
-                            <Link id="returnButton" to='/'>Voltar</Link>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div className="rightSideBlogLogin">
-
-                    <div className="blogLoginImgWrapper">
-
-                        {/* <img id="collage" draggable="false" src={colagem} alt="colagem dos membros" /> */}
-
-                    </div>
-
-                </div>
-
-            </section>
         )
     }
 

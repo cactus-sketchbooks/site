@@ -9,7 +9,7 @@ import firebaseConfig from '../../FirebaseConfig.js'
 
 import './style.scss';
 
-export default function Blog() {
+export default function Clients() {
 
     useEffect(() => {
 

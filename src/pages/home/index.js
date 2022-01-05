@@ -47,9 +47,11 @@ function Home() {
                         </div>
 
                         <div className="service-card">
-                            <h3>baião</h3>
-                            <h4>Sketchbook quadrado copta</h4>
-                            <img src={baiao} alt="Baião" />
+                            <Link to="/baiao">
+                                <h3>baião</h3>
+                                <h4>Sketchbook quadrado copta</h4>
+                                <img src={baiao} alt="Baião" />
+                            </Link>
                         </div>
 
                         <div className="service-card">

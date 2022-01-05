@@ -26,7 +26,6 @@ export default function Baiao() {
                 var data = snapshot.val()
                 var temp = Object.keys(data).map((key) => data[key])
                 setDataColors(temp)
-                console.log(temp)
 
             }
 
@@ -58,9 +57,9 @@ export default function Baiao() {
 
     }
 
-    function selectColor(event) {
+    function selectColor(item, event) {
 
-        console.log(event.target.value)
+        console.log(event)
 
     }
 
@@ -130,18 +129,21 @@ export default function Baiao() {
 
                 </fieldset>
 
+                <h2>Selecione as cores da capa</h2>
                 <div className="coverColorWrapper">
-                    <h2>Selecione as cores da capa</h2>
 
                     {dataColors.map((item) => {
 
                         return (
 
-                            <div onClick={() => selectColor()} style={{backgroundColor: item.colorCode}} className="cardColor">
+                            <div style={{backgroundColor: item.colorCode}} className="colorLabel" className="cardColor">
                         
-                                <label>
+                                <label className="container">
+
                                     {item.colorName}
-                                    <input type="checkbox"></input>
+                                    <input onClick={(event) => selectColor(event, item)} type="checkbox" key={item.id} value={item.name}/>
+                                    <span className="checkmark"></span>
+
                                 </label>
 
                             </div>
@@ -152,25 +154,41 @@ export default function Baiao() {
 
                 </div>
 
+                <h2>Selecione as cores da linha</h2>
                 <div className="lineColor">
-                    <h2>Selecione as cores da linha</h2>
 
                     {dataColors.map(item => {
                         return (
-                            <div>
-                                <p>{item.colorName}</p>
+                            <div style={{backgroundColor: item.colorCode}} className="colorLabel" className="cardColor">
+                        
+                                <label>
+
+                                    {item.colorName}
+                                    <input  onClick={(event) => selectColor(event, item)} type="checkbox" key={item.id} value={item.name}/>
+                                    <span className="checkmark"></span>
+
+                                </label>
+
                             </div>
                         )
                     })}
                 </div>
 
+                <h2>Selecione as cores do elástico</h2>
                 <div className="elasticColor">
-                    <h2>Selecione as cores do elástico</h2>
 
                     {dataColors.map(item => {
                         return (
-                            <div>
-                                <p>{item.colorName}</p>
+                            <div style={{backgroundColor: item.colorCode}} className="colorLabel" className="cardColor">
+                        
+                                <label>
+
+                                    {item.colorName}
+                                    <input  onClick={(event) => selectColor(event, item)} type="checkbox" key={item.id} value={item.name}/>
+                                    <span className="checkmark"></span>
+
+                                </label>
+
                             </div>
                         )
                     })}

@@ -135,7 +135,7 @@ export default function Header() {
                                 <li><Link onClick={scrollToTop} to="/sobre"> Quem Somos </Link></li>
                                 <li><Link onClick={scrollToTop} to="/admin"> Admin </Link></li>
                                 <li><Link onClick={scrollToTop} to="/contato"> Contato </Link></li>
-                                <li><Link onClick={scrollToTop} to="/clientes"> Nossos Clientes </Link></li>
+                                <li><Link onClick={scrollToTop} to="/blog"> Nossos Clientes </Link></li>
                                 <li><Link onClick={scrollToTop} to="/carrinho"> Carrinho </Link></li>
                                 <li><Link onClick={scrollToTop} to="/login"> Login </Link></li>
                             </ul>
@@ -149,7 +149,7 @@ export default function Header() {
                             <ul>
                                 <li><Link onClick={scrollToTop} to="/sobre"> Quem Somos </Link></li>
                                 <li><Link onClick={scrollToTop} to="/contato"> Contato </Link></li>
-                                <li><Link onClick={scrollToTop} to="/clientes"> Nossos Clientes </Link></li>
+                                <li><Link onClick={scrollToTop} to="/blog"> Nossos Clientes </Link></li>
                                 <li><Link onClick={scrollToTop} to="/carrinho"> Carrinho </Link></li>
                                 <li><Link onClick={scrollToTop} to="/login"> Login </Link></li>
                             </ul>

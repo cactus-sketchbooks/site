@@ -43,6 +43,15 @@ h1, h2, h3, h4, p {
         margin-bottom: 2rem;
         width: 50%;
         height: 40px;
+        background-color: $light-green;
+        color: $offWhite;
+        font-size: 1.1rem;
+        border: none;
+
+        option {
+            border: none;
+
+        }
 
     }
 
@@ -71,15 +80,50 @@ h1, h2, h3, h4, p {
 
         display: flex;
         width: 90vw;
-        height: 50vh; //apagar
-        background-color: #e5e5e5;
+        //background-color: $offWhite;
 
         .cardColor {
 
             display: flex;
             width: 100px;
             height: 100px;
-            border-radius: 50px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 100px;
+
+            label {
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                display: block;
+                position: relative;
+                cursor: pointer;
+
+                .checkmark {
+
+                    position: absolute;
+                    height: 50px;
+                    width: 50px;
+                    border-radius: 2px;
+
+                    &:hover input ~ .checkmark {
+                        background-color: $offWhite;
+                    }
+
+                    
+
+                }
+
+                input {
+                    position: absolute;
+                    opacity: 0;
+                    cursor: pointer;
+                    height: 0;
+                    width: 0;
+                }
+            }
 
         }
 
