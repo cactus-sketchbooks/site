@@ -11,6 +11,8 @@ $light-orange: #ff874b;
 $yellow-green: #DED040;
 $offWhite: #F2F2F2;
 $offBlack: rgb(34, 34, 34);
+$roxo: #5508ff;
+$amarelo: #ffff00;
 
 :root {
 
@@ -37,3 +39,231 @@ $offBlack: rgb(34, 34, 34);
     
 }
 
+
+#CreateSketchbookSection {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    margin-top: 10rem;
+
+    .textIntro {
+
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 4rem;
+
+    }
+
+    fieldset {
+
+        display: flex;
+        flex-direction: column;
+        border: none;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+
+    }
+
+    select {
+
+        margin-bottom: 2rem;
+        width: 50%;
+        background-color: $light-green;
+        color: $offWhite;
+        font-size: 1.02rem;
+        border: none;
+        padding:.5rem 1rem;
+        border-radius: 5px;
+        outline: none;
+
+        option {
+
+            border: none;
+
+        }
+
+    }
+
+    button {
+
+        padding: .7rem 2rem;
+        margin-bottom: 2rem;
+        background-color: $orange;
+        border: none;
+        cursor: pointer;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 5px;
+        transition: .2s ease-in-out;
+
+        &:hover {
+
+            background-color: $light-orange;
+
+        }
+
+    }
+
+    .textWrapper {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2rem;
+
+        .textBackground {
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $light-green;
+            color: #fff;
+            margin-bottom: 10px;
+            padding: .7rem 1.5rem;
+            border-radius: 25px;
+
+        }
+
+        p {
+
+            font-weight: 500;
+
+        }
+
+    }
+
+    .sliderColors {
+
+        display: flex;
+        width: 90vw;
+        height: 20vw;
+
+        button {
+
+            display: none !important;
+
+        }
+
+        div {
+
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            height: 100%;
+
+            .cardColor {
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                margin: 0 1rem;
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+
+                .colorBox {
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 3px 3px 0 0;
+                    width: 100%;
+                    height: 75%;
+
+                    p {
+
+                        text-transform: uppercase;
+                        font-weight: 500;
+                        color: rgb(65, 65, 65);
+
+                    }
+
+                }
+
+                .colorName {
+
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-around;
+                    width: 100%;
+                    height: 25%;
+                    background-color: #fff;
+                    border-radius: 0 0 3px 3px;
+
+                    p {
+
+                        color: #838383;
+                        font-weight: 600;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    .coverColorWrapper {
+
+        display: flex;
+        width: 90vw;
+        //background-color: $offWhite;
+
+        // .cardColor {
+
+        //     display: flex;
+        //     width: 100px;
+        //     height: 100px;
+        //     justify-content: center;
+        //     align-items: center;
+        //     border-radius: 100px;
+
+        //     label {
+
+        //         display: flex;
+        //         flex-direction: column;
+        //         align-items: center;
+        //         justify-content: center;
+        //         display: block;
+        //         position: relative;
+        //         cursor: pointer;
+
+        //         .checkmark {
+
+        //             position: absolute;
+        //             height: 50px;
+        //             width: 50px;
+        //             border-radius: 2px;
+
+        //             &:hover input ~ .checkmark {
+        //                 background-color: $offWhite;
+        //             }
+
+        //         }
+
+        //         input {
+        //             position: absolute;
+        //             opacity: 0;
+        //             cursor: pointer;
+        //             height: 0;
+        //             width: 0;
+        //         }
+        //     }
+
+        // }
+
+    }
+
+}

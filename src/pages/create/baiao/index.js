@@ -1,10 +1,59 @@
-import React from 'react'
+import React, { useEffect, useState, Component } from 'react'
+import Slider from "react-slick";
+
 import './style.scss'
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import Header from '../../../components/header/index.js';
 import Footer from '../../../components/footer/index.js';
 
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import FirebaseConfig from '../../../FirebaseConfig.js'
+
 export default function Baiao() {
+
+    const [dataColors, setDataColors] = useState([])
+    const [colorCheckboxValue, setColorCheckboxValue] = useState(false)
+
+    const settings = {
+
+        className: "start",
+        infinite: true,
+        centerPadding: "60px",
+        slidesToShow: 5,
+        swipeToSlide: true,
+
+    }
+
+    useEffect(() => {
+
+        if (!firebase.apps.length)
+            firebase.initializeApp(FirebaseConfig);
+
+        var firebaseRef = firebase.database().ref('colors/');
+
+        firebaseRef.on('value', (snapshot) => {
+
+            if (snapshot.exists()) {
+
+                var data = snapshot.val()
+                var temp = Object.keys(data).map((key) => data[key])
+                setDataColors(temp)
+
+            }
+
+            else {
+
+                console.log("No data available");
+
+            }
+
+        });
+
+    }, []);
 
     function handleSelectedPaperWidth(event) {
 
@@ -21,6 +70,19 @@ export default function Baiao() {
     function handleSelectedCover(event) {
 
         console.log(event.target.value)
+
+    }
+
+    function selectColor(item, event) {
+
+        console.log(event)
+
+    }
+
+    function checkColor(event) {
+
+        setColorCheckboxValue(!colorCheckboxValue)
+        console.log(colorCheckboxValue)
 
     }
 
@@ -73,7 +135,7 @@ export default function Baiao() {
                     </select>
 
                 </fieldset>
-                
+
                 <fieldset>
 
                     <label for="cover">Selecione o modelo da capa</label>
@@ -89,6 +151,117 @@ export default function Baiao() {
                     </select>
 
                 </fieldset>
+
+                <div className="textWrapper">
+
+                    <div className="textBackground">
+
+                        <h2>Cor da capa</h2>
+
+                    </div>
+
+                    <p>Selecione <strong>até duas</strong> cores</p>
+
+                </div>
+
+                <div className="sliderColors">
+
+                    <Slider {...settings}>
+
+                        {dataColors.map((item, index) => {
+
+                            return (
+
+                                <div onClick={(event) => selectColor(event, item)} className="cardColor">
+
+                                    <div key={item.id} style={{ backgroundColor: item.colorCode }} className="colorBox">
+
+                                        <p>{item.colorCode}</p>
+
+                                    </div>
+
+                                    <div className="colorName">
+
+                                        <p>{item.colorName}</p>
+
+                                        <input type="checkbox" onChange={() => checkColor()} checked={colorCheckboxValue} />
+
+                                    </div>
+
+                                </div>
+
+                            )
+
+                        })}
+
+                    </Slider>
+
+                </div>
+
+                {/* <div className="coverColorWrapper">
+
+                    {dataColors.map((item) => {
+
+                        return (
+
+                            <div style={{ backgroundColor: item.colorCode }} className="cardColor">
+
+                                <label className="container">
+
+                                    {item.colorName}
+                                    <input onClick={(event) => selectColor(event, item)} type="checkbox" key={item.id} value={item.name} />
+                                    <span className="checkmark"></span>
+
+                                </label>
+
+                            </div>
+
+                        )
+
+                    })}
+
+                </div> */}
+
+                <h2>Selecione as cores da linha</h2>
+
+                <div className="lineColor">
+
+                    {dataColors.map(item => {
+                        return (
+                            <div style={{ backgroundColor: item.colorCode }} className="colorLabel" className="cardColor">
+
+                                <label>
+
+                                    {item.colorName}
+                                    <input onClick={(event) => selectColor(event, item)} type="checkbox" key={item.id} value={item.name} />
+                                    <span className="checkmark"></span>
+
+                                </label>
+
+                            </div>
+                        )
+                    })}
+                </div>
+
+                <h2>Selecione as cores do elástico</h2>
+                <div className="elasticColor">
+
+                    {dataColors.map(item => {
+                        return (
+                            <div style={{ backgroundColor: item.colorCode }} className="colorLabel" className="cardColor">
+
+                                <label>
+
+                                    {item.colorName}
+                                    <input onClick={(event) => selectColor(event, item)} type="checkbox" key={item.id} value={item.name} />
+                                    <span className="checkmark"></span>
+
+                                </label>
+
+                            </div>
+                        )
+                    })}
+                </div>
 
                 <button>Finalizar</button>
 
