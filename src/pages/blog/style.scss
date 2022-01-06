@@ -91,8 +91,8 @@
                 width: 330px;
                 margin: 2rem 2rem;
                 height: 650px;
-                background-color: #55008f;
-                box-shadow: 7px -4px 0px 1px rgba(219,184,38,1);
+                background-color: $offBlack;
+                box-shadow: 7px -4px 0px 1px red;
                 border-radius: 10px;
                 transition: ease 0.5s;
 
@@ -211,7 +211,7 @@
                     
                     h5 {
 
-                        color: #000;
+                        color: $branco;
 
                     }
 
