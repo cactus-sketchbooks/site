@@ -131,7 +131,7 @@ export default function Buriti() {
 
                         return (
 
-                            <div style={{backgroundColor: item.colorCode}} className="colorLabel" className="cardColor">
+                            <div style={{backgroundColor: item.colorCode}} className="cardColor">
                         
                                 <label className="container">
 
