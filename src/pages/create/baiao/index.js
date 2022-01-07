@@ -16,7 +16,8 @@ import FirebaseConfig from '../../../FirebaseConfig.js'
 export default function Baiao() {
 
     const [dataColors, setDataColors] = useState([])
-    const [colorCheckboxValue, setColorCheckboxValue] = useState(false)
+    const [selectedColors, setSelectedColors] = useState('')
+    const [displayCheckbox, setDisplayCheckbox] = useState('flex')
 
     const settings = {
 
@@ -79,12 +80,54 @@ export default function Baiao() {
 
     }
 
-    function checkColor(event) {
+    const checkColor = (item, event) => {
+        
+        const isChecked = event.target.checked
 
-        setColorCheckboxValue(!colorCheckboxValue)
-        console.log(colorCheckboxValue)
+        if(isChecked) {
+
+            setSelectedColors([...selectedColors, {
+    
+                name: item.colorName,
+                code: item.colorCode
+    
+            }])
+
+            console.log('adicionou')
+
+        } else {
+
+            const color = item.colorName
+            console.log(color)
+            let index = selectedColors.findIndex((element) => element.name === color)
+            console.log(index)
+
+            if(index !== -1) {
+
+                selectedColors.splice(index, 1)
+                console.log('removeu')
+
+            }
+
+        }
+
+        console.log(selectedColors)
 
     }
+
+    // useEffect(() => {
+
+    //     if(selectedColors.length === 2) {
+
+    //         setDisplayCheckbox('none')
+
+    //     } else {
+
+    //         setDisplayCheckbox('flex')
+
+    //     }
+
+    // }, [selectedColors])
 
     return (
 
@@ -168,11 +211,11 @@ export default function Baiao() {
 
                     <Slider {...settings}>
 
-                        {dataColors.map((item, index) => {
+                        {dataColors.map((item) => {
 
                             return (
 
-                                <div onClick={(event) => selectColor(event, item)} className="cardColor">
+                                <div className="cardColor">
 
                                     <div key={item.id} style={{ backgroundColor: item.colorCode }} className="colorBox">
 
@@ -184,7 +227,7 @@ export default function Baiao() {
 
                                         <p>{item.colorName}</p>
 
-                                        <input type="checkbox" onChange={() => checkColor()} checked={colorCheckboxValue} />
+                                        <input style={{display: displayCheckbox}} type="checkbox" onChange={(event) => checkColor(item, event)} />
 
                                     </div>
 
@@ -197,30 +240,6 @@ export default function Baiao() {
                     </Slider>
 
                 </div>
-
-                {/* <div className="coverColorWrapper">
-
-                    {dataColors.map((item) => {
-
-                        return (
-
-                            <div style={{ backgroundColor: item.colorCode }} className="cardColor">
-
-                                <label className="container">
-
-                                    {item.colorName}
-                                    <input onClick={(event) => selectColor(event, item)} type="checkbox" key={item.id} value={item.name} />
-                                    <span className="checkmark"></span>
-
-                                </label>
-
-                            </div>
-
-                        )
-
-                    })}
-
-                </div> */}
 
                 <h2>Selecione as cores da linha</h2>
 
