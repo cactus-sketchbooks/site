@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Component } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Slider from "react-slick";
 
 import './style.scss'
@@ -16,8 +16,11 @@ import FirebaseConfig from '../../../FirebaseConfig.js'
 export default function Baiao() {
 
     const [dataColors, setDataColors] = useState([])
-    const [selectedColors, setSelectedColors] = useState('')
-    const [displayCheckbox, setDisplayCheckbox] = useState('flex')
+    const [selectedColors, setSelectedColors] = useState([])
+    const [isValidated, setIsValidated] = useState(false)
+    const [totalColors, setTotalColors] = useState(0)
+    const [checkStatus, setCheckStatus] = useState(false)
+    const [checkedBoxes, setCheckedBoxes] = useState(0)
 
     const settings = {
 
@@ -83,6 +86,7 @@ export default function Baiao() {
     const checkColor = (item, event) => {
         
         const isChecked = event.target.checked
+        setCheckStatus(event.target.value)
 
         if(isChecked) {
 
@@ -93,19 +97,17 @@ export default function Baiao() {
     
             }])
 
-            console.log('adicionou')
+            setCheckedBoxes(checkedBoxes + 1)
 
         } else {
 
             const color = item.colorName
-            console.log(color)
             let index = selectedColors.findIndex((element) => element.name === color)
-            console.log(index)
 
             if(index !== -1) {
 
                 selectedColors.splice(index, 1)
-                console.log('removeu')
+                setCheckedBoxes(checkedBoxes - 1)
 
             }
 
@@ -115,19 +117,26 @@ export default function Baiao() {
 
     }
 
-    // useEffect(() => {
+    const firstRender = useRef(false)
 
-    //     if(selectedColors.length === 2) {
+    useEffect(() => {
 
-    //         setDisplayCheckbox('none')
+            if(checkedBoxes > 2) {
+    
+                console.log('n podeee')
+                setIsValidated(false)
 
-    //     } else {
+            } else {
+    
+                console.log(' podeee')
+                setIsValidated(true)
 
-    //         setDisplayCheckbox('flex')
+            }
 
-    //     }
+        console.log('checkedBoxes', checkedBoxes)
 
-    // }, [selectedColors])
+    }, [checkedBoxes])
+
 
     return (
 
@@ -211,11 +220,11 @@ export default function Baiao() {
 
                     <Slider {...settings}>
 
-                        {dataColors.map((item) => {
+                        {dataColors.map((item, index) => {
 
                             return (
 
-                                <div className="cardColor">
+                                <div className="cardColor" key={index}>
 
                                     <div key={item.id} style={{ backgroundColor: item.colorCode }} className="colorBox">
 
@@ -227,7 +236,7 @@ export default function Baiao() {
 
                                         <p>{item.colorName}</p>
 
-                                        <input style={{display: displayCheckbox}} type="checkbox" onChange={(event) => checkColor(item, event)} />
+                                        <input type="checkbox" onChange={(event) => checkColor(item, event)}/>
 
                                     </div>
 
@@ -282,7 +291,20 @@ export default function Baiao() {
                     })}
                 </div>
 
-                <button>Finalizar</button>
+                {isValidated ? (
+
+                    <button>Finalizar</button>
+
+                ) : (
+
+                    <>
+
+                        <button disabled>Finalizar</button>
+                        <p>Você deve blabla</p>
+                        
+                    </>
+
+                )}
 
             </section>
 
