@@ -88,6 +88,8 @@ export default function SinglePost() {
 
                     <div className="postImageWrapper">
 
+                        <Link to="/blog"> Voltar aos posts </Link>
+
                         <img src={dataPost.imageUrl} alt="imagem da capa" />
 
                     </div>
@@ -158,8 +160,8 @@ export default function SinglePost() {
                         {
                             Array(dataPost.paragraphs).map((item) => (
 
-                                <div style={{ width: "100%" }}>
-                                    <p>{item}</p>
+                                <div className="paragraphsDiv">
+                                    <p>{item}{"\n"}</p>
                                 </div>
 
                             ))

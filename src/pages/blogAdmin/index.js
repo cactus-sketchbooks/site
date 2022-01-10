@@ -375,9 +375,29 @@ export default function BlogAdm() {
     else {
 
         return (
+            <div>
+                <Header />
 
-            <a>AAAAAAAAAAAAAAAAA</a>
+                <section id ="blogAdmin">
 
+                    <main id='mainBlogAdmin'>
+
+                        <div className="tipsBlogAdmin">
+
+                            <h1>Faz parte da equipe?</h1>
+
+                            <p>Faça login para acessar o admin do Blog.</p>
+
+                            <Link to="/blog"> Acessar </Link>
+
+                        </div>
+                    </main>
+
+                </section>
+
+
+                <Footer />
+            </div>
         )
     }
 

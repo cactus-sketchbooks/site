@@ -6,6 +6,8 @@ import './style.scss'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import logo from '../../../images/cactopng2.png';
+
 import Header from '../../../components/header/index.js';
 import Footer from '../../../components/footer/index.js';
 
@@ -21,6 +23,8 @@ export default function Baiao() {
     const [totalColors, setTotalColors] = useState(0)
     const [checkStatus, setCheckStatus] = useState(false)
     const [checkedBoxes, setCheckedBoxes] = useState(0)
+    const [selectedLineColor, setSelectedLineColor] = useState([])
+    const [selectedElasticColor, setSelectedElasticColor] = useState([])
 
     const settings = {
 
@@ -137,6 +141,19 @@ export default function Baiao() {
 
     }, [checkedBoxes])
 
+    function handleSelectedLineColor(item, event) {
+
+        setSelectedLineColor(event)
+        console.log(event)
+
+    }
+
+    function handleSelectedElasticColor(item, event) {
+
+        setSelectedElasticColor(event)
+        console.log(event)
+
+    }
 
     return (
 
@@ -145,6 +162,12 @@ export default function Baiao() {
             <Header />
 
             <section id="CreateSketchbookSection">
+
+                <div className="logoWrapper">
+
+                    <img src={logo} alt="logo" />
+
+                </div>
 
                 <div className="textIntro">
 
@@ -224,7 +247,7 @@ export default function Baiao() {
 
                             return (
 
-                                <div className="cardColor" key={index}>
+                                <div className="cardColor">
 
                                     <div key={item.id} style={{ backgroundColor: item.colorCode }} className="colorBox">
 
@@ -236,7 +259,11 @@ export default function Baiao() {
 
                                         <p>{item.colorName}</p>
 
-                                        <input type="checkbox" onChange={(event) => checkColor(item, event)}/>
+                                        <input 
+                                            type="checkbox" 
+                                            value={index} 
+                                            onChange={(event) => checkColor(item, event)}
+                                        />
 
                                     </div>
 
@@ -250,46 +277,87 @@ export default function Baiao() {
 
                 </div>
 
-                <h2>Selecione as cores da linha</h2>
+                <div className="textWrapper">
 
-                <div className="lineColor">
+                    <div className="textBackground">
 
-                    {dataColors.map(item => {
-                        return (
-                            <div style={{ backgroundColor: item.colorCode }} className="colorLabel" className="cardColor">
+                        <h2>Cor da linha</h2>
 
-                                <label>
+                    </div>
 
-                                    {item.colorName}
-                                    <input onClick={(event) => selectColor(event, item)} type="checkbox" key={item.id} value={item.name} />
-                                    <span className="checkmark"></span>
+                    <p>Selecione <strong>uma</strong> cor</p>
 
-                                </label>
-
-                            </div>
-                        )
-                    })}
                 </div>
 
-                <h2>Selecione as cores do elástico</h2>
-                <div className="elasticColor">
+                <div className="lineColorWrapper">
 
-                    {dataColors.map(item => {
+                    {dataColors.map((item, index) => {
+
                         return (
-                            <div style={{ backgroundColor: item.colorCode }} className="colorLabel" className="cardColor">
 
-                                <label>
+                            <div className="colorWrapper">
 
-                                    {item.colorName}
-                                    <input onClick={(event) => selectColor(event, item)} type="checkbox" key={item.id} value={item.name} />
-                                    <span className="checkmark"></span>
+                                <div style={{backgroundColor: item.colorCode}} className="lineColor" />
 
-                                </label>
+                                    <input
+
+                                        type="radio"
+                                        onClick={(event) => handleSelectedLineColor(event, item, index)} 
+                                        name="selectedLineColor" 
+                                        key={item.id}
+                                        value={item.name}
+                                        className="checkbox"
+
+                                    />
 
                             </div>
+                                
                         )
+
                     })}
+
                 </div>
+
+                <div className="textWrapper">
+
+                    <div className="textBackground">
+
+                        <h2>Cor do elástico</h2>
+
+                    </div>
+
+                    <p>Selecione <strong>uma</strong> cor</p>
+
+                </div>
+
+                <div className="elasticColorWrapper">
+
+                    {dataColors.map((item, index) => {
+
+                        return (
+
+                            <div className="colorWrapper">
+
+                                <div style={{backgroundColor: item.colorCode}} className="elasticColor" />
+
+                                    <input
+
+                                        type="radio"
+                                        onClick={(event) => handleSelectedElasticColor(event, item, index)} 
+                                        name="selectedElasticColor" 
+                                        key={item.id}
+                                        value={item.name}
+
+                                    />
+
+                            </div>
+                                
+                        )
+
+                    })}
+
+                </div>
+
 
                 {isValidated ? (
 

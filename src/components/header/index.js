@@ -191,7 +191,7 @@ export default function Header() {
                             <li><Link to="/sobre"> Quem Somos </Link></li>
                             <li><Link to="/admin"> Adim </Link></li>
                             <li><Link to="/contato"> Contato </Link></li>
-                            <li><Link to="/clientes"> Nossos Clientes </Link></li>
+                            <li><Link to="/blog"> Nossos Clientes </Link></li>
                             <li><Link to="/carrinho"> Carrinho </Link></li>
                             <li><Link to="/login"> Login </Link></li>
                         </ul>
@@ -207,7 +207,7 @@ export default function Header() {
                             <li><Link to="/sobre"> Quem Somos </Link></li>
                             <li><Link to="/admin"> Admin </Link></li>
                             <li><Link to="/contato"> Contato </Link></li>
-                            <li><Link to="/clientes"> Nossos Clientes </Link></li>
+                            <li><Link to="/blog"> Nossos Clientes </Link></li>
                             <li><Link to="/carrinho"> Carrinho </Link></li>
                             <li><Link to="/login"> Login </Link></li>
 

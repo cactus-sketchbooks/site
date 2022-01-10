@@ -11,9 +11,11 @@
 main {
 
     background-color: #000;
-
+    
     #PostSection {
-
+      
+        padding-top: 100px;
+        padding-bottom: 50px;
         display: flex;
         width: 100vw;
         flex-direction: column;
@@ -29,9 +31,30 @@ main {
             .postImageWrapper {
     
                 display: flex;
+                flex-direction: column;
                 max-width: 30%;
                 max-height: 30%;
                 margin: 6rem 2rem 0 2rem;
+
+                a {
+
+                  margin: 2rem;
+                  padding: 1rem;
+                  border-radius: 5px;
+                  background-color: $roxo;
+                  color: #fff;
+                  font-weight: 700;
+                  text-decoration: none;
+                  transition: .2s ease-in-out;
+                  text-align: center;
+    
+                  &:hover {
+    
+                    background-color: #4d037e;
+    
+                  }
+    
+                }
     
                 img {
     
@@ -177,7 +200,7 @@ main {
                 font-size: 2.65rem;
                 font-weight: 700;
                 margin: 5rem 0 2rem 0;
-                color: #dbb826;
+                color: $yellow-green;
                 width: 80%;
     
             }
@@ -195,18 +218,26 @@ main {
                 align-items: center;
                 justify-content: center;
                 text-align: justify;
-
-                p {
-
-                    width: 100%;
-                    text-align: justify;
-                    color: $branco;
-                    line-height: 1.7rem;
-                    text-indent: 2em;
-                    white-space: pre-line;
-                    margin-top: 2rem;
-                    font-family: "Montserrat", sans-serif;
                 
+                .paragraphsDiv {
+                  width: 50vw;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  text-align: justify;
+
+                  p {
+
+                      text-align: justify;
+                      color: $branco;
+                      line-height: 1.7rem;
+                      text-indent: 2em;
+                      white-space: pre-line;
+                      margin-top: 2rem;
+                      font-family: "Montserrat", sans-serif;
+                  
+                  }
+
                 }
 
             }

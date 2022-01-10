@@ -95,20 +95,7 @@ export default function SinglePost() {
 
                 <section id="PostSection">
 
-                    <div className="postImageWrapper">
-
-                        <img src={dataPost.picture} alt="imagem da capa" />
-
-                    </div>
-
-                    <div className="postInfos">
-
-                        <h1>{dataPost.title}</h1>
-                        <h3>{dataPost.name}</h3>
-
-                    </div>
-
-                    <p>{dataPost.feedback}</p>
+                    <h1>TESTE</h1>
 
                 </section>
 

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
+import InputMask from 'react-input-mask';
+
 import Header from '../../../components/header'
 import Footer from '../../../components/footer'
 
@@ -71,7 +73,14 @@ export default function CreateProduct() {
 
                     <input id="colorName" name='colorName' onChange={handleColorRegisterChange} placeholder='Nome da cor' />
 
-                    <input id="colorCode" name='colorCode' onChange={handleColorRegisterChange} placeholder='Código da cor' />
+                    <InputMask
+                        id="colorCode"
+                        name="colorCode" 
+                        mask="#******" 
+                        maskChar="" 
+                        onChange={handleColorRegisterChange}
+                        placeholder='Código da cor'
+                    />
 
                     <button onClick={()=> {insertNewColor()}}>Inserir cor</button>
 
