@@ -29,7 +29,6 @@ export default function Baiao() {
     const [selectedPaper, setSelectedPaper] = useState('')
     const [selectedLineColor, setSelectedLineColor] = useState('')
     const [selectedElasticColor, setSelectedElasticColor] = useState('')
-    const [selectedCover, setSelectedCover] = useState('')
     const [selectedPickup, setSelectedPickup] = useState('')
     const [transportData, setTransportData] = useState([]);
     const [customerCep, setCustomerCep] = useState('')
@@ -126,12 +125,6 @@ export default function Baiao() {
 
     }
 
-    function handleSelectedCover(event) {
-
-        setSelectedCover(event.target.value)
-
-    }
-
     function handleInputInfosChange(event) {
 
         const { name, value } = event.target
@@ -208,7 +201,7 @@ export default function Baiao() {
         }).then((response) => {
             return response.json();
         }).then((data) => {
-            // setTransportData(data)
+            setTransportData(data)
             setDisplayTransport('flex')
             console.log(data)
         }).catch(err => console.log(err))
@@ -244,7 +237,6 @@ export default function Baiao() {
                 paper: selectedPaper,
                 lineColor: selectedLineColor,
                 elasticColor: selectedElasticColor,
-                cover: selectedCover,
                 coverColors: selectedColors,
                 pickupOption: selectedPickup,
                 userName: newDataReceiver.receiverName,
@@ -306,7 +298,7 @@ export default function Baiao() {
             var confirm = window.confirm("Você precisa ter uma conta para finalizar um pedido!")
 
             if (confirm)
-                redirect.push("/Cadastrar")
+                redirect.push("/cadastro")
 
         }
 
@@ -438,21 +430,7 @@ export default function Baiao() {
 
                 </fieldset>
 
-                <fieldset>
-
-                    <label for="cover">Selecione o modelo da capa</label>
-
-                    <select onChange={handleSelectedCover} className="cover">
-
-                        <option value="0" selected disabled>Modelo da Capa</option>
-                        <option value="1 Cor">1 Cor</option>
-                        <option value="2 Cores">2 Cores</option>
-                        <option value="Cor + Kraft">Cor + Kraft</option>
-                        <option value="Kraft">Kraft</option>
-
-                    </select>
-
-                </fieldset>
+                
 
                 <div className="textWrapper">
 
@@ -476,11 +454,23 @@ export default function Baiao() {
 
                                 <div className="cardColor">
 
-                                    <div key={item.id} style={{ backgroundColor: item.colorCode }} className="colorBox">
+                                    {item.image ? 
+                                    
+                                        (<div key={item.id} className="colorBox">
 
-                                        <p>{item.colorCode}</p>
+                                            <img src={item.image} alt="cor" />
 
-                                    </div>
+                                        </div>)
+                                    
+                                    : 
+                                    
+                                        (<div key={item.id} style={{ backgroundColor: item.colorCode }} className="colorBox">
+
+                                            <p>{item.colorCode}</p>
+
+                                        </div>)
+                                    
+                                    }
 
                                     <div className="colorName">
 
@@ -528,7 +518,27 @@ export default function Baiao() {
 
                                     <div className="colorWrapper">
 
-                                        <div style={{ backgroundColor: item.colorCode }} className="lineColor" />
+                                    {item.image ? 
+                                        
+                                        (
+
+                                            <div className="elasticColor">
+
+                                                <img src={item.image} alt="cor do elástico" />
+
+                                            </div>
+
+                                        ) 
+                                        
+                                            : 
+                                        
+                                        (
+                                        
+                                            <div style={{ backgroundColor: item.colorCode }} className="elasticColor" />
+                                            
+                                        )
+                                        
+                                    }
 
                                         <input
 
@@ -573,7 +583,27 @@ export default function Baiao() {
 
                                     <div className="colorWrapper">
 
-                                        <div style={{ backgroundColor: item.colorCode }} className="elasticColor" />
+                                        {item.image ? 
+                                        
+                                            (
+
+                                                <div className="elasticColor">
+
+                                                    <img src={item.image} alt="cor do elástico" />
+
+                                                </div>
+
+                                            ) 
+                                            
+                                                : 
+                                            
+                                            (
+                                            
+                                                <div style={{ backgroundColor: item.colorCode }} className="elasticColor" />
+                                                
+                                            )
+                                            
+                                        }
 
                                         <input
 
@@ -612,7 +642,7 @@ export default function Baiao() {
                     </select>
 
                     <span>
-                        <strong>Observação:</strong>
+                        <strong>Observação: </strong>
                         As entregas por carta registrada e registro módico são formas de envio mais baratas, porém, o envio não é atualizado a todo momento (apenas quando é postado, chegou na sua cidade, saiu para entrega). O envio é feito pelos Correios com um valor fixo de R$ 15,00 para as regiões <strong>Norte e Nordeste</strong>, e R$ 20,00 para as regiões <strong>Sul, Sudeste e Centro-Oeste</strong>.
                     </span>
 
