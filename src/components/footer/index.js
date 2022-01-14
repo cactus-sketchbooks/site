@@ -40,9 +40,9 @@ export default function Footer (props) {
                     <div className="footerSocialMedia">
                         <ul>
                             <li>
-                                <button>
-                                    <Link to='/montar'>Fazer arte</Link>
-                                </button>
+                                {/* <button>
+                                    <Link to='/'>Fazer arte</Link>
+                                </button> */}
                             </li>
                             <li> 
                                 <a href='https://api.whatsapp.com/send?phone=5598982885488' target='_blank' rel="noreferrer">

@@ -81,7 +81,7 @@ function Home() {
 
                     </div>
 
-                    <h2>Selecione um dos modelos acima e conheça mais!</h2>
+                    <h2 id="bottomText">Selecione um dos modelos acima e monte seu Cactus!</h2>
 
                 </section>
 

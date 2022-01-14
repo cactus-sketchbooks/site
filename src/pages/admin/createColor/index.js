@@ -12,7 +12,7 @@ import 'firebase/auth';
 import 'firebase/database';
 import FirebaseConfig from '../../../FirebaseConfig.js'
 
-export default function CreateProduct() {
+export default function CreateColor() {
 
     const [colorData, setColorData] = useState({
 
@@ -78,7 +78,7 @@ export default function CreateProduct() {
 
             setSelectedModels([...selectedModels,
 
-                event.target.value,
+            event.target.value,
 
             ])
 
@@ -126,16 +126,22 @@ export default function CreateProduct() {
 
                 <input id="colorName" name='colorName' onChange={handleColorRegisterChange} placeholder='Nome da cor' />
 
-                <InputMask
-                    id="colorCode"
-                    name="colorCode"
-                    mask="#******"
-                    maskChar=""
-                    onChange={handleColorRegisterChange}
-                    placeholder='Código da cor'
-                />
+                <div className="formatType">
 
-                <input type='file' onChange={uploadImage} accept="image/png, image/jpeg" placeholder='Imagem' />
+                    <InputMask
+                        id="colorCode"
+                        name="colorCode"
+                        mask="#******"
+                        maskChar=""
+                        onChange={handleColorRegisterChange}
+                        placeholder='Código da cor'
+                    />
+
+                    <h2>Ou</h2>
+
+                    <input type='file' onChange={uploadImage} accept="image/png, image/jpeg" />
+
+                </div>
 
                 <div className="modelSelector">
 
@@ -145,42 +151,42 @@ export default function CreateProduct() {
 
                         <div className="checkbox">
 
-                            <input type="checkbox" name="selectedModel" id="baiao" value="baiao" onChange={(event) => checkModel(event)}/>
+                            <input type="checkbox" name="selectedModel" id="baiao" value="baiao" onChange={(event) => checkModel(event)} />
                             <label for="baiao">Baião</label>
 
                         </div>
 
                         <div className="checkbox">
 
-                            <input type="checkbox" name="selectedModel" id="buriti" value="buriti" onChange={(event) => checkModel(event)}/>
+                            <input type="checkbox" name="selectedModel" id="buriti" value="buriti" onChange={(event) => checkModel(event)} />
                             <label for="baiao">Buriti</label>
 
                         </div>
 
                         <div className="checkbox">
 
-                            <input type="checkbox" name="selectedModel" id="carcara" value="carcara" onChange={(event) => checkModel(event)}/>
+                            <input type="checkbox" name="selectedModel" id="carcara" value="carcara" onChange={(event) => checkModel(event)} />
                             <label for="baiao">Carcará</label>
 
                         </div>
 
                         <div className="checkbox">
 
-                            <input type="checkbox" name="selectedModel" id="facheiro" value="facheiro" onChange={(event) => checkModel(event)}/>
+                            <input type="checkbox" name="selectedModel" id="facheiro" value="facheiro" onChange={(event) => checkModel(event)} />
                             <label for="baiao">Facheiro</label>
 
                         </div>
 
                         <div className="checkbox">
 
-                            <input type="checkbox" name="selectedModel" id="mandacaru" value="mandacaru" onChange={(event) => checkModel(event)}/>
+                            <input type="checkbox" name="selectedModel" id="mandacaru" value="mandacaru" onChange={(event) => checkModel(event)} />
                             <label for="baiao">Mandacaru</label>
 
                         </div>
 
                         <div className="checkbox">
 
-                            <input type="checkbox" name="selectedModel" id="sertao" value="sertao" onChange={(event) => checkModel(event)}/>
+                            <input type="checkbox" name="selectedModel" id="sertao" value="sertao" onChange={(event) => checkModel(event)} />
                             <label for="baiao">Sertão</label>
 
                         </div>
@@ -189,7 +195,7 @@ export default function CreateProduct() {
 
                 </div>
 
-                <button onClick={() => { insertNewColor() }}>Inserir cor</button>
+                <button onClick={() => { insertNewColor() }}>Cadastrar cor</button>
 
             </section>
 

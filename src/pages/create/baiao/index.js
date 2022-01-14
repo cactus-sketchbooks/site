@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Slider from "react-slick";
 import { useHistory } from 'react-router-dom'
-import InputMask from 'react-input-mask';
 
 import './style.scss'
 
@@ -29,33 +28,7 @@ export default function Baiao() {
     const [selectedPaper, setSelectedPaper] = useState('')
     const [selectedLineColor, setSelectedLineColor] = useState('')
     const [selectedElasticColor, setSelectedElasticColor] = useState('')
-    const [selectedPickup, setSelectedPickup] = useState('')
-    const [transportData, setTransportData] = useState([]);
-    const [customerCep, setCustomerCep] = useState('')
-    const [redirect, setRedirect] = useState(useHistory());
-    const [paidForm, setPaidForm] = useState(false)
-    const [transportDataVerify, setTransportDataVerify] = useState(false)
-    const [displayCepSearch, setDisplayCepSearch] = useState('none');
-    const [displayTransport, setDisplayTransport] = useState('none');
-    const [displayAddressForms, setDisplayAddressForms] = useState('none');
-    const [selectedTransportData, setSelectedTransportData] = useState({});
-    const [transportValue, setTransportValue] = useState(0);
-    const [totalValue, setTotalValue] = useState(0);
-    const [finalValue, setFinalValue] = useState(0);
     const [clientNote, setClientNote] = useState('');
-
-    const [newDataReceiver, setNewDataReceiver] = useState({
-
-        receiverName: '',
-        receiverPhone: '',
-        receiverAddress: '',
-        receiverHouseNumber: '',
-        receiverComplement: '',
-        receiverDistrict: '',
-        receiverCity: '',
-        receiverCpf: '',
-
-    })
 
     const settings = {
 
@@ -125,184 +98,42 @@ export default function Baiao() {
 
     }
 
-    function handleInputInfosChange(event) {
+    let history = useHistory();
 
-        const { name, value } = event.target
+    function addToCart() {
 
-        setNewDataReceiver({
+        const temp = JSON.parse(localStorage.getItem('products'))
+        var listOfItems = temp !== null ? Object.keys(temp).map((key) => temp[key]) : []
 
-            ...newDataReceiver, [name]: value
+        const newItems = []
 
-        })
+        const dataToSend = {
 
-    }
+            model: 'Baião',
+            paperWidth: selectedPaperWidth,
+            paper: selectedPaper,
+            lineColor: selectedLineColor,
+            elasticColor: selectedElasticColor,
+            coverColors: selectedColors,
+            clientNote: clientNote,
 
-    function handlePickupSelect(event) {
+        }
 
-        const pickup = event.target.value
+        newItems.push(dataToSend)
 
-        setSelectedPickup(pickup)
+        if(listOfItems.lenght > 0) {
 
-        if (pickup === 'Frete por transportadora') {
-
-            setDisplayCepSearch('flex');
+            newItems.map(item => listOfItems.push(item))
+            localStorage.setItem('products', JSON.stringify(listOfItems))
 
         } else {
 
-            setDisplayCepSearch('none');
+            newItems.map(item => listOfItems.push(item))
+            localStorage.setItem('products', JSON.stringify(listOfItems))
 
         }
 
-        if (pickup !== 'Retirada física') {
-
-            setDisplayAddressForms('flex');
-
-        } else {
-
-            setDisplayAddressForms('none');
-            setTransportDataVerify(true)
-
-        }
-
-    }
-
-    function handleInputCep(event) {
-
-        setCustomerCep(event.target.value)
-
-    }
-
-    const dataToSend = {
-        "from": {
-            "postal_code": "28909120"
-        },
-        "to": {
-            "postal_code": customerCep
-        },
-        "package": {
-            "height": 4,
-            "width": 12,
-            "length": 17,
-            "weight": 0.3
-        }
-    }
-
-    const calculaFrete = async () => {
-
-        await fetch('https://melhorenvio.com.br/api/v2/me/shipment/calculate', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${process.env.REACT_APP_BEARER_KEY} `,
-                'User-Agent': 'Armazém teste higorb2000@gmail.com'
-            },
-            body: JSON.stringify(dataToSend)
-        }).then((response) => {
-            return response.json();
-        }).then((data) => {
-            setTransportData(data)
-            setDisplayTransport('flex')
-            console.log(data)
-        }).catch(err => console.log(err))
-    };
-
-    function handleSelectedTransport(item, event) {
-
-        setSelectedTransportData(event)
-        console.log(event)
-
-        setTransportValue(Number(event.custom_price))
-
-        setFinalValue(totalValue + Number(event.custom_price))
-
-    }
-
-
-    function sendOrder() {
-
-        if (userIsLogged) {
-
-            // if (selectedPayment !== '' && pickupSelect !== '') {
-
-            //     if (transportDataVerify === true) {
-
-            const id = firebase.database().ref().child('posts').push().key
-            const now = new Date()
-
-            const dataToSend = {
-
-                id: id,
-                paperWidth: selectedPaperWidth,
-                paper: selectedPaper,
-                lineColor: selectedLineColor,
-                elasticColor: selectedElasticColor,
-                coverColors: selectedColors,
-                pickupOption: selectedPickup,
-                userName: newDataReceiver.receiverName,
-                phoneNumber: newDataReceiver.receiverPhone,
-                address: newDataReceiver.receiverAddress,
-                houseNumber: newDataReceiver.receiverHouseNumber,
-                complement: newDataReceiver.receiverComplement,
-                district: newDataReceiver.receiverDistrict,
-                city: newDataReceiver.receiverCity,
-                cpf: newDataReceiver.receiverCpf,
-                cepNumber: customerCep,
-                clientNote: clientNote,
-
-                // totalValue: finalValue.toFixed(2),
-                // userName: newDataReceiver.receiverName,
-                // phoneNumber: newDataReceiver.receiverPhone,
-                // address: newDataReceiver.receiverAddress,
-                // houseNumber: newDataReceiver.receiverHouseNumber,
-                // complement: newDataReceiver.receiverComplement,
-                // district: newDataReceiver.receiverDistrict,
-                // city: newDataReceiver.receiverCity,
-                // cpf: newDataReceiver.receiverCpf,
-                // cepNumber: customerCep,
-                // paymentType: selectedPayment,
-                // clientNote: clientNote,
-                // userEmail: dataAccount.email,
-                // voucher: choosedVoucher,
-                // pickupOption: pickupSelect,
-                // paymentProof: '',
-                // adminNote: '',
-                // requestStatus: '',
-                // selectedTransport: selectedTransportData.company.name,
-                // dateToCompare: new Date().toDateString(),
-                // date: `${now.getUTCDate()}/${now.getMonth()}/${now.getFullYear()}-${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`
-
-            }
-
-            firebase.database().ref('requests/' + id).set(dataToSend)
-                .then(() => {
-                    // setPurchasedProductData(dataToSend)
-                })
-
-            firebase.database().ref('reportsSales/' + id).set(dataToSend)
-                .then(() => {
-                    // setPurchasedProductData(dataToSend)
-                    alert("Pedido finalizado com sucesso!.")
-                })
-
-            setPaidForm(true)
-
-            //     } else alert('Você precisa preencher todos os campos!')
-
-            // } else alert('Você precisa selecionar todos os campos!')
-
-        }
-
-        else {
-
-            var confirm = window.confirm("Você precisa ter uma conta para finalizar um pedido!")
-
-            if (confirm)
-                redirect.push("/cadastro")
-
-        }
-
-        return 0;
+        history.push('/Carrinho')
 
     }
 
@@ -335,8 +166,6 @@ export default function Baiao() {
             }
 
         }
-
-        console.log(selectedColors)
 
     }
 
@@ -404,7 +233,7 @@ export default function Baiao() {
                         <option value="0" selected disabled>Tamanho do papel</option>
                         <option value="21x21">21x21</option>
                         <option value="15x15">15x15</option>
-                        <option value="10x10">10x10</option>
+                        <option newTag="test" value="10x10">10x10</option>
 
                     </select>
 
@@ -430,8 +259,6 @@ export default function Baiao() {
 
                 </fieldset>
 
-                
-
                 <div className="textWrapper">
 
                     <div className="textBackground">
@@ -454,22 +281,22 @@ export default function Baiao() {
 
                                 <div className="cardColor">
 
-                                    {item.image ? 
-                                    
+                                    {item.image ?
+
                                         (<div key={item.id} className="colorBox">
 
                                             <img src={item.image} alt="cor" />
 
                                         </div>)
-                                    
-                                    : 
-                                    
+
+                                        :
+
                                         (<div key={item.id} style={{ backgroundColor: item.colorCode }} className="colorBox">
 
                                             <p>{item.colorCode}</p>
 
                                         </div>)
-                                    
+
                                     }
 
                                     <div className="colorName">
@@ -518,27 +345,27 @@ export default function Baiao() {
 
                                     <div className="colorWrapper">
 
-                                    {item.image ? 
-                                        
-                                        (
+                                        {item.image ?
 
-                                            <div className="elasticColor">
+                                            (
 
-                                                <img src={item.image} alt="cor do elástico" />
+                                                <div className="elasticColor">
 
-                                            </div>
+                                                    <img src={item.image} alt="cor do elástico" />
 
-                                        ) 
-                                        
-                                            : 
-                                        
-                                        (
-                                        
-                                            <div style={{ backgroundColor: item.colorCode }} className="elasticColor" />
-                                            
-                                        )
-                                        
-                                    }
+                                                </div>
+
+                                            )
+
+                                            :
+
+                                            (
+
+                                                <div style={{ backgroundColor: item.colorCode }} className="elasticColor" />
+
+                                            )
+
+                                        }
 
                                         <input
 
@@ -583,8 +410,8 @@ export default function Baiao() {
 
                                     <div className="colorWrapper">
 
-                                        {item.image ? 
-                                        
+                                        {item.image ?
+
                                             (
 
                                                 <div className="elasticColor">
@@ -593,16 +420,16 @@ export default function Baiao() {
 
                                                 </div>
 
-                                            ) 
-                                            
-                                                : 
-                                            
-                                            (
-                                            
-                                                <div style={{ backgroundColor: item.colorCode }} className="elasticColor" />
-                                                
                                             )
-                                            
+
+                                            :
+
+                                            (
+
+                                                <div style={{ backgroundColor: item.colorCode }} className="elasticColor" />
+
+                                            )
+
                                         }
 
                                         <input
@@ -627,119 +454,7 @@ export default function Baiao() {
 
                 </section>
 
-                <div className="finishOrder">
-
-                    <h2>Finalização do pedido</h2>
-
-                    <select className="pickupSelect" onChange={handlePickupSelect} >
-
-                        <option value=''>Selecione como deseja receber sua encomenda</option>
-                        <option value='Entrega a domicílio'>Entrega a domicílio (Para toda São Luís - MA)</option>
-                        <option value="Frete por transportadora" >Entrega por transportadora</option>
-                        <option value="Impresso módico ou Carta registrada" >Impresso módico ou Carta registrada</option>
-                        <option value="Retirada física" >Retirada física: Travessa da Lapa - 162 - Centro/Desterro (Próximo à sorveteria do Iguaíba)</option>
-
-                    </select>
-
-                    <span>
-                        <strong>Observação: </strong>
-                        As entregas por carta registrada e registro módico são formas de envio mais baratas, porém, o envio não é atualizado a todo momento (apenas quando é postado, chegou na sua cidade, saiu para entrega). O envio é feito pelos Correios com um valor fixo de R$ 15,00 para as regiões <strong>Norte e Nordeste</strong>, e R$ 20,00 para as regiões <strong>Sul, Sudeste e Centro-Oeste</strong>.
-                    </span>
-
-                    <label style={{ display: displayCepSearch }} for="cepNumber">Insira o CEP abaixo</label>
-                    <InputMask id="CepNumber" name='cepNumber' type='text' mask="99999-999" maskChar="" style={{ display: displayCepSearch }} onChange={handleInputCep} placeholder="CEP" />
-
-                    <button style={{ display: displayCepSearch }} onClick={() => { calculaFrete() }}>Calcular frete</button>
-
-                    <div className="transportInfos" style={{ display: displayTransport }}>
-
-                        <h1>Selecione a opção de envio abaixo</h1>
-
-                        {transportData.map((item, index) => {
-
-                            if (item.id === 1 || item.id === 2 || item.id === 3) {
-
-                                if (!item.error) {
-
-                                    return (
-
-                                        <div className="optionsTransport">
-
-                                            <div className="radioButton">
-
-                                                <input onClick={(e) => handleSelectedTransport(e, item, index)} type="radio" name="selectedTransport" key={item.id} value={item.name} />
-
-                                            </div>
-
-                                            <div className="transportLogoWrapper">
-
-                                                <img src={item.company.picture} alt={item.company.name} />
-
-                                            </div>
-
-                                            <div className="textTransportInfos">
-
-                                                <span>{item.company.name} ({item.name})</span>
-                                                <span><strong>R$ {item.custom_price}</strong></span>
-                                                <span>Prazo de entrega: <strong>{item.custom_delivery_time} dias úteis</strong></span>
-
-                                            </div>
-
-                                        </div>
-
-                                    )
-                                }
-                            }
-
-                        })}
-
-                    </div>
-
-                    <div style={{ display: displayAddressForms }} className="transportDiv">
-
-                        <h2>Insira os dados para entrega abaixo</h2>
-
-                        <div className="userInfos">
-
-                            <input name='receiverName' onChange={handleInputInfosChange} placeholder='Nome do destinatário' value={newDataReceiver.receiverName} />
-
-                            {/* <input name='receiverPhone' onChange={handleInputInfosChange} placeholder='Telefone' value={newDataReceiver.receiverPhone} /> */}
-                            <InputMask
-                                id="receiverPhone"
-                                name='receiverPhone'
-                                type='text'
-                                mask="(99) 99999-9999"
-                                maskChar=""
-                                onChange={handleInputInfosChange}
-                                placeholder='Telefone'
-                                value={newDataReceiver.receiverPhone}
-                            />
-
-                            <input name='receiverAddress' onChange={handleInputInfosChange} placeholder='Endereço de entrega' value={newDataReceiver.receiverAddress} />
-
-                            <input name='receiverHouseNumber' onChange={handleInputInfosChange} placeholder='Número da residência' value={newDataReceiver.receiverHouseNumber} />
-
-                            <input name='receiverComplement' onChange={handleInputInfosChange} placeholder='Complemento' value={newDataReceiver.receiverComplement} />
-
-                            <input name='receiverDistrict' onChange={handleInputInfosChange} placeholder='Bairro' value={newDataReceiver.receiverDistrict} />
-
-                            <input name='receiverCity' onChange={handleInputInfosChange} placeholder='Cidade' value={newDataReceiver.receiverCity} />
-
-                            {/* <input name='receiverCpf' onChange={handleInputInfosChange} placeholder='CPF' value={newDataReceiver.receiverCpf} /> */}
-                            <InputMask
-                                id="receiverCpf"
-                                name='receiverCpf'
-                                type='text'
-                                mask="999.999.999-99"
-                                maskChar=""
-                                onChange={handleInputInfosChange}
-                                placeholder='CPF'
-                                value={newDataReceiver.receiverCpf}
-                            />
-
-                        </div>
-
-                    </div>
+                <div className="additionalInfos">
 
                     <label for="additionalInfos">Informações adicionais <strong>(opcional)</strong></label>
 
@@ -752,14 +467,14 @@ export default function Baiao() {
 
                     {isValidated ? (
 
-                        <button onClick={() => sendOrder()}>Finalizar</button>
+                        <button onClick={() => addToCart()}>Finalizar</button>
 
                     ) : (
 
                         <>
 
                             <button disabled>Finalizar</button>
-                            <p>Você deve blabla</p>
+                            <p>Você deve selecionar duas cores no máximo para a sua capa</p>
 
                         </>
 
