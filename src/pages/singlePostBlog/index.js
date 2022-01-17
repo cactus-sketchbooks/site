@@ -19,7 +19,6 @@ export default function SinglePost() {
     const [dataBlog, setDataBlog] = useState([{}]);
     const [dataBlogExists, setDataBlogExists] = useState(false)
 
-    // const location = useLocation();
     const idPost = useParams().idPost
 
     window.scrollTo(0, 0)
@@ -50,12 +49,6 @@ export default function SinglePost() {
 
     }, []);
 
-    // useEffect(() => {
-
-    //     setPath(location.pathname.split("/")[2]);
-
-    // }, [])
-
     useEffect(() => {
 
         setPath(idPost)
@@ -69,6 +62,7 @@ export default function SinglePost() {
             if (post.id === path) {
 
                 setDataPost(post)
+                console.log(post)
 
             }
 
@@ -84,100 +78,42 @@ export default function SinglePost() {
 
             <section id="PostSection">
 
-                <div className="authorInfos">
+                <div className="textIntroWrapper">
 
-                    <div className="postImageWrapper">
-
-                        <Link to="/blog"> Voltar aos posts </Link>
-
-                        <img src={dataPost.imageUrl} alt="imagem da capa" />
-
-                    </div>
-
-                    <div className="authorWrapper">
-
-                        <div className="pictureWrapper">
-
-                            {dataPost.authorPicture ? (
-
-                                <img src={dataPost.authorPicture} alt="Foto do autor" />
-
-                            ) : (
-
-                                <p></p>
-
-                            )}
-
-                        </div>
-
-                        <div className="textInfos">
-
-                            <h1 title={dataPost.author}>{dataPost.author}</h1>
-                            <h5>{dataPost.date}</h5>
-
-                        </div>
-
-                        <div className="hashtags">
-
-                            {dataPost.hashtags ? (
-
-                                dataPost.hashtags.map((hashtag => {
-
-                                    return (
-
-                                        <span>{hashtag}</span>
-
-                                    )
-
-                                }))
-
-
-                                )
-
-                                :
-
-                                (
-
-                                    <p></p>
-
-                                )
-                            }
-
-                        </div>
-
-                    </div>
+                    {/* <h1>{dataPost.title}</h1> */}
+                    <h1>Lorem ipsum, dolor sit amet consectetur adipisicing</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur voluptatum id minus accusantium! Sunt, velit.</p>
 
                 </div>
 
-                <div className="postInfos">
+                <div className="postImgWrapper">
 
-                    <h1>{dataPost.title}</h1>
+                    <img src={dataPost.imageUrl} alt="imagem" />
 
-                    <h3>{dataPost.desc}</h3>
+                </div>
 
-                    <div className="paragraphPost">
+                <div className="postContent">
 
-                        {
-                            Array(dataPost.paragraphs).map((item) => (
+                    <div className="headingInfos">
 
-                                <div className="paragraphsDiv">
-                                    <p>{item}{"\n"}</p>
-                                </div>
+                        <div className="authorPictureWrapper">
 
-                            ))
-                        }
+                            <img src={dataPost.authorPicture} alt="" />
+
+                        </div>
+
+                        <span>Por {dataPost.author}</span>
+
+                        <span>{dataPost.date}</span>
 
                     </div>
 
-                    {dataPost.file ? (
+                    <div className="postTextContent">
 
-                        <a href={dataPost.file} target="_blank">Acessar arquivo disponibilizado</a>
+                        {/* <h3>{dataPost.title}</h3> */}
+                        <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque corporis quos, illum aut ad illo!</h3>
 
-                    ) : (
-
-                        <p></p>
-
-                    )}
+                    </div>
 
                 </div>
 

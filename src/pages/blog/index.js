@@ -7,7 +7,7 @@ import Footer from '../../components/footer'
 import firebase from 'firebase/app';
 import firebaseConfig from '../../FirebaseConfig.js'
 
-import './style.scss';
+import './style2.scss';
 
 export default function Clients() {
 
@@ -54,17 +54,76 @@ export default function Clients() {
 
             <main id='mainBlog'>
 
-                <h1>Bem-vindos ao Blog da Cactus</h1>
+                <h1>Use e Apareça!</h1>
 
                 <div className="cardsWrapper">
 
-                    {dataBlog.map((item) => {
+                    {dataBlog.map((item, index) => (
 
-                        return (
+                        <>
 
-                            <Link key={dataBlog.id} to={`/post/${item.id}`} className="blogCard">
+                            {index === 0 ? (
 
-                                <div className="thumbWrapper">
+                                <Link key={dataBlog.id} to={`/post/${item.id}`} className="blogCard">
+
+                                    <div className="blogImgWrapper">
+
+                                        <img src={item.imageUrl} alt="imagem" />
+
+                                    </div>
+
+                                    <div className="blogTextWrapper">
+
+                                        <span>Publicado em {item.date}</span>
+                                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, magni.</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum quod inventore quia aliquid cumque est minus temporibus. Tenetur, ipsa rem.</p>
+                                        {/* <h3>{item.title}</h3>
+                                        <p>{item.desc}</p> */}
+
+                                    </div>
+
+                                </Link>
+
+                            ) : (
+
+                                <Link key={dataBlog.id} to={`/post/${item.id}`} className="smallBlogCard">
+
+                                    <div className="smallBlogImgWrapper">
+
+                                        <img src={item.imageUrl} alt="" />
+
+                                    </div>
+
+                                    <div className="smallBlogTextWrapper">
+
+                                        <span>Publicado em {item.date}</span>
+                                        <h3>{item.title}</h3>
+                                        <p>{item.desc}</p>
+
+                                    </div>
+
+                                </Link>
+
+                            )}
+
+                        </>
+
+                    ))}
+
+                </div>
+
+            </main>
+
+            <Footer />
+
+        </section>
+
+    )
+
+}
+
+
+{/* <div className="thumbWrapper">
 
                                     <img draggable="false" src={item.imageUrl} alt="" />
 
@@ -138,22 +197,4 @@ export default function Clients() {
 
                                     </div>
 
-                                </div>
-
-                            </Link>
-
-                        )
-
-                    })}
-
-                </div>
-
-            </main>
-
-            <Footer />
-
-        </section>
-
-    )
-
-}
+                                </div> */}

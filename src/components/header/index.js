@@ -121,7 +121,7 @@ export default function Header() {
 
                 <div onClick={scrollToTop} className='logo' >
 
-                    <Link to="/"> <img src={logo} alt="Logo" /> </Link>
+                    <Link to="/"> <img src={logo} alt="Logo" /></Link>
 
                 </div>
 
@@ -135,10 +135,10 @@ export default function Header() {
                                 <li><Link onClick={scrollToTop} to="/sobre"> Quem Somos </Link></li>
                                 <li><Link onClick={scrollToTop} to="/admin"> Admin </Link></li>
                                 <li><Link onClick={scrollToTop} to="/contato"> Contato </Link></li>
-                                <li><Link onClick={scrollToTop} to="/blog"> Nossos Clientes </Link></li>
+                                <li><Link onClick={scrollToTop} to="/nossosClientes"> Nossos Clientes </Link></li>
                                 <li><Link onClick={scrollToTop} to="/carrinho"> Carrinho </Link></li>
                                 <li><Link onClick={scrollToTop} to="/login"> Login </Link></li>
-                            </ul>
+                            </ul> 
 
                         </>
 
@@ -149,7 +149,7 @@ export default function Header() {
                             <ul>
                                 <li><Link onClick={scrollToTop} to="/sobre"> Quem Somos </Link></li>
                                 <li><Link onClick={scrollToTop} to="/contato"> Contato </Link></li>
-                                <li><Link onClick={scrollToTop} to="/blog"> Nossos Clientes </Link></li>
+                                <li><Link onClick={scrollToTop} to="/nossosClientes"> Nossos Clientes </Link></li>
                                 <li><Link onClick={scrollToTop} to="/carrinho"> Carrinho </Link></li>
                                 <li><Link onClick={scrollToTop} to="/login"> Login </Link></li>
                             </ul>
@@ -191,7 +191,7 @@ export default function Header() {
                             <li><Link to="/sobre"> Quem Somos </Link></li>
                             <li><Link to="/admin"> Adim </Link></li>
                             <li><Link to="/contato"> Contato </Link></li>
-                            <li><Link to="/blog"> Nossos Clientes </Link></li>
+                            <li><Link to="/nossosClientes"> Nossos Clientes </Link></li>
                             <li><Link to="/carrinho"> Carrinho </Link></li>
                             <li><Link to="/login"> Login </Link></li>
                         </ul>
@@ -207,7 +207,7 @@ export default function Header() {
                             <li><Link to="/sobre"> Quem Somos </Link></li>
                             <li><Link to="/admin"> Admin </Link></li>
                             <li><Link to="/contato"> Contato </Link></li>
-                            <li><Link to="/blog"> Nossos Clientes </Link></li>
+                            <li><Link to="/nossosClientes"> Nossos Clientes </Link></li>
                             <li><Link to="/carrinho"> Carrinho </Link></li>
                             <li><Link to="/login"> Login </Link></li>
 

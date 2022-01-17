@@ -307,6 +307,7 @@ export default function Baiao() {
                                             type="checkbox"
                                             value={index}
                                             onChange={(event) => checkColor(item, event)}
+                                            style={{ accentColor: item.colorCode }}
                                         />
 
                                     </div>
@@ -375,6 +376,7 @@ export default function Baiao() {
                                             key={item.id}
                                             value={item.name}
                                             className="checkbox"
+                                            style={{ accentColor: item.colorCode }}
 
                                         />
 
@@ -439,6 +441,7 @@ export default function Baiao() {
                                             name="selectedElasticColor"
                                             key={item.id}
                                             value={item.name}
+                                            style={{ accentColor: item.colorCode }}
 
                                         />
 
@@ -473,8 +476,8 @@ export default function Baiao() {
 
                         <>
 
+                            <p>Você deve selecionar <strong>duas cores no máximo</strong> para a sua capa</p>
                             <button disabled>Finalizar</button>
-                            <p>Você deve selecionar duas cores no máximo para a sua capa</p>
 
                         </>
 

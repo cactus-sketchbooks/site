@@ -35,7 +35,7 @@ const Routes = () => {
             <Route component={Login} path='/login' />
             <Route component={SignUp} path='/cadastro' />
             <Route component={Profile} path='/Perfil' />
-            <Route component={Blog} path='/blog' />
+            <Route component={Blog} path='/nossosClientes' />
             <Route component={SinglePostBlog} path='/post/:idPost' />
             <Route component={BlogAdm} path='/blogadmin'/>
             <Route component={Mandacaru} path='/mandacaru' />

@@ -110,9 +110,9 @@ export default function Admin() {
                     <ul>
 
                         <Link to="/listaDeClientes">Lista de clientes</Link>
-                        <Link to="/cadastroAdmin">Cadastrar/Alterar produtos</Link>
+                        <Link to="/cadastroAdmin">Cadastrar cores</Link>
                         <Link to=""> Pedidos em andamento</Link>
-                        <Link to="">Alterar conteúdo</Link>
+                        <Link to="">Alterar conteúdo das páginas</Link>
 
                     </ul>
 

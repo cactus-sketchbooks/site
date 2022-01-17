@@ -281,7 +281,7 @@ $amarelo: #ffff00;
 
     }
 
-    #RadioSelectionColors{
+    #RadioSelectionColors {
 
         display: flex;
         width: 100%;
@@ -358,6 +358,8 @@ $amarelo: #ffff00;
         label {
     
             font-weight: 500;
+            margin-bottom: 1rem;
+            color: $offWhite;
     
         }
     
@@ -374,6 +376,21 @@ $amarelo: #ffff00;
             background-color: $dark-green;
             color: $branco;
     
+        }
+
+        p {
+            background: rgba( 222, 208, 64, 0.25 );
+            box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.24);
+            backdrop-filter: blur( 4px );
+            -webkit-backdrop-filter: blur( 4px );
+            border-radius: 5px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+            // border-radius: 5px;
+            // margin-bottom: 1rem;
+            // background-color: $yellow-green;
+            // //color: $offBlack;
+            margin-bottom: 1rem;
+            padding: 1rem;
         }
 
     }
