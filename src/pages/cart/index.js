@@ -25,6 +25,8 @@ import FirebaseConfig from '../../FirebaseConfig.js'
 export default function Cart() {
 
     const [data, setData] = useState([]);
+    const [dataUsers, setDataUsers] = useState([]);
+    const [dataAccount, setDataAccount] = useState([]);
     const [dataExists, setDataExists] = useState(false);
     const [userIsLogged, setUserIsLogged] = useState(false);
     const [selectedPickup, setSelectedPickup] = useState('')
@@ -139,6 +141,16 @@ export default function Cart() {
         });
 
     }
+
+    useEffect(() => {
+
+        window.scrollTo(0, 0);
+
+        if (!firebase.apps.length)
+            firebase.initializeApp(FirebaseConfig);
+        onAuthStateChanged()
+
+    }, [])
 
     useEffect(async () => {
 
@@ -352,6 +364,35 @@ export default function Cart() {
         }
     })
 
+    useEffect(() => {
+
+        const userEmail = localStorage.getItem('userEmail')
+
+        firebase.database().ref('users/').get('/users')
+            .then(function (snapshot) {
+
+                if (snapshot.exists()) {
+
+                    var data = snapshot.val()
+                    var temp = Object.keys(data).map((key) => data[key])
+
+                    setDataUsers(temp)
+
+                    temp.map((item) => {
+
+                        if (item.email === userEmail) {
+                            setDataAccount(item)
+                        }
+
+                    })
+
+                } else
+                    console.log("No data available");
+
+            })
+
+    }, []);
+
     function sendOrder() {
 
         if (userIsLogged) {
@@ -366,59 +407,44 @@ export default function Cart() {
             const dataToSend = {
 
                 id: id,
-                // paperWidth: selectedPaperWidth,
-                // paper: selectedPaper,
-                // lineColor: selectedLineColor,
-                // elasticColor: selectedElasticColor,
-                // coverColors: selectedColors,
-                // pickupOption: selectedPickup,
-                // userName: newDataReceiver.receiverName,
-                // phoneNumber: newDataReceiver.receiverPhone,
-                // address: newDataReceiver.receiverAddress,
-                // houseNumber: newDataReceiver.receiverHouseNumber,
-                // complement: newDataReceiver.receiverComplement,
-                // district: newDataReceiver.receiverDistrict,
-                // city: newDataReceiver.receiverCity,
-                // cpf: newDataReceiver.receiverCpf,
-                // cepNumber: customerCep,
-                // clientNote: clientNote,
+                products: data,
+                pickupOption: pickupSelect,
+                payment: selectedPayment,
+                selectedTransport: selectedTransportData,
+                userEmail: dataAccount.email,
+                cepNumber: customerCep,
+                userName: newDataReceiver.receiverName ? newDataReceiver.receiverName : dataAccount.name,
+                phoneNumber: newDataReceiver.receiverPhone ? newDataReceiver.receiverPhone : dataAccount.phoneNumber,
+                address: newDataReceiver.receiverAddress ? newDataReceiver.receiverAddress : dataAccount.address,
+                houseNumber: newDataReceiver.receiverHouseNumber ? newDataReceiver.receiverHouseNumber : dataAccount.houseNumber,
+                complement: newDataReceiver.receiverComplement ? newDataReceiver.receiverComplement : dataAccount.complement,
+                district: newDataReceiver.receiverDistrict ? newDataReceiver.receiverDistrict : dataAccount.district,
+                city: newDataReceiver.receiverCity ? newDataReceiver.receiverCity : dataAccount.city,
+                cpf: newDataReceiver.receiverCpf ? newDataReceiver.receiverCpf : '',
+                paymentProof: '',
+                adminNote: '',
+                requestStatus: '',
+                dateToCompare: new Date().toDateString(),
+                date: `${now.getUTCDate()}/${now.getMonth()}/${now.getFullYear()}-${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`
 
                 // totalValue: finalValue.toFixed(2),
-                // userName: newDataReceiver.receiverName,
-                // phoneNumber: newDataReceiver.receiverPhone,
-                // address: newDataReceiver.receiverAddress,
-                // houseNumber: newDataReceiver.receiverHouseNumber,
-                // complement: newDataReceiver.receiverComplement,
-                // district: newDataReceiver.receiverDistrict,
-                // city: newDataReceiver.receiverCity,
-                // cpf: newDataReceiver.receiverCpf,
-                // cepNumber: customerCep,
-                // paymentType: selectedPayment,
-                // clientNote: clientNote,
-                // userEmail: dataAccount.email,
-                // voucher: choosedVoucher,
-                // pickupOption: pickupSelect,
-                // paymentProof: '',
-                // adminNote: '',
-                // requestStatus: '',
-                // selectedTransport: selectedTransportData.company.name,
-                // dateToCompare: new Date().toDateString(),
-                // date: `${now.getUTCDate()}/${now.getMonth()}/${now.getFullYear()}-${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`
 
             }
 
-            firebase.database().ref('requests/' + id).set(dataToSend)
-                .then(() => {
-                    // setPurchasedProductData(dataToSend)
-                })
+            console.log(dataToSend)
 
-            firebase.database().ref('reportsSales/' + id).set(dataToSend)
-                .then(() => {
-                    // setPurchasedProductData(dataToSend)
-                    alert("Pedido finalizado com sucesso!.")
-                })
+            // firebase.database().ref('requests/' + id).set(dataToSend)
+            //     .then(() => {
+            //         setPurchasedProductData(dataToSend)
+            //     })
 
-            setPaidForm(true)
+            // firebase.database().ref('reportsSales/' + id).set(dataToSend)
+            //     .then(() => {
+            //         setPurchasedProductData(dataToSend)
+            //         alert("Pedido finalizado com sucesso!.")
+            //     })
+
+            // setPaidForm(true)
 
             //     } else alert('Você precisa preencher todos os campos!')
 
@@ -496,7 +522,6 @@ export default function Cart() {
                                             <li><strong>Tamanho:</strong> {product.paperWidth}</li>
                                             <li><strong>Papel do miolo:</strong> {product.paper}</li>
 
-
                                             <li id="coverColor">
 
                                                 <strong>Cor da capa: </strong>
@@ -512,9 +537,19 @@ export default function Cart() {
 
                                             </li>
 
-
                                             <li><strong>Cor do elástico:</strong> {product.elasticColor.colorName}</li>
                                             <li><strong>Cor da linha:</strong> {product.lineColor.colorName}</li>
+
+                                            {product.clientNote ? (
+
+                                                <li><strong>Observações:</strong> {product.clientNote}</li>
+
+
+                                            ) : (
+
+                                                ''
+
+                                            )}
 
                                         </ul>
 
@@ -539,7 +574,7 @@ export default function Cart() {
 
                                 <select className="pickupSelect" onChange={handlePickupSelect} >
 
-                                    <option value=''>Selecione como deseja receber sua encomenda</option>
+                                    <option disabled selected value=''>Selecione como deseja receber sua encomenda</option>
                                     <option value='Entrega a domicílio'>Entrega a domicílio (Para toda São Luís - MA)</option>
                                     <option value="Frete por transportadora" >Entrega por transportadora</option>
                                     <option value="Impresso módico ou Carta registrada" >Impresso módico ou Carta registrada</option>
@@ -651,8 +686,7 @@ export default function Cart() {
 
                                     <option value=''>Selecione o tipo de pagamento</option>
                                     <option value="Dinheiro" >Dinheiro (apenas para entregas na região)</option>
-                                    <option value="Débito (máquina)" >Cartão de débito (máquina)</option>
-                                    <option value="Crédito (máquina)" >Cartão de crédito (máquina)</option>
+                                    <option value="Cartão (máquina)" >Cartão na entrega (apenas para entregas na região)</option>
                                     <option value="PayPal" >PayPal </option>
                                     <option value="Cartão" >Cartão </option>
                                     <option value="Pix" >Pix</option>
@@ -665,7 +699,7 @@ export default function Cart() {
 
                                     <a href="/">Continuar comprando...</a>
                                     <h3>Preço: R$ 60,00</h3>
-                                    <button>Concluir compra!</button>
+                                    <button onClick={sendOrder}>Concluir compra!</button>
 
                                 </div>
 

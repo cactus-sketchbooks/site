@@ -121,7 +121,7 @@ export default function Baiao() {
 
         newItems.push(dataToSend)
 
-        if(listOfItems.lenght > 0) {
+        if (listOfItems.lenght > 0) {
 
             newItems.map(item => listOfItems.push(item))
             localStorage.setItem('products', JSON.stringify(listOfItems))
@@ -171,7 +171,7 @@ export default function Baiao() {
 
     useEffect(() => {
 
-        if (checkedBoxes > 2) {
+        if (selectedPaperWidth == '' || selectedPaper == '' || selectedLineColor == '' || selectedElasticColor == '' || (checkedBoxes > 2 || checkedBoxes == 0)) {
 
             setIsValidated(false)
 
@@ -181,9 +181,7 @@ export default function Baiao() {
 
         }
 
-        console.log('checkedBoxes', checkedBoxes)
-
-    }, [checkedBoxes])
+    }, [selectedPaperWidth, selectedPaper, selectedLineColor, selectedElasticColor, checkedBoxes])
 
     function handleSelectedLineColor(item, event) {
 
@@ -476,7 +474,7 @@ export default function Baiao() {
 
                         <>
 
-                            <p>Você deve selecionar <strong>duas cores no máximo</strong> para a sua capa</p>
+                            <p>Você deve selecionar <strong>todas as opções</strong> antes de finalizar seu sketchbook</p>
                             <button disabled>Finalizar</button>
 
                         </>

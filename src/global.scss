@@ -299,6 +299,8 @@ $amarelo: #ffff00;
             .lineColorWrapper, .elasticColorWrapper {
 
                 display: flex;
+                align-items: center;
+                justify-content: center;
                 width: 30vw;
                 flex-wrap: wrap;
                 background-color: $offWhite;

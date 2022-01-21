@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 
+import instagram from '../../images/instagram2.svg'
+import behance from '../../images/behance.svg'
+
 import firebase from 'firebase/app';
 import "firebase/firestore";
 import "firebase/database";
@@ -62,7 +65,6 @@ export default function SinglePost() {
             if (post.id === path) {
 
                 setDataPost(post)
-                console.log(post)
 
             }
 
@@ -72,50 +74,50 @@ export default function SinglePost() {
 
     return (
 
-        <main>
+        <main id="MainBlog">
 
-            <Header />
-
-            <section id="PostSection">
-
-                <div className="textIntroWrapper">
-
-                    {/* <h1>{dataPost.title}</h1> */}
-                    <h1>Lorem ipsum, dolor sit amet consectetur adipisicing</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur voluptatum id minus accusantium! Sunt, velit.</p>
-
-                </div>
+            <section id="PostAuthorSection">
 
                 <div className="postImgWrapper">
 
-                    <img src={dataPost.imageUrl} alt="imagem" />
+                    <img src={dataPost.imageUrl} alt="" />
 
                 </div>
 
-                <div className="postContent">
+                <Link to="/nossosClientes">Voltar</Link>
 
-                    <div className="headingInfos">
+                <div className="authorImgWrapper">
 
-                        <div className="authorPictureWrapper">
+                    <img src={dataPost.authorPicture} alt="" />
 
-                            <img src={dataPost.authorPicture} alt="" />
+                </div>
+                
+                <span>Fulano de tal</span>
 
-                        </div>
+                <div className="socialMediaWrapper">
 
-                        <span>Por {dataPost.author}</span>
+                    <div className="socialMedias">
 
-                        <span>{dataPost.date}</span>
+                        <img src={instagram} alt="" />
 
                     </div>
 
-                    <div className="postTextContent">
+                    <div className="socialMedias">
 
-                        {/* <h3>{dataPost.title}</h3> */}
-                        <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque corporis quos, illum aut ad illo!</h3>
+                        <img src={behance} alt="" />
 
                     </div>
 
                 </div>
+
+            </section>
+
+            <section id="PostTextSection">
+
+                <h1>Lorem ipsum dolor sit amet, consectetur adipisicing.</h1>
+                <span>Publicado em {dataPost.date}</span>
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, dolorem quam nisi mollitia ipsa quo sed tempora vel, unde quos earum pariatur soluta velit blanditiis reiciendis perspiciatis rerum sint consectetur debitis ipsum. Explicabo eos, dolores magnam sequi quod rerum hic tempore consectetur voluptas deleniti praesentium veritatis deserunt eius. Consectetur omnis eos enim natus. Quia, minima ex vitae velit libero id exercitationem illo voluptates labore doloribus delectus impedit obcaecati molestias facilis accusantium corporis maiores cupiditate unde placeat minus suscipit ad ab architecto. Cumque placeat culpa doloremque pariatur, fuga est veniam deserunt, iste, iusto enim vel nobis accusamus nostrum illo quidem ipsum? Maiores unde deserunt veniam quod inventore vel nobis pariatur ullam dolor maxime nemo qui quibusdam, at eligendi iste aut consequuntur rerum. Voluptatem quos eos voluptas et hic ipsa at ea aut quibusdam ex, atque labore harum magni nihil ab expedita rerum, facilis ipsum. Dignissimos, aspernatur neque? Eius animi ea debitis delectus illo id, itaque corrupti possimus! Nihil iure beatae atque rem itaque vel provident ducimus illum id reiciendis, pariatur quo rerum voluptate voluptatum neque consectetur libero voluptates! Laudantium omnis atque excepturi dolor, vitae recusandae inventore. Unde laborum asperiores reiciendis quo ipsa! Inventore, adipisci. Corporis non, placeat atque esse temporibus ipsa molestias rerum, deserunt provident aliquid error blanditiis aliquam asperiores ex eum quia consequuntur possimus velit quis distinctio, vel illum aspernatur officiis. Nemo corporis quasi dolorum quo, quas facilis. Quaerat, sunt at voluptatum adipisci unde dignissimos, quae natus quas, odio corrupti pariatur nesciunt odit qui vel ipsa veniam? Voluptatibus, ut magnam ab saepe iusto veritatis alias, doloribus, quo praesentium necessitatibus similique dolorum deserunt! Voluptatum quaerat quisquam impedit cumque voluptates possimus nihil debitis corporis voluptatem reprehenderit porro veniam sunt obcaecati laboriosam fugiat vero dolorum ipsa dicta perferendis, accusamus beatae molestiae eos inventore deserunt. Non fugit veniam error unde, quaerat autem omnis laudantium?</p>
 
             </section>
 

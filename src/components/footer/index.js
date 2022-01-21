@@ -83,8 +83,6 @@ export default function Footer (props) {
                             <p>Desenvolvido com React.js © Aurea Empresa Júnior</p>
                         </a>
 
-    
-
                     </div>
 
                 </div>

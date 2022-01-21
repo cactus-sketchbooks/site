@@ -8,114 +8,150 @@
 
 }
 
-main {
+#MainBlog {
 
-    background-color: #000;
+    background: #eee !important;
     
-    #PostSection {
+    #PostAuthorSection {
       
-        padding-top: 100px;
-        padding-bottom: 50px;
         display: flex;
         width: 100vw;
+        height: 100vh;
         flex-direction: column;
         align-items: center;
-
-        .textIntroWrapper {
-
-          display: flex;
-          flex-direction: column;
-          width: 100%;
-          align-items: center;
-          text-align: center;
-          margin-top: 3rem;
-
-          h1 {
-
-            font-size: 36px;
-            font-family: "Poppins", sans-serif;
-            font-weight: 700;
-
-          }
-
-          p {
-
-            width: 50%;
-            font-weight: 500;
-            text-align: center;
-            margin-top: 1rem;
-
-          }
-          
-        }
+        position: relative;
 
         .postImgWrapper {
 
           display: flex;
-          width: 80%;
-          margin-top: 2rem;
+          width: 100%;
+          height: 70vh;
 
           img {
 
             width: 100%;
+            height: 100%;
             object-fit: cover;
             
           }
 
         }
 
-        .postContent {
+        a {
 
-          width: 60%;
+          position: absolute;
+          top: 5%;
+          left: 5%;
+          border: none;
+          padding: 10px 30px;
+          font-family: "Poppins", sans-serif;
+          background-color: $orange;
+          color: #fff;
+          border-radius: 200px;
+          font-weight: 700;
+          font-size: 16px;
+          text-decoration: none;
+
+        }
+
+        .authorImgWrapper {
+
           display: flex;
-          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          bottom: 15%;
+          width: 200px;
+          height: 200px;
+          background-color: rgb(255, 255, 255);
+          padding: 5px;
+          border-radius: 200px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 
-          .headingInfos {
+          img {
 
-            display: flex;
             width: 100%;
-            height: 70px;
-            align-items: center;
-            margin-top: 2rem;
-
-            .authorPictureWrapper {
-
-              display: flex;
-              width: 70px;
-              height: 100%;
-
-              img {
-
-                width: 100%;
-                object-fit: cover;
-                border-radius: 50px;
-
-              }
-
-            }
-
-            span {
-
-              margin: 0 1rem;
-
-            }
-
-          }
-
-          .postTextContent {
-
-            margin-top: 2rem;
-
-            h3 {
-
-              font-weight: 700;
-              font-family: "Poppins", sans-serif;
-
-            }
-
+            height: 100%;
+            border-radius: 200px;
+            object-fit: cover;
+            
           }
 
         }
+
+        span {
+
+          margin-top: 110px;
+          font-family: "Poppins", sans-serif;
+          font-weight: 400;
+          font-size: 24px;
+
+        }
+
+        .socialMediaWrapper {
+
+          position: absolute;
+          bottom: 0;
+          display: flex;
+          padding: 0 2rem;
+
+          .socialMedias {
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            margin: 0 10px;
+            padding: 5px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 200px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            cursor: pointer;
+  
+            img {
+  
+              width: 80%;
+              object-fit: cover;
+  
+            }
+  
+          }
+
+        }
+
+    }
+
+    #PostTextSection {
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      margin-top: 3rem;
+
+      h1 {
+
+        font-family: "Poppins", sans-serif;
+
+      }
+
+      p {
+
+        width: 90%;
+        font-size: 16px;
+        line-height: 1.5;
+        word-break: break-word;
+        font-family: "Whitney SSm A", "Whitney SSm B", Helvetica, "Helvetica Neue", Arial, sans-serif;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        -moz-font-smoothing: antialiased;
+        text-rendering: optimizelegibility;
+        letter-spacing: .03em;
+        margin: 2rem 0;
+        
+      }
 
     }
 
