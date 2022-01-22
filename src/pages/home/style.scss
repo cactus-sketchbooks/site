@@ -15,6 +15,97 @@ main {
     flex-direction: column;
     width: 100vw;
     background: linear-gradient(45deg, $light-green, $dark-green);
+    position: relative;
+    
+    .divModal {
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        z-index: 3;
+
+        .modalContent {
+
+            position: fixed;
+            display: flex;
+            align-items: center;
+            width: 50vw;
+            background-color: $offWhite;
+            top: 25%;
+            left: 25%;
+            border-radius: 8px;
+
+            .sketchbookImgWrapper {
+
+                display: flex;
+                width: 50%;
+                height: 100%;
+
+                img {
+
+                    object-fit: cover;
+                    width: 100%;
+                    border-radius: 8px 0 0 8px;
+
+                }
+
+            }
+
+            .sketchbookInfosWrapper {
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 50%;
+
+                h1 {
+
+                    text-transform: uppercase;
+
+                }
+
+                a {
+
+                    font-weight: bold;
+                    background-color: $orange;
+                    text-decoration: none;
+                    color: white;
+                    padding: 10px 25px;
+                    text-transform: uppercase;
+                    border-radius: 5px;
+                    position: absolute;
+                    bottom: 30px;
+
+                }
+
+            }
+
+            span {
+
+                display: flex;
+                width: 35px;
+                height: 35px;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                right: 20px;
+                top: 10px;
+                padding: 10px;
+                background-color: $orange;
+                border-radius: 50px;
+                cursor: pointer;
+                font-weight: 700;
+                font-size: 20px;
+                
+            }
+
+        }
+
+    }
 
 }
 
@@ -141,14 +232,6 @@ main {
                 filter: opacity(.85);
                 transition: 400ms ease-in-out;
 
-            }
-
-            #carcara {
-
-                width: 170px;
-                height: 170px;
-                border-radius: 50%;
-    
             }
 
             h3 {

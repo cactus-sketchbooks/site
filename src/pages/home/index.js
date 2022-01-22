@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.scss';
 import Header from '../../components/header/index.js'
 import Footer from '../../components/footer/index.js'
@@ -11,14 +11,116 @@ import mandacaru from '../../images/mandacaru.png'
 import baiao from '../../images/baiao.png'
 import facheiro from '../../images/facheiro.png'
 import sertao from '../../images/sertao.png'
-import kindle from '../../images/buriti-kindle.png'
+import buriti from '../../images/buriti-kindle.png';
 import carcara from '../../images/carcara.jpg'
+import mandacaruQuadrado from '../../images/mandacaruQuadrado.jpg'
+import baiaoQuadrado from '../../images/baiaoQuadrado.jpg'
+import facheiroQuadrado from '../../images/facheiroQuadrado.jpg'
+import sertaoQuadrado from '../../images/sertaoQuadrado.jpg'
+import buritiQuadrado from '../../images/buritiQuadrado.jpg'
+import carcaraQuadrado from '../../images/carcaraQuadrado.jpg'
 
 function Home() {
+
+    const [displayModal, setDisplayModal] = useState('none')
+    const [modalData, setModalData] = useState({})
+
+    const sketchbooksInfos = [
+
+        {
+            id: 0,
+            name: 'mandacaru',
+            description: 'Sketchbook costura copta',
+            link: '/mandacaru',
+            imgSrc: [mandacaru, mandacaruQuadrado]
+        },
+
+        {
+            id: 1,
+            name: 'baião',
+            description: 'Sketchbook quadrado copta',
+            link: '/baiao',
+            imgSrc: [baiao, baiaoQuadrado]
+        },
+
+        {
+            id: 2,
+            name: 'facheiro',
+            description: 'Sketchbook espiral',
+            link: '/facheiro',
+            imgSrc: [facheiro, facheiroQuadrado]
+        },
+
+        {
+            id: 3,
+            name: 'sertão',
+            description: 'Journal',
+            link: '/sertao',
+            imgSrc: [sertao, sertaoQuadrado]
+        },
+
+        {
+            id: 4,
+            name: 'buriti',
+            description: 'Cases para kindle e tablet',
+            link: '/buriti',
+            imgSrc: [buriti, buritiQuadrado]
+        },
+
+        {
+            id: 5,
+            name: 'carcará',
+            description: 'Moleskine',
+            link: '/carcara',
+            imgSrc: [carcara, carcaraQuadrado]
+        },
+
+    ]
+
+    function handleModalInfos(index) {
+
+        console.log(sketchbooksInfos[index])
+        setModalData(sketchbooksInfos[index])
+        displayModal === "none" ? setDisplayModal("flex") : setDisplayModal("none")
+
+    }
+
+    function closeModal() {
+
+        if (displayModal === "none")
+            setDisplayModal("flex")
+        else {
+            setDisplayModal("none");
+        }
+
+    }
 
     return (
 
         <main>
+
+            <div style={{ display: displayModal }} role="dialog" className='divModal' >
+
+                <div className="modalContent">
+
+                    <div className="sketchbookImgWrapper">
+
+                        {modalData.imgSrc ? (<img src={modalData.imgSrc[1]} alt="" />) : ('')}
+
+                    </div>
+
+                    <div className="sketchbookInfosWrapper">
+
+                        <span onClick={closeModal}>x</span>
+                        <h1>{modalData.name}</h1>
+                        <h3>{modalData.description}</h3>
+                        <Link to={modalData.link}>Quero um {modalData.name}!</Link>
+
+                    </div>
+
+                </div>
+
+            </div>
 
             <Header />
 
@@ -35,49 +137,30 @@ function Home() {
                     <div className="hero-data">
                         <p>Você cria, nós fazemos 🌵💚</p>
                     </div>
+
                 </div>
 
                 <section id="services-section">
+
                     <h2>Monte seu Cactus: modelos, cores, tudo!</h2>
+
                     <div className="service-wrapper">
-                        <div className="service-card">
-                            <h3>mandacaru</h3>
-                            <h4>Sketchbook costura copta</h4>
-                            <img src={mandacaru} alt="Mandacaru" />
-                        </div>
 
-                        <div className="service-card">
-                            <Link to="/baiao">
-                                <h3>baião</h3>
-                                <h4>Sketchbook quadrado copta</h4>
-                                <img src={baiao} alt="Baião" />
-                            </Link>
-                        </div>
+                        {sketchbooksInfos.map((item, index) => {
 
-                        <div className="service-card">
-                            <h3>facheiro</h3>
-                            <h4>Sketchbook espiral</h4>
-                            <img src={facheiro} alt="Facheiro" />
-                        </div>
+                            return (
 
-                        <div className="service-card">
-                            <h3>carcará</h3>
-                            <h4>Moleskine</h4>
-                            <img id="carcara" src={carcara} alt="Carcará" />
-                            {/* TEM QUE TROCAR ESSA IMAGEM PRAUMA QUADRADA P ELA PEGAR O STYLE DO RESTOOOOOO */}
-                        </div>
+                                <div onClick={() => handleModalInfos(index)} className="service-card">
 
-                        <div className="service-card">
-                            <h3>sertão</h3>
-                            <h4>Journal</h4>
-                            <img src={sertao} alt="Sertão" />
-                        </div>
+                                    <h3>{item.name}</h3>
+                                    <h4>{item.description}</h4>
+                                    <img src={item.imgSrc[0]} alt={item.imgSrc[0]} />
 
-                        <div className="service-card">
-                            <h3>buriti</h3>
-                            <h4>Cases para kindle e tablet</h4>
-                            <img src={kindle} alt="Buriti kindle" />
-                        </div>
+                                </div>
+
+                            )
+
+                        })}
 
                     </div>
 
