@@ -15,11 +15,13 @@ export default function CreatePost() {
     const [formData, setFormData] = useState({
 
         title: '',
-        desc: '',
         imageUrl: '',
+        description: '',
         authorPicture: '',
         content: '',
         author: '',
+        instagram: '',
+        behance: '',
         hashtag: '',
 
     })
@@ -33,55 +35,72 @@ export default function CreatePost() {
     const [authorPicture, setAuthorPicture] = useState('')
     const [userIsLogged, setUserIsLogged] = useState(false);
 
-    const [loginData, setLoginData] = useState({
+    useEffect(() => {
 
-        email: '',
-        password: ''
+        var userEmail = localStorage.getItem('userEmail')
 
-    })
+        firebase.database().ref('admins').get('/admins')
+            .then(function (snapshot) {
 
-    // useEffect(() => {
+                if (snapshot.exists()) {
 
-    //     var userEmail = localStorage.getItem('userEmail')
+                    var data = snapshot.val()
+                    var temp = Object.keys(data).map((key) => data[key])
 
-    //     firebase.database().ref('admins').get('/admins')
-    //         .then(function (snapshot) {
+                    temp.map((item) => {
 
-    //             if (snapshot.exists()) {
+                        if (item.email === userEmail)
+                            setUserIsLogged(true)
 
-    //                 var data = snapshot.val()
-    //                 var temp = Object.keys(data).map((key) => data[key])
+                    })
+                }
+                else {
+                    console.log("No data available");
+                }
+            })
 
-    //                 temp.map((item) => {
+    }, []);
 
-    //                     if (item.email === userEmail)
-    //                         setUserIsLogged(true)
+    useEffect(() => {
 
-    //                 })
-    //             }
-    //             else {
-    //                 console.log("No data available");
-    //             }
-    //         })
+        if (!firebase.apps.length)
+            firebase.initializeApp(FirebaseConfig);
 
-    // }, []);
+        var ref = firebase.database().ref("posts");
 
-    // useEffect(() => {
+        var keys = []
 
-    //     if (!firebase.apps.length)
-    //         firebase.initializeApp(FirebaseConfig);
+        ref.orderByKey().on("child_added", function (snapshot) {
+            keys.push(snapshot.key);
+        });
 
-    //     var ref = firebase.database().ref("posts");
+        setDataKeysAdm(keys)
 
-    //     var keys = []
+    }, []);
 
-    //     ref.orderByKey().on("child_added", function (snapshot) {
-    //         keys.push(snapshot.key);
-    //     });
+    useEffect(() => {
 
-    //     setDataKeysAdm(keys)
+        if (!firebase.apps.length)
+            firebase.initializeApp(FirebaseConfig);
 
-    // }, []);
+        var firebaseRef = firebase.database().ref('posts/');
+
+        firebaseRef.on('value', (snapshot) => {
+
+            if (snapshot.exists()) {
+
+                var data = snapshot.val()
+                var temp = Object.keys(data).map((key) => data[key])
+                setDataAdm(temp)
+
+            }
+            else {
+                console.log("No data available");
+            }
+
+        });
+
+    }, []);
 
     function sendPost() {
 
@@ -97,10 +116,12 @@ export default function CreatePost() {
 
             title: formData.title,
             id: id,
-            desc: formData.desc,
             imageUrl: imageUrl,
             content: formData.content,
             author: formData.author,
+            description: formData.desc,
+            instagram: formData.instagram,
+            behance: formData.behance,
             authorPicture: authorPicture,
             paragraphs: paragraphs,
             date: `${day}/${month}/${year}`,
@@ -178,7 +199,7 @@ export default function CreatePost() {
 
     }
 
-    if (!userIsLogged) {
+    if (userIsLogged) {
 
         return (
 
@@ -208,21 +229,21 @@ export default function CreatePost() {
                                 onChange={handleInputChange}
                             />
 
-                            <label htmlFor='desc'>Resumo</label>
+                            <label htmlFor='description' >Título</label>
                             <input
                                 type='text'
-                                name='desc'
-                                id='desc'
+                                name='description'
+                                id='description'
                                 onChange={handleInputChange}
                             />
 
-                            <label htmlFor='imageUrl'>
-                                Url da imagem</label>
+                            <label htmlFor='author'>
+                                Nome do autor</label>
                             <input
-                                type='file'
-                                onChange={uploadImage}
-                                accept="image/png, image/jpeg, image/gif"
-                                placeholder='Imagem'
+                                type='text'
+                                name='author'
+                                id='author'
+                                onChange={handleInputChange}
                             />
 
                             <label htmlFor='authorPicture'>
@@ -234,13 +255,31 @@ export default function CreatePost() {
                                 placeholder='Foto do autor'
                             />
 
-                            <label htmlFor='author'>
-                                Nome do autor</label>
+                            <label htmlFor='instagram'>
+                                Link do Instagram</label>
                             <input
                                 type='text'
-                                name='author'
-                                id='author'
+                                name='instagram'
+                                id='instagram'
                                 onChange={handleInputChange}
+                            />
+
+                            <label htmlFor='behance'>
+                                Link do Behance</label>
+                            <input
+                                type='text'
+                                name='behance'
+                                id='behance'
+                                onChange={handleInputChange}
+                            />
+
+                            <label htmlFor='imageUrl'>
+                                Imagem da capa</label>
+                            <input
+                                type='file'
+                                onChange={uploadImage}
+                                accept="image/png, image/jpeg, image/gif"
+                                placeholder='Imagem'
                             />
 
                             <label htmlFor='hashtags'>
@@ -270,7 +309,7 @@ export default function CreatePost() {
 
                                 ) : (
 
-                                    <h4>aa</h4>
+                                    <h4></h4>
 
                                 )}
 

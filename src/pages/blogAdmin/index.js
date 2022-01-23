@@ -10,13 +10,11 @@ import "firebase/database";
 import 'firebase/storage';
 import firebaseConfig from '../../FirebaseConfig.js'
 
-
 export default function BlogAdm() {
 
     const [formData, setFormData] = useState({
 
         title: '',
-        desc: '',
         imageUrl: '',
         authorPicture: '',
         content: '',
@@ -91,7 +89,6 @@ export default function BlogAdm() {
 
             title: formData.title,
             id: id,
-            desc: formData.desc,
             imageUrl: imageUrl,
             content: formData.content,
             author: formData.author,
@@ -243,14 +240,6 @@ export default function BlogAdm() {
                                 type='text'
                                 name='title'
                                 id='title'
-                                onChange={handleInputChange}
-                            />
-
-                            <label htmlFor='desc'>Resumo</label>
-                            <input
-                                type='text'
-                                name='desc'
-                                id='desc'
                                 onChange={handleInputChange}
                             />
 

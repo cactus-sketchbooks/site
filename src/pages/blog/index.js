@@ -4,10 +4,13 @@ import { Link } from 'react-router-dom';
 import Header from '../../components/header'
 import Footer from '../../components/footer'
 
+import illustration from '../../images/illustration.png'
+import foto from '../../images/talin.JPG'
+
 import firebase from 'firebase/app';
 import firebaseConfig from '../../FirebaseConfig.js'
 
-import './style2.scss';
+import './style.scss';
 
 export default function Clients() {
 
@@ -54,59 +57,77 @@ export default function Clients() {
 
             <main id='mainBlog'>
 
-                <h1>Use e Apareça!</h1>
+                <div className="highlightWrapper">
+
+                    <div className="textDiv">
+
+                        <h1>Adquira seu Cactus e exponha sua arte no nosso site!</h1>
+
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, ipsa harum velit quam labore quisquam nihil ad beatae neque, quo molestiae. Odio neque tempora nemo!</p>
+
+                        <Link to="/">Fazer arte!</Link>
+
+                    </div>
+
+                    <div className="illustrationDiv">
+
+                        <img src={illustration} alt="" />
+
+                    </div>
+
+                </div>
 
                 <div className="cardsWrapper">
 
-                    {dataBlog.map((item, index) => (
+                    {dataBlog.map((item) => (
 
-                        <>
+                        <Link key={item.id} to={`/post/${item.id}`} className="blogCard">
 
-                            {index === 0 ? (
+                            <div className="blogImgWrapper">
 
-                                <Link key={dataBlog.id} to={`/post/${item.id}`} className="blogCard">
+                                <div className="authorPictureWrapper">
 
-                                    <div className="blogImgWrapper">
+                                    <img src={item.authorPicture} alt="" />
 
-                                        <img src={item.imageUrl} alt="imagem" />
+                                </div>
 
-                                    </div>
+                                <img src={item.imageUrl} alt="" />
 
-                                    <div className="blogTextWrapper">
+                            </div>
 
-                                        <span>Publicado em {item.date}</span>
-                                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, magni.</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum quod inventore quia aliquid cumque est minus temporibus. Tenetur, ipsa rem.</p>
-                                        {/* <h3>{item.title}</h3>
-                                        <p>{item.desc}</p> */}
+                            <div className="blogTextWrapper">
 
-                                    </div>
+                                <div className="hashtagWrapper">
 
-                                </Link>
+                                    {item.hashtags ? (
 
-                            ) : (
+                                        <>
 
-                                <Link key={dataBlog.id} to={`/post/${item.id}`} className="smallBlogCard">
+                                            {item.hashtags.map((hashtag) => {
 
-                                    <div className="smallBlogImgWrapper">
+                                                return (
 
-                                        <img src={item.imageUrl} alt="" />
+                                                    <span>{hashtag}</span>
 
-                                    </div>
+                                                )
 
-                                    <div className="smallBlogTextWrapper">
+                                            })}
 
-                                        <span>Publicado em {item.date}</span>
-                                        <h3>{item.title}</h3>
-                                        <p>{item.desc}</p>
+                                        </>
 
-                                    </div>
+                                    ) : ('')}
 
-                                </Link>
 
-                            )}
+                                </div>
+                                {/* 
+                                <h3>CSS: Mecanismo de programação que deu cores e formas para a Web</h3>
+                                <span id="postDate">Publicado em {item.date}</span> */}
+                                <h3>{item.title}</h3>
+                                <span id="postDate">Publicado em {item.date}</span>
 
-                        </>
+                            </div>
+
+                        </Link>
 
                     ))}
 
@@ -121,80 +142,3 @@ export default function Clients() {
     )
 
 }
-
-
-{/* <div className="thumbWrapper">
-
-                                    <img draggable="false" src={item.imageUrl} alt="" />
-
-                                </div>
-
-                                <div className="postInfos">
-
-                                    <h2>{item.title}</h2>
-
-                                    <div className="autorInfos">
-
-                                        {item.authorPicture !== undefined ? (
-
-                                            <div className="pictureWrapper">
-
-                                                <img draggable="false" src={item.authorPicture} alt="foto do autor" />
-
-                                            </div>
-
-                                        ) : (
-                                        
-                                            <p></p>
-                                        
-                                        )}
-
-                                        <h4>{item.author}</h4>
-
-                                    </div>
-
-                                    <p>{item.desc}</p>
-
-                                    <div className="hashtags">
-
-                                        {item.hashtags ? (
-
-                                            item.hashtags.map((hashtag => {
-
-                                                return (
-
-                                                    <span>{hashtag}</span>
-
-                                                )
-
-                                            }))
-
-
-                                        )
-
-                                            :
-
-                                            (
-
-                                                <p></p>
-
-                                            )
-                                        }
-
-                                    </div>
-
-                                    <div className="dateWrapper">
-
-                                        {item.date !== undefined ?
-
-                                            <h5>Postado em {item.date}</h5>
-
-                                            :
-
-                                            <h5></h5>
-
-                                        }
-
-                                    </div>
-
-                                </div> */}

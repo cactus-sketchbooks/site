@@ -113,6 +113,7 @@ export default function Admin() {
                         <Link to="/cadastroAdmin">Cadastrar cores</Link>
                         <Link to=""> Pedidos em andamento</Link>
                         <Link to="">Alterar conteúdo das páginas</Link>
+                        <Link to="criarPost">Criar um post na página "Use e Apareça"</Link>
 
                     </ul>
 

@@ -79,7 +79,6 @@ function Home() {
 
     function handleModalInfos(index) {
 
-        console.log(sketchbooksInfos[index])
         setModalData(sketchbooksInfos[index])
         displayModal === "none" ? setDisplayModal("flex") : setDisplayModal("none")
 
@@ -144,6 +143,8 @@ function Home() {
 
                     <h2>Monte seu Cactus: modelos, cores, tudo!</h2>
 
+                    <h2 id="bottomText">Selecione um dos modelos abaixo e monte seu Cactus!</h2>
+
                     <div className="service-wrapper">
 
                         {sketchbooksInfos.map((item, index) => {
@@ -163,8 +164,6 @@ function Home() {
                         })}
 
                     </div>
-
-                    <h2 id="bottomText">Selecione um dos modelos acima e monte seu Cactus!</h2>
 
                 </section>
 
