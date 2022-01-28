@@ -18,17 +18,18 @@ import FirebaseConfig from '../../../FirebaseConfig.js'
 
 export default function Baiao() {
 
-    const [dataColors, setDataColors] = useState([])
+    const [dataColors, setDataColors] = useState([]);
+    const [formatTypes, setformatTypes] = useState([]);
     const [userIsLogged, setUserIsLogged] = useState(false);
     const [selectedColors, setSelectedColors] = useState([])
     const [isValidated, setIsValidated] = useState(false)
     const [checkStatus, setCheckStatus] = useState(false)
     const [checkedBoxes, setCheckedBoxes] = useState(0)
     const [selectedPaperWidth, setSelectedPaperWidth] = useState('')
-    const [selectedPaper, setSelectedPaper] = useState('')
     const [selectedLineColor, setSelectedLineColor] = useState('')
     const [selectedElasticColor, setSelectedElasticColor] = useState('')
     const [clientNote, setClientNote] = useState('');
+    const [sketchbookInfos, setSketchbookInfos] = useState('');
 
     const settings = {
 
@@ -39,6 +40,142 @@ export default function Baiao() {
         swipeToSlide: true,
 
     }
+
+    const values = {
+
+        name: "Baião",
+        formats: [{
+
+            name: "21X21",
+            types: [
+
+                {
+                    name: "Papel Kraft",
+                    value: 70
+                },
+                {
+                    name: "Papel Canson",
+                    value: 75
+                },
+                {
+                    name: "Papel Preto",
+                    value: 75
+                },
+                {
+                    name: "Papel Canson Aquarela",
+                    value: 115
+                },
+                {
+                    name: "Papel Montval",
+                    value: 115
+                }
+
+            ]
+
+        },
+        {
+
+            name: "15X15",
+            types: [
+
+                {
+                    name: "Papel Reciclado",
+                    value: 38
+                },
+                {
+                    name: "Papel Pólen",
+                    value: 38
+                },
+                {
+                    name: "Papel Kraft",
+                    value: 48
+                },
+                {
+                    name: "Papel Canson",
+                    value: 52
+                },
+                {
+                    name: "Papel Preto",
+                    value: 52
+                },
+                {
+                    name: "Papel Canson Aquarela",
+                    value: 85
+                },
+                {
+                    name: "Papel Montval",
+                    value: 85
+                }
+
+            ]
+
+        },
+        {
+
+            name: "10X10",
+            types: [
+
+                {
+                    name: "Papel Reciclado",
+                    value: 25
+                },
+                {
+                    name: "Papel Pólen",
+                    value: 25
+                },
+                {
+                    name: "Papel Kraft",
+                    value: 38
+                },
+                {
+                    name: "Papel Canson",
+                    value: 38
+                },
+                {
+                    name: "Papel Preto",
+                    value: 38
+                },
+                {
+                    name: "Papel Canson Aquarela",
+                    value: 68
+                },
+                {
+                    name: "Papel Montval",
+                    value: 68
+                }
+
+            ]
+
+        },
+
+        ]
+
+    }
+
+    function handleSelectedSketchbook(event) {
+
+        // console.log(values.formats[0].types.map(item => item.name))
+        // console.log(event.target.value)
+        let position = event.target.value
+
+        console.log(values.formats[position].name)
+        setSelectedPaperWidth(values.formats[position].name)
+        setformatTypes(values.formats[position].types)
+
+    }
+
+    function handleSelectedType(event) {
+
+        let position = (event.target.value)
+        console.log(formatTypes[position])
+        setSketchbookInfos(formatTypes[position])
+        // setSelectedPaper(event.target.value)
+
+    }
+
+    // console.log(values.formats.map(format => format.name)) //formatos a4,a5..
+    // console.log(values.formats.map(format => format.types.map(item => item))) //tipos dos formatos
+
 
     function onAuthStateChanged(user) {
 
@@ -86,18 +223,6 @@ export default function Baiao() {
 
     }, []);
 
-    function handleSelectedPaperWidth(event) {
-
-        setSelectedPaperWidth(event.target.value)
-
-    }
-
-    function handleSelectedPaper(event) {
-
-        setSelectedPaper(event.target.value)
-
-    }
-
     let history = useHistory();
 
     function addToCart() {
@@ -111,7 +236,8 @@ export default function Baiao() {
 
             model: 'Baião',
             paperWidth: selectedPaperWidth,
-            paper: selectedPaper,
+            paper: sketchbookInfos.name,
+            value: sketchbookInfos.value,
             lineColor: selectedLineColor,
             elasticColor: selectedElasticColor,
             coverColors: selectedColors,
@@ -171,7 +297,7 @@ export default function Baiao() {
 
     useEffect(() => {
 
-        if (selectedPaperWidth == '' || selectedPaper == '' || selectedLineColor == '' || selectedElasticColor == '' || (checkedBoxes > 2 || checkedBoxes == 0)) {
+        if (formatTypes == '' || sketchbookInfos == '' || selectedLineColor == '' || selectedElasticColor == '' || (checkedBoxes > 2 || checkedBoxes == 0)) {
 
             setIsValidated(false)
 
@@ -181,7 +307,7 @@ export default function Baiao() {
 
         }
 
-    }, [selectedPaperWidth, selectedPaper, selectedLineColor, selectedElasticColor, checkedBoxes])
+    }, [formatTypes, sketchbookInfos, selectedLineColor, selectedElasticColor, checkedBoxes])
 
     function handleSelectedLineColor(item, event) {
 
@@ -226,12 +352,20 @@ export default function Baiao() {
 
                     <label for="paperWidth">Selecione o tamanho do papel</label>
 
-                    <select onChange={handleSelectedPaperWidth} className="paperWidth">
+                    <select onChange={handleSelectedSketchbook} className="paperWidth">
 
                         <option value="0" selected disabled>Tamanho do papel</option>
-                        <option value="21x21">21x21</option>
-                        <option value="15x15">15x15</option>
-                        <option newTag="test" value="10x10">10x10</option>
+
+                        {values.formats.map((format, index) => {
+
+                            return (
+
+                                <option value={index} key={index}>{format.name}</option>
+
+                            )
+
+                        }
+                        )}
 
                     </select>
 
@@ -241,17 +375,19 @@ export default function Baiao() {
 
                     <label for="paper">Selecione o papel do miolo</label>
 
-                    <select onChange={handleSelectedPaper} className="paper">
+                    <select onChange={handleSelectedType} className="paper">
 
                         <option value="0" selected disabled>Papel do miolo</option>
-                        <option value="Pólen Bold 90g">Pólen Bold 90g</option>
-                        <option value="Reciclado 120g">Reciclado 120g</option>
-                        <option value="Kraft 140g">Kraft 140g</option>
-                        <option value="Color preto 180g">Color preto 180g</option>
-                        <option value="Canson 140g">Canson 140g</option>
-                        <option value="Canson 200g">Canson 200g</option>
-                        <option value="Canson Aquarela 300g">Canson Aquarela 300g</option>
-                        <option value="Montval 300g">Montval 300g</option>
+
+                        {formatTypes.map((type, index) => {
+
+                            return (
+
+                                <option value={index} key={index}>{type.name} - R$ {type.value}</option>
+
+                            )
+
+                        })}
 
                     </select>
 
@@ -468,14 +604,49 @@ export default function Baiao() {
 
                     {isValidated ? (
 
-                        <button onClick={() => addToCart()}>Finalizar</button>
+                        <>
+
+                            <div className="productInfosWrapper">
+
+                                <h1>Seu sketchbook</h1>
+
+                                <ul>
+
+                                <li><strong>Tamanho do papel: </strong>{selectedPaperWidth}</li>
+                                <li><strong>Papel do miolo: </strong>{sketchbookInfos.name}</li>
+
+                                <li>
+                                    <strong>Cor da capa: </strong>
+                                    {selectedColors.map((color, index) => {
+
+                                        return (
+
+                                            <span key={index}>{(index ? ' + ' : '') + color.name}</span>
+
+                                        )
+
+                                    })}
+                                </li>
+
+                                <li><strong>Cor da linha: </strong>{selectedLineColor.colorName}</li>
+                                <li><strong>Cor do elástico: </strong>{selectedElasticColor.colorName}</li>
+
+                                </ul>
+
+                                <h3>Valor do sketchbook: R$ {sketchbookInfos.value}</h3>
+
+                                <button onClick={() => addToCart()}>Adicionar ao carrinho</button>
+
+                            </div>
+
+                        </>
 
                     ) : (
 
                         <>
 
                             <p>Você deve selecionar <strong>todas as opções</strong> antes de finalizar seu sketchbook</p>
-                            <button disabled>Finalizar</button>
+                            {/* <button disabled>Finalizar</button> */}
 
                         </>
 

@@ -119,7 +119,7 @@ export default function CreatePost() {
             imageUrl: imageUrl,
             content: formData.content,
             author: formData.author,
-            description: formData.desc,
+            description: formData.description,
             instagram: formData.instagram,
             behance: formData.behance,
             authorPicture: authorPicture,
@@ -229,7 +229,7 @@ export default function CreatePost() {
                                 onChange={handleInputChange}
                             />
 
-                            <label htmlFor='description' >Título</label>
+                            <label htmlFor='description' >Descrição</label>
                             <input
                                 type='text'
                                 name='description'
@@ -367,7 +367,7 @@ export default function CreatePost() {
 
         return (
 
-            <h1>Olá</h1>
+            <h1></h1>
 
         )
     }

@@ -20,6 +20,7 @@ import Carcara from './pages/create/carcara'
 import ClientList from './pages/admin/clientList'
 import CreatePost from './pages/admin/createPost'
 import CreateColor from './pages/admin/createColor'
+import CreateTypes from './pages/admin/createTypes'
 
 const Routes = () => {
 
@@ -45,7 +46,8 @@ const Routes = () => {
             <Route component={Buriti} path='/buriti' />
             <Route component={ClientList} path='/listaDeClientes' />
             <Route component={CreatePost} path='/criarPost' />
-            <Route component={CreateColor} path='/cadastrarCores' />
+            <Route component={CreateColor} path='/gerenciarCores' />
+            <Route component={CreateTypes} path='/gerenciarTipos' />
 
         </BrowserRouter>
 

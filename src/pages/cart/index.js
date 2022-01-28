@@ -29,14 +29,12 @@ export default function Cart() {
     const [dataAccount, setDataAccount] = useState([]);
     const [dataExists, setDataExists] = useState(false);
     const [userIsLogged, setUserIsLogged] = useState(false);
-    const [selectedPickup, setSelectedPickup] = useState('')
     const [transportData, setTransportData] = useState([]);
-    const [customerCep, setCustomerCep] = useState('')
+    const [customerCep, setCustomerCep] = useState('');
     const [redirect, setRedirect] = useState(useHistory());
-    const [paidForm, setPaidForm] = useState(false)
-    const [transportDataVerify, setTransportDataVerify] = useState(false)
+    const [paidForm, setPaidForm] = useState(false);
+    const [transportDataVerify, setTransportDataVerify] = useState(false);
     const [displayCepSearch, setDisplayCepSearch] = useState('none');
-    const [displayTransport, setDisplayTransport] = useState('none');
     const [displayAddressForms, setDisplayAddressForms] = useState('none');
     const [selectedTransportData, setSelectedTransportData] = useState({});
     const [transportValue, setTransportValue] = useState(0);
@@ -46,6 +44,7 @@ export default function Cart() {
     const [selectedPayment, setSelectedPayment] = useState('');
     const [pickupSelect, setPickupSelect] = useState('');
     const [displayPopup, setDisplayPopup] = useState('none');
+    const [purchasedProductData, setPurchasedProductData] = useState({})
 
     const [newDataReceiver, setNewDataReceiver] = useState({
 
@@ -95,44 +94,6 @@ export default function Cart() {
 
     ]
 
-    const products = [
-        {
-            id: 1,
-            model: 'carcara',
-            paperWidth: 'A4',
-            paper: 'papel 1',
-            cover: 'duas cores',
-            cover_color: 'azul, verde'
-        },
-        {
-            id: 2,
-            model: 'mandacaru',
-            paperWidth: 'A4',
-            paper: 'papel 5',
-            cover: 'kraft',
-            cover_color: 'azul'
-        },
-        // {
-        //     id: 3,
-        //     model: 'buriti',
-        //     paperWidth: 'A3',
-        //     size: 'A4',
-        //     type: 'kindle 3a geracao'
-        // }
-    ]
-
-    const purchaseInfo = [
-        {
-            id: 1,
-            name: 'iago campista batista adventista',
-            address: 'rua bla bla  bla',
-            codigo: 1257,
-            payment: 'pix',
-            discountCupom: '',
-            freight: 'pac'
-        }
-    ]
-
     function onAuthStateChanged(user) {
 
         firebase.auth().onAuthStateChanged((user) => {
@@ -166,14 +127,15 @@ export default function Cart() {
 
             var total = 0
 
-            // temp.map((item) => {
+            temp.map((item) => {
 
-            //     var value = (Number(item.price) * Number(item.amount))
-            //     total = value + total
+                var value = (Number(item.value))
+                total = value + total
 
-            //     setTotalValue(total)
+                setTotalValue(total)
+                setFinalValue(total)
 
-            // })
+            })
 
         } else {
 
@@ -257,6 +219,31 @@ export default function Cart() {
 
     }
 
+    useEffect(() => {
+
+        let counter = 0
+
+        newDataReceiver.receiverName != '' ? counter = counter + 1 : counter = counter
+        newDataReceiver.receiverPhone != '' ? counter++ : counter = counter
+        newDataReceiver.receiverAddress != '' ? counter++ : counter = counter
+        newDataReceiver.receiverHouseNumber != '' ? counter++ : counter = counter
+        newDataReceiver.receiverComplement != '' ? counter++ : counter = counter
+        newDataReceiver.receiverDistrict != '' ? counter++ : counter = counter
+        newDataReceiver.receiverCity != '' ? counter++ : counter = counter
+        newDataReceiver.receiverCpf != '' ? counter++ : counter = counter
+
+        if (counter == 8) {
+
+            setTransportDataVerify(true)
+
+        } else if (counter !== 8 || pickupSelect !== 'Retirada física') {
+
+            setTransportDataVerify(false)
+
+        }
+
+    }, [newDataReceiver])
+
     function handleInputCep(event) {
 
         setCustomerCep(event.target.value)
@@ -293,7 +280,6 @@ export default function Cart() {
             return response.json();
         }).then((data) => {
             setTransportData(data)
-            setDisplayTransport('flex')
             console.log(data)
         }).catch(err => console.log(err))
     };
@@ -397,58 +383,54 @@ export default function Cart() {
 
         if (userIsLogged) {
 
-            // if (selectedPayment !== '' && pickupSelect !== '') {
+            if (selectedPayment !== '' && pickupSelect !== '') {
 
-            //     if (transportDataVerify === true) {
+                if (transportDataVerify === true) {
 
-            const id = firebase.database().ref().child('posts').push().key
-            const now = new Date()
+                    const id = firebase.database().ref().child('posts').push().key
+                    const now = new Date()
 
-            const dataToSend = {
+                    const dataToSend = {
 
-                id: id,
-                products: data,
-                pickupOption: pickupSelect,
-                payment: selectedPayment,
-                selectedTransport: selectedTransportData,
-                userEmail: dataAccount.email,
-                cepNumber: customerCep,
-                userName: newDataReceiver.receiverName ? newDataReceiver.receiverName : dataAccount.name,
-                phoneNumber: newDataReceiver.receiverPhone ? newDataReceiver.receiverPhone : dataAccount.phoneNumber,
-                address: newDataReceiver.receiverAddress ? newDataReceiver.receiverAddress : dataAccount.address,
-                houseNumber: newDataReceiver.receiverHouseNumber ? newDataReceiver.receiverHouseNumber : dataAccount.houseNumber,
-                complement: newDataReceiver.receiverComplement ? newDataReceiver.receiverComplement : dataAccount.complement,
-                district: newDataReceiver.receiverDistrict ? newDataReceiver.receiverDistrict : dataAccount.district,
-                city: newDataReceiver.receiverCity ? newDataReceiver.receiverCity : dataAccount.city,
-                cpf: newDataReceiver.receiverCpf ? newDataReceiver.receiverCpf : '',
-                paymentProof: '',
-                adminNote: '',
-                requestStatus: '',
-                dateToCompare: new Date().toDateString(),
-                date: `${now.getUTCDate()}/${now.getMonth()}/${now.getFullYear()}-${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`
+                        id: id,
+                        products: data,
+                        pickupOption: pickupSelect,
+                        payment: selectedPayment,
+                        selectedTransport: selectedTransportData,
+                        userEmail: dataAccount.email,
+                        cepNumber: customerCep,
+                        userName: newDataReceiver.receiverName ? newDataReceiver.receiverName : dataAccount.name,
+                        phoneNumber: newDataReceiver.receiverPhone ? newDataReceiver.receiverPhone : dataAccount.phoneNumber,
+                        address: newDataReceiver.receiverAddress ? newDataReceiver.receiverAddress : dataAccount.address,
+                        houseNumber: newDataReceiver.receiverHouseNumber ? newDataReceiver.receiverHouseNumber : dataAccount.houseNumber,
+                        complement: newDataReceiver.receiverComplement ? newDataReceiver.receiverComplement : dataAccount.complement,
+                        district: newDataReceiver.receiverDistrict ? newDataReceiver.receiverDistrict : dataAccount.district,
+                        city: newDataReceiver.receiverCity ? newDataReceiver.receiverCity : dataAccount.city,
+                        cpf: newDataReceiver.receiverCpf ? newDataReceiver.receiverCpf : '',
+                        paymentProof: '',
+                        adminNote: '',
+                        requestStatus: '',
+                        dateToCompare: new Date().toDateString(),
+                        date: `${now.getUTCDate()}/${now.getMonth()}/${now.getFullYear()}-${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`,
+                        totalValue: finalValue.toFixed(2),
 
-                // totalValue: finalValue.toFixed(2),
+                    }
 
-            }
+                    firebase.database().ref('requests/' + id).set(dataToSend)
+                        .then(() => {
+                            setPurchasedProductData(dataToSend)
+                        })
 
-            console.log(dataToSend)
+                    firebase.database().ref('reportsSales/' + id).set(dataToSend)
+                        .then(() => {
+                            alert("Pedido finalizado com sucesso!.")
+                        })
 
-            // firebase.database().ref('requests/' + id).set(dataToSend)
-            //     .then(() => {
-            //         setPurchasedProductData(dataToSend)
-            //     })
+                    setPaidForm(true)
 
-            // firebase.database().ref('reportsSales/' + id).set(dataToSend)
-            //     .then(() => {
-            //         setPurchasedProductData(dataToSend)
-            //         alert("Pedido finalizado com sucesso!.")
-            //     })
+                } else alert('Você precisa preencher todos os campos!')
 
-            // setPaidForm(true)
-
-            //     } else alert('Você precisa preencher todos os campos!')
-
-            // } else alert('Você precisa selecionar todos os campos!')
+            } else alert('Você precisa selecionar todos os campos!')
 
         }
 
@@ -473,20 +455,9 @@ export default function Cart() {
 
             <div id="cart">
 
-                {products ? (
+                {data ? (
 
                     <section id="purchaseInfo">
-                        {/* <section  className="buyerInfo">
-                            {purchaseInfo.map(purchase => (
-                                <ul>
-                                    <li>Código da compra: {purchase.codigo}</li>
-                                    <li>Endereço de entrega: {purchase.address}</li>
-                                    <li>Pagamento: {purchase.payment}</li>
-                                    <li>Cupom: {purchase.discountCupom}</li>
-                                    <li>Frete: {purchase.freight}</li>
-                                </ul>
-                            ))}     
-                        </section> */}
 
                         <h2>Seu carrinho</h2>
 
@@ -554,7 +525,8 @@ export default function Cart() {
                                         </ul>
 
                                         <div className="productsButtons">
-                                            <button>Adicionar observação</button>
+                                            {/* <button>Adicionar observação</button> */}
+                                            <h1>R$ {product.value}</h1>
                                             <button onClick={() => { removeItemInCart(index) }}>Excluir</button>
                                         </div>
 
@@ -578,7 +550,7 @@ export default function Cart() {
                                     <option value='Entrega a domicílio'>Entrega a domicílio (Para toda São Luís - MA)</option>
                                     <option value="Frete por transportadora" >Entrega por transportadora</option>
                                     <option value="Impresso módico ou Carta registrada" >Impresso módico ou Carta registrada</option>
-                                    <option value="Retirada física" >Retirada física: Travessa da Lapa - 162 - Centro/Desterro (Próximo à sorveteria do Iguaíba)</option>
+                                    <option value="Retirada física" >Retirada física: Travessa da Lapa - 162 - Centro/Desterro</option>
 
                                 </select>
 
@@ -592,7 +564,7 @@ export default function Cart() {
 
                                 <button style={{ display: displayCepSearch }} onClick={() => { calculaFrete() }}>Calcular frete</button>
 
-                                <div className="transportInfos" style={{ display: displayTransport }}>
+                                <div className="transportInfos" style={{ display: displayCepSearch }}>
 
                                     <h1>Selecione a opção de envio abaixo</h1>
 
@@ -684,9 +656,7 @@ export default function Cart() {
 
                                 <select className="paymentSelect" onChange={handleSelectPayment} >
 
-                                    <option value=''>Selecione o tipo de pagamento</option>
-                                    <option value="Dinheiro" >Dinheiro (apenas para entregas na região)</option>
-                                    <option value="Cartão (máquina)" >Cartão na entrega (apenas para entregas na região)</option>
+                                    <option selected disabled value=''>Selecione o tipo de pagamento</option>
                                     <option value="PayPal" >PayPal </option>
                                     <option value="Cartão" >Cartão </option>
                                     <option value="Pix" >Pix</option>
@@ -698,7 +668,7 @@ export default function Cart() {
                                 <div className="checkoutOptions">
 
                                     <a href="/">Continuar comprando...</a>
-                                    <h3>Preço: R$ 60,00</h3>
+                                    <h3>Preço: R$ {finalValue}</h3>
                                     <button onClick={sendOrder}>Concluir compra!</button>
 
                                 </div>
