@@ -90,7 +90,7 @@ export default function Cart() {
 
         },
         {
-            name: 'Carcara',
+            name: 'Carcará',
             image: carcara,
 
         },
@@ -549,7 +549,18 @@ export default function Cart() {
                                             </li>
 
                                             <li><strong>Cor do elástico:</strong> {product.elasticColor.colorName}</li>
-                                            <li><strong>Cor da linha:</strong> {product.lineColor.colorName}</li>
+
+                                            {product.lineColor ? (
+
+                                                <li><strong>Cor da linha:</strong> {product.lineColor.colorName}</li>
+
+                                            ) : ('')}
+
+                                            {product.spiralColor ? (
+
+                                                <li><strong>Cor do espiral:</strong> {product.spiralColor}</li>
+
+                                            ) : ('')}
 
                                             {product.clientNote ? (
 
@@ -566,7 +577,7 @@ export default function Cart() {
 
                                         <div className="productsButtons">
                                             {/* <button>Adicionar observação</button> */}
-                                            <h1>R$ {product.value}</h1>
+                                            <h1>R$ {product.value.toFixed(2)}</h1>
                                             <button onClick={() => { removeItemInCart(index) }}>Excluir</button>
                                         </div>
 
@@ -724,7 +735,7 @@ export default function Cart() {
                                 <div className="checkoutOptions">
 
                                     <a href="/">Continuar comprando...</a>
-                                    <h3>Preço: R$ {finalValue}</h3>
+                                    <h3>Preço: R$ {finalValue.toFixed(2)}</h3>
                                     <button style={{ display: displayFinishButton }} onClick={sendOrder}>Concluir compra!</button>
 
                                 </div>

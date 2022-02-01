@@ -30,6 +30,7 @@ export default function Baiao() {
     const [selectedElasticColor, setSelectedElasticColor] = useState('')
     const [clientNote, setClientNote] = useState('');
     const [sketchbookInfos, setSketchbookInfos] = useState('');
+    const [displayModal, setDisplayModal] = useState('none');
 
     const settings = {
 
@@ -49,6 +50,10 @@ export default function Baiao() {
             name: "21X21",
             types: [
 
+                {
+                    name: "Papel Reciclado Liso",
+                    value: 60
+                },
                 {
                     name: "Papel Kraft",
                     value: 70
@@ -154,11 +159,8 @@ export default function Baiao() {
 
     function handleSelectedSketchbook(event) {
 
-        // console.log(values.formats[0].types.map(item => item.name))
-        // console.log(event.target.value)
         let position = event.target.value
 
-        console.log(values.formats[position].name)
         setSelectedPaperWidth(values.formats[position].name)
         setformatTypes(values.formats[position].types)
 
@@ -169,13 +171,8 @@ export default function Baiao() {
         let position = (event.target.value)
         console.log(formatTypes[position])
         setSketchbookInfos(formatTypes[position])
-        // setSelectedPaper(event.target.value)
 
     }
-
-    // console.log(values.formats.map(format => format.name)) //formatos a4,a5..
-    // console.log(values.formats.map(format => format.types.map(item => item))) //tipos dos formatos
-
 
     function onAuthStateChanged(user) {
 
@@ -327,9 +324,41 @@ export default function Baiao() {
 
     }
 
+    function handleModalInfos() {
+
+        displayModal === "none" ? setDisplayModal("flex") : setDisplayModal("none")
+
+    }
+
+    function closeModal() {
+
+        if (displayModal === "none")
+            setDisplayModal("flex")
+        else {
+            setDisplayModal("none");
+        }
+
+    }
+
     return (
 
-        <main>
+        <main id="MainSketchbook">
+
+            <div style={{ display: displayModal }} role="dialog" className='divModal' >
+
+                <div className="modalContent">
+
+                    <div className="sketchbookImgWrapper">
+
+                        <img src={logo} alt="" />
+
+                    </div>
+
+                    <span onClick={closeModal}>x</span>
+
+                </div>
+
+            </div>
 
             <Header />
 
@@ -354,7 +383,7 @@ export default function Baiao() {
 
                     <select onChange={handleSelectedSketchbook} className="paperWidth">
 
-                        <option value="0" selected disabled>Tamanho do papel</option>
+                        <option value="" selected disabled>Tamanho do papel</option>
 
                         {values.formats.map((format, index) => {
 
@@ -401,7 +430,7 @@ export default function Baiao() {
 
                     </div>
 
-                    <p>Selecione <strong>até duas</strong> cores</p>
+                    <p>Selecione <strong>até duas</strong> cores. <button onClick={() => handleModalInfos()}>Clique aqui para visualizar os modelos de capa</button></p>
 
                 </div>
 
@@ -612,24 +641,24 @@ export default function Baiao() {
 
                                 <ul>
 
-                                <li><strong>Tamanho do papel: </strong>{selectedPaperWidth}</li>
-                                <li><strong>Papel do miolo: </strong>{sketchbookInfos.name}</li>
+                                    <li><strong>Tamanho do papel: </strong>{selectedPaperWidth}</li>
+                                    <li><strong>Papel do miolo: </strong>{sketchbookInfos.name}</li>
 
-                                <li>
-                                    <strong>Cor da capa: </strong>
-                                    {selectedColors.map((color, index) => {
+                                    <li>
+                                        <strong>Cor da capa: </strong>
+                                        {selectedColors.map((color, index) => {
 
-                                        return (
+                                            return (
 
-                                            <span key={index}>{(index ? ' + ' : '') + color.name}</span>
+                                                <span key={index}>{(index ? ' + ' : '') + color.name}</span>
 
-                                        )
+                                            )
 
-                                    })}
-                                </li>
+                                        })}
+                                    </li>
 
-                                <li><strong>Cor da linha: </strong>{selectedLineColor.colorName}</li>
-                                <li><strong>Cor do elástico: </strong>{selectedElasticColor.colorName}</li>
+                                    <li><strong>Cor da linha: </strong>{selectedLineColor.colorName}</li>
+                                    <li><strong>Cor do elástico: </strong>{selectedElasticColor.colorName}</li>
 
                                 </ul>
 
@@ -646,7 +675,6 @@ export default function Baiao() {
                         <>
 
                             <p>Você deve selecionar <strong>todas as opções</strong> antes de finalizar seu sketchbook</p>
-                            {/* <button disabled>Finalizar</button> */}
 
                         </>
 

@@ -1,6 +1,13 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
+import Slider from "react-slick";
+import { useHistory } from 'react-router-dom'
 
 import './style.scss'
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+import logo from '../../../images/cactopng2.png';
 
 import Header from '../../../components/header/index.js';
 import Footer from '../../../components/footer/index.js';
@@ -11,7 +18,85 @@ import FirebaseConfig from '../../../FirebaseConfig.js'
 
 export default function Buriti() {
 
-    const [dataColors, setDataColors] = useState([])
+    const [dataColors, setDataColors] = useState([]);
+    const [formatTypes, setformatTypes] = useState([]);
+    const [userIsLogged, setUserIsLogged] = useState(false);
+    const [selectedColors, setSelectedColors] = useState([])
+    const [isValidated, setIsValidated] = useState(false)
+    const [checkStatus, setCheckStatus] = useState(false)
+    const [checkedBoxes, setCheckedBoxes] = useState(0)
+    const [selectedModel, setSelectedModel] = useState('')
+    const [selectedElasticColor, setSelectedElasticColor] = useState('')
+    const [clientNote, setClientNote] = useState('');
+    const [displayModal, setDisplayModal] = useState('none');
+
+    const settings = {
+
+        className: "start",
+        infinite: true,
+        centerPadding: "60px",
+        slidesToShow: 5,
+        swipeToSlide: true,
+
+    }
+
+    const values = {
+
+        name: "Buriti",
+        formats: [{
+
+            name: "10ª Geração",
+            types: [
+
+                {
+                    name: "10ª Geração",
+                    value: 25
+                }
+
+            ]
+
+        },
+        {
+
+            name: "Paperwhite",
+            types: [
+
+                {
+                    name: "Paperwhite",
+                    value: 25
+                },
+
+            ]
+
+        }
+        ]
+    }
+
+    function handleSelectedModel(event) {
+
+        let position = event.target.value
+        setSelectedModel(values.formats[position].types[0])
+
+    }
+
+    function onAuthStateChanged(user) {
+
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user)
+                setUserIsLogged(true)
+        });
+
+    }
+
+    useEffect(() => {
+
+        window.scrollTo(0, 0);
+
+        if (!firebase.apps.length)
+            firebase.initializeApp(FirebaseConfig);
+        onAuthStateChanged()
+
+    }, [])
 
     useEffect(() => {
 
@@ -40,43 +125,147 @@ export default function Buriti() {
 
     }, []);
 
-    function handleSelectedModel(event) {
+    let history = useHistory();
 
-        console.log(event.target.value)
+    function addToCart() {
+
+        const temp = JSON.parse(localStorage.getItem('products'))
+        var listOfItems = temp !== null ? Object.keys(temp).map((key) => temp[key]) : []
+
+        const newItems = []
+
+        const dataToSend = {
+
+            model: 'Buriti',
+            kindleModel: selectedModel.name,
+            value: selectedModel.value,
+            elasticColor: selectedElasticColor,
+            coverColors: selectedColors,
+            clientNote: clientNote,
+
+        }
+
+        newItems.push(dataToSend)
+
+        if (listOfItems.lenght > 0) {
+
+            newItems.map(item => listOfItems.push(item))
+            localStorage.setItem('products', JSON.stringify(listOfItems))
+
+        } else {
+
+            newItems.map(item => listOfItems.push(item))
+            localStorage.setItem('products', JSON.stringify(listOfItems))
+
+        }
+
+        history.push('/Carrinho')
 
     }
 
-    function handleSelectedPaper(event) {
+    const checkColor = (item, event) => {
 
-        console.log(event.target.value)
+        const isChecked = event.target.checked
+        setCheckStatus(event.target.value)
+
+        if (isChecked) {
+
+            setSelectedColors([...selectedColors, {
+
+                name: item.colorName,
+                code: item.colorCode
+
+            }])
+
+            setCheckedBoxes(checkedBoxes + 1)
+
+        } else {
+
+            const color = item.colorName
+            let index = selectedColors.findIndex((element) => element.name === color)
+
+            if (index !== -1) {
+
+                selectedColors.splice(index, 1)
+                setCheckedBoxes(checkedBoxes - 1)
+
+            }
+
+        }
 
     }
 
-    function handleSelectedCover(event) {
+    useEffect(() => {
 
-        console.log(event.target.value)
+        if (selectedModel == '' || selectedElasticColor == '' || (checkedBoxes > 2 || checkedBoxes == 0)) {
+
+            setIsValidated(false)
+
+        } else {
+
+            setIsValidated(true)
+
+        }
+
+    }, [selectedModel, selectedElasticColor, checkedBoxes])
+
+    function handleSelectedElasticColor(item, event) {
+
+        setSelectedElasticColor(event)
 
     }
 
-    function handleSelectedElasticColor(event) {
+    function handleClientNote(event) {
 
-        console.log(event.target.value)
+        setClientNote(event.target.value)
 
     }
 
-    function selectColor(item, event) {
+    function handleModalInfos() {
 
-        console.log(event)
+        displayModal === "none" ? setDisplayModal("flex") : setDisplayModal("none")
+
+    }
+
+    function closeModal() {
+
+        if (displayModal === "none")
+            setDisplayModal("flex")
+        else {
+            setDisplayModal("none");
+        }
 
     }
 
     return (
 
-        <main>
+        <main id="MainSketchbook">
+
+            <div style={{ display: displayModal }} role="dialog" className='divModal' >
+
+                <div className="modalContent">
+
+                    <div className="sketchbookImgWrapper">
+
+                        <img src={logo} alt="" />
+
+                    </div>
+
+                    <span onClick={closeModal}>x</span>
+
+                </div>
+
+            </div>
 
             <Header />
 
             <section id="CreateSketchbookSection">
+
+                <div className="logoWrapper">
+
+                    <img src={logo} alt="logo" />
+
+                </div>
 
                 <div className="textIntro">
 
@@ -87,109 +276,218 @@ export default function Buriti() {
 
                 <fieldset>
 
-                    <label for="paperFormat">Selecione o modelo do Kindle</label>
+                    <label for="kindleModel">Selecione o modelo do seu Kindle</label>
 
-                    <select onChange={handleSelectedModel} className="paperFormat">
+                    <select onChange={handleSelectedModel} className="kindleModel">
 
-                        <option value="0" selected disabled>Formato do sketchbook</option>
-                        <option value="10ª geração">10ª geração</option>
-                        <option value="Parperwhite">Parperwhite</option>
+                        <option value="" selected disabled>Modelo do Kindle</option>
+                        
+                        {values.formats.map((format, index) => {
+
+                            return (
+
+                                <option value={index} key={index}>{format.name}</option>
+
+                            )
+
+                        }
+                        )}
 
                     </select>
 
                 </fieldset>
 
-                <fieldset>
+                <div className="textWrapper">
 
-                    <label for="cover-color">Selecione a cor do tecido da capa da capa</label>
+                    <div className="textBackground">
 
-                    <select className="cover">
+                        <h2>Cor da capa</h2>
 
-                        <option value="0" selected disabled>Cor da Capa</option>
-                        
+                    </div>
 
-                    </select>
-
-                </fieldset>
-
-                <fieldset>
-
-                    <label for="elastic-color">Selecione a cor do elástico</label>
-
-                    <select className="elastic color">
-
-                        <option value="0" selected disabled>Cor do elástico</option>
-
-                    </select>
-
-                </fieldset>
-
-                <h2>Selecione as cores da capa</h2>
-                <div className="coverColorWrapper">
-
-                    {dataColors.map((item) => {
-
-                        return (
-
-                            <div style={{backgroundColor: item.colorCode}} className="cardColor">
-                        
-                                <label className="container">
-
-                                    {item.colorName}
-                                    <input onClick={(event) => selectColor(event, item)} type="checkbox" key={item.id} value={item.name}/>
-                                    <span className="checkmark"></span>
-
-                                </label>
-
-                            </div>
-
-                        )
-
-                    })}
+                    <p>Selecione <strong>até duas</strong> cores. <button onClick={() => handleModalInfos()}>Clique aqui para visualizar os modelos de capa</button></p>
 
                 </div>
 
-                <h2>Selecione as cores da linha</h2>
-                <div className="lineColor">
+                <div className="sliderColors">
 
-                    {dataColors.map(item => {
-                        return (
-                            <div style={{backgroundColor: item.colorCode}} className="colorLabel" className="cardColor">
-                        
-                                <label>
+                    <Slider {...settings}>
 
-                                    {item.colorName}
-                                    <input  onClick={(event) => selectColor(event, item)} type="checkbox" key={item.id} value={item.name}/>
-                                    <span className="checkmark"></span>
+                        {dataColors.map((item, index) => {
 
-                                </label>
+                            return (
 
-                            </div>
-                        )
-                    })}
+                                <div className="cardColor">
+
+                                    {item.image ?
+
+                                        (<div key={item.id} className="colorBox">
+
+                                            <img src={item.image} alt="cor" />
+
+                                        </div>)
+
+                                        :
+
+                                        (<div key={item.id} style={{ backgroundColor: item.colorCode }} className="colorBox">
+
+                                            <p>{item.colorCode}</p>
+
+                                        </div>)
+
+                                    }
+
+                                    <div className="colorName">
+
+                                        <p>{item.colorName}</p>
+
+                                        <input
+                                            type="checkbox"
+                                            value={index}
+                                            onChange={(event) => checkColor(item, event)}
+                                            style={{ accentColor: item.colorCode }}
+                                        />
+
+                                    </div>
+
+                                </div>
+
+                            )
+
+                        })}
+
+                    </Slider>
+
                 </div>
 
-                <h2>Selecione as cores do elástico</h2>
-                <div className="elasticColor">
+                <section id="RadioSelectionColors">
 
-                    {dataColors.map(item => {
-                        return (
-                            <div style={{backgroundColor: item.colorCode}} className="colorLabel" className="cardColor">
-                        
-                                <label>
+                    <div className="boxColor">
 
-                                    {item.colorName}
-                                    <input onClick={(event) => selectColor(event, item)} type="checkbox" key={item.id} value={item.name}/>
-                                    <span className="checkmark"></span>
+                        <div className="textWrapper">
 
-                                </label>
+                            <div className="textBackground">
+
+                                <h2>Cor do elástico</h2>
 
                             </div>
-                        )
-                    })}
-                </div>
 
-                <button>Finalizar</button>
+                            <p>Selecione <strong>uma</strong> cor</p>
+
+                        </div>
+
+                        <div className="elasticColorWrapper">
+
+                            {dataColors.map((item, index) => {
+
+                                return (
+
+                                    <div className="colorWrapper">
+
+                                        {item.image ?
+
+                                            (
+
+                                                <div className="elasticColor">
+
+                                                    <img src={item.image} alt="cor do elástico" />
+
+                                                </div>
+
+                                            )
+
+                                            :
+
+                                            (
+
+                                                <div style={{ backgroundColor: item.colorCode }} className="elasticColor" />
+
+                                            )
+
+                                        }
+
+                                        <input
+
+                                            type="radio"
+                                            onClick={(event) => handleSelectedElasticColor(event, item, index)}
+                                            name="selectedElasticColor"
+                                            key={item.id}
+                                            value={item.name}
+                                            style={{ accentColor: item.colorCode }}
+
+                                        />
+
+                                    </div>
+
+                                )
+
+                            })}
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <div className="additionalInfos">
+
+                    <label for="additionalInfos">Informações adicionais <strong>(opcional)</strong></label>
+
+                    <textarea
+                        type="text"
+                        name="additionalInfos"
+                        id="additionalInfos"
+                        onChange={handleClientNote}
+                    />
+
+                    {isValidated ? (
+
+                        <>
+
+                            <div className="productInfosWrapper">
+
+                                <h1>Seu sketchbook</h1>
+
+                                <ul>
+
+                                    <li><strong>Modelo: </strong>{selectedModel.name}</li>
+
+                                    <li>
+                                        <strong>Cor da capa: </strong>
+                                        {selectedColors.map((color, index) => {
+
+                                            return (
+
+                                                <span key={index}>{(index ? ' + ' : '') + color.name}</span>
+
+                                            )
+
+                                        })}
+                                    </li>
+
+                                    <li><strong>Cor do elástico: </strong>{selectedElasticColor.colorName}</li>
+
+                                </ul>
+
+                                <h3>Valor do sketchbook: R$ {selectedModel.value}</h3>
+
+                                <button onClick={() => addToCart()}>Adicionar ao carrinho</button>
+
+                            </div>
+
+                        </>
+
+                    ) : (
+
+                        <>
+
+                            <p>Você deve selecionar <strong>todas as opções</strong> antes de finalizar seu sketchbook</p>
+
+                        </>
+
+                    )}
+
+                </div>
 
             </section>
 
