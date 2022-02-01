@@ -44,6 +44,8 @@ export default function Cart() {
     const [selectedPayment, setSelectedPayment] = useState('');
     const [pickupSelect, setPickupSelect] = useState('');
     const [displayPopup, setDisplayPopup] = useState('none');
+    const [displayPaymentOption, setDisplayPaymentOption] = useState('none');
+    const [displayFinishButton, setDisplayFinishButton] = useState('none');
     const [purchasedProductData, setPurchasedProductData] = useState({})
 
     const [newDataReceiver, setNewDataReceiver] = useState({
@@ -56,6 +58,7 @@ export default function Cart() {
         receiverDistrict: '',
         receiverCity: '',
         receiverCpf: '',
+        receiverCep: '',
 
     })
 
@@ -210,6 +213,7 @@ export default function Cart() {
         if (payment === 'Pix') {
 
             setDisplayPopup('flex')
+            setDisplayFinishButton('flex')
 
         } else {
 
@@ -230,19 +234,28 @@ export default function Cart() {
         newDataReceiver.receiverComplement != '' ? counter++ : counter = counter
         newDataReceiver.receiverDistrict != '' ? counter++ : counter = counter
         newDataReceiver.receiverCity != '' ? counter++ : counter = counter
-        newDataReceiver.receiverCpf != '' ? counter++ : counter = counter
 
-        if (counter == 8) {
+        if (pickupSelect === 'Frete por transportadora') {
 
-            setTransportDataVerify(true)
+            newDataReceiver.receiverCpf != '' ? counter++ : counter = counter
 
-        } else if (counter !== 8 || pickupSelect !== 'Retirada física') {
+        } else {
 
-            setTransportDataVerify(false)
+            newDataReceiver.receiverCep != '' ? counter++ : counter = counter
 
         }
 
-    }, [newDataReceiver])
+        if ((counter == 8 && pickupSelect) || pickupSelect === 'Retirada física') {
+
+            setDisplayPaymentOption('flex')
+
+        } else {
+
+            setDisplayPaymentOption('none')
+
+        }
+
+    }, [newDataReceiver, pickupSelect])
 
     function handleInputCep(event) {
 
@@ -309,41 +322,36 @@ export default function Cart() {
 
             if (selectedPayment === 'PayPal' || selectedPayment === 'Cartão') {
 
-                if (pickupSelect !== '' && transportDataVerify === true) {
+                setTimeout(() => {
 
-                    setTimeout(() => {
+                    window.paypal
+                        .Buttons({
 
-                        window.paypal
-                            .Buttons({
+                            createOrder: (data, actions) => {
 
-                                createOrder: (data, actions) => {
-
-                                    return actions.order.create({
-                                        purchase_units: [
-                                            {
-                                                // description: product.description,
-                                                amount: {
-                                                    currency_code: "BRL",
-                                                    value: finalValue.toFixed(2)
-                                                }
+                                return actions.order.create({
+                                    purchase_units: [
+                                        {
+                                            // description: product.description,
+                                            amount: {
+                                                currency_code: "BRL",
+                                                value: finalValue.toFixed(2)
                                             }
-                                        ]
-                                    })
-                                },
-                                onApprove: async (data, actions) => {
+                                        }
+                                    ]
+                                })
+                            },
+                            onApprove: async (data, actions) => {
 
-                                    const order = await actions.order.capture();
-                                    sendOrder();
-                                    setPaidForm(true)
+                                const order = await actions.order.capture();
+                                sendOrder();
+                                setPaidForm(true)
 
-                                },
+                            },
 
-                            })
-                            .render(paypalRef)
-                    }, 100)
-                } else {
-                    window.alert("Você precisa preencher todos os campos antes de finalizar seu pedido")
-                }
+                        })
+                        .render(paypalRef)
+                }, 100)
 
             }
 
@@ -383,54 +391,86 @@ export default function Cart() {
 
         if (userIsLogged) {
 
-            if (selectedPayment !== '' && pickupSelect !== '') {
+            if (selectedPayment !== '' && pickupSelect !== 'Retirada física') {
 
-                if (transportDataVerify === true) {
+                const id = firebase.database().ref().child('posts').push().key
+                const now = new Date()
 
-                    const id = firebase.database().ref().child('posts').push().key
-                    const now = new Date()
+                const dataToSend = {
 
-                    const dataToSend = {
+                    id: id,
+                    products: data,
+                    pickupOption: pickupSelect,
+                    payment: selectedPayment,
+                    selectedTransport: selectedTransportData,
+                    userEmail: dataAccount.email,
+                    cepNumber: customerCep,
+                    userName: newDataReceiver.receiverName ? newDataReceiver.receiverName : dataAccount.name,
+                    phoneNumber: newDataReceiver.receiverPhone ? newDataReceiver.receiverPhone : dataAccount.phoneNumber,
+                    address: newDataReceiver.receiverAddress ? newDataReceiver.receiverAddress : dataAccount.address,
+                    houseNumber: newDataReceiver.receiverHouseNumber ? newDataReceiver.receiverHouseNumber : dataAccount.houseNumber,
+                    complement: newDataReceiver.receiverComplement ? newDataReceiver.receiverComplement : dataAccount.complement,
+                    district: newDataReceiver.receiverDistrict ? newDataReceiver.receiverDistrict : dataAccount.district,
+                    city: newDataReceiver.receiverCity ? newDataReceiver.receiverCity : dataAccount.city,
+                    cpf: newDataReceiver.receiverCpf ? newDataReceiver.receiverCpf : '',
+                    cep: newDataReceiver.receiverCep ? newDataReceiver.receiverCep : '',
+                    paymentProof: '',
+                    adminNote: '',
+                    requestStatus: '',
+                    dateToCompare: new Date().toDateString(),
+                    date: `${now.getUTCDate()}/${now.getMonth()}/${now.getFullYear()}-${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`,
+                    totalValue: finalValue.toFixed(2),
 
-                        id: id,
-                        products: data,
-                        pickupOption: pickupSelect,
-                        payment: selectedPayment,
-                        selectedTransport: selectedTransportData,
-                        userEmail: dataAccount.email,
-                        cepNumber: customerCep,
-                        userName: newDataReceiver.receiverName ? newDataReceiver.receiverName : dataAccount.name,
-                        phoneNumber: newDataReceiver.receiverPhone ? newDataReceiver.receiverPhone : dataAccount.phoneNumber,
-                        address: newDataReceiver.receiverAddress ? newDataReceiver.receiverAddress : dataAccount.address,
-                        houseNumber: newDataReceiver.receiverHouseNumber ? newDataReceiver.receiverHouseNumber : dataAccount.houseNumber,
-                        complement: newDataReceiver.receiverComplement ? newDataReceiver.receiverComplement : dataAccount.complement,
-                        district: newDataReceiver.receiverDistrict ? newDataReceiver.receiverDistrict : dataAccount.district,
-                        city: newDataReceiver.receiverCity ? newDataReceiver.receiverCity : dataAccount.city,
-                        cpf: newDataReceiver.receiverCpf ? newDataReceiver.receiverCpf : '',
-                        paymentProof: '',
-                        adminNote: '',
-                        requestStatus: '',
-                        dateToCompare: new Date().toDateString(),
-                        date: `${now.getUTCDate()}/${now.getMonth()}/${now.getFullYear()}-${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`,
-                        totalValue: finalValue.toFixed(2),
+                }
 
-                    }
+                firebase.database().ref('requests/' + id).set(dataToSend)
+                    .then(() => {
+                        setPurchasedProductData(dataToSend)
+                    })
 
-                    firebase.database().ref('requests/' + id).set(dataToSend)
-                        .then(() => {
-                            setPurchasedProductData(dataToSend)
-                        })
+                firebase.database().ref('reportsSales/' + id).set(dataToSend)
+                    .then(() => {
+                        alert("Pedido finalizado com sucesso!")
+                    })
 
-                    firebase.database().ref('reportsSales/' + id).set(dataToSend)
-                        .then(() => {
-                            alert("Pedido finalizado com sucesso!.")
-                        })
+                setPaidForm(true)
 
-                    setPaidForm(true)
+            } else {
 
-                } else alert('Você precisa preencher todos os campos!')
+                const id = firebase.database().ref().child('posts').push().key
+                const now = new Date()
 
-            } else alert('Você precisa selecionar todos os campos!')
+                const dataToSend = {
+
+                    id: id,
+                    products: data,
+                    pickupOption: pickupSelect,
+                    payment: selectedPayment,
+                    userEmail: dataAccount.email,
+                    userName: dataAccount.name,
+                    phoneNumber: dataAccount.phoneNumber,
+                    paymentProof: '',
+                    adminNote: '',
+                    requestStatus: '',
+                    dateToCompare: new Date().toDateString(),
+                    date: `${now.getUTCDate()}/${now.getMonth()}/${now.getFullYear()}-${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`,
+                    totalValue: finalValue.toFixed(2),
+
+                }
+
+                firebase.database().ref('requests/' + id).set(dataToSend)
+                    .then(() => {
+                        setPurchasedProductData(dataToSend)
+                    })
+
+                firebase.database().ref('reportsSales/' + id).set(dataToSend)
+                    .then(() => {
+                        alert("Pedido finalizado com sucesso!")
+                    })
+
+                setPaidForm(true)
+
+            }
 
         }
 
@@ -638,23 +678,39 @@ export default function Cart() {
 
                                         <input name='receiverCity' onChange={handleInputInfosChange} placeholder='Cidade' value={newDataReceiver.receiverCity} />
 
-                                        {/* <input name='receiverCpf' onChange={handleInputInfosChange} placeholder='CPF' value={newDataReceiver.receiverCpf} /> */}
-                                        <InputMask
-                                            id="receiverCpf"
-                                            name='receiverCpf'
-                                            type='text'
-                                            mask="999.999.999-99"
-                                            maskChar=""
-                                            onChange={handleInputInfosChange}
-                                            placeholder='CPF'
-                                            value={newDataReceiver.receiverCpf}
-                                        />
+                                        {pickupSelect === 'Frete por transportadora' ? (
+
+                                            <InputMask
+                                                id="receiverCpf"
+                                                name='receiverCpf'
+                                                type='text'
+                                                mask="999.999.999-99"
+                                                maskChar=""
+                                                onChange={handleInputInfosChange}
+                                                placeholder='CPF'
+                                                value={newDataReceiver.receiverCpf}
+                                            />
+
+                                        ) : (
+
+                                            <InputMask
+                                                id="receiverCep"
+                                                name='receiverCep'
+                                                type='text'
+                                                mask="99999-999"
+                                                maskChar=""
+                                                onChange={handleInputInfosChange}
+                                                placeholder='CEP'
+                                                value={newDataReceiver.receiverCep}
+                                            />
+
+                                        )}
 
                                     </div>
 
                                 </div>
 
-                                <select className="paymentSelect" onChange={handleSelectPayment} >
+                                <select style={{ display: displayPaymentOption }} className="paymentSelect" onChange={handleSelectPayment} >
 
                                     <option selected disabled value=''>Selecione o tipo de pagamento</option>
                                     <option value="PayPal" >PayPal </option>
@@ -669,7 +725,7 @@ export default function Cart() {
 
                                     <a href="/">Continuar comprando...</a>
                                     <h3>Preço: R$ {finalValue}</h3>
-                                    <button onClick={sendOrder}>Concluir compra!</button>
+                                    <button style={{ display: displayFinishButton }} onClick={sendOrder}>Concluir compra!</button>
 
                                 </div>
 
