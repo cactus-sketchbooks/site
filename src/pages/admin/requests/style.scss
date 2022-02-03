@@ -1,0 +1,333 @@
+@import '../../../global.scss';
+
+#MainRequests {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6rem;
+
+}
+
+.boxOrder {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    padding: 25px;
+    background-color: $orange;
+    border-radius: 15px;
+    margin: 3em;
+}
+
+.leftSizeBoxOrder {
+
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .rowItens {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .requestStatus {
+
+        display: flex;
+        flex-direction: column;
+        background-color: $light-orange;
+        padding: 1rem;
+        width: auto;
+        border-radius: 8px;
+        align-items: center;
+
+        select {
+
+            width: 50%;
+            padding: .5rem .2rem;
+
+        }
+
+        button {
+
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: $offWhite;
+            text-align: center;
+            margin: 10px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: .2s ease-in-out;
+
+            &:hover {
+
+                background-color: $dark-green;
+                color: $branco;
+
+            }
+
+        }
+
+    }
+
+}
+
+.leftSizeBoxOrder p {
+    padding: 10px;
+    color: white;
+    font-style: italic;
+}
+
+.leftSizeBoxOrder b {
+    padding: 10px;
+    color: white;
+}
+
+.rightSizeBoxOrder {
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
+
+.flexDisplayRequestPage {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    background-color: $light-orange;
+    border-radius: 5px;
+    margin: .5rem 0;
+    padding: 10px;
+
+    .productConfiguration {
+
+        width: 85%;
+
+        #productValue {
+            
+            display: inline-block;
+            background-color: $dark-green;
+            padding: 3px 0;
+            border-radius: 100px;
+    
+        }
+
+    }
+
+}
+
+.flexDisplayRequestPage li {
+    color: white;
+    margin: 0.5vw;
+}
+
+.flexDisplayRequestPage strong {
+
+    padding-left: 10px;
+    margin-left: 0.5vw;
+    color: white;
+
+}
+
+.flexDisplayRequestPage span {
+
+    color: white;
+    font-weight: bold;
+
+}
+
+.flexDisplayRequestPage img {
+    width: 20px;
+    cursor: pointer;
+    background-color: $branco;
+    border-radius: 3px;
+}
+
+.rightSizeBoxOrder p {
+    padding: 10px;
+    color: white;
+    font-style: italic;
+}
+
+.rightSizeBoxOrder b {
+    padding: 10px;
+    color: white;
+}
+
+.clientMessage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.clientMessage input {
+    padding: 10px;
+    width: 70%;
+    border-radius: 5px;
+    color: $orange;
+    background-color: $offWhite;
+    border: none;
+    outline: none;
+}
+
+.sendMessage {
+    display: flex;
+    flex-direction: column;
+}
+
+.sendMessage a {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: $offWhite;
+    text-align: center;
+    margin: 10px;
+    width: 100%;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+
+.sendMessage a:hover {
+    background-color: $dark-green;
+    color: $branco;
+}
+
+.finalizarPedido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 20px;
+    width: 50%;
+}
+
+.finalizarPedido h3 {
+    margin: 10px;
+}
+
+.finalizarPedido select {
+    width: 100%;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $offWhite;
+    color: $preto;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.finishButton {
+    background-color: $light-orange;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    color: $branco;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    
+    .boxOrder {
+        flex-direction: column;
+        width: 90%;
+    }
+    
+    .leftSizeBoxOrder {
+        padding: 0px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    
+        .rowItens {
+            display: flex;
+            flex-direction: row;
+
+            b, p {
+
+                font-size: .9rem;
+
+            }
+        }
+    }
+    
+    .rightSizeBoxOrder {
+        padding: 0px;
+    }
+    
+    .flexDisplayRequestPage {
+
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: center;
+        list-style: none;
+
+    }
+    
+    .flexDisplayRequestPage li {
+        color: rgb(255, 255, 255);
+        margin: 0.5vw;
+    }
+    
+    .flexDisplayRequestPage img {
+        width: 6vw;
+        cursor: pointer;
+        margin-left: .6rem;
+    }
+    
+    .rightSizeBoxOrder p {
+        font-size: .9rem;
+    }
+    
+    .rightSizeBoxOrder b {
+        font-size: .9rem;
+    }
+    
+    .clientMessage {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .clientMessage input {
+        margin-bottom: 1rem;
+    }
+    
+    .sendMessage {
+        width: 100%;
+    }
+    
+    .sendMessage a {
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        background-color: $offWhite;
+        text-align: center;
+        margin: 10px 0;
+        width: 100%;
+        cursor: pointer;
+    }
+    
+    .finalizarPedido {
+        width: 90%;
+    }
+    
+    .finalizarPedido h3 {
+        margin: 10px;
+    }
+    
+}

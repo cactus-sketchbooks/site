@@ -112,7 +112,7 @@ export default function Admin() {
                         <Link to="/listaDeClientes">Lista de clientes</Link>
                         <Link to="/gerenciarCores">Gerenciar cores</Link>
                         {/* <Link to="/gerenciarTipos">Gerenciar tipos</Link> */}
-                        <Link to=""> Pedidos em andamento</Link>
+                        <Link to="/pedidos"> Pedidos em andamento</Link>
                         {/* <Link to="">Alterar conteúdo das páginas</Link> */}
                         <Link to="criarPost">Criar um post na página "Use e Apareça"</Link>
 

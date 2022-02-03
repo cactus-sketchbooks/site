@@ -430,7 +430,9 @@ export default function Cart() {
 
                 firebase.database().ref('reportsSales/' + id).set(dataToSend)
                     .then(() => {
+                        localStorage.setItem('products', '{}')
                         alert("Pedido finalizado com sucesso!")
+                        window.location.reload()
                     })
 
                 setPaidForm(true)
@@ -465,7 +467,9 @@ export default function Cart() {
 
                 firebase.database().ref('reportsSales/' + id).set(dataToSend)
                     .then(() => {
+                        localStorage.setItem('products', '{}')
                         alert("Pedido finalizado com sucesso!")
+                        window.location.reload()
                     })
 
                 setPaidForm(true)
@@ -530,8 +534,23 @@ export default function Cart() {
                                         <ul>
 
                                             <li><strong>Modelo:</strong> {product.model}</li>
-                                            <li><strong>Tamanho:</strong> {product.paperWidth}</li>
-                                            <li><strong>Papel do miolo:</strong> {product.paper}</li>
+                                            {product.kindleModel ? (
+
+                                                <li><strong>Kindle:</strong> {product.kindleModel}</li>
+
+                                            ) : ('')}
+
+                                            {product.paperWidth ? (
+
+                                                <li><strong>Tamanho:</strong> {product.paperWidth}</li>
+
+                                            ) : ('')}
+
+                                            {product.paper ? (
+
+                                                <li><strong>Papel do miolo:</strong> {product.paper}</li>
+
+                                            ) : ('')}
 
                                             <li id="coverColor">
 
