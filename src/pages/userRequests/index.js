@@ -14,8 +14,6 @@ export default function UserRequests() {
 
     const [dataAccount, setDataAccount] = useState([]);
     const [requestData, setRequestData] = useState([]);
-    const [displayProducts, setDisplayProducts] = useState("none")
-    const [isOpenned, setIsOpenned] = useState(false)
 
     let history = useHistory();
 
@@ -82,22 +80,6 @@ export default function UserRequests() {
 
     }, []);
 
-    function handleDisplayProducts(index) {
-
-        setIsOpenned(!isOpenned)
-
-        if(isOpenned) {
-
-            setDisplayProducts("flex");
-
-        } else {
-
-            setDisplayProducts("none");
-
-        }
-
-    }
-
     return (
 
         <div className="requestsPage">
@@ -110,7 +92,7 @@ export default function UserRequests() {
 
                 <div className="requestData">
 
-                    {requestData.map((item) => {
+                    {requestData.map((item, index) => {
 
                         return (
 
@@ -118,15 +100,26 @@ export default function UserRequests() {
 
                                 <div className="rowData">
 
-                                    <h4>Forma de pagamento: </h4>
-                                    <h4>{item.payment}</h4>
+                                    <h4>ID do pedido: </h4>
+                                    <h4>{item.id}</h4>
 
                                 </div>
 
+                                {item.requestStatus ? (
+
+                                    <div className="rowData">
+
+                                        <h4>Status do pedido: </h4>
+                                        <h4>{item.requestStatus}</h4>
+
+                                    </div>
+
+                                ) : ('')}
+
                                 <div className="rowData">
 
-                                    <h4>ID do pedido: </h4>
-                                    <h4>{item.id}</h4>
+                                    <h4>Forma de pagamento: </h4>
+                                    <h4>{item.payment}</h4>
 
                                 </div>
 
@@ -165,9 +158,7 @@ export default function UserRequests() {
 
                                 ) : ('')}
 
-                                <button onClick={handleDisplayProducts}>Teste</button>
-
-                                <div style={{display: displayProducts}} className="boxProductInfos">
+                                <div className="boxProductInfos">
 
                                     {item.products.map((product) => {
 
@@ -175,61 +166,67 @@ export default function UserRequests() {
 
                                             <ul className="productInfo">
 
-                                                <li><b>{product.model}</b></li>
+                                                <h2>{product.model}</h2>
 
                                                 {product.paperWidth ? (
 
                                                     <>
-                                                        <li><b>Tamanho: {product.paperWidth}</b></li>
+                                                        <li><b>Tamanho:</b> {product.paperWidth}</li>
                                                     </>
 
                                                 ) : (
 
-                                                    <li><b>Modelo do Kindle: {product.kindleModel}</b></li>
+                                                    <li><b>Modelo do Kindle:</b> {product.kindleModel}</li>
 
                                                 )}
 
                                                 {product.paper ? (
 
-                                                    <li><b>Papel do miolo: {product.paper}</b></li>
+                                                    <li><b>Papel do miolo:</b> {product.paper}</li>
 
                                                 ) : ('')}
 
-                                                <strong>Cor da capa: </strong>
+                                                <div className="coverColorDiv">
 
-                                                {product.coverColors.map((color, index) => {
+                                                    <strong>Cor da capa: </strong>
 
-                                                    return (
+                                                    {product.coverColors.map((color, index) => {
 
-                                                        <span key={index}>{(index ? ' + ' : '') + color.name}</span>
+                                                        return (
 
-                                                    )
+                                                            <span key={index}>{(index ? ' + ' : '') + color.name}</span>
 
-                                                })}
+                                                        )
+
+                                                    })}
+
+                                                </div>
 
                                                 {product.lineColor ? (
 
-                                                    <li><b>Cor da linha: {product.lineColor.colorName}</b></li>
+                                                    <li><b>Cor da linha:</b> {product.lineColor.colorName}</li>
 
                                                 ) : ('')}
 
                                                 {product.elasticColor ? (
 
-                                                    <li><b>Cor do elástico: {product.elasticColor.colorName}</b></li>
+                                                    <li><b>Cor do elástico:</b> {product.elasticColor.colorName}</li>
 
                                                 ) : ('')}
 
                                                 {product.spiralColor ? (
 
-                                                    <li><b>Cor do espiral: {product.spiralColor}</b></li>
+                                                    <li><b>Cor do espiral:</b> {product.spiralColor}</li>
 
                                                 ) : ('')}
 
                                                 {product.clientNote ? (
 
-                                                    <li><b>Observação: {product.clientNote}</b></li>
+                                                    <li><b>Observação:</b> {product.clientNote}</li>
 
                                                 ) : ('')}
+
+                                                <h2>R$ {product.value}</h2>
 
                                             </ul>
 

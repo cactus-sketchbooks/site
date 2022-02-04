@@ -17,6 +17,8 @@ export default function Requests() {
     const [selectItem, setSelectItem] = useState('')
     const [noteAdmin, setNoteAdmin] = useState('')
     const [requestStatus, setRequestStatus] = useState('');
+    const [modalDataProducts, setModalDataProducts] = useState();
+    const [displayModal, setDisplayModal] = useState('none');
 
     const [loginData, setLoginData] = useState({
 
@@ -158,17 +160,47 @@ export default function Requests() {
             .ref('requests/' + dataTemp[indexItem].id)
             .update({
 
-                address: dataTemp[indexItem].address,
+                address: dataTemp[indexItem].address ? dataTemp[indexItem].address : '',
                 adminNote: noteAdmin !== '' ? noteAdmin : dataTemp[indexItem].adminNote,
                 cepNumber: dataTemp[indexItem].cepNumber ? dataTemp[indexItem].cepNumber : '',
                 cep: dataTemp[indexItem].cep ? dataTemp[indexItem].cep : '',
-                city: dataTemp[indexItem].city,
-                complement: dataTemp[indexItem].complement,
+                city: dataTemp[indexItem].city ? dataTemp[indexItem].city : '',
+                complement: dataTemp[indexItem].complement ? dataTemp[indexItem].complement : '',
                 cpf: dataTemp[indexItem].cpf ? dataTemp[indexItem].cpf : '',
                 date: dataTemp[indexItem].date,
                 dateToCompare: dataTemp[indexItem].dateToCompare,
-                district: dataTemp[indexItem].district,
-                houseNumber: dataTemp[indexItem].houseNumber,
+                district: dataTemp[indexItem].district ? dataTemp[indexItem].district : '',
+                houseNumber: dataTemp[indexItem].houseNumber ? dataTemp[indexItem].houseNumber : '',
+                id: dataTemp[indexItem].id,
+                products: dataTemp[indexItem].products,
+                paymentProof: dataTemp[indexItem].paymentProof ? dataTemp[indexItem].paymentProof : '',
+                payment: dataTemp[indexItem].payment,
+                phoneNumber: dataTemp[indexItem].phoneNumber,
+                pickupOption: dataTemp[indexItem].pickupOption,
+                requestStatus: requestStatus,
+                selectedTransport: dataTemp[indexItem].selectedTransport ? dataTemp[indexItem].selectedTransport : '',
+                totalValue: dataTemp[indexItem].totalValue,
+                userEmail: dataTemp[indexItem].userEmail,
+                userName: dataTemp[indexItem].userName,
+
+
+            })
+
+        firebase.database()
+            .ref('reportsSales/' + dataTemp[indexItem].id)
+            .update({
+
+                address: dataTemp[indexItem].address ? dataTemp[indexItem].address : '',
+                adminNote: noteAdmin !== '' ? noteAdmin : dataTemp[indexItem].adminNote,
+                cepNumber: dataTemp[indexItem].cepNumber ? dataTemp[indexItem].cepNumber : '',
+                cep: dataTemp[indexItem].cep ? dataTemp[indexItem].cep : '',
+                city: dataTemp[indexItem].city ? dataTemp[indexItem].city : '',
+                complement: dataTemp[indexItem].complement ? dataTemp[indexItem].complement : '',
+                cpf: dataTemp[indexItem].cpf ? dataTemp[indexItem].cpf : '',
+                date: dataTemp[indexItem].date,
+                dateToCompare: dataTemp[indexItem].dateToCompare,
+                district: dataTemp[indexItem].district ? dataTemp[indexItem].district : '',
+                houseNumber: dataTemp[indexItem].houseNumber ? dataTemp[indexItem].houseNumber : '',
                 id: dataTemp[indexItem].id,
                 products: dataTemp[indexItem].products,
                 paymentProof: dataTemp[indexItem].paymentProof ? dataTemp[indexItem].paymentProof : '',
@@ -199,11 +231,147 @@ export default function Requests() {
 
     }
 
+    function handleSelectedRequest(item) {
+
+        setModalDataProducts(item)
+        displayModal === "none" ? setDisplayModal("flex") : setDisplayModal("none")
+
+    }
+
+    function closeModal() {
+
+        if (displayModal === "none")
+            setDisplayModal("flex")
+        else {
+            setDisplayModal("none");
+        }
+
+    }
+
     if (userIsLogged) {
 
         return (
 
             <main>
+
+                <div style={{ display: displayModal }} role="dialog" className='divModalRequests' >
+
+                    <div className="modalContentRequests">
+
+                        <div className="userInfosWrapper" >
+
+                            {modalDataProducts ? (
+
+                                <>
+
+                                    {modalDataProducts.city ? (
+
+                                        <div className="rowItens">
+                                            <p>Cidade:</p>
+                                            <b>{modalDataProducts.city}</b>
+                                        </div>
+
+                                    ) : ('')}
+
+                                    {modalDataProducts.address ? (
+
+                                        <div className="rowItens">
+                                            <p>Endereço:</p>
+                                            <b>{modalDataProducts.address}</b>
+                                        </div>
+
+                                    ) : ('')}
+
+                                    {modalDataProducts.district ? (
+
+                                        <div className="rowItens">
+                                            <p>Bairro:</p>
+                                            <b>{modalDataProducts.district}</b>
+                                        </div>
+
+                                    ) : ('')}
+
+                                    {modalDataProducts.houseNumber ? (
+
+                                        <div className="rowItens">
+                                            <p>Número da casa:</p>
+                                            <b>{modalDataProducts.houseNumber}</b>
+                                        </div>
+
+                                    ) : ('')}
+
+                                    {modalDataProducts.complement ? (
+
+                                        <div className="rowItens">
+                                            <p>Complemento:</p>
+                                            <b>{modalDataProducts.complement}</b>
+                                        </div>
+
+                                    ) : ('')}
+
+                                    <div className="rowItens">
+
+                                        {modalDataProducts.cepNumber ? (
+
+                                            <>
+                                                <p>CEP:</p>
+                                                <b>{modalDataProducts.cepNumber}</b>
+                                            </>
+
+                                        ) : ('')}
+
+                                        {modalDataProducts.cep ? (
+
+                                            <>
+                                                <p>CEP:</p>
+                                                <b>{modalDataProducts.cep}</b>
+                                            </>
+
+                                        ) : ('')}
+
+                                        {
+
+                                            modalDataProducts.cpf ?
+
+                                                <div className="rowItens">
+                                                    <p>CPF do remetente:</p>
+                                                    <b>{modalDataProducts.cpf}</b>
+                                                </div>
+
+                                                : <p></p>
+
+                                        }
+                                    </div>
+
+                                </>
+
+                            ) : ('')}
+
+                        </div>
+
+                        <div className="productModalInfos">
+
+                            {modalDataProducts !== undefined ? (
+
+                                modalDataProducts.products.map((product) => {
+
+                                    return (
+
+                                        <h1>{product.model}</h1>
+
+                                    )
+
+                                })
+
+                            ) : ('')}
+
+                            <span onClick={closeModal}>x</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
 
                 <Header />
 
@@ -211,193 +379,130 @@ export default function Requests() {
 
                     {dataAdmin.map((item, indexItem) => (
 
-                        <div className="boxOrder">
+                        <div onClick={() => { handleSelectedRequest(item) }} className="boxOrder">
 
-                            <div className="leftSizeBoxOrder" >
+                            <h1>{item.userName}</h1>
 
-                                {item.userName ? (
+                            <div className="infosWrapper">
 
-                                    <div className="rowItens">
-                                        <p>Nome:</p>
-                                        <b>{item.userName}</b>
-                                    </div>
+                                <div className="userInfosWrapper" >
 
-                                ) : ('')}
-
-                                {item.phoneNumber ? (
-
-                                    <div className="rowItens">
-                                        <p>Telefone:</p>
-                                        <b>{item.phoneNumber}</b>
-                                    </div>
-
-                                ) : ('')}
-
-                                <div className="rowItens">
-                                    <p>E-mail: </p>
-                                    <b>{item.userEmail}</b>
-                                </div>
-
-                                {item.city ? (
-
-                                    <div className="rowItens">
-                                        <p>Cidade:</p>
-                                        <b>{item.city}</b>
-                                    </div>
-
-                                ) : ('')}
-
-                                {item.address ? (
-
-                                    <div className="rowItens">
-                                        <p>Endereço:</p>
-                                        <b>{item.address}</b>
-                                    </div>
-
-                                ) : ('')}
-
-                                {item.district ? (
-
-                                    <div className="rowItens">
-                                        <p>Bairro:</p>
-                                        <b>{item.district}</b>
-                                    </div>
-
-                                ) : ('')}
-
-                                {item.houseNumber ? (
-
-                                    <div className="rowItens">
-                                        <p>Número da casa:</p>
-                                        <b>{item.houseNumber}</b>
-                                    </div>
-
-                                ) : ('')}
-
-                                {item.complement ? (
-
-                                    <div className="rowItens">
-                                        <p>Complemento:</p>
-                                        <b>{item.complement}</b>
-                                    </div>
-
-                                ) : ('')}
-
-                                <div className="rowItens">
-
-                                    {item.cepNumber ? (
-
-                                        <>
-                                            <p>CEP:</p>
-                                            <b>{item.cepNumber}</b>
-                                        </>
-
-                                    ) : ('')}
-
-                                    {item.cep ? (
-
-                                        <>
-                                            <p>CEP:</p>
-                                            <b>{item.cep}</b>
-                                        </>
-
-                                    ) : ('')}
-
-                                </div>
-
-                                {
-
-                                    item.cpf ?
+                                    {item.phoneNumber ? (
 
                                         <div className="rowItens">
-                                            <p>CPF do remetente:</p>
-                                            <b>{item.cpf}</b>
+                                            <p>Telefone</p>
+                                            <b>{item.phoneNumber}</b>
                                         </div>
 
-                                        : <p></p>
+                                    ) : ('')}
 
-                                }
+                                    <div className="rowItens">
+                                        <p>E-mail </p>
+                                        <b>{item.userEmail}</b>
+                                    </div>
 
-                                {
-
-                                    item.payment === "Pix" ? (
-
-                                        item.paymentProof ? (
-
-                                            <p>
-
-                                                Tipo de pagamento:
-
-                                                <b>{item.payment} (<a style={{ textDecoration: 'none' }} target="_blank" href={item.paymentProof}>Comprovante</a>)</b>
-
-                                            </p>
-
-                                        ) :
-
-                                            (
-                                                <p>
-
-                                                    Tipo de pagamento:
-
-                                                    <b>{item.payment} (Aguardando comprovante)</b>
-
-                                                </p>
-                                            )
-                                    )
-
-
-                                        :
-
-                                        (<p>Tipo de pagamento: <b>{item.payment}</b></p>)
-
-                                }
-
-
-                                <div className="rowItens">
-                                    <p>Como deseja receber:</p>
-                                    <b>{item.pickupOption}</b>
                                 </div>
 
-                                {
+                                <div className="userInfosWrapper" >
 
-                                    item.selectedTransport ?
+                                    {
 
-                                        <>
-                                            <div className="rowItens">
-                                                <p>Transportadora escolhida:</p>
-                                                <b>{item.selectedTransport.name}</b>
-                                            </div>
+                                        item.payment === "Pix" ? (
 
-                                            <div className="rowItens">
-                                                <p>Valor do frete:</p>
-                                                <b>R$ {item.selectedTransport.price}</b>
-                                            </div>
-                                        </>
+                                            item.paymentProof ? (
 
-                                        : <p></p>
+                                                <div className="rowItens">
 
-                                }
+                                                    <p>Tipo de pagamento</p>
+                                                    <b>{item.payment} (<a style={{ textDecoration: 'none' }} target="_blank" href={item.paymentProof}>Comprovante</a>)</b>
 
-                                <div className="requestStatus">
+                                                </div>
+
+                                            ) :
+
+                                                (
+
+                                                    <div className="rowItens">
+                                                        <p>Tipo de pagamento</p>
+                                                        <b>{item.payment} (Aguardando comprovante)</b>
+                                                    </div>
+
+                                                )
+                                        )
+
+
+                                            : (
+
+                                                <div className="rowItens">
+                                                    <p>Tipo de pagamento</p>
+                                                    <b>{item.payment}</b>
+                                                </div>
+                                            )
+
+                                    }
+
+                                    <div className="rowItens">
+                                        <p>Como deseja receber</p>
+                                        <b>{item.pickupOption}</b>
+                                    </div>
+
+                                </div>
+
+                                <div className="userInfosWrapper" >
 
                                     <p>Status do pedido: <b>{item.requestStatus}</b></p>
 
-                                    <select onChange={handleSelectedStatus}>
+                                    <div div className="requestStatus" >
 
-                                        <option selected disabled>Status do pedido</option>
-                                        <option value="Preparando">Preparando</option>
-                                        <option value="Enviado">Enviado</option>
-                                        <option value="Entregue">Entregue</option>
+                                        <select onChange={handleSelectedStatus}>
 
-                                    </select>
+                                            <option selected disabled>Status do pedido</option>
+                                            <option value="Preparando">Preparando</option>
+                                            <option value="Enviado">Enviado</option>
+                                            <option value="Entregue">Entregue</option>
 
-                                    <button onClick={() => { sendNoteAdmin(indexItem) }}>Alterar status</button>
+                                        </select>
+
+                                        <button onClick={() => { sendNoteAdmin(indexItem) }}>Alterar status</button>
+
+                                    </div>
+
+                                    <div className="clientMessage">
+
+                                        <input
+                                            placeholder='Recado para cliente'
+                                            onChange={handleInputNote}
+                                        />
+
+                                        <button onClick={() => { sendNoteAdmin(indexItem) }} >Enviar Recado</button>
+
+                                    </div>
 
                                 </div>
 
-                            </div>
+                                {/* {
 
-                            <div className="rightSizeBoxOrder" >
+                                item.selectedTransport ?
+
+                                    <>
+                                        <div className="rowItens">
+                                            <p>Transportadora escolhida:</p>
+                                            <b>{item.selectedTransport.name}</b>
+                                        </div>
+
+                                        <div className="rowItens">
+                                            <p>Valor do frete:</p>
+                                            <b>R$ {item.selectedTransport.price}</b>
+                                        </div>
+                                    </>
+
+                                    : <p></p>
+
+                            } */}
+
+
+
+                                {/* <div className="rightSizeBoxOrder" >
 
                                 <p>Itens:</p>
 
@@ -567,15 +672,18 @@ export default function Requests() {
 
                                     <div className="sendMessage">
                                         <a onClick={() => { sendNoteAdmin(indexItem) }} >Enviar Recado</a>
-                                        {/* <a onClick={() => { handleModalInfos(item) }}>Designar Entregador</a> */}
                                     </div>
                                 </div>
+
+                            </div> */}
 
                             </div>
 
                         </div>
 
-                    ))}
+                    ))
+
+                    }
 
                     <div className="finalizarPedido">
                         <h3 className="texTripRequest" >Finalizar pedido</h3>
@@ -593,11 +701,11 @@ export default function Requests() {
                         <a className="finishButton" onClick={() => finishOrder()} >Finalizar</a>
                     </div>
 
-                </div>
+                </div >
 
                 <Footer />
 
-            </main>
+            </main >
 
         )
 
