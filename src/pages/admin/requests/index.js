@@ -258,6 +258,24 @@ export default function Requests() {
 
                     <div className="modalContentRequests">
 
+                        <div className="closeModalDiv">
+
+                            <span onClick={closeModal}>x</span>
+
+                        </div>
+
+                        {modalDataProducts ? (
+
+                            <h1>{modalDataProducts.userName}</h1>
+
+                        ) : ('')}
+
+                        {modalDataProducts ? (
+
+                            <h2>R$ {modalDataProducts.totalValue}</h2>
+
+                        ) : ('')}
+
                         <div className="userInfosWrapper" >
 
                             {modalDataProducts ? (
@@ -266,7 +284,7 @@ export default function Requests() {
 
                                     {modalDataProducts.city ? (
 
-                                        <div className="rowItens">
+                                        <div className="userData">
                                             <p>Cidade:</p>
                                             <b>{modalDataProducts.city}</b>
                                         </div>
@@ -275,7 +293,7 @@ export default function Requests() {
 
                                     {modalDataProducts.address ? (
 
-                                        <div className="rowItens">
+                                        <div className="userData">
                                             <p>Endereço:</p>
                                             <b>{modalDataProducts.address}</b>
                                         </div>
@@ -284,7 +302,7 @@ export default function Requests() {
 
                                     {modalDataProducts.district ? (
 
-                                        <div className="rowItens">
+                                        <div className="userData">
                                             <p>Bairro:</p>
                                             <b>{modalDataProducts.district}</b>
                                         </div>
@@ -293,7 +311,7 @@ export default function Requests() {
 
                                     {modalDataProducts.houseNumber ? (
 
-                                        <div className="rowItens">
+                                        <div className="userData">
                                             <p>Número da casa:</p>
                                             <b>{modalDataProducts.houseNumber}</b>
                                         </div>
@@ -302,46 +320,60 @@ export default function Requests() {
 
                                     {modalDataProducts.complement ? (
 
-                                        <div className="rowItens">
+                                        <div className="userData">
                                             <p>Complemento:</p>
                                             <b>{modalDataProducts.complement}</b>
                                         </div>
 
                                     ) : ('')}
 
-                                    <div className="rowItens">
+                                    {modalDataProducts.cepNumber ? (
 
-                                        {modalDataProducts.cepNumber ? (
+                                        <div className="userData">
+                                            <p>CEP:</p>
+                                            <b>{modalDataProducts.cepNumber}</b>
+                                        </div>
+
+                                    ) : ('')}
+
+                                    {modalDataProducts.cep ? (
+
+                                        <div className="userData">
+                                            <p>CEP:</p>
+                                            <b>{modalDataProducts.cep}</b>
+                                        </div>
+
+                                    ) : ('')}
+
+                                    {modalDataProducts.cpf ? (
+
+                                        <div className="userData">
+                                            <p>CPF do remetente:</p>
+                                            <b>{modalDataProducts.cpf}</b>
+                                        </div>
+
+                                    ) : ('')}
+
+                                    {
+
+                                        modalDataProducts.selectedTransport ?
 
                                             <>
-                                                <p>CEP:</p>
-                                                <b>{modalDataProducts.cepNumber}</b>
-                                            </>
-
-                                        ) : ('')}
-
-                                        {modalDataProducts.cep ? (
-
-                                            <>
-                                                <p>CEP:</p>
-                                                <b>{modalDataProducts.cep}</b>
-                                            </>
-
-                                        ) : ('')}
-
-                                        {
-
-                                            modalDataProducts.cpf ?
-
-                                                <div className="rowItens">
-                                                    <p>CPF do remetente:</p>
-                                                    <b>{modalDataProducts.cpf}</b>
+                                                <div className="userData">
+                                                    <p>Transportadora escolhida:</p>
+                                                    <b>{modalDataProducts.selectedTransport.name}</b>
                                                 </div>
 
-                                                : <p></p>
+                                                <div className="userData">
+                                                    <p>Valor do frete:</p>
+                                                    <b>R$ {modalDataProducts.selectedTransport.price}</b>
+                                                </div>
+                                            </>
 
-                                        }
-                                    </div>
+                                            : <p></p>
+
+                                    }
+
 
                                 </>
 
@@ -357,15 +389,81 @@ export default function Requests() {
 
                                     return (
 
-                                        <h1>{product.model}</h1>
+                                        <>
+
+                                            <ul className="productCard">
+
+                                                <h4>{product.model}</h4>
+
+                                                {product.paperWidth ? (
+
+                                                    <>
+                                                        <li>Tamanho: <b>{product.paperWidth}</b></li>
+                                                    </>
+
+                                                ) : (
+
+                                                    <li>Modelo do Kindle: <b>{product.kindleModel}</b></li>
+
+                                                )}
+
+                                                {product.paper ? (
+
+                                                    <li>Papel do miolo: <b>{product.paper}</b></li>
+
+                                                ) : ('')}
+
+                                                <li id="coverColor">
+
+                                                    Cor da capa:
+
+                                                    {product.coverColors.map((color, index) => {
+
+                                                        return (
+
+                                                            <span key={index}><b>{(index ? ' + ' : '') + color.name}</b></span>
+
+                                                        )
+
+                                                    })}
+
+                                                </li>
+
+                                                {product.lineColor ? (
+
+                                                    <li>Cor da linha: <b>{product.lineColor.colorName}</b></li>
+
+                                                ) : ('')}
+
+                                                {product.elasticColor ? (
+
+                                                    <li>Cor do elástico: <b>{product.elasticColor.colorName}</b></li>
+
+                                                ) : ('')}
+
+                                                {product.spiralColor ? (
+
+                                                    <li>Cor do espiral: <b>{product.spiralColor}</b></li>
+
+                                                ) : ('')}
+
+                                                {product.clientNote ? (
+
+                                                    <li>Observação: <b>{product.clientNote}</b></li>
+
+                                                ) : ('')}
+
+                                                <li id="productValue"><b>R$ {product.value.toFixed(2)}</b></li>
+
+                                            </ul>
+
+                                        </>
 
                                     )
 
                                 })
 
                             ) : ('')}
-
-                            <span onClick={closeModal}>x</span>
 
                         </div>
 
@@ -479,27 +577,6 @@ export default function Requests() {
                                     </div>
 
                                 </div>
-
-                                {/* {
-
-                                item.selectedTransport ?
-
-                                    <>
-                                        <div className="rowItens">
-                                            <p>Transportadora escolhida:</p>
-                                            <b>{item.selectedTransport.name}</b>
-                                        </div>
-
-                                        <div className="rowItens">
-                                            <p>Valor do frete:</p>
-                                            <b>R$ {item.selectedTransport.price}</b>
-                                        </div>
-                                    </>
-
-                                    : <p></p>
-
-                            } */}
-
 
 
                                 {/* <div className="rightSizeBoxOrder" >
