@@ -499,7 +499,7 @@ export default function Cart() {
 
             <div id="cart">
 
-                {data ? (
+                {data.length != 0 ? (
 
                     <section id="purchaseInfo">
 
@@ -798,7 +798,7 @@ export default function Cart() {
                 )
                     : (
                         <section className="emptyCart">
-                            <h3>Opa.. parece que seu carrinho está vazio! Bora fazer arte?</h3>
+                            <h3>Opa... parece que seu carrinho está vazio! Bora fazer arte?</h3>
                             <a href="/">Bora!</a>
                         </section>
                     )}

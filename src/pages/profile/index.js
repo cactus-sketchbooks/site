@@ -178,6 +178,8 @@ function UserProfile() {
             <section id="DataSection">
 
                 <h1>Seu perfil</h1>
+
+                <Link to="/meusPedidos">Ver meus pedidos</Link>
                     
                     <div className="userData">
 

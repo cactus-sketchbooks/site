@@ -1,0 +1,121 @@
+@import "../../global.scss";
+
+#mainPasswordRecovery {
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:#2B303A;
+    flex-direction: column;
+    position: relative;
+
+}
+
+.passwordRecoveryImageWrapper {
+    
+    display: flex;
+    position: absolute;
+    top: 1rem;
+    width: 12vw;
+    height: 25vh;
+    align-items: center;
+    justify-content: center;
+    border-radius: 300px;
+
+}
+
+.passwordRecoveryImageWrapper img{
+
+    width: 150px;
+
+}
+
+.passwordRecoveryWrapper {
+
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 60%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    text-align: center;
+    align-items: center;
+    margin-top: 8rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+
+}
+
+.passwordRecoveryWrapper h1 {
+
+    font-size: 1.7rem;
+    margin-top: 2rem;
+    line-height: 0;
+
+}
+
+.passwordRecoveryWrapper p {
+
+    padding: 0 1rem;
+    color: rgb(133, 133, 133);
+    margin-top: 2rem;
+
+}
+
+.passwordRecoveryWrapper input {
+
+    width: 85%;
+    height: 2.5rem;
+    background-color: #EEEEEE;
+    border: none;
+    margin: 3rem 0 2rem 0;
+    outline: none;
+    font-size: 1rem;
+    padding-left: .5rem;
+
+}
+
+.passwordRecoveryWrapper input::placeholder {
+
+    color: #000;
+    padding-left: .5rem;
+
+}
+
+.passwordRecoveryWrapper button {
+
+    width: 50%;
+    height: 2.5rem;
+    border: none;
+    background-color: $orange;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.passwordRecoveryWrapper a {
+
+    text-decoration: none;
+    margin-top: 1.5rem;
+
+}
+
+.passwordRecoveryWrapper a:hover {
+
+    color: #2f3cb3;
+
+}
+
+@media screen and (max-width: 768px) {
+
+    .passwordRecoveryWrapper {
+
+        width: 90%;
+    
+    }
+
+}

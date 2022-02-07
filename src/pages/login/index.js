@@ -127,7 +127,7 @@ export default function Login() {
                     <div className="loginRedirects">
 
                         <a href='/cadastro' >Registrar</a>
-                        <a href='/mudarSenha' >Esqueceu a senha?</a>
+                        <a href='/recuperarSenha' >Esqueceu a senha?</a>
 
                     </div>
 

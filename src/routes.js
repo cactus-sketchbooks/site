@@ -23,6 +23,7 @@ import CreateColor from './pages/admin/createColor'
 // import CreateTypes from './pages/admin/createTypes'
 import Requests from './pages/admin/requests'
 import UserRequests from './pages/userRequests'
+import ForgotPassword from './pages/forgotPassword'
 
 const Routes = () => {
 
@@ -50,7 +51,8 @@ const Routes = () => {
             <Route component={CreatePost} path='/criarPost' />
             <Route component={CreateColor} path='/gerenciarCores' />
             <Route component={Requests} path='/pedidos' />
-            <Route component={UserRequests} path='/meuspedidos' />
+            <Route component={UserRequests} path='/meusPedidos' />
+            <Route component={ForgotPassword} path='/recuperarSenha' />
             {/* <Route component={CreateTypes} path='/gerenciarTipos' /> */}
 
         </BrowserRouter>

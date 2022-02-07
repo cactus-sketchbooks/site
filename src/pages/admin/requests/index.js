@@ -14,11 +14,14 @@ export default function Requests() {
     const [userIsLogged, setUserIsLogged] = useState(false);
     const [redirect, setRedirect] = useState(useHistory());
     const [dataAdmin, setDataAdmin] = useState([])
+    const [dataBackup, setDataBackup] = useState([])
     const [selectItem, setSelectItem] = useState('')
     const [noteAdmin, setNoteAdmin] = useState('')
     const [requestStatus, setRequestStatus] = useState('');
     const [modalDataProducts, setModalDataProducts] = useState();
     const [displayModal, setDisplayModal] = useState('none');
+    const [displaySearchResult, setDisplaySearchResult] = useState('none')
+    const [searchInput, setSearchInput] = useState([])
 
     const [loginData, setLoginData] = useState({
 
@@ -118,6 +121,7 @@ export default function Requests() {
                 var temp = Object.keys(data).map((key) => data[key])
                 console.log(temp)
                 setDataAdmin(temp)
+                setDataBackup(temp)
 
             }
 
@@ -248,6 +252,43 @@ export default function Requests() {
 
     }
 
+    function handleSearchInput(event) {
+
+        if (event.key === 'Enter') {
+
+            clearSearchName()
+            searchName()
+
+        }
+        setSearchInput(event.target.value)
+
+    }
+
+    function searchName() {
+
+        var name = []
+
+        dataAdmin.map((item) => {
+
+            var nameToSearch = item.userName.toLowerCase()
+            var search = searchInput.toLowerCase()
+
+            if (nameToSearch.includes(search))
+                name.push(item)
+        })
+
+        setDataAdmin(name)
+        setDisplaySearchResult('flex')
+
+    }
+
+    function clearSearchName() {
+
+        setDisplaySearchResult("none")
+        setDataAdmin(dataBackup)
+
+    }
+
     if (userIsLogged) {
 
         return (
@@ -374,7 +415,6 @@ export default function Requests() {
 
                                     }
 
-
                                 </>
 
                             ) : ('')}
@@ -475,9 +515,53 @@ export default function Requests() {
 
                 <div id="MainRequests">
 
+                    <div className='filterNameSearch' >
+
+                        <h3>Pesquisa por nome</h3>
+
+                        <div className='searchUsername'>
+
+                            <input type="text" placeholder="Dê Enter para realizar a busca" onKeyDown={handleSearchInput} />
+                        </div>
+
+                    </div>
+
+                    <section style={{ display: displaySearchResult }} className='searchUsernameResult' >
+
+                        <div className='divSearchUsernameResult'>
+
+                            <a onClick={() => { clearSearchName() }}>Limpar pesquisa</a>
+                            <h2>Resultado da busca</h2>
+
+                        </div>
+
+                    </section>
+
+                    <div className="finishOrder">
+
+                        <h3>Finalizar pedido</h3>
+
+                        <div className="finishOrderWrapper">
+
+                            <select onChange={handleIdSelected} className="selectFinishOrder" >
+
+                                <option className="optionSelectOrder" >Selecionar</option>
+
+                                {dataAdmin.map((item) => (
+                                    <option className="optionSelectOrder" value={item.id} key={item.id}>{item.userName.split(' ')[0]}: {item.id}</option>
+                                ))}
+
+                            </select>
+
+                            <button className="finishButton" onClick={() => finishOrder()} >Finalizar</button>
+
+                        </div>
+
+                    </div>
+
                     {dataAdmin.map((item, indexItem) => (
 
-                        <div onClick={() => { handleSelectedRequest(item) }} className="boxOrder">
+                        <div className="boxOrder">
 
                             <h1>{item.userName}</h1>
 
@@ -547,6 +631,8 @@ export default function Requests() {
                                 </div>
 
                                 <div className="userInfosWrapper" >
+
+                                    <button onClick={() => { handleSelectedRequest(item) }}>Ver pedido</button>
 
                                     <p>Status do pedido: <b>{item.requestStatus}</b></p>
 
@@ -761,22 +847,6 @@ export default function Requests() {
                     ))
 
                     }
-
-                    <div className="finalizarPedido">
-                        <h3 className="texTripRequest" >Finalizar pedido</h3>
-
-                        <select onChange={handleIdSelected} className="selectFinishOrder" >
-
-                            <option className="optionSelectOrder" >Selecionar</option>
-
-                            {dataAdmin.map((item) => (
-                                <option className="optionSelectOrder" value={item.id} key={item.id}>{item.userName.split(' ')[0]}: {item.id}</option>
-                            ))}
-
-                        </select>
-
-                        <a className="finishButton" onClick={() => finishOrder()} >Finalizar</a>
-                    </div>
 
                 </div >
 

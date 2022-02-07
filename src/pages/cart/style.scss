@@ -14,6 +14,44 @@ h1, h2, h3, h4, p {
     padding-top: 100px;
 }
 
+.emptyCart {
+
+    display: flex;
+    flex-direction: column;
+    min-height: 50vh;
+    align-items: center;
+    justify-content: center;
+
+    h3 {
+
+        color: #fff;
+        text-transform: uppercase;
+
+
+    }
+
+    a {
+
+        margin-top: 2rem;
+        text-decoration: none;
+        width: 20%;
+        margin: .8rem 0;
+        padding: .5rem 1rem;
+        border: none;
+        background-color: $orange;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: .2s ease-in-out;
+        color: $offWhite;
+        font-weight: bold;
+        font-size: 1.25rem;
+        text-decoration: none;
+        text-align: center;
+
+    }
+
+}
+
 #purchaseInfo {
     //background-color: $offWhite;
     display: flex;

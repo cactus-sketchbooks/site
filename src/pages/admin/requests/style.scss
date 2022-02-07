@@ -178,6 +178,102 @@
     justify-content: center;
     margin-top: 6rem;
 
+    .filterNameSearch h3 {  
+
+        margin-top: 1rem;
+        text-align: center;
+        color: #fff;
+
+    }
+    
+    .searchUsername {
+    
+        input {
+            width: 30vw;
+            height: 3vw;
+            border: none;
+            // text-align: center;
+            font-size: .9rem;
+            margin-top: 1rem;
+            border-radius: 5px;
+            background-color: $dark-green;
+            outline: none;
+            color: white;
+            padding-left: 15px;
+        }
+    
+        ::placeholder {
+            color: white;
+        }
+    }
+    
+    .divSearchUsernameResult {
+    
+        a {
+            display: flex;
+            color: $branco;
+            padding: 15px;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+            background-color: $orange;
+            border-radius: 10px;
+            justify-content: center;
+            font-weight: 700;
+        }
+    
+        h2 {
+            color: white;
+        }
+    
+    }
+
+    .finishOrder {
+
+        display: flex;
+        flex-direction: column;
+
+        h3 {
+
+            margin: 1rem 0 .5rem 0;
+            text-align: center;
+            color: #fff;
+
+        }
+
+        .finishOrderWrapper {
+
+            display: flex;
+            align-items: center;
+
+            select {
+
+                outline: none;
+                border: none;
+                border-radius: 5px;
+                padding: .5rem .2rem;
+
+            }
+
+            button {
+
+                margin-left: 10px;
+                padding: .5rem .4rem;
+                border-radius: 5px;
+                outline: none;
+                border: none;
+                background-color: $orange;
+                color: #fff;
+                font-weight: 700;
+                cursor: pointer;
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+            }
+
+        }
+
+    }
+
     .boxOrder {
 
         display: flex;
@@ -189,7 +285,6 @@
         margin: 2em;
         align-items: center;
         box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-        cursor: pointer;
 
         h1 {
 
@@ -215,6 +310,21 @@
                 flex-direction: column;
                 align-items: center;
                 width: 33%;
+
+                button {
+
+                    margin-bottom: 1rem;
+                    background-color: $dark-green;
+                    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                    padding: 5px 15px;
+                    border: none;
+                    border-radius: 50px;
+                    color: #fff;
+                    font-weight: 700;
+                    cursor: pointer;
+                    font-size: 16px;
+
+                }
 
                 .rowItens {
 
@@ -244,6 +354,7 @@
                         width: 50%;
                         outline: none;
                         border: none;
+                        border-radius: 5px;
 
                     }
 
