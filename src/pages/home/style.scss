@@ -240,12 +240,14 @@ main {
                 font-size: 1.5rem;
                 font-family: 'Bebas Neue', sans-serif;
                 letter-spacing: .32rem;
-                text-shadow: 4.25px 0px $dark-green;
             }
 
             h4 {
                 color: $offWhite;
                 font-weight: 200;
+                text-align: center;
+                text-transform: uppercase;
+                padding: 5px;
             }
 
         }

@@ -22,6 +22,7 @@ export default function CreatePost() {
         author: '',
         instagram: '',
         behance: '',
+        youtube: '',
         hashtag: '',
 
     })
@@ -122,6 +123,7 @@ export default function CreatePost() {
             description: formData.description,
             instagram: formData.instagram,
             behance: formData.behance,
+            youtube: formData.youtube,
             authorPicture: authorPicture,
             paragraphs: paragraphs,
             date: `${day}/${month}/${year}`,
@@ -270,6 +272,15 @@ export default function CreatePost() {
                                 type='text'
                                 name='behance'
                                 id='behance'
+                                onChange={handleInputChange}
+                            />
+
+                            <label htmlFor='youtube'>
+                                Link para o canal do Youtube</label>
+                            <input
+                                type='text'
+                                name='youtube'
+                                id='youtube'
                                 onChange={handleInputChange}
                             />
 

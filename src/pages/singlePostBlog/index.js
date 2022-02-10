@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 import instagram from '../../images/instagram2.svg'
 import behance from '../../images/behance.svg'
+import youtube from '../../images/youtube.svg'
 
 import firebase from 'firebase/app';
 import "firebase/firestore";
@@ -150,6 +151,19 @@ export default function SinglePost() {
                                     <div className="socialMedias">
 
                                         <a id="socialMediaLink" target="_blank" href={dataPost.behance}><img src={behance} alt="" /></a>
+
+                                    </div>
+
+                                ) : ('')
+
+                            }
+
+                            {dataPost.youtube ?
+
+                                (
+                                    <div className="socialMedias">
+
+                                        <a id="socialMediaLink" target="_blank" href={dataPost.youtube}><img src={youtube} alt="" /></a>
 
                                     </div>
 

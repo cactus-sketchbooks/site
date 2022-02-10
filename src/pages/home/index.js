@@ -134,7 +134,7 @@ function Home() {
                     </div>
 
                     <div className="hero-data">
-                        <p>Você cria, nós fazemos 🌵💚</p>
+                        <p>Você cria, nós fazemos 🌵🧡</p>
                     </div>
 
                 </div>
@@ -143,7 +143,7 @@ function Home() {
 
                     <h2>Monte seu Cactus: modelos, cores, tudo!</h2>
 
-                    <h2 id="bottomText">Selecione um dos modelos abaixo e monte seu Cactus!</h2>
+                    <h2 id="bottomText">Selecione as opções abaixo e monte um cactus do seu jeito!</h2>
 
                     <div className="service-wrapper">
 
