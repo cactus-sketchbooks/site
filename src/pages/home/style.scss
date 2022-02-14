@@ -382,3 +382,108 @@ main {
         width: 0;
     }
 }
+
+@media screen and (max-width: 768px) {
+
+    #hero-section {
+
+        .hero-title {
+
+            flex-direction: column;
+            padding-left: 0;
+    
+            h1 {
+                font-size: 3.5rem;
+            }
+    
+            img {
+                height: 95px;
+            }
+
+        }
+    
+        .hero-data {
+
+            height: 35px;
+            font-size: 1.5rem;
+            width: 400px;
+
+        }
+
+    }
+    
+    #services-section {
+        
+        h2 {
+            font-size: 2rem;
+        }
+
+        #bottomText {
+            background-color: $offWhite;
+            text-shadow: none;
+        }
+
+        .service-wrapper {
+
+            flex-direction: column;
+            
+            .service-card {
+                margin: 4px auto;
+            }
+
+        }
+
+    }
+
+    #section-showcase {
+
+        height: 100vh;
+
+        .showcase-wrapper {
+
+            flex-direction: column;
+
+            .showcase-image-wrapper {
+
+                width: 100%;
+
+            }
+
+            .showcase-text {
+
+                padding: 1rem 2rem;
+
+                h1 {
+                    padding: 0;
+                    font-size: 2.5rem;
+                    text-shadow: 2px 1px 3px rgba(29, 29, 29, 0.5);
+                    letter-spacing: .3rem;
+                }
+
+                h2 {
+                    padding: 0;
+                    background-size: 86%;
+
+                    &.highlight-showcase-text {
+                        font-size: 2.3rem;
+                    }
+                }
+                
+              
+                p {
+                    margin: 0.7rem 0;
+                }
+
+                a {
+                    
+                    width: 40%;
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
