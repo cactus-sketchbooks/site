@@ -54,6 +54,73 @@
                     
                 }
 
+                #pixProofDiv, #noteDiv {
+
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    border-radius: 0px;
+                    justify-content: center;
+                    width: auto;
+                    border-radius: 3px;
+                    width: 50%;
+                    align-self: center;
+
+                    h4 {
+
+                        margin-bottom: 1rem;
+
+                    }
+
+                    .paymentProof {
+
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        margin: 1rem 0;
+
+                        label {
+
+                            color: #fff;
+                            font-weight: 700;
+
+                        }
+
+                    }
+
+                    button {
+
+                        margin: 1rem 0 0;
+                        background-color: $dark-green;
+                        color: $branco;
+                        padding: .5rem 2rem;
+                        transition: transform .45s ease, background .15s ease;
+                        cursor: pointer;
+                        border: none;
+                        border-radius: 5px;
+        
+                        &:hover {
+        
+                            background-color: $light-green;
+        
+                        }
+        
+                    }
+
+                }
+
+                #noteDiv {
+
+                    p {
+
+                        word-break: break-word;
+                        width: 90%;
+                        text-align: center;
+
+                    }
+
+                }
+
                 h4 {
 
                     color: $branco;

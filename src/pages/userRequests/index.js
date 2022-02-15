@@ -14,6 +14,7 @@ export default function UserRequests() {
 
     const [dataAccount, setDataAccount] = useState([]);
     const [requestData, setRequestData] = useState([]);
+    const [paymentFile, setPaymentFile] = useState('');
 
     let history = useHistory();
 
@@ -80,6 +81,72 @@ export default function UserRequests() {
 
     }, []);
 
+    function sendPaymentProof(index) {
+
+        if (paymentFile !== '') {
+
+            const newRequestData = {
+
+                address: requestData[index].address,
+                adminNote: requestData[index].adminNote,
+                cep: requestData[index].cep,
+                cepNumber: requestData[index].cepNumber,
+                city: requestData[index].city,
+                clientNote: requestData[index].clientNote ? requestData[index].clientNote : '',
+                complement: requestData[index].complement,
+                cpf: requestData[index].cpf,
+                date: requestData[index].date,
+                dateToCompare: requestData[index].dateToCompare,
+                district: requestData[index].district,
+                houseNumber: requestData[index].houseNumber,
+                id: requestData[index].id,
+                payment: requestData[index].payment,
+                paymentProof: paymentFile,
+                phoneNumber: requestData[index].phoneNumber,
+                pickupOption: requestData[index].pickupOption,
+                products: requestData[index].products,
+                requestStatus: requestData[index].requestStatus,
+                selectedTransport: requestData[index].selectedTransport,
+                totalValue: requestData[index].totalValue,
+                userEmail: requestData[index].userEmail,
+                userName: requestData[index].userName,
+
+            }
+            firebase.database()
+                .ref('requests/' + requestData[index].id)
+                .update(newRequestData)
+
+            firebase.database()
+                .ref('reportsSales/' + requestData[index].id)
+                .update(newRequestData)
+
+                .then(() => alert("Comprovante enviado com sucesso!"))
+
+            setPaymentFile('')
+
+        } else {
+
+            window.alert("Comprovante não enviado. Aguarde alguns segundos e tente novamente. Se o error persistir, verifique o formato do arquivo inserido ou sua conexão.")
+
+        }
+
+    }
+
+    function uploadPaymentProof(event) {
+
+        const file = event.target.files[0]
+
+        var storageRef = firebase.storage().ref();
+
+        storageRef.child('paymentProofs/' + file.name.trim())
+            .put(file)
+            .then(snapshot => {
+                snapshot.ref.getDownloadURL()
+                    .then(url => setPaymentFile(url))
+            });
+
+    }
+
     return (
 
         <div className="requestsPage">
@@ -118,13 +185,6 @@ export default function UserRequests() {
 
                                 <div className="rowData">
 
-                                    <h4>Forma de pagamento: </h4>
-                                    <h4>{item.payment}</h4>
-
-                                </div>
-
-                                <div className="rowData">
-
                                     <h4>Opção de entrega: </h4>
                                     <h4>{item.pickupOption}</h4>
 
@@ -155,6 +215,59 @@ export default function UserRequests() {
                                         </div>
 
                                     </>
+
+                                ) : ('')}
+
+                                {item.payment == 'Pix' ? (
+
+                                    <div id="pixProofDiv" className="rowData">
+
+                                        <h4>Forma de pagamento: {item.payment}</h4>
+
+                                        {item.paymentProof ? (
+
+                                            <h4>Comprovante enviado com sucesso!</h4>
+
+                                        ) : (
+
+                                            <div className="paymentProof">
+
+                                                <label for="pixProof">Selecionar comprovante</label>
+                                                <input
+                                                    type='file'
+                                                    onChange={uploadPaymentProof}
+                                                    accept="image/png, image/jpeg, application/pdf"
+                                                    id="pixProof"
+                                                />
+
+                                                <button onClick={() => { sendPaymentProof(index) }}>Enviar comprovante</button>
+
+                                            </div>
+
+                                        )}
+
+                                    </div>
+
+                                ) : (
+
+                                    <div className="rowData">
+
+                                        <h4>Forma de pagamento: </h4>
+                                        <h4>{item.payment}</h4>
+
+                                    </div>
+
+                                )}
+
+                                {item.adminNote ? (
+
+                                    <div className="rowData" id="noteDiv">
+
+                                        <h4>Observação da Cactus</h4>
+
+                                        <p>{item.adminNote}</p>
+
+                                    </div>
 
                                 ) : ('')}
 

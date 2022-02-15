@@ -46,7 +46,7 @@ export default function Cart() {
     const [displayPopup, setDisplayPopup] = useState('none');
     const [displayPaymentOption, setDisplayPaymentOption] = useState('none');
     const [displayFinishButton, setDisplayFinishButton] = useState('none');
-    const [purchasedProductData, setPurchasedProductData] = useState({})
+    const [purchasedProductData, setPurchasedProductData] = useState({});
 
     const [newDataReceiver, setNewDataReceiver] = useState({
 
@@ -220,6 +220,12 @@ export default function Cart() {
             setDisplayPopup('none')
 
         }
+
+    }
+
+    function closePopup() {
+
+        setDisplayPopup('none')
 
     }
 
@@ -493,7 +499,20 @@ export default function Cart() {
 
     return (
 
-        <div>
+        <main>
+
+            <div style={{ display: displayPopup }} className='cartPopupWrapper'>
+
+                <div className='cartPopupContent'>
+
+                    <h3>Ao finalizar o pedido, realize um Pix para a chave: <br /></h3>
+                    <h4>Após isso, envie seu comprovante através da seção "meus produtos" em seu perfil.</h4>
+
+                    <button onClick={() => closePopup()}>Confirmar</button>
+
+                </div>
+
+            </div>
 
             <Header />
 
@@ -807,6 +826,6 @@ export default function Cart() {
 
             <Footer />
 
-        </div>
+        </main>
     )
 }
