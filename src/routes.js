@@ -17,6 +17,7 @@ import Baiao from './pages/create/baiao'
 import Buriti from './pages/create/buriti'
 import Facheiro from './pages/create/facheiro'
 import Carcara from './pages/create/carcara'
+import Sertao from './pages/create/sertao'
 import ClientList from './pages/admin/clientList'
 import CreatePost from './pages/admin/createPost'
 import CreateColor from './pages/admin/createColor'
@@ -47,6 +48,7 @@ const Routes = () => {
             <Route component={Facheiro} path='/facheiro' />
             <Route component={Carcara} path='/carcara' />
             <Route component={Buriti} path='/buriti' />
+            <Route component={Sertao} path='/sertao' />
             <Route component={ClientList} path='/listaDeClientes' />
             <Route component={CreatePost} path='/criarPost' />
             <Route component={CreateColor} path='/gerenciarCores' />

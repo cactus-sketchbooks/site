@@ -38,6 +38,7 @@ export default function Cart() {
     const [displayAddressForms, setDisplayAddressForms] = useState('none');
     const [selectedTransportData, setSelectedTransportData] = useState({});
     const [transportValue, setTransportValue] = useState(0);
+    const [economicTransportValue, setEconomicTransportValue] = useState(0);
     const [totalValue, setTotalValue] = useState(0);
     const [finalValue, setFinalValue] = useState(0);
     const [loaded, setLoaded] = useState(false);
@@ -47,6 +48,7 @@ export default function Cart() {
     const [displayPaymentOption, setDisplayPaymentOption] = useState('none');
     const [displayFinishButton, setDisplayFinishButton] = useState('none');
     const [purchasedProductData, setPurchasedProductData] = useState({});
+    const [selectedState, setSelectedState] = useState({});
 
     const [newDataReceiver, setNewDataReceiver] = useState({
 
@@ -95,6 +97,36 @@ export default function Cart() {
 
         },
 
+    ]
+
+    const states = [
+        { uf: 'AC', value: 15 },
+        { uf: 'AL', value: 15 },
+        { uf: 'AP', value: 15 },
+        { uf: 'AM', value: 15 },
+        { uf: 'BA', value: 15 },
+        { uf: 'CE', value: 15 },
+        { uf: 'DF', value: 20 },
+        { uf: 'ES', value: 20 },
+        { uf: 'GO', value: 20 },
+        { uf: 'MA', value: 15 },
+        { uf: 'MS', value: 20 },
+        { uf: 'MT', value: 20 },
+        { uf: 'MG', value: 20 },
+        { uf: 'PA', value: 15 },
+        { uf: 'PB', value: 15 },
+        { uf: 'PR', value: 20 },
+        { uf: 'PE', value: 15 },
+        { uf: 'PI', value: 15 },
+        { uf: 'RJ', value: 20 },
+        { uf: 'RN', value: 15 },
+        { uf: 'RS', value: 20 },
+        { uf: 'RO', value: 15 },
+        { uf: 'RR', value: 15 },
+        { uf: 'SC', value: 20 },
+        { uf: 'SP', value: 20 },
+        { uf: 'SE', value: 15 },
+        { uf: 'TO', value: 15 }
     ]
 
     function onAuthStateChanged(user) {
@@ -181,17 +213,29 @@ export default function Cart() {
 
         setPickupSelect(pickup)
 
-        if (pickup === 'Frete por transportadora') {
+        if (pickup == 'Frete por transportadora') {
 
             setDisplayCepSearch('flex');
+            setFinalValue(totalValue + transportValue)
+
+        } else if (pickup == 'Impresso módico ou Carta registrada') {
+
+            setDisplayCepSearch('none');
+            setFinalValue(totalValue + economicTransportValue)
 
         } else {
 
             setDisplayCepSearch('none');
 
+            if (transportValue != 0) {
+
+                setFinalValue(totalValue)
+
+            }
+
         }
 
-        if (pickup !== 'Retirada física') {
+        if (pickup != 'Retirada física') {
 
             setDisplayAddressForms('flex');
 
@@ -240,6 +284,7 @@ export default function Cart() {
         newDataReceiver.receiverComplement != '' ? counter++ : counter = counter
         newDataReceiver.receiverDistrict != '' ? counter++ : counter = counter
         newDataReceiver.receiverCity != '' ? counter++ : counter = counter
+        selectedState != '' ? counter++ : counter = counter
 
         if (pickupSelect === 'Frete por transportadora') {
 
@@ -251,7 +296,7 @@ export default function Cart() {
 
         }
 
-        if ((counter == 8 && pickupSelect) || pickupSelect === 'Retirada física') {
+        if ((counter == 9 && pickupSelect) || pickupSelect === 'Retirada física') {
 
             setDisplayPaymentOption('flex')
 
@@ -306,11 +351,18 @@ export default function Cart() {
     function handleSelectedTransport(item, event) {
 
         setSelectedTransportData(event)
-        console.log(event)
 
         setTransportValue(Number(event.custom_price))
 
         setFinalValue(totalValue + Number(event.custom_price))
+
+    }
+
+    function handleSelectedState(event) {
+
+        setSelectedState(states[event.target.value])
+        setEconomicTransportValue(states[event.target.value].value)
+        setFinalValue(totalValue + states[event.target.value].value)
 
     }
 
@@ -418,8 +470,10 @@ export default function Cart() {
                     complement: newDataReceiver.receiverComplement ? newDataReceiver.receiverComplement : dataAccount.complement,
                     district: newDataReceiver.receiverDistrict ? newDataReceiver.receiverDistrict : dataAccount.district,
                     city: newDataReceiver.receiverCity ? newDataReceiver.receiverCity : dataAccount.city,
+                    state: selectedState ? selectedState : '',
                     cpf: newDataReceiver.receiverCpf ? newDataReceiver.receiverCpf : '',
                     cep: newDataReceiver.receiverCep ? newDataReceiver.receiverCep : '',
+                    economicTransportValue: economicTransportValue ? economicTransportValue : '',
                     paymentProof: '',
                     adminNote: '',
                     requestStatus: '',
@@ -589,7 +643,11 @@ export default function Cart() {
 
                                                 </li>
 
-                                                <li><strong>Cor do elástico:</strong> {product.elasticColor.colorName}</li>
+                                                {product.elasticColor ? (
+
+                                                    <li><strong>Cor do elástico:</strong> {product.elasticColor.colorName}</li>
+
+                                                ) : ('')}
 
                                                 {product.lineColor ? (
 
@@ -606,7 +664,6 @@ export default function Cart() {
                                                 {product.clientNote ? (
 
                                                     <li><strong>Observações:</strong> {product.clientNote}</li>
-
 
                                                 ) : (
 
@@ -730,7 +787,7 @@ export default function Cart() {
 
                                             <input name='receiverCity' onChange={handleInputInfosChange} placeholder='Cidade' value={newDataReceiver.receiverCity} />
 
-                                            {pickupSelect === 'Frete por transportadora' ? (
+                                            {pickupSelect == 'Frete por transportadora' ? (
 
                                                 <InputMask
                                                     id="receiverCpf"
@@ -745,16 +802,36 @@ export default function Cart() {
 
                                             ) : (
 
-                                                <InputMask
-                                                    id="receiverCep"
-                                                    name='receiverCep'
-                                                    type='text'
-                                                    mask="99999-999"
-                                                    maskChar=""
-                                                    onChange={handleInputInfosChange}
-                                                    placeholder='CEP'
-                                                    value={newDataReceiver.receiverCep}
-                                                />
+                                                <>
+
+                                                    <select onChange={handleSelectedState}>
+
+                                                        <option value="" selected disabled>Estado</option>
+
+                                                        {states.map((states, index) => {
+
+                                                            return (
+
+                                                                <option value={index} key={index}>{states.uf}</option>
+
+                                                            )
+
+                                                        })}
+
+                                                    </select>
+
+                                                    <InputMask
+                                                        id="receiverCep"
+                                                        name='receiverCep'
+                                                        type='text'
+                                                        mask="99999-999"
+                                                        maskChar=""
+                                                        onChange={handleInputInfosChange}
+                                                        placeholder='CEP'
+                                                        value={newDataReceiver.receiverCep}
+                                                    />
+
+                                                </>
 
                                             )}
 
@@ -865,9 +942,10 @@ export default function Cart() {
 
                             </div>
 
-                            {purchasedProductData.selectedTransport ? (
+                            {purchasedProductData.pickupOption == 'Frete por transportadora' ? (
 
                                 <>
+
                                     <div className="rowDataInfos">
 
                                         <h4>Transportadora: </h4>
@@ -890,6 +968,17 @@ export default function Cart() {
                                     </div>
 
                                 </>
+
+                            ) : ('')}
+
+                            {purchasedProductData.pickupOption == 'Impresso módico ou Carta registrada' ? (
+
+                                <div className="rowDataInfos">
+
+                                    <h4>Valor do frete: </h4>
+                                    <span>R$ {purchasedProductData.economicTransportValue}</span>
+
+                                </div>
 
                             ) : ('')}
 
