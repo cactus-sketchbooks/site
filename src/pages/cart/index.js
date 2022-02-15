@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 import InputMask from 'react-input-mask';
 
 import './style.scss';
@@ -432,13 +432,14 @@ export default function Cart() {
                 firebase.database().ref('requests/' + id).set(dataToSend)
                     .then(() => {
                         setPurchasedProductData(dataToSend)
+                        console.log(dataToSend)
+
                     })
 
                 firebase.database().ref('reportsSales/' + id).set(dataToSend)
                     .then(() => {
                         localStorage.setItem('products', '{}')
                         alert("Pedido finalizado com sucesso!")
-                        window.location.reload()
                     })
 
                 setPaidForm(true)
@@ -469,13 +470,13 @@ export default function Cart() {
                 firebase.database().ref('requests/' + id).set(dataToSend)
                     .then(() => {
                         setPurchasedProductData(dataToSend)
+                        console.log(dataToSend)
                     })
 
                 firebase.database().ref('reportsSales/' + id).set(dataToSend)
                     .then(() => {
                         localStorage.setItem('products', '{}')
                         alert("Pedido finalizado com sucesso!")
-                        window.location.reload()
                     })
 
                 setPaidForm(true)
@@ -497,48 +498,115 @@ export default function Cart() {
 
     }
 
-    return (
+    if (!paidForm) {
 
-        <main>
+        return (
 
-            <div style={{ display: displayPopup }} className='cartPopupWrapper'>
+            <main id="mainCartPage">
 
-                <div className='cartPopupContent'>
+                <div style={{ display: displayPopup }} className='cartPopupWrapper'>
 
-                    <h3>Ao finalizar o pedido, realize um Pix para a chave: <br /></h3>
-                    <h4>Após isso, envie seu comprovante através da seção "meus produtos" em seu perfil.</h4>
+                    <div className='cartPopupContent'>
 
-                    <button onClick={() => closePopup()}>Confirmar</button>
+                        <h3>Ao finalizar o pedido, realize um Pix para a chave: <br /></h3>
+                        <h4>Após isso, envie seu comprovante através da seção "meus produtos" em seu perfil.</h4>
+
+                        <button onClick={() => closePopup()}>Confirmar</button>
+
+                    </div>
 
                 </div>
 
-            </div>
+                <Header />
 
-            <Header />
+                <div id="cart">
 
-            <div id="cart">
+                    {data.length != 0 ? (
 
-                {data.length != 0 ? (
+                        <section id="purchaseInfo">
 
-                    <section id="purchaseInfo">
+                            <h2>Seu carrinho</h2>
 
-                        <h2>Seu carrinho</h2>
+                            <section className="productsInfo">
 
-                        <section className="productsInfo">
+                                {data.map((product, index) => {
 
-                            {data.map((product, index) => {
+                                    return (
 
-                                return (
+                                        <div className="productDetails">
 
-                                    <div className="productDetails">
+                                            {images.map((sketchbook) => (
 
-                                        {images.map((sketchbook) => (
+                                                <div>
 
-                                            <div>
+                                                    {sketchbook.name === product.model ? (
 
-                                                {sketchbook.name === product.model ? (
+                                                        <img src={sketchbook.image} alt="Modelo" />
 
-                                                    <img src={sketchbook.image} alt="Modelo" />
+                                                    ) : (
+
+                                                        ''
+
+                                                    )}
+
+                                                </div>
+
+                                            ))}
+
+                                            <ul>
+
+                                                <li><strong>Modelo:</strong> {product.model}</li>
+                                                {product.kindleModel ? (
+
+                                                    <li><strong>Kindle:</strong> {product.kindleModel}</li>
+
+                                                ) : ('')}
+
+                                                {product.paperWidth ? (
+
+                                                    <li><strong>Tamanho:</strong> {product.paperWidth}</li>
+
+                                                ) : ('')}
+
+                                                {product.paper ? (
+
+                                                    <li><strong>Papel do miolo:</strong> {product.paper}</li>
+
+                                                ) : ('')}
+
+                                                <li id="coverColor">
+
+                                                    <strong>Cor da capa: </strong>
+                                                    {product.coverColors.map((color, index) => {
+
+                                                        return (
+
+                                                            <span key={index}>{(index ? ' + ' : '') + color.name}</span>
+
+                                                        )
+
+                                                    })}
+
+                                                </li>
+
+                                                <li><strong>Cor do elástico:</strong> {product.elasticColor.colorName}</li>
+
+                                                {product.lineColor ? (
+
+                                                    <li><strong>Cor da linha:</strong> {product.lineColor.colorName}</li>
+
+                                                ) : ('')}
+
+                                                {product.spiralColor ? (
+
+                                                    <li><strong>Cor do espiral:</strong> {product.spiralColor}</li>
+
+                                                ) : ('')}
+
+                                                {product.clientNote ? (
+
+                                                    <li><strong>Observações:</strong> {product.clientNote}</li>
+
 
                                                 ) : (
 
@@ -546,286 +614,429 @@ export default function Cart() {
 
                                                 )}
 
+                                            </ul>
+
+                                            <div className="productsButtons">
+                                                {/* <button>Adicionar observação</button> */}
+                                                <h1>R$ {product.value.toFixed(2)}</h1>
+                                                <button onClick={() => { removeItemInCart(index) }}>Excluir</button>
                                             </div>
 
-                                        ))}
+                                        </div>
 
-                                        <ul>
+                                    )
 
-                                            <li><strong>Modelo:</strong> {product.model}</li>
-                                            {product.kindleModel ? (
+                                })}
 
-                                                <li><strong>Kindle:</strong> {product.kindleModel}</li>
+                            </section>
 
-                                            ) : ('')}
+                            <section className="checkout">
 
-                                            {product.paperWidth ? (
+                                <div className="finishOrder">
 
-                                                <li><strong>Tamanho:</strong> {product.paperWidth}</li>
+                                    <h2>Finalização do pedido</h2>
 
-                                            ) : ('')}
+                                    <select className="pickupSelect" onChange={handlePickupSelect} >
 
-                                            {product.paper ? (
+                                        <option disabled selected value=''>Selecione como deseja receber sua encomenda</option>
+                                        <option value='Entrega a domicílio'>Entrega a domicílio (Para toda São Luís - MA)</option>
+                                        <option value="Frete por transportadora" >Entrega por transportadora</option>
+                                        <option value="Impresso módico ou Carta registrada" >Impresso módico ou Carta registrada</option>
+                                        <option value="Retirada física" >Retirada física: Travessa da Lapa - 162 - Centro/Desterro</option>
 
-                                                <li><strong>Papel do miolo:</strong> {product.paper}</li>
+                                    </select>
 
-                                            ) : ('')}
+                                    <span>
+                                        <strong>Observação: </strong>
+                                        As entregas por carta registrada e registro módico são formas de envio mais baratas, porém, o envio não é atualizado a todo momento (apenas quando é postado, chegou na sua cidade, saiu para entrega). O envio é feito pelos Correios com um valor fixo de R$ 15,00 para as regiões <strong>Norte e Nordeste</strong>, e R$ 20,00 para as regiões <strong>Sul, Sudeste e Centro-Oeste</strong>.
+                                    </span>
 
-                                            <li id="coverColor">
+                                    <label style={{ display: displayCepSearch }} for="cepNumber">Insira o CEP abaixo</label>
+                                    <InputMask id="CepNumber" name='cepNumber' type='text' mask="99999-999" maskChar="" style={{ display: displayCepSearch }} onChange={handleInputCep} placeholder="CEP" />
 
-                                                <strong>Cor da capa: </strong>
-                                                {product.coverColors.map((color, index) => {
+                                    <button style={{ display: displayCepSearch }} onClick={() => { calculaFrete() }}>Calcular frete</button>
+
+                                    <div className="transportInfos" style={{ display: displayCepSearch }}>
+
+                                        <h1>Selecione a opção de envio abaixo</h1>
+
+                                        {transportData.map((item, index) => {
+
+                                            if (item.id === 1 || item.id === 2 || item.id === 3) {
+
+                                                if (!item.error) {
 
                                                     return (
 
-                                                        <span key={index}>{(index ? ' + ' : '') + color.name}</span>
+                                                        <div className="optionsTransport">
+
+                                                            <div className="radioButton">
+
+                                                                <input onClick={(e) => handleSelectedTransport(e, item, index)} type="radio" name="selectedTransport" key={item.id} value={item.name} />
+
+                                                            </div>
+
+                                                            <div className="transportLogoWrapper">
+
+                                                                <img src={item.company.picture} alt={item.company.name} />
+
+                                                            </div>
+
+                                                            <div className="textTransportInfos">
+
+                                                                <span>{item.company.name} ({item.name})</span>
+                                                                <span><strong>R$ {item.custom_price}</strong></span>
+                                                                <span>Prazo de entrega: <strong>{item.custom_delivery_time} dias úteis</strong></span>
+
+                                                            </div>
+
+                                                        </div>
 
                                                     )
+                                                }
+                                            }
 
-                                                })}
+                                        })}
 
-                                            </li>
+                                    </div>
 
-                                            <li><strong>Cor do elástico:</strong> {product.elasticColor.colorName}</li>
+                                    <div style={{ display: displayAddressForms }} className="transportDiv">
+
+                                        <h2>Insira os dados para entrega abaixo</h2>
+
+                                        <div className="userInfos">
+
+                                            <input name='receiverName' onChange={handleInputInfosChange} placeholder='Nome do destinatário' value={newDataReceiver.receiverName} />
+
+                                            {/* <input name='receiverPhone' onChange={handleInputInfosChange} placeholder='Telefone' value={newDataReceiver.receiverPhone} /> */}
+                                            <InputMask
+                                                id="receiverPhone"
+                                                name='receiverPhone'
+                                                type='text'
+                                                mask="(99) 99999-9999"
+                                                maskChar=""
+                                                onChange={handleInputInfosChange}
+                                                placeholder='Telefone'
+                                                value={newDataReceiver.receiverPhone}
+                                            />
+
+                                            <input name='receiverAddress' onChange={handleInputInfosChange} placeholder='Endereço de entrega' value={newDataReceiver.receiverAddress} />
+
+                                            <input name='receiverHouseNumber' onChange={handleInputInfosChange} placeholder='Número da residência' value={newDataReceiver.receiverHouseNumber} />
+
+                                            <input name='receiverComplement' onChange={handleInputInfosChange} placeholder='Complemento' value={newDataReceiver.receiverComplement} />
+
+                                            <input name='receiverDistrict' onChange={handleInputInfosChange} placeholder='Bairro' value={newDataReceiver.receiverDistrict} />
+
+                                            <input name='receiverCity' onChange={handleInputInfosChange} placeholder='Cidade' value={newDataReceiver.receiverCity} />
+
+                                            {pickupSelect === 'Frete por transportadora' ? (
+
+                                                <InputMask
+                                                    id="receiverCpf"
+                                                    name='receiverCpf'
+                                                    type='text'
+                                                    mask="999.999.999-99"
+                                                    maskChar=""
+                                                    onChange={handleInputInfosChange}
+                                                    placeholder='CPF'
+                                                    value={newDataReceiver.receiverCpf}
+                                                />
+
+                                            ) : (
+
+                                                <InputMask
+                                                    id="receiverCep"
+                                                    name='receiverCep'
+                                                    type='text'
+                                                    mask="99999-999"
+                                                    maskChar=""
+                                                    onChange={handleInputInfosChange}
+                                                    placeholder='CEP'
+                                                    value={newDataReceiver.receiverCep}
+                                                />
+
+                                            )}
+
+                                        </div>
+
+                                    </div>
+
+                                    <select style={{ display: displayPaymentOption }} className="paymentSelect" onChange={handleSelectPayment} >
+
+                                        <option selected disabled value=''>Selecione o tipo de pagamento</option>
+                                        <option value="PayPal" >PayPal </option>
+                                        <option value="Cartão" >Cartão </option>
+                                        <option value="Pix" >Pix</option>
+
+                                    </select>
+
+                                    <div className="paypalButtons" ref={v => (paypalRef = v)} />
+
+                                    <div className="checkoutOptions">
+
+                                        <a href="/">Continuar comprando...</a>
+                                        <h3>Preço: R$ {finalValue.toFixed(2)}</h3>
+                                        <button style={{ display: displayFinishButton }} onClick={sendOrder}>Concluir compra!</button>
+
+                                    </div>
+
+                                </div>
+
+                            </section>
+
+                            <h2>Confira as artes de nossos clientes</h2>
+                            <section className="ourClients">
+                                <img src={produto1} alt="" />
+                                <img src={produto2} alt="" />
+                                <img src={produto3} alt="" />
+                                <img src={produto4} alt="" />
+                            </section>
+
+                            <section className="ourServices">
+                                <h1>Os cactus mais vendidos!</h1>
+
+                                <div className="service-card">
+                                    <h3>mandacaru</h3>
+                                    <h4>Sketchbook costura copta</h4>
+                                    <img src={mandacaru} alt="Mandacaru" />
+                                </div>
+
+                                <div className="service-card">
+                                    <h3>baião</h3>
+                                    <h4>Sketchbook quadrado copta</h4>
+                                    <img src={baiao} alt="Baião" />
+                                </div>
+
+                                <div className="service-card">
+                                    <h3>facheiro</h3>
+                                    <h4>Sketchbook espiral</h4>
+                                    <img src={facheiro} alt="Facheiro" />
+                                </div>
+
+                            </section>
+
+                        </section >
+
+                    )
+                        : (
+                            <section className="emptyCart">
+                                <h3>Opa... parece que seu carrinho está vazio! Bora fazer arte?</h3>
+                                <a href="/">Bora!</a>
+                            </section>
+                        )}
+
+                </div>
+
+                <Footer />
+
+            </main>
+        )
+
+    } else return (
+
+        <main id="mainPaidForm">
+
+            <Header />
+
+            <body>
+
+                <h1>Resumo de sua compra</h1>
+
+                <h4>Você pode acompanhar o status de seu pedido através da página de <Link target="_blank" to="/meusPedidos">pedidos</Link></h4>
+
+                {purchasedProductData ? (
+
+                    <div className="buyInfosWrapper">
+
+                        <div className="buyInfosData">
+
+                            <div className="rowDataInfos">
+
+                                <h4>ID do pedido: </h4>
+                                <span>{purchasedProductData.id}</span>
+
+                            </div>
+
+                            <div className="rowDataInfos">
+
+                                <h4>Opção de entrega: </h4>
+                                <span>{purchasedProductData.pickupOption}</span>
+
+                            </div>
+
+                            {purchasedProductData.selectedTransport ? (
+
+                                <>
+                                    <div className="rowDataInfos">
+
+                                        <h4>Transportadora: </h4>
+                                        <span>{purchasedProductData.selectedTransport.name}</span>
+
+                                    </div>
+
+                                    <div className="rowDataInfos">
+
+                                        <h4>Prazo de entrega: </h4>
+                                        <span>De {purchasedProductData.selectedTransport.delivery_range.min} a {purchasedProductData.selectedTransport.delivery_range.max} dias úteis após a confirmação de pagamento</span>
+
+                                    </div>
+
+                                    <div className="rowDataInfos">
+
+                                        <h4>Valor do frete: </h4>
+                                        <span>R$ {purchasedProductData.selectedTransport.price}</span>
+
+                                    </div>
+
+                                </>
+
+                            ) : ('')}
+
+                            {purchasedProductData.payment == 'Pix' ? (
+
+                                <div id="pixProofDiv" className="rowDataInfos">
+
+                                    <h4>Forma de pagamento:</h4>
+                                    <span> {purchasedProductData.payment} - envie seu comprovante na página dos <Link target="_blank" to="/meusPedidos">seus pedidos</Link></span>
+
+                                </div>
+
+                            ) : (
+
+                                <div className="rowDataInfos">
+
+                                    <h4>Forma de pagamento: </h4>
+                                    <span>{purchasedProductData.payment}</span>
+
+                                </div>
+
+                            )}
+
+                            <div className="rowDataInfos">
+
+                                <h4>Total: </h4>
+                                <span>R$ {purchasedProductData.totalValue}</span>
+
+                            </div>
+
+                        </div>
+
+                        <div className="boxProductInfos">
+
+                            {purchasedProductData.products ? (
+
+                                purchasedProductData.products.map((product) => {
+
+                                    return (
+
+                                        <ul className="productInfo">
+
+                                            <h2>{product.model}</h2>
+
+                                            {product.paperWidth ? (
+
+                                                <li>
+                                                    <b>Tamanho</b>
+                                                    <span>{product.paperWidth}</span>
+                                                </li>
+
+                                            ) : (
+
+                                                <li>
+                                                    <b>Modelo do Kindle</b>
+                                                    <span>{product.kindleModel}</span>
+                                                </li>
+
+                                            )}
+
+                                            {product.paper ? (
+
+                                                <li>
+                                                    <b>Papel do miolo</b>
+                                                    <span>{product.paper}</span>
+                                                </li>
+
+                                            ) : ('')}
+
+                                            <div id="coverColorDiv">
+
+                                                <b>Cor da capa </b>
+
+                                                <div className="coverColorWrapper">
+
+                                                    {product.coverColors.map((color, index) => {
+
+                                                        return (
+
+                                                            <span key={index}>{(index ? ' + ' : '') + color.name}</span>
+
+                                                        )
+
+                                                    })}
+
+                                                </div>
+
+                                            </div>
 
                                             {product.lineColor ? (
 
-                                                <li><strong>Cor da linha:</strong> {product.lineColor.colorName}</li>
+                                                <li>
+                                                    <b>Cor da linha</b>
+                                                    <span>{product.lineColor.colorName}</span>
+                                                </li>
+
+                                            ) : ('')}
+
+                                            {product.elasticColor ? (
+
+                                                <li>
+                                                    <b>Cor do elástico</b>
+                                                    <span>{product.elasticColor.colorName}</span>
+                                                </li>
 
                                             ) : ('')}
 
                                             {product.spiralColor ? (
 
-                                                <li><strong>Cor do espiral:</strong> {product.spiralColor}</li>
+                                                <li>
+                                                    <b>Cor do espiral</b>
+                                                    <span>{product.spiralColor}</span>
+                                                </li>
 
                                             ) : ('')}
 
                                             {product.clientNote ? (
 
-                                                <li><strong>Observações:</strong> {product.clientNote}</li>
+                                                <li>
+                                                    <b>Observação</b>
+                                                    <span> {product.clientNote}</span>
+                                                </li>
 
+                                            ) : ('')}
 
-                                            ) : (
-
-                                                ''
-
-                                            )}
+                                            <h2>R$ {product.value}</h2>
 
                                         </ul>
 
-                                        <div className="productsButtons">
-                                            {/* <button>Adicionar observação</button> */}
-                                            <h1>R$ {product.value.toFixed(2)}</h1>
-                                            <button onClick={() => { removeItemInCart(index) }}>Excluir</button>
-                                        </div>
+                                    )
 
-                                    </div>
+                                })
 
-                                )
+                            ) : ('')}
 
-                            })}
+                        </div>
 
-                        </section>
+                    </div>
 
-                        <section className="checkout">
+                ) : ('')}
 
-                            <div className="finishOrder">
-
-                                <h2>Finalização do pedido</h2>
-
-                                <select className="pickupSelect" onChange={handlePickupSelect} >
-
-                                    <option disabled selected value=''>Selecione como deseja receber sua encomenda</option>
-                                    <option value='Entrega a domicílio'>Entrega a domicílio (Para toda São Luís - MA)</option>
-                                    <option value="Frete por transportadora" >Entrega por transportadora</option>
-                                    <option value="Impresso módico ou Carta registrada" >Impresso módico ou Carta registrada</option>
-                                    <option value="Retirada física" >Retirada física: Travessa da Lapa - 162 - Centro/Desterro</option>
-
-                                </select>
-
-                                <span>
-                                    <strong>Observação: </strong>
-                                    As entregas por carta registrada e registro módico são formas de envio mais baratas, porém, o envio não é atualizado a todo momento (apenas quando é postado, chegou na sua cidade, saiu para entrega). O envio é feito pelos Correios com um valor fixo de R$ 15,00 para as regiões <strong>Norte e Nordeste</strong>, e R$ 20,00 para as regiões <strong>Sul, Sudeste e Centro-Oeste</strong>.
-                                </span>
-
-                                <label style={{ display: displayCepSearch }} for="cepNumber">Insira o CEP abaixo</label>
-                                <InputMask id="CepNumber" name='cepNumber' type='text' mask="99999-999" maskChar="" style={{ display: displayCepSearch }} onChange={handleInputCep} placeholder="CEP" />
-
-                                <button style={{ display: displayCepSearch }} onClick={() => { calculaFrete() }}>Calcular frete</button>
-
-                                <div className="transportInfos" style={{ display: displayCepSearch }}>
-
-                                    <h1>Selecione a opção de envio abaixo</h1>
-
-                                    {transportData.map((item, index) => {
-
-                                        if (item.id === 1 || item.id === 2 || item.id === 3) {
-
-                                            if (!item.error) {
-
-                                                return (
-
-                                                    <div className="optionsTransport">
-
-                                                        <div className="radioButton">
-
-                                                            <input onClick={(e) => handleSelectedTransport(e, item, index)} type="radio" name="selectedTransport" key={item.id} value={item.name} />
-
-                                                        </div>
-
-                                                        <div className="transportLogoWrapper">
-
-                                                            <img src={item.company.picture} alt={item.company.name} />
-
-                                                        </div>
-
-                                                        <div className="textTransportInfos">
-
-                                                            <span>{item.company.name} ({item.name})</span>
-                                                            <span><strong>R$ {item.custom_price}</strong></span>
-                                                            <span>Prazo de entrega: <strong>{item.custom_delivery_time} dias úteis</strong></span>
-
-                                                        </div>
-
-                                                    </div>
-
-                                                )
-                                            }
-                                        }
-
-                                    })}
-
-                                </div>
-
-                                <div style={{ display: displayAddressForms }} className="transportDiv">
-
-                                    <h2>Insira os dados para entrega abaixo</h2>
-
-                                    <div className="userInfos">
-
-                                        <input name='receiverName' onChange={handleInputInfosChange} placeholder='Nome do destinatário' value={newDataReceiver.receiverName} />
-
-                                        {/* <input name='receiverPhone' onChange={handleInputInfosChange} placeholder='Telefone' value={newDataReceiver.receiverPhone} /> */}
-                                        <InputMask
-                                            id="receiverPhone"
-                                            name='receiverPhone'
-                                            type='text'
-                                            mask="(99) 99999-9999"
-                                            maskChar=""
-                                            onChange={handleInputInfosChange}
-                                            placeholder='Telefone'
-                                            value={newDataReceiver.receiverPhone}
-                                        />
-
-                                        <input name='receiverAddress' onChange={handleInputInfosChange} placeholder='Endereço de entrega' value={newDataReceiver.receiverAddress} />
-
-                                        <input name='receiverHouseNumber' onChange={handleInputInfosChange} placeholder='Número da residência' value={newDataReceiver.receiverHouseNumber} />
-
-                                        <input name='receiverComplement' onChange={handleInputInfosChange} placeholder='Complemento' value={newDataReceiver.receiverComplement} />
-
-                                        <input name='receiverDistrict' onChange={handleInputInfosChange} placeholder='Bairro' value={newDataReceiver.receiverDistrict} />
-
-                                        <input name='receiverCity' onChange={handleInputInfosChange} placeholder='Cidade' value={newDataReceiver.receiverCity} />
-
-                                        {pickupSelect === 'Frete por transportadora' ? (
-
-                                            <InputMask
-                                                id="receiverCpf"
-                                                name='receiverCpf'
-                                                type='text'
-                                                mask="999.999.999-99"
-                                                maskChar=""
-                                                onChange={handleInputInfosChange}
-                                                placeholder='CPF'
-                                                value={newDataReceiver.receiverCpf}
-                                            />
-
-                                        ) : (
-
-                                            <InputMask
-                                                id="receiverCep"
-                                                name='receiverCep'
-                                                type='text'
-                                                mask="99999-999"
-                                                maskChar=""
-                                                onChange={handleInputInfosChange}
-                                                placeholder='CEP'
-                                                value={newDataReceiver.receiverCep}
-                                            />
-
-                                        )}
-
-                                    </div>
-
-                                </div>
-
-                                <select style={{ display: displayPaymentOption }} className="paymentSelect" onChange={handleSelectPayment} >
-
-                                    <option selected disabled value=''>Selecione o tipo de pagamento</option>
-                                    <option value="PayPal" >PayPal </option>
-                                    <option value="Cartão" >Cartão </option>
-                                    <option value="Pix" >Pix</option>
-
-                                </select>
-
-                                <div className="paypalButtons" ref={v => (paypalRef = v)} />
-
-                                <div className="checkoutOptions">
-
-                                    <a href="/">Continuar comprando...</a>
-                                    <h3>Preço: R$ {finalValue.toFixed(2)}</h3>
-                                    <button style={{ display: displayFinishButton }} onClick={sendOrder}>Concluir compra!</button>
-
-                                </div>
-
-                            </div>
-
-                        </section>
-
-                        <h2>Confira as artes de nossos clientes</h2>
-                        <section className="ourClients">
-                            <img src={produto1} alt="" />
-                            <img src={produto2} alt="" />
-                            <img src={produto3} alt="" />
-                            <img src={produto4} alt="" />
-                        </section>
-
-                        <section className="ourServices">
-                            <h1>Os cactus mais vendidos!</h1>
-
-                            <div className="service-card">
-                                <h3>mandacaru</h3>
-                                <h4>Sketchbook costura copta</h4>
-                                <img src={mandacaru} alt="Mandacaru" />
-                            </div>
-
-                            <div className="service-card">
-                                <h3>baião</h3>
-                                <h4>Sketchbook quadrado copta</h4>
-                                <img src={baiao} alt="Baião" />
-                            </div>
-
-                            <div className="service-card">
-                                <h3>facheiro</h3>
-                                <h4>Sketchbook espiral</h4>
-                                <img src={facheiro} alt="Facheiro" />
-                            </div>
-
-                        </section>
-                    </section >
-
-                )
-                    : (
-                        <section className="emptyCart">
-                            <h3>Opa... parece que seu carrinho está vazio! Bora fazer arte?</h3>
-                            <a href="/">Bora!</a>
-                        </section>
-                    )}
-
-            </div>
+            </body>
 
             <Footer />
 
         </main>
+
     )
+
 }

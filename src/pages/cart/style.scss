@@ -9,7 +9,7 @@ h1, h2, h3, h4, p {
     padding: 0;
 }
 
-main {
+#mainCartPage {
 
     position: relative;
 
@@ -603,6 +603,179 @@ main {
         }
 
     }
+}
+
+#mainPaidForm {
+
+    body {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        width: 100vw;
+        margin: 7rem auto;
+
+        h1{
+
+            color: #fff;
+            margin: 5px 0;
+
+        }
+
+        h4 {
+
+            color: #fff;
+
+            a {
+
+                text-decoration: none;
+    
+            }
+
+        }
+
+        .buyInfosWrapper {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 90%;
+            background: rgba( 255, 255, 255, 0.15 );
+            backdrop-filter: blur( 4px );
+            -webkit-backdrop-filter: blur( 4px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+            color: $offWhite;
+            box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.24);
+            margin: 2rem 0;
+            padding: 2rem;
+
+            .buyInfosData {
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 1rem .2rem 1rem 1rem;
+                width: 100%;
+
+                .rowDataInfos {
+
+                    display: flex;
+                    margin: 10px 6px;
+                    background-color: $orange;
+                    color: #fff;
+                    padding: 10px 15px;
+                    border-radius: 100px;
+
+                    span:before {
+
+                        content: "\00a0";
+
+                    }
+                    
+                }
+
+                #pixProofDiv {
+
+                    a {
+
+                        text-decoration: none;
+                        font-weight: 700;
+
+                    }
+
+                }
+
+            }
+
+            .boxProductInfos {
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                width: 100%;
+
+                ul {
+
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    list-style: none;
+                    flex-direction: column;
+                    background-color: $dark-green;
+                    min-height: 450px;
+                    min-width: 25%;
+                    max-width: 50%;
+                    border-radius: 5px;
+                    margin: 10px;
+                    padding: 10px;
+                    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                    text-align: center;
+
+                    h2 {
+
+                        margin-bottom: 1rem;
+                        align-self: center;
+                        background-color: $light-green;
+                        color: #fff;
+                        padding: 0 10px;
+                        border-radius: 50px;
+                        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    
+                    }
+    
+                    li {
+    
+                        display: flex;
+                        flex-direction: column;
+                        text-align: center;
+                        margin: 1rem 0;
+    
+                    }
+    
+                    #coverColorDiv {
+    
+                        display: flex;
+                        flex-direction: column;
+
+                        #coverColorWrapper {
+
+                            display: flex;
+
+                        }
+    
+                        span {
+    
+                            margin-left: 6px;
+    
+                        }
+    
+                    }
+    
+                    #productValue {
+    
+                        margin-top: 1rem;
+                        align-self: center;
+                        background-color: $light-green;
+                        color: #fff;
+                        padding: 0 10px;
+                        border-radius: 50px;
+                        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
 }
 
 @media screen and (max-width: 768px) {
