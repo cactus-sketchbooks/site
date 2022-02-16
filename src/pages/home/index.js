@@ -96,7 +96,7 @@ function Home() {
 
     return (
 
-        <main>
+        <main id="mainHome">
 
             <div style={{ display: displayModal }} role="dialog" className='divModal' >
 

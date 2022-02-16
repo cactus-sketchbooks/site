@@ -9,12 +9,12 @@ h1, h2, h3, h4, p {
     padding: 0;
 }
 
-main {
+#mainHome {
 
     display: flex;
     flex-direction: column;
     width: 100vw;
-    background: linear-gradient(45deg, $light-green, $dark-green);
+    background: linear-gradient(45deg, $orange, $light-orange);
     position: relative;
     
     .divModal {
@@ -175,7 +175,7 @@ main {
 
     #bottomText {
 
-        background-color: $orange;
+        background-color: $dark-green;
         padding: 0 3rem;
         margin: 2rem 0;
 
@@ -295,7 +295,7 @@ main {
             justify-content: center;
             width: 100%;
             height: 100%;
-            background-color: $orange;
+            background-color: $dark-green;
             padding: 0 2rem;
             color: $offWhite;
 
@@ -354,7 +354,7 @@ main {
                 margin: .8rem 0;
                 padding: .5rem 1rem;
                 border: none;
-                background-color: $dark-green;
+                background-color: $light-green;
                 border-radius: 5px;
                 cursor: pointer;
                 transition: .2s ease-in-out;
@@ -366,7 +366,7 @@ main {
 
                 &:hover {
 
-                    background-color: $light-green;
+                    opacity: 0.9;
 
                 }
 
