@@ -395,6 +395,17 @@ export default function Requests() {
 
                                     ) : ('')}
 
+                                    {modalDataProducts.pickupOption == 'Impresso módico ou Carta registrada' ? (
+
+                                        <div className="userData">
+
+                                            <p>Valor do frete: </p>
+                                            <b>R$ {modalDataProducts.economicTransportValue}</b>
+
+                                        </div>
+
+                                    ) : ('')}
+
                                     {
 
                                         modalDataProducts.selectedTransport ?
@@ -559,294 +570,122 @@ export default function Requests() {
 
                     </div>
 
-                    {dataAdmin.map((item, indexItem) => (
+                    <div className="boxOrderWrapper">
 
-                        <div className="boxOrder">
+                        {dataAdmin.map((item, indexItem) => (
 
-                            <h1>{item.userName}</h1>
+                            <div className="boxOrder">
 
-                            <div className="infosWrapper">
+                                <h1>{item.userName}</h1>
 
-                                <div className="userInfosWrapper" >
+                                <div className="infosWrapper">
 
-                                    {item.phoneNumber ? (
+                                    <div className="userInfosWrapper" >
+
+                                        {item.phoneNumber ? (
+
+                                            <div className="rowItens">
+                                                <p>Telefone</p>
+                                                <b>{item.phoneNumber}</b>
+                                            </div>
+
+                                        ) : ('')}
 
                                         <div className="rowItens">
-                                            <p>Telefone</p>
-                                            <b>{item.phoneNumber}</b>
+                                            <p>E-mail </p>
+                                            <b>{item.userEmail}</b>
                                         </div>
 
-                                    ) : ('')}
-
-                                    <div className="rowItens">
-                                        <p>E-mail </p>
-                                        <b>{item.userEmail}</b>
                                     </div>
 
-                                </div>
+                                    <div className="userInfosWrapper" >
 
-                                <div className="userInfosWrapper" >
+                                        {
 
-                                    {
+                                            item.payment === "Pix" ? (
 
-                                        item.payment === "Pix" ? (
+                                                item.paymentProof ? (
 
-                                            item.paymentProof ? (
+                                                    <div className="rowItens">
 
-                                                <div className="rowItens">
+                                                        <p>Tipo de pagamento</p>
+                                                        <b>{item.payment} (<a style={{ textDecoration: 'none' }} target="_blank" href={item.paymentProof}>Comprovante</a>)</b>
 
-                                                    <p>Tipo de pagamento</p>
-                                                    <b>{item.payment} (<a style={{ textDecoration: 'none' }} target="_blank" href={item.paymentProof}>Comprovante</a>)</b>
+                                                    </div>
 
-                                                </div>
+                                                ) :
 
-                                            ) :
+                                                    (
 
-                                                (
+                                                        <div className="rowItens">
+                                                            <p>Tipo de pagamento</p>
+                                                            <b>{item.payment} (Aguardando comprovante)</b>
+                                                        </div>
+
+                                                    )
+                                            )
+
+
+                                                : (
 
                                                     <div className="rowItens">
                                                         <p>Tipo de pagamento</p>
-                                                        <b>{item.payment} (Aguardando comprovante)</b>
+                                                        <b>{item.payment}</b>
                                                     </div>
-
                                                 )
-                                        )
 
+                                        }
 
-                                            : (
-
-                                                <div className="rowItens">
-                                                    <p>Tipo de pagamento</p>
-                                                    <b>{item.payment}</b>
-                                                </div>
-                                            )
-
-                                    }
-
-                                    <div className="rowItens">
-                                        <p>Como deseja receber</p>
-                                        <b>{item.pickupOption}</b>
-                                    </div>
-
-                                </div>
-
-                                <div className="userInfosWrapper" >
-
-                                    <button onClick={() => { handleSelectedRequest(item) }}>Ver pedido</button>
-
-                                    <p>Status do pedido: <b>{item.requestStatus}</b></p>
-
-                                    <div div className="requestStatus" >
-
-                                        <select onChange={handleSelectedStatus}>
-
-                                            <option selected disabled>Status do pedido</option>
-                                            <option value="Preparando">Preparando</option>
-                                            <option value="Enviado">Enviado</option>
-                                            <option value="Entregue">Entregue</option>
-
-                                        </select>
-
-                                        <button onClick={() => { sendNoteAdmin(indexItem) }}>Alterar status</button>
+                                        <div className="rowItens">
+                                            <p>Como deseja receber</p>
+                                            <b>{item.pickupOption}</b>
+                                        </div>
 
                                     </div>
 
-                                    <div className="clientMessage">
+                                    <div className="userInfosWrapper" >
 
-                                        <input
-                                            placeholder='Recado para cliente'
-                                            onChange={handleInputNote}
-                                        />
+                                        <button onClick={() => { handleSelectedRequest(item) }}>Ver pedido</button>
 
-                                        <button onClick={() => { sendNoteAdmin(indexItem) }} >Enviar Recado</button>
+                                        <p>Status do pedido: <b>{item.requestStatus}</b></p>
+
+                                        <div div className="requestStatus" >
+
+                                            <select onChange={handleSelectedStatus}>
+
+                                                <option selected disabled>Status do pedido</option>
+                                                <option value="Preparando">Preparando</option>
+                                                <option value="Enviado">Enviado</option>
+                                                <option value="Entregue">Entregue</option>
+
+                                            </select>
+
+                                            <button onClick={() => { sendNoteAdmin(indexItem) }}>Alterar status</button>
+
+                                        </div>
+
+                                        <div className="clientMessage">
+
+                                            <input
+                                                placeholder='Recado para cliente'
+                                                onChange={handleInputNote}
+                                            />
+
+                                            <button onClick={() => { sendNoteAdmin(indexItem) }} >Enviar Recado</button>
+
+                                        </div>
 
                                     </div>
 
                                 </div>
-
-
-                                {/* <div className="rightSizeBoxOrder" >
-
-                                <p>Itens:</p>
-
-                                <ul>
-
-                                    {
-                                        item.products.length > 1 ?
-
-                                            item.products.map((product, indexListItem) => (
-
-                                                <div className='flexDisplayRequestPage' >
-
-                                                    <li><b>{product.model}</b></li>
-
-                                                    <div className="productConfiguration">
-
-                                                        {product.paperWidth ? (
-
-                                                            <>
-                                                                <li><b>Tamanho: {product.paperWidth}</b></li>
-                                                            </>
-
-                                                        ) : (
-
-                                                            <li><b>Modelo do Kindle: {product.kindleModel}</b></li>
-
-                                                        )}
-
-                                                        {product.paper ? (
-
-                                                            <li><b>Papel do miolo: {product.paper}</b></li>
-
-                                                        ) : ('')}
-
-                                                        <strong>Cor da capa: </strong>
-
-                                                        {product.coverColors.map((color, index) => {
-
-                                                            return (
-
-                                                                <span key={index}>{(index ? ' + ' : '') + color.name}</span>
-
-                                                            )
-
-                                                        })}
-
-                                                        {product.lineColor ? (
-
-                                                            <li><b>Cor da linha: {product.lineColor.colorName}</b></li>
-
-                                                        ) : ('')}
-
-                                                        {product.elasticColor ? (
-
-                                                            <li><b>Cor do elástico: {product.elasticColor.colorName}</b></li>
-
-                                                        ) : ('')}
-
-                                                        {product.spiralColor ? (
-
-                                                            <li><b>Cor do espiral: {product.spiralColor}</b></li>
-
-                                                        ) : ('')}
-
-                                                        {product.clientNote ? (
-
-                                                            <li><b>Observação: {product.clientNote}</b></li>
-
-                                                        ) : ('')}
-
-                                                        <li id="productValue"><b>R$ {product.value.toFixed(2)}</b></li>
-
-                                                    </div>
-
-                                                </div>
-
-                                            ))
-
-                                            :
-
-                                            <div className='flexDisplayRequestPage' >
-
-                                                <li><b>{item.products[0].model}</b></li>
-
-                                                <div className="productConfiguration">
-
-                                                    {item.products[0].paperWidth ? (
-
-                                                        <>
-                                                            <li><b>Tamanho: {item.products[0].paperWidth}</b></li>
-                                                        </>
-
-                                                    ) : (
-
-                                                        <li><b>Modelo do Kindle: {item.products[0].kindleModel}</b></li>
-
-                                                    )}
-
-                                                    {item.products[0].paper ? (
-
-                                                        <li><b>Papel do miolo: {item.products[0].paper}</b></li>
-
-                                                    ) : ('')}
-
-                                                    <strong>Cor da capa: </strong>
-
-                                                    {item.products[0].coverColors.map((color, index) => {
-
-                                                        return (
-
-                                                            <span key={index}>{(index ? ' + ' : '') + color.name}</span>
-
-                                                        )
-
-                                                    })}
-
-                                                    {item.products[0].lineColor ? (
-
-                                                        <li><b>Cor da linha: {item.products[0].lineColor.colorName}</b></li>
-
-                                                    ) : ('')}
-
-                                                    {item.products[0].elasticColor ? (
-
-                                                        <li><b>Cor do elástico: {item.products[0].elasticColor.colorName}</b></li>
-
-                                                    ) : ('')}
-
-                                                    {item.products[0].spiralColor ? (
-
-                                                        <li><b>Cor do espiral: {item.products[0].spiralColor}</b></li>
-
-                                                    ) : ('')}
-
-                                                    {item.products[0].clientNote ? (
-
-                                                        <li><b>Observação: {item.products[0].clientNote}</b></li>
-
-                                                    ) : ('')}
-
-                                                    <li id="productValue"><b>R$ {item.products[0].value.toFixed(2)}</b></li>
-
-                                                </div>
-
-                                            </div>
-
-                                    }
-
-                                </ul>
-
-                                <p>ID do pedido: <b>{item.id}</b></p>
-                                <p>Valor total: <b>R$ {Number(item.totalValue).toFixed(2)}</b></p>
-
-                                {
-
-                                    item.adminNote !== '' ?
-                                        <p>Observações da Cactus: <b>{item.adminNote}</b></p>
-                                        : ''
-
-                                }
-
-                                <div className="clientMessage">
-                                    <input
-                                        placeholder='Recado para cliente'
-                                        onChange={handleInputNote}
-                                    />
-
-                                    <div className="sendMessage">
-                                        <a onClick={() => { sendNoteAdmin(indexItem) }} >Enviar Recado</a>
-                                    </div>
-                                </div>
-
-                            </div> */}
 
                             </div>
 
-                        </div>
+                        ))
 
-                    ))
+                        }
 
-                    }
+                    </div>
 
                 </div >
 

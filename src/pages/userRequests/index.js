@@ -190,6 +190,17 @@ export default function UserRequests() {
 
                                 </div>
 
+                                {item.pickupOption == 'Impresso módico ou Carta registrada' ? (
+
+                                    <div className="rowData">
+
+                                        <h4>Valor do frete: </h4>
+                                        <h4>R$ {item.economicTransportValue}</h4>
+
+                                    </div>
+
+                                ) : ('')}
+
                                 {item.selectedTransport ? (
 
                                     <>
