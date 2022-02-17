@@ -1,0 +1,85 @@
+@import "../../global.scss";
+
+* {
+    font-family: 'Urbanist', sans-serif;
+}
+
+h1, h2, h3, h4, p {
+    margin: 0;
+    padding: 0;
+}
+
+#mainGrammage {
+
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+
+    body {
+
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        min-height: 100vh;
+        margin-top: 8rem;
+        align-items: center;
+        text-align: center;
+
+        h1 {
+
+            font-size: 2.3rem;
+            color: #fff;
+
+        }
+
+        .grammageInfos {
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2rem;
+            width: 40%;
+            background: rgba( 255, 255, 255, 0.15 );
+            backdrop-filter: blur( 4px );
+            -webkit-backdrop-filter: blur( 4px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+            color: $offWhite;
+            box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.24);
+            margin-bottom: 2rem;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+
+            span {
+
+                padding: 0 1rem;
+                background-color: $orange;
+                border-radius: 50px;
+
+            }
+
+            ul {
+                
+                list-style: none;
+    
+                li {
+    
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 2rem 0;
+    
+                }
+    
+            }
+
+        }
+
+    }
+
+}

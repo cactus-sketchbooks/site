@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Slider from "react-slick";
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import './style.scss'
 
@@ -294,6 +294,8 @@ export default function Buriti() {
                         )}
 
                     </select>
+
+                    <p>Veja as especificações dos modelos clicando <Link to="/gramaturas">aqui</Link></p>
 
                 </fieldset>
 

@@ -249,8 +249,54 @@ h1, h2, h3, h4, p {
                 text-align: center;
                 text-transform: uppercase;
                 padding: 5px;
+                font-weight: 500;
             }
 
+        }
+
+    }
+
+    .paperTypeInfos {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        h3 {
+
+            padding: 0;
+            color: #72A67F;
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 2.5rem;
+            text-shadow: 2px 1px 3px rgb(29 29 29 / 50%);
+            letter-spacing: 0.3rem;
+            text-align: center;
+
+        }
+
+        a {
+                
+            width: 20%;
+            margin: .8rem 0;
+            padding: .5rem 1rem;
+            border: none;
+            background-color: $light-green;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: .2s ease-in-out;
+            color: $offWhite;
+            font-weight: bold;
+            font-size: 1.25rem;
+            text-decoration: none;
+            text-align: center;
+            text-decoration: none;
+
+            &:hover {
+
+                opacity: 0.9;
+
+            }
         }
 
     }

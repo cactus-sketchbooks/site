@@ -165,6 +165,13 @@ function Home() {
 
                     </div>
 
+                    <div className="paperTypeInfos">
+
+                        <h3>Conheça um pouco mais sobre cada tipo de papel</h3>
+                        <Link to="/gramaturas">Vamos lá!</Link>
+
+                    </div>
+
                 </section>
 
             </section>

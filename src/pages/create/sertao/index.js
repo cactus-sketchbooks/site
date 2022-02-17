@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Slider from "react-slick";
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import './style.scss'
 
@@ -51,23 +51,23 @@ export default function Sertao() {
 
                 {
                     name: "Papel Reciclado",
-                    value: 60
+                    value: 22
                 },
                 {
                     name: "Papel Pólen",
-                    value: 70
+                    value: 22
                 },
                 {
                     name: "Papel Kraft",
-                    value: 75
+                    value: 25
+                },
+                {
+                    name: "Papel Canson",
+                    value: 25
                 },
                 {
                     name: "Papel Preto",
-                    value: 75
-                },
-                {
-                    name: "Papel Canson Aquarela",
-                    value: 115
+                    value: 25
                 },
 
             ]
@@ -80,52 +80,23 @@ export default function Sertao() {
 
                 {
                     name: "Papel Reciclado",
-                    value: 60
+                    value: 12
                 },
                 {
                     name: "Papel Pólen",
-                    value: 70
+                    value: 12
                 },
                 {
                     name: "Papel Kraft",
-                    value: 75
+                    value: 15
+                },
+                {
+                    name: "Papel Canson",
+                    value: 15
                 },
                 {
                     name: "Papel Preto",
-                    value: 75
-                },
-                {
-                    name: "Papel Canson Aquarela",
-                    value: 115
-                },
-
-            ]
-
-        },
-        {
-
-            name: "14X14",
-            types: [
-
-                {
-                    name: "Papel Reciclado",
-                    value: 60
-                },
-                {
-                    name: "Papel Pólen",
-                    value: 70
-                },
-                {
-                    name: "Papel Kraft",
-                    value: 75
-                },
-                {
-                    name: "Papel Preto",
-                    value: 75
-                },
-                {
-                    name: "Papel Canson Aquarela",
-                    value: 115
+                    value: 15
                 },
 
             ]
@@ -138,23 +109,52 @@ export default function Sertao() {
 
                 {
                     name: "Papel Reciclado",
-                    value: 60
+                    value: 10
                 },
                 {
                     name: "Papel Pólen",
-                    value: 70
+                    value: 10
                 },
                 {
                     name: "Papel Kraft",
-                    value: 75
+                    value: 15
+                },
+                {
+                    name: "Papel Canson",
+                    value: 15
                 },
                 {
                     name: "Papel Preto",
-                    value: 75
+                    value: 15
+                },
+
+            ]
+
+        },
+        {
+
+            name: "14X14",
+            types: [
+
+                {
+                    name: "Papel Reciclado",
+                    value: 20
                 },
                 {
-                    name: "Papel Canson Aquarela",
-                    value: 115
+                    name: "Papel Pólen",
+                    value: 20
+                },
+                {
+                    name: "Papel Kraft",
+                    value: 25
+                },
+                {
+                    name: "Papel Canson",
+                    value: 25
+                },
+                {
+                    name: "Papel Preto",
+                    value: 25
                 },
 
             ]
@@ -420,6 +420,8 @@ export default function Sertao() {
                         })}
 
                     </select>
+
+                    <p>Veja mais sobre a gramatura e quantidade de páginas clicando <Link to="/gramaturas">aqui</Link></p>
 
                 </fieldset>
 

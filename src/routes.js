@@ -25,6 +25,7 @@ import CreateColor from './pages/admin/createColor'
 import Requests from './pages/admin/requests'
 import UserRequests from './pages/userRequests'
 import ForgotPassword from './pages/forgotPassword'
+import Grammage from './pages/grammage'
 
 const Routes = () => {
 
@@ -55,6 +56,7 @@ const Routes = () => {
             <Route component={Requests} path='/pedidos' />
             <Route component={UserRequests} path='/meusPedidos' />
             <Route component={ForgotPassword} path='/recuperarSenha' />
+            <Route component={Grammage} path='/gramaturas' />
             {/* <Route component={CreateTypes} path='/gerenciarTipos' /> */}
 
         </BrowserRouter>

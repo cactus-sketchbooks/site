@@ -183,8 +183,6 @@ export default function SinglePost() {
 
                 </div>
 
-
-
             </section>
 
             <section id="PostTextSection">

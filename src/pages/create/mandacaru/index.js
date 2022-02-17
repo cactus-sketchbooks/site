@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Slider from "react-slick";
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import './style.scss'
 
@@ -484,6 +484,8 @@ export default function Mandacaru() {
                         })}
 
                     </select>
+
+                    <p>Veja mais sobre a gramatura e quantidade de páginas clicando <Link to="/gramaturas">aqui</Link></p>
 
                 </fieldset>
 

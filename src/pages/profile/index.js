@@ -232,7 +232,7 @@ function UserProfile() {
 
                         </div>
 
-                        <button onClick={() => signOut()}>Sair</button>
+                        <button onClick={() => signOut()}>Sair da conta</button>
 
                     </div>
 
