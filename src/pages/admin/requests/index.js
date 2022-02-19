@@ -22,6 +22,9 @@ export default function Requests() {
     const [displayModal, setDisplayModal] = useState('none');
     const [displaySearchResult, setDisplaySearchResult] = useState('none')
     const [searchInput, setSearchInput] = useState([])
+    const [dataPeriod, setDataPeriod] = useState([]);
+    const [selectedPeriod, setSelectedPeriod] = useState('');
+    const [hasSearched, setHasSearched] = useState(false);
 
     const [loginData, setLoginData] = useState({
 
@@ -29,6 +32,9 @@ export default function Requests() {
         password: ''
 
     })
+
+    const now = new Date();
+    const timestamp = now.getTime();
 
     function makeLogin() {
 
@@ -129,6 +135,55 @@ export default function Requests() {
 
     }, [])
 
+    function handleSelectedPeriod(event) {
+
+        let period = event.target.value
+        let temp = []
+        setSelectedPeriod(event.target.value)
+        setHasSearched(false)
+        setNoteAdmin('')
+
+        dataAdmin.map((request) => {
+
+            if (request.timestamp) {
+
+                if (period == 'Tudo') {
+
+                    setDataPeriod(dataAdmin)
+
+                } else {
+
+                    if (period == 'Dia' && (timestamp - request.timestamp <= 86400000)) {
+
+                        temp.push(request)
+                        console.log(request)
+
+                    }
+
+                    if (period == 'Semana' && ((timestamp - request.timestamp) / 86400000) < 7) {
+
+                        temp.push(request)
+                        console.log(request)
+
+                    }
+
+                    if (period == 'Mês' && ((timestamp - request.timestamp) / 86400000) <= 31) {
+
+                        temp.push(request)
+                        console.log(request)
+
+                    }
+
+                    setDataPeriod(temp)
+
+                }
+
+            }
+
+        })
+
+    }
+
     function handleSelectedStatus(event) {
 
         setRequestStatus(event.target.value)
@@ -158,7 +213,15 @@ export default function Requests() {
 
     function sendNoteAdmin(indexItem) {
 
-        var dataTemp = dataAdmin
+        if (dataPeriod.length > 0) {
+
+            var dataTemp = dataPeriod
+
+        } else {
+
+            var dataTemp = dataAdmin
+
+        }
 
         firebase.database()
             .ref('requests/' + dataTemp[indexItem].id)
@@ -186,7 +249,6 @@ export default function Requests() {
                 totalValue: dataTemp[indexItem].totalValue,
                 userEmail: dataTemp[indexItem].userEmail,
                 userName: dataTemp[indexItem].userName,
-
 
             })
 
@@ -254,12 +316,15 @@ export default function Requests() {
 
     function handleSearchInput(event) {
 
+        setHasSearched(true)
+
         if (event.key === 'Enter') {
 
             clearSearchName()
             searchName()
 
         }
+
         setSearchInput(event.target.value)
 
     }
@@ -267,6 +332,8 @@ export default function Requests() {
     function searchName() {
 
         var name = []
+        setHasSearched(true)
+        setNoteAdmin('')
 
         dataAdmin.map((item) => {
 
@@ -285,7 +352,9 @@ export default function Requests() {
     function clearSearchName() {
 
         setDisplaySearchResult("none")
+        setNoteAdmin('')
         setDataAdmin(dataBackup)
+        setSelectedPeriod('')
 
     }
 
@@ -307,7 +376,12 @@ export default function Requests() {
 
                         {modalDataProducts ? (
 
-                            <h1>{modalDataProducts.userName}</h1>
+                            <div className="modalFirstInfo">
+
+                                <h1>{modalDataProducts.userName}</h1>
+                                <span>{modalDataProducts.id}</span>
+
+                            </div>
 
                         ) : ('')}
 
@@ -529,10 +603,12 @@ export default function Requests() {
                     <div className='filterNameSearch' >
 
                         <h3>Pesquisa por nome</h3>
+                        <p>Limpe a pesquisa antes de realizar uma nova</p>
 
                         <div className='searchUsername'>
 
                             <input type="text" placeholder="Dê Enter para realizar a busca" onKeyDown={handleSearchInput} />
+
                         </div>
 
                     </div>
@@ -542,41 +618,97 @@ export default function Requests() {
                         <div className='divSearchUsernameResult'>
 
                             <a onClick={() => { clearSearchName() }}>Limpar pesquisa</a>
-                            <h2>Resultado da busca</h2>
 
                         </div>
 
                     </section>
 
-                    <div className="finishOrder">
+                    <div className="selectWrapper">
 
-                        <h3>Finalizar pedido</h3>
+                        <div className="finishOrder">
 
-                        <div className="finishOrderWrapper">
+                            <h3>Finalizar pedido</h3>
 
-                            <select onChange={handleIdSelected} className="selectFinishOrder" >
+                            <div className="finishOrderWrapper">
 
-                                <option className="optionSelectOrder" >Selecionar</option>
+                                <select onChange={handleIdSelected} className="selectFinishOrder" >
 
-                                {dataAdmin.map((item) => (
-                                    <option className="optionSelectOrder" value={item.id} key={item.id}>{item.userName.split(' ')[0]}: {item.id}</option>
-                                ))}
+                                    <option disabled className="optionSelectOrder" >Selecionar</option>
 
-                            </select>
+                                    {dataPeriod.length > 0 ? (
 
-                            <button className="finishButton" onClick={() => finishOrder()} >Finalizar</button>
+                                        dataPeriod.map((item) => (
+                                            <option className="optionSelectOrder" value={item.id} key={item.id}>{item.userName.split(' ')[0]}: {item.id}</option>
+                                        ))
+
+                                    ) : (
+
+                                        dataAdmin.map((item) => (
+                                            <option className="optionSelectOrder" value={item.id} key={item.id}>{item.userName.split(' ')[0]}: {item.id}</option>
+                                        ))
+
+                                    )}
+
+                                </select>
+
+                                <button className="finishButton" onClick={() => finishOrder()} >Finalizar</button>
+
+                            </div>
 
                         </div>
 
+                        <div className="selectPeriodChangeDiv">
+
+                        {selectedPeriod ? (
+
+                            <>
+
+                                <h3>Selecione um período abaixo</h3>
+
+                                <select id="selectPeriodChange" onChange={handleSelectedPeriod}>
+
+                                    <option>Tudo</option>
+                                    <option>Dia</option>
+                                    <option>Semana</option>
+                                    <option>Mês</option>
+
+                                </select>
+
+                            </>
+
+                        ) : (
+
+                            <>
+
+                                <h3>Selecione um período abaixo</h3>
+
+                                <select id="selectPeriodChange" onChange={handleSelectedPeriod}>
+
+                                    <option selected>Tudo</option>
+                                    <option>Dia</option>
+                                    <option>Semana</option>
+                                    <option>Mês</option>
+
+                                </select>
+
+                            </>
+
+                        )}
+
                     </div>
+
+                    </div>
+
+                    <h2 id="resultSearch" style={{ color: '#fff', display: displaySearchResult }}>Resultado da busca</h2>
 
                     <div className="boxOrderWrapper">
 
-                        {dataAdmin.map((item, indexItem) => (
+                        {selectedPeriod && !hasSearched ? (dataPeriod.map((item, indexItem) => (
 
                             <div className="boxOrder">
 
                                 <h1>{item.userName}</h1>
+                                <span>{item.date}</span>
 
                                 <div className="infosWrapper">
 
@@ -673,6 +805,15 @@ export default function Requests() {
 
                                             <button onClick={() => { sendNoteAdmin(indexItem) }} >Enviar Recado</button>
 
+                                            {item.adminNote ? (
+
+                                                <div className="adminNoteDiv">
+                                                    <p>Nota da Cactus</p>
+                                                    <b>{item.adminNote}</b>
+                                                </div>
+
+                                            ) : ('')}
+
                                         </div>
 
                                     </div>
@@ -681,7 +822,129 @@ export default function Requests() {
 
                             </div>
 
-                        ))
+                        ))) : (
+
+                            (dataAdmin.map((item, indexItem) => (
+
+                                <div className="boxOrder">
+
+                                    <h1>{item.userName}</h1>
+
+                                    <div className="infosWrapper">
+
+                                        <div className="userInfosWrapper" >
+
+                                            {item.phoneNumber ? (
+
+                                                <div className="rowItens">
+                                                    <p>Telefone</p>
+                                                    <b>{item.phoneNumber}</b>
+                                                </div>
+
+                                            ) : ('')}
+
+                                            <div className="rowItens">
+                                                <p>E-mail </p>
+                                                <b>{item.userEmail}</b>
+                                            </div>
+
+                                        </div>
+
+                                        <div className="userInfosWrapper" >
+
+                                            {
+
+                                                item.payment === "Pix" ? (
+
+                                                    item.paymentProof ? (
+
+                                                        <div className="rowItens">
+
+                                                            <p>Tipo de pagamento</p>
+                                                            <b>{item.payment} (<a style={{ textDecoration: 'none' }} target="_blank" href={item.paymentProof}>Comprovante</a>)</b>
+
+                                                        </div>
+
+                                                    ) :
+
+                                                        (
+
+                                                            <div className="rowItens">
+                                                                <p>Tipo de pagamento</p>
+                                                                <b>{item.payment} (Aguardando comprovante)</b>
+                                                            </div>
+
+                                                        )
+                                                )
+
+
+                                                    : (
+
+                                                        <div className="rowItens">
+                                                            <p>Tipo de pagamento</p>
+                                                            <b>{item.payment}</b>
+                                                        </div>
+                                                    )
+
+                                            }
+
+                                            <div className="rowItens">
+                                                <p>Como deseja receber</p>
+                                                <b>{item.pickupOption}</b>
+                                            </div>
+
+                                        </div>
+
+                                        <div className="userInfosWrapper" >
+
+                                            <button onClick={() => { handleSelectedRequest(item) }}>Ver pedido</button>
+
+                                            <p>Status do pedido: <b>{item.requestStatus}</b></p>
+
+                                            <div div className="requestStatus" >
+
+                                                <select onChange={handleSelectedStatus}>
+
+                                                    <option selected disabled>Status do pedido</option>
+                                                    <option value="Preparando">Preparando</option>
+                                                    <option value="Enviado">Enviado</option>
+                                                    <option value="Entregue">Entregue</option>
+
+                                                </select>
+
+                                                <button onClick={() => { sendNoteAdmin(indexItem) }}>Alterar status</button>
+
+                                            </div>
+
+                                            <div className="clientMessage">
+
+                                                <input
+                                                    placeholder='Recado para cliente'
+                                                    onChange={handleInputNote}
+                                                />
+
+                                                <button onClick={() => { sendNoteAdmin(indexItem) }} >Enviar Recado</button>
+
+                                                {item.adminNote ? (
+
+                                                    <div className="adminNoteDiv">
+                                                        <p>Nota da Cactus</p>
+                                                        <b>{item.adminNote}</b>
+                                                    </div>
+
+                                                ) : ('')}
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            )))
+
+                        )
 
                         }
 

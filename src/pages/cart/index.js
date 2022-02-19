@@ -478,7 +478,8 @@ export default function Cart() {
                     adminNote: '',
                     requestStatus: '',
                     dateToCompare: new Date().toDateString(),
-                    date: `${now.getUTCDate()}/${now.getMonth()}/${now.getFullYear()}-${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`,
+                    date: `${now.getUTCDate()}/${now.getMonth() + 1}/${now.getFullYear()}-${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`,
+                    timestamp: now.getTime(),
                     totalValue: finalValue.toFixed(2),
 
                 }
@@ -516,7 +517,8 @@ export default function Cart() {
                     adminNote: '',
                     requestStatus: '',
                     dateToCompare: new Date().toDateString(),
-                    date: `${now.getUTCDate()}/${now.getMonth()}/${now.getFullYear()}-${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`,
+                    date: `${now.getUTCDate()}/${now.getMonth() + 1}/${now.getFullYear()}-${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`,
+                    timestamp: now.getTime(),
                     totalValue: finalValue.toFixed(2),
 
                 }

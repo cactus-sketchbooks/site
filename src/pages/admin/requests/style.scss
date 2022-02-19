@@ -26,13 +26,34 @@
         overflow-x: hidden;
         overflow-y: scroll;
 
-        h1 {
-
-            text-decoration: underline solid $dark-green;
+        .modalFirstInfo {
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             margin-bottom: 1rem;
 
+            h1 {
 
+                text-decoration: underline solid $dark-green;
+
+            }
+
+            span {
+
+                font-weight: 500;
+                background-color: $orange;
+                padding: .2rem .5rem;
+                border-radius: 5px;
+                margin: .5rem 0;
+                color: #fff;
+
+            }
+            
         }
+
 
         h2 {
 
@@ -176,14 +197,17 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 6rem;
+    margin-top: 8rem;
 
-    .filterNameSearch h3 {  
+    .filterNameSearch {
+        
+        h3, p {  
 
-        margin-top: 1rem;
-        text-align: center;
-        color: #fff;
+            text-align: center;
+            color: #fff;
+            text-align: center;
 
+        }
     }
     
     .searchUsername {
@@ -208,12 +232,19 @@
     }
     
     .divSearchUsernameResult {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
     
         a {
             display: flex;
             color: $branco;
             padding: 15px;
-            margin-top: 2rem;
+            margin-top: .5rem;
             margin-bottom: 1.5rem;
             cursor: pointer;
             background-color: $orange;
@@ -222,55 +253,87 @@
             font-weight: 700;
         }
     
-        h2 {
-            color: white;
-        }
-    
     }
 
-    .finishOrder {
+    .selectWrapper {
 
         display: flex;
-        flex-direction: column;
+        width: 50vw;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 1rem;
 
         h3 {
-
-            margin: 1rem 0 .5rem 0;
+    
+            margin: 0 0 .5rem 0;
             text-align: center;
             color: #fff;
 
         }
 
-        .finishOrderWrapper {
+        .finishOrder {
 
             display: flex;
+            flex-direction: column;
+    
+            .finishOrderWrapper {
+    
+                display: flex;
+                align-items: center;
+    
+                select {
+    
+                    outline: none;
+                    border: none;
+                    border-radius: 5px;
+                    padding: .5rem .2rem;
+    
+                }
+    
+                button {
+    
+                    margin-left: 10px;
+                    padding: .5rem .4rem;
+                    border-radius: 5px;
+                    outline: none;
+                    border: none;
+                    background-color: $orange;
+                    color: #fff;
+                    font-weight: 700;
+                    cursor: pointer;
+                    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    
+                }
+    
+            }
+    
+        }
+
+        .selectPeriodChangeDiv {
+
+            display: flex;
+            flex-direction: column;
+            text-align: center;
             align-items: center;
-
+            justify-content: center;
+    
             select {
-
+    
+                width: 70%;
                 outline: none;
                 border: none;
                 border-radius: 5px;
                 padding: .5rem .2rem;
-
+    
             }
-
-            button {
-
-                margin-left: 10px;
-                padding: .5rem .4rem;
-                border-radius: 5px;
-                outline: none;
-                border: none;
-                background-color: $orange;
-                color: #fff;
-                font-weight: 700;
-                cursor: pointer;
-                box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-
-            }
-
+    
         }
+
+    }
+
+    #resultSearch {
+
+        margin-top: 2rem;
 
     }
 
@@ -295,9 +358,22 @@
             h1 {
 
                 text-align: center;
-                margin-bottom: 2rem;
                 color: #fff;
                 text-decoration: underline solid $dark-green;
+
+            }
+
+            span {
+
+                text-align: center;
+                color: #fff;
+                font-weight: 500;
+
+            }
+
+            h5 {
+
+                margin: 1rem 0 2rem;
 
             }
 
@@ -338,6 +414,7 @@
                         flex-direction: column;
                         align-items: center;
                         margin: 10px 0;
+                        text-align: center;
 
                     }
 
@@ -431,6 +508,16 @@
                 
                             }
             
+                        }
+
+                        .adminNoteDiv {
+
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            text-align: center;
+                            width: 100%;
+
                         }
             
                     }
