@@ -371,8 +371,8 @@ export default function Cart() {
     useEffect(() => {
 
         const script = document.createElement("script");
-        // script.src = "https://www.paypal.com/sdk/js?client-id=AVdZOvhSTEekVtepWxObjC6L1Yrm8ng37lrDLna1AbkBBZej8x3KQEiLfZyUhOJ1aqtG0mnddL63lDQX&currency=BRL"
         script.src = "https://www.paypal.com/sdk/js?client-id=AZAsiBXlnYmk2HXDpGkZgYx7zWvFpak2iKq473EPHi9LrnM2lAbAHIzVaxns_-jmD34dYqpuTSaRFWy0&currency=BRL"
+        // script.src = "https://www.paypal.com/sdk/js?client-id=AaNvRUjTYfSm2ZVpE0BkFAnJgPtLVGMYJq0TG66Of1EDDGIjUJjjZb1NC8AP04mBntoEvbjvqhQNFeY4&currency=BRL"
         script.addEventListener("load", () => setLoaded(true));
         document.body.appendChild(script);
 
@@ -404,6 +404,7 @@ export default function Cart() {
                                 const order = await actions.order.capture();
                                 sendOrder();
                                 setPaidForm(true)
+                                window.scrollTo(0, 0);
 
                             },
 
@@ -498,6 +499,7 @@ export default function Cart() {
                     })
 
                 setPaidForm(true)
+                window.scrollTo(0, 0);
 
             } else {
 
@@ -536,6 +538,7 @@ export default function Cart() {
                     })
 
                 setPaidForm(true)
+                window.scrollTo(0, 0);
 
             }
 
