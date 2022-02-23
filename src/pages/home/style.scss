@@ -170,7 +170,7 @@ h1, h2, h3, h4, p {
         color: $light-green;
         font-family: 'Bebas Neue', sans-serif;
         font-size: 2.5rem;
-        text-shadow: 2px 1px 3px rgba(29, 29, 29, 0.5);
+        text-shadow: 2px 1px 3px rgba(20, 20, 20, 0.8);
         letter-spacing: .3rem;
         text-align: center;
     }
@@ -271,7 +271,7 @@ h1, h2, h3, h4, p {
             color: #72A67F;
             font-family: "Bebas Neue", sans-serif;
             font-size: 2.5rem;
-            text-shadow: 2px 1px 3px rgb(29 29 29 / 50%);
+            text-shadow: 2px 1px 3px rgba(20, 20, 20, 0.8);
             letter-spacing: 0.3rem;
             text-align: center;
 
@@ -553,6 +553,17 @@ h1, h2, h3, h4, p {
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
 
+    #mainHome .divModal .modalContent {
+
+        width: 60vw;
+        left: 20%;
+
+        h3 {
+            word-wrap: break-word;
+            padding: 0 1rem;
+        }
+    }
+
     #hero-section {
 
         .hero-title {
@@ -561,7 +572,7 @@ h1, h2, h3, h4, p {
             padding-left: 0;
     
             h1 {
-                font-size: 3.5rem;
+                margin-top: 2rem;
             }
     
             img {
@@ -572,8 +583,6 @@ h1, h2, h3, h4, p {
     
         .hero-data {
 
-            height: 35px;
-            font-size: 1.5rem;
             width: 90vw;
 
         }
@@ -583,7 +592,7 @@ h1, h2, h3, h4, p {
     #services-section {
         
         h2 {
-            font-size: 2rem;
+            width: 90vw;
         }
 
         #bottomText {
@@ -594,12 +603,11 @@ h1, h2, h3, h4, p {
         .service-wrapper {
 
             width: 90%;
-            margin: 2rem auto;
+            margin: 0;
             display: grid;
             grid-template-columns: auto auto auto;
-            grid-gap: 2rem;
-            // flex-direction: row;
-            // flex-wrap: wrap;
+            grid-gap: 0 1.5rem;
+            
             
             .service-card {
                 margin: 12px auto;
@@ -611,7 +619,8 @@ h1, h2, h3, h4, p {
 
             h3 {
 
-                width: 95vw;
+                margin-top: 1.3rem;
+                width: 90vw;
     
             }
 
@@ -624,8 +633,6 @@ h1, h2, h3, h4, p {
 
     #section-showcase {
 
-        //height: 100%;
-
         .showcase-wrapper {
 
             padding: 0;
@@ -634,6 +641,7 @@ h1, h2, h3, h4, p {
             .showcase-image-wrapper {
 
                 height: 100%;
+                width: 50%;
                 
                 img {
                     height: 100%;
@@ -643,7 +651,7 @@ h1, h2, h3, h4, p {
 
             .showcase-text {
 
-                width: 60%;
+                width: 50%;
                 height: 100%;
                 margin: 0;
                 padding: 1rem 2rem;
