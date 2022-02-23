@@ -3,33 +3,31 @@
 footer {
 
     width: 100vw;
-    height: 55vh;
-    overflow-y: hidden;
-    overflow-x: hidden;
+    overflow: hidden;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 30px 0px;
-    position: relative;
     font-size: 1rem;
+    background: linear-gradient(45deg, $light-green, $dark-green);
 
-    .footerBackgroundWrapper {
+    // .footerBackgroundWrapper {
 
-        display: flex;
-        width: 100%;
-        position: absolute;
-        bottom: 0;
-        background: linear-gradient(0deg, $light-green, $dark-green);
+    //     display: flex;
+    //     width: 100%;
+    //     position: absolute;
+    //     bottom: 0;
+    //     background: linear-gradient(0deg, $light-green, $dark-green);
 
-        img {
+    //     img {
 
-            width: 100%;
-            height: 100%;
+    //         width: 100%;
+    //         height: 100%;
 
-        }
+    //     }
 
-    }
+    // }
 
     .footerContent {
 
@@ -37,16 +35,22 @@ footer {
         align-items: center;
         justify-content: center;
         flex-direction: row;
-        position: absolute;
         width: 100%;
         height: 100%;
         margin: 10px 0;
 
-        img {
+        .footerImgWrapper {
 
-            height: 25vh;
-            border-radius: 200px;
+            display: flex;
+            width: 200px;
+            height: 200px;
             margin-right: 1rem;
+
+            img {
+
+                border-radius: 200px;
+    
+            }
 
         }
 
@@ -200,16 +204,32 @@ footer {
         //flex-direction: column;
         padding-bottom: 0;
 
+        .footerBackgroundWrapper {
+
+            height: 100%;
+
+        }
     
         .footerContent {
+
             flex-direction: column;
             padding-bottom: 1rem;
 
-            img {
+            .footerImgWrapper {
 
-                height: 25%;
+                width: 140px;
+                height: 140px;
+                margin: 0;
+    
+                img {
+                    
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
 
+                }
             }
+
 
             .footerSocialMedia {
                 

@@ -500,7 +500,7 @@ h1, h2, h3, h4, p {
 
     #section-showcase {
 
-        height: 100vh;
+        height: auto;
 
         .showcase-wrapper {
 
@@ -633,7 +633,6 @@ h1, h2, h3, h4, p {
 
             .showcase-image-wrapper {
 
-                width: 55%;
                 height: 100%;
                 
                 img {
@@ -644,7 +643,7 @@ h1, h2, h3, h4, p {
 
             .showcase-text {
 
-                width: 45%;
+                width: 60%;
                 height: 100%;
                 margin: 0;
                 padding: 1rem 2rem;

@@ -17,15 +17,19 @@ export default function Footer (props) {
 
         <footer>
 
-                <div className="footerBackgroundWrapper">
+                {/* <div className="footerBackgroundWrapper">
 
                     <img src={svg} alt='Fundo' />
 
-                </div>
+                </div> */}
 
                 <div className='footerContent'>
 
-                    <img draggable="false" className="logoCactus" src={logoCactus} alt='Logo Cactus' />
+                    <div className="footerImgWrapper">
+
+                        <img draggable="false" className="logoCactus" src={logoCactus} alt='Logo Cactus' />
+
+                    </div>
 
                     {/* <div className='footerLinks'> 
                         <ul>
