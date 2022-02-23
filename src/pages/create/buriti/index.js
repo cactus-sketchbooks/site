@@ -281,7 +281,7 @@ export default function Buriti() {
                     <select onChange={handleSelectedModel} className="kindleModel">
 
                         <option value="" selected disabled>Modelo do Kindle</option>
-                        
+
                         {values.formats.map((format, index) => {
 
                             return (
@@ -315,9 +315,9 @@ export default function Buriti() {
 
                     <Slider {...settings}>
 
-                        {dataColors.map((item, index) => {
+                        {dataColors.map((item, index) => (
 
-                            return (
+                            item.models.includes("buriti") && item.categories.includes("cover") ? (
 
                                 <div className="cardColor">
 
@@ -325,7 +325,7 @@ export default function Buriti() {
 
                                         (<div key={item.id} className="colorBox">
 
-                                            <img src={item.image} alt="cor" />
+                                            <img draggable="false" src={item.image} alt="cor" />
 
                                         </div>)
 
@@ -354,9 +354,9 @@ export default function Buriti() {
 
                                 </div>
 
-                            )
+                            ) : null
 
-                        })}
+                        ))}
 
                     </Slider>
 
@@ -380,9 +380,9 @@ export default function Buriti() {
 
                         <div className="elasticColorWrapper">
 
-                            {dataColors.map((item, index) => {
+                            {dataColors.map((item, index) => (
 
-                                return (
+                                item.models.includes("buriti") && item.categories.includes("elastic") ? (
 
                                     <div className="colorWrapper">
 
@@ -421,9 +421,9 @@ export default function Buriti() {
 
                                     </div>
 
-                                )
+                                ) : null
 
-                            })}
+                            ))}
 
                         </div>
 

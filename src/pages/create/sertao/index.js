@@ -441,9 +441,9 @@ export default function Sertao() {
 
                     <Slider {...settings}>
 
-                        {dataColors.map((item, index) => {
+                        {dataColors.map((item, index) => (
 
-                            return (
+                            item.models.includes("sertao") && item.categories.includes("cover") ? (
 
                                 <div className="cardColor">
 
@@ -451,7 +451,7 @@ export default function Sertao() {
 
                                         (<div key={item.id} className="colorBox">
 
-                                            <img src={item.image} alt="cor" />
+                                            <img draggable="false" src={item.image} alt="cor" />
 
                                         </div>)
 
@@ -480,9 +480,9 @@ export default function Sertao() {
 
                                 </div>
 
-                            )
+                            ) : null
 
-                        })}
+                        ))}
 
                     </Slider>
 
@@ -506,9 +506,9 @@ export default function Sertao() {
 
                         <div className="lineColorWrapper">
 
-                            {dataColors.map((item, index) => {
+                            {dataColors.map((item, index) => (
 
-                                return (
+                                item.models.includes("sertao") && item.categories.includes("line") ? (
 
                                     <div className="colorWrapper">
 
@@ -548,9 +548,9 @@ export default function Sertao() {
 
                                     </div>
 
-                                )
+                                ) : null
 
-                            })}
+                            ))}
 
                         </div>
 

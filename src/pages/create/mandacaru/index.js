@@ -505,9 +505,9 @@ export default function Mandacaru() {
 
                     <Slider {...settings}>
 
-                        {dataColors.map((item, index) => {
+                        {dataColors.map((item, index) => (
 
-                            return (
+                            item.models.includes("mandacaru") && item.categories.includes("cover") ? (
 
                                 <div className="cardColor">
 
@@ -515,7 +515,7 @@ export default function Mandacaru() {
 
                                         (<div key={item.id} className="colorBox">
 
-                                            <img src={item.image} alt="cor" />
+                                            <img draggable="false" src={item.image} alt="cor" />
 
                                         </div>)
 
@@ -544,9 +544,11 @@ export default function Mandacaru() {
 
                                 </div>
 
-                            )
 
-                        })}
+
+                            ) : null
+
+                        ))}
 
                     </Slider>
 
@@ -570,9 +572,9 @@ export default function Mandacaru() {
 
                         <div className="lineColorWrapper">
 
-                            {dataColors.map((item, index) => {
+                            {dataColors.map((item, index) => (
 
-                                return (
+                                item.models.includes("mandacaru") && item.categories.includes("line") ? (
 
                                     <div className="colorWrapper">
 
@@ -612,9 +614,9 @@ export default function Mandacaru() {
 
                                     </div>
 
-                                )
+                                ) : null
 
-                            })}
+                            ))}
 
                         </div>
 
@@ -636,9 +638,9 @@ export default function Mandacaru() {
 
                         <div className="elasticColorWrapper">
 
-                            {dataColors.map((item, index) => {
+                            {dataColors.map((item, index) => (
 
-                                return (
+                                item.models.includes("mandacaru") && item.categories.includes("elastic") ? (
 
                                     <div className="colorWrapper">
 
@@ -677,9 +679,9 @@ export default function Mandacaru() {
 
                                     </div>
 
-                                )
+                                ) : null
 
-                            })}
+                            ))}
 
                         </div>
 

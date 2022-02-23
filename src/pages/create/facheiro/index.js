@@ -588,9 +588,9 @@ export default function Facheiro() {
 
                     <Slider {...settings}>
 
-                        {dataColors.map((item, index) => {
+                        {dataColors.map((item, index) => (
 
-                            return (
+                            item.models.includes("facheiro") && item.categories.includes("cover") ? (
 
                                 <div className="cardColor">
 
@@ -598,7 +598,7 @@ export default function Facheiro() {
 
                                         (<div key={item.id} className="colorBox">
 
-                                            <img src={item.image} alt="cor" />
+                                            <img draggable="false" src={item.image} alt="cor" />
 
                                         </div>)
 
@@ -627,9 +627,9 @@ export default function Facheiro() {
 
                                 </div>
 
-                            )
+                            ) : null
 
-                        })}
+                        ))}
 
                     </Slider>
 
@@ -677,9 +677,9 @@ export default function Facheiro() {
 
                         <div className="elasticColorWrapper">
 
-                            {dataColors.map((item, index) => {
+                            {dataColors.map((item, index) => (
 
-                                return (
+                                item.models.includes("buriti") && item.categories.includes("elastic") ? (
 
                                     <div className="colorWrapper">
 
@@ -718,9 +718,9 @@ export default function Facheiro() {
 
                                     </div>
 
-                                )
+                                ) : null
 
-                            })}
+                            ))}
 
                         </div>
 

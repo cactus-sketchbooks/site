@@ -440,9 +440,9 @@ export default function Baiao() {
 
                     <Slider {...settings}>
 
-                        {dataColors.map((item, index) => {
+                        {dataColors.map((item, index) => (
 
-                            return (
+                            item.models.includes("baiao") && item.categories.includes("cover") ? (
 
                                 <div className="cardColor">
 
@@ -450,7 +450,7 @@ export default function Baiao() {
 
                                         (<div key={item.id} className="colorBox">
 
-                                            <img src={item.image} alt="cor" />
+                                            <img draggable="false" src={item.image} alt="cor" />
 
                                         </div>)
 
@@ -479,9 +479,9 @@ export default function Baiao() {
 
                                 </div>
 
-                            )
+                            ) : null
 
-                        })}
+                        ))}
 
                     </Slider>
 
@@ -505,9 +505,10 @@ export default function Baiao() {
 
                         <div className="lineColorWrapper">
 
-                            {dataColors.map((item, index) => {
+                            {dataColors.map((item, index) => (
 
-                                return (
+                                item.models.includes("baiao") && item.categories.includes("line") ? (
+
 
                                     <div className="colorWrapper">
 
@@ -547,9 +548,9 @@ export default function Baiao() {
 
                                     </div>
 
-                                )
+                                ) : null
 
-                            })}
+                            ))}
 
                         </div>
 
@@ -571,9 +572,10 @@ export default function Baiao() {
 
                         <div className="elasticColorWrapper">
 
-                            {dataColors.map((item, index) => {
+                            {dataColors.map((item, index) => (
 
-                                return (
+                                item.models.includes("baiao") && item.categories.includes("elastic") ? (
+
 
                                     <div className="colorWrapper">
 
@@ -612,9 +614,9 @@ export default function Baiao() {
 
                                     </div>
 
-                                )
+                                ) : null
 
-                            })}
+                            ))}
 
                         </div>
 

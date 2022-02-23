@@ -604,9 +604,10 @@ export default function Carcara() {
 
                     <Slider {...settings}>
 
-                        {dataColors.map((item, index) => {
+                        {dataColors.map((item, index) => (
 
-                            return (
+                            item.models.includes("carcara") && item.categories.includes("cover") ? (
+
 
                                 <div className="cardColor">
 
@@ -614,7 +615,7 @@ export default function Carcara() {
 
                                         (<div key={item.id} className="colorBox">
 
-                                            <img src={item.image} alt="cor" />
+                                            <img draggable="false" src={item.image} alt="cor" />
 
                                         </div>)
 
@@ -643,9 +644,9 @@ export default function Carcara() {
 
                                 </div>
 
-                            )
+                            ) : null
 
-                        })}
+                        ))}
 
                     </Slider>
 
@@ -669,9 +670,10 @@ export default function Carcara() {
 
                         <div className="elasticColorWrapper">
 
-                            {dataColors.map((item, index) => {
+                            {dataColors.map((item, index) => (
 
-                                return (
+                                item.models.includes("carcara") && item.categories.includes("elastic") ? (
+
 
                                     <div className="colorWrapper">
 
@@ -710,9 +712,9 @@ export default function Carcara() {
 
                                     </div>
 
-                                )
+                                ) : null
 
-                            })}
+                            ))}
 
                         </div>
 

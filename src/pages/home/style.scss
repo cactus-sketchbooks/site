@@ -128,6 +128,8 @@ h1, h2, h3, h4, p {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 4.75rem;
             letter-spacing: .55rem;
+            cursor: default;
+            user-select: none;
         }
 
         img {

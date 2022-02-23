@@ -20,10 +20,12 @@ export default function CreateColor() {
         colorCode: '',
         image: '',
         models: [],
+        categories: [],
 
     })
 
     const [selectedModels, setSelectedModels] = useState([])
+    const [selectedCategories, setSelectedCategories] = useState([])
     const [imageUrl, setImageUrl] = useState('')
 
     function insertNewColor() {
@@ -36,6 +38,7 @@ export default function CreateColor() {
             colorName: colorData.colorName,
             colorCode: colorData.colorCode,
             models: selectedModels,
+            categories: selectedCategories,
             image: imageUrl,
 
         }
@@ -49,7 +52,8 @@ export default function CreateColor() {
             colorName: '',
             colorCode: '',
             image: '',
-            models: []
+            models: [],
+            categories: [],
 
         })
 
@@ -99,6 +103,35 @@ export default function CreateColor() {
 
     }
 
+    const checkCategory = (event) => {
+
+        const isChecked = event.target.checked
+
+        if (isChecked) {
+
+            setSelectedCategories([...selectedCategories,
+
+            event.target.value,
+
+            ])
+
+            console.log(selectedCategories)
+
+        } else {
+
+            let index = selectedCategories.findIndex((element) => element === event.target.value)
+
+            if (index !== -1) {
+
+                selectedCategories.splice(index, 1)
+                console.log(selectedCategories)
+
+            }
+
+        }
+
+    }
+
     function uploadImage(event) {
 
         const file = event.target.files[0]
@@ -124,11 +157,12 @@ export default function CreateColor() {
 
                 <h1>Cadastro de cores</h1>
 
-                <input id="colorName" name='colorName' onChange={handleColorRegisterChange} placeholder='Nome da cor' />
+                <input type="text" id="colorName" name='colorName' onChange={handleColorRegisterChange} placeholder='Nome da cor' />
 
                 <div className="formatType">
 
                     <InputMask
+                        type="text"
                         id="colorCode"
                         name="colorCode"
                         mask="#******"
@@ -143,7 +177,38 @@ export default function CreateColor() {
 
                 </div>
 
-                <div className="modelSelector">
+                <div className="checkboxSelector">
+
+                    <h3>Selecione a(s) categoria(s) da cor</h3>
+
+                    <div className="checkboxWrapper">
+
+                        <div className="checkbox">
+
+                            <input type="checkbox" name="selectedCategory" id="cover" value="cover" onChange={(event) => checkCategory(event)} />
+                            <label for="cover">Cor de capa</label>
+
+                        </div>
+
+                        <div className="checkbox">
+
+                            <input type="checkbox" name="selectedCategory" id="line" value="line" onChange={(event) => checkCategory(event)} />
+                            <label for="line">Cor de linha</label>
+
+                        </div>
+
+                        <div className="checkbox">
+
+                            <input type="checkbox" name="selectedCategory" id="elastic" value="elastic" onChange={(event) => checkCategory(event)} />
+                            <label for="elastic">Cor de elástico</label>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div className="checkboxSelector">
 
                     <h3>Selecione os modelos que terão essa cor disponível</h3>
 
@@ -159,35 +224,35 @@ export default function CreateColor() {
                         <div className="checkbox">
 
                             <input type="checkbox" name="selectedModel" id="buriti" value="buriti" onChange={(event) => checkModel(event)} />
-                            <label for="baiao">Buriti</label>
+                            <label for="buriti">Buriti</label>
 
                         </div>
 
                         <div className="checkbox">
 
                             <input type="checkbox" name="selectedModel" id="carcara" value="carcara" onChange={(event) => checkModel(event)} />
-                            <label for="baiao">Carcará</label>
+                            <label for="carcara">Carcará</label>
 
                         </div>
 
                         <div className="checkbox">
 
                             <input type="checkbox" name="selectedModel" id="facheiro" value="facheiro" onChange={(event) => checkModel(event)} />
-                            <label for="baiao">Facheiro</label>
+                            <label for="facheiro">Facheiro</label>
 
                         </div>
 
                         <div className="checkbox">
 
                             <input type="checkbox" name="selectedModel" id="mandacaru" value="mandacaru" onChange={(event) => checkModel(event)} />
-                            <label for="baiao">Mandacaru</label>
+                            <label for="mandacaru">Mandacaru</label>
 
                         </div>
 
                         <div className="checkbox">
 
                             <input type="checkbox" name="selectedModel" id="sertao" value="sertao" onChange={(event) => checkModel(event)} />
-                            <label for="baiao">Sertão</label>
+                            <label for="sertao">Sertão</label>
 
                         </div>
 

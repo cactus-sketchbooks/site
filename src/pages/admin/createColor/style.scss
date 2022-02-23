@@ -20,10 +20,16 @@ main {
     #ColorSection {
 
         display: flex;
-        height: 100vh; //apagar
-        margin-top: 6rem;
+        margin-top: 8rem;
         flex-direction: column;
         align-items: center;
+        color: #fff;
+
+        h1 {
+
+            margin: 1rem 0;
+
+        }
 
         .formatType {
 
@@ -48,16 +54,23 @@ main {
             h2 {
 
                 margin: 1rem 0;
+                background-color: $orange;
+                padding: .2rem 1rem;
+                border-radius: 100px;
 
             }
 
         }
 
-        input {
+        input[type=text] {
 
             margin-bottom: 2rem;
             width: 50%;
             height: 40px;
+            padding: .7rem .5rem;
+            border-radius: 5px;
+
+            border: 1.7px solid #e8e8e8;
 
         }
 
@@ -82,12 +95,21 @@ main {
     
         }
 
-        .modelSelector {
+        .checkboxSelector {
 
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+
+            h3 {
+
+                background-color: $orange;
+                padding: .3rem 1rem;
+                border-radius: 100px;
+                margin-top: 1rem;
+
+            }
 
             .checkboxWrapper {
 
