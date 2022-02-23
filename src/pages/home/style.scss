@@ -455,7 +455,7 @@ h1, h2, h3, h4, p {
 
             height: 35px;
             font-size: 1.5rem;
-            width: 400px;
+            width: 90vw;
 
         }
 
@@ -474,12 +474,26 @@ h1, h2, h3, h4, p {
 
         .service-wrapper {
 
+            margin: 1rem auto 2.5rem;
             flex-direction: column;
             
             .service-card {
                 margin: 4px auto;
             }
 
+        }
+
+        .paperTypeInfos {
+
+            h3 {
+
+                width: 95vw;
+    
+            }
+
+            a {
+                width: 40%;
+            }
         }
 
     }
@@ -535,4 +549,135 @@ h1, h2, h3, h4, p {
 
     }
 
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    #hero-section {
+
+        .hero-title {
+
+            flex-direction: column;
+            padding-left: 0;
+    
+            h1 {
+                font-size: 3.5rem;
+            }
+    
+            img {
+                height: 95px;
+            }
+
+        }
+    
+        .hero-data {
+
+            height: 35px;
+            font-size: 1.5rem;
+            width: 90vw;
+
+        }
+
+    }
+    
+    #services-section {
+        
+        h2 {
+            font-size: 2rem;
+        }
+
+        #bottomText {
+            background-color: $offWhite;
+            text-shadow: none;
+        }
+
+        .service-wrapper {
+
+            width: 90%;
+            margin: 2rem auto;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-gap: 2rem;
+            // flex-direction: row;
+            // flex-wrap: wrap;
+            
+            .service-card {
+                margin: 12px auto;
+            }
+
+        }
+
+        .paperTypeInfos {
+
+            h3 {
+
+                width: 95vw;
+    
+            }
+
+            a {
+                width: 25%;
+            }
+        }
+
+    }
+
+    #section-showcase {
+
+        //height: 100%;
+
+        .showcase-wrapper {
+
+            padding: 0;
+            margin: 0;
+
+            .showcase-image-wrapper {
+
+                width: 55%;
+                height: 100%;
+                
+                img {
+                    height: 100%;
+                }
+
+            }
+
+            .showcase-text {
+
+                width: 45%;
+                height: 100%;
+                margin: 0;
+                padding: 1rem 2rem;
+
+                h1 {
+                    padding: 0;
+                    font-size: 2.5rem;
+                }
+
+                h2 {
+                    padding: 0;
+                    background-size: 86%;
+
+                    &.highlight-showcase-text {
+                        font-size: 2.3rem;
+                    }
+                }
+                
+              
+                p {
+                    margin: 0.7rem 0;
+                }
+
+                a {
+                    
+                    width: 50%;
+
+                }
+
+            }
+
+        }
+
+    }
+    
 }
