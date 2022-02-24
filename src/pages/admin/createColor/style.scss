@@ -152,3 +152,48 @@ main {
     }
 
 }
+
+@media screen and (max-width: 768px) {
+
+    main {
+    
+        #ColorSection {
+            
+            text-align: center;
+    
+            .formatType {
+    
+                width: 70%;
+
+            }
+    
+            input:nth-child(1)[type=text] {
+    
+                width: 80%;
+            
+            }
+    
+            .checkboxSelector {
+
+                h3 {
+
+                    width: 80%;
+
+                }
+    
+                .checkboxWrapper {
+    
+                    width: auto;
+                    padding: 1rem 4rem;
+                    flex-direction: column;
+                    align-items: flex-start;
+    
+                }
+    
+            }
+    
+        }
+    
+    }
+
+}

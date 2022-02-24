@@ -10,7 +10,7 @@
 
     #DataSection {
 
-        margin-top: 6rem;
+        margin-top: 8rem;
 
         h1 {
 
@@ -35,6 +35,7 @@
 
                 display: flex;
                 flex-direction: column;
+                align-items: center;
                 width: 80%;
                 padding: 1rem .2rem;
                 background-color: $light-green;
@@ -45,6 +46,7 @@
                 .rowData {
 
                     display: flex;
+                    width: 90%;
                     justify-content: space-between;
                     margin: 10px 0;
                     background-color: $orange;
@@ -139,6 +141,7 @@
                     .productInfo {
 
                         display: flex;
+                        text-align: center;
                         width: 45%;
                         margin: 5px;
                         background-color: $dark-green;
@@ -202,6 +205,72 @@
 
         }
 
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    .requestsPage {
+    
+        #DataSection {
+    
+            .requestData {
+    
+                .boxInfoData {
+
+                    .rowData {
+
+                        text-align: center;
+                        flex-direction: column;
+
+                        h4:nth-child(2) {
+
+                            font-weight: 400;
+
+                        }
+
+                    }
+    
+                    #pixProofDiv, #noteDiv {
+                
+                        width: 90%;
+
+                        .paymentProof {
+
+                            input {
+
+                                width: 100%;
+                                text-align: center;
+                                margin-top: 1rem;
+
+                            }
+
+                        }
+
+                    }
+    
+                    .boxProductInfos {
+    
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+    
+                        .productInfo {
+    
+                            width: 90%;
+    
+                        }
+    
+                    }
+    
+                }
+    
+            }
+    
+        }
+    
     }
 
 }
