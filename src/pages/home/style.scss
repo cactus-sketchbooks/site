@@ -63,9 +63,14 @@ h1, h2, h3, h4, p {
                 justify-content: center;
                 width: 50%;
 
+                h3 {
+                    color: $offBlack;
+                }
+
                 h1 {
 
                     text-transform: uppercase;
+                    color: $dark-green;
 
                 }
 
@@ -433,6 +438,40 @@ h1, h2, h3, h4, p {
 }
 
 @media screen and (max-width: 768px) {
+
+    #mainHome .divModal .modalContent {
+
+        width: 80%;
+        left: 10%;
+
+        .sketchbookInfosWrapper {
+     
+
+            h3 {
+                font-size: .7rem;
+                padding: 0 .5rem;
+            }
+                
+            span {
+                width: 20px;
+                height: 20px;
+                font-size: .7rem;
+                
+            }
+
+            h1 {
+                font-size: 1rem;
+            }
+            
+            a {
+
+                width: 35vw;
+                padding: .5rem .5rem;
+                font-size: .7rem;
+
+            }
+        }
+    }
 
     #hero-section {
 

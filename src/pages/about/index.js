@@ -31,13 +31,13 @@ function About() {
                     </p>
 
                     <div className="about-container-images">
-                        <a target="_blank" rel="noreferrer" href="https://www.instagram.com/p/CUGBF8xp4mi/">
+                        <a target="_blank" rel="noreferrer" href="https://www.instagram.com/p/CYZem2tJUp2/">
                             <img draggable="false" src={img3} alt="" />
                         </a>
-                        <a target="_blank" rel="noreferrer" href="https://www.instagram.com/p/CUV9t5ZJoye/">
+                        <a target="_blank" rel="noreferrer" href="https://www.instagram.com/p/CZHiaK5LaVR/">
                             <img draggable="false" src={img1} alt="" />
                         </a>
-                        <a target="_blank" rel="noreferrer" href="https://www.instagram.com/p/B5kriJKp5n7/">
+                        <a target="_blank" rel="noreferrer" href="https://www.instagram.com/p/CYjaf3cL38z/">
                             <img draggable="false" src={img2} alt="" />
                         </a>
                     </div>

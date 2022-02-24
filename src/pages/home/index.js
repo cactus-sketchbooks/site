@@ -12,7 +12,7 @@ import baiao from '../../images/baiao.png'
 import facheiro from '../../images/facheiro.png'
 import sertao from '../../images/sertao.png'
 import buriti from '../../images/buriti-kindle.png';
-import carcara from '../../images/carcara.jpg'
+import carcara from '../../images/carcara.png'
 import mandacaruQuadrado from '../../images/mandacaruQuadrado.jpg'
 import baiaoQuadrado from '../../images/baiaoQuadrado.jpg'
 import facheiroQuadrado from '../../images/facheiroQuadrado.jpg'
