@@ -20,7 +20,7 @@ h1, h2, h3, h4, p {
     .about-background {
         padding: 0;
         margin-top: 115px;
-        height: 45vh;
+        //height: 45vh;
 
         img {
             height: 250px;
@@ -31,14 +31,12 @@ h1, h2, h3, h4, p {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 85vh;
         width: 100vw;
         background: $light-blue;
-        position: relative;
 
         article {
-            position: absolute;
             background: $offWhite;
+            margin: 1rem 0;
             width: 60vw;
             top: -40px;
             border-radius: 5px;
@@ -121,12 +119,75 @@ h1, h2, h3, h4, p {
 
 }
 
-// #about-photo-side {
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
+@media screen and (max-width: 768px) {
 
-//     img {
-//         height: 100vh;
-//     }
-// }
+    #about-section {
+
+        .about-background {
+            padding: 0;
+            margin-top: 135px;
+
+            img {
+                height: 200px;
+            }
+        }
+        
+        .about-container {
+
+            top: -120px;
+
+            article {
+                width: 80vw;
+                top: -90px;
+    
+                .about-container-images {
+                    flex-direction: column; 
+                }
+    
+                .about-container-contact {
+        
+                    flex-direction: column;
+    
+                    a.about-button {
+                        margin: 1rem 0;                    
+                    }
+    
+                }
+    
+            }
+        }
+    }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    #about-section {
+
+        .about-background {
+            padding: 0;
+            margin-top: 135px;
+
+            img {
+                height: 200px;
+            }
+        }
+        
+        .about-container {
+            article {
+                width: 85vw;
+                top: -90px;
+    
+                .about-container-images {
+                    align-items: space-between;
+                    justify-content: center;
+                    
+                    img {
+                        height: 210px;
+                        margin: 0 .3rem;
+                    }
+                }
+
+            }
+        }
+    }
+}
