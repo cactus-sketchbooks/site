@@ -12,23 +12,6 @@ footer {
     font-size: 1rem;
     background: linear-gradient(45deg, $light-green, $dark-green);
 
-    // .footerBackgroundWrapper {
-
-    //     display: flex;
-    //     width: 100%;
-    //     position: absolute;
-    //     bottom: 0;
-    //     background: linear-gradient(0deg, $light-green, $dark-green);
-
-    //     img {
-
-    //         width: 100%;
-    //         height: 100%;
-
-    //     }
-
-    // }
-
     .footerContent {
 
         display: flex;
@@ -42,9 +25,9 @@ footer {
         .footerImgWrapper {
 
             display: flex;
-            width: 200px;
-            height: 200px;
-            margin-right: 1rem;
+            width: 180px;
+            height: 180px;
+            margin-right: 2rem;
 
             img {
 
@@ -53,46 +36,6 @@ footer {
             }
 
         }
-
-        // .footerLinks {
-        //     display: flex;
-        //     margin: 0 1rem;
-        //     justify-content: center;
-        //     align-items: center;
-
-        //     ul {
-
-        //         display: flex;
-        //         flex-direction: column;
-        //         justify-content: center;
-        //         margin: 0 1rem;
-        //         width: 12vw;
-        //         padding: 0;
-        //         list-style: none;
-        //         text-align: center;
-                
-        //         li a {
-                    
-        //             border-radius: 7px;
-        //             align-items: center;
-        //             justify-content: center;
-        //             display: flex;
-        //             margin: .15rem 0;
-        //             background-color: $dark-green;
-        //             padding: .5rem;
-        //             text-decoration: none;
-        //             color: $offWhite;
-        //             transition: .2s ease-in-out;
-            
-        //             &:hover {
-        //                 background-color: $offWhite;
-        //                 color: $dark-green;
-        //             }
-        //         }
-    
-                
-        //     }
-        // }
         
         .footerSocialMedia {
             margin: 0;
@@ -170,13 +113,13 @@ footer {
         }
 
         .copyright {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             
             a {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
                 text-decoration: none;
+                align-items: center;
 
                 p {
                     margin-top: .5rem;
@@ -186,9 +129,9 @@ footer {
                 }
                 
                 img {
-                    margin-left: 1rem;
+
                     border-radius: 0px; 
-                    height: 10vh;
+                    height: 120px;
 
                 }
             }
@@ -201,7 +144,6 @@ footer {
 
     footer {
 
-        //flex-direction: column;
         padding-bottom: 0;
 
         .footerBackgroundWrapper {
@@ -234,7 +176,6 @@ footer {
             .footerSocialMedia {
                 
                 ul {
-                    //flex-direction: row;
                     width: 100%; 
                 }
 
@@ -253,7 +194,11 @@ footer {
                     margin-top: .875rem;
 
                     img {
-                        height: 7vh;
+                        height: 100px;
+                    }
+
+                    p {
+                        width: 60%;
                     }
                 }
             }
@@ -263,5 +208,76 @@ footer {
 
     }
 
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    footer {
+
+        padding-bottom: 0;
+
+        .footerBackgroundWrapper {
+
+            height: 100%;
+
+        }
+    
+        .footerContent {
+
+            padding-bottom: 1rem;
+
+            .footerImgWrapper {
+
+                width: 140px;
+                height: 140px;
+                margin: 0 1rem 0 0;
+    
+                img {
+                    
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+
+                }
+            }
+
+
+            .footerSocialMedia {
+                
+                ul {
+                    //flex-direction: row;
+                    width: 100%; 
+                }
+
+                img {
+                    height: 2.5vh;
+                }
+            }
+
+            .copyright {
+                
+                a {
+                    align-items: center;
+                    justify-content: center;
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: .875rem;
+
+                    img {
+                        margin: 0;
+                        height: 9vh;
+                    }
+
+                    p {
+                        width: 150px;
+                    }
+                }
+            }
+
+
+        }
+
+    }
 
 }

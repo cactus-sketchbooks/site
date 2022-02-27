@@ -7,7 +7,8 @@ import whatsapp from "../../images/whatsapp.svg";
 import telephone from "../../images/telephone.png";
 // import instagramIcon from "../../img/instagramIcon.png";
 // import facebookIcon from "../../images/facebookIcon.png";
-import logoAurea from "../../images/Logos_Aurea.png"
+// import logoAurea from "../../images/Logos_Aurea.png"
+import logoAurea from "../../images/logoaurea2.png"
 
 import './style.scss'
 
@@ -17,12 +18,6 @@ export default function Footer (props) {
 
         <footer>
 
-                {/* <div className="footerBackgroundWrapper">
-
-                    <img src={svg} alt='Fundo' />
-
-                </div> */}
-
                 <div className='footerContent'>
 
                     <div className="footerImgWrapper">
@@ -31,25 +26,9 @@ export default function Footer (props) {
 
                     </div>
 
-                    {/* <div className='footerLinks'> 
-                        <ul>
-                            <li> <Link to='/' > Início </Link> </li>
-                            <li> <Link to='/sobre'> Quem Somos </Link> </li>
-                            <li> <Link to='/contato'> Contato </Link> </li>
-                            <li> <Link to='/clientes'> Nossos clientes </Link> </li>
-                            <li> <Link to='/login'> Login </Link> </li>
-                        </ul>
-                    </div> */}
-
                     <div className="footerSocialMedia">
 
                         <ul>
-
-                            <li>
-                                {/* <button>
-                                    <Link to='/'>Fazer arte</Link>
-                                </button> */}
-                            </li>
 
                             <li> 
                                 <a href='https://api.whatsapp.com/send?phone=5598982885488' target='_blank' rel="noreferrer">
