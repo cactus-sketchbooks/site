@@ -10,7 +10,7 @@
 
 #MainBlog {
 
-    background: #fff !important;
+    background: $offWhite !important;
     
     #PostAuthorSection {
       
@@ -67,7 +67,7 @@
 
               list-style: none;
               margin: 0 1rem;
-              background-color: #f2f2f2;
+              background-color: #dfdfdf;
               padding: 5px 15px;
               border-radius: 3px;
               font-weight: 500;
@@ -223,10 +223,30 @@
 
 @media screen and (max-width: 768px) {
 
-  main {
+  #MainBlog {
+    // background: linear-gradient(45deg, $light-green, $dark-green) !important;
 
-    #PostSection {
+    #PostAuthorSection {
 
+      .textIntroWrapper {
+        ul {
+          li {
+            margin: .45rem 1rem;
+          }
+        }
+      }
+
+      .authorInfos {
+
+        .authorSocials {
+
+          h1 {
+            margin: 0.4rem 1.5rem;
+          }
+
+        }
+
+      }
       
 
     }
