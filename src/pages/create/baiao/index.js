@@ -7,7 +7,7 @@ import './style.scss'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import logo from '../../../images/cactopng2.png';
+import logo from '../../../images/baiao.png';
 
 import Header from '../../../components/header/index.js';
 import Footer from '../../../components/footer/index.js';
@@ -432,58 +432,58 @@ export default function Baiao() {
 
                     </div>
 
-                    <p>Selecione <strong>até duas</strong> cores. <button onClick={() => handleModalInfos()}>Clique aqui para visualizar os modelos de capa</button></p>
+                    <p>Selecione <strong>até duas</strong> cores. Arraste para o lado para conferir todas as opções. <button onClick={() => handleModalInfos()}>Clique aqui para visualizar os modelos de capa</button></p>
 
                 </div>
 
                 <div className="sliderColors">
 
-                    <Slider {...settings}>
+                        <Slider {...settings}>
 
-                        {dataColors.map((item, index) => (
+                            {dataColors.map((item, index) => (
 
-                            item.models.includes("baiao") && item.categories.includes("cover") ? (
+                                item.models.includes("baiao") && item.categories.includes("cover") ? (
 
-                                <div className="cardColor">
+                                    <div className="cardColor">
 
-                                    {item.image ?
+                                        {item.image ?
 
-                                        (<div key={item.id} className="colorBox">
+                                            (<div key={item.id} className="colorBox">
 
-                                            <img draggable="false" src={item.image} alt="cor" />
+                                                <img draggable="false" src={item.image} alt="cor" />
 
-                                        </div>)
+                                            </div>)
 
-                                        :
+                                            :
 
-                                        (<div key={item.id} style={{ backgroundColor: item.colorCode }} className="colorBox">
+                                            (<div key={item.id} style={{ backgroundColor: item.colorCode }} className="colorBox">
 
-                                            <p>{item.colorCode}</p>
+                                                <p>{item.colorCode}</p>
 
-                                        </div>)
+                                            </div>)
 
-                                    }
+                                        }
 
-                                    <div className="colorName">
+                                        <div className="colorName">
 
-                                        <p>{item.colorName}</p>
+                                            <p>{item.colorName}</p>
 
-                                        <input
-                                            type="checkbox"
-                                            value={index}
-                                            onChange={(event) => checkColor(item, event)}
-                                            style={{ accentColor: item.colorCode }}
-                                        />
+                                            <input
+                                                type="checkbox"
+                                                value={index}
+                                                onChange={(event) => checkColor(item, event)}
+                                                style={{ accentColor: item.colorCode }}
+                                            />
+
+                                        </div>
 
                                     </div>
 
-                                </div>
+                                ) : null
 
-                            ) : null
+                            ))}
 
-                        ))}
-
-                    </Slider>
+                        </Slider>
 
                 </div>
 

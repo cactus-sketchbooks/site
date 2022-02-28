@@ -7,7 +7,7 @@ import './style.scss'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import logo from '../../../images/cactopng2.png';
+import logo from '../../../images/mandacaru.png';
 
 import Header from '../../../components/header/index.js';
 import Footer from '../../../components/footer/index.js';
@@ -497,7 +497,7 @@ export default function Mandacaru() {
 
                     </div>
 
-                    <p>Selecione <strong>até duas</strong> cores. <button onClick={() => handleModalInfos()}>Clique aqui para visualizar os modelos de capa</button></p>
+                    <p>Selecione <strong>até duas</strong> cores. Arraste para o lado para conferir todas as opções. <button onClick={() => handleModalInfos()}>Clique aqui para visualizar os modelos de capa</button></p>
 
                 </div>
 

@@ -876,7 +876,7 @@ export default function Cart() {
                             </section>
 
                             <section className="ourServices">
-                                <h1>Os cactus mais vendidos!</h1>
+                                <div className="service-title"><h1>Os cactus mais vendidos</h1></div>
 
                                 <div className="service-card">
                                     <h3>mandacaru</h3>
