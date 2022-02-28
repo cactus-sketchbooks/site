@@ -325,6 +325,8 @@ h1, h2, h3, h4, p {
         height: 100%;
         display: flex;
         background-color: $orange;
+        align-items: center;
+        justify-content: center;
 
         .showcase-image-wrapper {
 
@@ -690,7 +692,7 @@ h1, h2, h3, h4, p {
 
             .showcase-text {
 
-                width: 50%;
+                width: 70%;
                 height: 100%;
                 margin: 0;
                 padding: 1rem 2rem;
@@ -712,6 +714,7 @@ h1, h2, h3, h4, p {
               
                 p {
                     margin: 0.7rem 0;
+                    font-size: 18px;
                 }
 
                 a {

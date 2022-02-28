@@ -720,8 +720,6 @@ export default function Cart() {
 
                                     <div className="transportInfos" style={{ display: displayCepSearch }}>
 
-                                        <h1>Selecione a opção de envio abaixo</h1>
-
                                         {transportData.map((item, index) => {
 
                                             if (item.id === 1 || item.id === 2 || item.id === 3) {

@@ -27,7 +27,7 @@ function About() {
                 <article>
                     <h1>Sua arte. Nossa criação.</h1>
 
-                    <p>A cactus foi plantada por Bruno Matos e Helen Cristina no ano de 2018. De lá pra cá esses dois jovens artistas cresceram com ela, tornando essa loja de encadernação artesanal e plataforma de criação. Estamos aqui pra somar com todos que confiam na cactus e espalhar a nossa arte e quem cria com ela pelo mundo, vamos com a gente plantar e gerar arte?
+                    <p>A Cactus foi plantada por Bruno Matos e Helen Cristina no ano de 2018. De lá pra cá esses dois jovens artistas cresceram com ela, tornando essa loja de encadernação artesanal e plataforma de criação. Estamos aqui pra somar com todos que confiam na Cactus e espalhar a nossa arte e quem cria com ela pelo mundo. Vamos com a gente plantar e gerar arte?
                     </p>
 
                     <div className="about-container-images">

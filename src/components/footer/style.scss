@@ -5,7 +5,6 @@ footer {
     width: 100vw;
     overflow: hidden;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 30px 0px;
@@ -19,7 +18,6 @@ footer {
         justify-content: center;
         flex-direction: row;
         width: 100%;
-        height: 100%;
         margin: 10px 0;
 
         .footerImgWrapper {
@@ -38,6 +36,7 @@ footer {
         }
         
         .footerSocialMedia {
+
             margin: 0;
             padding: 0;
             display: flex;
@@ -113,6 +112,8 @@ footer {
         }
 
         .copyright {
+
+            display: flex;
             
             a {
                 display: flex;
@@ -144,18 +145,17 @@ footer {
 
     footer {
 
-        padding-bottom: 0;
-
-        .footerBackgroundWrapper {
-
-            height: 100%;
-
-        }
+        padding: 0;
+        height: auto;
+        // height: 85vh;
+        justify-content: flex-start;
     
         .footerContent {
 
             flex-direction: column;
             padding-bottom: 1rem;
+            height: auto;
+            align-self: flex-start;
 
             .footerImgWrapper {
 
@@ -171,7 +171,6 @@ footer {
 
                 }
             }
-
 
             .footerSocialMedia {
                 

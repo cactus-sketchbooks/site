@@ -307,6 +307,7 @@ h1, h2, h3, h4, p {
         width: 100%;
         align-items: center;
         justify-content: center;
+        text-align: center;
         margin-top: 2rem;
 
         h2 {
@@ -335,6 +336,13 @@ h1, h2, h3, h4, p {
             text-align: center;
             margin-bottom: 4rem;
             color: $offWhite;
+
+        }
+
+        label {
+
+            color: #fff;
+            font-weight: 700;
 
         }
 
@@ -438,6 +446,7 @@ h1, h2, h3, h4, p {
                 span {
 
                     margin: 0;
+                    color: #000;
 
                 }
 
@@ -788,7 +797,31 @@ h1, h2, h3, h4, p {
 
 @media screen and (max-width: 768px) {
 
+    #mainCartPage {
+
+        .cartPopupWrapper {
+        
+            .cartPopupContent {
+        
+                width: 80vw;
+                padding: 1rem;
+                left: 0;
+                right: 0;
+                margin: 8rem auto;
+        
+            }
+        
+        }
+    
+    }
+
     #cart #purchaseInfo {
+
+        h2 {
+
+            font-size: 2rem;
+
+        }
 
         section.checkout {
             width: 80vw;
@@ -797,6 +830,73 @@ h1, h2, h3, h4, p {
                
                 span {
                     margin-bottom: 0;
+                }
+                
+                label {
+
+                    margin-top: 1rem;
+
+                }
+
+                #CepNumber {
+
+                    width: 60%;
+
+                }
+
+                .transportInfos {
+
+                    .optionsTransport {
+
+                        flex-direction: column;
+                        height: auto;
+
+                        .transportLogoWrapper {
+
+                            width: 40%;
+
+                        }
+
+                        .textTransportInfos {
+
+                            flex-direction: column;
+
+                            span {
+
+                                margin: 5px;
+                                
+                            }
+
+                            span:nth-child(2):before {
+
+                                content: "Valor: ";
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+                .transportDiv {
+
+                    h2 {
+
+                        font-size: 2rem;
+
+                    }
+
+                    .userInfos {
+
+                        input {
+
+                            width: 80%;
+
+                        }
+
+                    }
+
                 }
 
                 .checkoutOptions {
@@ -897,5 +997,135 @@ h1, h2, h3, h4, p {
             flex-direction: column;
         }
     }
+
+    #mainPaidForm {
+
+        body {
+
+            text-align: center;
+            
+            h1{
+    
+                color: #fff;
+                margin: 5px 0;
+                padding: 1rem 0;
+    
+            }
+    
+            h4 {
+    
+                color: #fff;
+                padding: 0 2rem;
+    
+            }
+    
+            .buyInfosWrapper {
+    
+                .buyInfosData {
+    
+                    padding: 0;
+
+                    .rowDataInfos {
+    
+                        display: flex;
+                        margin: 10px 2px;
+                        flex-direction: column;
+    
+                        span:before {
+    
+                            content: "\00a0";
+    
+                        }
+                        
+                    }
+    
+                    #pixProofDiv {
+    
+                        a {
+    
+                            text-decoration: none;
+                            font-weight: 700;
+                            color: $yellow-green;
+    
+                        }
+    
+                    }
+    
+                }
+    
+                .boxProductInfos {
+    
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    width: 100%;
+    
+                    ul {
+    
+                        min-width: 100%;
+    
+                        h2 {
+    
+                            margin-bottom: 1rem;
+                            align-self: center;
+                            background-color: $light-green;
+                            color: #fff;
+                            padding: 0 10px;
+                            border-radius: 50px;
+                            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        
+                        }
+        
+                        li {
+        
+                            display: flex;
+                            flex-direction: column;
+                            text-align: center;
+                            margin: 1rem 0;
+        
+                        }
+        
+                        #coverColorDiv {
+        
+                            display: flex;
+                            flex-direction: column;
+    
+                            #coverColorWrapper {
+    
+                                display: flex;
+    
+                            }
+        
+                            span {
+        
+                                margin-left: 6px;
+        
+                            }
+        
+                        }
+        
+                        #productValue {
+        
+                            margin-top: 1rem;
+                            align-self: center;
+                            background-color: $light-green;
+                            color: #fff;
+                            padding: 0 10px;
+                            border-radius: 50px;
+                            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        
+                        }
+    
+                    }
+    
+                }
+    
+            }
+    
+        }
+        
+    }
+
 
 }

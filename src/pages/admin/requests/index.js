@@ -362,7 +362,7 @@ export default function Requests() {
 
         return (
 
-            <main>
+            <main id="mainRequestAdmin">
 
                 <div style={{ display: displayModal }} role="dialog" className='divModalRequests' >
 
@@ -522,19 +522,26 @@ export default function Requests() {
 
                                                 {product.paperWidth ? (
 
-                                                    <>
-                                                        <li>Tamanho: <b>{product.paperWidth}</b></li>
-                                                    </>
+                                                    <li className="productData">
+                                                        <span>Tamanho: </span>
+                                                        <b>{product.paperWidth}</b>
+                                                    </li>
 
                                                 ) : (
 
-                                                    <li>Modelo do Kindle: <b>{product.kindleModel}</b></li>
+                                                    <li className="productData">
+                                                        <span>Modelo do Kindle: </span>
+                                                        <b>{product.kindleModel}</b>
+                                                    </li>
 
                                                 )}
 
                                                 {product.paper ? (
 
-                                                    <li>Papel do miolo: <b>{product.paper}</b></li>
+                                                    <li className="productData">
+                                                        <span>Papel do miolo: </span>
+                                                        <b>{product.paper}</b>
+                                                    </li>
 
                                                 ) : ('')}
 
@@ -556,25 +563,37 @@ export default function Requests() {
 
                                                 {product.lineColor ? (
 
-                                                    <li>Cor da linha: <b>{product.lineColor.colorName}</b></li>
+                                                    <li className="productData">
+                                                        <span>Cor da linha: </span>
+                                                        <b>{product.lineColor.colorName}</b>
+                                                    </li>                                                    
 
                                                 ) : ('')}
 
                                                 {product.elasticColor ? (
 
-                                                    <li>Cor do elástico: <b>{product.elasticColor.colorName}</b></li>
+                                                    <li className="productData">
+                                                        <span>Cor do elástico: </span>
+                                                        <b>{product.elasticColor.colorName}</b>
+                                                    </li>  
 
                                                 ) : ('')}
 
                                                 {product.spiralColor ? (
 
-                                                    <li>Cor do espiral: <b>{product.spiralColor}</b></li>
+                                                    <li className="productData">
+                                                        <span>Cor do espiral: </span>
+                                                        <b>{product.spiralColor}</b>
+                                                    </li>
 
                                                 ) : ('')}
 
                                                 {product.clientNote ? (
 
-                                                    <li>Observação: <b>{product.clientNote}</b></li>
+                                                    <li className="productData">
+                                                        <span>Observação: </span>
+                                                        <b>{product.clientNote}</b>
+                                                    </li>
 
                                                 ) : ('')}
 

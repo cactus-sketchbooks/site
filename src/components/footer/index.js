@@ -64,12 +64,12 @@ export default function Footer (props) {
                             <img src={logoAurea} alt='Desenvolvido pela Aurea Empresa Júnior' />
 
                             <p>Desenvolvido com React.js © Aurea Empresa Júnior</p>
+                            
                         </a>
 
                     </div>
 
                 </div>
-
 
         </footer>
 

@@ -1,5 +1,11 @@
 @import '../../../global.scss';
 
+#mainRequestAdmin {
+
+    position: relative;
+
+}
+
 .divModalRequests {
 
     position: absolute;
@@ -22,7 +28,7 @@
         top: 100%;
         left: 50%;
         margin-left: -40vw;
-        margin-top: -45vw;
+        margin-top: -95vh;
         overflow-x: hidden;
         overflow-y: scroll;
 
@@ -153,7 +159,7 @@
 
                 }
 
-                li {
+                .productData {
 
                     font-weight: 500;
 
@@ -553,20 +559,8 @@
         z-index: 3;
     
         .modalContentRequests {
-    
-            position: fixed;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: $offWhite;
-            width: 80vw;
-            height: 90vh;
-            top: 100%;
-            left: 50%;
-            margin-left: -40vw;
-            margin-top: -45vw;
-            overflow-x: hidden;
-            overflow-y: scroll;
+           
+            margin-top: -95vh;
     
             .modalFirstInfo {
                 
@@ -670,18 +664,9 @@
     
                 .productCard {
     
-                    display: flex;
-                    justify-content: center;
-                    list-style: none;
-                    flex-direction: column;
-                    background-color: $dark-green;
                     min-height: 200px;
-                    min-width: 25%;
-                    max-width: 50%;
-                    border-radius: 5px;
-                    margin: 10px;
-                    padding: 10px;
-                    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                    min-width: 75%;
+                    min-width: 85%;
     
                     h4 {
     
@@ -695,19 +680,25 @@
     
                     }
     
-                    li {
-    
+                    .productData {
+
+                        display: flex;
+                        flex-direction: column;
+                        text-align: center;
                         font-weight: 500;
+                        margin: 10px 0;
     
                     }
     
                     #coverColor {
     
                         display: flex;
+                        flex-direction: column;
+                        text-align: center;
     
                         span {
     
-                            margin-left: 6px;
+                            margin: 0;
     
                         }
     
