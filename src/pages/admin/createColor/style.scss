@@ -28,6 +28,9 @@ main {
         h1 {
 
             margin: 1rem 0;
+            padding: .3rem 1rem;
+            background-color: $orange;
+            border-radius: 100px;
 
         }
 
@@ -104,9 +107,6 @@ main {
 
             h3 {
 
-                background-color: $orange;
-                padding: .3rem 1rem;
-                border-radius: 100px;
                 margin-top: 1rem;
 
             }
@@ -145,6 +145,70 @@ main {
 
                 }
 
+            }
+
+        }
+
+    }
+
+    #deleteColorSection {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-top: 2rem;
+
+        fieldset {
+
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            outline: none;
+            border: none;
+            text-align: center;
+            width: 100%;
+
+           legend h1 {
+
+                margin: 1rem 0;
+                padding: .3rem 1rem;
+                background-color: $orange;
+                color: #fff;
+                border-radius: 100px;
+    
+            }
+
+            select {
+
+                margin: .2rem .2rem;
+                padding: .7rem 0;
+                border-radius: 5px;
+                width: 30%;
+
+                border: 1.7px solid #e8e8e8;
+                outline-color: $orange;
+
+            }
+
+            button {
+
+                padding: .7rem 2rem;
+                margin: 1rem 0 2rem;
+                background-color: $orange;
+                border: none;
+                cursor: pointer;
+                color: #fff;
+                font-size: 16px;
+                font-weight: 600;
+                border-radius: 5px;
+                transition: .2s ease-in-out;
+        
+                &:hover {
+        
+                    background-color: $light-orange;
+        
+                }
             }
 
         }

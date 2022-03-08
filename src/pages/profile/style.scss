@@ -25,19 +25,25 @@
 
         }
 
-        a {
+        .links {
 
-            margin: 1rem 0;
-            padding: .5rem 1rem;
-            border-radius: 5px;
-            outline: none;
-            border: none;
-            background-color: $orange;
-            color: #fff;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-            text-decoration: none;
+            display: flex;
+
+            a {
+
+                margin: 1rem .5rem;
+                padding: .5rem 1rem;
+                border-radius: 5px;
+                outline: none;
+                border: none;
+                background-color: $orange;
+                color: #fff;
+                font-weight: 700;
+                cursor: pointer;
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                text-decoration: none;
+    
+            }
 
         }
 
@@ -69,27 +75,48 @@
 
             }
 
-            button {
+            .buttonsWrapper {
 
+                display: flex;
                 margin: 2rem 0;
-                background-color: $orange;
-                color: $branco;
-                padding: 1rem 4rem;
-                transition: transform .45s ease, background .15s ease;
-                cursor: pointer;
-                border: none;
-                border-radius: 5px;
-                font-weight: 700;
 
-                &:hover {
+                button {
 
-                    background-color: $offWhite;
-                    color: $orange;
+                    margin: 0 8px;
+                    background-color: $orange;
+                    color: $branco;
+                    padding: 1rem 4rem;
                     transition: transform .45s ease, background .15s ease;
+                    cursor: pointer;
+                    border: none;
+                    border-radius: 5px;
+                    font-weight: 700;
+    
+                }
 
+                .deleteButton {
+
+                    background-color: rgb(172, 23, 23);
+            
                 }
 
             }
+
+        }
+
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    .buttonsWrapper {
+
+        flex-direction: column;
+
+        button {
+
+            margin: 10px 0 !important;
 
         }
 

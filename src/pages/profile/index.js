@@ -15,18 +15,6 @@ function UserProfile() {
     const [dataAccount, setDataAccount] = useState([]);
     const [displayDivAlterInfos, setDisplayDivAlterInfos] = useState("none");
     const [displayDivPedidos, setDisplayDivPedidos] = useState("none");
-    const [requestData, setRequestData] = useState([{}]);
-    const [registerData, setRegisterData] = useState({
-
-        name: '',
-        phoneNumber: '',
-        street: '',
-        houseNumber: '',
-        complement: '',
-        district: '',
-        cepNumber: '',
-
-    })
 
     let history = useHistory();
 
@@ -61,37 +49,6 @@ function UserProfile() {
 
     }, []);
 
-    useEffect(() => {
-
-        const userEmail = localStorage.getItem('userEmail')
-
-        if (!firebase.apps.length)
-            firebase.initializeApp(firebaseConfig)
-
-        firebase.database().ref('requests/').get('/requests')
-            .then(function (snapshot) {
-
-                if (snapshot.exists()) {
-
-                    var data = snapshot.val()
-                    var temp = Object.keys(data).map((key) => data[key])
-                    var requestDataTemp = []
-
-                    temp.map((item) => {
-
-                        if (item.userEmail === userEmail)
-                            requestDataTemp.push(item)
-
-                    })
-                    setRequestData(requestDataTemp)
-
-                } else {
-                    console.log("No data available");
-                }
-            })
-
-    }, []);
-
     function signOut() {
 
         firebase.auth().signOut()
@@ -118,41 +75,31 @@ function UserProfile() {
 
     }
 
-    function handleInputRegisterChange(event) {
+    function deleteUser() {
 
-        const { name, value } = event.target
+        const user = firebase.auth().currentUser;
+        
+        user.delete().then(() => {
+        
+            window.alert("Usuário deletado com sucesso")
 
-        setRegisterData({
+            firebase.auth().signOut()
+            localStorage.setItem('userEmail', '')
+            history.push('/')
 
-            ...registerData, [name]: value
+            firebase.database()
+            .ref('users/' + dataAccount.id)
+            .remove()
 
-        })
+        }).catch((error) => {
+        
+            if(error) {
 
-    }
+                window.alert("Ocorreu um erro na tentativa de deletar sua conta. Tente novamente")
 
-    function updateRegister() {
+            }
 
-        firebase.database().ref('users/' + dataAccount.id).update({
-
-            name: registerData.name !== '' ? registerData.name : dataAccount.name,
-            phoneNumber: registerData.phoneNumber !== '' ? registerData.phoneNumber : dataAccount.phoneNumber,
-            personWhoIndicated: dataAccount.personWhoIndicated,
-            whoIndicated: dataAccount.whoIndicated,
-            street: registerData.street !== '' ? registerData.street : dataAccount.street,
-            houseNumber: registerData.houseNumber !== '' ? registerData.houseNumber : dataAccount.houseNumber,
-            complement: registerData.complement !== '' ? registerData.complement : dataAccount.complement,
-            district: registerData.district !== '' ? registerData.district : dataAccount.district,
-            cepNumber: registerData.cepNumber !== '' ? registerData.cepNumber : dataAccount.cepNumber,
-            email: dataAccount.email,
-            id: dataAccount.id
-
-        })
-            .then(() => alert("Cadastro atualizado com sucesso!"))
-            .catch((error) => {
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                console.log(errorMessage)
-            });
+        });
 
     }
 
@@ -179,7 +126,12 @@ function UserProfile() {
 
                 <h1>Seu perfil</h1>
 
-                <Link to="/meusPedidos">Ver meus pedidos</Link>
+                <div className="links">
+
+                    <Link to="/meusPedidos">Ver meus pedidos</Link>
+                    <Link to="/alterarDados">Alterar dados</Link>
+
+                </div>
                     
                     <div className="userData">
 
@@ -232,7 +184,12 @@ function UserProfile() {
 
                         </div>
 
-                        <button onClick={() => signOut()}>Sair da conta</button>
+                        <div className="buttonsWrapper">
+                            
+                            <button onClick={() => signOut()}>Sair da conta</button>
+                            <button className="deleteButton" onClick={() => deleteUser()}>Excluir conta</button>
+
+                        </div>
 
                     </div>
 

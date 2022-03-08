@@ -93,6 +93,7 @@ h1, h2, h3, h4, p {
                 align-items: center;
                 width: 100%;
                 justify-content: flex-start;
+                text-align: center;
 
                 a {
 
@@ -149,6 +150,9 @@ h1, h2, h3, h4, p {
 
         .slider {
 
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
             height: 100vh;
 
@@ -173,6 +177,95 @@ h1, h2, h3, h4, p {
 
         }
 
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    #SectionLogin {
+
+        flex-direction: column;
+        min-height: 100vh;
+        height: auto;
+    
+        .loginDiv {
+            
+            margin-top: 2rem;
+            width: 100%;
+            height: auto;
+            flex-direction: column;
+
+            h1 {
+
+                margin-bottom: 2rem;
+
+            }
+
+            .imageLogoWrapper {
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 25%;
+                height: 25%;
+    
+                position: static;
+    
+                img {
+    
+                    width: 120px;
+                    border-radius: 100px;
+                    background-color: $light-orange;
+                    padding: 5px;
+                    object-fit: cover;
+    
+                }
+    
+            }
+
+            .optionsLogin {
+
+                width: 100%;
+                flex-direction: column-reverse;
+                justify-content: center;
+                align-items: center;
+
+                button {
+
+                    width: 40%;
+                    margin: 1rem 0 .8rem;
+
+                }
+    
+                .loginRedirects {
+                    
+                    justify-content: center;
+    
+                }
+    
+            }
+    
+        }
+    
+        .loginImageWrapper {
+    
+            width: 60%;
+            height: auto;
+            margin-top: 1rem;
+            border: 4px solid $orange;
+    
+            .slider {
+    
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: auto;
+    
+            }
+    
+        }
+    
     }
 
 }

@@ -127,3 +127,28 @@ h1, h2, h3, h4, p {
     }
 
 }
+
+@media screen and (max-width: 768px) {
+
+    #SectionSignUp {
+
+        flex-direction: column;
+        height: auto;
+
+        .textIntroSignUp {
+
+            width: 100%;
+            margin-bottom: 2rem;
+
+            .imageLogoWrapper {
+
+                position: static;
+                margin: 2rem 0 1rem;
+
+            }
+
+        }
+
+    }
+
+}

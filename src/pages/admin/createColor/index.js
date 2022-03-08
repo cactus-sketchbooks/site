@@ -24,9 +24,12 @@ export default function CreateColor() {
 
     })
 
+    const [colors, setColors] = useState([])
     const [selectedModels, setSelectedModels] = useState([])
     const [selectedCategories, setSelectedCategories] = useState([])
     const [imageUrl, setImageUrl] = useState('')
+    const [dataKeys, setDataKeys] = useState([])
+    const [selectItemToDelete, setSelectItemToDelete] = useState('')
 
     function insertNewColor() {
 
@@ -61,6 +64,32 @@ export default function CreateColor() {
         window.location.reload()
 
     }
+
+    useEffect(() => {
+
+        if (!firebase.apps.length)
+            firebase.initializeApp(FirebaseConfig);
+
+        var firebaseRef = firebase.database().ref('colors/');
+
+        firebaseRef.on('value', (snapshot) => {
+    
+            if (snapshot.exists()) {
+
+                var data = snapshot.val()
+                var temp = Object.keys(data).map((key) => data[key])
+                setColors(temp.sort((a,b)=> {
+
+                  return (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0)
+
+                }))
+            }
+            else {
+              console.log("No data available");
+            }
+        })
+
+    }, [])
 
     function handleColorRegisterChange(event) {
 
@@ -146,6 +175,32 @@ export default function CreateColor() {
             });
 
     }
+
+    function handleSelectItemToDelete(event) {
+
+        setSelectItemToDelete(event.target.value)
+
+    }
+
+    function deleteItem() {
+
+        firebase.database()
+            .ref('colors/' + dataKeys[selectItemToDelete])
+            .remove()
+            .then(() => alert("Item removido com sucesso!"))
+
+    }
+
+    useEffect(() => {
+
+        if(colors) {
+
+            var keys = []
+            colors.map((item) => keys.push(item.id))
+            setDataKeys(keys)
+        }
+
+    }, [colors]);
 
     return (
 
@@ -261,6 +316,36 @@ export default function CreateColor() {
                 </div>
 
                 <button onClick={() => { insertNewColor() }}>Cadastrar cor</button>
+
+            </section>
+
+            <section id="deleteColorSection">
+
+                <fieldset>
+
+                    <legend>
+                        <h1>Excluir uma cor</h1>
+                    </legend>
+
+                    <select onChange={handleSelectItemToDelete} >
+
+                        <option selected disabled>Selecione a cor</option>
+
+                        {colors.map((item, index) => {
+
+                            return (
+
+                                <option value={index} key={index}>{item.colorName}</option>
+
+                            )
+
+                        })}
+
+                    </select>
+
+                    <button id="deleteButton" onClick={() => { deleteItem() }} >Apagar</button>
+
+                </fieldset>
 
             </section>
 
