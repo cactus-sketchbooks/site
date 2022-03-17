@@ -464,7 +464,7 @@ export default function Carcara() {
 
     useEffect(() => {
 
-        if (formatTypes == '' || sketchbookInfos == '' || selectedElasticColor == '' || (checkedBoxes > 2 || checkedBoxes == 0)) {
+        if (formatTypes == '' || sketchbookInfos == '' || selectedElasticColor == '' || (checkedBoxes > 1 || checkedBoxes == 0)) {
 
             setIsValidated(false)
 
@@ -596,7 +596,7 @@ export default function Carcara() {
 
                     </div>
 
-                    <p>Selecione <strong>até duas</strong> cores. Arraste para o lado para conferir todas as opções. <button onClick={() => handleModalInfos()}>Clique aqui para visualizar os modelos de capa</button></p>
+                    <p>Selecione <strong>uma</strong> cor. Arraste para o lado para conferir todas as opções. <button onClick={() => handleModalInfos()}>Clique aqui para visualizar os modelos de capa</button></p>
 
                 </div>
 

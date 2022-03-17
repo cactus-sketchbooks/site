@@ -61,9 +61,9 @@ export default function Clients() {
 
                     <div className="textDiv">
 
-                        <h1>Adquira seu Cactus e exponha sua arte no nosso site!</h1>
+                        <h1>Confira sobre quem cria com um Cactus!</h1>
 
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, ipsa harum velit quam labore quisquam nihil ad beatae neque, quo molestiae. Odio neque tempora nemo!</p>
+                        <p>Pensando em todos os artistas que expressam sua arte nas páginas de um cactus, desenvolvemos o "use e apareça". Projetos e o trabalho de artistas que vivem da arte e adoramos compartilhar aqui. Aos que gostariam de conhecer esses criatives, que mantém a Cactus viva com seus idealizadores, vem com a gente! <br />Gostaria de aparecer também? Crie com seu cactus físico ou digital e poste no Instagram marcando o nosso "@cactussketchbooks" na foto! Use também a #cactussketchbooks na publicação.</p>
 
                         <Link to="/">Fazer arte!</Link>
 

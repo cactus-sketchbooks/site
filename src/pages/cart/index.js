@@ -567,7 +567,7 @@ export default function Cart() {
 
                     <div className='cartPopupContent'>
 
-                        <h3>Ao finalizar o pedido, realize um Pix para a chave: <br /></h3>
+                        <h3>Ao finalizar o pedido, realize um Pix para a indicada<br /></h3>
                         <h4>Após isso, envie seu comprovante através da seção "meus produtos" em seu perfil.</h4>
 
                         <button onClick={() => closePopup()}>Confirmar</button>
@@ -987,12 +987,23 @@ export default function Cart() {
 
                             {purchasedProductData.payment == 'Pix' ? (
 
-                                <div id="pixProofDiv" className="rowDataInfos">
+                                <>
 
-                                    <h4>Forma de pagamento:</h4>
-                                    <span> {purchasedProductData.payment} - envie seu comprovante na página dos <Link target="_blank" to="/meusPedidos">seus pedidos</Link></span>
+                                    <div id="pixProofDiv" className="rowDataInfos">
 
-                                </div>
+                                        <h4>Forma de pagamento:</h4>
+                                        <span> {purchasedProductData.payment} - envie seu comprovante na página dos <Link target="_blank" to="/meusPedidos">seus pedidos</Link></span>
+
+                                    </div>
+
+                                    <div id="pixProofDiv" className="rowDataInfos">
+
+                                        <h4>Chave PIX:</h4>
+                                        <span> cactussketchbooks@outlook.com - Para Bruno Luis Matos Correia - Bradesco</span>
+
+                                    </div>
+
+                                </>
 
                             ) : (
 
