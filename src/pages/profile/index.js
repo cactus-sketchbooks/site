@@ -78,28 +78,33 @@ function UserProfile() {
     function deleteUser() {
 
         const user = firebase.auth().currentUser;
+        let confirm = window.confirm("Você realmente deseja apagar sua conta?")
         
-        user.delete().then(() => {
+        if(confirm) {
+
+            user.delete().then(() => {
         
-            window.alert("Usuário deletado com sucesso")
+                window.alert("Usuário deletado com sucesso")
+    
+                firebase.auth().signOut()
+                localStorage.setItem('userEmail', '')
+                history.push('/')
+    
+                firebase.database()
+                .ref('users/' + dataAccount.id)
+                .remove()
+    
+            }).catch((error) => {
+            
+                if(error) {
+    
+                    window.alert("Ocorreu um erro na tentativa de deletar sua conta. Tente novamente")
+    
+                }
+    
+            });
 
-            firebase.auth().signOut()
-            localStorage.setItem('userEmail', '')
-            history.push('/')
-
-            firebase.database()
-            .ref('users/' + dataAccount.id)
-            .remove()
-
-        }).catch((error) => {
-        
-            if(error) {
-
-                window.alert("Ocorreu um erro na tentativa de deletar sua conta. Tente novamente")
-
-            }
-
-        });
+        }
 
     }
 

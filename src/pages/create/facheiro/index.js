@@ -48,6 +48,9 @@ export default function Facheiro() {
         formats: [{
 
             name: "A3",
+            width: 29.7,
+            length: 42,
+            height: 2.5,
             types: [
 
                 {
@@ -81,6 +84,9 @@ export default function Facheiro() {
         {
 
             name: "A4",
+            width: 21,
+            length: 29,
+            height: 2.5,
             types: [
 
                 {
@@ -118,6 +124,9 @@ export default function Facheiro() {
         {
 
             name: "A5",
+            width: 15,
+            length: 21,
+            height: 2.5,
             types: [
 
                 {
@@ -155,6 +164,9 @@ export default function Facheiro() {
         {
 
             name: "A6",
+            width: 10.5,
+            length: 15,
+            height: 2.5,
             types: [
 
                 {
@@ -192,6 +204,9 @@ export default function Facheiro() {
         {
 
             name: "21X21",
+            width: 21,
+            length: 21,
+            height: 2.5,
             types: [
 
                 {
@@ -229,6 +244,9 @@ export default function Facheiro() {
         {
 
             name: "15X15",
+            width: 15,
+            length: 15,
+            height: 2.5,
             types: [
 
                 {
@@ -266,6 +284,9 @@ export default function Facheiro() {
         {
 
             name: "10X10",
+            width: 10,
+            length: 10,
+            height: 2.5,
             types: [
 
                 {

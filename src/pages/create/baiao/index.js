@@ -45,6 +45,9 @@ export default function Baiao() {
     const values = {
 
         name: "Baião",
+        width: 21,
+        length: 21,
+        height: 2.5,
         formats: [{
 
             name: "21X21",
@@ -81,6 +84,9 @@ export default function Baiao() {
         {
 
             name: "15X15",
+            width: 15,
+            length: 15,
+            height: 2.5,
             types: [
 
                 {
@@ -118,6 +124,9 @@ export default function Baiao() {
         {
 
             name: "10X10",
+            width: 10,
+            length: 10,
+            height: 2.5,
             types: [
 
                 {

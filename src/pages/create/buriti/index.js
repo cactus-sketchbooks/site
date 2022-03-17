@@ -46,6 +46,9 @@ export default function Buriti() {
         formats: [{
 
             name: "10ª Geração",
+            width: 12.5,
+            length: 17,
+            height: 1.5,
             types: [
 
                 {
@@ -59,6 +62,9 @@ export default function Buriti() {
         {
 
             name: "Paperwhite",
+            width: 13.5,
+            length: 18.5,
+            height: 1.5,
             types: [
 
                 {

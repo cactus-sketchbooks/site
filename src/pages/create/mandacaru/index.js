@@ -48,6 +48,9 @@ export default function Mandacaru() {
         formats: [{
 
             name: "A3",
+            width: 29.7,
+            length: 42,
+            height: 2.5,
             types: [
 
                 {
@@ -76,6 +79,9 @@ export default function Mandacaru() {
         {
 
             name: "A4",
+            width: 21,
+            length: 29,
+            height: 2.5,
             types: [
 
                 {
@@ -109,6 +115,9 @@ export default function Mandacaru() {
         {
 
             name: "A5",
+            width: 15,
+            length: 21,
+            height: 2.5,
             types: [
 
                 {
@@ -146,6 +155,9 @@ export default function Mandacaru() {
         {
 
             name: "A6",
+            width: 10.5,
+            length: 15,
+            height: 2.5,
             types: [
 
                 {
@@ -183,6 +195,9 @@ export default function Mandacaru() {
         {
 
             name: "A7",
+            width: 7.5,
+            length: 10.5,
+            height: 2.5,
             types: [
 
                 {

@@ -47,6 +47,9 @@ export default function Sertao() {
         formats: [{
 
             name: "A5",
+            width: 14,
+            length: 20,
+            height: 1,
             types: [
 
                 {
@@ -76,6 +79,9 @@ export default function Sertao() {
         {
 
             name: "A6",
+            width: 9.5,
+            length: 14,
+            height: 1,
             types: [
 
                 {
@@ -105,6 +111,9 @@ export default function Sertao() {
         {
 
             name: "10X10",
+            width: 10,
+            length: 10,
+            height: 1,
             types: [
 
                 {
@@ -134,6 +143,9 @@ export default function Sertao() {
         {
 
             name: "14X14",
+            width: 14,
+            length: 14,
+            height: 1,
             types: [
 
                 {
