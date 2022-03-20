@@ -8,6 +8,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import logo from '../../../images/sertao.png';
+import SertaoTipo1 from '../../../images/capas/CAPA MODELO JOURNAL UMA COR (A5-A6).png';
+import SertaoTipo2 from '../../../images/capas/CAPA MODELO JOURNAL UMA COR (14X14 - 10X10).png';
 
 import Header from '../../../components/header/index.js';
 import Footer from '../../../components/footer/index.js';
@@ -20,6 +22,8 @@ export default function Sertao() {
 
     const [dataColors, setDataColors] = useState([]);
     const [formatTypes, setformatTypes] = useState([]);
+    const [formatSize, setFormatSize] = useState({});
+    const [formatId, setFormatId] = useState('');
     const [userIsLogged, setUserIsLogged] = useState(false);
     const [selectedColors, setSelectedColors] = useState([])
     const [isValidated, setIsValidated] = useState(false)
@@ -47,9 +51,12 @@ export default function Sertao() {
         formats: [{
 
             name: "A5",
-            width: 14,
-            length: 20,
-            height: 1,
+            id: 26,
+            size: {
+                width: 14,
+                length: 20,
+                height: 1,
+            },
             types: [
 
                 {
@@ -79,9 +86,13 @@ export default function Sertao() {
         {
 
             name: "A6",
-            width: 9.5,
-            length: 14,
-            height: 1,
+            id: 27,
+            size: {
+                // width: 9.5,
+                width: 10,
+                length: 14,
+                height: 1,
+            },
             types: [
 
                 {
@@ -111,9 +122,12 @@ export default function Sertao() {
         {
 
             name: "10X10",
-            width: 10,
-            length: 10,
-            height: 1,
+            id: 28,
+            size: {
+                width: 10,
+                length: 10,
+                height: 1,
+            },
             types: [
 
                 {
@@ -143,9 +157,12 @@ export default function Sertao() {
         {
 
             name: "14X14",
-            width: 14,
-            length: 14,
-            height: 1,
+            id: 29,
+            size: {
+                width: 14,
+                length: 14,
+                height: 1,
+            },
             types: [
 
                 {
@@ -183,6 +200,8 @@ export default function Sertao() {
 
         setSelectedPaperWidth(values.formats[position].name)
         setformatTypes(values.formats[position].types)
+        setFormatSize(values.formats[position].size)
+        setFormatId(values.formats[position].id)
 
     }
 
@@ -252,12 +271,14 @@ export default function Sertao() {
         const dataToSend = {
 
             model: 'Sertão',
+            id: formatId,
             paperWidth: selectedPaperWidth,
             paper: sketchbookInfos.name,
             value: sketchbookInfos.value,
             lineColor: selectedLineColor,
             coverColors: selectedColors,
             clientNote: clientNote,
+            size: formatSize
 
         }
 
@@ -361,13 +382,21 @@ export default function Sertao() {
 
                 <div className="modalContent">
 
+                    <span onClick={closeModal}>x</span>
+
                     <div className="sketchbookImgWrapper">
 
-                        <img src={logo} alt="" />
+                        <h3>Modelo de capa (A5-A6)</h3>
+                        <img src={SertaoTipo1} alt="" />
 
                     </div>
 
-                    <span onClick={closeModal}>x</span>
+                    <div className="sketchbookImgWrapper">
+
+                        <h3>Modelo de capa (14X14 - 10X10)</h3>
+                        <img id="sertao" src={SertaoTipo2} alt="" />
+
+                    </div>
 
                 </div>
 

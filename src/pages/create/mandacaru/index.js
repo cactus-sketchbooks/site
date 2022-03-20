@@ -8,6 +8,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import logo from '../../../images/mandacaru.png';
+import Mandacaru2Cores from '../../../images/capas/CAPA MODELO MANDACARU DUAS CORES.png';
+import Mandacaru1Cor from '../../../images/capas/CAPA MODELO MANDACARU UMA COR.png';
 
 import Header from '../../../components/header/index.js';
 import Footer from '../../../components/footer/index.js';
@@ -20,6 +22,8 @@ export default function Mandacaru() {
 
     const [dataColors, setDataColors] = useState([]);
     const [formatTypes, setformatTypes] = useState([]);
+    const [formatSize, setFormatSize] = useState({});
+    const [formatId, setFormatId] = useState('');
     const [userIsLogged, setUserIsLogged] = useState(false);
     const [selectedColors, setSelectedColors] = useState([])
     const [isValidated, setIsValidated] = useState(false)
@@ -48,9 +52,14 @@ export default function Mandacaru() {
         formats: [{
 
             name: "A3",
-            width: 29.7,
-            length: 42,
-            height: 2.5,
+            id: 21,
+            size: {
+                // width: 29.7,
+                width: 30,
+                length: 42,
+                // height: 2.5,
+                height: 3,
+            },
             types: [
 
                 {
@@ -79,9 +88,13 @@ export default function Mandacaru() {
         {
 
             name: "A4",
-            width: 21,
-            length: 29,
-            height: 2.5,
+            id: 22,
+            size: {
+                width: 21,
+                length: 29,
+                // height: 2.5,
+                height: 3,
+            },
             types: [
 
                 {
@@ -115,9 +128,13 @@ export default function Mandacaru() {
         {
 
             name: "A5",
-            width: 15,
-            length: 21,
-            height: 2.5,
+            id: 23,
+            size: {
+                width: 15,
+                length: 21,
+                // height: 2.5,
+                height: 3,
+            },
             types: [
 
                 {
@@ -155,9 +172,14 @@ export default function Mandacaru() {
         {
 
             name: "A6",
-            width: 10.5,
-            length: 15,
-            height: 2.5,
+            id: 24,
+            size: {
+                width: 11,
+                // width: 10.5,
+                length: 15,
+                // height: 2.5,
+                height: 3,
+            },
             types: [
 
                 {
@@ -195,9 +217,15 @@ export default function Mandacaru() {
         {
 
             name: "A7",
-            width: 7.5,
-            length: 10.5,
-            height: 2.5,
+            id: 25,
+            size: {
+                // width: 7.5,
+                width: 8,
+                length: 11,
+                // length: 10.5,
+                height: 3,
+                // height: 2.5,
+            },
             types: [
 
                 {
@@ -243,6 +271,8 @@ export default function Mandacaru() {
 
         setSelectedPaperWidth(values.formats[position].name)
         setformatTypes(values.formats[position].types)
+        setFormatSize(values.formats[position].size)
+        setFormatId(values.formats[position].id)
 
     }
 
@@ -312,6 +342,7 @@ export default function Mandacaru() {
         const dataToSend = {
 
             model: 'Mandacaru',
+            id: formatId,
             paperWidth: selectedPaperWidth,
             paper: sketchbookInfos.name,
             value: sketchbookInfos.value,
@@ -319,6 +350,7 @@ export default function Mandacaru() {
             elasticColor: selectedElasticColor,
             coverColors: selectedColors,
             clientNote: clientNote,
+            size: formatSize
 
         }
 
@@ -428,13 +460,21 @@ export default function Mandacaru() {
 
                 <div className="modalContent">
 
-                    <div className="sketchbookImgWrapper">
+                    <span onClick={closeModal}>x</span>
 
-                        <img src={logo} alt="" />
+                    <div className="sketchbookImgWrapper">
+                        
+                        <h3>Modelo de capa com uma cor</h3>
+                        <img src={Mandacaru1Cor} alt="" />
 
                     </div>
 
-                    <span onClick={closeModal}>x</span>
+                    <div className="sketchbookImgWrapper">
+                        
+                        <h3>Modelo de capa com duas cores</h3>
+                        <img src={Mandacaru2Cores} alt="" />
+
+                    </div>
 
                 </div>
 

@@ -8,6 +8,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import logo from '../../../images/baiao.png';
+import Baiao1Cor from '../../../images/capas/Baiao1Cor.png';
+import Baiao2Cores from '../../../images/capas/Baiao2Cores.png';
 
 import Header from '../../../components/header/index.js';
 import Footer from '../../../components/footer/index.js';
@@ -20,6 +22,8 @@ export default function Baiao() {
 
     const [dataColors, setDataColors] = useState([]);
     const [formatTypes, setformatTypes] = useState([]);
+    const [formatSize, setFormatSize] = useState({});
+    const [formatId, setFormatId] = useState('');
     const [userIsLogged, setUserIsLogged] = useState(false);
     const [selectedColors, setSelectedColors] = useState([])
     const [isValidated, setIsValidated] = useState(false)
@@ -44,13 +48,17 @@ export default function Baiao() {
 
     const values = {
 
-        name: "Baião",
-        width: 21,
-        length: 21,
-        height: 2.5,
+        name: "Baião",      
         formats: [{
 
             name: "21X21",
+            id: 1,
+            size: {
+                width: 21,
+                length: 21,
+                height: 3,
+                // height: 2.5,
+            },
             types: [
 
                 {
@@ -84,9 +92,13 @@ export default function Baiao() {
         {
 
             name: "15X15",
-            width: 15,
-            length: 15,
-            height: 2.5,
+            id: 2,
+            size: {
+                width: 15,
+                length: 15,
+                height: 3,
+                // height: 2.5,
+            },
             types: [
 
                 {
@@ -124,9 +136,13 @@ export default function Baiao() {
         {
 
             name: "10X10",
-            width: 10,
-            length: 10,
-            height: 2.5,
+            id: 3,
+            size: {
+                width: 10,
+                length: 10,
+                height: 3,
+                // height: 2.5,
+            },
             types: [
 
                 {
@@ -172,6 +188,8 @@ export default function Baiao() {
 
         setSelectedPaperWidth(values.formats[position].name)
         setformatTypes(values.formats[position].types)
+        setFormatSize(values.formats[position].size)
+        setFormatId(values.formats[position].id)
 
     }
 
@@ -241,6 +259,7 @@ export default function Baiao() {
         const dataToSend = {
 
             model: 'Baião',
+            id: formatId,
             paperWidth: selectedPaperWidth,
             paper: sketchbookInfos.name,
             value: sketchbookInfos.value,
@@ -248,6 +267,7 @@ export default function Baiao() {
             elasticColor: selectedElasticColor,
             coverColors: selectedColors,
             clientNote: clientNote,
+            size: formatSize
 
         }
 
@@ -356,14 +376,21 @@ export default function Baiao() {
             <div style={{ display: displayModal }} role="dialog" className='divModal' >
 
                 <div className="modalContent">
+                    <span onClick={closeModal}>x</span>
 
                     <div className="sketchbookImgWrapper">
 
-                        <img src={logo} alt="" />
+                        <h3>Modelo de capa com uma cor</h3>
+                        <img src={Baiao1Cor} alt="" />
 
                     </div>
 
-                    <span onClick={closeModal}>x</span>
+                    <div className="sketchbookImgWrapper">
+
+                        <h3>Modelo de capa com duas cores</h3>
+                        <img src={Baiao2Cores} alt="" />
+
+                    </div>
 
                 </div>
 
@@ -447,52 +474,52 @@ export default function Baiao() {
 
                 <div className="sliderColors">
 
-                        <Slider {...settings}>
+                    <Slider {...settings}>
 
-                            {dataColors.map((item, index) => (
+                        {dataColors.map((item, index) => (
 
-                                item.models.includes("baiao") && item.categories.includes("cover") ? (
+                            item.models.includes("baiao") && item.categories.includes("cover") ? (
 
-                                    <div className="cardColor">
+                                <div className="cardColor">
 
-                                        {item.image ?
+                                    {item.image ?
 
-                                            (<div key={item.id} className="colorBox">
+                                        (<div key={item.id} className="colorBox">
 
-                                                <img draggable="false" src={item.image} alt="cor" />
+                                            <img draggable="false" src={item.image} alt="cor" />
 
-                                            </div>)
+                                        </div>)
 
-                                            :
+                                        :
 
-                                            (<div key={item.id} style={{ backgroundColor: item.colorCode }} className="colorBox">
+                                        (<div key={item.id} style={{ backgroundColor: item.colorCode }} className="colorBox">
 
-                                                <p>{item.colorCode}</p>
+                                            <p>{item.colorCode}</p>
 
-                                            </div>)
+                                        </div>)
 
-                                        }
+                                    }
 
-                                        <div className="colorName">
+                                    <div className="colorName">
 
-                                            <p>{item.colorName}</p>
+                                        <p>{item.colorName}</p>
 
-                                            <input
-                                                type="checkbox"
-                                                value={index}
-                                                onChange={(event) => checkColor(item, event)}
-                                                style={{ accentColor: item.colorCode }}
-                                            />
-
-                                        </div>
+                                        <input
+                                            type="checkbox"
+                                            value={index}
+                                            onChange={(event) => checkColor(item, event)}
+                                            style={{ accentColor: item.colorCode }}
+                                        />
 
                                     </div>
 
-                                ) : null
+                                </div>
 
-                            ))}
+                            ) : null
 
-                        </Slider>
+                        ))}
+
+                    </Slider>
 
                 </div>
 

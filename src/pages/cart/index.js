@@ -25,6 +25,7 @@ import FirebaseConfig from '../../FirebaseConfig.js'
 export default function Cart() {
 
     const [data, setData] = useState([]);
+    const [dataProduct, setDataProduct] = useState({});
     const [dataUsers, setDataUsers] = useState([]);
     const [dataAccount, setDataAccount] = useState([]);
     const [dataExists, setDataExists] = useState(false);
@@ -158,7 +159,7 @@ export default function Cart() {
 
             setData(temp)
             setDataExists(true)
-            // setDisplayButtonClear('block')
+            let aux = []
 
             var total = 0
 
@@ -167,10 +168,26 @@ export default function Cart() {
                 var value = (Number(item.value))
                 total = value + total
 
+                const productInfos = {
+
+                    "id": item.id,
+                    "width": item.size.width,
+                    "height": item.size.height,
+                    "length": item.size.length,
+                    // "weight": item.size.weight,
+                    "weight": 1,
+                    "insurance_value": item.value,
+                    "quantity": 1,
+
+                }
+
+                aux.push(productInfos)
                 setTotalValue(total)
                 setFinalValue(total)
 
             })
+
+            setDataProduct(aux)
 
         } else {
 
@@ -316,17 +333,12 @@ export default function Cart() {
 
     const dataToSend = {
         "from": {
-            "postal_code": "28909120"
+            "postal_code": "65010330"
         },
         "to": {
             "postal_code": customerCep
         },
-        "package": {
-            "height": 4,
-            "width": 12,
-            "length": 17,
-            "weight": 0.3
-        }
+        "products": dataProduct
     }
 
     const calculaFrete = async () => {
@@ -371,8 +383,8 @@ export default function Cart() {
     useEffect(() => {
 
         const script = document.createElement("script");
-        script.src = "https://www.paypal.com/sdk/js?client-id=AZAsiBXlnYmk2HXDpGkZgYx7zWvFpak2iKq473EPHi9LrnM2lAbAHIzVaxns_-jmD34dYqpuTSaRFWy0&currency=BRL"
-        // script.src = "https://www.paypal.com/sdk/js?client-id=AaNvRUjTYfSm2ZVpE0BkFAnJgPtLVGMYJq0TG66Of1EDDGIjUJjjZb1NC8AP04mBntoEvbjvqhQNFeY4&currency=BRL"
+        // script.src = "https://www.paypal.com/sdk/js?client-id=AZAsiBXlnYmk2HXDpGkZgYx7zWvFpak2iKq473EPHi9LrnM2lAbAHIzVaxns_-jmD34dYqpuTSaRFWy0&currency=BRL"
+        script.src = "https://www.paypal.com/sdk/js?client-id=AaNvRUjTYfSm2ZVpE0BkFAnJgPtLVGMYJq0TG66Of1EDDGIjUJjjZb1NC8AP04mBntoEvbjvqhQNFeY4&currency=BRL" //produção
         script.addEventListener("load", () => setLoaded(true));
         document.body.appendChild(script);
 
@@ -567,7 +579,7 @@ export default function Cart() {
 
                     <div className='cartPopupContent'>
 
-                        <h3>Ao finalizar o pedido, realize um Pix para a indicada<br /></h3>
+                        <h3>Ao finalizar o pedido, realize um Pix para a chave indicada<br /></h3>
                         <h4>Após isso, envie seu comprovante através da seção "meus produtos" em seu perfil.</h4>
 
                         <button onClick={() => closePopup()}>Confirmar</button>
@@ -989,17 +1001,19 @@ export default function Cart() {
 
                                 <>
 
-                                    <div id="pixProofDiv" className="rowDataInfos">
+                                    <div id="pixProofDiv">
 
-                                        <h4>Forma de pagamento:</h4>
-                                        <span> {purchasedProductData.payment} - envie seu comprovante na página dos <Link target="_blank" to="/meusPedidos">seus pedidos</Link></span>
-
-                                    </div>
-
-                                    <div id="pixProofDiv" className="rowDataInfos">
-
+                                        <h3>Forma de pagamento - {purchasedProductData.payment}</h3>
                                         <h4>Chave PIX:</h4>
-                                        <span> cactussketchbooks@outlook.com - Para Bruno Luis Matos Correia - Bradesco</span>
+                                        <span><strong>cactussketchbooks@outlook.com</strong> - Para Bruno Luis Matos Correia (Bradesco)</span>
+                                        <span>envie seu comprovante na página dos <Link target="_blank" to="/meusPedidos">seus pedidos</Link></span>
+
+                                        <div className="rowDataInfos">
+
+                                            <h4>Total: </h4>
+                                            <span>R$ {purchasedProductData.totalValue}</span>
+
+                                        </div>
 
                                     </div>
 
@@ -1007,21 +1021,26 @@ export default function Cart() {
 
                             ) : (
 
-                                <div className="rowDataInfos">
+                                <>
 
-                                    <h4>Forma de pagamento: </h4>
-                                    <span>{purchasedProductData.payment}</span>
+                                    <div className="rowDataInfos">
 
-                                </div>
+                                        <h4>Forma de pagamento: </h4>
+                                        <span>{purchasedProductData.payment}</span>
+
+                                    </div>
+
+
+                                    <div className="rowDataInfos">
+
+                                        <h4>Total: </h4>
+                                        <span>R$ {purchasedProductData.totalValue}</span>
+
+                                    </div>
+
+                                </>
 
                             )}
-
-                            <div className="rowDataInfos">
-
-                                <h4>Total: </h4>
-                                <span>R$ {purchasedProductData.totalValue}</span>
-
-                            </div>
 
                         </div>
 

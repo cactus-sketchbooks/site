@@ -8,6 +8,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import logo from '../../../images/facheiro.png';
+import Facheiro1Cor from '../../../images/capas/CAPA MODELO FACHEIRO UMA COR.png';
+import Facheiro2Cores from '../../../images/capas/CAPA MODELO FACHEIRO DUAS CORES.png';
+import FacheiroQuadrado1Cor from '../../../images/capas/CAPA MODELO FACHEIRO QUADRADO UMA COR.png';
+import FacheiroQuadrado2Cores from '../../../images/capas/CAPA MODELO FACHEIRO QUADRADO DUAS CORES.png';
 
 import Header from '../../../components/header/index.js';
 import Footer from '../../../components/footer/index.js';
@@ -20,6 +24,8 @@ export default function Facheiro() {
 
     const [dataColors, setDataColors] = useState([]);
     const [formatTypes, setformatTypes] = useState([]);
+    const [formatSize, setFormatSize] = useState({});
+    const [formatId, setFormatId] = useState('');
     const [userIsLogged, setUserIsLogged] = useState(false);
     const [selectedColors, setSelectedColors] = useState([])
     const [isValidated, setIsValidated] = useState(false)
@@ -45,12 +51,16 @@ export default function Facheiro() {
     const values = {
 
         name: "Facheiro",
+        id: 14,
         formats: [{
 
             name: "A3",
-            width: 29.7,
-            length: 42,
-            height: 2.5,
+            size: {
+                width: 29.7,
+                length: 42,
+                height: 3,
+                // height: 2.5,
+            },
             types: [
 
                 {
@@ -84,9 +94,13 @@ export default function Facheiro() {
         {
 
             name: "A4",
-            width: 21,
-            length: 29,
-            height: 2.5,
+            id: 15,
+            size: {
+                width: 21,
+                length: 29,
+                height: 3,
+                // height: 2.5,
+            },
             types: [
 
                 {
@@ -124,9 +138,13 @@ export default function Facheiro() {
         {
 
             name: "A5",
-            width: 15,
-            length: 21,
-            height: 2.5,
+            id: 16,
+            size: {
+                width: 15,
+                length: 21,
+                // height: 2.5,
+                height: 3,
+            },
             types: [
 
                 {
@@ -164,9 +182,13 @@ export default function Facheiro() {
         {
 
             name: "A6",
-            width: 10.5,
-            length: 15,
-            height: 2.5,
+            id: 17,
+            size: {
+                width: 10.5,
+                length: 15,
+                // height: 2.5,
+                height: 3,
+            },
             types: [
 
                 {
@@ -204,9 +226,13 @@ export default function Facheiro() {
         {
 
             name: "21X21",
-            width: 21,
-            length: 21,
-            height: 2.5,
+            id: 18,
+            size: {
+                width: 21,
+                length: 21,
+                // height: 2.5,
+                height: 3,
+            },
             types: [
 
                 {
@@ -244,9 +270,13 @@ export default function Facheiro() {
         {
 
             name: "15X15",
-            width: 15,
-            length: 15,
-            height: 2.5,
+            id: 19,
+            size: {
+                width: 15,
+                length: 15,
+                // height: 2.5,
+                height: 3,
+            },
             types: [
 
                 {
@@ -284,9 +314,13 @@ export default function Facheiro() {
         {
 
             name: "10X10",
-            width: 10,
-            length: 10,
-            height: 2.5,
+            id: 20,
+            size: {
+                width: 10,
+                length: 10,
+                height: 3,
+                // height: 2.5,
+            },
             types: [
 
                 {
@@ -332,6 +366,8 @@ export default function Facheiro() {
 
         setSelectedPaperWidth(values.formats[position].name)
         setformatTypes(values.formats[position].types)
+        setFormatSize(values.formats[position].size)
+        setFormatId(values.formats[position].id)
 
     }
 
@@ -401,6 +437,7 @@ export default function Facheiro() {
         const dataToSend = {
 
             model: 'Facheiro',
+            id: formatId,
             paperWidth: selectedPaperWidth,
             paper: sketchbookInfos.name,
             value: sketchbookInfos.value,
@@ -408,6 +445,7 @@ export default function Facheiro() {
             elasticColor: selectedElasticColor,
             coverColors: selectedColors,
             clientNote: clientNote,
+            size: formatSize
 
         }
 
@@ -515,15 +553,37 @@ export default function Facheiro() {
 
             <div style={{ display: displayModal }} role="dialog" className='divModal' >
 
-                <div className="modalContent">
+                <div id="facheiroVersion" className="modalContent">
+
+                    <span onClick={closeModal}>x</span>
 
                     <div className="sketchbookImgWrapper">
 
-                        <img src={logo} alt="" />
+                        <h3>Modelo de capa com uma cor</h3>
+                        <img src={Facheiro1Cor} alt="" />
 
                     </div>
 
-                    <span onClick={closeModal}>x</span>
+                    <div className="sketchbookImgWrapper">
+
+                        <h3>Modelo de capa com duas cores</h3>
+                        <img src={Facheiro2Cores} alt="" />
+
+                    </div>
+
+                    <div className="sketchbookImgWrapper">
+
+                        <h3>Modelo de capa quadrado com uma cor</h3>
+                        <img src={FacheiroQuadrado1Cor} alt="" />
+
+                    </div>
+
+                    <div className="sketchbookImgWrapper">
+
+                        <h3>Modelo de capa quadrado com duas cores</h3>
+                        <img src={FacheiroQuadrado2Cores} alt="" />
+
+                    </div>
 
                 </div>
 

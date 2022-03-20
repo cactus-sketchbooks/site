@@ -8,6 +8,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import logo from '../../../images/carcara.png';
+import CarcaraRetangular from '../../../images/capas/CarcaraRetangular.png';
+import CarcaraQuadrado from '../../../images/capas/CarcaraQuadrado.png';
 
 import Header from '../../../components/header/index.js';
 import Footer from '../../../components/footer/index.js';
@@ -20,6 +22,8 @@ export default function Carcara() {
 
     const [dataColors, setDataColors] = useState([]);
     const [formatTypes, setformatTypes] = useState([]);
+    const [formatSize, setFormatSize] = useState({});
+    const [formatId, setFormatId] = useState('');
     const [userIsLogged, setUserIsLogged] = useState(false);
     const [selectedColors, setSelectedColors] = useState([])
     const [isValidated, setIsValidated] = useState(false)
@@ -47,9 +51,14 @@ export default function Carcara() {
         formats: [{
 
             name: "A3",
-            width: 29.7,
-            length: 42,
-            height: 2.5,
+            id: 6,
+            size: {
+                // width: 29.7,
+                width: 30,
+                length: 42,
+                height: 3,
+                // height: 2.5,
+            },
             types: [
 
                 {
@@ -78,9 +87,13 @@ export default function Carcara() {
         {
 
             name: "A4",
-            width: 21,
-            length: 29,
-            height: 2.5,
+            id: 7,
+            size: {
+                width: 21,
+                length: 29,
+                // height: 2.5,
+                height: 3,
+            },
             types: [
 
                 {
@@ -114,9 +127,13 @@ export default function Carcara() {
         {
 
             name: "A5",
-            width: 15,
-            length: 21,
-            height: 2.5,
+            id: 8,
+            size: {
+                width: 15,
+                length: 21,
+                // height: 2.5,
+                height: 3,
+            },
             types: [
 
                 {
@@ -154,9 +171,14 @@ export default function Carcara() {
         {
 
             name: "A6",
-            width: 10.5,
-            length: 15,
-            height: 2.5,
+            id: 9,
+            size: {
+                // width: 10.5,
+                width: 11,
+                length: 15,
+                // height: 2.5,
+                height: 3,
+            },
             types: [
 
                 {
@@ -194,9 +216,15 @@ export default function Carcara() {
         {
 
             name: "A7",
-            width: 7.5,
-            length: 10.5,
-            height: 2.5,
+            id: 10,
+            size: {
+                // width: 7.5,
+                width: 8,
+                // length: 10.5,
+                length: 11,
+                height: 3,
+                // height: 2.5,
+            },
             types: [
 
                 {
@@ -234,9 +262,13 @@ export default function Carcara() {
         {
 
             name: "21X21",
-            width: 21,
-            length: 21,
-            height: 2.5,
+            id: 11,
+            size: {
+                width: 21,
+                length: 21,
+                // height: 2.5,
+                height: 3,
+            },
             types: [
 
                 {
@@ -270,9 +302,13 @@ export default function Carcara() {
         {
 
             name: "15X15",
-            width: 15,
-            length: 15,
-            height: 2.5,
+            id: 12,
+            size: {
+                width: 15,
+                length: 15,
+                height: 3,
+                // height: 2.5,
+            },
             types: [
 
                 {
@@ -310,9 +346,13 @@ export default function Carcara() {
         {
 
             name: "10X10",
-            width: 10,
-            length: 10,
-            height: 2.5,
+            id: 13,
+            size: {
+                width: 10,
+                length: 10,
+                // height: 2.5,
+                height: 3,
+            },
             types: [
 
                 {
@@ -358,6 +398,8 @@ export default function Carcara() {
 
         setSelectedPaperWidth(values.formats[position].name)
         setformatTypes(values.formats[position].types)
+        setFormatSize(values.formats[position].size)
+        setFormatId(values.formats[position].id)
 
     }
 
@@ -427,12 +469,14 @@ export default function Carcara() {
         const dataToSend = {
 
             model: 'Carcará',
+            id: formatId,
             paperWidth: selectedPaperWidth,
             paper: sketchbookInfos.name,
             value: sketchbookInfos.value,
             elasticColor: selectedElasticColor,
             coverColors: selectedColors,
             clientNote: clientNote,
+            size: formatSize
 
         }
 
@@ -536,13 +580,21 @@ export default function Carcara() {
 
                 <div className="modalContent">
 
+                    <span onClick={closeModal}>x</span>
+
                     <div className="sketchbookImgWrapper">
 
-                        <img src={logo} alt="" />
+                        <h3>Modelo de capa retangular</h3>
+                        <img src={CarcaraRetangular} alt="" />
 
                     </div>
 
-                    <span onClick={closeModal}>x</span>
+                    <div className="sketchbookImgWrapper">
+
+                        <h3>Modelo de capa quadrado</h3>
+                        <img src={CarcaraQuadrado} alt="" />
+
+                    </div>
 
                 </div>
 

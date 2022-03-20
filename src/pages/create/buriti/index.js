@@ -19,7 +19,8 @@ import FirebaseConfig from '../../../FirebaseConfig.js'
 export default function Buriti() {
 
     const [dataColors, setDataColors] = useState([]);
-    const [formatTypes, setformatTypes] = useState([]);
+    const [formatSize, setFormatSize] = useState({});
+    const [formatId, setFormatId] = useState('');
     const [userIsLogged, setUserIsLogged] = useState(false);
     const [selectedColors, setSelectedColors] = useState([])
     const [isValidated, setIsValidated] = useState(false)
@@ -46,9 +47,14 @@ export default function Buriti() {
         formats: [{
 
             name: "10ª Geração",
-            width: 12.5,
-            length: 17,
-            height: 1.5,
+            id: 4,
+            size: {
+                // width: 12.5,
+                width: 13,
+                length: 17,
+                // height: 1.5,
+                height: 2,
+            },
             types: [
 
                 {
@@ -62,9 +68,15 @@ export default function Buriti() {
         {
 
             name: "Paperwhite",
-            width: 13.5,
-            length: 18.5,
-            height: 1.5,
+            id: 5,
+            size: {
+                // width: 13.5,
+                width: 14,
+                // length: 18.5,
+                length: 19,
+                // height: 1.5,
+                height: 2,
+            },
             types: [
 
                 {
@@ -82,6 +94,8 @@ export default function Buriti() {
 
         let position = event.target.value
         setSelectedModel(values.formats[position].types[0])
+        setFormatSize(values.formats[position].size)
+        setFormatId(values.formats[position].id)
 
     }
 
@@ -143,11 +157,13 @@ export default function Buriti() {
         const dataToSend = {
 
             model: 'Buriti',
+            id: formatId,
             kindleModel: selectedModel.name,
             value: selectedModel.value,
             elasticColor: selectedElasticColor,
             coverColors: selectedColors,
             clientNote: clientNote,
+            size: formatSize
 
         }
 
@@ -313,7 +329,7 @@ export default function Buriti() {
 
                     </div>
 
-                    <p>Selecione <strong>uma</strong> cor. Arraste para o lado para conferir todas as opções. <button onClick={() => handleModalInfos()}>Clique aqui para visualizar os modelos de capa</button></p>
+                    <p>Selecione <strong>uma</strong> cor. Arraste para o lado para conferir todas as opções.</p>
 
                 </div>
 
