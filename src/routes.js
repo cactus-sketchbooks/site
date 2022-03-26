@@ -27,6 +27,8 @@ import UserRequests from './pages/userRequests'
 import ForgotPassword from './pages/forgotPassword'
 import Grammage from './pages/grammage'
 import DataChange from './pages/dataChange'
+import Privacy from './pages/privacy'
+import Terms from './pages/terms'
 
 const Routes = () => {
 
@@ -59,6 +61,8 @@ const Routes = () => {
             <Route component={ForgotPassword} path='/recuperarSenha' />
             <Route component={Grammage} path='/gramaturas' />
             <Route component={DataChange} path='/alterarDados' />
+            <Route component={Privacy} path='/politicaDePrivacidade' />
+            <Route component={Terms} path='/termosDeUso' />
             {/* <Route component={CreateTypes} path='/gerenciarTipos' /> */}
 
         </BrowserRouter>

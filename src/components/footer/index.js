@@ -53,6 +53,14 @@ export default function Footer (props) {
                                 <p><strong>use #cactussketchbooks</strong></p>
                             </li>
 
+                            <li>
+                                <Link to="/termosDeUso" target="_blank" rel="norreferer">Termos de Uso</Link>
+                            </li>
+
+                            <li>
+                                <Link to="/politicaDePrivacidade" target="_blank" rel="norreferer">Política de Privacidade</Link>
+                            </li>
+
                         </ul>
 
                     </div>

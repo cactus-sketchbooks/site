@@ -283,6 +283,12 @@ export default function SignUp() {
                             <input id='district' name='district' onChange={handleInputRegisterChange} placeholder='Bairro' />
                             <input id='complement' name='complement' onChange={handleInputRegisterChange} placeholder='Complemento' />
 
+                            <div className="legalTermsWrapper">
+
+                                <p>Ao clicar em "Cadastrar" você estará concordando com os <Link to="/termosDeUso" target="_blank" rel="norreferer">Termos de Uso</Link> e <Link to="/politicaDePrivacidade" target="_blank" rel="norreferer">Política de Privacidade</Link> </p>
+
+                            </div>
+
                             <button onClick={() => { makeVerifications() }}>Cadastrar</button>
 
                         </div>

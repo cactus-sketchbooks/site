@@ -64,6 +64,13 @@ footer {
                     align-items: center;
                     margin: .4rem 0;
 
+                    a {
+
+                        color: $offWhite;
+                        text-decoration: none;
+
+                    }
+
                     button {
                         width: 95%;
                         padding: .3rem 1rem;
