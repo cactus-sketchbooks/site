@@ -54,6 +54,7 @@ export default function Buriti() {
                 length: 17,
                 // height: 1.5,
                 height: 2,
+                weight: 0.5
             },
             types: [
 
@@ -76,6 +77,7 @@ export default function Buriti() {
                 length: 19,
                 // height: 1.5,
                 height: 2,
+                weight: 0.5
             },
             types: [
 

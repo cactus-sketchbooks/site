@@ -174,8 +174,7 @@ export default function Cart() {
                     "width": item.size.width,
                     "height": item.size.height,
                     "length": item.size.length,
-                    // "weight": item.size.weight,
-                    "weight": 1,
+                    "weight": item.size.weight,
                     "insurance_value": item.value,
                     "quantity": 1,
 
@@ -188,6 +187,7 @@ export default function Cart() {
             })
 
             setDataProduct(aux)
+            console.log(aux);
 
         } else {
 
@@ -338,7 +338,8 @@ export default function Cart() {
         "to": {
             "postal_code": customerCep
         },
-        "products": dataProduct
+        "products": dataProduct,
+        "services": "1,2"
     }
 
     const calculaFrete = async () => {
@@ -363,6 +364,8 @@ export default function Cart() {
     function handleSelectedTransport(item, event) {
 
         setSelectedTransportData(event)
+
+        console.log(event);
 
         setTransportValue(Number(event.custom_price))
 
@@ -734,7 +737,7 @@ export default function Cart() {
 
                                         {transportData.map((item, index) => {
 
-                                            if (item.id === 1 || item.id === 2 || item.id === 3) {
+                                            if (item.id === 1 || item.id === 2) {
 
                                                 if (!item.error) {
 

@@ -59,6 +59,7 @@ export default function Mandacaru() {
                 length: 42,
                 // height: 2.5,
                 height: 3,
+                weight: 0.5
             },
             types: [
 
@@ -94,6 +95,7 @@ export default function Mandacaru() {
                 length: 29,
                 // height: 2.5,
                 height: 3,
+                weight: 0.5
             },
             types: [
 
@@ -134,6 +136,7 @@ export default function Mandacaru() {
                 length: 21,
                 // height: 2.5,
                 height: 3,
+                weight: 0.5
             },
             types: [
 
@@ -179,6 +182,7 @@ export default function Mandacaru() {
                 length: 15,
                 // height: 2.5,
                 height: 3,
+                weight: 0.5
             },
             types: [
 
@@ -225,6 +229,7 @@ export default function Mandacaru() {
                 // length: 10.5,
                 height: 3,
                 // height: 2.5,
+                weight: 0.5
             },
             types: [
 

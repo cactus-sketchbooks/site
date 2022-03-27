@@ -58,6 +58,7 @@ export default function Carcara() {
                 length: 42,
                 height: 3,
                 // height: 2.5,
+                weight: 0.8
             },
             types: [
 
@@ -93,6 +94,7 @@ export default function Carcara() {
                 length: 29,
                 // height: 2.5,
                 height: 3,
+                weight: 0.7
             },
             types: [
 
@@ -133,6 +135,7 @@ export default function Carcara() {
                 length: 21,
                 // height: 2.5,
                 height: 3,
+                weight: 0.5
             },
             types: [
 
@@ -178,6 +181,7 @@ export default function Carcara() {
                 length: 15,
                 // height: 2.5,
                 height: 3,
+                weight: 0.5
             },
             types: [
 
@@ -224,6 +228,7 @@ export default function Carcara() {
                 length: 11,
                 height: 3,
                 // height: 2.5,
+                weight: 0.5
             },
             types: [
 
@@ -268,6 +273,7 @@ export default function Carcara() {
                 length: 21,
                 // height: 2.5,
                 height: 3,
+                weight: 0.5
             },
             types: [
 
@@ -308,6 +314,7 @@ export default function Carcara() {
                 length: 15,
                 height: 3,
                 // height: 2.5,
+                weight: 0.5
             },
             types: [
 
@@ -352,6 +359,7 @@ export default function Carcara() {
                 length: 10,
                 // height: 2.5,
                 height: 3,
+                weight: 0.5
             },
             types: [
 

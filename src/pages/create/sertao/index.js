@@ -56,6 +56,7 @@ export default function Sertao() {
                 width: 14,
                 length: 20,
                 height: 1,
+                weight: 0.5
             },
             types: [
 
@@ -92,6 +93,7 @@ export default function Sertao() {
                 width: 10,
                 length: 14,
                 height: 1,
+                weight: 0.5
             },
             types: [
 
@@ -127,6 +129,7 @@ export default function Sertao() {
                 width: 10,
                 length: 10,
                 height: 1,
+                weight: 0.5
             },
             types: [
 
@@ -162,6 +165,7 @@ export default function Sertao() {
                 width: 14,
                 length: 14,
                 height: 1,
+                weight: 0.5
             },
             types: [
 

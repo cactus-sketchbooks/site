@@ -58,6 +58,7 @@ export default function Baiao() {
                 length: 21,
                 height: 3,
                 // height: 2.5,
+                weight: 0.5
             },
             types: [
 
@@ -98,6 +99,7 @@ export default function Baiao() {
                 length: 15,
                 height: 3,
                 // height: 2.5,
+                weight: 0.5
             },
             types: [
 
@@ -142,6 +144,7 @@ export default function Baiao() {
                 length: 10,
                 height: 3,
                 // height: 2.5,
+                weight: 0.5
             },
             types: [
 

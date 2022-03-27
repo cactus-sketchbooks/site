@@ -87,7 +87,7 @@ export default function Terms() {
 
                         <li>1. Utilizar mecanismos, software, scripts ou bugs em relação à utilização do site que permitam ao usuário tirar proveito de alguma funcionalidade do site.</li>
 
-                        <li>2. Difundir, reproduzir ou comunicar publicamente conteúdos da Cactus, de Usuários ou terceiros, sem a autorização prévia do titular dos direitos.</li>,
+                        <li>2. Difundir, reproduzir ou comunicar publicamente conteúdos da Cactus, de Usuários ou terceiros, sem a autorização prévia do titular dos direitos.</li>
 
                         <li>3. Toda ação apta a prejudicar a funcionalidade da ferramenta da infra-estrutura da Cactus, especialmente para sobrecarregá-la.</li>
 

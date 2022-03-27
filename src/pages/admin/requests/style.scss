@@ -407,6 +407,13 @@
                     align-items: center;
                     width: 33%;
 
+                    #status {
+
+                        margin-bottom: 1rem;
+                        text-align: center;
+        
+                    }
+
                     button {
 
                         margin-bottom: 1rem;
@@ -726,7 +733,6 @@
     
     #MainRequests {
 
-        
         .divSearchUsernameResult {
     
             display: flex;
