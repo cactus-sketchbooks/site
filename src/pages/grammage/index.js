@@ -1,17 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import Slider from "react-slick";
-import { useHistory } from 'react-router-dom'
+import React from 'react'
 
 import './style.scss'
-
-import logo from '../../images/cactopng2.png';
 
 import Header from '../../components/header/index.js';
 import Footer from '../../components/footer/index.js';
 
-import firebase from 'firebase/app';
 import 'firebase/auth';
-import FirebaseConfig from '../../FirebaseConfig.js'
 
 export default function Grammage() {
 

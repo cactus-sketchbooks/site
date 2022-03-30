@@ -12,8 +12,6 @@ export default function Header() {
 
     const [userIsLogged, setUserIsLogged] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
-    const [dataUsers, setDataUsers] = useState([]);
-    const [dataAccount, setDataAccount] = useState([]);
     const [header, setHeader] = useState(false);
 
     const changeBackgroundColor = () => {
@@ -66,29 +64,6 @@ export default function Header() {
     useEffect(() => {
 
         const userEmail = localStorage.getItem('userEmail')
-
-        firebase.database().ref('users/').get('/users')
-            .then(function (snapshot) {
-
-                if (snapshot.exists()) {
-
-                    var data = snapshot.val()
-                    var temp = Object.keys(data).map((key) => data[key])
-
-                    setDataUsers(temp)
-
-                    temp.map((item) => {
-
-                        if (item.email === userEmail) {
-                            setDataAccount(item)
-                        }
-
-                    })
-
-                } else
-                    console.log("No data available");
-
-            })
 
         firebase.database().ref('admins/').get('/admins')
             .then(function (snapshot) {

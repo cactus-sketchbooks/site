@@ -26,15 +26,12 @@ export default function Cart() {
 
     const [data, setData] = useState([]);
     const [dataProduct, setDataProduct] = useState({});
-    const [dataUsers, setDataUsers] = useState([]);
     const [dataAccount, setDataAccount] = useState([]);
-    const [dataExists, setDataExists] = useState(false);
     const [userIsLogged, setUserIsLogged] = useState(false);
     const [transportData, setTransportData] = useState([]);
     const [customerCep, setCustomerCep] = useState('');
     const [redirect, setRedirect] = useState(useHistory());
     const [paidForm, setPaidForm] = useState(false);
-    const [transportDataVerify, setTransportDataVerify] = useState(false);
     const [displayCepSearch, setDisplayCepSearch] = useState('none');
     const [displayAddressForms, setDisplayAddressForms] = useState('none');
     const [selectedTransportData, setSelectedTransportData] = useState({});
@@ -158,7 +155,6 @@ export default function Cart() {
             var temp = Object.keys(verify).map((key) => verify[key])
 
             setData(temp)
-            setDataExists(true)
             let aux = []
 
             var total = 0
@@ -187,14 +183,8 @@ export default function Cart() {
             })
 
             setDataProduct(aux)
-            console.log(aux);
 
-        } else {
-
-            setDataExists(false)
-
-        }
-
+        } 
 
     }, [])
 
@@ -230,12 +220,12 @@ export default function Cart() {
 
         setPickupSelect(pickup)
 
-        if (pickup == 'Frete por transportadora') {
+        if (pickup === 'Frete por transportadora') {
 
             setDisplayCepSearch('flex');
             setFinalValue(totalValue + transportValue)
 
-        } else if (pickup == 'Impresso módico ou Carta registrada') {
+        } else if (pickup === 'Impresso módico ou Carta registrada') {
 
             setDisplayCepSearch('none');
             setFinalValue(totalValue + economicTransportValue)
@@ -244,7 +234,7 @@ export default function Cart() {
 
             setDisplayCepSearch('none');
 
-            if (transportValue != 0) {
+            if (transportValue !== 0) {
 
                 setFinalValue(totalValue)
 
@@ -252,14 +242,13 @@ export default function Cart() {
 
         }
 
-        if (pickup != 'Retirada física') {
+        if (pickup !== 'Retirada física') {
 
             setDisplayAddressForms('flex');
 
         } else {
 
             setDisplayAddressForms('none');
-            setTransportDataVerify(true)
 
         }
 
@@ -294,26 +283,26 @@ export default function Cart() {
 
         let counter = 0
 
-        newDataReceiver.receiverName != '' ? counter = counter + 1 : counter = counter
-        newDataReceiver.receiverPhone != '' ? counter++ : counter = counter
-        newDataReceiver.receiverAddress != '' ? counter++ : counter = counter
-        newDataReceiver.receiverHouseNumber != '' ? counter++ : counter = counter
-        newDataReceiver.receiverComplement != '' ? counter++ : counter = counter
-        newDataReceiver.receiverDistrict != '' ? counter++ : counter = counter
-        newDataReceiver.receiverCity != '' ? counter++ : counter = counter
-        selectedState != '' ? counter++ : counter = counter
+        newDataReceiver.receiverName !== '' ? counter = counter + 1 : counter = counter
+        newDataReceiver.receiverPhone !== '' ? counter++ : counter = counter
+        newDataReceiver.receiverAddress !== '' ? counter++ : counter = counter
+        newDataReceiver.receiverHouseNumber !== '' ? counter++ : counter = counter
+        newDataReceiver.receiverComplement !== '' ? counter++ : counter = counter
+        newDataReceiver.receiverDistrict !== '' ? counter++ : counter = counter
+        newDataReceiver.receiverCity !== '' ? counter++ : counter = counter
+        selectedState !== '' ? counter++ : counter = counter
 
         if (pickupSelect === 'Frete por transportadora') {
 
-            newDataReceiver.receiverCpf != '' ? counter++ : counter = counter
+            newDataReceiver.receiverCpf !== '' ? counter++ : counter = counter
 
         } else {
 
-            newDataReceiver.receiverCep != '' ? counter++ : counter = counter
+            newDataReceiver.receiverCep !== '' ? counter++ : counter = counter
 
         }
 
-        if ((counter == 9 && pickupSelect) || pickupSelect === 'Retirada física') {
+        if ((counter === 9 && pickupSelect) || pickupSelect === 'Retirada física') {
 
             setDisplayPaymentOption('flex')
 
@@ -357,15 +346,12 @@ export default function Cart() {
             return response.json();
         }).then((data) => {
             setTransportData(data)
-            console.log(data)
         }).catch(err => console.log(err))
     };
 
     function handleSelectedTransport(item, event) {
 
         setSelectedTransportData(event)
-
-        console.log(event);
 
         setTransportValue(Number(event.custom_price))
 
@@ -416,7 +402,6 @@ export default function Cart() {
                             },
                             onApprove: async (data, actions) => {
 
-                                const order = await actions.order.capture();
                                 sendOrder();
                                 setPaidForm(true)
                                 window.scrollTo(0, 0);
@@ -443,8 +428,6 @@ export default function Cart() {
 
                     var data = snapshot.val()
                     var temp = Object.keys(data).map((key) => data[key])
-
-                    setDataUsers(temp)
 
                     temp.map((item) => {
 
@@ -503,8 +486,6 @@ export default function Cart() {
                 firebase.database().ref('requests/' + id).set(dataToSend)
                     .then(() => {
                         setPurchasedProductData(dataToSend)
-                        console.log(dataToSend)
-
                     })
 
                 firebase.database().ref('reportsSales/' + id).set(dataToSend)
@@ -543,7 +524,6 @@ export default function Cart() {
                 firebase.database().ref('requests/' + id).set(dataToSend)
                     .then(() => {
                         setPurchasedProductData(dataToSend)
-                        console.log(dataToSend)
                     })
 
                 firebase.database().ref('reportsSales/' + id).set(dataToSend)
@@ -595,7 +575,7 @@ export default function Cart() {
 
                 <div id="cart">
 
-                    {data.length != 0 ? (
+                    {data.length !== 0 ? (
 
                         <section id="purchaseInfo">
 
@@ -805,7 +785,7 @@ export default function Cart() {
 
                                             <input name='receiverCity' onChange={handleInputInfosChange} placeholder='Cidade' value={newDataReceiver.receiverCity} />
 
-                                            {pickupSelect == 'Frete por transportadora' ? (
+                                            {pickupSelect === 'Frete por transportadora' ? (
 
                                                 <InputMask
                                                     id="receiverCpf"
@@ -960,7 +940,7 @@ export default function Cart() {
 
                             </div>
 
-                            {purchasedProductData.pickupOption == 'Frete por transportadora' ? (
+                            {purchasedProductData.pickupOption === 'Frete por transportadora' ? (
 
                                 <>
 
@@ -989,7 +969,7 @@ export default function Cart() {
 
                             ) : ('')}
 
-                            {purchasedProductData.pickupOption == 'Impresso módico ou Carta registrada' ? (
+                            {purchasedProductData.pickupOption === 'Impresso módico ou Carta registrada' ? (
 
                                 <div className="rowDataInfos">
 
@@ -1000,7 +980,7 @@ export default function Cart() {
 
                             ) : ('')}
 
-                            {purchasedProductData.payment == 'Pix' ? (
+                            {purchasedProductData.payment === 'Pix' ? (
 
                                 <>
 

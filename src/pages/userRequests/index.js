@@ -1,4 +1,4 @@
-import { React, createRef } from 'react'
+import { React } from 'react'
 import { useEffect, useState } from 'react'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
@@ -8,46 +8,10 @@ import firebase from 'firebase/app'
 import 'firebase/auth'
 import firebaseConfig from '../../FirebaseConfig.js'
 
-import { Link, useHistory } from "react-router-dom";
-
 export default function UserRequests() {
 
-    const [dataAccount, setDataAccount] = useState([]);
     const [requestData, setRequestData] = useState([]);
     const [paymentFile, setPaymentFile] = useState('');
-
-    let history = useHistory();
-
-    useEffect(() => {
-
-        window.scrollTo(0, 0);
-
-        const userEmail = localStorage.getItem('userEmail')
-
-        if (!firebase.apps.length)
-            firebase.initializeApp(firebaseConfig)
-
-        firebase.database().ref('users/').get('/users')
-            .then(function (snapshot) {
-
-                if (snapshot.exists()) {
-
-                    var data = snapshot.val()
-                    var temp = Object.keys(data).map((key) => data[key])
-
-                    temp.map((item) => {
-
-                        if (item.email === userEmail)
-                            setDataAccount(item)
-
-                    })
-
-                } else {
-                    console.log("No data available");
-                }
-            })
-
-    }, []);
 
     useEffect(() => {
 
@@ -190,7 +154,7 @@ export default function UserRequests() {
 
                                 </div>
 
-                                {item.pickupOption == 'Impresso módico ou Carta registrada' ? (
+                                {item.pickupOption === 'Impresso módico ou Carta registrada' ? (
 
                                     <div className="rowData">
 
@@ -229,7 +193,7 @@ export default function UserRequests() {
 
                                 ) : ('')}
 
-                                {item.payment == 'Pix' ? (
+                                {item.payment === 'Pix' ? (
 
                                     <div id="pixProofDiv" className="rowData">
 

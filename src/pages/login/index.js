@@ -39,18 +39,17 @@ export default function Login() {
     })
 
     const [userIsLogged, setUserIsLogged] = useState(false);
-    const [requestData, setRequestData] = useState([{}]);
 
     function makeLogin () {
 
         firebase.auth().signInWithEmailAndPassword(loginData.email, loginData.password)
         .then((userCredential) => {
+            
             var user = userCredential.user;
             localStorage.setItem('userEmail',loginData.email)
 
         })
         .catch((error) => {
-            var errorCode = error.code;
             var errorMessage = error.message;
             alert(errorMessage)
         }); 

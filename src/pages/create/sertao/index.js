@@ -27,7 +27,6 @@ export default function Sertao() {
     const [userIsLogged, setUserIsLogged] = useState(false);
     const [selectedColors, setSelectedColors] = useState([])
     const [isValidated, setIsValidated] = useState(false)
-    const [checkStatus, setCheckStatus] = useState(false)
     const [checkedBoxes, setCheckedBoxes] = useState(0)
     const [selectedPaperWidth, setSelectedPaperWidth] = useState('')
     const [selectedLineColor, setSelectedLineColor] = useState('')
@@ -212,7 +211,6 @@ export default function Sertao() {
     function handleSelectedType(event) {
 
         let position = (event.target.value)
-        console.log(formatTypes[position])
         setSketchbookInfos(formatTypes[position])
 
     }
@@ -307,7 +305,6 @@ export default function Sertao() {
     const checkColor = (item, event) => {
 
         const isChecked = event.target.checked
-        setCheckStatus(event.target.value)
 
         if (isChecked) {
 
@@ -338,7 +335,7 @@ export default function Sertao() {
 
     useEffect(() => {
 
-        if (formatTypes == '' || sketchbookInfos == '' || selectedLineColor == '' || (checkedBoxes > 1 || checkedBoxes == 0)) {
+        if (formatTypes === '' || sketchbookInfos === '' || selectedLineColor === '' || (checkedBoxes > 1 || checkedBoxes === 0)) {
 
             setIsValidated(false)
 

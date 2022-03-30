@@ -1,4 +1,4 @@
-import { React, createRef } from 'react'
+import { React } from 'react'
 import { useEffect, useState } from 'react'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
@@ -13,8 +13,6 @@ import { Link, useHistory } from "react-router-dom";
 function UserProfile() {
 
     const [dataAccount, setDataAccount] = useState([]);
-    const [displayDivAlterInfos, setDisplayDivAlterInfos] = useState("none");
-    const [displayDivPedidos, setDisplayDivPedidos] = useState("none");
 
     let history = useHistory();
 
@@ -57,24 +55,6 @@ function UserProfile() {
 
     }
 
-    function handleDisplayDivAlterInfos() {
-
-        if (displayDivAlterInfos === "none")
-            setDisplayDivAlterInfos("flex")
-        else
-            setDisplayDivAlterInfos("none")
-
-    }
-
-    function handleDisplayDivPedidos() {
-
-        if (displayDivPedidos === "none")
-            setDisplayDivPedidos("flex")
-        else
-            setDisplayDivPedidos("none")
-
-    }
-
     function deleteUser() {
 
         const user = firebase.auth().currentUser;
@@ -105,19 +85,6 @@ function UserProfile() {
             });
 
         }
-
-    }
-
-    const [isChecked, setIsChecked] = useState(false);
-
-    const menuMobile = createRef()
-
-    function showMenuMobile() {
-
-        if (isChecked)
-            menuMobile.current.style.display = 'none';
-        else
-            menuMobile.current.style.display = 'flex';
 
     }
 

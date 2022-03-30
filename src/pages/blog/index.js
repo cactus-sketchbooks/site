@@ -5,7 +5,6 @@ import Header from '../../components/header'
 import Footer from '../../components/footer'
 
 import illustration from '../../images/illustration.png'
-import foto from '../../images/talin.JPG'
 
 import firebase from 'firebase/app';
 import firebaseConfig from '../../FirebaseConfig.js'
@@ -21,7 +20,6 @@ export default function Clients() {
     }, []);
 
     const [dataBlog, setDataBlog] = useState([{}])
-    const [dataBlogExists, setDataBlogExists] = useState(false)
 
     useEffect(() => {
 
@@ -33,18 +31,12 @@ export default function Clients() {
 
             if (snapshot.exists()) {
 
-                setDataBlogExists(true)
                 var data = snapshot.val()
                 var temp = Object.keys(data).map((key) => data[key])
                 setDataBlog(temp.reverse())
 
             }
 
-            else {
-
-                setDataBlogExists(false)
-
-            }
         })
 
     }, []);

@@ -24,7 +24,6 @@ export default function Buriti() {
     const [userIsLogged, setUserIsLogged] = useState(false);
     const [selectedColors, setSelectedColors] = useState([])
     const [isValidated, setIsValidated] = useState(false)
-    const [checkStatus, setCheckStatus] = useState(false)
     const [checkedBoxes, setCheckedBoxes] = useState(0)
     const [selectedModel, setSelectedModel] = useState('')
     const [selectedElasticColor, setSelectedElasticColor] = useState('')
@@ -190,7 +189,6 @@ export default function Buriti() {
     const checkColor = (item, event) => {
 
         const isChecked = event.target.checked
-        setCheckStatus(event.target.value)
 
         if (isChecked) {
 
@@ -221,7 +219,7 @@ export default function Buriti() {
 
     useEffect(() => {
 
-        if (selectedModel == '' || selectedElasticColor == '' || (checkedBoxes > 1 || checkedBoxes == 0)) {
+        if (selectedModel === '' || selectedElasticColor === '' || (checkedBoxes > 1 || checkedBoxes === 0)) {
 
             setIsValidated(false)
 
@@ -242,12 +240,6 @@ export default function Buriti() {
     function handleClientNote(event) {
 
         setClientNote(event.target.value)
-
-    }
-
-    function handleModalInfos() {
-
-        displayModal === "none" ? setDisplayModal("flex") : setDisplayModal("none")
 
     }
 

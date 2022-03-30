@@ -1,18 +1,14 @@
 import React from 'react'
 import {Link} from "react-router-dom";
 import logoCactus from "../../images/logocactus.jpg";
-import svg from "../../images/svg.svg";
 import instagram from "../../images/instagram.svg";
 import whatsapp from "../../images/whatsapp.svg";
 import telephone from "../../images/telephone.png";
-// import instagramIcon from "../../img/instagramIcon.png";
-// import facebookIcon from "../../images/facebookIcon.png";
-// import logoAurea from "../../images/Logos_Aurea.png"
 import logoAurea from "../../images/logoaurea2.png"
 
 import './style.scss'
 
-export default function Footer (props) {
+export default function Footer() {
     
     return (
 

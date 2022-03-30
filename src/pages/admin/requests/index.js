@@ -12,7 +12,6 @@ import FirebaseConfig from '../../../FirebaseConfig.js'
 export default function Requests() {
 
     const [userIsLogged, setUserIsLogged] = useState(false);
-    const [redirect, setRedirect] = useState(useHistory());
     const [dataAdmin, setDataAdmin] = useState([])
     const [dataBackup, setDataBackup] = useState([])
     const [selectItem, setSelectItem] = useState('')
@@ -67,7 +66,6 @@ export default function Requests() {
 
             })
             .catch((error) => {
-                var errorCode = error.code;
                 var errorMessage = error.message;
                 alert(errorMessage)
             });
@@ -125,7 +123,6 @@ export default function Requests() {
 
                 var data = snapshot.val()
                 var temp = Object.keys(data).map((key) => data[key])
-                console.log(temp)
                 setDataAdmin(temp)
                 setDataBackup(temp)
 
@@ -147,30 +144,27 @@ export default function Requests() {
 
             if (request.timestamp) {
 
-                if (period == 'Tudo') {
+                if (period === 'Tudo') {
 
                     setDataPeriod(dataAdmin)
 
                 } else {
 
-                    if (period == 'Dia' && (timestamp - request.timestamp <= 86400000)) {
+                    if (period === 'Dia' && (timestamp - request.timestamp <= 86400000)) {
 
                         temp.push(request)
-                        console.log(request)
 
                     }
 
-                    if (period == 'Semana' && ((timestamp - request.timestamp) / 86400000) < 7) {
+                    if (period === 'Semana' && ((timestamp - request.timestamp) / 86400000) < 7) {
 
                         temp.push(request)
-                        console.log(request)
 
                     }
 
-                    if (period == 'Mês' && ((timestamp - request.timestamp) / 86400000) <= 31) {
+                    if (period === 'Mês' && ((timestamp - request.timestamp) / 86400000) <= 31) {
 
                         temp.push(request)
-                        console.log(request)
 
                     }
 
@@ -469,7 +463,7 @@ export default function Requests() {
 
                                     ) : ('')}
 
-                                    {modalDataProducts.pickupOption == 'Impresso módico ou Carta registrada' ? (
+                                    {modalDataProducts.pickupOption === 'Impresso módico ou Carta registrada' ? (
 
                                         <div className="userData">
 
@@ -826,7 +820,7 @@ export default function Requests() {
 
                                         <button onClick={() => { handleSelectedRequest(item) }}>Ver pedido</button>
 
-                                        {item.requestStatus != '' ? (
+                                        {item.requestStatus !== '' ? (
 
                                             <p id="status">Status do pedido: <b>{item.requestStatus}</b></p>
 
@@ -954,7 +948,7 @@ export default function Requests() {
 
                                             <button onClick={() => { handleSelectedRequest(item) }}>Ver pedido</button>
 
-                                            {item.requestStatus != '' ? (
+                                            {item.requestStatus !== '' ? (
 
                                                 <p id="status">Status do pedido: <b>{item.requestStatus}</b></p>
 

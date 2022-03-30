@@ -119,7 +119,7 @@ export default function SignUp() {
 
         var counter = 0
 
-        registerData.name !== '' ? counter = counter + 1 : counter = counter
+        registerData.name !== '' ? counter++ : counter = counter
         registerData.email !== '' ? counter++ : counter = counter
         registerData.password !== '' ? counter++ : counter = counter
         registerData.passwordConfirm !== '' ? counter++ : counter = counter
@@ -152,7 +152,6 @@ export default function SignUp() {
         else {
 
             alert('Você precisa preencher todos os campos!')
-            console.log(counter)
 
         }
 
