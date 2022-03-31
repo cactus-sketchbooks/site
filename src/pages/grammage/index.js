@@ -1,17 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import Slider from "react-slick";
-import { useHistory } from 'react-router-dom'
+import React from 'react'
 
 import './style.scss'
-
-import logo from '../../images/cactopng2.png';
 
 import Header from '../../components/header/index.js';
 import Footer from '../../components/footer/index.js';
 
-import firebase from 'firebase/app';
 import 'firebase/auth';
-import FirebaseConfig from '../../FirebaseConfig.js'
 
 export default function Grammage() {
 
@@ -22,6 +16,75 @@ export default function Grammage() {
             <Header />
 
             <body>
+
+                <h1>Miolos</h1>
+
+                <div className="grammageInfos">
+                    <ul>
+                        <h2>Papel Pólen Bold 90g/m²</h2>
+                        <li>
+                            <p>Levemente amarelado</p>
+                            <p>Mais conforto visual para anotar e desenhar</p>
+                            <p>Leve textura</p>
+                            <p>Gramatura um pouco alta</p>
+                            <p>Ideal para lápis grafite, de cor, aquarela e marcadores</p>
+                            <p>Para anotações e sketchs</p>
+                        </li>
+
+                        <h2>Papel Reciclado 120g/m²</h2>
+                        <li>
+                            <p>Papel 100% de origem reciclável</p>
+                            <p>Gramatura alta</p>
+                            <p>Para desenhos e anotações</p>
+                            <p>Acinzentado</p>
+                        </li>
+
+                        <h2>Papel Canson 140g/m²</h2>
+                        <li>
+                            <p>Textura levemente granulada</p>
+                            <p>Naturalmente branco</p>
+                            <p>Colado na massa</p>
+                            <p>Livre de ácido</p>
+                            <p>Para diversas técnicas de desenho</p>
+                            <p>Para técnicas secas e úmidas (desde que utilize pouca água)</p>
+                        </li>
+
+                        <h2>Papel Kraft 140g/m²</h2>
+                        <li>
+                            <p>Levemente texturizado</p>
+                            <p>Ideal para técnicas secas</p>
+                            <p>Para trabalhos com lápis branco, marcadores, lápis de cor, giz pastel seco e oleoso</p>
+                        </li>
+
+                        <h2>Papel Color Preto 180g/m²</h2>
+                        <li>
+                            <p>Liso</p>
+                            <p>Ideal para técnicas secas e úmidas</p>
+                            <p>Para trabalhos com lápis branco, marcadores, lápis de cor, giz pastel seco e oleoso, canetinhas e metálicos</p>
+                        </li>
+
+                        <h2>Papel Canson 300g/m²</h2>
+                        <li>
+                            <p>Papel com dupla face (sendo uma texturizada e outra lisa)</p>
+                            <p>Naturalmente branco</p>
+                            <p>Para várias técnicas de desenho</p>
+                            <p>Indicado para técnicas aguadas como aquarela, guache, e acrílica</p>
+                            <p>Para técnicas secas também como giz pastel seco, oleoso, lápis grafite e de cor</p>
+                        </li>
+
+                        <h2>Papel Canson Montival 300g/m²</h2>
+                        <li>
+                            <p>Papel semi-profissional</p>
+                            <p>Ideal para técnicas aguadas</p>
+                            <p>Textura granulada</p>
+                            <p>Gramatura alta</p>
+                            <p>Colado na massa</p>
+                            <p>Para várias técnicas de desenho</p>
+                            <p>Indicado para técnicas aguadas como aquarela, guache e acrílica</p>
+                            <p>Para técnicas secas também como giz pastel seco, oleoso, lápis grafite e de cor</p>
+                        </li>
+                    </ul>
+                </div>
 
                 <h1>Gramatura e quantidade de páginas</h1>
 

@@ -12,7 +12,6 @@ import FirebaseConfig from '../../../FirebaseConfig.js'
 export default function Requests() {
 
     const [userIsLogged, setUserIsLogged] = useState(false);
-    const [redirect, setRedirect] = useState(useHistory());
     const [dataAdmin, setDataAdmin] = useState([])
     const [dataBackup, setDataBackup] = useState([])
     const [selectItem, setSelectItem] = useState('')
@@ -67,7 +66,6 @@ export default function Requests() {
 
             })
             .catch((error) => {
-                var errorCode = error.code;
                 var errorMessage = error.message;
                 alert(errorMessage)
             });
@@ -125,7 +123,6 @@ export default function Requests() {
 
                 var data = snapshot.val()
                 var temp = Object.keys(data).map((key) => data[key])
-                console.log(temp)
                 setDataAdmin(temp)
                 setDataBackup(temp)
 
@@ -147,30 +144,27 @@ export default function Requests() {
 
             if (request.timestamp) {
 
-                if (period == 'Tudo') {
+                if (period === 'Tudo') {
 
                     setDataPeriod(dataAdmin)
 
                 } else {
 
-                    if (period == 'Dia' && (timestamp - request.timestamp <= 86400000)) {
+                    if (period === 'Dia' && (timestamp - request.timestamp <= 86400000)) {
 
                         temp.push(request)
-                        console.log(request)
 
                     }
 
-                    if (period == 'Semana' && ((timestamp - request.timestamp) / 86400000) < 7) {
+                    if (period === 'Semana' && ((timestamp - request.timestamp) / 86400000) < 7) {
 
                         temp.push(request)
-                        console.log(request)
 
                     }
 
-                    if (period == 'Mês' && ((timestamp - request.timestamp) / 86400000) <= 31) {
+                    if (period === 'Mês' && ((timestamp - request.timestamp) / 86400000) <= 31) {
 
                         temp.push(request)
-                        console.log(request)
 
                     }
 
@@ -469,7 +463,7 @@ export default function Requests() {
 
                                     ) : ('')}
 
-                                    {modalDataProducts.pickupOption == 'Impresso módico ou Carta registrada' ? (
+                                    {modalDataProducts.pickupOption === 'Impresso módico ou Carta registrada' ? (
 
                                         <div className="userData">
 
@@ -566,7 +560,7 @@ export default function Requests() {
                                                     <li className="productData">
                                                         <span>Cor da linha: </span>
                                                         <b>{product.lineColor.colorName}</b>
-                                                    </li>                                                    
+                                                    </li>
 
                                                 ) : ('')}
 
@@ -575,7 +569,7 @@ export default function Requests() {
                                                     <li className="productData">
                                                         <span>Cor do elástico: </span>
                                                         <b>{product.elasticColor.colorName}</b>
-                                                    </li>  
+                                                    </li>
 
                                                 ) : ('')}
 
@@ -587,6 +581,34 @@ export default function Requests() {
                                                     </li>
 
                                                 ) : ('')}
+
+                                                {product.size ? (
+
+                                                    <>
+
+                                                        <li className="productData">
+                                                            <span>Altura: </span>
+                                                            <b>{product.size.height} cm</b>
+                                                        </li>
+
+                                                        <li className="productData">
+                                                            <span>Largura: </span>
+                                                            <b>{product.size.width} cm</b>
+                                                        </li>
+
+                                                        <li className="productData">
+                                                            <span>Comprimento: </span>
+                                                            <b>{product.size.length} cm</b>
+                                                        </li>
+
+                                                        <li className="productData">
+                                                            <span>Peso: </span>
+                                                            <b>{product.size.weight} kg</b>
+                                                        </li>
+
+                                                    </>
+
+                                                ) : null}
 
                                                 {product.clientNote ? (
 
@@ -678,43 +700,43 @@ export default function Requests() {
 
                         <div className="selectPeriodChangeDiv">
 
-                        {selectedPeriod ? (
+                            {selectedPeriod ? (
 
-                            <>
+                                <>
 
-                                <h3>Selecione um período abaixo</h3>
+                                    <h3>Selecione um período abaixo</h3>
 
-                                <select id="selectPeriodChange" onChange={handleSelectedPeriod}>
+                                    <select id="selectPeriodChange" onChange={handleSelectedPeriod}>
 
-                                    <option>Tudo</option>
-                                    <option>Dia</option>
-                                    <option>Semana</option>
-                                    <option>Mês</option>
+                                        <option>Tudo</option>
+                                        <option>Dia</option>
+                                        <option>Semana</option>
+                                        <option>Mês</option>
 
-                                </select>
+                                    </select>
 
-                            </>
+                                </>
 
-                        ) : (
+                            ) : (
 
-                            <>
+                                <>
 
-                                <h3>Selecione um período abaixo</h3>
+                                    <h3>Selecione um período abaixo</h3>
 
-                                <select id="selectPeriodChange" onChange={handleSelectedPeriod}>
+                                    <select id="selectPeriodChange" onChange={handleSelectedPeriod}>
 
-                                    <option selected>Tudo</option>
-                                    <option>Dia</option>
-                                    <option>Semana</option>
-                                    <option>Mês</option>
+                                        <option selected>Tudo</option>
+                                        <option>Dia</option>
+                                        <option>Semana</option>
+                                        <option>Mês</option>
 
-                                </select>
+                                    </select>
 
-                            </>
+                                </>
 
-                        )}
+                            )}
 
-                    </div>
+                        </div>
 
                     </div>
 
@@ -798,7 +820,15 @@ export default function Requests() {
 
                                         <button onClick={() => { handleSelectedRequest(item) }}>Ver pedido</button>
 
-                                        <p>Status do pedido: <b>{item.requestStatus}</b></p>
+                                        {item.requestStatus !== '' ? (
+
+                                            <p id="status">Status do pedido: <b>{item.requestStatus}</b></p>
+
+                                        ) : (
+
+                                            <p id="status">Status do pedido: <b>Novo pedido!</b></p>
+
+                                        )}
 
                                         <div div className="requestStatus" >
 
@@ -918,7 +948,15 @@ export default function Requests() {
 
                                             <button onClick={() => { handleSelectedRequest(item) }}>Ver pedido</button>
 
-                                            <p>Status do pedido: <b>{item.requestStatus}</b></p>
+                                            {item.requestStatus !== '' ? (
+
+                                                <p id="status">Status do pedido: <b>{item.requestStatus}</b></p>
+
+                                            ) : (
+
+                                                <p id="status">Status do pedido: <b style={{color: '#DED040'}}>Novo pedido!</b></p>
+
+                                            )}
 
                                             <div div className="requestStatus" >
 

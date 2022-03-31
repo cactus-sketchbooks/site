@@ -1,0 +1,57 @@
+@import "../../global.scss";
+@import url('https://fonts.googleapis.com/css2?family=Taviraj:wght@400;600&display=swap');
+
+#termsPage {
+
+    * {
+        font-family: 'Taviraj', sans-serif;
+        color: #333;
+    }
+
+    #termsInfos {
+
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 2rem 3rem;
+
+        article {
+
+            margin: 1rem 0;
+
+            h3 {
+
+                margin: 1rem 0;
+
+            }
+
+            p {
+
+                text-indent: 2rem;
+                margin: 1rem 0;
+
+            }
+
+            .usePurpose {
+
+                margin: 2rem 0;
+
+            }
+
+            ul {
+
+                margin-left: 5rem;
+
+            }
+
+            a {
+
+                color: blue;
+
+            }
+
+        }
+
+    }
+
+}

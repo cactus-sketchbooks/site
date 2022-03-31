@@ -5,7 +5,6 @@ import Header from '../../components/header'
 import Footer from '../../components/footer'
 
 import illustration from '../../images/illustration.png'
-import foto from '../../images/talin.JPG'
 
 import firebase from 'firebase/app';
 import firebaseConfig from '../../FirebaseConfig.js'
@@ -20,8 +19,7 @@ export default function Clients() {
 
     }, []);
 
-    const [dataBlog, setDataBlog] = useState([{}])
-    const [dataBlogExists, setDataBlogExists] = useState(false)
+    const [dataBlog, setDataBlog] = useState([])
 
     useEffect(() => {
 
@@ -33,18 +31,12 @@ export default function Clients() {
 
             if (snapshot.exists()) {
 
-                setDataBlogExists(true)
                 var data = snapshot.val()
                 var temp = Object.keys(data).map((key) => data[key])
                 setDataBlog(temp.reverse())
 
             }
 
-            else {
-
-                setDataBlogExists(false)
-
-            }
         })
 
     }, []);
@@ -61,9 +53,9 @@ export default function Clients() {
 
                     <div className="textDiv">
 
-                        <h1>Adquira seu Cactus e exponha sua arte no nosso site!</h1>
+                        <h1>Confira sobre quem cria com um Cactus!</h1>
 
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, ipsa harum velit quam labore quisquam nihil ad beatae neque, quo molestiae. Odio neque tempora nemo!</p>
+                        <p>Pensando em todos os artistas que expressam sua arte nas páginas de um cactus, desenvolvemos o "use e apareça". Projetos e o trabalho de artistas que vivem da arte e adoramos compartilhar aqui. Aos que gostariam de conhecer esses criatives, que mantém a Cactus viva com seus idealizadores, vem com a gente! <br />Gostaria de aparecer também? Crie com seu cactus físico ou digital e poste no Instagram marcando o nosso "@cactussketchbooks" na foto! Use também a #cactussketchbooks na publicação.</p>
 
                         <Link to="/">Fazer arte!</Link>
 
@@ -77,61 +69,62 @@ export default function Clients() {
 
                 </div>
 
-                <div className="cardsWrapper">
+                {dataBlog ? (
 
-                    {dataBlog.map((item) => (
+                    <div className="cardsWrapper">
 
-                        <Link key={item.id} to={`/post/${item.id}`} className="blogCard">
+                        {dataBlog.map((item) => (
 
-                            <div className="blogImgWrapper">
+                            <Link key={item.id} to={`/post/${item.id}`} className="blogCard">
 
-                                <div className="authorPictureWrapper">
+                                <div className="blogImgWrapper">
 
-                                    <img src={item.authorPicture} alt="" />
+                                    <div className="authorPictureWrapper">
+
+                                        <img src={item.authorPicture} alt="" />
+
+                                    </div>
+
+                                    <img src={item.imageUrl} alt="" />
+
+                                </div>
+
+                                <div className="blogTextWrapper">
+
+                                    <div className="hashtagWrapper">
+
+                                        {item.hashtags ? (
+
+                                            <>
+
+                                                {item.hashtags.map((hashtag) => {
+
+                                                    return (
+
+                                                        <span>{hashtag}</span>
+
+                                                    )
+
+                                                })}
+
+                                            </>
+
+                                        ) : ('')}
+
+                                    </div>
+
+                                    <h3>{item.title}</h3>
+                                    <span id="postDate">Publicado em {item.date}</span>
 
                                 </div>
 
-                                <img src={item.imageUrl} alt="" />
+                            </Link>
 
-                            </div>
+                        ))}
 
-                            <div className="blogTextWrapper">
+                    </div>
 
-                                <div className="hashtagWrapper">
-
-                                    {item.hashtags ? (
-
-                                        <>
-
-                                            {item.hashtags.map((hashtag) => {
-
-                                                return (
-
-                                                    <span>{hashtag}</span>
-
-                                                )
-
-                                            })}
-
-                                        </>
-
-                                    ) : ('')}
-
-
-                                </div>
-                                {/* 
-                                <h3>CSS: Mecanismo de programação que deu cores e formas para a Web</h3>
-                                <span id="postDate">Publicado em {item.date}</span> */}
-                                <h3>{item.title}</h3>
-                                <span id="postDate">Publicado em {item.date}</span>
-
-                            </div>
-
-                        </Link>
-
-                    ))}
-
-                </div>
+                ) : null}
 
             </main>
 

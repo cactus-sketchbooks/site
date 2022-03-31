@@ -8,6 +8,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import logo from '../../../images/facheiro.png';
+import Facheiro1Cor from '../../../images/capas/CAPA MODELO FACHEIRO UMA COR.png';
+import Facheiro2Cores from '../../../images/capas/CAPA MODELO FACHEIRO DUAS CORES.png';
+import FacheiroQuadrado1Cor from '../../../images/capas/CAPA MODELO FACHEIRO QUADRADO UMA COR.png';
+import FacheiroQuadrado2Cores from '../../../images/capas/CAPA MODELO FACHEIRO QUADRADO DUAS CORES.png';
 
 import Header from '../../../components/header/index.js';
 import Footer from '../../../components/footer/index.js';
@@ -20,10 +24,11 @@ export default function Facheiro() {
 
     const [dataColors, setDataColors] = useState([]);
     const [formatTypes, setformatTypes] = useState([]);
+    const [formatSize, setFormatSize] = useState({});
+    const [formatId, setFormatId] = useState('');
     const [userIsLogged, setUserIsLogged] = useState(false);
     const [selectedColors, setSelectedColors] = useState([])
     const [isValidated, setIsValidated] = useState(false)
-    const [checkStatus, setCheckStatus] = useState(false)
     const [checkedBoxes, setCheckedBoxes] = useState(0)
     const [selectedPaperWidth, setSelectedPaperWidth] = useState('')
     const [selectedSpiralColor, setSelectedSpiralColor] = useState('')
@@ -45,13 +50,33 @@ export default function Facheiro() {
     const values = {
 
         name: "Facheiro",
+        id: 14,
         formats: [{
 
             name: "A3",
+            size: {
+                width: 29.7,
+                length: 42,
+                height: 3,
+                // height: 2.5,
+                weight: 0.5
+            },
             types: [
 
                 {
                     name: "Papel Reciclado Liso",
+                    value: 154
+                },
+                {
+                    name: "Papel Reciclado Pontilhado",
+                    value: 154
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 154
+                },
+                {
+                    name: "Papel Reciclado Pautado",
                     value: 154
                 },
                 {
@@ -81,14 +106,46 @@ export default function Facheiro() {
         {
 
             name: "A4",
+            id: 15,
+            size: {
+                width: 21,
+                length: 29,
+                height: 3,
+                // height: 2.5,
+                weight: 0.5
+            },
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 62
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 62
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 62
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 62
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 62
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 62
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 62
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 62
                 },
                 {
@@ -118,14 +175,46 @@ export default function Facheiro() {
         {
 
             name: "A5",
+            id: 16,
+            size: {
+                width: 15,
+                length: 21,
+                // height: 2.5,
+                height: 3,
+                weight: 0.5
+            },
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 40
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 40
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 40
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 40
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 40
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 40
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 40
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 40
                 },
                 {
@@ -155,14 +244,46 @@ export default function Facheiro() {
         {
 
             name: "A6",
+            id: 17,
+            size: {
+                width: 10.5,
+                length: 15,
+                // height: 2.5,
+                height: 3,
+                weight: 0.5
+            },
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 30
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 30
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 30
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 30
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 30
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 30
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 30
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 30
                 },
                 {
@@ -192,14 +313,46 @@ export default function Facheiro() {
         {
 
             name: "21X21",
+            id: 18,
+            size: {
+                width: 21,
+                length: 21,
+                // height: 2.5,
+                height: 3,
+                weight: 0.5
+            },
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 62
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 62
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 62
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 62
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 62
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 62
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 62
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 62
                 },
                 {
@@ -229,14 +382,46 @@ export default function Facheiro() {
         {
 
             name: "15X15",
+            id: 19,
+            size: {
+                width: 15,
+                length: 15,
+                // height: 2.5,
+                height: 3,
+                weight: 0.5
+            },
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 40
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 40
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 40
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 40
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 40
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 40
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 40
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 40
                 },
                 {
@@ -266,14 +451,46 @@ export default function Facheiro() {
         {
 
             name: "10X10",
+            id: 20,
+            size: {
+                width: 10,
+                length: 10,
+                height: 3,
+                // height: 2.5,
+                weight: 0.5
+            },
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 25
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 25
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 25
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 25
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 25
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 25
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 25
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 25
                 },
                 {
@@ -311,13 +528,14 @@ export default function Facheiro() {
 
         setSelectedPaperWidth(values.formats[position].name)
         setformatTypes(values.formats[position].types)
+        setFormatSize(values.formats[position].size)
+        setFormatId(values.formats[position].id)
 
     }
 
     function handleSelectedType(event) {
 
         let position = (event.target.value)
-        console.log(formatTypes[position])
         setSketchbookInfos(formatTypes[position])
 
     }
@@ -380,6 +598,7 @@ export default function Facheiro() {
         const dataToSend = {
 
             model: 'Facheiro',
+            id: formatId,
             paperWidth: selectedPaperWidth,
             paper: sketchbookInfos.name,
             value: sketchbookInfos.value,
@@ -387,6 +606,7 @@ export default function Facheiro() {
             elasticColor: selectedElasticColor,
             coverColors: selectedColors,
             clientNote: clientNote,
+            size: formatSize
 
         }
 
@@ -411,7 +631,6 @@ export default function Facheiro() {
     const checkColor = (item, event) => {
 
         const isChecked = event.target.checked
-        setCheckStatus(event.target.value)
 
         if (isChecked) {
 
@@ -442,7 +661,7 @@ export default function Facheiro() {
 
     useEffect(() => {
 
-        if (formatTypes == '' || sketchbookInfos == '' || selectedSpiralColor == '' || selectedElasticColor == '' || (checkedBoxes > 2 || checkedBoxes == 0)) {
+        if (formatTypes === '' || sketchbookInfos === '' || selectedSpiralColor === '' || selectedElasticColor === '' || (checkedBoxes > 2 || checkedBoxes === 0)) {
 
             setIsValidated(false)
 
@@ -494,15 +713,37 @@ export default function Facheiro() {
 
             <div style={{ display: displayModal }} role="dialog" className='divModal' >
 
-                <div className="modalContent">
+                <div id="facheiroVersion" className="modalContent">
+
+                    <span onClick={closeModal}>x</span>
 
                     <div className="sketchbookImgWrapper">
 
-                        <img src={logo} alt="" />
+                        <h3>Modelo de capa com uma cor</h3>
+                        <img src={Facheiro1Cor} alt="" />
 
                     </div>
 
-                    <span onClick={closeModal}>x</span>
+                    <div className="sketchbookImgWrapper">
+
+                        <h3>Modelo de capa com duas cores</h3>
+                        <img src={Facheiro2Cores} alt="" />
+
+                    </div>
+
+                    <div className="sketchbookImgWrapper">
+
+                        <h3>Modelo de capa quadrado com uma cor</h3>
+                        <img src={FacheiroQuadrado1Cor} alt="" />
+
+                    </div>
+
+                    <div className="sketchbookImgWrapper">
+
+                        <h3>Modelo de capa quadrado com duas cores</h3>
+                        <img src={FacheiroQuadrado2Cores} alt="" />
+
+                    </div>
 
                 </div>
 

@@ -42,6 +42,8 @@ $amarelo: #ffff00;
 
 #MainSketchbook {
 
+    position: relative;
+
     .divModal {
 
         position: absolute;
@@ -57,28 +59,69 @@ $amarelo: #ffff00;
             position: fixed;
             display: flex;
             align-items: center;
+            justify-content: center;
             width: 50vw;
-            height: 50vh;
+            height: 60vh;
             background-color: $offWhite;
             top: 25%;
             left: 25%;
             border-radius: 8px;
+            padding: 1rem;
+
+            span {
+
+                display: flex;
+                width: 35px;
+                height: 35px;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                right: 20px;
+                top: 10px;
+                padding: 10px;
+                background-color: $orange;
+                border-radius: 50px;
+                cursor: pointer;
+                font-weight: 700;
+                font-size: 20px;
+
+            }
 
             .sketchbookImgWrapper {
 
                 display: flex;
-                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                width: 50%;
+
+                h3 {
+
+                    font-size: 1rem;
+
+                }
 
                 img {
 
                     object-fit: cover;
-                    width: 100%;
+                    width: 50%;
                     overflow: hidden;
-                    border-radius: 8px 0 0 8px;
+                    margin-top: 1rem;
 
                 }
 
             }
+        }
+
+        #facheiroVersion {
+
+            flex-wrap: wrap;
+            width: 50vw;
+            height: 80vh;
+            background-color: $offWhite;
+            top: 10vh;
+            left: 25%;
+           
         }
     }
 
@@ -106,15 +149,7 @@ $amarelo: #ffff00;
             background-color: $offWhite;
             border-radius: 100px;
             padding: 5px;
-            margin-bottom: 1rem;
-
-            img {
-
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                
-            }
+            margin-bottom: 4rem;
 
         }
 
@@ -543,6 +578,57 @@ $amarelo: #ffff00;
 @media screen and (max-width: 768px) {
 
     #MainSketchbook {
+
+        .divModal {
+
+            .modalContent {
+                
+                height: auto;
+                min-height: 60vh;
+                width: 90%;
+                left: 5%;
+                right: 5%;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                .sketchbookImgWrapper {
+
+                    margin-bottom: .5rem;
+                    width: 100%;
+
+                    h3 {
+
+                        font-size: 1rem;
+
+                    }
+
+                    img {
+
+                        width: 25%;
+
+                    }
+
+                }
+    
+                span {
+    
+                    width: 25px;
+                    height: 25px;
+                    font-size: 16px;
+    
+                }
+    
+            }
+
+            #facheiroVersion {
+
+                width: 70vw;
+                left: 12.5vw;
+                right: 12.5vw;
+
+            }
+        }
 
         #CreateSketchbookSection {
             padding: 0 2rem !important;

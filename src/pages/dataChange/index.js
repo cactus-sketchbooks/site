@@ -1,4 +1,4 @@
-import { React, createRef } from 'react'
+import { React } from 'react'
 import { useEffect, useState } from 'react'
 
 import InputMask from 'react-input-mask';
@@ -10,8 +10,6 @@ import './style.scss'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import firebaseConfig from '../../FirebaseConfig.js'
-
-import { Link, useHistory } from "react-router-dom";
 
 export default function ChangeInfos() {
 
@@ -32,8 +30,6 @@ export default function ChangeInfos() {
         state: '',
 
     })
-
-    let history = useHistory();
 
     useEffect(() => {
 
@@ -56,7 +52,6 @@ export default function ChangeInfos() {
 
                         if (item.email === userEmail)
                             setDataAccount(item)
-                        console.log(dataAccount)
 
                     })
 
@@ -79,30 +74,30 @@ export default function ChangeInfos() {
 
     }
 
-    function handleInputEmailChange(event) {
+    // function handleInputEmailChange(event) {
 
-        const { name, value } = event.target
+    //     const { name, value } = event.target
 
-        setRegisterData({
+    //     setRegisterData({
 
-            ...registerData, [name]: value
+    //         ...registerData, [name]: value
 
-        })
+    //     })
 
-        const user = firebase.auth().currentUser;
+    //     const user = firebase.auth().currentUser;
 
-        user.updateEmail(registerData.email).then(() => {
-        }).catch((error) => {
+    //     user.updateEmail(registerData.email).then(() => {
+    //     }).catch((error) => {
 
-            if (error) {
+    //         if (error) {
 
-                window.alert("Não foi possível atualizar seu e-mail. Tente novamente")
+    //             window.alert("Não foi possível atualizar seu e-mail. Tente novamente")
 
-            }
+    //         }
 
-        });
+    //     });
 
-    }
+    // }
 
     function updateRegister() {
 
@@ -144,8 +139,7 @@ export default function ChangeInfos() {
         })
             .then(() => alert("Conta atualizada com sucesso!"))
             .catch((error) => {
-                var errorCode = error.code;
-                var errorMessage = error.message;
+                console.log(error);
             });
 
     }

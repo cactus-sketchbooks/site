@@ -119,7 +119,7 @@ export default function SignUp() {
 
         var counter = 0
 
-        registerData.name !== '' ? counter = counter + 1 : counter = counter
+        registerData.name !== '' ? counter++ : counter = counter
         registerData.email !== '' ? counter++ : counter = counter
         registerData.password !== '' ? counter++ : counter = counter
         registerData.passwordConfirm !== '' ? counter++ : counter = counter
@@ -152,7 +152,6 @@ export default function SignUp() {
         else {
 
             alert('Você precisa preencher todos os campos!')
-            console.log(counter)
 
         }
 
@@ -282,6 +281,12 @@ export default function SignUp() {
                             <input id='houseNumber' name='houseNumber' onChange={handleInputRegisterChange} placeholder='Número' />
                             <input id='district' name='district' onChange={handleInputRegisterChange} placeholder='Bairro' />
                             <input id='complement' name='complement' onChange={handleInputRegisterChange} placeholder='Complemento' />
+
+                            <div className="legalTermsWrapper">
+
+                                <p>Ao clicar em "Cadastrar" você estará concordando com os <Link to="/termosDeUso" target="_blank" rel="norreferer">Termos de Uso</Link> e <Link to="/politicaDePrivacidade" target="_blank" rel="norreferer">Política de Privacidade</Link> </p>
+
+                            </div>
 
                             <button onClick={() => { makeVerifications() }}>Cadastrar</button>
 

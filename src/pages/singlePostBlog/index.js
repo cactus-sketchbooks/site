@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom';
 
 import instagram from '../../images/instagram2.svg'
 import behance from '../../images/behance.svg'
@@ -20,8 +19,7 @@ export default function SinglePost() {
 
     const [path, setPath] = useState('');
     const [dataPost, setDataPost] = useState([]);
-    const [dataBlog, setDataBlog] = useState([{}]);
-    const [dataBlogExists, setDataBlogExists] = useState(false)
+    const [dataBlog, setDataBlog] = useState([]);
 
     const idPost = useParams().idPost
 
@@ -37,18 +35,12 @@ export default function SinglePost() {
 
             if (snapshot.exists()) {
 
-                setDataBlogExists(true)
                 var data = snapshot.val()
                 var temp = Object.keys(data).map((key) => data[key])
                 setDataBlog(temp)
 
             }
 
-            else {
-
-                setDataBlogExists(false)
-
-            }
         })
 
     }, []);
@@ -57,7 +49,7 @@ export default function SinglePost() {
 
         setPath(idPost)
 
-    }, [])
+    }, [idPost])
 
     useEffect(() => {
 
@@ -137,7 +129,7 @@ export default function SinglePost() {
                                 (
                                     <div className="socialMedias">
 
-                                        <a id="socialMediaLink" target="_blank" href={dataPost.instagram}><img src={instagram} alt="" /></a>
+                                        <a id="socialMediaLink" target="_blank" rel="noreferrer" href={dataPost.instagram}><img src={instagram} alt="" /></a>
 
                                     </div>
 
@@ -150,7 +142,7 @@ export default function SinglePost() {
                                 (
                                     <div className="socialMedias">
 
-                                        <a id="socialMediaLink" target="_blank" href={dataPost.behance}><img src={behance} alt="" /></a>
+                                        <a id="socialMediaLink" target="_blank" rel="noreferrer" href={dataPost.behance}><img src={behance} alt="" /></a>
 
                                     </div>
 
@@ -163,7 +155,7 @@ export default function SinglePost() {
                                 (
                                     <div className="socialMedias">
 
-                                        <a id="socialMediaLink" target="_blank" href={dataPost.youtube}><img src={youtube} alt="" /></a>
+                                        <a id="socialMediaLink" target="_blank" rel="noreferrer" href={dataPost.youtube}><img src={youtube} alt="" /></a>
 
                                     </div>
 

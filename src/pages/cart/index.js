@@ -25,15 +25,13 @@ import FirebaseConfig from '../../FirebaseConfig.js'
 export default function Cart() {
 
     const [data, setData] = useState([]);
-    const [dataUsers, setDataUsers] = useState([]);
+    const [dataProduct, setDataProduct] = useState({});
     const [dataAccount, setDataAccount] = useState([]);
-    const [dataExists, setDataExists] = useState(false);
     const [userIsLogged, setUserIsLogged] = useState(false);
     const [transportData, setTransportData] = useState([]);
     const [customerCep, setCustomerCep] = useState('');
     const [redirect, setRedirect] = useState(useHistory());
     const [paidForm, setPaidForm] = useState(false);
-    const [transportDataVerify, setTransportDataVerify] = useState(false);
     const [displayCepSearch, setDisplayCepSearch] = useState('none');
     const [displayAddressForms, setDisplayAddressForms] = useState('none');
     const [selectedTransportData, setSelectedTransportData] = useState({});
@@ -157,8 +155,7 @@ export default function Cart() {
             var temp = Object.keys(verify).map((key) => verify[key])
 
             setData(temp)
-            setDataExists(true)
-            // setDisplayButtonClear('block')
+            let aux = []
 
             var total = 0
 
@@ -167,17 +164,27 @@ export default function Cart() {
                 var value = (Number(item.value))
                 total = value + total
 
+                const productInfos = {
+
+                    "id": item.id,
+                    "width": item.size.width,
+                    "height": item.size.height,
+                    "length": item.size.length,
+                    "weight": item.size.weight,
+                    "insurance_value": item.value,
+                    "quantity": 1,
+
+                }
+
+                aux.push(productInfos)
                 setTotalValue(total)
                 setFinalValue(total)
 
             })
 
-        } else {
-
-            setDataExists(false)
+            setDataProduct(aux)
 
         }
-
 
     }, [])
 
@@ -213,12 +220,12 @@ export default function Cart() {
 
         setPickupSelect(pickup)
 
-        if (pickup == 'Frete por transportadora') {
+        if (pickup === 'Frete por transportadora') {
 
             setDisplayCepSearch('flex');
             setFinalValue(totalValue + transportValue)
 
-        } else if (pickup == 'Impresso módico ou Carta registrada') {
+        } else if (pickup === 'Impresso módico ou Carta registrada') {
 
             setDisplayCepSearch('none');
             setFinalValue(totalValue + economicTransportValue)
@@ -227,7 +234,7 @@ export default function Cart() {
 
             setDisplayCepSearch('none');
 
-            if (transportValue != 0) {
+            if (transportValue !== 0) {
 
                 setFinalValue(totalValue)
 
@@ -235,14 +242,13 @@ export default function Cart() {
 
         }
 
-        if (pickup != 'Retirada física') {
+        if (pickup !== 'Retirada física') {
 
             setDisplayAddressForms('flex');
 
         } else {
 
             setDisplayAddressForms('none');
-            setTransportDataVerify(true)
 
         }
 
@@ -277,26 +283,26 @@ export default function Cart() {
 
         let counter = 0
 
-        newDataReceiver.receiverName != '' ? counter = counter + 1 : counter = counter
-        newDataReceiver.receiverPhone != '' ? counter++ : counter = counter
-        newDataReceiver.receiverAddress != '' ? counter++ : counter = counter
-        newDataReceiver.receiverHouseNumber != '' ? counter++ : counter = counter
-        newDataReceiver.receiverComplement != '' ? counter++ : counter = counter
-        newDataReceiver.receiverDistrict != '' ? counter++ : counter = counter
-        newDataReceiver.receiverCity != '' ? counter++ : counter = counter
-        selectedState != '' ? counter++ : counter = counter
+        newDataReceiver.receiverName !== '' ? counter = counter + 1 : counter = counter
+        newDataReceiver.receiverPhone !== '' ? counter++ : counter = counter
+        newDataReceiver.receiverAddress !== '' ? counter++ : counter = counter
+        newDataReceiver.receiverHouseNumber !== '' ? counter++ : counter = counter
+        newDataReceiver.receiverComplement !== '' ? counter++ : counter = counter
+        newDataReceiver.receiverDistrict !== '' ? counter++ : counter = counter
+        newDataReceiver.receiverCity !== '' ? counter++ : counter = counter
+        selectedState !== '' ? counter++ : counter = counter
 
         if (pickupSelect === 'Frete por transportadora') {
 
-            newDataReceiver.receiverCpf != '' ? counter++ : counter = counter
+            newDataReceiver.receiverCpf !== '' ? counter++ : counter = counter
 
         } else {
 
-            newDataReceiver.receiverCep != '' ? counter++ : counter = counter
+            newDataReceiver.receiverCep !== '' ? counter++ : counter = counter
 
         }
 
-        if ((counter == 9 && pickupSelect) || pickupSelect === 'Retirada física') {
+        if ((counter === 9 && pickupSelect) || pickupSelect === 'Retirada física') {
 
             setDisplayPaymentOption('flex')
 
@@ -316,17 +322,13 @@ export default function Cart() {
 
     const dataToSend = {
         "from": {
-            "postal_code": "28909120"
+            "postal_code": "65010330"
         },
         "to": {
             "postal_code": customerCep
         },
-        "package": {
-            "height": 4,
-            "width": 12,
-            "length": 17,
-            "weight": 0.3
-        }
+        "products": dataProduct,
+        "services": "1,2"
     }
 
     const calculaFrete = async () => {
@@ -344,7 +346,6 @@ export default function Cart() {
             return response.json();
         }).then((data) => {
             setTransportData(data)
-            console.log(data)
         }).catch(err => console.log(err))
     };
 
@@ -371,8 +372,8 @@ export default function Cart() {
     useEffect(() => {
 
         const script = document.createElement("script");
-        script.src = "https://www.paypal.com/sdk/js?client-id=AZAsiBXlnYmk2HXDpGkZgYx7zWvFpak2iKq473EPHi9LrnM2lAbAHIzVaxns_-jmD34dYqpuTSaRFWy0&currency=BRL"
-        // script.src = "https://www.paypal.com/sdk/js?client-id=AaNvRUjTYfSm2ZVpE0BkFAnJgPtLVGMYJq0TG66Of1EDDGIjUJjjZb1NC8AP04mBntoEvbjvqhQNFeY4&currency=BRL"
+        // script.src = "https://www.paypal.com/sdk/js?client-id=AZAsiBXlnYmk2HXDpGkZgYx7zWvFpak2iKq473EPHi9LrnM2lAbAHIzVaxns_-jmD34dYqpuTSaRFWy0&currency=BRL"
+        script.src = "https://www.paypal.com/sdk/js?client-id=AaNvRUjTYfSm2ZVpE0BkFAnJgPtLVGMYJq0TG66Of1EDDGIjUJjjZb1NC8AP04mBntoEvbjvqhQNFeY4&currency=BRL" //produção
         script.addEventListener("load", () => setLoaded(true));
         document.body.appendChild(script);
 
@@ -401,7 +402,6 @@ export default function Cart() {
                             },
                             onApprove: async (data, actions) => {
 
-                                const order = await actions.order.capture();
                                 sendOrder();
                                 setPaidForm(true)
                                 window.scrollTo(0, 0);
@@ -428,8 +428,6 @@ export default function Cart() {
 
                     var data = snapshot.val()
                     var temp = Object.keys(data).map((key) => data[key])
-
-                    setDataUsers(temp)
 
                     temp.map((item) => {
 
@@ -488,8 +486,6 @@ export default function Cart() {
                 firebase.database().ref('requests/' + id).set(dataToSend)
                     .then(() => {
                         setPurchasedProductData(dataToSend)
-                        console.log(dataToSend)
-
                     })
 
                 firebase.database().ref('reportsSales/' + id).set(dataToSend)
@@ -528,7 +524,6 @@ export default function Cart() {
                 firebase.database().ref('requests/' + id).set(dataToSend)
                     .then(() => {
                         setPurchasedProductData(dataToSend)
-                        console.log(dataToSend)
                     })
 
                 firebase.database().ref('reportsSales/' + id).set(dataToSend)
@@ -567,7 +562,7 @@ export default function Cart() {
 
                     <div className='cartPopupContent'>
 
-                        <h3>Ao finalizar o pedido, realize um Pix para a chave: <br /></h3>
+                        <h3>Ao finalizar o pedido, realize um Pix para a chave indicada<br /></h3>
                         <h4>Após isso, envie seu comprovante através da seção "meus produtos" em seu perfil.</h4>
 
                         <button onClick={() => closePopup()}>Confirmar</button>
@@ -580,7 +575,7 @@ export default function Cart() {
 
                 <div id="cart">
 
-                    {data.length != 0 ? (
+                    {data.length !== 0 ? (
 
                         <section id="purchaseInfo">
 
@@ -698,19 +693,35 @@ export default function Cart() {
 
                                     <h2>Finalização do pedido</h2>
 
-                                    <select className="pickupSelect" onChange={handlePickupSelect} >
+                                    {data.length > 1 ? (
 
-                                        <option disabled selected value=''>Selecione como deseja receber sua encomenda</option>
-                                        <option value='Entrega a domicílio'>Entrega a domicílio (Para toda São Luís - MA)</option>
-                                        <option value="Frete por transportadora" >Entrega por transportadora</option>
-                                        <option value="Impresso módico ou Carta registrada" >Impresso módico ou Carta registrada</option>
-                                        <option value="Retirada física" >Retirada física: Travessa da Lapa - 162 - Centro/Desterro</option>
 
-                                    </select>
+                                        <select className="pickupSelect" onChange={handlePickupSelect} >
+
+                                            <option disabled selected value=''>Selecione como deseja receber sua encomenda</option>
+                                            <option value='Entrega a domicílio'>Entrega a domicílio (Para toda São Luís - MA)</option>
+                                            <option value="Impresso módico ou Carta registrada" >Impresso módico ou Carta registrada</option>
+                                            <option value="Retirada física" >Retirada física: Travessa da Lapa - 162 - Centro/Desterro</option>
+
+                                        </select>
+
+                                    ) : (
+
+                                        <select className="pickupSelect" onChange={handlePickupSelect} >
+
+                                            <option disabled selected value=''>Selecione como deseja receber sua encomenda</option>
+                                            <option value='Entrega a domicílio'>Entrega a domicílio (Para toda São Luís - MA)</option>
+                                            <option value="Frete por transportadora" >Entrega por transportadora</option>
+                                            <option value="Impresso módico ou Carta registrada" >Impresso módico ou Carta registrada</option>
+                                            <option value="Retirada física" >Retirada física: Travessa da Lapa - 162 - Centro/Desterro</option>
+
+                                        </select>
+
+                                    )}
 
                                     <span>
                                         <strong>Observação: </strong>
-                                        As entregas por carta registrada e registro módico são formas de envio mais baratas, porém, o envio não é atualizado a todo momento (apenas quando é postado, chegou na sua cidade, saiu para entrega). O envio é feito pelos Correios com um valor fixo de R$ 15,00 para as regiões <strong>Norte e Nordeste</strong>, e R$ 20,00 para as regiões <strong>Sul, Sudeste e Centro-Oeste</strong>.
+                                        As entregas por transportadora são limitadas a um produto. As entregas por carta registrada e registro módico são formas de envio mais baratas e permitem o envio de mais de um produto, porém, o envio não é atualizado a todo momento (apenas quando é postado, chegou na sua cidade, saiu para entrega). O envio é feito pelos Correios com um valor fixo de R$ 15,00 para as regiões <strong>Norte e Nordeste</strong>, e R$ 20,00 para as regiões <strong>Sul, Sudeste e Centro-Oeste</strong>.
                                     </span>
 
                                     <label style={{ display: displayCepSearch }} for="cepNumber">Insira o CEP abaixo</label>
@@ -722,7 +733,7 @@ export default function Cart() {
 
                                         {transportData.map((item, index) => {
 
-                                            if (item.id === 1 || item.id === 2 || item.id === 3) {
+                                            if (item.id === 1 || item.id === 2) {
 
                                                 if (!item.error) {
 
@@ -790,7 +801,7 @@ export default function Cart() {
 
                                             <input name='receiverCity' onChange={handleInputInfosChange} placeholder='Cidade' value={newDataReceiver.receiverCity} />
 
-                                            {pickupSelect == 'Frete por transportadora' ? (
+                                            {pickupSelect === 'Frete por transportadora' ? (
 
                                                 <InputMask
                                                     id="receiverCpf"
@@ -945,7 +956,7 @@ export default function Cart() {
 
                             </div>
 
-                            {purchasedProductData.pickupOption == 'Frete por transportadora' ? (
+                            {purchasedProductData.pickupOption === 'Frete por transportadora' ? (
 
                                 <>
 
@@ -974,7 +985,7 @@ export default function Cart() {
 
                             ) : ('')}
 
-                            {purchasedProductData.pickupOption == 'Impresso módico ou Carta registrada' ? (
+                            {purchasedProductData.pickupOption === 'Impresso módico ou Carta registrada' ? (
 
                                 <div className="rowDataInfos">
 
@@ -985,32 +996,50 @@ export default function Cart() {
 
                             ) : ('')}
 
-                            {purchasedProductData.payment == 'Pix' ? (
+                            {purchasedProductData.payment === 'Pix' ? (
 
-                                <div id="pixProofDiv" className="rowDataInfos">
+                                <>
 
-                                    <h4>Forma de pagamento:</h4>
-                                    <span> {purchasedProductData.payment} - envie seu comprovante na página dos <Link target="_blank" to="/meusPedidos">seus pedidos</Link></span>
+                                    <div id="pixProofDiv">
 
-                                </div>
+                                        <h3>Forma de pagamento - {purchasedProductData.payment}</h3>
+                                        <h4>Chave PIX:</h4>
+                                        <span><strong>cactussketchbooks@outlook.com</strong> - Para Bruno Luis Matos Correia (Bradesco)</span>
+                                        <span>envie seu comprovante na página dos <Link target="_blank" to="/meusPedidos">seus pedidos</Link></span>
+
+                                        <div className="rowDataInfos">
+
+                                            <h4>Total: </h4>
+                                            <span>R$ {purchasedProductData.totalValue}</span>
+
+                                        </div>
+
+                                    </div>
+
+                                </>
 
                             ) : (
 
-                                <div className="rowDataInfos">
+                                <>
 
-                                    <h4>Forma de pagamento: </h4>
-                                    <span>{purchasedProductData.payment}</span>
+                                    <div className="rowDataInfos">
 
-                                </div>
+                                        <h4>Forma de pagamento: </h4>
+                                        <span>{purchasedProductData.payment}</span>
+
+                                    </div>
+
+
+                                    <div className="rowDataInfos">
+
+                                        <h4>Total: </h4>
+                                        <span>R$ {purchasedProductData.totalValue}</span>
+
+                                    </div>
+
+                                </>
 
                             )}
-
-                            <div className="rowDataInfos">
-
-                                <h4>Total: </h4>
-                                <span>R$ {purchasedProductData.totalValue}</span>
-
-                            </div>
 
                         </div>
 

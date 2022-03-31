@@ -115,8 +115,6 @@ export default function CreateColor() {
 
             ])
 
-            console.log(selectedModels)
-
         } else {
 
             let index = selectedModels.findIndex((element) => element === event.target.value)
@@ -124,7 +122,6 @@ export default function CreateColor() {
             if (index !== -1) {
 
                 selectedModels.splice(index, 1)
-                console.log(selectedModels)
 
             }
 
@@ -144,8 +141,6 @@ export default function CreateColor() {
 
             ])
 
-            console.log(selectedCategories)
-
         } else {
 
             let index = selectedCategories.findIndex((element) => element === event.target.value)
@@ -153,7 +148,6 @@ export default function CreateColor() {
             if (index !== -1) {
 
                 selectedCategories.splice(index, 1)
-                console.log(selectedCategories)
 
             }
 

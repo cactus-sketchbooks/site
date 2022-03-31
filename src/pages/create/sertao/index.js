@@ -8,6 +8,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import logo from '../../../images/sertao.png';
+import SertaoTipo1 from '../../../images/capas/CAPA MODELO JOURNAL UMA COR (A5-A6).png';
+import SertaoTipo2 from '../../../images/capas/CAPA MODELO JOURNAL UMA COR (14X14 - 10X10).png';
 
 import Header from '../../../components/header/index.js';
 import Footer from '../../../components/footer/index.js';
@@ -20,10 +22,11 @@ export default function Sertao() {
 
     const [dataColors, setDataColors] = useState([]);
     const [formatTypes, setformatTypes] = useState([]);
+    const [formatSize, setFormatSize] = useState({});
+    const [formatId, setFormatId] = useState('');
     const [userIsLogged, setUserIsLogged] = useState(false);
     const [selectedColors, setSelectedColors] = useState([])
     const [isValidated, setIsValidated] = useState(false)
-    const [checkStatus, setCheckStatus] = useState(false)
     const [checkedBoxes, setCheckedBoxes] = useState(0)
     const [selectedPaperWidth, setSelectedPaperWidth] = useState('')
     const [selectedLineColor, setSelectedLineColor] = useState('')
@@ -47,14 +50,45 @@ export default function Sertao() {
         formats: [{
 
             name: "A5",
+            id: 26,
+            size: {
+                width: 14,
+                length: 20,
+                height: 1,
+                weight: 0.5
+            },
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 22
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 22
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 22
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 22
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 22
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 22
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 22
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 22
                 },
                 {
@@ -76,14 +110,46 @@ export default function Sertao() {
         {
 
             name: "A6",
+            id: 27,
+            size: {
+                // width: 9.5,
+                width: 10,
+                length: 14,
+                height: 1,
+                weight: 0.5
+            },
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 12
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 12
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 12
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 12
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 12
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 12
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 12
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 12
                 },
                 {
@@ -105,14 +171,45 @@ export default function Sertao() {
         {
 
             name: "10X10",
+            id: 28,
+            size: {
+                width: 10,
+                length: 10,
+                height: 1,
+                weight: 0.5
+            },
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 10
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 10
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 10
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 10
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 10
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 10
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 10
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 10
                 },
                 {
@@ -134,14 +231,45 @@ export default function Sertao() {
         {
 
             name: "14X14",
+            id: 29,
+            size: {
+                width: 14,
+                length: 14,
+                height: 1,
+                weight: 0.5
+            },
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 20
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 20
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 20
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 20
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 20
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 20
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 20
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 20
                 },
                 {
@@ -171,13 +299,14 @@ export default function Sertao() {
 
         setSelectedPaperWidth(values.formats[position].name)
         setformatTypes(values.formats[position].types)
+        setFormatSize(values.formats[position].size)
+        setFormatId(values.formats[position].id)
 
     }
 
     function handleSelectedType(event) {
 
         let position = (event.target.value)
-        console.log(formatTypes[position])
         setSketchbookInfos(formatTypes[position])
 
     }
@@ -240,12 +369,14 @@ export default function Sertao() {
         const dataToSend = {
 
             model: 'Sertão',
+            id: formatId,
             paperWidth: selectedPaperWidth,
             paper: sketchbookInfos.name,
             value: sketchbookInfos.value,
             lineColor: selectedLineColor,
             coverColors: selectedColors,
             clientNote: clientNote,
+            size: formatSize
 
         }
 
@@ -270,7 +401,6 @@ export default function Sertao() {
     const checkColor = (item, event) => {
 
         const isChecked = event.target.checked
-        setCheckStatus(event.target.value)
 
         if (isChecked) {
 
@@ -301,7 +431,7 @@ export default function Sertao() {
 
     useEffect(() => {
 
-        if (formatTypes == '' || sketchbookInfos == '' || selectedLineColor == '' || (checkedBoxes > 1 || checkedBoxes == 0)) {
+        if (formatTypes === '' || sketchbookInfos === '' || selectedLineColor === '' || (checkedBoxes > 1 || checkedBoxes === 0)) {
 
             setIsValidated(false)
 
@@ -349,13 +479,21 @@ export default function Sertao() {
 
                 <div className="modalContent">
 
+                    <span onClick={closeModal}>x</span>
+
                     <div className="sketchbookImgWrapper">
 
-                        <img src={logo} alt="" />
+                        <h3>Modelo de capa (A5-A6)</h3>
+                        <img src={SertaoTipo1} alt="" />
 
                     </div>
 
-                    <span onClick={closeModal}>x</span>
+                    <div className="sketchbookImgWrapper">
+
+                        <h3>Modelo de capa (14X14 - 10X10)</h3>
+                        <img id="sertao" src={SertaoTipo2} alt="" />
+
+                    </div>
 
                 </div>
 

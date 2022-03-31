@@ -24,8 +24,6 @@ export default function ClientList() {
 
     })
 
-    const [displayModal, setDisplayModal] = useState("none");
-
     useEffect(() => {
 
         if (!firebase.apps.length)

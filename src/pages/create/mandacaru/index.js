@@ -8,6 +8,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import logo from '../../../images/mandacaru.png';
+import Mandacaru2Cores from '../../../images/capas/CAPA MODELO MANDACARU DUAS CORES.png';
+import Mandacaru1Cor from '../../../images/capas/CAPA MODELO MANDACARU UMA COR.png';
 
 import Header from '../../../components/header/index.js';
 import Footer from '../../../components/footer/index.js';
@@ -20,10 +22,11 @@ export default function Mandacaru() {
 
     const [dataColors, setDataColors] = useState([]);
     const [formatTypes, setformatTypes] = useState([]);
+    const [formatSize, setFormatSize] = useState({});
+    const [formatId, setFormatId] = useState('');
     const [userIsLogged, setUserIsLogged] = useState(false);
     const [selectedColors, setSelectedColors] = useState([])
     const [isValidated, setIsValidated] = useState(false)
-    const [checkStatus, setCheckStatus] = useState(false)
     const [checkedBoxes, setCheckedBoxes] = useState(0)
     const [selectedPaperWidth, setSelectedPaperWidth] = useState('')
     const [selectedLineColor, setSelectedLineColor] = useState('')
@@ -48,10 +51,31 @@ export default function Mandacaru() {
         formats: [{
 
             name: "A3",
+            id: 21,
+            size: {
+                // width: 29.7,
+                width: 30,
+                length: 42,
+                // height: 2.5,
+                height: 3,
+                weight: 0.5
+            },
             types: [
 
                 {
                     name: "Papel Reciclado Liso",
+                    value: 152
+                },
+                {
+                    name: "Papel Reciclado Pontilhado",
+                    value: 152
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 152
+                },
+                {
+                    name: "Papel Reciclado Pautado",
                     value: 152
                 },
                 {
@@ -76,10 +100,30 @@ export default function Mandacaru() {
         {
 
             name: "A4",
+            id: 22,
+            size: {
+                width: 21,
+                length: 29,
+                // height: 2.5,
+                height: 3,
+                weight: 0.5
+            },
             types: [
 
                 {
                     name: "Papel Reciclado Liso",
+                    value: 60
+                },
+                {
+                    name: "Papel Reciclado Pontilhado",
+                    value: 60
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 60
+                },
+                {
+                    name: "Papel Reciclado Pautado",
                     value: 60
                 },
                 {
@@ -109,14 +153,46 @@ export default function Mandacaru() {
         {
 
             name: "A5",
+            id: 23,
+            size: {
+                width: 15,
+                length: 21,
+                // height: 2.5,
+                height: 3,
+                weight: 0.5
+            },
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 38
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 38
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 38
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 38
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 38
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 38
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 38
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 38
                 },
                 {
@@ -146,14 +222,47 @@ export default function Mandacaru() {
         {
 
             name: "A6",
+            id: 24,
+            size: {
+                width: 11,
+                // width: 10.5,
+                length: 15,
+                // height: 2.5,
+                height: 3,
+                weight: 0.5
+            },
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 28
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 28
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 28
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 28
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 28
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 28
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 28
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 28
                 },
                 {
@@ -183,6 +292,16 @@ export default function Mandacaru() {
         {
 
             name: "A7",
+            id: 25,
+            size: {
+                // width: 7.5,
+                width: 8,
+                length: 11,
+                // length: 10.5,
+                height: 3,
+                // height: 2.5,
+                weight: 0.5
+            },
             types: [
 
                 {
@@ -228,13 +347,14 @@ export default function Mandacaru() {
 
         setSelectedPaperWidth(values.formats[position].name)
         setformatTypes(values.formats[position].types)
+        setFormatSize(values.formats[position].size)
+        setFormatId(values.formats[position].id)
 
     }
 
     function handleSelectedType(event) {
 
         let position = (event.target.value)
-        console.log(formatTypes[position])
         setSketchbookInfos(formatTypes[position])
 
     }
@@ -297,6 +417,7 @@ export default function Mandacaru() {
         const dataToSend = {
 
             model: 'Mandacaru',
+            id: formatId,
             paperWidth: selectedPaperWidth,
             paper: sketchbookInfos.name,
             value: sketchbookInfos.value,
@@ -304,6 +425,7 @@ export default function Mandacaru() {
             elasticColor: selectedElasticColor,
             coverColors: selectedColors,
             clientNote: clientNote,
+            size: formatSize
 
         }
 
@@ -328,7 +450,6 @@ export default function Mandacaru() {
     const checkColor = (item, event) => {
 
         const isChecked = event.target.checked
-        setCheckStatus(event.target.value)
 
         if (isChecked) {
 
@@ -359,7 +480,7 @@ export default function Mandacaru() {
 
     useEffect(() => {
 
-        if (formatTypes == '' || sketchbookInfos == '' || selectedLineColor == '' || selectedElasticColor == '' || (checkedBoxes > 2 || checkedBoxes == 0)) {
+        if (formatTypes === '' || sketchbookInfos === '' || selectedLineColor === '' || selectedElasticColor === '' || (checkedBoxes > 2 || checkedBoxes === 0)) {
 
             setIsValidated(false)
 
@@ -413,13 +534,21 @@ export default function Mandacaru() {
 
                 <div className="modalContent">
 
-                    <div className="sketchbookImgWrapper">
+                    <span onClick={closeModal}>x</span>
 
-                        <img src={logo} alt="" />
+                    <div className="sketchbookImgWrapper">
+                        
+                        <h3>Modelo de capa com uma cor</h3>
+                        <img src={Mandacaru1Cor} alt="" />
 
                     </div>
 
-                    <span onClick={closeModal}>x</span>
+                    <div className="sketchbookImgWrapper">
+                        
+                        <h3>Modelo de capa com duas cores</h3>
+                        <img src={Mandacaru2Cores} alt="" />
+
+                    </div>
 
                 </div>
 

@@ -3,8 +3,6 @@ import './style.scss';
 import Header from '../../components/header/index.js'
 import Footer from '../../components/footer/index.js'
 
-//import cacto1 from '../../images/cactopng2.png'
-//import product from '../../images/wrapped-sketchbook.png'
 import cactos from '../../images/cactosoverlay.png'
 import img1 from '../../images/1.png'
 import img2 from '../../images/2.png'
