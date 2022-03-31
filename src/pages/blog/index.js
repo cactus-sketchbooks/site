@@ -19,7 +19,7 @@ export default function Clients() {
 
     }, []);
 
-    const [dataBlog, setDataBlog] = useState([{}])
+    const [dataBlog, setDataBlog] = useState([])
 
     useEffect(() => {
 
@@ -69,61 +69,62 @@ export default function Clients() {
 
                 </div>
 
-                <div className="cardsWrapper">
+                {dataBlog ? (
 
-                    {dataBlog.map((item) => (
+                    <div className="cardsWrapper">
 
-                        <Link key={item.id} to={`/post/${item.id}`} className="blogCard">
+                        {dataBlog.map((item) => (
 
-                            <div className="blogImgWrapper">
+                            <Link key={item.id} to={`/post/${item.id}`} className="blogCard">
 
-                                <div className="authorPictureWrapper">
+                                <div className="blogImgWrapper">
 
-                                    <img src={item.authorPicture} alt="" />
+                                    <div className="authorPictureWrapper">
+
+                                        <img src={item.authorPicture} alt="" />
+
+                                    </div>
+
+                                    <img src={item.imageUrl} alt="" />
+
+                                </div>
+
+                                <div className="blogTextWrapper">
+
+                                    <div className="hashtagWrapper">
+
+                                        {item.hashtags ? (
+
+                                            <>
+
+                                                {item.hashtags.map((hashtag) => {
+
+                                                    return (
+
+                                                        <span>{hashtag}</span>
+
+                                                    )
+
+                                                })}
+
+                                            </>
+
+                                        ) : ('')}
+
+                                    </div>
+
+                                    <h3>{item.title}</h3>
+                                    <span id="postDate">Publicado em {item.date}</span>
 
                                 </div>
 
-                                <img src={item.imageUrl} alt="" />
+                            </Link>
 
-                            </div>
+                        ))}
 
-                            <div className="blogTextWrapper">
+                    </div>
 
-                                <div className="hashtagWrapper">
-
-                                    {item.hashtags ? (
-
-                                        <>
-
-                                            {item.hashtags.map((hashtag) => {
-
-                                                return (
-
-                                                    <span>{hashtag}</span>
-
-                                                )
-
-                                            })}
-
-                                        </>
-
-                                    ) : ('')}
-
-
-                                </div>
-                                {/* 
-                                <h3>CSS: Mecanismo de programação que deu cores e formas para a Web</h3>
-                                <span id="postDate">Publicado em {item.date}</span> */}
-                                <h3>{item.title}</h3>
-                                <span id="postDate">Publicado em {item.date}</span>
-
-                            </div>
-
-                        </Link>
-
-                    ))}
-
-                </div>
+                ) : null}
 
             </main>
 

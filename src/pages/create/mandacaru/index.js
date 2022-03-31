@@ -67,6 +67,18 @@ export default function Mandacaru() {
                     value: 152
                 },
                 {
+                    name: "Papel Reciclado Pontilhado",
+                    value: 152
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 152
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 152
+                },
+                {
                     name: "Papel Kraft",
                     value: 150
                 },
@@ -100,6 +112,18 @@ export default function Mandacaru() {
 
                 {
                     name: "Papel Reciclado Liso",
+                    value: 60
+                },
+                {
+                    name: "Papel Reciclado Pontilhado",
+                    value: 60
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 60
+                },
+                {
+                    name: "Papel Reciclado Pautado",
                     value: 60
                 },
                 {
@@ -140,11 +164,35 @@ export default function Mandacaru() {
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 38
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 38
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 38
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 38
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 38
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 38
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 38
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 38
                 },
                 {
@@ -186,11 +234,35 @@ export default function Mandacaru() {
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 28
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 28
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 28
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 28
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 28
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 28
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 28
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 28
                 },
                 {

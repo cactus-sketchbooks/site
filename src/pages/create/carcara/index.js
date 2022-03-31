@@ -66,6 +66,18 @@ export default function Carcara() {
                     value: 157
                 },
                 {
+                    name: "Papel Reciclado Pontilhado",
+                    value: 157
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 157
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 157
+                },
+                {
                     name: "Papel Kraft",
                     value: 155
                 },
@@ -99,6 +111,18 @@ export default function Carcara() {
 
                 {
                     name: "Papel Reciclado Liso",
+                    value: 65
+                },
+                {
+                    name: "Papel Reciclado Pontilhado",
+                    value: 65
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 65
+                },
+                {
+                    name: "Papel Reciclado Pautado",
                     value: 65
                 },
                 {
@@ -139,11 +163,35 @@ export default function Carcara() {
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 42
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 42
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 42
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 42
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 42
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 42
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 42
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 42
                 },
                 {
@@ -185,11 +233,35 @@ export default function Carcara() {
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 32
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 32
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 32
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 32
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 32
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 32
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 32
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 32
                 },
                 {
@@ -236,7 +308,7 @@ export default function Carcara() {
                     value: 30
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Pólen Liso",
                     value: 30
                 },
                 {
@@ -281,6 +353,18 @@ export default function Carcara() {
                     value: 65
                 },
                 {
+                    name: "Papel Reciclado Pontilhado",
+                    value: 65
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 65
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 65
+                },
+                {
                     name: "Papel Kraft",
                     value: 75
                 },
@@ -318,11 +402,35 @@ export default function Carcara() {
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 42
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 42
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 42
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 42
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 42
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 42
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 42
+                },
+                {
+                    name: "Papel Pólen Pontado",
                     value: 42
                 },
                 {
@@ -363,11 +471,35 @@ export default function Carcara() {
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 30
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 30
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 30
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 30
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 30
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 30
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 30
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 30
                 },
                 {

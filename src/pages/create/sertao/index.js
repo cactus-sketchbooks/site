@@ -60,11 +60,35 @@ export default function Sertao() {
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 22
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 22
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 22
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 22
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 22
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 22
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 22
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 22
                 },
                 {
@@ -97,11 +121,35 @@ export default function Sertao() {
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 12
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 12
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 12
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 12
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 12
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 12
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 12
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 12
                 },
                 {
@@ -133,11 +181,35 @@ export default function Sertao() {
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 10
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 10
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 10
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 10
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 10
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 10
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 10
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 10
                 },
                 {
@@ -169,11 +241,35 @@ export default function Sertao() {
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 20
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 20
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 20
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 20
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 20
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 20
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 20
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 20
                 },
                 {

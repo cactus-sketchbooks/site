@@ -184,7 +184,7 @@ export default function Cart() {
 
             setDataProduct(aux)
 
-        } 
+        }
 
     }, [])
 
@@ -693,19 +693,35 @@ export default function Cart() {
 
                                     <h2>Finalização do pedido</h2>
 
-                                    <select className="pickupSelect" onChange={handlePickupSelect} >
+                                    {data.length > 1 ? (
 
-                                        <option disabled selected value=''>Selecione como deseja receber sua encomenda</option>
-                                        <option value='Entrega a domicílio'>Entrega a domicílio (Para toda São Luís - MA)</option>
-                                        <option value="Frete por transportadora" >Entrega por transportadora</option>
-                                        <option value="Impresso módico ou Carta registrada" >Impresso módico ou Carta registrada</option>
-                                        <option value="Retirada física" >Retirada física: Travessa da Lapa - 162 - Centro/Desterro</option>
 
-                                    </select>
+                                        <select className="pickupSelect" onChange={handlePickupSelect} >
+
+                                            <option disabled selected value=''>Selecione como deseja receber sua encomenda</option>
+                                            <option value='Entrega a domicílio'>Entrega a domicílio (Para toda São Luís - MA)</option>
+                                            <option value="Impresso módico ou Carta registrada" >Impresso módico ou Carta registrada</option>
+                                            <option value="Retirada física" >Retirada física: Travessa da Lapa - 162 - Centro/Desterro</option>
+
+                                        </select>
+
+                                    ) : (
+
+                                        <select className="pickupSelect" onChange={handlePickupSelect} >
+
+                                            <option disabled selected value=''>Selecione como deseja receber sua encomenda</option>
+                                            <option value='Entrega a domicílio'>Entrega a domicílio (Para toda São Luís - MA)</option>
+                                            <option value="Frete por transportadora" >Entrega por transportadora</option>
+                                            <option value="Impresso módico ou Carta registrada" >Impresso módico ou Carta registrada</option>
+                                            <option value="Retirada física" >Retirada física: Travessa da Lapa - 162 - Centro/Desterro</option>
+
+                                        </select>
+
+                                    )}
 
                                     <span>
                                         <strong>Observação: </strong>
-                                        As entregas por carta registrada e registro módico são formas de envio mais baratas, porém, o envio não é atualizado a todo momento (apenas quando é postado, chegou na sua cidade, saiu para entrega). O envio é feito pelos Correios com um valor fixo de R$ 15,00 para as regiões <strong>Norte e Nordeste</strong>, e R$ 20,00 para as regiões <strong>Sul, Sudeste e Centro-Oeste</strong>.
+                                        As entregas por transportadora são limitadas a um produto. As entregas por carta registrada e registro módico são formas de envio mais baratas e permitem o envio de mais de um produto, porém, o envio não é atualizado a todo momento (apenas quando é postado, chegou na sua cidade, saiu para entrega). O envio é feito pelos Correios com um valor fixo de R$ 15,00 para as regiões <strong>Norte e Nordeste</strong>, e R$ 20,00 para as regiões <strong>Sul, Sudeste e Centro-Oeste</strong>.
                                     </span>
 
                                     <label style={{ display: displayCepSearch }} for="cepNumber">Insira o CEP abaixo</label>

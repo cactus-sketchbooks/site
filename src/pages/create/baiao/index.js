@@ -66,6 +66,18 @@ export default function Baiao() {
                     value: 60
                 },
                 {
+                    name: "Papel Reciclado Pontilhado",
+                    value: 60
+                },
+                {
+                    name: "Papel Reciclado Quadrado",
+                    value: 60
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 60
+                },
+                {
                     name: "Papel Kraft",
                     value: 70
                 },
@@ -103,11 +115,35 @@ export default function Baiao() {
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 38
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 38
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 38
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 38
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 38
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 38
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 38
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 38
                 },
                 {
@@ -148,11 +184,35 @@ export default function Baiao() {
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 25
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 25
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 25
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 25
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 25
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 25
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 25
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 25
                 },
                 {

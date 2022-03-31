@@ -68,6 +68,18 @@ export default function Facheiro() {
                     value: 154
                 },
                 {
+                    name: "Papel Reciclado Pontilhado",
+                    value: 154
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 154
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 154
+                },
+                {
                     name: "Papel Kraft",
                     value: 152
                 },
@@ -105,11 +117,35 @@ export default function Facheiro() {
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 62
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 62
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 62
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 62
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 62
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 62
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 62
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 62
                 },
                 {
@@ -150,11 +186,35 @@ export default function Facheiro() {
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 40
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 40
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 40
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 40
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 40
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 40
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 40
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 40
                 },
                 {
@@ -195,11 +255,35 @@ export default function Facheiro() {
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 30
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 30
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 30
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 30
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 30
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 30
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 30
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 30
                 },
                 {
@@ -240,11 +324,35 @@ export default function Facheiro() {
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 62
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 62
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 62
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 62
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 62
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 62
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 62
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 62
                 },
                 {
@@ -285,11 +393,35 @@ export default function Facheiro() {
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 40
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 40
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 40
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 40
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 40
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 40
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 40
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 40
                 },
                 {
@@ -330,11 +462,35 @@ export default function Facheiro() {
             types: [
 
                 {
-                    name: "Papel Reciclado",
+                    name: "Papel Reciclado Liso",
                     value: 25
                 },
                 {
-                    name: "Papel Pólen",
+                    name: "Papel Reciclado Pontilhado",
+                    value: 25
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 25
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 25
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 25
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 25
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 25
+                },
+                {
+                    name: "Papel Pólen Pautado",
                     value: 25
                 },
                 {
