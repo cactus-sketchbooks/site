@@ -34,13 +34,14 @@ export default function Baiao() {
     const [clientNote, setClientNote] = useState('');
     const [sketchbookInfos, setSketchbookInfos] = useState('');
     const [displayModal, setDisplayModal] = useState('none');
+    const [maxSlides, setMaxSlides] = useState(5);
 
     const settings = {
 
         className: "start",
         infinite: true,
         centerPadding: "60px",
-        slidesToShow: 5,
+        slidesToShow: maxSlides,
         swipeToSlide: true,
 
     }
@@ -243,6 +244,20 @@ export default function Baiao() {
         ]
 
     }
+
+    useEffect(() => {
+
+        if(window.innerWidth < 820) {
+
+            setMaxSlides(3)
+
+        } else {
+
+            setMaxSlides(5)
+            
+        }
+        
+    }, [])
 
     function handleSelectedSketchbook(event) {
 
