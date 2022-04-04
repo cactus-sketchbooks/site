@@ -278,7 +278,7 @@ export default function SignUp() {
                             </div>
 
                             <input id='address' name='address' onChange={handleInputRegisterChange} placeholder='Endereço' />
-                            <input id='houseNumber' name='houseNumber' onChange={handleInputRegisterChange} placeholder='Número' />
+                            <input id='houseNumber' name='houseNumber' type='number' onChange={handleInputRegisterChange} placeholder='Número' />
                             <input id='district' name='district' onChange={handleInputRegisterChange} placeholder='Bairro' />
                             <input id='complement' name='complement' onChange={handleInputRegisterChange} placeholder='Complemento' />
 

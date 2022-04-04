@@ -12,6 +12,7 @@ export default function UserRequests() {
 
     const [requestData, setRequestData] = useState([]);
     const [paymentFile, setPaymentFile] = useState('');
+    const [textPayment, setTextPayment] = useState('Selecione o arquivo e aguarde o botão para envio do comprovante');
 
     useEffect(() => {
 
@@ -51,26 +52,26 @@ export default function UserRequests() {
 
             const newRequestData = {
 
-                address: requestData[index].address,
-                adminNote: requestData[index].adminNote,
-                cep: requestData[index].cep,
-                cepNumber: requestData[index].cepNumber,
-                city: requestData[index].city,
+                address: requestData[index].address ? requestData[index].address : '',
+                adminNote: requestData[index].adminNote ? requestData[index].adminNote : '',
+                cep: requestData[index].cep ? requestData[index].cep : '',
+                cepNumber: requestData[index].cepNumber ? requestData[index].cepNumber : '',
+                city: requestData[index].city ? requestData[index].city : '',
                 clientNote: requestData[index].clientNote ? requestData[index].clientNote : '',
-                complement: requestData[index].complement,
-                cpf: requestData[index].cpf,
+                complement: requestData[index].complement ? requestData[index].complement : '',
+                cpf: requestData[index].cpf ? requestData[index].cpf : '',
                 date: requestData[index].date,
                 dateToCompare: requestData[index].dateToCompare,
-                district: requestData[index].district,
-                houseNumber: requestData[index].houseNumber,
+                district: requestData[index].district ? requestData[index].district : '',
+                houseNumber: requestData[index].houseNumber ? requestData[index].houseNumber : '',
                 id: requestData[index].id,
                 payment: requestData[index].payment,
                 paymentProof: paymentFile,
-                phoneNumber: requestData[index].phoneNumber,
-                pickupOption: requestData[index].pickupOption,
+                phoneNumber: requestData[index].phoneNumber ? requestData[index].phoneNumber : '',
+                pickupOption: requestData[index].pickupOption ? requestData[index].pickupOption : '',
                 products: requestData[index].products,
-                requestStatus: requestData[index].requestStatus,
-                selectedTransport: requestData[index].selectedTransport,
+                requestStatus: requestData[index].requestStatus ? requestData[index].requestStatus : '',
+                selectedTransport: requestData[index].selectedTransport ? requestData[index].selectedTransport : '',
                 totalValue: requestData[index].totalValue,
                 userEmail: requestData[index].userEmail,
                 userName: requestData[index].userName,
@@ -87,6 +88,7 @@ export default function UserRequests() {
                 .then(() => alert("Comprovante enviado com sucesso!"))
 
             setPaymentFile('')
+            setTextPayment('Comprovante enviado com sucesso!')
 
         } else {
 
@@ -108,6 +110,23 @@ export default function UserRequests() {
                 snapshot.ref.getDownloadURL()
                     .then(url => setPaymentFile(url))
             });
+
+    }
+
+    function removeRequest(item) {
+
+        var confirm = window.confirm('Tem certeza que deseja remover esse pedido da lista? Ele não poderá ser redcuperado após isso')
+
+        if (confirm) {
+
+            firebase.database()
+            .ref('reportsSales/' + item.id)
+            .remove()
+            .then(() => alert("Pedido finalizado com sucesso!"))
+
+            window.location.reload()
+
+        }
 
     }
 
@@ -215,7 +234,15 @@ export default function UserRequests() {
                                                     id="pixProof"
                                                 />
 
-                                                <button onClick={() => { sendPaymentProof(index) }}>Enviar comprovante</button>
+                                                {paymentFile ? (
+
+                                                    <button onClick={() => { sendPaymentProof(index) }}>Enviar comprovante</button>
+
+                                                ) : (
+
+                                                    <p>{textPayment}</p>
+
+                                                )}
 
                                             </div>
 
@@ -321,6 +348,12 @@ export default function UserRequests() {
                                         )
 
                                     })}
+
+                                </div>
+
+                                <div>
+
+                                    <button className="finishButton" onClick={() => removeRequest(item)} >Excluir pedido</button>
 
                                 </div>
 
