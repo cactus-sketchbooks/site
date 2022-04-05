@@ -339,7 +339,7 @@ export default function Cart() {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${process.env.REACT_APP_BEARER_KEY} `,
-                'User-Agent': 'Armazém teste higorb2000@gmail.com'
+                'User-Agent': 'Cactus Sketchbooks higorb2000@gmail.com'
             },
             body: JSON.stringify(dataToSend)
         }).then((response) => {
