@@ -339,7 +339,7 @@ export default function Cart() {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${process.env.REACT_APP_BEARER_KEY} `,
-                'User-Agent': 'Cactus Sketchbooks higorb2000@gmail.com'
+                'User-Agent': 'Cactus Sketchbooks cactussketchs@gmail.com'
             },
             body: JSON.stringify(dataToSend)
         }).then((response) => {
@@ -711,7 +711,7 @@ export default function Cart() {
 
                                             <option disabled selected value=''>Selecione como deseja receber sua encomenda</option>
                                             <option value='Entrega a domicílio'>Entrega a domicílio (Para toda São Luís - MA)</option>
-                                            {/* <option value="Frete por transportadora" >Entrega por transportadora</option> */}
+                                            <option value="Frete por transportadora" >Entrega por transportadora</option>
                                             <option value="Impresso módico ou Carta registrada" >Impresso módico ou Carta registrada</option>
                                             <option value="Retirada física" >Retirada física: Travessa da Lapa - 162 - Centro/Desterro</option>
 
