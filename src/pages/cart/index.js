@@ -711,7 +711,7 @@ export default function Cart() {
 
                                             <option disabled selected value=''>Selecione como deseja receber sua encomenda</option>
                                             <option value='Entrega a domicílio'>Entrega a domicílio (Para toda São Luís - MA)</option>
-                                            <option value="Frete por transportadora" >Entrega por transportadora</option>
+                                            {/* <option value="Frete por transportadora" >Entrega por transportadora</option> */}
                                             <option value="Impresso módico ou Carta registrada" >Impresso módico ou Carta registrada</option>
                                             <option value="Retirada física" >Retirada física: Travessa da Lapa - 162 - Centro/Desterro</option>
 
