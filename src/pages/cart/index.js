@@ -372,7 +372,7 @@ export default function Cart() {
     useEffect(() => {
 
         const script = document.createElement("script");
-        // script.src = "https://www.paypal.com/sdk/js?client-id=AZAsiBXlnYmk2HXDpGkZgYx7zWvFpak2iKq473EPHi9LrnM2lAbAHIzVaxns_-jmD34dYqpuTSaRFWy0&currency=BRL"
+        // script.src = "https://www.paypal.com/sdk/js?client-id=AcY1krkW88l9XG7uTtmf6gKQvfoim-bIVDDdh0WMLMOgAqcjMIat1njpXkxGGTKa_mXPkq-aAuyrV_vw&currency=BRL"
         script.src = "https://www.paypal.com/sdk/js?client-id=AaNvRUjTYfSm2ZVpE0BkFAnJgPtLVGMYJq0TG66Of1EDDGIjUJjjZb1NC8AP04mBntoEvbjvqhQNFeY4&currency=BRL" //produção
         script.addEventListener("load", () => setLoaded(true));
         document.body.appendChild(script);
@@ -386,12 +386,13 @@ export default function Cart() {
                     window.paypal
                         .Buttons({
 
-                            createOrder: (data, actions) => {
+                            createOrder: (data, actions, err) => {
 
                                 return actions.order.create({
+                                    intent: "CAPTURE",
                                     purchase_units: [
                                         {
-                                            // description: product.description,
+                                            description: "Sketchbook",
                                             amount: {
                                                 currency_code: "BRL",
                                                 value: finalValue.toFixed(2)
@@ -402,11 +403,17 @@ export default function Cart() {
                             },
                             onApprove: async (data, actions) => {
 
+                                const order = await actions.order.capture();
                                 sendOrder();
                                 setPaidForm(true)
                                 window.scrollTo(0, 0);
 
                             },
+                            onError: (err) => {
+                                if (err) {
+                                    window.alert("Ocorreu um erro com o seu pagamento. Tente novamente")
+                                }
+                            }
 
                         })
                         .render(paypalRef)
