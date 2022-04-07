@@ -387,10 +387,8 @@ export default function Cart() {
                     window.paypal
                         .Buttons({
 
-                            onClick: function() {
-                                if(window.innerWidth < 820) {
-                                    sendOrderMobilePaypal();
-                                }
+                            onClick: function () {
+                                sendOrderPaypal();
                             },
 
                             createOrder: (data, actions, err) => {
@@ -411,14 +409,16 @@ export default function Cart() {
                             onApprove: async (data, actions) => {
 
                                 const order = await actions.order.capture();
-                                sendOrder();
-                                setPaidForm(true)
-                                window.scrollTo(0, 0);
+                                // sendOrder();
+                                // setPaidForm(true)
+                                // window.scrollTo(0, 0);
+                                redirect.push("/meusPedidos")
 
                             },
                             onError: (err) => {
                                 if (err) {
                                     window.alert("Ocorreu um erro com o seu pagamento. Tente novamente")
+                                    console.log("Erro: " + err)
                                 }
                             }
 
@@ -505,7 +505,7 @@ export default function Cart() {
                 firebase.database().ref('reportsSales/' + id).set(dataToSend)
                     .then(() => {
                         localStorage.setItem('products', '{}')
-                            alert("Pedido finalizado com sucesso!")
+                        alert("Pedido finalizado com sucesso!")
                     })
 
                 setPaidForm(true)
@@ -566,11 +566,41 @@ export default function Cart() {
 
     }
 
-    function sendOrderMobilePaypal() {
+    function sendOrderPaypal() {
 
         if (userIsLogged) {
 
-            if (selectedPayment !== '' && pickupSelect !== 'Retirada física') {
+            if (pickupSelect === 'Retirada física') {
+
+                const id = firebase.database().ref().child('posts').push().key
+                const now = new Date()
+
+                const dataToSend = {
+
+                    id: id,
+                    products: data,
+                    pickupOption: pickupSelect,
+                    payment: selectedPayment,
+                    userEmail: dataAccount.email,
+                    userName: dataAccount.name,
+                    phoneNumber: dataAccount.phoneNumber,
+                    paymentProof: '',
+                    adminNote: '',
+                    requestStatus: '',
+                    dateToCompare: new Date().toDateString(),
+                    date: `${now.getUTCDate()}/${now.getMonth() + 1}/${now.getFullYear()}-${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`,
+                    timestamp: now.getTime(),
+                    totalValue: finalValue.toFixed(2),
+                    isPaypal: true,
+
+                }
+
+                firebase.database().ref('requests/' + id).set(dataToSend)
+
+                firebase.database().ref('reportsSales/' + id).set(dataToSend)
+                setTimeout(() => { localStorage.setItem('products', '{}') }, 5000);
+
+            } else {
 
                 const id = firebase.database().ref().child('posts').push().key
                 const now = new Date()
@@ -602,46 +632,14 @@ export default function Cart() {
                     date: `${now.getUTCDate()}/${now.getMonth() + 1}/${now.getFullYear()}-${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`,
                     timestamp: now.getTime(),
                     totalValue: finalValue.toFixed(2),
-                    isMobile: true,
+                    isPaypal: true,
 
                 }
 
                 firebase.database().ref('requests/' + id).set(dataToSend)
-              
 
                 firebase.database().ref('reportsSales/' + id).set(dataToSend)
-                        setTimeout(() => {localStorage.setItem('products', '{}')}, 5000);
-
-            } else {
-
-                const id = firebase.database().ref().child('posts').push().key
-                const now = new Date()
-
-                const dataToSend = {
-
-                    id: id,
-                    products: data,
-                    pickupOption: pickupSelect,
-                    payment: selectedPayment,
-                    userEmail: dataAccount.email,
-                    userName: dataAccount.name,
-                    phoneNumber: dataAccount.phoneNumber,
-                    paymentProof: '',
-                    adminNote: '',
-                    requestStatus: '',
-                    dateToCompare: new Date().toDateString(),
-                    date: `${now.getUTCDate()}/${now.getMonth() + 1}/${now.getFullYear()}-${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`,
-                    timestamp: now.getTime(),
-                    totalValue: finalValue.toFixed(2),
-                    isMobile: true,
-
-                }
-
-                firebase.database().ref('requests/' + id).set(dataToSend)
-               
-
-                firebase.database().ref('reportsSales/' + id).set(dataToSend)
-                    setTimeout(() => {localStorage.setItem('products', '{}')}, 5000);
+                setTimeout(() => { localStorage.setItem('products', '{}') }, 5000);
 
             }
 
@@ -970,7 +968,7 @@ export default function Cart() {
 
                                     </select>
 
-                                    <div className="paypalButtons" ref={v => (paypalRef = v)}  />
+                                    <div className="paypalButtons" ref={v => (paypalRef = v)} />
 
                                     <div className="checkoutOptions">
 
