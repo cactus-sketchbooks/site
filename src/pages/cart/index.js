@@ -268,6 +268,7 @@ export default function Cart() {
         } else {
 
             setDisplayPopup('none')
+            setDisplayFinishButton('none')
 
         }
 
@@ -386,6 +387,12 @@ export default function Cart() {
                     window.paypal
                         .Buttons({
 
+                            onClick: function() {
+                                if(window.innerWidth < 820) {
+                                    sendOrderMobilePaypal();
+                                }
+                            },
+
                             createOrder: (data, actions, err) => {
 
                                 return actions.order.create({
@@ -498,7 +505,7 @@ export default function Cart() {
                 firebase.database().ref('reportsSales/' + id).set(dataToSend)
                     .then(() => {
                         localStorage.setItem('products', '{}')
-                        alert("Pedido finalizado com sucesso!")
+                            alert("Pedido finalizado com sucesso!")
                     })
 
                 setPaidForm(true)
@@ -541,6 +548,100 @@ export default function Cart() {
 
                 setPaidForm(true)
                 window.scrollTo(0, 0);
+
+            }
+
+        }
+
+        else {
+
+            var confirm = window.confirm("Você precisa ter uma conta para finalizar um pedido!")
+
+            if (confirm)
+                redirect.push("/cadastro")
+
+        }
+
+        return 0;
+
+    }
+
+    function sendOrderMobilePaypal() {
+
+        if (userIsLogged) {
+
+            if (selectedPayment !== '' && pickupSelect !== 'Retirada física') {
+
+                const id = firebase.database().ref().child('posts').push().key
+                const now = new Date()
+
+                const dataToSend = {
+
+                    id: id,
+                    products: data,
+                    pickupOption: pickupSelect,
+                    payment: selectedPayment,
+                    selectedTransport: selectedTransportData,
+                    userEmail: dataAccount.email,
+                    cepNumber: customerCep,
+                    userName: newDataReceiver.receiverName ? newDataReceiver.receiverName : dataAccount.name,
+                    phoneNumber: newDataReceiver.receiverPhone ? newDataReceiver.receiverPhone : dataAccount.phoneNumber,
+                    address: newDataReceiver.receiverAddress ? newDataReceiver.receiverAddress : dataAccount.address,
+                    houseNumber: newDataReceiver.receiverHouseNumber ? newDataReceiver.receiverHouseNumber : dataAccount.houseNumber,
+                    complement: newDataReceiver.receiverComplement ? newDataReceiver.receiverComplement : dataAccount.complement,
+                    district: newDataReceiver.receiverDistrict ? newDataReceiver.receiverDistrict : dataAccount.district,
+                    city: newDataReceiver.receiverCity ? newDataReceiver.receiverCity : dataAccount.city,
+                    state: selectedState ? selectedState : '',
+                    cpf: newDataReceiver.receiverCpf ? newDataReceiver.receiverCpf : '',
+                    cep: newDataReceiver.receiverCep ? newDataReceiver.receiverCep : '',
+                    economicTransportValue: economicTransportValue ? economicTransportValue : '',
+                    paymentProof: '',
+                    adminNote: '',
+                    requestStatus: '',
+                    dateToCompare: new Date().toDateString(),
+                    date: `${now.getUTCDate()}/${now.getMonth() + 1}/${now.getFullYear()}-${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`,
+                    timestamp: now.getTime(),
+                    totalValue: finalValue.toFixed(2),
+                    isMobile: true,
+
+                }
+
+                firebase.database().ref('requests/' + id).set(dataToSend)
+              
+
+                firebase.database().ref('reportsSales/' + id).set(dataToSend)
+                        setTimeout(() => {localStorage.setItem('products', '{}')}, 5000);
+
+            } else {
+
+                const id = firebase.database().ref().child('posts').push().key
+                const now = new Date()
+
+                const dataToSend = {
+
+                    id: id,
+                    products: data,
+                    pickupOption: pickupSelect,
+                    payment: selectedPayment,
+                    userEmail: dataAccount.email,
+                    userName: dataAccount.name,
+                    phoneNumber: dataAccount.phoneNumber,
+                    paymentProof: '',
+                    adminNote: '',
+                    requestStatus: '',
+                    dateToCompare: new Date().toDateString(),
+                    date: `${now.getUTCDate()}/${now.getMonth() + 1}/${now.getFullYear()}-${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`,
+                    timestamp: now.getTime(),
+                    totalValue: finalValue.toFixed(2),
+                    isMobile: true,
+
+                }
+
+                firebase.database().ref('requests/' + id).set(dataToSend)
+               
+
+                firebase.database().ref('reportsSales/' + id).set(dataToSend)
+                    setTimeout(() => {localStorage.setItem('products', '{}')}, 5000);
 
             }
 
@@ -869,7 +970,7 @@ export default function Cart() {
 
                                     </select>
 
-                                    <div className="paypalButtons" ref={v => (paypalRef = v)} />
+                                    <div className="paypalButtons" ref={v => (paypalRef = v)}  />
 
                                     <div className="checkoutOptions">
 
@@ -920,7 +1021,8 @@ export default function Cart() {
                         : (
                             <section className="emptyCart">
                                 <h3>Opa... parece que seu carrinho está vazio! Bora fazer arte?</h3>
-                                <a href="/">Bora!</a>
+                                <a id="redirect" href="/">Bora!</a>
+                                <span>Dica: realizou um pedido? Verifique se ele foi confirmado em <Link id="requests" to="/meusPedidos">Meus pedidos</Link></span>
                             </section>
                         )}
 

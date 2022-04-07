@@ -164,7 +164,16 @@ export default function UserRequests() {
 
                                     </div>
 
-                                ) : ('')}
+                                ) : (
+
+                                    <div className="rowData">
+
+                                        <h4>Status do pedido: </h4>
+                                        <h4>Aguardando confirmação</h4>
+
+                                    </div>
+
+                                )}
 
                                 <div className="rowData">
 

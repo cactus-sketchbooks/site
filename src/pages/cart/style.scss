@@ -90,7 +90,23 @@ h1, h2, h3, h4, p {
 
     }
 
-    a {
+    span {
+
+        margin-top: 2rem;
+        color: #fff;
+        font-weight: 500;
+
+    }
+
+    #requests {
+
+        text-decoration: none;
+        color: $yellow-green;
+        font-weight: 700;
+
+    }
+
+    #redirect {
 
         margin-top: 2rem;
         text-decoration: none;
