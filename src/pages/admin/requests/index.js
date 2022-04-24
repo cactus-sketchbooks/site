@@ -601,10 +601,14 @@ export default function Requests() {
                                                             <b>{product.size.length} cm</b>
                                                         </li>
 
-                                                        <li className="productData">
-                                                            <span>Peso: </span>
-                                                            <b>{product.size.weight} kg</b>
-                                                        </li>
+                                                        {product.size.weight ? (
+
+                                                             <li className="productData">
+                                                                <span>Peso: </span>
+                                                                <b>{product.size.weight} kg</b>
+                                                            </li>
+
+                                                        ) : ('')}
 
                                                     </>
 

@@ -100,6 +100,17 @@ export default function Header() {
 
                 </div>
 
+                {window.innerWidth < 820 ? (
+
+                    <div className="linkWrapper">
+
+                        <Link to="/carrinho">Carrinho</Link>
+                        <Link to="/login">Login</Link>
+
+                    </div>
+
+                ) : ('')}
+
                 <div className='menu' >
 
                     {isAdmin ?

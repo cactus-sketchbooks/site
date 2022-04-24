@@ -83,7 +83,11 @@ export default function Carcara() {
                     value: 155
                 },
                 {
-                    name: "Papel Canson",
+                    name: "Papel Canson 140g",
+                    value: 160
+                },
+                {
+                    name: "Papel Canson 200g",
                     value: 160
                 },
                 {
@@ -131,7 +135,11 @@ export default function Carcara() {
                     value: 75
                 },
                 {
-                    name: "Papel Canson",
+                    name: "Papel Canson 140g",
+                    value: 82
+                },
+                {
+                    name: "Papel Canson 200g",
                     value: 82
                 },
                 {
@@ -200,7 +208,11 @@ export default function Carcara() {
                     value: 52
                 },
                 {
-                    name: "Papel Canson",
+                    name: "Papel Canson 140g",
+                    value: 56
+                },
+                {
+                    name: "Papel Canson 200g",
                     value: 56
                 },
                 {
@@ -270,7 +282,11 @@ export default function Carcara() {
                     value: 42
                 },
                 {
-                    name: "Papel Canson",
+                    name: "Papel Canson 140g",
+                    value: 45
+                },
+                {
+                    name: "Papel Canson 200g",
                     value: 45
                 },
                 {
@@ -317,7 +333,11 @@ export default function Carcara() {
                     value: 40
                 },
                 {
-                    name: "Papel Canson",
+                    name: "Papel Canson 140g",
+                    value: 42
+                },
+                {
+                    name: "Papel Canson 200g",
                     value: 42
                 },
                 {
@@ -370,7 +390,11 @@ export default function Carcara() {
                     value: 75
                 },
                 {
-                    name: "Papel Canson",
+                    name: "Papel Canson 140g",
+                    value: 82
+                },
+                {
+                    name: "Papel Canson 200g",
                     value: 82
                 },
                 {
@@ -439,7 +463,11 @@ export default function Carcara() {
                     value: 52
                 },
                 {
-                    name: "Papel Canson",
+                    name: "Papel Canson 140g",
+                    value: 56
+                },
+                {
+                    name: "Papel Canson 200g",
                     value: 56
                 },
                 {
@@ -508,7 +536,11 @@ export default function Carcara() {
                     value: 40
                 },
                 {
-                    name: "Papel Canson",
+                    name: "Papel Canson 140g",
+                    value: 42
+                },
+                {
+                    name: "Papel Canson 200g",
                     value: 42
                 },
                 {
@@ -635,6 +667,7 @@ export default function Carcara() {
 
         newItems.push(dataToSend)
 
+        // n lembro o porquê disso (inclusive, length tá escrito errado, então a condição não funciona)
         if (listOfItems.lenght > 0) {
 
             newItems.map(item => listOfItems.push(item))

@@ -30,7 +30,16 @@ export default function Buriti() {
     const [clientNote, setClientNote] = useState('');
     const [displayModal, setDisplayModal] = useState('none');
     const [maxSlides, setMaxSlides] = useState(5);
-   
+    const [displayDimensionForms, setDisplayDimensionForms] = useState('none');
+
+    const [userDimensions, setUserDimensions] = useState({
+
+        width: '',
+        length: '',
+        height: '',
+
+    })
+
     const settings = {
 
         className: "start",
@@ -88,30 +97,63 @@ export default function Buriti() {
 
             ]
 
+        },
+        {
+
+            name: "iPad/Tablet",
+            id: 30,
+            size: {
+                // width: 13.5,
+                width: 14,
+                // length: 18.5,
+                length: 19,
+                // height: 1.5,
+                height: 2,
+                weight: 0.5
+            },
+            types: [
+
+                {
+                    name: "iPad/Tablet",
+                    value: 0
+                },
+
+            ]
+
         }
         ]
     }
 
     useEffect(() => {
 
-        if(window.innerWidth < 820) {
+        if (window.innerWidth < 820) {
 
             setMaxSlides(3)
 
         } else {
 
             setMaxSlides(5)
-            
+
         }
-        
+
     }, [])
 
     function handleSelectedModel(event) {
 
         let position = event.target.value
         setSelectedModel(values.formats[position].types[0])
-        setFormatSize(values.formats[position].size)
         setFormatId(values.formats[position].id)
+
+        if(values.formats[position].types[0].name === 'iPad/Tablet') {
+
+            setDisplayDimensionForms('flex');
+
+        } else {
+
+            setFormatSize(values.formats[position].size)
+            setDisplayDimensionForms('none');
+
+        }
 
     }
 
@@ -161,6 +203,18 @@ export default function Buriti() {
 
     }, []);
 
+    function handleInputDimensionsChange(event) {
+
+        const { name, value } = event.target
+
+        setUserDimensions({
+
+            ...userDimensions, [name]: value
+
+        })
+
+    }
+
     let history = useHistory();
 
     function addToCart() {
@@ -179,12 +233,13 @@ export default function Buriti() {
             elasticColor: selectedElasticColor,
             coverColors: selectedColors,
             clientNote: clientNote,
-            size: formatSize
+            size: selectedModel.name === 'iPad/Tablet' ? userDimensions : formatSize
 
         }
 
         newItems.push(dataToSend)
 
+        // n lembro o porquê disso (inclusive, length tá escrito errado, então a condição não funciona)
         if (listOfItems.lenght > 0) {
 
             newItems.map(item => listOfItems.push(item))
@@ -307,11 +362,11 @@ export default function Buriti() {
 
                 <fieldset>
 
-                    <label for="kindleModel">Selecione o modelo do seu Kindle</label>
+                    <label for="kindleModel">Selecione o modelo</label>
 
                     <select onChange={handleSelectedModel} className="kindleModel">
 
-                        <option value="" selected disabled>Modelo do Kindle</option>
+                        <option value="" selected disabled>Modelo do seu aparelho</option>
 
                         {values.formats.map((format, index) => {
 
@@ -327,6 +382,20 @@ export default function Buriti() {
                     </select>
 
                     <p>Veja as especificações dos modelos clicando <Link to="/gramaturas">aqui</Link></p>
+
+                </fieldset>
+
+                <fieldset className="userModel" style={{ display: displayDimensionForms }}>
+
+                    <label for="userModel">Insira as dimensões abaixo</label>
+
+                    <form className="userModel">
+
+                        <input id='width' name='width' type='number' onChange={handleInputDimensionsChange} placeholder='Largura' />
+                        <input id='length' name='length' type='number' onChange={handleInputDimensionsChange} placeholder='Comprimento' />
+                        <input id='height' name='height' type='number' onChange={handleInputDimensionsChange} placeholder='Altura' />
+
+                    </form>
 
                 </fieldset>
 
@@ -502,7 +571,16 @@ export default function Buriti() {
 
                                 </ul>
 
-                                <h3>Valor do sketchbook: R$ {selectedModel.value}</h3>
+
+                                {selectedModel.name === 'iPad/Tablet' ? (
+
+                                    <h3>Realize o pedido e aguarde o retorno da Cactus</h3>
+
+                                ) : (
+
+                                    <h3>Valor do sketchbook: R$ {selectedModel.value}</h3>
+
+                                )}
 
                                 <button onClick={() => addToCart()}>Adicionar ao carrinho</button>
 

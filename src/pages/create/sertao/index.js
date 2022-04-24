@@ -97,7 +97,11 @@ export default function Sertao() {
                     value: 25
                 },
                 {
-                    name: "Papel Canson",
+                    name: "Papel Canson 140g",
+                    value: 25
+                },
+                {
+                    name: "Papel Canson 200g",
                     value: 25
                 },
                 {
@@ -158,7 +162,11 @@ export default function Sertao() {
                     value: 15
                 },
                 {
-                    name: "Papel Canson",
+                    name: "Papel Canson 140g",
+                    value: 15
+                },
+                {
+                    name: "Papel Canson 200g",
                     value: 15
                 },
                 {
@@ -218,7 +226,11 @@ export default function Sertao() {
                     value: 15
                 },
                 {
-                    name: "Papel Canson",
+                    name: "Papel Canson 140g",
+                    value: 15
+                },
+                {
+                    name: "Papel Canson 200g",
                     value: 15
                 },
                 {
@@ -278,7 +290,11 @@ export default function Sertao() {
                     value: 25
                 },
                 {
-                    name: "Papel Canson",
+                    name: "Papel Canson 140g",
+                    value: 25
+                },
+                {
+                    name: "Papel Canson 200g",
                     value: 25
                 },
                 {

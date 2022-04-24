@@ -85,7 +85,11 @@ export default function Facheiro() {
                     value: 152
                 },
                 {
-                    name: "Papel Canson",
+                    name: "Papel Canson 140g",
+                    value: 157
+                },
+                {
+                    name: "Papel Canson 200g",
                     value: 157
                 },
                 {
@@ -154,7 +158,11 @@ export default function Facheiro() {
                     value: 72
                 },
                 {
-                    name: "Papel Canson",
+                    name: "Papel Canson 140g",
+                    value: 77
+                },
+                {
+                    name: "Papel Canson 200g",
                     value: 77
                 },
                 {
@@ -223,7 +231,11 @@ export default function Facheiro() {
                     value: 50
                 },
                 {
-                    name: "Papel Canson",
+                    name: "Papel Canson 140g",
+                    value: 55
+                },
+                {
+                    name: "Papel Canson 200g",
                     value: 55
                 },
                 {
@@ -292,7 +304,11 @@ export default function Facheiro() {
                     value: 40
                 },
                 {
-                    name: "Papel Canson",
+                    name: "Papel Canson 140g",
+                    value: 42
+                },
+                {
+                    name: "Papel Canson 200g",
                     value: 42
                 },
                 {
@@ -361,7 +377,11 @@ export default function Facheiro() {
                     value: 72
                 },
                 {
-                    name: "Papel Canson",
+                    name: "Papel Canson 140g",
+                    value: 77
+                },
+                {
+                    name: "Papel Canson 200g",
                     value: 77
                 },
                 {
@@ -430,7 +450,11 @@ export default function Facheiro() {
                     value: 50
                 },
                 {
-                    name: "Papel Canson",
+                    name: "Papel Canson 140g",
+                    value: 50
+                },
+                {
+                    name: "Papel Canson 200g",
                     value: 50
                 },
                 {
@@ -499,7 +523,11 @@ export default function Facheiro() {
                     value: 35
                 },
                 {
-                    name: "Papel Canson",
+                    name: "Papel Canson 140g",
+                    value: 38
+                },
+                {
+                    name: "Papel Canson 200g",
                     value: 38
                 },
                 {
@@ -627,6 +655,7 @@ export default function Facheiro() {
 
         newItems.push(dataToSend)
 
+        // n lembro o porquê disso (inclusive, length tá escrito errado, então a condição não funciona)
         if (listOfItems.lenght > 0) {
 
             newItems.map(item => listOfItems.push(item))
@@ -837,6 +866,7 @@ export default function Facheiro() {
                     </div>
 
                     <p>Selecione <strong>até duas</strong> cores. Arraste para o lado para conferir todas as opções. <button onClick={() => handleModalInfos()}>Clique aqui para visualizar os modelos de capa</button></p>
+                    <p>A <b>primeira</b> cor selecionada é referente à parte maior (inferior) e a <b>segunda</b> é referente à parte menor (superior). Não é possível escolher dois tipos de tecido por capa, e se um tecido for esolhido, ele <b>obrigatoriamente</b> ficará na parte de baixo (maior).</p>
 
                 </div>
 
@@ -1010,15 +1040,21 @@ export default function Facheiro() {
 
                                     <li>
                                         <strong>Cor da capa: </strong>
-                                        {selectedColors.map((color, index) => {
 
-                                            return (
+                                        {selectedColors.length > 0 ? (
 
-                                                <span key={index}>{(index ? ' + ' : '') + color.name}</span>
+                                            selectedColors.length === 2 ? (
+
+                                                <span>{`${selectedColors[0].name} (parte inferior) e ${selectedColors[1].name} (parte superior)`}</span>
+
+                                            ) : (
+
+                                                <span>{selectedColors[0].name}</span>
 
                                             )
 
-                                        })}
+                                        ) : ('')}
+
                                     </li>
 
                                     <li><strong>Cor do espiral: </strong>{selectedSpiralColor}</li>

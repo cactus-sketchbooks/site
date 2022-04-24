@@ -83,7 +83,11 @@ export default function Baiao() {
                     value: 70
                 },
                 {
-                    name: "Papel Canson",
+                    name: "Papel Canson 140g",
+                    value: 75
+                },
+                {
+                    name: "Papel Canson 200g",
                     value: 75
                 },
                 {
@@ -152,7 +156,11 @@ export default function Baiao() {
                     value: 48
                 },
                 {
-                    name: "Papel Canson",
+                    name: "Papel Canson 140g",
+                    value: 52
+                },
+                {
+                    name: "Papel Canson 200g",
                     value: 52
                 },
                 {
@@ -221,7 +229,11 @@ export default function Baiao() {
                     value: 38
                 },
                 {
-                    name: "Papel Canson",
+                    name: "Papel Canson 140g",
+                    value: 38
+                },
+                {
+                    name: "Papel Canson 200g",
                     value: 38
                 },
                 {
@@ -349,6 +361,7 @@ export default function Baiao() {
 
         newItems.push(dataToSend)
 
+        // n lembro o porquê disso (inclusive, length tá escrito errado, então a condição não funciona)
         if (listOfItems.lenght > 0) {
 
             newItems.map(item => listOfItems.push(item))
@@ -544,6 +557,7 @@ export default function Baiao() {
                     </div>
 
                     <p>Selecione <strong>até duas</strong> cores. Arraste para o lado para conferir todas as opções. <button onClick={() => handleModalInfos()}>Clique aqui para visualizar os modelos de capa</button></p>
+                    <p>A <b>primeira</b> cor selecionada é referente à parte maior (inferior) e a <b>segunda</b> é referente à parte menor (superior). Não é possível escolher dois tipos de tecido por capa, e se um tecido for esolhido, ele <b>obrigatoriamente</b> ficará na parte de baixo (maior).</p>
 
                 </div>
 
@@ -761,15 +775,21 @@ export default function Baiao() {
 
                                     <li>
                                         <strong>Cor da capa: </strong>
-                                        {selectedColors.map((color, index) => {
 
-                                            return (
+                                        {selectedColors.length > 0 ? (
 
-                                                <span key={index}>{(index ? ' + ' : '') + color.name}</span>
+                                            selectedColors.length === 2 ? (
+
+                                                <span>{`${selectedColors[0].name} (parte inferior) e ${selectedColors[1].name} (parte superior)`}</span>
+
+                                            ) : (
+
+                                                <span>{selectedColors[0].name}</span>
 
                                             )
 
-                                        })}
+                                        ) : ('')}
+
                                     </li>
 
                                     <li><strong>Cor da linha: </strong>{selectedLineColor.colorName}</li>

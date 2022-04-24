@@ -8,3 +8,36 @@ h1, h2, h3, h4, p {
     margin: 0;
     padding: 0;
 }
+
+#CreateSketchbookSection {
+
+    .userModel {
+
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+
+        label {
+
+            background-color: $light-orange;
+            border-radius: 50px;
+            padding: 5px 15px;
+            margin-top: 1rem;
+
+        }
+
+        input {
+
+            margin: .2rem .2rem;
+            padding: .7rem 1rem;
+            border-radius: 5px;
+            width: 100%;
+
+            border: 1.7px solid #e8e8e8;
+            outline-color: $orange;
+
+        }
+
+    }
+
+}

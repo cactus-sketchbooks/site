@@ -350,7 +350,15 @@ export default function UserRequests() {
 
                                                 ) : ('')}
 
-                                                <h2>R$ {product.value}</h2>
+                                                {product.value > 0 ? (
+
+                                                    <h2>R$ {product.value}</h2>
+
+                                                ) : (
+
+                                                    <h2 style={{fontSize: '14px'}}>Produto personalizado. Aguarde o retorno da Cactus com o valor</h2>
+
+                                                )}
 
                                             </ul>
 

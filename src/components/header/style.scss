@@ -25,6 +25,23 @@
 
     }
 
+    .linkWrapper {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+
+        a {
+
+            margin: 0 .4rem;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 700;
+
+        }
+    }
+
     .menu {
         ul {
             display: flex;
@@ -96,7 +113,6 @@
 
 @media screen and (max-width: 1000px) {
    
-
     .menu {
         display: none;
     }

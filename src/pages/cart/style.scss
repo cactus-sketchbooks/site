@@ -229,6 +229,7 @@ h1, h2, h3, h4, p {
                 background-color: $orange;
                 padding: 5px 12px;
                 border-radius: 100px;
+                text-align: center;
 
             }
 
@@ -533,6 +534,29 @@ h1, h2, h3, h4, p {
             align-items: center;
             justify-content: space-around;
             width: 100%;
+
+        }
+
+    }
+
+}
+
+.loginRedirect {
+
+    margin: 2rem 0;
+
+    p {
+
+        color: #fff;
+        font-weight: 500;
+        font-size: 18px;
+        text-align: center;
+
+        a {
+
+            color: $yellow-green;
+            text-decoration: none;
+            font-weight: 700;
 
         }
 

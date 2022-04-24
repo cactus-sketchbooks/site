@@ -127,6 +127,7 @@ export default function Cart() {
         { uf: 'TO', value: 15 }
     ]
 
+    //verifica se o usuário tá logado
     function onAuthStateChanged(user) {
 
         firebase.auth().onAuthStateChanged((user) => {
@@ -146,10 +147,12 @@ export default function Cart() {
 
     }, [])
 
+    //pega as informações dos produtos no localstorage
     useEffect(async () => {
 
         const verify = await JSON.parse(localStorage.getItem('products'))
 
+        //se existe produto no localstorage
         if (verify !== null) {
 
             var temp = Object.keys(verify).map((key) => verify[key])
@@ -164,6 +167,7 @@ export default function Cart() {
                 var value = (Number(item.value))
                 total = value + total
 
+                //cria um objeto com as informações de tamanho e peso dos produtos
                 const productInfos = {
 
                     "id": item.id,
@@ -176,9 +180,9 @@ export default function Cart() {
 
                 }
 
-                aux.push(productInfos)
-                setTotalValue(total)
-                setFinalValue(total)
+                aux.push(productInfos) //passa as informações do produto no map para o array
+                setTotalValue(total) //valor total dos produtos
+                setFinalValue(total) //valor total (produtos + frete + desconto, etc)
 
             })
 
@@ -188,6 +192,7 @@ export default function Cart() {
 
     }, [])
 
+    //remove o produto do carrinho
     function removeItemInCart(index) {
 
         var confirm = window.confirm('Tem certeza que deseja remover este item ?')
@@ -202,6 +207,7 @@ export default function Cart() {
 
     }
 
+    //função para receber os dados nos inputs de informações (endereço, cidade, estado, etc)
     function handleInputInfosChange(event) {
 
         const { name, value } = event.target
@@ -214,12 +220,14 @@ export default function Cart() {
 
     }
 
+    //função para selecionar o tipo de entrega
     function handlePickupSelect(event) {
 
         const pickup = event.target.value
 
         setPickupSelect(pickup)
 
+        //mudança dos display de flex e none dependendo da opção de entrega para pegar os dados necessários
         if (pickup === 'Frete por transportadora') {
 
             setDisplayCepSearch('flex');
@@ -254,12 +262,14 @@ export default function Cart() {
 
     }
 
+    //função para selecionar o tipo de pagamento
     function handleSelectPayment(event) {
 
         let payment = event.target.value
 
         setSelectedPayment(payment)
 
+        //mudança do display do popup dependendo do pagamento
         if (payment === 'Pix') {
 
             setDisplayPopup('flex')
@@ -280,6 +290,7 @@ export default function Cart() {
 
     }
 
+    //validação para verificar se tudo foi preenchido corretamente
     useEffect(() => {
 
         let counter = 0
@@ -315,12 +326,14 @@ export default function Cart() {
 
     }, [newDataReceiver, pickupSelect])
 
+    //função para pegar o cep para calculo de frete
     function handleInputCep(event) {
 
         setCustomerCep(event.target.value)
 
     }
 
+    //informações necessárias para a api do melhor envio
     const dataToSend = {
         "from": {
             "postal_code": "65010330"
@@ -332,6 +345,7 @@ export default function Cart() {
         "services": "1,2"
     }
 
+    //api do melhor envio para calculo de frete
     const calculaFrete = async () => {
 
         await fetch('https://melhorenvio.com.br/api/v2/me/shipment/calculate', {
@@ -350,6 +364,7 @@ export default function Cart() {
         }).catch(err => console.log(err))
     };
 
+    //seleciona a transportadora escolhida
     function handleSelectedTransport(item, event) {
 
         setSelectedTransportData(event)
@@ -360,16 +375,18 @@ export default function Cart() {
 
     }
 
+    //escolhe o estado. dependendo do estado o frete por impresso modico e carta tem valor de 15 ou 20
     function handleSelectedState(event) {
 
         setSelectedState(states[event.target.value])
-        setEconomicTransportValue(states[event.target.value].value)
+        setEconomicTransportValue(states[event.target.value].value) //valor do frete (15 ou 20)
         setFinalValue(totalValue + states[event.target.value].value)
 
     }
 
     let paypalRef = useRef();
 
+    //api de pagamento do paypal
     useEffect(() => {
 
         const script = document.createElement("script");
@@ -408,7 +425,7 @@ export default function Cart() {
                             },
                             onApprove: async (data, actions) => {
 
-                                const order = await actions.order.capture();
+                                const order = await actions.order.capture(); //apesar de não estar sendo usado, NÃO REMOVA
                                 // sendOrder();
                                 // setPaidForm(true)
                                 // window.scrollTo(0, 0);
@@ -431,6 +448,7 @@ export default function Cart() {
         }
     })
 
+    //pega as informações de email e compara com o email do banco de dados, se for igual, pega as informações dele
     useEffect(() => {
 
         const userEmail = localStorage.getItem('userEmail')
@@ -458,16 +476,18 @@ export default function Cart() {
 
     }, []);
 
+    //função para enviar o pedido
     function sendOrder() {
 
         if (userIsLogged) {
 
             if (selectedPayment !== '' && pickupSelect !== 'Retirada física') {
 
-                const id = firebase.database().ref().child('posts').push().key
-                const now = new Date()
+                const id = firebase.database().ref().child('posts').push().key //cria uma id para o pedido
+                const now = new Date() //data atual
 
-                const dataToSend = {
+                //informações da compra
+                const dataToSend = { 
 
                     id: id,
                     products: data,
@@ -497,18 +517,22 @@ export default function Cart() {
 
                 }
 
+                //são dois locais onde os pedidos são salvos: para cactus e usuarios.
+
+                //envia para a cactus
                 firebase.database().ref('requests/' + id).set(dataToSend)
                     .then(() => {
                         setPurchasedProductData(dataToSend)
                     })
-
+                
+                //envia para o usuário
                 firebase.database().ref('reportsSales/' + id).set(dataToSend)
                     .then(() => {
                         localStorage.setItem('products', '{}')
                         alert("Pedido finalizado com sucesso!")
                     })
 
-                setPaidForm(true)
+                setPaidForm(true) 
                 window.scrollTo(0, 0);
 
             } else {
@@ -546,7 +570,7 @@ export default function Cart() {
                         alert("Pedido finalizado com sucesso!")
                     })
 
-                setPaidForm(true)
+                setPaidForm(true) //muda para tela de pagamento. agora não está mais sendo utilizado, envia direto pro perfil
                 window.scrollTo(0, 0);
 
             }
@@ -566,6 +590,7 @@ export default function Cart() {
 
     }
 
+    //envia o pedido ao clicar no botão do paypal. como a compra é feita em uma nova aba (pelo celular), o pedido é enviado antes da pessoa pagar (na hora em que clica o botão)
     function sendOrderPaypal() {
 
         if (userIsLogged) {
@@ -658,6 +683,7 @@ export default function Cart() {
 
     }
 
+    //se o usuário ainda não finalizou a compra. Porém, deixou de ser utilizado, ao paidForm ser igual a true, n muda nada, mas é redirecionado para os pedidos no perfil ao invés de mudar a tela no carrinho
     if (!paidForm) {
 
         return (
@@ -718,7 +744,7 @@ export default function Cart() {
                                                 <li><strong>Modelo:</strong> {product.model}</li>
                                                 {product.kindleModel ? (
 
-                                                    <li><strong>Kindle:</strong> {product.kindleModel}</li>
+                                                    <li><strong>Aparelho:</strong> {product.kindleModel}</li>
 
                                                 ) : ('')}
 
@@ -780,9 +806,19 @@ export default function Cart() {
                                             </ul>
 
                                             <div className="productsButtons">
-                                                {/* <button>Adicionar observação</button> */}
-                                                <h1>R$ {product.value.toFixed(2)}</h1>
+
+                                                {product.value > 0 ? (
+
+                                                    <h1>R$ {product.value.toFixed(2)}</h1>
+
+                                                ) : (
+
+                                                    <h1 style={{ fontSize: '14px' }}>Finalize o pedido e aguarde nosso retorno com o valor de seu produto</h1>
+
+                                                )}
+
                                                 <button onClick={() => { removeItemInCart(index) }}>Excluir</button>
+
                                             </div>
 
                                         </div>
@@ -793,194 +829,212 @@ export default function Cart() {
 
                             </section>
 
-                            <section className="checkout">
+                            {userIsLogged ? (
 
-                                <div className="finishOrder">
+                                <section className="checkout">
 
-                                    <h2>Finalização do pedido</h2>
+                                    <div className="finishOrder">
 
-                                    {data.length > 1 ? (
+                                        <h2>Finalização do pedido</h2>
+
+                                        {data.length > 1 ? (
 
 
-                                        <select className="pickupSelect" onChange={handlePickupSelect} >
+                                            <select className="pickupSelect" onChange={handlePickupSelect} >
 
-                                            <option disabled selected value=''>Selecione como deseja receber sua encomenda</option>
-                                            <option value='Entrega a domicílio'>Entrega a domicílio (Para toda São Luís - MA)</option>
-                                            <option value="Impresso módico ou Carta registrada" >Impresso módico ou Carta registrada</option>
-                                            <option value="Retirada física" >Retirada física: Travessa da Lapa - 162 - Centro/Desterro</option>
+                                                <option disabled selected value=''>Selecione como deseja receber sua encomenda</option>
+                                                <option value='Entrega a domicílio'>Entrega a domicílio (Para toda São Luís - MA)</option>
+                                                <option value="Impresso módico ou Carta registrada" >Impresso módico ou Carta registrada</option>
+                                                <option value="Retirada física" >Retirada física: Travessa da Lapa - 162 - Centro/Desterro</option>
 
-                                        </select>
+                                            </select>
 
-                                    ) : (
+                                        ) : (
 
-                                        <select className="pickupSelect" onChange={handlePickupSelect} >
+                                            <select className="pickupSelect" onChange={handlePickupSelect} >
 
-                                            <option disabled selected value=''>Selecione como deseja receber sua encomenda</option>
-                                            <option value='Entrega a domicílio'>Entrega a domicílio (Para toda São Luís - MA)</option>
-                                            <option value="Frete por transportadora" >Entrega por transportadora</option>
-                                            <option value="Impresso módico ou Carta registrada" >Impresso módico ou Carta registrada</option>
-                                            <option value="Retirada física" >Retirada física: Travessa da Lapa - 162 - Centro/Desterro</option>
+                                                <option disabled selected value=''>Selecione como deseja receber sua encomenda</option>
+                                                <option value='Entrega a domicílio'>Entrega a domicílio (Para toda São Luís - MA)</option>
+                                                <option value="Frete por transportadora" >Entrega por transportadora</option>
+                                                <option value="Impresso módico ou Carta registrada" >Impresso módico ou Carta registrada</option>
+                                                <option value="Retirada física" >Retirada física: Travessa da Lapa - 162 - Centro/Desterro</option>
 
-                                        </select>
+                                            </select>
 
-                                    )}
+                                        )}
 
-                                    <span>
-                                        <strong>Observação: </strong>
-                                        As entregas por transportadora são limitadas a um produto. As entregas por carta registrada e registro módico são formas de envio mais baratas e permitem o envio de mais de um produto, porém, o envio não é atualizado a todo momento (apenas quando é postado, chegou na sua cidade, saiu para entrega). O envio é feito pelos Correios com um valor fixo de R$ 15,00 para as regiões <strong>Norte e Nordeste</strong>, e R$ 20,00 para as regiões <strong>Sul, Sudeste e Centro-Oeste</strong>.
-                                    </span>
+                                        <span>
+                                            <strong>Observação: </strong>
+                                            As entregas por transportadora são limitadas a um produto. As entregas por carta registrada e registro módico são formas de envio mais baratas e permitem o envio de mais de um produto, porém, o envio não é atualizado a todo momento (apenas quando é postado, chegou na sua cidade, saiu para entrega). O envio é feito pelos Correios com um valor fixo de R$ 15,00 para as regiões <strong>Norte e Nordeste</strong>, e R$ 20,00 para as regiões <strong>Sul, Sudeste e Centro-Oeste</strong>.
+                                        </span>
 
-                                    <label style={{ display: displayCepSearch }} for="cepNumber">Insira o CEP abaixo</label>
-                                    <InputMask id="CepNumber" name='cepNumber' type='text' mask="99999-999" maskChar="" style={{ display: displayCepSearch }} onChange={handleInputCep} placeholder="CEP" />
+                                        <label style={{ display: displayCepSearch }} for="cepNumber">Insira o CEP abaixo</label>
+                                        <InputMask id="CepNumber" name='cepNumber' type='text' mask="99999-999" maskChar="" style={{ display: displayCepSearch }} onChange={handleInputCep} placeholder="CEP" />
 
-                                    <button style={{ display: displayCepSearch }} onClick={() => { calculaFrete() }}>Calcular frete</button>
+                                        <button style={{ display: displayCepSearch }} onClick={() => { calculaFrete() }}>Calcular frete</button>
 
-                                    <div className="transportInfos" style={{ display: displayCepSearch }}>
+                                        <div className="transportInfos" style={{ display: displayCepSearch }}>
 
-                                        {transportData.map((item, index) => {
+                                            {transportData.map((item, index) => {
 
-                                            if (item.id === 1 || item.id === 2) {
+                                                if (item.id === 1 || item.id === 2) {
 
-                                                if (!item.error) {
+                                                    if (!item.error) {
 
-                                                    return (
+                                                        return (
 
-                                                        <div className="optionsTransport">
+                                                            <div className="optionsTransport">
 
-                                                            <div className="radioButton">
+                                                                <div className="radioButton">
 
-                                                                <input onClick={(e) => handleSelectedTransport(e, item, index)} type="radio" name="selectedTransport" key={item.id} value={item.name} />
+                                                                    <input onClick={(e) => handleSelectedTransport(e, item, index)} type="radio" name="selectedTransport" key={item.id} value={item.name} />
+
+                                                                </div>
+
+                                                                <div className="transportLogoWrapper">
+
+                                                                    <img src={item.company.picture} alt={item.company.name} />
+
+                                                                </div>
+
+                                                                <div className="textTransportInfos">
+
+                                                                    <span>{item.company.name} ({item.name})</span>
+                                                                    <span><strong>R$ {item.custom_price}</strong></span>
+                                                                    <span>Prazo de entrega: <strong>{item.custom_delivery_time} dias úteis</strong></span>
+
+                                                                </div>
 
                                                             </div>
 
-                                                            <div className="transportLogoWrapper">
-
-                                                                <img src={item.company.picture} alt={item.company.name} />
-
-                                                            </div>
-
-                                                            <div className="textTransportInfos">
-
-                                                                <span>{item.company.name} ({item.name})</span>
-                                                                <span><strong>R$ {item.custom_price}</strong></span>
-                                                                <span>Prazo de entrega: <strong>{item.custom_delivery_time} dias úteis</strong></span>
-
-                                                            </div>
-
-                                                        </div>
-
-                                                    )
+                                                        )
+                                                    }
                                                 }
-                                            }
 
-                                        })}
+                                            })}
 
-                                    </div>
+                                        </div>
 
-                                    <div style={{ display: displayAddressForms }} className="transportDiv">
+                                        <div style={{ display: displayAddressForms }} className="transportDiv">
 
-                                        <h2>Insira os dados para entrega abaixo</h2>
+                                            <h2>Insira os dados para entrega abaixo</h2>
 
-                                        <div className="userInfos">
+                                            <div className="userInfos">
 
-                                            <input name='receiverName' onChange={handleInputInfosChange} placeholder='Nome do destinatário' value={newDataReceiver.receiverName} />
+                                                <input name='receiverName' onChange={handleInputInfosChange} placeholder='Nome do destinatário' value={newDataReceiver.receiverName} />
 
-                                            {/* <input name='receiverPhone' onChange={handleInputInfosChange} placeholder='Telefone' value={newDataReceiver.receiverPhone} /> */}
-                                            <InputMask
-                                                id="receiverPhone"
-                                                name='receiverPhone'
-                                                type='text'
-                                                mask="(99) 99999-9999"
-                                                maskChar=""
-                                                onChange={handleInputInfosChange}
-                                                placeholder='Telefone'
-                                                value={newDataReceiver.receiverPhone}
-                                            />
-
-                                            <input name='receiverAddress' onChange={handleInputInfosChange} placeholder='Endereço de entrega' value={newDataReceiver.receiverAddress} />
-
-                                            <input name='receiverHouseNumber' onChange={handleInputInfosChange} placeholder='Número da residência' value={newDataReceiver.receiverHouseNumber} />
-
-                                            <input name='receiverComplement' onChange={handleInputInfosChange} placeholder='Complemento' value={newDataReceiver.receiverComplement} />
-
-                                            <input name='receiverDistrict' onChange={handleInputInfosChange} placeholder='Bairro' value={newDataReceiver.receiverDistrict} />
-
-                                            <input name='receiverCity' onChange={handleInputInfosChange} placeholder='Cidade' value={newDataReceiver.receiverCity} />
-
-                                            {pickupSelect === 'Frete por transportadora' ? (
-
+                                                {/* <input name='receiverPhone' onChange={handleInputInfosChange} placeholder='Telefone' value={newDataReceiver.receiverPhone} /> */}
                                                 <InputMask
-                                                    id="receiverCpf"
-                                                    name='receiverCpf'
+                                                    id="receiverPhone"
+                                                    name='receiverPhone'
                                                     type='text'
-                                                    mask="999.999.999-99"
+                                                    mask="(99) 99999-9999"
                                                     maskChar=""
                                                     onChange={handleInputInfosChange}
-                                                    placeholder='CPF'
-                                                    value={newDataReceiver.receiverCpf}
+                                                    placeholder='Telefone'
+                                                    value={newDataReceiver.receiverPhone}
                                                 />
 
-                                            ) : (
+                                                <input name='receiverAddress' onChange={handleInputInfosChange} placeholder='Endereço de entrega' value={newDataReceiver.receiverAddress} />
 
-                                                <>
+                                                <input name='receiverHouseNumber' onChange={handleInputInfosChange} placeholder='Número da residência' value={newDataReceiver.receiverHouseNumber} />
 
-                                                    <select onChange={handleSelectedState}>
+                                                <input name='receiverComplement' onChange={handleInputInfosChange} placeholder='Complemento' value={newDataReceiver.receiverComplement} />
 
-                                                        <option value="" selected disabled>Estado</option>
+                                                <input name='receiverDistrict' onChange={handleInputInfosChange} placeholder='Bairro' value={newDataReceiver.receiverDistrict} />
 
-                                                        {states.map((states, index) => {
+                                                <input name='receiverCity' onChange={handleInputInfosChange} placeholder='Cidade' value={newDataReceiver.receiverCity} />
 
-                                                            return (
-
-                                                                <option value={index} key={index}>{states.uf}</option>
-
-                                                            )
-
-                                                        })}
-
-                                                    </select>
+                                                {pickupSelect === 'Frete por transportadora' ? (
 
                                                     <InputMask
-                                                        id="receiverCep"
-                                                        name='receiverCep'
+                                                        id="receiverCpf"
+                                                        name='receiverCpf'
                                                         type='text'
-                                                        mask="99999-999"
+                                                        mask="999.999.999-99"
                                                         maskChar=""
                                                         onChange={handleInputInfosChange}
-                                                        placeholder='CEP'
-                                                        value={newDataReceiver.receiverCep}
+                                                        placeholder='CPF'
+                                                        value={newDataReceiver.receiverCpf}
                                                     />
 
-                                                </>
+                                                ) : (
 
-                                            )}
+                                                    <>
+
+                                                        <select onChange={handleSelectedState}>
+
+                                                            <option value="" selected disabled>Estado</option>
+
+                                                            {states.map((states, index) => {
+
+                                                                return (
+
+                                                                    <option value={index} key={index}>{states.uf}</option>
+
+                                                                )
+
+                                                            })}
+
+                                                        </select>
+
+                                                        <InputMask
+                                                            id="receiverCep"
+                                                            name='receiverCep'
+                                                            type='text'
+                                                            mask="99999-999"
+                                                            maskChar=""
+                                                            onChange={handleInputInfosChange}
+                                                            placeholder='CEP'
+                                                            value={newDataReceiver.receiverCep}
+                                                        />
+
+                                                    </>
+
+                                                )}
+
+                                            </div>
+
+                                        </div>
+
+                                        <select style={{ display: displayPaymentOption }} className="paymentSelect" onChange={handleSelectPayment} >
+
+                                            <option selected disabled value=''>Selecione o tipo de pagamento</option>
+                                            <option value="PayPal" >PayPal </option>
+                                            <option value="Cartão" >Cartão </option>
+                                            <option value="Pix" >Pix</option>
+
+                                        </select>
+
+                                        <div className="paypalButtons" ref={v => (paypalRef = v)} />
+
+                                        <div className="checkoutOptions">
+
+                                            <a href="/">Continuar comprando...</a>
+
+                                            {finalValue > 0 ? (
+
+                                                <h3>Valor: R$ {finalValue.toFixed(2)}</h3>
+
+                                            ) : ('')}
+
+                                            <button style={{ display: displayFinishButton }} onClick={sendOrder}>Concluir compra!</button>
 
                                         </div>
 
                                     </div>
 
-                                    <select style={{ display: displayPaymentOption }} className="paymentSelect" onChange={handleSelectPayment} >
+                                </section>
 
-                                        <option selected disabled value=''>Selecione o tipo de pagamento</option>
-                                        <option value="PayPal" >PayPal </option>
-                                        <option value="Cartão" >Cartão </option>
-                                        <option value="Pix" >Pix</option>
+                            ) : (
 
-                                    </select>
+                                <div className="loginRedirect">
 
-                                    <div className="paypalButtons" ref={v => (paypalRef = v)} />
-
-                                    <div className="checkoutOptions">
-
-                                        <a href="/">Continuar comprando...</a>
-                                        <h3>Preço: R$ {finalValue.toFixed(2)}</h3>
-                                        <button style={{ display: displayFinishButton }} onClick={sendOrder}>Concluir compra!</button>
-
-                                    </div>
+                                    <p>Você deve ter uma conta para finalizar seu pedido. Clique <Link to="/login">aqui</Link> para entrar</p>
 
                                 </div>
 
-                            </section>
+                            )}
 
                             <h2>Confira as artes de nossos clientes</h2>
                             <section className="ourClients">
@@ -1116,8 +1170,19 @@ export default function Cart() {
 
                                         <div className="rowDataInfos">
 
-                                            <h4>Total: </h4>
-                                            <span>R$ {purchasedProductData.totalValue}</span>
+
+                                            {purchasedProductData.totalValue > 0 ? (
+
+                                                <>
+                                                    <h4>Total: </h4>
+                                                    <span>R$ {purchasedProductData.totalValue}</span>
+                                                </>
+
+                                            ) : (
+
+                                                <span>Aguarde o retorno da Cactus com o valor de sua compra</span>
+
+                                            )}
 
                                         </div>
 
@@ -1172,7 +1237,7 @@ export default function Cart() {
                                             ) : (
 
                                                 <li>
-                                                    <b>Modelo do Kindle</b>
+                                                    <b>Aparelho</b>
                                                     <span>{product.kindleModel}</span>
                                                 </li>
 
@@ -1243,7 +1308,11 @@ export default function Cart() {
 
                                             ) : ('')}
 
-                                            <h2>R$ {product.value}</h2>
+                                            {product.value > 0 ? (
+
+                                                <h2>R$ {product.value}</h2>
+
+                                            ) : ('')}
 
                                         </ul>
 
