@@ -202,6 +202,8 @@ export default function Requests() {
             .ref('requests/' + selectItem)
             .remove()
             .then(() => alert("Pedido finalizado com sucesso!"))
+            
+        window.location.reload()
 
     }
 
