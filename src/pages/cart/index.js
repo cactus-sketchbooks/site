@@ -570,7 +570,7 @@ export default function Cart() {
                         alert("Pedido finalizado com sucesso!")
                     })
 
-                setPaidForm(true) //muda para tela de pagamento. agora não está mais sendo utilizado, envia direto pro perfil
+                setPaidForm(true) //muda para tela de pagamento.
                 window.scrollTo(0, 0);
 
             }
@@ -683,7 +683,7 @@ export default function Cart() {
 
     }
 
-    //se o usuário ainda não finalizou a compra. Porém, deixou de ser utilizado, ao paidForm ser igual a true, n muda nada, mas é redirecionado para os pedidos no perfil ao invés de mudar a tela no carrinho
+    //se o usuário ainda não finalizou a compra. Porém, deixou de ser utilizado(para pagamentos no paypal) , ao paidForm ser igual a true, n muda nada, mas é redirecionado para os pedidos no perfil ao invés de mudar a tela no carrinho
     if (!paidForm) {
 
         return (

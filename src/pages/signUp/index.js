@@ -8,7 +8,7 @@ import 'firebase/database';
 import 'firebase/auth';
 import firebaseConfig from '../../FirebaseConfig.js'
 
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect, useHistory } from 'react-router-dom';
 
 import './style.scss';
 
@@ -37,6 +37,15 @@ export default function SignUp() {
         passwordConfirm: '',
 
     })
+
+    let history = useHistory();
+
+    function signOut() {
+
+        firebase.auth().signOut()
+        localStorage.setItem('userEmail', '')
+
+    }
 
     function makeRegister() {
 
@@ -67,14 +76,15 @@ export default function SignUp() {
 
                 alert('Cadastro realizado com sucesso!')
 
+                signOut()
+
                 setRegisterDone(true)
 
             })
             .catch((error) => {
-                // var errorCode = error.code;
-                // var errorMessage = error.message;
-                // alert(errorMessage)
-                alert('A senha deve possuir pelo menos 6 caracteres')
+                if(error) {
+                    alert('Ocorreu um erro no cadastro, tente novamente!')
+                }
             });
 
     }
@@ -171,7 +181,7 @@ export default function SignUp() {
 
             return (
 
-                <Redirect to='/' />
+                <Redirect to='/login' />
 
             )
 
@@ -202,7 +212,7 @@ export default function SignUp() {
 
                             <div className="passwordDiv">
 
-                                <input id='password' name='password' type="password" onChange={handleInputRegisterChange} placeholder='Senha' />
+                                <input id='password' name='password' type="password" onChange={handleInputRegisterChange} placeholder='Senha (mínimo 6 caracteres)' />
                                 <input id='passwordConfirm' name='passwordConfirm' type="password" onChange={handleInputRegisterChange} placeholder='Confirmação de senha' />
 
                             </div>
