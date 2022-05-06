@@ -79,7 +79,7 @@ export default function SinglePost() {
 
                     <h1>{dataPost.title}</h1>
 
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, repudiandae possimus? Quod ullam odit molestias quae mollitia beatae dignissimos voluptas, earum quos similique nobis ab.</p>
+                    <p>{dataPost.description}</p>
 
                     <ul>
 
