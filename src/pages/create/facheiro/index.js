@@ -880,6 +880,8 @@ export default function Facheiro() {
 
                                 <div className="cardColor">
 
+                                <label for={index} />
+
                                     {item.image ?
 
                                         (<div key={item.id} className="colorBox">
@@ -905,6 +907,7 @@ export default function Facheiro() {
                                         <input
                                             type="checkbox"
                                             value={index}
+                                            id={index}
                                             onChange={(event) => checkColor(item, event)}
                                             style={{ accentColor: item.colorCode }}
                                         />

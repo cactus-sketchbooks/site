@@ -391,6 +391,9 @@ export default function Baiao() {
 
             }])
 
+        console.log(selectedColors)
+
+
             setCheckedBoxes(checkedBoxes + 1)
 
         } else {
@@ -571,6 +574,8 @@ export default function Baiao() {
 
                                 <div className="cardColor">
 
+                                <label for={index} />
+
                                     {item.image ?
 
                                         (<div key={item.id} className="colorBox">
@@ -596,6 +601,7 @@ export default function Baiao() {
                                         <input
                                             type="checkbox"
                                             value={index}
+                                            id={index}
                                             onChange={(event) => checkColor(item, event)}
                                             style={{ accentColor: item.colorCode }}
                                         />

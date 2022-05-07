@@ -336,6 +336,24 @@ $amarelo: #ffff00;
                     background-color: $offWhite;
                     padding: 10px;
                     text-align: center;
+                    position: relative;
+
+                    label {
+
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        cursor: grab;
+
+                        &:active {
+
+                            cursor: grabbing;
+        
+                        }
+
+                    }
 
                     .colorBox {
 

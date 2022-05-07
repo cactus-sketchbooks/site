@@ -34,7 +34,7 @@ export default function Carcara() {
     const [sketchbookInfos, setSketchbookInfos] = useState('');
     const [displayModal, setDisplayModal] = useState('none');
     const [maxSlides, setMaxSlides] = useState(5);
-   
+
     const settings = {
 
         className: "start",
@@ -566,16 +566,16 @@ export default function Carcara() {
 
     useEffect(() => {
 
-        if(window.innerWidth < 820) {
+        if (window.innerWidth < 820) {
 
             setMaxSlides(3)
 
         } else {
 
             setMaxSlides(5)
-            
+
         }
-        
+
     }, [])
 
     function handleSelectedSketchbook(event) {
@@ -869,8 +869,9 @@ export default function Carcara() {
 
                             item.models.includes("carcara") && item.categories.includes("cover") ? (
 
-
                                 <div className="cardColor">
+
+                                    <label for={index} />
 
                                     {item.image ?
 
@@ -897,6 +898,7 @@ export default function Carcara() {
                                         <input
                                             type="checkbox"
                                             value={index}
+                                            id={index}
                                             onChange={(event) => checkColor(item, event)}
                                             style={{ accentColor: item.colorCode }}
                                         />

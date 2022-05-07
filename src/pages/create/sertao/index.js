@@ -616,6 +616,8 @@ export default function Sertao() {
 
                                 <div className="cardColor">
 
+                                <label for={index} />
+
                                     {item.image ?
 
                                         (<div key={item.id} className="colorBox">
@@ -641,6 +643,7 @@ export default function Sertao() {
                                         <input
                                             type="checkbox"
                                             value={index}
+                                            id={index}
                                             onChange={(event) => checkColor(item, event)}
                                             style={{ accentColor: item.colorCode }}
                                         />
