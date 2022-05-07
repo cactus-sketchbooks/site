@@ -390,8 +390,8 @@ export default function Cart() {
     useEffect(() => {
 
         const script = document.createElement("script");
-        // script.src = `https://www.paypal.com/sdk/js?client-id=AcY1krkW88l9XG7uTtmf6gKQvfoim-bIVDDdh0WMLMOgAqcjMIat1njpXkxGGTKa_mXPkq-aAuyrV_vw&currency=BRL`
-        script.src = `https://www.paypal.com/sdk/js?client-id=AaNvRUjTYfSm2ZVpE0BkFAnJgPtLVGMYJq0TG66Of1EDDGIjUJjjZb1NC8AP04mBntoEvbjvqhQNFeY4&currency=BRL` //produção
+        // script.src = `https://www.paypal.com/sdk/js?client-id=${process.env.REACT_APP_PAYPAL_DEVELOPMENT_ID}`
+        script.src = `https://www.paypal.com/sdk/js?client-id=${process.env.REACT_APP_PAYPAL_PRODUCTION_ID}` //produção
         script.addEventListener("load", () => setLoaded(true));
         document.body.appendChild(script);
 
