@@ -144,7 +144,7 @@ export default function Buriti() {
         setSelectedModel(values.formats[position].types[0])
         setFormatId(values.formats[position].id)
 
-        if(values.formats[position].types[0].name === 'iPad/Tablet') {
+        if (values.formats[position].types[0].name === 'iPad/Tablet') {
 
             setDisplayDimensionForms('flex');
 
@@ -253,6 +253,28 @@ export default function Buriti() {
         }
 
         history.push('/Carrinho')
+
+    }
+
+    function changeColor(event) {
+
+        let isChecked;
+
+        setTimeout(() => {
+
+            isChecked = event.target.control.checked
+
+            if (isChecked) {
+
+                event.target.style.backgroundColor = '#000'
+
+            } else {
+
+                event.target.style.backgroundColor = 'transparent'
+
+            }
+
+        }, 80)
 
     }
 
@@ -421,7 +443,7 @@ export default function Buriti() {
 
                                 <div className="cardColor">
 
-                                <label for={index} />
+                                    <label for={index} onClick={(event) => changeColor(event)} />
 
                                     {item.image ?
 

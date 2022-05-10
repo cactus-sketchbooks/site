@@ -48,7 +48,7 @@ export default function Baiao() {
 
     const values = {
 
-        name: "Baião",      
+        name: "Baião",
         formats: [{
 
             name: "21X21",
@@ -259,16 +259,16 @@ export default function Baiao() {
 
     useEffect(() => {
 
-        if(window.innerWidth < 820) {
+        if (window.innerWidth < 820) {
 
             setMaxSlides(3)
 
         } else {
 
             setMaxSlides(5)
-            
+
         }
-        
+
     }, [])
 
     function handleSelectedSketchbook(event) {
@@ -378,6 +378,28 @@ export default function Baiao() {
 
     }
 
+    function changeColor(event) {
+
+        let isChecked;
+
+        setTimeout(() => {
+
+            isChecked = event.target.control.checked
+
+            if (isChecked) {
+
+                event.target.style.backgroundColor = '#000'
+
+            } else {
+
+                event.target.style.backgroundColor = 'transparent'
+
+            }
+
+        }, 80)
+
+    }
+
     const checkColor = (item, event) => {
 
         const isChecked = event.target.checked
@@ -390,9 +412,6 @@ export default function Baiao() {
                 code: item.colorCode
 
             }])
-
-        console.log(selectedColors)
-
 
             setCheckedBoxes(checkedBoxes + 1)
 
@@ -574,7 +593,7 @@ export default function Baiao() {
 
                                 <div className="cardColor">
 
-                                <label for={index} />
+                                    <label for={index} onClick={(event) => changeColor(event)} />
 
                                     {item.image ?
 

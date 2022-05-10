@@ -35,7 +35,7 @@ export default function Mandacaru() {
     const [sketchbookInfos, setSketchbookInfos] = useState('');
     const [displayModal, setDisplayModal] = useState('none');
     const [maxSlides, setMaxSlides] = useState(5);
-   
+
     const settings = {
 
         className: "start",
@@ -364,16 +364,16 @@ export default function Mandacaru() {
 
     useEffect(() => {
 
-        if(window.innerWidth < 820) {
+        if (window.innerWidth < 820) {
 
             setMaxSlides(3)
 
         } else {
 
             setMaxSlides(5)
-            
+
         }
-        
+
     }, [])
 
     function handleSelectedSketchbook(event) {
@@ -465,7 +465,7 @@ export default function Mandacaru() {
         }
 
         newItems.push(dataToSend)
-        
+
         // n lembro o porquê disso (inclusive, length tá escrito errado, então a condição não funciona)
         if (listOfItems.lenght > 0) {
 
@@ -480,6 +480,28 @@ export default function Mandacaru() {
         }
 
         history.push('/Carrinho')
+
+    }
+
+    function changeColor(event) {
+
+        let isChecked;
+
+        setTimeout(() => {
+
+            isChecked = event.target.control.checked
+
+            if (isChecked) {
+
+                event.target.style.backgroundColor = '#000'
+
+            } else {
+
+                event.target.style.backgroundColor = 'transparent'
+
+            }
+
+        }, 80)
 
     }
 
@@ -573,14 +595,14 @@ export default function Mandacaru() {
                     <span onClick={closeModal}>x</span>
 
                     <div className="sketchbookImgWrapper">
-                        
+
                         <h3>Modelo de capa com uma cor</h3>
                         <img src={Mandacaru1Cor} alt="" />
 
                     </div>
 
                     <div className="sketchbookImgWrapper">
-                        
+
                         <h3>Modelo de capa com duas cores</h3>
                         <img src={Mandacaru2Cores} alt="" />
 
@@ -677,7 +699,7 @@ export default function Mandacaru() {
 
                                 <div className="cardColor">
 
-                                <label for={index} />
+                                    <label for={index} onClick={(event) => changeColor(event)} />
 
                                     {item.image ?
 

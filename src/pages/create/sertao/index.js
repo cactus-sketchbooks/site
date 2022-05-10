@@ -34,7 +34,7 @@ export default function Sertao() {
     const [sketchbookInfos, setSketchbookInfos] = useState('');
     const [displayModal, setDisplayModal] = useState('none');
     const [maxSlides, setMaxSlides] = useState(5);
-   
+
     const settings = {
 
         className: "start",
@@ -312,16 +312,16 @@ export default function Sertao() {
 
     useEffect(() => {
 
-        if(window.innerWidth < 820) {
+        if (window.innerWidth < 820) {
 
             setMaxSlides(3)
 
         } else {
 
             setMaxSlides(5)
-            
+
         }
-        
+
     }, [])
 
     function handleSelectedSketchbook(event) {
@@ -426,6 +426,28 @@ export default function Sertao() {
         }
 
         history.push('/Carrinho')
+
+    }
+
+    function changeColor(event) {
+
+        let isChecked;
+
+        setTimeout(() => {
+
+            isChecked = event.target.control.checked
+
+            if (isChecked) {
+
+                event.target.style.backgroundColor = '#000'
+
+            } else {
+
+                event.target.style.backgroundColor = 'transparent'
+
+            }
+
+        }, 80)
 
     }
 
@@ -616,7 +638,7 @@ export default function Sertao() {
 
                                 <div className="cardColor">
 
-                                <label for={index} />
+                                    <label for={index} onClick={(event) => changeColor(event)} />
 
                                     {item.image ?
 

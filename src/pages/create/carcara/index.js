@@ -34,6 +34,7 @@ export default function Carcara() {
     const [sketchbookInfos, setSketchbookInfos] = useState('');
     const [displayModal, setDisplayModal] = useState('none');
     const [maxSlides, setMaxSlides] = useState(5);
+    const [clicked, setClicked] = useState(5);
 
     const settings = {
 
@@ -684,6 +685,28 @@ export default function Carcara() {
 
     }
 
+    function changeColor(event) {
+
+        let isChecked;
+
+        setTimeout(() => {
+
+            isChecked = event.target.control.checked
+
+            if (isChecked) {
+
+                event.target.style.backgroundColor = '#000'
+
+            } else {
+
+                event.target.style.backgroundColor = 'transparent'
+
+            }
+
+        }, 80)
+
+    }
+
     const checkColor = (item, event) => {
 
         const isChecked = event.target.checked
@@ -871,7 +894,7 @@ export default function Carcara() {
 
                                 <div className="cardColor">
 
-                                    <label for={index} />
+                                    <label for={index} onClick={(event) => changeColor(event)} />
 
                                     {item.image ?
 
