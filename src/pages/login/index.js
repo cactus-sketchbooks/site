@@ -51,7 +51,7 @@ export default function Login() {
         })
         .catch((error) => {
             var errorMessage = error.message;
-            alert(errorMessage)
+            alert('Ocorreu um erro ao efetuar o login, verifique o nome de usuário e senha e tente novamente!')
         }); 
         
     }

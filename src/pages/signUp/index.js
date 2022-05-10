@@ -76,13 +76,16 @@ export default function SignUp() {
 
                 alert('Cadastro realizado com sucesso!')
 
-                signOut()
+                setTimeout(() => {
 
-                setRegisterDone(true)
+                    signOut()
+                    setRegisterDone(true)
+            
+                }, 1000)
 
             })
             .catch((error) => {
-                if(error) {
+                if (error) {
                     alert('Ocorreu um erro no cadastro, tente novamente!')
                 }
             });
@@ -218,33 +221,33 @@ export default function SignUp() {
                             </div>
 
                             <InputMask
-                                id='phoneNumber' 
-                                name='phoneNumber' 
-                                type='tel' 
-                                mask="(99) 99999-9999" 
-                                maskChar="" 
-                                onChange={handleInputRegisterChange} 
-                                placeholder='Telefone com DDD' 
+                                id='phoneNumber'
+                                name='phoneNumber'
+                                type='tel'
+                                mask="(99) 99999-9999"
+                                maskChar=""
+                                onChange={handleInputRegisterChange}
+                                placeholder='Telefone com DDD'
                             />
 
-                            <InputMask 
-                                id='birthDate' 
-                                name='birthDate' 
+                            <InputMask
+                                id='birthDate'
+                                name='birthDate'
                                 type='text'
-                                mask="99/99/9999" 
-                                maskChar="" 
-                                onChange={handleInputRegisterChange} 
-                                placeholder="Data de nascimento" 
+                                mask="99/99/9999"
+                                maskChar=""
+                                onChange={handleInputRegisterChange}
+                                placeholder="Data de nascimento"
                             />
-                            
-                            <InputMask 
-                                id='cepNumber' 
-                                name="cepNumber" 
-                                type='text' 
-                                mask="99999-999" 
-                                maskChar="" 
-                                onChange={handleInputRegisterChange} 
-                                placeholder="CEP" 
+
+                            <InputMask
+                                id='cepNumber'
+                                name="cepNumber"
+                                type='text'
+                                mask="99999-999"
+                                maskChar=""
+                                onChange={handleInputRegisterChange}
+                                placeholder="CEP"
                             />
 
                             <div className="cityDiv">
@@ -253,33 +256,33 @@ export default function SignUp() {
 
                                     <option disabled selected value="" >Estado</option>
 
-                                        <option value="AC">AC</option>
-                                        <option value="AL">AL</option>
-                                        <option value="AP">AP</option>
-                                        <option value="AM">AM</option>
-                                        <option value="BA">BA</option>
-                                        <option value="CE">CE</option>
-                                        <option value="DF">DF</option>
-                                        <option value="ES">ES</option>
-                                        <option value="GO">GO</option>
-                                        <option value="MA">MA</option>
-                                        <option value="MT">MT</option>
-                                        <option value="MS">MS</option>
-                                        <option value="MG">MG</option>
-                                        <option value="PA">PA</option>
-                                        <option value="PB">PB</option>
-                                        <option value="PR">PR</option>
-                                        <option value="PE">PE</option>
-                                        <option value="PI">PI</option>
-                                        <option value="RJ">RJ</option>
-                                        <option value="RN">RN</option>
-                                        <option value="RS">RS</option>
-                                        <option value="RO">RO</option>
-                                        <option value="RR">RR</option>
-                                        <option value="SC">SC</option>
-                                        <option value="SP">SP</option>
-                                        <option value="SE">SE</option>
-                                        <option value="TO">TO</option>
+                                    <option value="AC">AC</option>
+                                    <option value="AL">AL</option>
+                                    <option value="AP">AP</option>
+                                    <option value="AM">AM</option>
+                                    <option value="BA">BA</option>
+                                    <option value="CE">CE</option>
+                                    <option value="DF">DF</option>
+                                    <option value="ES">ES</option>
+                                    <option value="GO">GO</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MT">MT</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MG">MG</option>
+                                    <option value="PA">PA</option>
+                                    <option value="PB">PB</option>
+                                    <option value="PR">PR</option>
+                                    <option value="PE">PE</option>
+                                    <option value="PI">PI</option>
+                                    <option value="RJ">RJ</option>
+                                    <option value="RN">RN</option>
+                                    <option value="RS">RS</option>
+                                    <option value="RO">RO</option>
+                                    <option value="RR">RR</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SP">SP</option>
+                                    <option value="SE">SE</option>
+                                    <option value="TO">TO</option>
 
                                 </select>
 
