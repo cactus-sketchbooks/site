@@ -67,20 +67,8 @@ export default function Baiao() {
                     value: 60
                 },
                 {
-                    name: "Papel Reciclado Pontilhado",
-                    value: 60
-                },
-                {
-                    name: "Papel Reciclado Quadrado",
-                    value: 60
-                },
-                {
-                    name: "Papel Reciclado Pautado",
-                    value: 60
-                },
-                {
                     name: "Papel Kraft",
-                    value: 70
+                    value: 65
                 },
                 {
                     name: "Papel Canson 140g",
@@ -88,11 +76,11 @@ export default function Baiao() {
                 },
                 {
                     name: "Papel Canson 200g",
-                    value: 75
+                    value: 85
                 },
                 {
                     name: "Papel Preto",
-                    value: 75
+                    value: 82
                 },
                 {
                     name: "Papel Canson Aquarela",
@@ -153,15 +141,15 @@ export default function Baiao() {
                 },
                 {
                     name: "Papel Kraft",
-                    value: 48
+                    value: 42
                 },
                 {
                     name: "Papel Canson 140g",
-                    value: 52
+                    value: 48
                 },
                 {
                     name: "Papel Canson 200g",
-                    value: 52
+                    value: 55
                 },
                 {
                     name: "Papel Preto",
@@ -169,11 +157,11 @@ export default function Baiao() {
                 },
                 {
                     name: "Papel Canson Aquarela",
-                    value: 85
+                    value: 78
                 },
                 {
                     name: "Papel Montval",
-                    value: 85
+                    value: 78
                 }
 
             ]
@@ -226,27 +214,27 @@ export default function Baiao() {
                 },
                 {
                     name: "Papel Kraft",
-                    value: 38
+                    value: 30
                 },
                 {
                     name: "Papel Canson 140g",
-                    value: 38
+                    value: 35
                 },
                 {
                     name: "Papel Canson 200g",
-                    value: 38
+                    value: 40
                 },
                 {
                     name: "Papel Preto",
-                    value: 38
+                    value: 36
                 },
                 {
                     name: "Papel Canson Aquarela",
-                    value: 68
+                    value: 45
                 },
                 {
                     name: "Papel Montval",
-                    value: 68
+                    value: 45
                 }
 
             ]

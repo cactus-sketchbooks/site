@@ -65,40 +65,32 @@ export default function Carcara() {
 
                 {
                     name: "Papel Reciclado Liso",
-                    value: 157
-                },
-                {
-                    name: "Papel Reciclado Pontilhado",
-                    value: 157
-                },
-                {
-                    name: "Papel Reciclado Quadriculado",
-                    value: 157
-                },
-                {
-                    name: "Papel Reciclado Pautado",
-                    value: 157
+                    value: 102
                 },
                 {
                     name: "Papel Kraft",
-                    value: 155
+                    value: 107
                 },
                 {
                     name: "Papel Canson 140g",
-                    value: 160
+                    value: 137
                 },
                 {
                     name: "Papel Canson 200g",
-                    value: 160
+                    value: 157
                 },
                 {
                     name: "Papel Preto",
-                    value: 170
+                    value: 144
                 },
                 {
                     name: "Papel Canson Aquarela",
-                    value: 220
+                    value: 230
                 },
+                {
+                    name: "Papel Montval",
+                    value: 230
+                }
             ]
 
         },
@@ -117,23 +109,11 @@ export default function Carcara() {
 
                 {
                     name: "Papel Reciclado Liso",
-                    value: 65
-                },
-                {
-                    name: "Papel Reciclado Pontilhado",
-                    value: 65
-                },
-                {
-                    name: "Papel Reciclado Quadriculado",
-                    value: 65
-                },
-                {
-                    name: "Papel Reciclado Pautado",
-                    value: 65
+                    value: 67
                 },
                 {
                     name: "Papel Kraft",
-                    value: 75
+                    value: 72
                 },
                 {
                     name: "Papel Canson 140g",
@@ -141,19 +121,19 @@ export default function Carcara() {
                 },
                 {
                     name: "Papel Canson 200g",
-                    value: 82
+                    value: 92
                 },
                 {
                     name: "Papel Preto",
-                    value: 82
+                    value: 85
                 },
                 {
                     name: "Papel Canson Aquarela",
-                    value: 120
+                    value: 122
                 },
                 {
                     name: "Papel Montval",
-                    value: 120
+                    value: 122
                 }
 
             ]
@@ -174,59 +154,59 @@ export default function Carcara() {
 
                 {
                     name: "Papel Reciclado Liso",
-                    value: 42
+                    value: 45
                 },
                 {
                     name: "Papel Reciclado Pontilhado",
-                    value: 42
+                    value: 45
                 },
                 {
                     name: "Papel Reciclado Quadriculado",
-                    value: 42
+                    value: 45
                 },
                 {
                     name: "Papel Reciclado Pautado",
-                    value: 42
+                    value: 45
                 },
                 {
                     name: "Papel Pólen Liso",
-                    value: 42
+                    value: 45
                 },
                 {
                     name: "Papel Pólen Pontilhado",
-                    value: 42
+                    value: 45
                 },
                 {
                     name: "Papel Pólen Quadriculado",
-                    value: 42
+                    value: 45
                 },
                 {
                     name: "Papel Pólen Pautado",
-                    value: 42
+                    value: 45
                 },
                 {
                     name: "Papel Kraft",
-                    value: 52
+                    value: 49
                 },
                 {
                     name: "Papel Canson 140g",
-                    value: 56
+                    value: 55
                 },
                 {
                     name: "Papel Canson 200g",
-                    value: 56
+                    value: 62
                 },
                 {
                     name: "Papel Preto",
-                    value: 56
+                    value: 59
                 },
                 {
                     name: "Papel Canson Aquarela",
-                    value: 88
+                    value: 85
                 },
                 {
                     name: "Papel Montval",
-                    value: 88
+                    value: 85
                 }
 
             ]
@@ -248,43 +228,43 @@ export default function Carcara() {
 
                 {
                     name: "Papel Reciclado Liso",
-                    value: 32
+                    value: 30
                 },
                 {
                     name: "Papel Reciclado Pontilhado",
-                    value: 32
+                    value: 30
                 },
                 {
                     name: "Papel Reciclado Quadriculado",
-                    value: 32
+                    value: 30
                 },
                 {
                     name: "Papel Reciclado Pautado",
-                    value: 32
+                    value: 30
                 },
                 {
                     name: "Papel Pólen Liso",
-                    value: 32
+                    value: 30
                 },
                 {
                     name: "Papel Pólen Pontilhado",
-                    value: 32
+                    value: 30
                 },
                 {
                     name: "Papel Pólen Quadriculado",
-                    value: 32
+                    value: 30
                 },
                 {
                     name: "Papel Pólen Pautado",
-                    value: 32
+                    value: 30
                 },
                 {
                     name: "Papel Kraft",
-                    value: 42
+                    value: 35
                 },
                 {
                     name: "Papel Canson 140g",
-                    value: 45
+                    value: 40
                 },
                 {
                     name: "Papel Canson 200g",
@@ -292,15 +272,15 @@ export default function Carcara() {
                 },
                 {
                     name: "Papel Preto",
-                    value: 45
+                    value: 42
                 },
                 {
                     name: "Papel Canson Aquarela",
-                    value: 75
+                    value: 50
                 },
                 {
                     name: "Papel Montval",
-                    value: 75
+                    value: 50
                 }
 
             ]
@@ -323,35 +303,35 @@ export default function Carcara() {
 
                 {
                     name: "Papel Reciclado",
-                    value: 30
+                    value: 18
                 },
                 {
                     name: "Papel Pólen Liso",
-                    value: 30
+                    value: 18
                 },
                 {
                     name: "Papel Kraft",
-                    value: 40
+                    value: 18
                 },
                 {
                     name: "Papel Canson 140g",
-                    value: 42
+                    value: 20
                 },
                 {
                     name: "Papel Canson 200g",
-                    value: 42
+                    value: 22
                 },
                 {
                     name: "Papel Preto",
-                    value: 42
+                    value: 19
                 },
                 {
                     name: "Papel Canson Aquarela",
-                    value: 72
+                    value: 24
                 },
                 {
                     name: "Papel Montval",
-                    value: 72
+                    value: 24
                 }
 
             ]
@@ -372,23 +352,11 @@ export default function Carcara() {
 
                 {
                     name: "Papel Reciclado Liso",
-                    value: 65
-                },
-                {
-                    name: "Papel Reciclado Pontilhado",
-                    value: 65
-                },
-                {
-                    name: "Papel Reciclado Quadriculado",
-                    value: 65
-                },
-                {
-                    name: "Papel Reciclado Pautado",
-                    value: 65
+                    value: 67
                 },
                 {
                     name: "Papel Kraft",
-                    value: 75
+                    value: 72
                 },
                 {
                     name: "Papel Canson 140g",
@@ -396,19 +364,19 @@ export default function Carcara() {
                 },
                 {
                     name: "Papel Canson 200g",
-                    value: 82
+                    value: 90
                 },
                 {
                     name: "Papel Preto",
-                    value: 82
+                    value: 85
                 },
                 {
                     name: "Papel Canson Aquarela",
-                    value: 120
+                    value: 122
                 },
                 {
                     name: "Papel Montval",
-                    value: 120
+                    value: 122
                 }
 
             ]
@@ -429,59 +397,59 @@ export default function Carcara() {
 
                 {
                     name: "Papel Reciclado Liso",
-                    value: 42
+                    value: 45
                 },
                 {
                     name: "Papel Reciclado Pontilhado",
-                    value: 42
+                    value: 45
                 },
                 {
                     name: "Papel Reciclado Quadriculado",
-                    value: 42
+                    value: 45
                 },
                 {
                     name: "Papel Reciclado Pautado",
-                    value: 42
+                    value: 45
                 },
                 {
                     name: "Papel Pólen Liso",
-                    value: 42
+                    value: 45
                 },
                 {
                     name: "Papel Pólen Pontilhado",
-                    value: 42
+                    value: 45
                 },
                 {
                     name: "Papel Pólen Quadriculado",
-                    value: 42
+                    value: 45
                 },
                 {
                     name: "Papel Pólen Pontado",
-                    value: 42
+                    value: 45
                 },
                 {
                     name: "Papel Kraft",
-                    value: 52
+                    value: 49
                 },
                 {
                     name: "Papel Canson 140g",
-                    value: 56
+                    value: 55
                 },
                 {
                     name: "Papel Canson 200g",
-                    value: 56
+                    value: 62
                 },
                 {
                     name: "Papel Preto",
-                    value: 56
+                    value: 59
                 },
                 {
                     name: "Papel Canson Aquarela",
-                    value: 88
+                    value: 85
                 },
                 {
                     name: "Papel Montval",
-                    value: 88
+                    value: 85
                 }
 
             ]
@@ -534,15 +502,15 @@ export default function Carcara() {
                 },
                 {
                     name: "Papel Kraft",
-                    value: 40
+                    value: 35
                 },
                 {
                     name: "Papel Canson 140g",
-                    value: 42
+                    value: 40
                 },
                 {
                     name: "Papel Canson 200g",
-                    value: 42
+                    value: 45
                 },
                 {
                     name: "Papel Preto",
@@ -550,11 +518,11 @@ export default function Carcara() {
                 },
                 {
                     name: "Papel Canson Aquarela",
-                    value: 72
+                    value: 50
                 },
                 {
                     name: "Papel Montval",
-                    value: 72
+                    value: 50
                 }
 
             ]

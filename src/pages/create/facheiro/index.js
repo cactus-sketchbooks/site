@@ -66,43 +66,31 @@ export default function Facheiro() {
 
                 {
                     name: "Papel Reciclado Liso",
-                    value: 154
-                },
-                {
-                    name: "Papel Reciclado Pontilhado",
-                    value: 154
-                },
-                {
-                    name: "Papel Reciclado Quadriculado",
-                    value: 154
-                },
-                {
-                    name: "Papel Reciclado Pautado",
-                    value: 154
+                    value: 97
                 },
                 {
                     name: "Papel Kraft",
-                    value: 152
+                    value: 102
                 },
                 {
                     name: "Papel Canson 140g",
-                    value: 157
+                    value: 132
                 },
                 {
                     name: "Papel Canson 200g",
-                    value: 157
+                    value: 152
                 },
                 {
                     name: "Papel Preto",
-                    value: 167
+                    value: 139
                 },
                 {
                     name: "Papel Canson Aquarela",
-                    value: 218
+                    value: 225
                 },
                 {
                     name: "Papel Montval",
-                    value: 228
+                    value: 225
                 }
 
             ]
@@ -123,35 +111,23 @@ export default function Facheiro() {
 
                 {
                     name: "Papel Reciclado Liso",
-                    value: 62
-                },
-                {
-                    name: "Papel Reciclado Pontilhado",
-                    value: 62
-                },
-                {
-                    name: "Papel Reciclado Quadriculado",
-                    value: 62
-                },
-                {
-                    name: "Papel Reciclado Pautado",
-                    value: 62
+                    value: 67
                 },
                 {
                     name: "Papel Pólen Liso",
-                    value: 62
+                    value: 67
                 },
                 {
                     name: "Papel Pólen Pontilhado",
-                    value: 62
+                    value: 67
                 },
                 {
                     name: "Papel Pólen Quadriculado",
-                    value: 62
+                    value: 67
                 },
                 {
                     name: "Papel Pólen Pautado",
-                    value: 62
+                    value: 67
                 },
                 {
                     name: "Papel Kraft",
@@ -159,23 +135,23 @@ export default function Facheiro() {
                 },
                 {
                     name: "Papel Canson 140g",
-                    value: 77
+                    value: 82
                 },
                 {
                     name: "Papel Canson 200g",
-                    value: 77
+                    value: 92
                 },
                 {
                     name: "Papel Preto",
-                    value: 77
+                    value: 85
                 },
                 {
                     name: "Papel Canson Aquarela",
-                    value: 118
+                    value: 122
                 },
                 {
                     name: "Papel Montval",
-                    value: 118
+                    value: 122
                 }
 
             ]
@@ -196,39 +172,39 @@ export default function Facheiro() {
 
                 {
                     name: "Papel Reciclado Liso",
-                    value: 40
+                    value: 45
                 },
                 {
                     name: "Papel Reciclado Pontilhado",
-                    value: 40
+                    value: 45
                 },
                 {
                     name: "Papel Reciclado Quadriculado",
-                    value: 40
+                    value: 45
                 },
                 {
                     name: "Papel Reciclado Pautado",
-                    value: 40
+                    value: 45
                 },
                 {
                     name: "Papel Pólen Liso",
-                    value: 40
+                    value: 45
                 },
                 {
                     name: "Papel Pólen Pontilhado",
-                    value: 40
+                    value: 45
                 },
                 {
                     name: "Papel Pólen Quadriculado",
-                    value: 40
+                    value: 45
                 },
                 {
                     name: "Papel Pólen Pautado",
-                    value: 40
+                    value: 45
                 },
                 {
                     name: "Papel Kraft",
-                    value: 50
+                    value: 49
                 },
                 {
                     name: "Papel Canson 140g",
@@ -236,19 +212,19 @@ export default function Facheiro() {
                 },
                 {
                     name: "Papel Canson 200g",
-                    value: 55
+                    value: 62
                 },
                 {
                     name: "Papel Preto",
-                    value: 55
+                    value: 59
                 },
                 {
                     name: "Papel Canson Aquarela",
-                    value: 86
+                    value: 85
                 },
                 {
                     name: "Papel Montval",
-                    value: 86
+                    value: 85
                 }
 
             ]
@@ -301,15 +277,15 @@ export default function Facheiro() {
                 },
                 {
                     name: "Papel Kraft",
-                    value: 40
+                    value: 35
                 },
                 {
                     name: "Papel Canson 140g",
-                    value: 42
+                    value: 40
                 },
                 {
                     name: "Papel Canson 200g",
-                    value: 42
+                    value: 45
                 },
                 {
                     name: "Papel Preto",
@@ -317,11 +293,11 @@ export default function Facheiro() {
                 },
                 {
                     name: "Papel Canson Aquarela",
-                    value: 70
+                    value: 50
                 },
                 {
                     name: "Papel Montval",
-                    value: 70
+                    value: 50
                 }
 
             ]
@@ -342,35 +318,23 @@ export default function Facheiro() {
 
                 {
                     name: "Papel Reciclado Liso",
-                    value: 62
-                },
-                {
-                    name: "Papel Reciclado Pontilhado",
-                    value: 62
-                },
-                {
-                    name: "Papel Reciclado Quadriculado",
-                    value: 62
-                },
-                {
-                    name: "Papel Reciclado Pautado",
-                    value: 62
+                    value: 67
                 },
                 {
                     name: "Papel Pólen Liso",
-                    value: 62
+                    value: 67
                 },
                 {
                     name: "Papel Pólen Pontilhado",
-                    value: 62
+                    value: 67
                 },
                 {
                     name: "Papel Pólen Quadriculado",
-                    value: 62
+                    value: 67
                 },
                 {
                     name: "Papel Pólen Pautado",
-                    value: 62
+                    value: 67
                 },
                 {
                     name: "Papel Kraft",
@@ -378,23 +342,23 @@ export default function Facheiro() {
                 },
                 {
                     name: "Papel Canson 140g",
-                    value: 77
+                    value: 82
                 },
                 {
                     name: "Papel Canson 200g",
-                    value: 77
+                    value: 92
                 },
                 {
                     name: "Papel Preto",
-                    value: 77
+                    value: 85
                 },
                 {
                     name: "Papel Canson Aquarela",
-                    value: 118
+                    value: 122
                 },
                 {
                     name: "Papel Montval",
-                    value: 118
+                    value: 122
                 }
 
             ]
@@ -415,59 +379,59 @@ export default function Facheiro() {
 
                 {
                     name: "Papel Reciclado Liso",
-                    value: 40
+                    value: 45
                 },
                 {
                     name: "Papel Reciclado Pontilhado",
-                    value: 40
+                    value: 45
                 },
                 {
                     name: "Papel Reciclado Quadriculado",
-                    value: 40
+                    value: 45
                 },
                 {
                     name: "Papel Reciclado Pautado",
-                    value: 40
+                    value: 45
                 },
                 {
                     name: "Papel Pólen Liso",
-                    value: 40
+                    value: 45
                 },
                 {
                     name: "Papel Pólen Pontilhado",
-                    value: 40
+                    value: 45
                 },
                 {
                     name: "Papel Pólen Quadriculado",
-                    value: 40
+                    value: 45
                 },
                 {
                     name: "Papel Pólen Pautado",
-                    value: 40
+                    value: 45
                 },
                 {
                     name: "Papel Kraft",
-                    value: 50
+                    value: 49
                 },
                 {
                     name: "Papel Canson 140g",
-                    value: 50
-                },
-                {
-                    name: "Papel Canson 200g",
-                    value: 50
-                },
-                {
-                    name: "Papel Preto",
                     value: 55
                 },
                 {
+                    name: "Papel Canson 200g",
+                    value: 62
+                },
+                {
+                    name: "Papel Preto",
+                    value: 59
+                },
+                {
                     name: "Papel Canson Aquarela",
-                    value: 86
+                    value: 85
                 },
                 {
                     name: "Papel Montval",
-                    value: 86
+                    value: 85
                 }
 
             ]
@@ -488,35 +452,35 @@ export default function Facheiro() {
 
                 {
                     name: "Papel Reciclado Liso",
-                    value: 25
+                    value: 30
                 },
                 {
                     name: "Papel Reciclado Pontilhado",
-                    value: 25
+                    value: 30
                 },
                 {
                     name: "Papel Reciclado Quadriculado",
-                    value: 25
+                    value: 30
                 },
                 {
                     name: "Papel Reciclado Pautado",
-                    value: 25
+                    value: 30
                 },
                 {
                     name: "Papel Pólen Liso",
-                    value: 25
+                    value: 30
                 },
                 {
                     name: "Papel Pólen Pontilhado",
-                    value: 25
+                    value: 30
                 },
                 {
                     name: "Papel Pólen Quadriculado",
-                    value: 25
+                    value: 30
                 },
                 {
                     name: "Papel Pólen Pautado",
-                    value: 25
+                    value: 30
                 },
                 {
                     name: "Papel Kraft",
@@ -524,23 +488,23 @@ export default function Facheiro() {
                 },
                 {
                     name: "Papel Canson 140g",
-                    value: 38
+                    value: 40
                 },
                 {
                     name: "Papel Canson 200g",
-                    value: 38
+                    value: 45
                 },
                 {
                     name: "Papel Preto",
-                    value: 38
+                    value: 42
                 },
                 {
                     name: "Papel Canson Aquarela",
-                    value: 68
+                    value: 50
                 },
                 {
                     name: "Papel Montval",
-                    value: 68
+                    value: 50
                 }
 
             ]

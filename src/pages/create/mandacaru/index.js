@@ -65,35 +65,23 @@ export default function Mandacaru() {
 
                 {
                     name: "Papel Reciclado Liso",
-                    value: 152
-                },
-                {
-                    name: "Papel Reciclado Pontilhado",
-                    value: 152
-                },
-                {
-                    name: "Papel Reciclado Quadriculado",
-                    value: 152
-                },
-                {
-                    name: "Papel Reciclado Pautado",
-                    value: 152
+                    value: 90
                 },
                 {
                     name: "Papel Kraft",
-                    value: 150
+                    value: 95
                 },
                 {
                     name: "Papel Canson 140g",
-                    value: 155
+                    value: 140
                 },
                 {
                     name: "Papel Canson 200g",
-                    value: 155
+                    value: 150
                 },
                 {
                     name: "Papel Preto",
-                    value: 165
+                    value: 148
                 },
                 {
                     name: "Papel Canson Aquarela",
@@ -120,20 +108,8 @@ export default function Mandacaru() {
                     value: 60
                 },
                 {
-                    name: "Papel Reciclado Pontilhado",
-                    value: 60
-                },
-                {
-                    name: "Papel Reciclado Quadriculado",
-                    value: 60
-                },
-                {
-                    name: "Papel Reciclado Pautado",
-                    value: 60
-                },
-                {
                     name: "Papel Kraft",
-                    value: 70
+                    value: 65
                 },
                 {
                     name: "Papel Canson 140g",
@@ -141,11 +117,11 @@ export default function Mandacaru() {
                 },
                 {
                     name: "Papel Canson 200g",
-                    value: 75
+                    value: 85
                 },
                 {
                     name: "Papel Preto",
-                    value: 75
+                    value: 82
                 },
                 {
                     name: "Papel Canson Aquarela",
@@ -206,15 +182,15 @@ export default function Mandacaru() {
                 },
                 {
                     name: "Papel Kraft",
-                    value: 48
+                    value: 42
                 },
                 {
                     name: "Papel Canson 140g",
-                    value: 52
+                    value: 48
                 },
                 {
                     name: "Papel Canson 200g",
-                    value: 52
+                    value: 55
                 },
                 {
                     name: "Papel Preto",
@@ -222,11 +198,11 @@ export default function Mandacaru() {
                 },
                 {
                     name: "Papel Canson Aquarela",
-                    value: 85
+                    value: 78
                 },
                 {
                     name: "Papel Montval",
-                    value: 85
+                    value: 78
                 }
 
             ]
@@ -248,59 +224,59 @@ export default function Mandacaru() {
 
                 {
                     name: "Papel Reciclado Liso",
-                    value: 28
+                    value: 25
                 },
                 {
                     name: "Papel Reciclado Pontilhado",
-                    value: 28
+                    value: 25
                 },
                 {
                     name: "Papel Reciclado Quadriculado",
-                    value: 28
+                    value: 25
                 },
                 {
                     name: "Papel Reciclado Pautado",
-                    value: 28
+                    value: 25
                 },
                 {
                     name: "Papel Pólen Liso",
-                    value: 28
+                    value: 25
                 },
                 {
                     name: "Papel Pólen Pontilhado",
-                    value: 28
+                    value: 25
                 },
                 {
                     name: "Papel Pólen Quadriculado",
-                    value: 28
+                    value: 25
                 },
                 {
                     name: "Papel Pólen Pautado",
-                    value: 28
+                    value: 25
                 },
                 {
                     name: "Papel Kraft",
-                    value: 38
+                    value: 30
                 },
                 {
                     name: "Papel Canson 140g",
-                    value: 42
+                    value: 35
                 },
                 {
                     name: "Papel Canson 200g",
-                    value: 42
+                    value: 40
                 },
                 {
                     name: "Papel Preto",
-                    value: 42
+                    value: 36
                 },
                 {
                     name: "Papel Canson Aquarela",
-                    value: 70
+                    value: 45
                 },
                 {
                     name: "Papel Montval",
-                    value: 70
+                    value: 45
                 }
 
             ]
@@ -331,27 +307,27 @@ export default function Mandacaru() {
                 },
                 {
                     name: "Papel Kraft",
-                    value: 25
+                    value: 15
                 },
                 {
                     name: "Papel Canson 140g",
-                    value: 28
+                    value: 16
                 },
                 {
                     name: "Papel Canson 200g",
-                    value: 28
+                    value: 18
                 },
                 {
                     name: "Papel Preto",
-                    value: 28
+                    value: 17
                 },
                 {
                     name: "Papel Canson Aquarela",
-                    value: 38
+                    value: 20
                 },
                 {
                     name: "Papel Montval",
-                    value: 38
+                    value: 200
                 }
 
             ]
