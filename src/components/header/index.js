@@ -123,7 +123,7 @@ export default function Header() {
                                 <li><Link onClick={scrollToTop} to="/contato"> Contato </Link></li>
                                 <li><Link onClick={scrollToTop} to="/nossosClientes"> Use e Apareça </Link></li>
                                 <li><Link onClick={scrollToTop} to="/carrinho"> Carrinho </Link></li>
-                                <li><Link onClick={scrollToTop} to="/login"> Login </Link></li>
+                                <li><Link onClick={scrollToTop} to="/login"> Log In </Link></li>
                             </ul> 
 
                         </>
