@@ -327,7 +327,7 @@ export default function Mandacaru() {
                 },
                 {
                     name: "Papel Montval",
-                    value: 200
+                    value: 20
                 }
 
             ]
