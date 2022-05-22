@@ -44,489 +44,490 @@ export default function Carcara() {
     };
 
     const values = {
-        name: 'Carcará',
-        formats: [
-            {
-                name: 'A3',
-                id: 6,
-                size: {
-                    // width: 29.7,
-                    width: 30,
-                    length: 42,
-                    height: 3,
-                    // height: 2.5,
-                    weight: 0.8,
-                },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso',
-                        value: 157,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado',
-                        value: 157,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado',
-                        value: 157,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado',
-                        value: 157,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 155,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 160,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 160,
-                    },
-                    {
-                        name: 'Papel Preto',
-                        value: 170,
-                    },
-                    {
-                        name: 'Papel Canson Aquarela',
-                        value: 220,
-                    },
-                ],
+
+        name: "Carcará",
+        formats: [{
+
+            name: "A3",
+            id: 6,
+            size: {
+                // width: 29.7,
+                width: 30,
+                length: 42,
+                height: 3,
+                // height: 2.5,
+                weight: 0.8
             },
-            {
-                name: 'A4',
-                id: 7,
-                size: {
-                    width: 21,
-                    length: 29,
-                    // height: 2.5,
-                    height: 3,
-                    weight: 0.7,
+            types: [
+
+                {
+                    name: "Papel Reciclado Liso",
+                    value: 102
                 },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso',
-                        value: 65,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado',
-                        value: 65,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado',
-                        value: 65,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado',
-                        value: 65,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 75,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 82,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 82,
-                    },
-                    {
-                        name: 'Papel Preto',
-                        value: 82,
-                    },
-                    {
-                        name: 'Papel Canson Aquarela',
-                        value: 120,
-                    },
-                    {
-                        name: 'Papel Montval',
-                        value: 120,
-                    },
-                ],
-            },
-            {
-                name: 'A5',
-                id: 8,
-                size: {
-                    width: 15,
-                    length: 21,
-                    // height: 2.5,
-                    height: 3,
-                    weight: 0.5,
+                {
+                    name: "Papel Kraft",
+                    value: 107
                 },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso',
-                        value: 42,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado',
-                        value: 42,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado',
-                        value: 42,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado',
-                        value: 42,
-                    },
-                    {
-                        name: 'Papel Pólen Liso',
-                        value: 42,
-                    },
-                    {
-                        name: 'Papel Pólen Pontilhado',
-                        value: 42,
-                    },
-                    {
-                        name: 'Papel Pólen Quadriculado',
-                        value: 42,
-                    },
-                    {
-                        name: 'Papel Pólen Pautado',
-                        value: 42,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 52,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 56,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 56,
-                    },
-                    {
-                        name: 'Papel Preto',
-                        value: 56,
-                    },
-                    {
-                        name: 'Papel Canson Aquarela',
-                        value: 88,
-                    },
-                    {
-                        name: 'Papel Montval',
-                        value: 88,
-                    },
-                ],
-            },
-            {
-                name: 'A6',
-                id: 9,
-                size: {
-                    // width: 10.5,
-                    width: 11,
-                    length: 15,
-                    // height: 2.5,
-                    height: 3,
-                    weight: 0.5,
+                {
+                    name: "Papel Canson 140g",
+                    value: 137
                 },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso',
-                        value: 32,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado',
-                        value: 32,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado',
-                        value: 32,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado',
-                        value: 32,
-                    },
-                    {
-                        name: 'Papel Pólen Liso',
-                        value: 32,
-                    },
-                    {
-                        name: 'Papel Pólen Pontilhado',
-                        value: 32,
-                    },
-                    {
-                        name: 'Papel Pólen Quadriculado',
-                        value: 32,
-                    },
-                    {
-                        name: 'Papel Pólen Pautado',
-                        value: 32,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 42,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 45,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 45,
-                    },
-                    {
-                        name: 'Papel Preto',
-                        value: 45,
-                    },
-                    {
-                        name: 'Papel Canson Aquarela',
-                        value: 75,
-                    },
-                    {
-                        name: 'Papel Montval',
-                        value: 75,
-                    },
-                ],
-            },
-            {
-                name: 'A7',
-                id: 10,
-                size: {
-                    // width: 7.5,
-                    width: 8,
-                    // length: 10.5,
-                    length: 11,
-                    height: 3,
-                    // height: 2.5,
-                    weight: 0.5,
+                {
+                    name: "Papel Canson 200g",
+                    value: 157
                 },
-                types: [
-                    {
-                        name: 'Papel Reciclado',
-                        value: 30,
-                    },
-                    {
-                        name: 'Papel Pólen Liso',
-                        value: 30,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 40,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 42,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 42,
-                    },
-                    {
-                        name: 'Papel Preto',
-                        value: 42,
-                    },
-                    {
-                        name: 'Papel Canson Aquarela',
-                        value: 72,
-                    },
-                    {
-                        name: 'Papel Montval',
-                        value: 72,
-                    },
-                ],
-            },
-            {
-                name: '21X21',
-                id: 11,
-                size: {
-                    width: 21,
-                    length: 21,
-                    // height: 2.5,
-                    height: 3,
-                    weight: 0.5,
+                {
+                    name: "Papel Preto",
+                    value: 144
                 },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso',
-                        value: 65,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado',
-                        value: 65,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado',
-                        value: 65,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado',
-                        value: 65,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 75,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 82,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 82,
-                    },
-                    {
-                        name: 'Papel Preto',
-                        value: 82,
-                    },
-                    {
-                        name: 'Papel Canson Aquarela',
-                        value: 120,
-                    },
-                    {
-                        name: 'Papel Montval',
-                        value: 120,
-                    },
-                ],
-            },
-            {
-                name: '15X15',
-                id: 12,
-                size: {
-                    width: 15,
-                    length: 15,
-                    height: 3,
-                    // height: 2.5,
-                    weight: 0.5,
+                {
+                    name: "Papel Canson Aquarela",
+                    value: 230
                 },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso',
-                        value: 42,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado',
-                        value: 42,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado',
-                        value: 42,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado',
-                        value: 42,
-                    },
-                    {
-                        name: 'Papel Pólen Liso',
-                        value: 42,
-                    },
-                    {
-                        name: 'Papel Pólen Pontilhado',
-                        value: 42,
-                    },
-                    {
-                        name: 'Papel Pólen Quadriculado',
-                        value: 42,
-                    },
-                    {
-                        name: 'Papel Pólen Pontado',
-                        value: 42,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 52,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 56,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 56,
-                    },
-                    {
-                        name: 'Papel Preto',
-                        value: 56,
-                    },
-                    {
-                        name: 'Papel Canson Aquarela',
-                        value: 88,
-                    },
-                    {
-                        name: 'Papel Montval',
-                        value: 88,
-                    },
-                ],
+                {
+                    name: "Papel Montval",
+                    value: 230
+                }
+            ]
+
+        },
+        {
+
+            name: "A4",
+            id: 7,
+            size: {
+                width: 21,
+                length: 29,
+                // height: 2.5,
+                height: 3,
+                weight: 0.7
             },
-            {
-                name: '10X10',
-                id: 13,
-                size: {
-                    width: 10,
-                    length: 10,
-                    // height: 2.5,
-                    height: 3,
-                    weight: 0.5,
+            types: [
+
+                {
+                    name: "Papel Reciclado Liso",
+                    value: 67
                 },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso',
-                        value: 30,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado',
-                        value: 30,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado',
-                        value: 30,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado',
-                        value: 30,
-                    },
-                    {
-                        name: 'Papel Pólen Liso',
-                        value: 30,
-                    },
-                    {
-                        name: 'Papel Pólen Quadriculado',
-                        value: 30,
-                    },
-                    {
-                        name: 'Papel Pólen Pontilhado',
-                        value: 30,
-                    },
-                    {
-                        name: 'Papel Pólen Pautado',
-                        value: 30,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 40,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 42,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 42,
-                    },
-                    {
-                        name: 'Papel Preto',
-                        value: 42,
-                    },
-                    {
-                        name: 'Papel Canson Aquarela',
-                        value: 72,
-                    },
-                    {
-                        name: 'Papel Montval',
-                        value: 72,
-                    },
-                ],
+                {
+                    name: "Papel Kraft",
+                    value: 72
+                },
+                {
+                    name: "Papel Canson 140g",
+                    value: 82
+                },
+                {
+                    name: "Papel Canson 200g",
+                    value: 92
+                },
+                {
+                    name: "Papel Preto",
+                    value: 85
+                },
+                {
+                    name: "Papel Canson Aquarela",
+                    value: 122
+                },
+                {
+                    name: "Papel Montval",
+                    value: 122
+                }
+
+            ]
+
+        },
+        {
+
+            name: "A5",
+            id: 8,
+            size: {
+                width: 15,
+                length: 21,
+                // height: 2.5,
+                height: 3,
+                weight: 0.5
             },
-        ],
+            types: [
+
+                {
+                    name: "Papel Reciclado Liso",
+                    value: 45
+                },
+                {
+                    name: "Papel Reciclado Pontilhado",
+                    value: 45
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 45
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 45
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 45
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 45
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 45
+                },
+                {
+                    name: "Papel Pólen Pautado",
+                    value: 45
+                },
+                {
+                    name: "Papel Kraft",
+                    value: 49
+                },
+                {
+                    name: "Papel Canson 140g",
+                    value: 55
+                },
+                {
+                    name: "Papel Canson 200g",
+                    value: 62
+                },
+                {
+                    name: "Papel Preto",
+                    value: 59
+                },
+                {
+                    name: "Papel Canson Aquarela",
+                    value: 85
+                },
+                {
+                    name: "Papel Montval",
+                    value: 85
+                }
+
+            ]
+
+        },
+        {
+
+            name: "A6",
+            id: 9,
+            size: {
+                // width: 10.5,
+                width: 11,
+                length: 15,
+                // height: 2.5,
+                height: 3,
+                weight: 0.5
+            },
+            types: [
+
+                {
+                    name: "Papel Reciclado Liso",
+                    value: 30
+                },
+                {
+                    name: "Papel Reciclado Pontilhado",
+                    value: 30
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 30
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 30
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 30
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 30
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 30
+                },
+                {
+                    name: "Papel Pólen Pautado",
+                    value: 30
+                },
+                {
+                    name: "Papel Kraft",
+                    value: 35
+                },
+                {
+                    name: "Papel Canson 140g",
+                    value: 40
+                },
+                {
+                    name: "Papel Canson 200g",
+                    value: 45
+                },
+                {
+                    name: "Papel Preto",
+                    value: 42
+                },
+                {
+                    name: "Papel Canson Aquarela",
+                    value: 50
+                },
+                {
+                    name: "Papel Montval",
+                    value: 50
+                }
+
+            ]
+
+        },
+        {
+
+            name: "A7",
+            id: 10,
+            size: {
+                // width: 7.5,
+                width: 8,
+                // length: 10.5,
+                length: 11,
+                height: 3,
+                // height: 2.5,
+                weight: 0.5
+            },
+            types: [
+
+                {
+                    name: "Papel Reciclado",
+                    value: 18
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 18
+                },
+                {
+                    name: "Papel Kraft",
+                    value: 18
+                },
+                {
+                    name: "Papel Canson 140g",
+                    value: 20
+                },
+                {
+                    name: "Papel Canson 200g",
+                    value: 22
+                },
+                {
+                    name: "Papel Preto",
+                    value: 19
+                },
+                {
+                    name: "Papel Canson Aquarela",
+                    value: 24
+                },
+                {
+                    name: "Papel Montval",
+                    value: 24
+                }
+
+            ]
+
+        },
+        {
+
+            name: "21X21",
+            id: 11,
+            size: {
+                width: 21,
+                length: 21,
+                // height: 2.5,
+                height: 3,
+                weight: 0.5
+            },
+            types: [
+
+                {
+                    name: "Papel Reciclado Liso",
+                    value: 67
+                },
+                {
+                    name: "Papel Kraft",
+                    value: 72
+                },
+                {
+                    name: "Papel Canson 140g",
+                    value: 82
+                },
+                {
+                    name: "Papel Canson 200g",
+                    value: 90
+                },
+                {
+                    name: "Papel Preto",
+                    value: 85
+                },
+                {
+                    name: "Papel Canson Aquarela",
+                    value: 122
+                },
+                {
+                    name: "Papel Montval",
+                    value: 122
+                }
+
+            ]
+
+        },
+        {
+
+            name: "15X15",
+            id: 12,
+            size: {
+                width: 15,
+                length: 15,
+                height: 3,
+                // height: 2.5,
+                weight: 0.5
+            },
+            types: [
+
+                {
+                    name: "Papel Reciclado Liso",
+                    value: 45
+                },
+                {
+                    name: "Papel Reciclado Pontilhado",
+                    value: 45
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 45
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 45
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 45
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 45
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 45
+                },
+                {
+                    name: "Papel Pólen Pontado",
+                    value: 45
+                },
+                {
+                    name: "Papel Kraft",
+                    value: 49
+                },
+                {
+                    name: "Papel Canson 140g",
+                    value: 55
+                },
+                {
+                    name: "Papel Canson 200g",
+                    value: 62
+                },
+                {
+                    name: "Papel Preto",
+                    value: 59
+                },
+                {
+                    name: "Papel Canson Aquarela",
+                    value: 85
+                },
+                {
+                    name: "Papel Montval",
+                    value: 85
+                }
+
+            ]
+
+        },
+        {
+
+            name: "10X10",
+            id: 13,
+            size: {
+                width: 10,
+                length: 10,
+                // height: 2.5,
+                height: 3,
+                weight: 0.5
+            },
+            types: [
+
+                {
+                    name: "Papel Reciclado Liso",
+                    value: 30
+                },
+                {
+                    name: "Papel Reciclado Pontilhado",
+                    value: 30
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 30
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 30
+                },
+                {
+                    name: "Papel Pólen Liso",
+                    value: 30
+                },
+                {
+                    name: "Papel Pólen Quadriculado",
+                    value: 30
+                },
+                {
+                    name: "Papel Pólen Pontilhado",
+                    value: 30
+                },
+                {
+                    name: "Papel Pólen Pautado",
+                    value: 30
+                },
+                {
+                    name: "Papel Kraft",
+                    value: 35
+                },
+                {
+                    name: "Papel Canson 140g",
+                    value: 40
+                },
+                {
+                    name: "Papel Canson 200g",
+                    value: 45
+                },
+                {
+                    name: "Papel Preto",
+                    value: 42
+                },
+                {
+                    name: "Papel Canson Aquarela",
+                    value: 50
+                },
+                {
+                    name: "Papel Montval",
+                    value: 50
+                }
+
+            ]
+
+        },
+
+        ]
+
     };
 
     useEffect(() => {
@@ -789,7 +790,7 @@ export default function Carcara() {
                     <Slider {...settings}>
                         {dataColors.map((item, index) =>
                             item.models.includes('carcara') &&
-                            item.categories.includes('cover') ? (
+                                item.categories.includes('cover') ? (
                                 <div className='cardColor'>
                                     <label
                                         for={index}
@@ -852,7 +853,7 @@ export default function Carcara() {
                         <div className='elasticColorWrapper'>
                             {dataColors.map((item, index) =>
                                 item.models.includes('carcara') &&
-                                item.categories.includes('elastic') ? (
+                                    item.categories.includes('elastic') ? (
                                     <div className='colorWrapper'>
                                         {item.image ? (
                                             <div className='elasticColor'>
