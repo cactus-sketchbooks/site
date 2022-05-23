@@ -23,6 +23,7 @@ import CreatePost from './pages/admin/createPost';
 import CreateColor from './pages/admin/createColor';
 // import CreateTypes from './pages/admin/createTypes'
 import Requests from './pages/admin/requests';
+import RegisterProducts from './pages/admin/registerProduct';
 import UserRequests from './pages/userRequests';
 import ForgotPassword from './pages/forgotPassword';
 import Grammage from './pages/grammage';
@@ -60,7 +61,7 @@ const Routes = () => {
             <Route component={DataChange} path='/alterarDados' />
             <Route component={Privacy} path='/politicaDePrivacidade' />
             <Route component={Terms} path='/termosDeUso' />
-            {/* <Route component={CreateTypes} path='/gerenciarTipos' /> */}
+            <Route component={RegisterProducts} path='/cadastrarProduto' />
         </BrowserRouter>
     );
 };
