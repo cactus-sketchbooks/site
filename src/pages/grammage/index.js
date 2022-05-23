@@ -21,7 +21,7 @@ export default function Grammage() {
 
                 <div className="grammageInfos">
                     <ul>
-                        <h2>Papel Pólen Bold 90g/m²</h2>
+                        <h2>Papel Marfim 120g/m²</h2>
                         <li>
                             <p>Levemente amarelado</p>
                             <p>Mais conforto visual para anotar e desenhar</p>
@@ -101,7 +101,7 @@ export default function Grammage() {
                         </li>
 
                         <li>
-                            <h4>Pólen 90g (112 págs)</h4>
+                            <h4>Marfim 120g (112 págs)</h4>
                             <p>Liso, pontilhado, quadriculado ou pautado</p>
                         </li>
 
@@ -144,7 +144,7 @@ export default function Grammage() {
                         </li>
 
                         <li>
-                            <h4>Pólen 90g (112 págs)</h4>
+                            <h4>Marfim 120g (112 págs)</h4>
                             <p>Liso, pontilhado, quadriculado ou pautado</p>
                         </li>
 
@@ -171,7 +171,7 @@ export default function Grammage() {
                         </li>
 
                         <li>
-                            <h4>Pólen 90g (112 págs)</h4>
+                            <h4>Marfim 120g (112 págs)</h4>
                             <p>Liso, pontilhado, quadriculado ou pautado</p>
                         </li>
 
@@ -209,7 +209,7 @@ export default function Grammage() {
                         </li>
 
                         <li>
-                            <h4>Pólen 90g (112 págs)</h4>
+                            <h4>Marfim 120g (112 págs)</h4>
                             <p>Liso, pontilhado, quadriculado ou pautado</p>
                         </li>
 
@@ -236,7 +236,7 @@ export default function Grammage() {
                         </li>
 
                         <li>
-                            <h4>Pólen 90g (116 págs)</h4>
+                            <h4>Marfim 120g (116 págs)</h4>
                             <p>Liso, pontilhado, quadriculado ou pautado</p>
                         </li>
 
@@ -274,7 +274,7 @@ export default function Grammage() {
                         </li>
 
                         <li>
-                            <h4>Pólen 90g (116 págs)</h4>
+                            <h4>Marfim 120g (116 págs)</h4>
                             <p>Liso, pontilhado, quadriculado ou pautado</p>
                         </li>
 
@@ -301,7 +301,7 @@ export default function Grammage() {
                         </li>
 
                         <li>
-                            <h4>Pólen 90g (60 págs)</h4>
+                            <h4>Marfim 120g (60 págs)</h4>
                             <p>Liso, pontilhado, quadriculado ou pautado</p>
                         </li>
 

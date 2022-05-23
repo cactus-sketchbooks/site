@@ -242,7 +242,7 @@ export default function Cart() {
 
             setDisplayCepSearch('none');
 
-            if (transportValue !== 0) {
+            if (transportValue !== 0 || economicTransportValue !== 0) {
 
                 setFinalValue(totalValue)
 
@@ -1165,7 +1165,7 @@ export default function Cart() {
 
                                         <h3>Forma de pagamento - {purchasedProductData.payment}</h3>
                                         <h4>Chave PIX:</h4>
-                                        <span><strong>cactussketchbooks@outlook.com</strong> - Para Bruno Luis Matos Correia (Bradesco)</span>
+                                        <span><strong>cactussketchs@gmail.com</strong> - Cactus Sketchbooks (C6Bank)</span>
                                         <span>envie seu comprovante na página dos <Link target="_blank" to="/meusPedidos">seus pedidos</Link></span>
 
                                         <div className="rowDataInfos">

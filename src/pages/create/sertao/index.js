@@ -50,6 +50,69 @@ export default function Sertao() {
         name: "Sertão",
         formats: [{
 
+            name: "A4",
+            id: 32,
+            size: {
+                width: 21,
+                length: 29,
+                height: 3,
+                weight: 0.7
+            },
+            types: [
+
+                {
+                    name: "Papel Reciclado Liso",
+                    value: 24
+                },
+                {
+                    name: "Papel Reciclado Pontilhado",
+                    value: 24
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 24
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 24
+                },
+                {
+                    name: "Papel Marfim Liso",
+                    value: 24
+                },
+                {
+                    name: "Papel Marfim Pontilhado",
+                    value: 24
+                },
+                {
+                    name: "Papel Marfim Quadriculado",
+                    value: 24
+                },
+                {
+                    name: "Papel Marfim Pautado",
+                    value: 24
+                },
+                {
+                    name: "Papel Kraft",
+                    value: 25
+                },
+                {
+                    name: "Papel Canson 140g",
+                    value: 25
+                },
+                {
+                    name: "Papel Canson 200g",
+                    value: 28
+                },
+                {
+                    name: "Papel Preto",
+                    value: 26
+                },
+
+            ]
+
+        },
+        {
             name: "A5",
             id: 26,
             size: {
@@ -62,51 +125,51 @@ export default function Sertao() {
 
                 {
                     name: "Papel Reciclado Liso",
-                    value: 22
+                    value: 12
                 },
                 {
                     name: "Papel Reciclado Pontilhado",
-                    value: 22
+                    value: 12
                 },
                 {
                     name: "Papel Reciclado Quadriculado",
-                    value: 22
+                    value: 12
                 },
                 {
                     name: "Papel Reciclado Pautado",
-                    value: 22
+                    value: 12
                 },
                 {
-                    name: "Papel Pólen Liso",
-                    value: 22
+                    name: "Papel Marfim Liso",
+                    value: 12
                 },
                 {
-                    name: "Papel Pólen Pontilhado",
-                    value: 22
+                    name: "Papel Marfim Pontilhado",
+                    value: 12
                 },
                 {
-                    name: "Papel Pólen Quadriculado",
-                    value: 22
+                    name: "Papel Marfim Quadriculado",
+                    value: 12
                 },
                 {
-                    name: "Papel Pólen Pautado",
-                    value: 22
+                    name: "Papel Marfim Pautado",
+                    value: 12
                 },
                 {
                     name: "Papel Kraft",
-                    value: 25
+                    value: 14
                 },
                 {
                     name: "Papel Canson 140g",
-                    value: 25
+                    value: 14
                 },
                 {
                     name: "Papel Canson 200g",
-                    value: 25
+                    value: 14
                 },
                 {
                     name: "Papel Preto",
-                    value: 25
+                    value: 14
                 },
 
             ]
@@ -127,51 +190,51 @@ export default function Sertao() {
 
                 {
                     name: "Papel Reciclado Liso",
-                    value: 12
+                    value: 8
                 },
                 {
                     name: "Papel Reciclado Pontilhado",
-                    value: 12
+                    value: 8
                 },
                 {
                     name: "Papel Reciclado Quadriculado",
-                    value: 12
+                    value: 8
                 },
                 {
                     name: "Papel Reciclado Pautado",
-                    value: 12
+                    value: 8
                 },
                 {
-                    name: "Papel Pólen Liso",
-                    value: 12
+                    name: "Papel Marfim Liso",
+                    value: 8
                 },
                 {
-                    name: "Papel Pólen Pontilhado",
-                    value: 12
+                    name: "Papel Marfim Pontilhado",
+                    value: 8
                 },
                 {
-                    name: "Papel Pólen Quadriculado",
-                    value: 12
+                    name: "Papel Marfim Quadriculado",
+                    value: 8
                 },
                 {
-                    name: "Papel Pólen Pautado",
-                    value: 12
+                    name: "Papel Marfim Pautado",
+                    value: 8
                 },
                 {
                     name: "Papel Kraft",
-                    value: 15
+                    value: 10
                 },
                 {
                     name: "Papel Canson 140g",
-                    value: 15
+                    value: 10
                 },
                 {
                     name: "Papel Canson 200g",
-                    value: 15
+                    value: 10
                 },
                 {
                     name: "Papel Preto",
-                    value: 15
+                    value: 10
                 },
 
             ]
@@ -191,51 +254,51 @@ export default function Sertao() {
 
                 {
                     name: "Papel Reciclado Liso",
-                    value: 10
+                    value: 8
                 },
                 {
                     name: "Papel Reciclado Pontilhado",
-                    value: 10
+                    value: 8
                 },
                 {
                     name: "Papel Reciclado Quadriculado",
-                    value: 10
+                    value: 8
                 },
                 {
                     name: "Papel Reciclado Pautado",
-                    value: 10
+                    value: 8
                 },
                 {
-                    name: "Papel Pólen Liso",
-                    value: 10
+                    name: "Papel Marfim Liso",
+                    value: 8
                 },
                 {
-                    name: "Papel Pólen Pontilhado",
-                    value: 10
+                    name: "Papel Marfim Pontilhado",
+                    value: 8
                 },
                 {
-                    name: "Papel Pólen Quadriculado",
-                    value: 10
+                    name: "Papel Marfim Quadriculado",
+                    value: 8
                 },
                 {
-                    name: "Papel Pólen Pautado",
-                    value: 10
+                    name: "Papel Marfim Pautado",
+                    value: 8
                 },
                 {
                     name: "Papel Kraft",
-                    value: 15
+                    value: 10
                 },
                 {
                     name: "Papel Canson 140g",
-                    value: 15
+                    value: 10
                 },
                 {
                     name: "Papel Canson 200g",
-                    value: 15
+                    value: 10
                 },
                 {
                     name: "Papel Preto",
-                    value: 15
+                    value: 10
                 },
 
             ]
@@ -255,35 +318,99 @@ export default function Sertao() {
 
                 {
                     name: "Papel Reciclado Liso",
-                    value: 20
+                    value: 12
                 },
                 {
                     name: "Papel Reciclado Pontilhado",
-                    value: 20
+                    value: 12
                 },
                 {
                     name: "Papel Reciclado Quadriculado",
-                    value: 20
+                    value: 12
                 },
                 {
                     name: "Papel Reciclado Pautado",
-                    value: 20
+                    value: 12
                 },
                 {
-                    name: "Papel Pólen Liso",
-                    value: 20
+                    name: "Papel Marfim Liso",
+                    value: 12
                 },
                 {
-                    name: "Papel Pólen Pontilhado",
-                    value: 20
+                    name: "Papel Marfim Pontilhado",
+                    value: 12
                 },
                 {
-                    name: "Papel Pólen Quadriculado",
-                    value: 20
+                    name: "Papel Marfim Quadriculado",
+                    value: 12
                 },
                 {
-                    name: "Papel Pólen Pautado",
-                    value: 20
+                    name: "Papel Marfim Pautado",
+                    value: 12
+                },
+                {
+                    name: "Papel Kraft",
+                    value: 14
+                },
+                {
+                    name: "Papel Canson 140g",
+                    value: 14
+                },
+                {
+                    name: "Papel Canson 200g",
+                    value: 14
+                },
+                {
+                    name: "Papel Preto",
+                    value: 14
+                },
+
+            ]
+
+        },
+        {
+
+            name: "20X20",
+            id: 33,
+            size: {
+                width: 20,
+                length: 20,
+                height: 1,
+                weight: 0.5
+            },
+            types: [
+
+                {
+                    name: "Papel Reciclado Liso",
+                    value: 24
+                },
+                {
+                    name: "Papel Reciclado Pontilhado",
+                    value: 24
+                },
+                {
+                    name: "Papel Reciclado Quadriculado",
+                    value: 24
+                },
+                {
+                    name: "Papel Reciclado Pautado",
+                    value: 24
+                },
+                {
+                    name: "Papel Marfim Liso",
+                    value: 24
+                },
+                {
+                    name: "Papel Marfim Pontilhado",
+                    value: 24
+                },
+                {
+                    name: "Papel Marfim Quadriculado",
+                    value: 24
+                },
+                {
+                    name: "Papel Marfim Pautado",
+                    value: 24
                 },
                 {
                     name: "Papel Kraft",
@@ -295,16 +422,16 @@ export default function Sertao() {
                 },
                 {
                     name: "Papel Canson 200g",
-                    value: 25
+                    value: 28
                 },
                 {
                     name: "Papel Preto",
-                    value: 25
+                    value: 26
                 },
 
             ]
 
-        },
+        }
 
         ]
 
