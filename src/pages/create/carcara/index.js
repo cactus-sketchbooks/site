@@ -65,6 +65,10 @@ export default function Carcara() {
                     value: 102
                 },
                 {
+                    name: "Papel Marfim Liso",
+                    value: 102
+                },
+                {
                     name: "Papel Kraft",
                     value: 107
                 },
@@ -106,6 +110,10 @@ export default function Carcara() {
 
                 {
                     name: "Papel Reciclado Liso",
+                    value: 67
+                },
+                {
+                    name: "Papel Marfim Liso",
                     value: 67
                 },
                 {
@@ -166,19 +174,19 @@ export default function Carcara() {
                     value: 45
                 },
                 {
-                    name: "Papel Pólen Liso",
+                    name: "Papel Marfim Liso",
                     value: 45
                 },
                 {
-                    name: "Papel Pólen Pontilhado",
+                    name: "Papel Marfim Pontilhado",
                     value: 45
                 },
                 {
-                    name: "Papel Pólen Quadriculado",
+                    name: "Papel Marfim Quadriculado",
                     value: 45
                 },
                 {
-                    name: "Papel Pólen Pautado",
+                    name: "Papel Marfim Pautado",
                     value: 45
                 },
                 {
@@ -240,19 +248,19 @@ export default function Carcara() {
                     value: 30
                 },
                 {
-                    name: "Papel Pólen Liso",
+                    name: "Papel Marfim Liso",
                     value: 30
                 },
                 {
-                    name: "Papel Pólen Pontilhado",
+                    name: "Papel Marfim Pontilhado",
                     value: 30
                 },
                 {
-                    name: "Papel Pólen Quadriculado",
+                    name: "Papel Marfim Quadriculado",
                     value: 30
                 },
                 {
-                    name: "Papel Pólen Pautado",
+                    name: "Papel Marfim Pautado",
                     value: 30
                 },
                 {
@@ -303,7 +311,7 @@ export default function Carcara() {
                     value: 18
                 },
                 {
-                    name: "Papel Pólen Liso",
+                    name: "Papel Marfim Liso",
                     value: 18
                 },
                 {
@@ -409,19 +417,19 @@ export default function Carcara() {
                     value: 45
                 },
                 {
-                    name: "Papel Pólen Liso",
+                    name: "Papel Marfim Liso",
                     value: 45
                 },
                 {
-                    name: "Papel Pólen Pontilhado",
+                    name: "Papel Marfim Pontilhado",
                     value: 45
                 },
                 {
-                    name: "Papel Pólen Quadriculado",
+                    name: "Papel Marfim Quadriculado",
                     value: 45
                 },
                 {
-                    name: "Papel Pólen Pontado",
+                    name: "Papel Marfim Pontado",
                     value: 45
                 },
                 {
@@ -482,19 +490,19 @@ export default function Carcara() {
                     value: 30
                 },
                 {
-                    name: "Papel Pólen Liso",
+                    name: "Papel Marfim Liso",
                     value: 30
                 },
                 {
-                    name: "Papel Pólen Quadriculado",
+                    name: "Papel Marfim Quadriculado",
                     value: 30
                 },
                 {
-                    name: "Papel Pólen Pontilhado",
+                    name: "Papel Marfim Pontilhado",
                     value: 30
                 },
                 {
-                    name: "Papel Pólen Pautado",
+                    name: "Papel Marfim Pautado",
                     value: 30
                 },
                 {

@@ -121,19 +121,19 @@ export default function Baiao() {
                     value: 38
                 },
                 {
-                    name: "Papel Pólen Liso",
+                    name: "Papel Marfim Liso",
                     value: 38
                 },
                 {
-                    name: "Papel Pólen Pontilhado",
+                    name: "Papel Marfim Pontilhado",
                     value: 38
                 },
                 {
-                    name: "Papel Pólen Quadriculado",
+                    name: "Papel Marfim Quadriculado",
                     value: 38
                 },
                 {
-                    name: "Papel Pólen Pautado",
+                    name: "Papel Marfim Pautado",
                     value: 38
                 },
                 {
@@ -194,19 +194,19 @@ export default function Baiao() {
                     value: 25
                 },
                 {
-                    name: "Papel Pólen Liso",
+                    name: "Papel Marfim Liso",
                     value: 25
                 },
                 {
-                    name: "Papel Pólen Pontilhado",
+                    name: "Papel Marfim Pontilhado",
                     value: 25
                 },
                 {
-                    name: "Papel Pólen Quadriculado",
+                    name: "Papel Marfim Quadriculado",
                     value: 25
                 },
                 {
-                    name: "Papel Pólen Pautado",
+                    name: "Papel Marfim Pautado",
                     value: 25
                 },
                 {

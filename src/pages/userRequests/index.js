@@ -233,6 +233,8 @@ export default function UserRequests() {
                                             Forma de pagamento: {item.payment}
                                         </h4>
 
+                                        <h4>Chave PIX: cactussketchs@gmail.com - Cactus Sketchbooks (C6Bank)</h4>
+
                                         {item.paymentProof ? (
                                             <h4>
                                                 Comprovante enviado com sucesso!

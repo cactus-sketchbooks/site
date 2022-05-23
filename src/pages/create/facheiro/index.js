@@ -111,19 +111,19 @@ export default function Facheiro() {
                     value: 67
                 },
                 {
-                    name: "Papel Pólen Liso",
+                    name: "Papel Marfim Liso",
                     value: 67
                 },
                 {
-                    name: "Papel Pólen Pontilhado",
+                    name: "Papel Marfim Pontilhado",
                     value: 67
                 },
                 {
-                    name: "Papel Pólen Quadriculado",
+                    name: "Papel Marfim Quadriculado",
                     value: 67
                 },
                 {
-                    name: "Papel Pólen Pautado",
+                    name: "Papel Marfim Pautado",
                     value: 67
                 },
                 {
@@ -184,19 +184,19 @@ export default function Facheiro() {
                     value: 45
                 },
                 {
-                    name: "Papel Pólen Liso",
+                    name: "Papel Marfim Liso",
                     value: 45
                 },
                 {
-                    name: "Papel Pólen Pontilhado",
+                    name: "Papel Marfim Pontilhado",
                     value: 45
                 },
                 {
-                    name: "Papel Pólen Quadriculado",
+                    name: "Papel Marfim Quadriculado",
                     value: 45
                 },
                 {
-                    name: "Papel Pólen Pautado",
+                    name: "Papel Marfim Pautado",
                     value: 45
                 },
                 {
@@ -257,19 +257,19 @@ export default function Facheiro() {
                     value: 30
                 },
                 {
-                    name: "Papel Pólen Liso",
+                    name: "Papel Marfim Liso",
                     value: 30
                 },
                 {
-                    name: "Papel Pólen Pontilhado",
+                    name: "Papel Marfim Pontilhado",
                     value: 30
                 },
                 {
-                    name: "Papel Pólen Quadriculado",
+                    name: "Papel Marfim Quadriculado",
                     value: 30
                 },
                 {
-                    name: "Papel Pólen Pautado",
+                    name: "Papel Marfim Pautado",
                     value: 30
                 },
                 {
@@ -318,19 +318,19 @@ export default function Facheiro() {
                     value: 67
                 },
                 {
-                    name: "Papel Pólen Liso",
+                    name: "Papel Marfim Liso",
                     value: 67
                 },
                 {
-                    name: "Papel Pólen Pontilhado",
+                    name: "Papel Marfim Pontilhado",
                     value: 67
                 },
                 {
-                    name: "Papel Pólen Quadriculado",
+                    name: "Papel Marfim Quadriculado",
                     value: 67
                 },
                 {
-                    name: "Papel Pólen Pautado",
+                    name: "Papel Marfim Pautado",
                     value: 67
                 },
                 {
@@ -391,19 +391,19 @@ export default function Facheiro() {
                     value: 45
                 },
                 {
-                    name: "Papel Pólen Liso",
+                    name: "Papel Marfim Liso",
                     value: 45
                 },
                 {
-                    name: "Papel Pólen Pontilhado",
+                    name: "Papel Marfim Pontilhado",
                     value: 45
                 },
                 {
-                    name: "Papel Pólen Quadriculado",
+                    name: "Papel Marfim Quadriculado",
                     value: 45
                 },
                 {
-                    name: "Papel Pólen Pautado",
+                    name: "Papel Marfim Pautado",
                     value: 45
                 },
                 {
@@ -464,19 +464,19 @@ export default function Facheiro() {
                     value: 30
                 },
                 {
-                    name: "Papel Pólen Liso",
+                    name: "Papel Marfim Liso",
                     value: 30
                 },
                 {
-                    name: "Papel Pólen Pontilhado",
+                    name: "Papel Marfim Pontilhado",
                     value: 30
                 },
                 {
-                    name: "Papel Pólen Quadriculado",
+                    name: "Papel Marfim Quadriculado",
                     value: 30
                 },
                 {
-                    name: "Papel Pólen Pautado",
+                    name: "Papel Marfim Pautado",
                     value: 30
                 },
                 {

@@ -206,7 +206,7 @@ export default function Cart() {
         } else {
             setDisplayCepSearch('none');
 
-            if (transportValue !== 0) {
+            if (transportValue !== 0 || economicTransportValue !== 0) {
                 setFinalValue(totalValue);
             }
         }
@@ -1454,10 +1454,9 @@ export default function Cart() {
                                             <h4>Chave PIX:</h4>
                                             <span>
                                                 <strong>
-                                                    cactussketchbooks@outlook.com
+                                                    cactussketchs@gmail.com
                                                 </strong>{' '}
-                                                - Para Bruno Luis Matos Correia
-                                                (Bradesco)
+                                                - Cactus Sketchbooks (C6Bank)
                                             </span>
                                             <span>
                                                 envie seu comprovante na página
