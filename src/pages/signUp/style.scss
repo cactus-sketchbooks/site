@@ -1,27 +1,25 @@
-@import "../../global.scss";
+@import '../../global.scss';
 
 * {
-
     font-family: 'Urbanist', sans-serif;
-
 }
 
-h1, h2, h3, h4, p {
-
+h1,
+h2,
+h3,
+h4,
+p {
     margin: 0;
     padding: 0;
-
 }
 
 #SectionSignUp {
-
     display: flex;
     align-items: center;
     width: 100vw;
     height: 100vh;
 
     .textIntroSignUp {
-
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -33,7 +31,6 @@ h1, h2, h3, h4, p {
         background-color: $orange;
 
         .imageLogoWrapper {
-
             display: flex;
             align-items: center;
             justify-content: center;
@@ -45,37 +42,29 @@ h1, h2, h3, h4, p {
             left: 5%;
 
             img {
-
                 width: 70px;
                 object-fit: cover;
                 background-color: white;
                 border-radius: 100px;
                 padding: 5px;
-
             }
-
         }
 
         h1 {
-
             margin-bottom: 2rem;
             text-transform: uppercase;
             font-size: 3.5rem;
             cursor: default;
-
         }
 
-        h1, p {
-
+        h1,
+        p {
             padding: 0 3rem;
             color: $branco;
-
         }
-
     }
 
     .signUpDiv {
-
         display: flex;
         align-items: center;
         justify-content: center;
@@ -83,60 +72,47 @@ h1, h2, h3, h4, p {
         height: 100%;
 
         .formRegister {
-
             display: flex;
             flex-direction: column;
             width: 60%;
 
-            input, select {
-
-                margin: .2rem .2rem;
-                padding: .7rem 1rem;
+            input,
+            select {
+                margin: 0.2rem 0.2rem;
+                padding: 0.7rem 1rem;
                 border-radius: 5px;
 
                 border: 1.7px solid #e8e8e8;
                 outline-color: $orange;
-
             }
 
             .passwordDiv {
-
                 display: flex;
                 width: 100%;
                 align-items: center;
                 justify-content: space-between;
 
                 input {
-
                     width: 50%;
-
                 }
-
             }
 
             .cityDiv {
-
                 display: flex;
                 width: 100%;
                 align-items: center;
                 justify-content: space-between;
 
                 select {
-
                     width: 20%;
-
                 }
 
                 input {
-
                     width: 80%;
-
                 }
-
             }
 
             button {
-
                 align-self: center;
                 border: none;
                 background-color: $orange;
@@ -147,11 +123,9 @@ h1, h2, h3, h4, p {
                 margin-top: 10px;
                 border-radius: 6px;
                 cursor: pointer;
-
             }
 
             .legalTermsWrapper {
-
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -159,70 +133,46 @@ h1, h2, h3, h4, p {
                 text-align: center;
                 align-self: center;
                 margin-top: 1rem;
-
             }
-
         }
-
     }
-
 }
 
 @media screen and (max-width: 768px) {
-
     #SectionSignUp {
-
         flex-direction: column;
         height: auto;
 
         .textIntroSignUp {
-
             width: 100%;
             margin-bottom: 2rem;
 
             .imageLogoWrapper {
-
                 position: static;
                 margin: 2rem 0 1rem;
-
             }
-
         }
 
         .signUpDiv {
-
             width: 100%;
-    
+
             .formRegister {
-    
                 width: 80%;
-    
+
                 .cityDiv {
-    
                     select {
-    
                         width: 40%;
-    
                     }
-    
+
                     input {
-    
                         width: 60%;
-    
                     }
-    
                 }
-    
+
                 button {
-    
                     margin-bottom: 2rem;
-    
                 }
-    
             }
-    
         }
-
     }
-
 }

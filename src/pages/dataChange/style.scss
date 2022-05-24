@@ -1,11 +1,9 @@
-@import "../../global.scss";
+@import '../../global.scss';
 
 #mainDataChange {
-
     min-height: 100vh;
 
     .changeSection {
-
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -13,76 +11,56 @@
         margin-top: 8rem;
 
         h3 {
-
             width: 40vw;
             font-size: 1.5rem;
             color: white;
             margin-bottom: 2rem;
             text-align: center;
-
         }
 
         .userDataChange {
-
             display: flex;
             flex-direction: column;
 
-            input, select{
-
-                margin: .2rem .2rem;
+            input,
+            select {
+                margin: 0.2rem 0.2rem;
                 width: 30vw;
-                padding: .7rem 1rem;
+                padding: 0.7rem 1rem;
                 border-radius: 5px;
                 border: 1.7px solid #e8e8e8;
                 outline-color: $orange;
-
             }
-
         }
-
     }
 
     button {
-
         margin: 2rem 0;
         background-color: $orange;
         color: $branco;
         padding: 1rem 4rem;
-        transition: transform .45s ease, background .15s ease;
+        transition: transform 0.45s ease, background 0.15s ease;
         cursor: pointer;
         border: none;
         border-radius: 5px;
         font-weight: 700;
-
     }
-
 }
 
 @media screen and (max-width: 768px) {
-
     #mainDataChange {
-
         .changeSection {
-
             h3 {
-
                 width: 80vw;
                 font-size: 20px;
-
             }
 
             .userDataChange {
-
-                input, select {
-
+                input,
+                select {
                     width: 70vw;
-
                 }
-
             }
-
         }
-
     }
-
 }

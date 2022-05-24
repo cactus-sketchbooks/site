@@ -2,14 +2,12 @@
 @import '../../../global.scss';
 
 #BlogAdmin {
-
     width: 100vw;
     display: flex;
     flex-direction: column;
     background: linear-gradient(45deg, $light-green, $dark-green);
 
     #mainBlogAdmin {
-    
         width: 100%;
         display: flex;
         align-items: center;
@@ -17,14 +15,12 @@
         justify-content: center;
 
         .tipsBlogAdmin {
-
             display: flex;
             flex-direction: column;
             margin-top: 8rem;
             text-align: center;
 
             h1 {
-
                 text-align: center;
                 width: 40vw;
                 color: $orange;
@@ -34,43 +30,40 @@
                 align-self: center;
                 margin-bottom: 1rem;
                 text-transform: uppercase;
-        
             }
-        
+
             h1::before {
-                content: " ";
+                content: ' ';
                 display: block;
                 position: absolute;
-                top: 0; right: 0; bottom: 0; left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
                 inset: 0 0 0 0;
                 background: #d4d4d4;
                 z-index: -1;
-                transition: transform .3s ease;
-              }
-              
+                transition: transform 0.3s ease;
+            }
+
             h1::before {
                 transform: scaleX(0);
                 transform-origin: bottom right;
             }
-        
+
             h1:hover::before {
                 transform: scaleX(1);
                 transform-origin: bottom left;
             }
 
             p {
-
-                padding: .5rem 5rem;
+                padding: 0.5rem 5rem;
                 color: $branco;
-
             }
-
         }
 
         form {
-
             fieldset {
-                
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -80,16 +73,13 @@
                 margin-top: 2rem;
 
                 label {
-
-                    margin: 3rem 0 .3rem 0;
+                    margin: 3rem 0 0.3rem 0;
                     font-size: 1.2rem;
                     font-weight: 500;
                     color: $branco;
-                    
                 }
 
                 input {
-
                     width: 90%;
                     height: 3rem;
                     font-size: 1rem;
@@ -101,22 +91,16 @@
                     background-color: $orange;
 
                     &::selection {
-
                         background-color: #025fce;
-    
                     }
-
                 }
 
                 input[type='file'] {
-
                     height: auto;
-                    padding: .5rem 0 .5rem 1rem;
-
+                    padding: 0.5rem 0 0.5rem 1rem;
                 }
 
                 .btnAddHashtag {
-                    
                     display: flex;
                     margin-top: 1rem;
                     background-color: $dark-green;
@@ -125,31 +109,25 @@
                     border-radius: 3px;
                     font-weight: 700;
                     cursor: pointer;
-
                 }
 
                 .createdHashtags {
-
                     display: flex;
                     flex-wrap: wrap;
                     width: 90%;
                     margin-top: 1rem;
 
                     h4 {
-
                         background-color: $orange;
                         color: $branco;
                         font-weight: 700;
                         margin: 3px 5px;
                         padding: 1px 15px;
                         border-radius: 4px;
-
                     }
-
                 }
 
                 textarea {
-
                     height: 500px;
                     width: 90%;
                     color: $branco;
@@ -162,21 +140,14 @@
                     background-color: $orange;
 
                     &::selection {
-
                         background-color: #025fce;
-    
                     }
-                    
                 }
-
             }
-
         }
-
     }
 
     #defaultSectionAdmin {
-
         width: 100vw;
         display: flex;
         align-items: center;
@@ -184,14 +155,11 @@
         flex-direction: column;
 
         h2 {
-
             margin-bottom: 1rem;
             color: $branco;
-
         }
 
         select {
-
             width: 50%;
             border-radius: 5px;
             background-color: $orange;
@@ -201,35 +169,28 @@
             font-size: 14px;
             color: #fff;
             outline: none;
-
         }
-
     }
-    
 }
 
-    .sendButtonBlog {
+.sendButtonBlog {
+    cursor: pointer;
+    padding: 1rem 3rem;
+    background-color: $dark-green;
+    border-radius: 8px;
+    font-size: 10pt;
+    margin-bottom: 10vh;
+    font-size: 1rem;
+    color: $branco;
+    font-weight: 700;
+    text-transform: uppercase;
 
-        cursor: pointer;
-        padding: 1rem 3rem;
-        background-color: $dark-green;
-        border-radius: 8px;
-        font-size: 10pt;
-        margin-bottom: 10vh;
-        font-size: 1rem;
-        color: $branco;
-        font-weight: 700;
-        text-transform: uppercase;
-
-        &:hover {
-
-            opacity: .9;
-
-        }
+    &:hover {
+        opacity: 0.9;
     }
+}
 
 #BlogLogin {
-
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -237,7 +198,6 @@
     position: relative;
 
     .leftSideBlogLogin {
-
         display: flex;
         width: 70%;
         height: 100%;
@@ -248,7 +208,6 @@
         justify-content: center;
 
         .leftSideContentWrapper {
-
             display: flex;
             align-items: left;
             justify-content: left;
@@ -259,17 +218,14 @@
             height: 100%;
 
             #paperImg {
-
                 display: flex;
                 position: absolute;
                 width: 112%;
                 height: 100vh;
                 z-index: 999;
-
             }
 
             .loginForms {
-
                 display: flex;
                 position: absolute;
                 flex-direction: column;
@@ -283,36 +239,27 @@
                 z-index: 1000;
 
                 h1 {
-
                     font-size: 2rem;
-
                 }
 
                 p {
-
                     padding: 1rem;
                     text-align: center;
 
                     a {
-
                         text-decoration: none;
                         font-weight: 500;
 
                         &:hover {
-
-                            color:rgb(0, 0, 0);
-
+                            color: rgb(0, 0, 0);
                         }
-
                     }
                 }
-
             }
-            
+
             input {
-            
-                padding: .5rem 2rem .5rem 1rem;
-                margin: .3rem 0;
+                padding: 0.5rem 2rem 0.5rem 1rem;
+                margin: 0.3rem 0;
                 font-size: 17px;
                 border-radius: 5px;
                 border: 1.5px solid #e9e9e9;
@@ -320,22 +267,16 @@
                 outline: none;
 
                 &:focus {
-
                     border: 1px solid $orange;
-
                 }
-
             }
-            
+
             input::placeholder {
-            
                 color: rgb(114, 114, 114);
-                font-size: .9rem;
-            
+                font-size: 0.9rem;
             }
-            
-            #signInButton {
 
+            #signInButton {
                 text-align: center;
                 background-color: $orange;
                 cursor: pointer;
@@ -343,57 +284,44 @@
                 margin: 1rem 0;
                 border-radius: 8px;
                 width: 10rem;
-                padding: .7rem;
+                padding: 0.7rem;
                 font-weight: 700;
                 color: $branco;
                 text-decoration: none;
                 text-transform: uppercase;
 
                 &:hover {
-
-                    opacity: .9;
-
+                    opacity: 0.9;
                 }
-
             }
 
             #returnButton {
-
                 text-decoration: none;
                 font-weight: 500;
                 color: $preto;
-
             }
-    
+
             img {
-            
                 width: 250px;
-            
             }
-
         }
     }
 
     .rightSideBlogLogin {
-
         display: flex;
         width: 30%;
         height: 100%;
         position: relative;
         right: 0;
-        
+
         .blogLoginImgWrapper {
-
             #paperImg {
-
                 position: absolute;
                 width: 50%;
                 height: 100vh;
-
             }
-            
+
             #collage {
-                
                 position: absolute;
                 width: auto;
                 height: 100%;
@@ -401,34 +329,25 @@
                 padding: 0;
                 right: 0;
                 z-index: 998;
-
             }
-
         }
-
     }
-
 }
 
 @media screen and (max-width: 768px) {
-
     #BlogAdmin {
-
         width: auto;
-    
+
         #mainBlogAdmin {
-        
             width: auto;
-           
+
             .tipsBlogAdmin {
-    
                 display: flex;
                 flex-direction: column;
                 margin-top: 8rem;
                 text-align: center;
-    
+
                 h1 {
-    
                     text-align: center;
                     width: 80vw;
                     color: $orange;
@@ -439,22 +358,16 @@
                     margin-bottom: 1rem;
                     text-transform: uppercase;
                     background-color: #d4d4d4;
-            
                 }
-    
+
                 p {
-    
-                    padding: .5rem 1rem;
+                    padding: 0.5rem 1rem;
                     color: $branco;
-    
                 }
-    
             }
-    
+
             form {
-    
                 fieldset {
-                    
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -462,18 +375,15 @@
                     width: 70vw;
                     border: none;
                     margin-top: 2rem;
-    
+
                     label {
-    
-                        margin: 3rem 0 .3rem 0;
+                        margin: 3rem 0 0.3rem 0;
                         font-size: 1.2rem;
                         font-weight: 500;
                         color: $branco;
-                        
                     }
-    
+
                     input {
-    
                         width: 90%;
                         height: 3rem;
                         font-size: 1rem;
@@ -483,24 +393,18 @@
                         padding-left: 1rem;
                         color: $branco;
                         background-color: $orange;
-    
+
                         &::selection {
-    
                             background-color: #025fce;
-        
                         }
-    
                     }
-    
+
                     input[type='file'] {
-    
                         height: auto;
-                        padding: .5rem 0 .5rem 1rem;
-    
+                        padding: 0.5rem 0 0.5rem 1rem;
                     }
-    
+
                     textarea {
-    
                         height: 500px;
                         width: 100%;
                         color: $branco;
@@ -511,19 +415,13 @@
                         font-size: 1rem;
                         border: none;
                         background-color: $orange;
-    
+
                         &::selection {
-    
                             background-color: #025fce;
-        
                         }
-                        
                     }
-    
                 }
-    
             }
-    
         }
     }
 }

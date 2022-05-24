@@ -4,24 +4,22 @@
 
 $branco: #fff;
 $preto: #000;
-$dark-green: #24733F;
-$light-green: #72A67F;
-$light-blue: #A4BFAB;
-$orange: #DE7440;
+$dark-green: #24733f;
+$light-green: #72a67f;
+$light-blue: #a4bfab;
+$orange: #de7440;
 $light-orange: #ff874b;
-$yellow-green: #DED040;
-$offWhite: #F2F2F2;
+$yellow-green: #ded040;
+$offWhite: #f2f2f2;
 $offBlack: rgb(34, 34, 34);
 $roxo: #5508ff;
 $amarelo: #ffff00;
 
 :root {
-
     width: 100%;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-
 }
 
 // ::selection {
@@ -29,23 +27,17 @@ $amarelo: #ffff00;
 // }
 
 ::-webkit-scrollbar {
-
     background: $offWhite;
-
 }
 
-::-webkit-scrollbar-thumb { 
-
+::-webkit-scrollbar-thumb {
     background-color: $light-blue;
-    
 }
 
 #MainSketchbook {
-
     position: relative;
 
     .divModal {
-
         position: absolute;
         top: 0;
         left: 0;
@@ -55,7 +47,6 @@ $amarelo: #ffff00;
         z-index: 3;
 
         .modalContent {
-
             position: fixed;
             display: flex;
             align-items: center;
@@ -69,7 +60,6 @@ $amarelo: #ffff00;
             padding: 1rem;
 
             span {
-
                 display: flex;
                 width: 35px;
                 height: 35px;
@@ -84,11 +74,9 @@ $amarelo: #ffff00;
                 cursor: pointer;
                 font-weight: 700;
                 font-size: 20px;
-
             }
 
             .sketchbookImgWrapper {
-
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -96,37 +84,29 @@ $amarelo: #ffff00;
                 width: 50%;
 
                 h3 {
-
                     font-size: 1rem;
-
                 }
 
                 img {
-
                     object-fit: cover;
                     width: 50%;
                     overflow: hidden;
                     margin-top: 1rem;
-
                 }
-
             }
         }
 
         #facheiroVersion {
-
             flex-wrap: wrap;
             width: 50vw;
             height: 80vh;
             background-color: $offWhite;
             top: 10vh;
             left: 25%;
-           
         }
     }
 
     #CreateSketchbookSection {
-
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -134,13 +114,10 @@ $amarelo: #ffff00;
         margin-top: 10rem;
 
         p {
-
             color: $offWhite;
-
         }
 
         .logoWrapper {
-
             display: flex;
             align-items: center;
             justify-content: center;
@@ -150,11 +127,9 @@ $amarelo: #ffff00;
             border-radius: 100px;
             padding: 5px;
             margin-bottom: 4rem;
-
         }
 
         .textIntro {
-
             display: flex;
             flex-direction: column;
             width: 100%;
@@ -163,17 +138,13 @@ $amarelo: #ffff00;
             color: $offWhite;
 
             h5 {
-
                 font-size: 1rem;
                 font-weight: 200;
-                margin-top: .5rem;
-        
+                margin-top: 0.5rem;
             }
-
         }
 
         fieldset {
-
             display: flex;
             flex-direction: column;
             border: none;
@@ -183,45 +154,35 @@ $amarelo: #ffff00;
             font-weight: 500;
 
             label {
-
                 font-size: 1rem;
-                margin-bottom: .35rem;
+                margin-bottom: 0.35rem;
                 color: $offWhite;
-        
             }
-
         }
 
         select {
-
             margin-bottom: 2rem;
             width: 50%;
             background-color: $light-green;
             color: $offWhite;
             font-size: 1.02rem;
             border: none;
-            padding:.5rem 1rem;
+            padding: 0.5rem 1rem;
             border-radius: 5px;
             outline: none;
 
             option {
-
                 border: none;
-
             }
-
         }
 
         p a {
-
             text-decoration: none;
             color: $yellow-green;
-
         }
 
         button {
-
-            padding: .7rem 2rem;
+            padding: 0.7rem 2rem;
             margin-bottom: 2rem;
             background-color: $orange;
             border: none;
@@ -230,18 +191,14 @@ $amarelo: #ffff00;
             font-size: 16px;
             font-weight: 600;
             border-radius: 5px;
-            transition: .2s ease-in-out;
+            transition: 0.2s ease-in-out;
 
             &:hover {
-
                 background-color: $light-orange;
-
             }
-
         }
 
         .textWrapper {
-
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -250,41 +207,33 @@ $amarelo: #ffff00;
             text-align: center;
 
             .textBackground {
-
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 background-color: $light-green;
                 color: #fff;
                 margin-bottom: 10px;
-                padding: .7rem 1.5rem;
+                padding: 0.7rem 1.5rem;
                 border-radius: 25px;
-
             }
 
             p {
-
                 font-weight: 500;
-                margin: .5rem 0;
-                padding: 0 .5rem;
+                margin: 0.5rem 0;
+                padding: 0 0.5rem;
                 text-align: center;
-
             }
 
             button {
-
                 padding: 0;
                 margin: 0;
                 font-weight: 500;
                 color: $yellow-green;
                 background-color: transparent;
-
             }
-
         }
 
         .sliderColors {
-
             display: flex;
             align-items: center;
             justify-content: center;
@@ -292,23 +241,18 @@ $amarelo: #ffff00;
             height: 20vw;
 
             button {
-
                 display: none !important;
-
             }
 
             div.slick-list {
-
                 padding: 1rem 0;
-                -webkit-box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.57); 
-                box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.57);
+                -webkit-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.57);
+                box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.57);
                 border: 1px solid $dark-green;
-                border-radius: 5px; 
-
+                border-radius: 5px;
             }
 
             div {
-
                 display: flex;
                 align-items: center;
                 justify-content: flex-start;
@@ -317,13 +261,10 @@ $amarelo: #ffff00;
                 cursor: grab;
 
                 &:active {
-
                     cursor: grabbing;
-
                 }
 
                 .cardColor {
-
                     display: flex !important;
                     flex-direction: column;
                     align-items: center;
@@ -331,33 +272,29 @@ $amarelo: #ffff00;
                     word-wrap: break-word;
                     line-height: 1rem;
                     height: 100%;
-                    margin: 0 .7rem;
-                    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+                    margin: 0 0.7rem;
+                    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+                        rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
                     background-color: $offWhite;
                     padding: 10px;
                     text-align: center;
                     position: relative;
 
                     label {
-
                         position: absolute;
                         top: 0;
                         bottom: 0;
                         left: 0;
                         right: 0;
                         cursor: grab;
-                        opacity: .2;
+                        opacity: 0.2;
 
                         &:active {
-
                             cursor: grabbing;
-        
                         }
-
                     }
 
                     .colorBox {
-
                         display: flex;
                         align-items: center;
                         justify-content: center;
@@ -365,29 +302,23 @@ $amarelo: #ffff00;
                         height: 75%;
 
                         img {
-
                             width: 100%;
                             height: 100%;
                             object-fit: cover;
-
                         }
 
                         p {
-
-                            font-family: "Poppins", sans-serif;
+                            font-family: 'Poppins', sans-serif;
                             text-transform: uppercase;
                             font-weight: 700;
                             color: rgb(65, 65, 65);
                             background-color: rgb(223, 223, 223);
-                            padding: .2rem .6rem;
+                            padding: 0.2rem 0.6rem;
                             border-radius: 50px;
-
                         }
-
                     }
 
                     .colorName {
-
                         display: flex;
                         flex-direction: column;
                         align-items: center;
@@ -397,39 +328,31 @@ $amarelo: #ffff00;
                         border-radius: 0 0 3px 3px;
 
                         p {
-
-                            font-family: "Poppins", sans-serif;
+                            font-family: 'Poppins', sans-serif;
                             color: rgb(65, 65, 65);
                             font-weight: 600;
                             text-transform: uppercase;
-
                         }
-
                     }
-
                 }
-
             }
-
         }
 
         #RadioSelectionColors {
-
             display: flex;
             width: 100%;
-            margin-bottom: .5rem;
+            margin-bottom: 0.5rem;
             align-items: center;
             justify-content: space-evenly;
 
             .boxColor {
-
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
 
-                .lineColorWrapper, .elasticColorWrapper {
-
+                .lineColorWrapper,
+                .elasticColorWrapper {
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -438,16 +361,15 @@ $amarelo: #ffff00;
                     background-color: $offWhite;
                     border-radius: 8px;
                     padding: 1rem;
-            
+
                     .colorWrapper {
-            
                         display: flex;
                         flex-direction: column;
                         justify-content: center;
                         align-items: center;
-            
-                        .lineColor, .elasticColor {
-                            
+
+                        .lineColor,
+                        .elasticColor {
                             display: flex;
                             width: 50px;
                             height: 50px;
@@ -455,33 +377,23 @@ $amarelo: #ffff00;
                             margin: 10px 15px 2px 15px;
 
                             img {
-
                                 width: 100%;
                                 height: 100%;
                                 border-radius: 50px;
                                 object-fit: cover;
-
                             }
-                
                         }
-            
                     }
-            
                 }
-            
+
                 .coverColorWrapper {
-            
                     display: flex;
                     width: 90vw;
-            
                 }
-
             }
-
         }
 
         .additionalInfos {
-
             display: flex;
             flex-direction: column;
             width: 100%;
@@ -490,15 +402,12 @@ $amarelo: #ffff00;
             margin-top: 2rem;
 
             label {
-        
                 font-weight: 500;
                 margin-bottom: 1rem;
                 color: $offWhite;
-        
             }
-        
+
             textarea {
-        
                 height: 200px;
                 width: 50%;
                 padding: 10px;
@@ -509,16 +418,15 @@ $amarelo: #ffff00;
                 border: none;
                 background-color: $dark-green;
                 color: $branco;
-        
             }
 
             p {
-                background: rgba( 222, 208, 64, 0.25 );
+                background: rgba(222, 208, 64, 0.25);
                 box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.24);
-                backdrop-filter: blur( 4px );
-                -webkit-backdrop-filter: blur( 4px );
+                backdrop-filter: blur(4px);
+                -webkit-backdrop-filter: blur(4px);
                 border-radius: 5px;
-                border: 1px solid rgba( 255, 255, 255, 0.18 );
+                border: 1px solid rgba(255, 255, 255, 0.18);
                 // border-radius: 5px;
                 // margin-bottom: 1rem;
                 // background-color: $yellow-green;
@@ -528,18 +436,17 @@ $amarelo: #ffff00;
             }
 
             .productInfosWrapper {
-
                 // margin-bottom: 2rem;
                 // padding: 1rem 0;
                 // border-radius: 10px;
                 // background: #fff;
 
                 width: 50%;
-                background: rgba( 255, 255, 255, 0.15 );
-                backdrop-filter: blur( 4px );
-                -webkit-backdrop-filter: blur( 4px );
+                background: rgba(255, 255, 255, 0.15);
+                backdrop-filter: blur(4px);
+                -webkit-backdrop-filter: blur(4px);
                 border-radius: 10px;
-                border: 1px solid rgba( 255, 255, 255, 0.18 );
+                border: 1px solid rgba(255, 255, 255, 0.18);
                 color: $offWhite;
                 box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.24);
                 margin-bottom: 2rem;
@@ -550,36 +457,27 @@ $amarelo: #ffff00;
                 align-items: center;
 
                 h1 {
-
                     border-bottom: 2px solid $orange;
-
                 }
 
                 ul {
-
                     list-style: none;
                     width: 75%;
 
                     li {
-
                         padding: 1rem 20px;
                         margin: 20px 0;
-                        
+
                         background-color: $orange;
                         border-radius: 5px;
-
                     }
-                    
                 }
 
                 h3 {
-
                     margin: 2rem 0 1rem 0;
-
                 }
 
                 button {
-
                     margin: 0;
                     border-radius: 100px;
                     text-transform: uppercase;
@@ -588,24 +486,16 @@ $amarelo: #ffff00;
                     &:hover {
                         background-color: $orange;
                     }
-
                 }
-
             }
-
         }
-
     }
 }
 
 @media screen and (max-width: 768px) {
-
     #MainSketchbook {
-
         .divModal {
-
             .modalContent {
-                
                 height: auto;
                 min-height: 60vh;
                 width: 90%;
@@ -616,40 +506,29 @@ $amarelo: #ffff00;
                 justify-content: center;
 
                 .sketchbookImgWrapper {
-
-                    margin-bottom: .5rem;
+                    margin-bottom: 0.5rem;
                     width: 100%;
 
                     h3 {
-
                         font-size: 1rem;
-
                     }
 
                     img {
-
                         width: 25%;
-
                     }
-
                 }
-    
+
                 span {
-    
                     width: 25px;
                     height: 25px;
                     font-size: 16px;
-    
                 }
-    
             }
 
             #facheiroVersion {
-
                 width: 70vw;
                 left: 12.5vw;
                 right: 12.5vw;
-
             }
         }
 
@@ -662,21 +541,19 @@ $amarelo: #ffff00;
             }
 
             .sliderColors {
-
                 div.slick-list {
                     padding: 0;
                     border: 1px solid $dark-green;
                     border-radius: 5px;
                     width: 100%;
-                    -webkit-box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.57); 
-                    box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.57);
+                    -webkit-box-shadow: inset 0px 0px 10px 0px
+                        rgba(0, 0, 0, 0.57);
+                    box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.57);
 
                     div.slick-slide {
-                        
-                        margin: 0 .2rem;
+                        margin: 0 0.2rem;
                         width: 90vw !important;
-                        height: 80%;   
-
+                        height: 80%;
                     }
                 }
 
@@ -689,41 +566,36 @@ $amarelo: #ffff00;
                         width: 20vw !important;
                     }
                     .colorBox {
-
                         p {
-                            font-size: .6rem;
-                            padding: .2rem;
+                            font-size: 0.6rem;
+                            padding: 0.2rem;
                             margin: 1rem;
                         }
                     }
 
                     .colorName {
                         p {
-                            margin: .6rem 0 .3rem;
+                            margin: 0.6rem 0 0.3rem;
                             width: 100%;
                             word-wrap: break-word;
-                            font-size: .7rem;
-                            line-height: .7rem;
+                            font-size: 0.7rem;
+                            line-height: 0.7rem;
                         }
 
                         input {
-                            margin-bottom: .4rem;
+                            margin-bottom: 0.4rem;
                         }
                     }
                 }
-
             }
 
             .textWrapper .textBackground {
-
                 h2 {
                     font-size: 1.2rem;
                 }
-
             }
 
             .additionalInfos {
-
                 textarea {
                     width: 100%;
                 }
@@ -743,33 +615,25 @@ $amarelo: #ffff00;
                     }
 
                     h3 {
-                        margin-top:1rem;
+                        margin-top: 1rem;
                     }
                 }
             }
 
             #RadioSelectionColors {
-
                 flex-direction: column;
-                
+
                 h2 {
                     font-size: 1.2rem;
                 }
-        
+
                 .boxColor {
-
-                    .lineColorWrapper, .elasticColorWrapper {
-
+                    .lineColorWrapper,
+                    .elasticColorWrapper {
                         width: 80vw;
-                
                     }
-        
                 }
-                
             }
-
         }
-
     }
-
 }

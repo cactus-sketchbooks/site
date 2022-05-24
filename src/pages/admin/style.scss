@@ -1,16 +1,19 @@
-@import "../../global.scss";
+@import '../../global.scss';
 
 * {
     font-family: 'Urbanist', sans-serif;
 }
 
-h1, h2, h3, h4, p {
+h1,
+h2,
+h3,
+h4,
+p {
     margin: 0;
     padding: 0;
 }
 
 #SectionAdmin {
-
     background: linear-gradient(45deg, $light-green, $dark-green);
     padding-top: 155px;
     height: 90vh;
@@ -20,12 +23,10 @@ h1, h2, h3, h4, p {
     justify-content: center;
 
     ul {
-
         display: flex;
         flex-direction: column;
 
         a {
-
             list-style: none;
             background-color: $orange;
             margin: 10px 0;
@@ -34,44 +35,34 @@ h1, h2, h3, h4, p {
             border-radius: 5px;
             color: $offWhite;
             text-decoration: none;
-
         }
-
     }
-
 }
 
 .Admin {
-
     display: flex;
     flex-direction: column;
     background: linear-gradient(45deg, $light-green, $dark-green);
-
 }
 
 #mainRegister {
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: 110px;
-
 }
 
 .titleAdmin {
-
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 25px;
     text-align: center;
-    font-size: .8rem;
-
+    font-size: 0.8rem;
 }
 
 .optionAdminPage ul {
-
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -80,11 +71,9 @@ h1, h2, h3, h4, p {
     text-align: left;
     margin-bottom: 6vh;
     align-items: center;
-
 }
 
-.optionAdminPage a{
-
+.optionAdminPage a {
     color: white;
     padding: 15px;
     margin-top: 15px;
@@ -97,11 +86,9 @@ h1, h2, h3, h4, p {
     text-decoration: none;
     text-align: center;
     width: 60%;
-
 }
 
 .adminRegister {
-
     margin: 0;
     padding: 1rem;
     display: flex;
@@ -110,13 +97,11 @@ h1, h2, h3, h4, p {
     flex-direction: column;
 
     fieldset {
-
         border: none;
         display: flex;
         flex-direction: column;
         width: 100%;
         align-items: center;
-
     }
 
     h1 {
@@ -129,22 +114,18 @@ h1, h2, h3, h4, p {
     }
 
     input {
-
         border: none;
         width: 100%;
-        margin: .3rem 0;
-        padding: .7rem 1rem;
+        margin: 0.3rem 0;
+        padding: 0.7rem 1rem;
         border-radius: 5px;
         border: 1.7px solid #e8e8e8;
         outline-color: $orange;
-
     }
 
     ::placeholder {
-
         color: $preto;
-        opacity: .8;
-
+        opacity: 0.8;
     }
 
     fieldset {
@@ -153,30 +134,23 @@ h1, h2, h3, h4, p {
 }
 
 .buttonsFormRegister {
-
     width: 80%;
     margin-top: 30px;
     display: flex;
     justify-content: center;
 
     #enterButtonSignIn {
-
         color: $branco;
         padding: 1rem;
         background: $orange;
         border: 1px solid $orange;
         text-decoration: none;
-        border-radius: .3rem;
-        transition: .24s;
-    
-        &:hover {
+        border-radius: 0.3rem;
+        transition: 0.24s;
 
+        &:hover {
             background-color: #fff;
             color: $orange;
-
         }
-            
-    
     }
-
 }
