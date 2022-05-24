@@ -1,27 +1,25 @@
-@import "../../global.scss";
+@import '../../global.scss';
 
 * {
-
     font-family: 'Urbanist', sans-serif;
-
 }
 
-h1, h2, h3, h4, p {
-
+h1,
+h2,
+h3,
+h4,
+p {
     margin: 0;
     padding: 0;
-
 }
 
 #SectionLogin {
-
     display: flex;
     align-items: center;
     width: 100vw;
     height: 100vh;
 
     .loginDiv {
-
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -33,7 +31,6 @@ h1, h2, h3, h4, p {
         background-color: $branco;
 
         .imageLogoWrapper {
-
             display: flex;
             align-items: center;
             justify-content: center;
@@ -45,23 +42,17 @@ h1, h2, h3, h4, p {
             left: 5%;
 
             img {
-
                 width: 70px;
                 object-fit: cover;
-
             }
-
         }
 
         h1 {
-
             font-size: 3rem;
             margin-bottom: 5rem;
-
         }
 
         fieldset {
-
             display: flex;
             flex-direction: column;
             width: 75%;
@@ -69,26 +60,21 @@ h1, h2, h3, h4, p {
             border: none;
 
             input {
-
-                margin: .3rem 0;
-                padding: .7rem 1rem;
+                margin: 0.3rem 0;
+                padding: 0.7rem 1rem;
                 border-radius: 5px;
 
                 border: 1.7px solid #e8e8e8;
                 outline-color: $orange;
-
             }
-
         }
 
         .optionsLogin {
-
             display: flex;
             width: 75%;
             justify-content: space-between;
 
             .loginRedirects {
-
                 display: flex;
                 align-items: center;
                 width: 100%;
@@ -96,23 +82,17 @@ h1, h2, h3, h4, p {
                 text-align: center;
 
                 a {
-
                     text-decoration: none;
                     color: rgb(148, 148, 148);
                     margin: 0 1rem 0 0;
 
                     &:hover {
-
                         color: $orange;
-
                     }
-
                 }
-
             }
 
             button {
-
                 display: block;
                 padding: 0.5rem 1.5rem;
 
@@ -124,24 +104,18 @@ h1, h2, h3, h4, p {
 
                 cursor: pointer;
 
-                font-size: .9rem;
+                font-size: 0.9rem;
 
-                transition: all .2s ease-in-out;
+                transition: all 0.2s ease-in-out;
 
                 &:hover {
-
                     background-color: $light-orange;
-
                 }
-
             }
-
         }
-
     }
 
     .loginImageWrapper {
-
         display: flex;
         align-items: center;
         justify-content: center;
@@ -149,120 +123,90 @@ h1, h2, h3, h4, p {
         height: 100%;
 
         .slider {
-
             width: 100%;
             height: 100vh;
 
             .sliderImg {
-
                 display: flex !important;
                 align-items: center;
                 justify-content: center;
                 max-width: 100%;
                 max-height: 100vh;
                 outline: none;
-    
+
                 img {
-        
                     width: auto;
                     object-fit: cover;
                     overflow: hidden;
-                    
                 }
-    
             }
-
         }
-
     }
-
 }
 
 @media screen and (max-width: 768px) {
-
     #SectionLogin {
-
         flex-direction: column;
         min-height: 100vh;
         height: auto;
-    
+
         .loginDiv {
-            
             margin-top: 2rem;
             width: 100%;
             height: auto;
             flex-direction: column;
 
             h1 {
-
                 margin-bottom: 2rem;
-
             }
 
             .imageLogoWrapper {
-
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 width: 25%;
                 height: 25%;
-    
+
                 position: static;
-    
+
                 img {
-    
                     width: 120px;
                     border-radius: 100px;
                     background-color: $light-orange;
                     padding: 5px;
                     object-fit: cover;
-    
                 }
-    
             }
 
             .optionsLogin {
-
                 width: 100%;
                 flex-direction: column-reverse;
                 justify-content: center;
                 align-items: center;
 
                 button {
-
                     width: 40%;
-                    margin: 1rem 0 .8rem;
+                    margin: 1rem 0 0.8rem;
+                }
 
-                }
-    
                 .loginRedirects {
-                    
                     justify-content: center;
-    
                 }
-    
             }
-    
         }
-    
+
         .loginImageWrapper {
-    
             width: 60%;
             height: auto;
             margin-top: 1rem;
             border: 4px solid $orange;
-    
+
             .slider {
-    
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 height: auto;
-    
             }
-    
         }
-    
     }
-
 }
