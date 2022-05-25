@@ -30,6 +30,10 @@ export default function Facheiro() {
     const [isValidated, setIsValidated] = useState(false);
     const [checkedBoxes, setCheckedBoxes] = useState(0);
     const [selectedPaperWidth, setSelectedPaperWidth] = useState('');
+    const [
+        selectedDifferentPapersQuantity,
+        setSelectedDifferentPapersQuantity,
+    ] = useState(0);
     const [selectedSpiralColor, setSelectedSpiralColor] = useState('');
     const [selectedElasticColor, setSelectedElasticColor] = useState('');
     const [clientNote, setClientNote] = useState('');
@@ -826,6 +830,16 @@ export default function Facheiro() {
         checkedBoxes,
     ]);
 
+    function handleSelectedDiiferentPapersQuatity(event) {
+        setSelectedDifferentPapersQuantity(parseInt(event.target.value));
+    }
+    useEffect(() => {
+        console.log(
+            selectedDifferentPapersQuantity +
+                typeof selectedDifferentPapersQuantity
+        );
+    }, [selectedDifferentPapersQuantity]);
+
     function handleSelectedSpiralColor(event) {
         setSelectedSpiralColor(event.target.value);
     }
@@ -929,8 +943,7 @@ export default function Facheiro() {
                         <h2>Papel do Miolo</h2>
                     </div>
                 </div>
-
-                <fieldset>
+                <fieldset id='paperQuantity'>
                     <label for='qtd1'>
                         <strong>1</strong>
                     </label>
@@ -939,8 +952,12 @@ export default function Facheiro() {
                         name='selectedDifferentPapersQuantity'
                         key='qtd1'
                         value='1'
+                        onClick={(event) =>
+                            handleSelectedDiiferentPapersQuatity(event)
+                        }
                     />
-                    <label for='qtd'>
+
+                    <label for='qtd2'>
                         <strong>2</strong>
                     </label>
                     <input
@@ -948,7 +965,11 @@ export default function Facheiro() {
                         name='selectedDifferentPapersQuantity'
                         key='qtd2'
                         value='2'
+                        onClick={(event) =>
+                            handleSelectedDiiferentPapersQuatity(event)
+                        }
                     />
+
                     <label for='qtd3'>
                         <strong>3</strong>
                     </label>
@@ -957,7 +978,11 @@ export default function Facheiro() {
                         name='selectedDifferentPapersQuantity'
                         key='qtd3'
                         value='3'
+                        onClick={(event) =>
+                            handleSelectedDiiferentPapersQuatity(event)
+                        }
                     />
+
                     <label for='qtd4'>
                         <strong>4</strong>
                     </label>
@@ -966,9 +991,13 @@ export default function Facheiro() {
                         name='selectedDifferentPapersQuantity'
                         key='qtd4'
                         value='4'
+                        onClick={(event) =>
+                            handleSelectedDiiferentPapersQuatity(event)
+                        }
                     />
                 </fieldset>
 
+                <div id='paperSelectors'></div>
                 <fieldset>
                     <label for='paper'>Selecione o papel do miolo</label>
 
