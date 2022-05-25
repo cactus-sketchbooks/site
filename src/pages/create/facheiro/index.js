@@ -931,6 +931,45 @@ export default function Facheiro() {
                 </div>
 
                 <fieldset>
+                    <label for='qtd1'>
+                        <strong>1</strong>
+                    </label>
+                    <input
+                        type='radio'
+                        name='selectedDifferentPapersQuantity'
+                        key='qtd1'
+                        value='1'
+                    />
+                    <label for='qtd'>
+                        <strong>2</strong>
+                    </label>
+                    <input
+                        type='radio'
+                        name='selectedDifferentPapersQuantity'
+                        key='qtd2'
+                        value='2'
+                    />
+                    <label for='qtd3'>
+                        <strong>3</strong>
+                    </label>
+                    <input
+                        type='radio'
+                        name='selectedDifferentPapersQuantity'
+                        key='qtd3'
+                        value='3'
+                    />
+                    <label for='qtd4'>
+                        <strong>4</strong>
+                    </label>
+                    <input
+                        type='radio'
+                        name='selectedDifferentPapersQuantity'
+                        key='qtd4'
+                        value='4'
+                    />
+                </fieldset>
+
+                <fieldset>
                     <label for='paper'>Selecione o papel do miolo</label>
 
                     <select onChange={handleSelectedType} className='paper'>
