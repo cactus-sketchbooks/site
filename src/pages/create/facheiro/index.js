@@ -898,6 +898,11 @@ export default function Facheiro() {
                     </h5>
                 </div>
 
+                <div className='textWrapper'>
+                    <div className='textBackground'>
+                        <h2>Tamanho e Orientação</h2>
+                    </div>
+                </div>
                 <fieldset>
                     <label for='paperWidth'>Selecione o tamanho do papel</label>
 
@@ -918,6 +923,12 @@ export default function Facheiro() {
                         })}
                     </select>
                 </fieldset>
+
+                <div className='textWrapper'>
+                    <div className='textBackground'>
+                        <h2>Papel do Miolo</h2>
+                    </div>
+                </div>
 
                 <fieldset>
                     <label for='paper'>Selecione o papel do miolo</label>
