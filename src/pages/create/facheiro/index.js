@@ -943,62 +943,26 @@ export default function Facheiro() {
                         <h2>Papel do Miolo</h2>
                     </div>
                 </div>
-                <fieldset id='paperQuantity'>
-                    <label for='qtd1'>
-                        <strong>1</strong>
-                    </label>
-                    <input
-                        type='radio'
-                        name='selectedDifferentPapersQuantity'
-                        key='qtd1'
-                        value='1'
-                        onClick={(event) =>
-                            handleSelectedDiiferentPapersQuatity(event)
-                        }
-                    />
-
-                    <label for='qtd2'>
-                        <strong>2</strong>
-                    </label>
-                    <input
-                        type='radio'
-                        name='selectedDifferentPapersQuantity'
-                        key='qtd2'
-                        value='2'
-                        onClick={(event) =>
-                            handleSelectedDiiferentPapersQuatity(event)
-                        }
-                    />
-
-                    <label for='qtd3'>
-                        <strong>3</strong>
-                    </label>
-                    <input
-                        type='radio'
-                        name='selectedDifferentPapersQuantity'
-                        key='qtd3'
-                        value='3'
-                        onClick={(event) =>
-                            handleSelectedDiiferentPapersQuatity(event)
-                        }
-                    />
-
-                    <label for='qtd4'>
-                        <strong>4</strong>
-                    </label>
-                    <input
-                        type='radio'
-                        name='selectedDifferentPapersQuantity'
-                        key='qtd4'
-                        value='4'
-                        onClick={(event) =>
-                            handleSelectedDiiferentPapersQuatity(event)
-                        }
-                    />
-                </fieldset>
 
                 <div id='paperSelectors'></div>
                 <fieldset>
+                    <label for='paper'>
+                        Selecione a quantidade de Papeis Diferentes no Miolo do
+                        Sketch
+                    </label>
+                    <select
+                        onChange={handleSelectedDiiferentPapersQuatity}
+                        className='paper'
+                    >
+                        <option value='' selected disabled>
+                            Quantidade de Papeis Diferentes
+                        </option>
+                        <option value='1'>1</option>
+                        <option value='2'>2</option>
+                        <option value='3'>3</option>
+                        <option value='4'>4</option>
+                    </select>
+
                     <label for='paper'>Selecione o papel do miolo</label>
 
                     <select onChange={handleSelectedType} className='paper'>
