@@ -833,12 +833,36 @@ export default function Facheiro() {
     function handleSelectedDiiferentPapersQuatity(event) {
         setSelectedDifferentPapersQuantity(parseInt(event.target.value));
     }
+
     useEffect(() => {
-        console.log(
-            selectedDifferentPapersQuantity +
-                typeof selectedDifferentPapersQuantity
-        );
-        console.log();
+        switch (selectedDifferentPapersQuantity) {
+            case 1:
+                document.querySelector('.Selector1').classList.remove('hide');
+                document.querySelector('.Selector2').classList.add('hide');
+                document.querySelector('.Selector3').classList.add('hide');
+                document.querySelector('.Selector4').classList.add('hide');
+
+                break;
+            case 2:
+                document.querySelector('.Selector1').classList.remove('hide');
+                document.querySelector('.Selector2').classList.remove('hide');
+                document.querySelector('.Selector3').classList.add('hide');
+                document.querySelector('.Selector4').classList.add('hide');
+                break;
+            case 3:
+                document.querySelector('.Selector1').classList.remove('hide');
+                document.querySelector('.Selector2').classList.remove('hide');
+                document.querySelector('.Selector3').classList.remove('hide');
+                document.querySelector('.Selector4').classList.add('hide');
+                break;
+            case 4:
+                document.querySelector('.Selector1').classList.remove('hide');
+                document.querySelector('.Selector2').classList.remove('hide');
+                document.querySelector('.Selector3').classList.remove('hide');
+                document.querySelector('.Selector4').classList.remove('hide');
+                break;
+            default:
+        }
     }, [selectedDifferentPapersQuantity]);
 
     function handleSelectedSpiralColor(event) {
@@ -945,7 +969,6 @@ export default function Facheiro() {
                     </div>
                 </div>
 
-                <div id='paperSelectors'></div>
                 <fieldset>
                     <label for='paper'>
                         Selecione a quantidade de Papeis Diferentes no Miolo do
@@ -1072,7 +1095,7 @@ export default function Facheiro() {
                             <option value='10'>10</option>
                         </select>
                     </div>
-                    <div class='paperTypeSelector Selector3 hide'>
+                    <div class='paperTypeSelector Selector4 hide'>
                         <label for='paper'>Selecione o papel do miolo</label>
                         <br />
                         <select onChange={handleSelectedType} className='paper'>
@@ -1346,3 +1369,75 @@ export default function Facheiro() {
         </main>
     );
 }
+/*
+switch (selectedDifferentPapersQuantity) {
+            case 1:
+                document
+                    .querySelector('.paperTypeSelector:nth-child(1)')
+                    .classList.remove('hide');
+                document
+                    .querySelector('.paperTypeSelector:nth-child(2)')
+                    .classList.add('hide');
+                document
+                    .querySelector('.paperTypeSelector:nth-child(3)')
+                    .classList.add('hide');
+                document
+                    .querySelector('.paperTypeSelector:nth-child(4)')
+                    .classList.add('hide');
+
+                break;
+            case 2:
+                document
+                    .querySelector('.paperTypeSelector:nth-child(1)')
+                    .classList.remove('hide');
+                document
+                    .querySelector('.paperTypeSelector:nth-child(2)')
+                    .classList.remove('hide');
+                document
+                    .querySelector('.paperTypeSelector:nth-child(3)')
+                    .classList.add('hide');
+                document
+                    .querySelector('.paperTypeSelector:nth-child(4)')
+                    .classList.add('hide');
+                break;
+            case 3:
+                document
+                    .querySelector('.paperTypeSelector:nth-child(1)')
+                    .classList.remove('hide');
+                document
+                    .querySelector('.paperTypeSelector:nth-child(2)')
+                    .classList.remove('hide');
+                document
+                    .querySelector('.paperTypeSelector:nth-child(3)')
+                    .classList.remove('hide');
+                document
+                    .querySelector('.paperTypeSelector:nth-child(4)')
+                    .classList.add('hide');
+                break;
+            case 4:
+                document
+                    .querySelector('.paperTypeSelector:nth-child(1)')
+                    .classList.remove('hide');
+                document
+                    .querySelector('.paperTypeSelector:nth-child(2)')
+                    .classList.remove('hide');
+                document
+                    .querySelector('.paperTypeSelector:nth-child(3)')
+                    .classList.remove('hide');
+                document
+                    .querySelector('.paperTypeSelector:nth-child(4)')
+                    .classList.remove('hide');
+                break;
+            default:
+        }
+
+
+
+
+
+
+
+
+        
+
+*/
