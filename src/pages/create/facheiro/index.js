@@ -55,6 +55,7 @@ export default function Facheiro() {
             {
                 name: 'A3 - Paisagem',
                 id: 401,
+                basePrice: 60,
                 size: {
                     width: 29.7,
                     length: 42,
@@ -65,27 +66,27 @@ export default function Facheiro() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 97,
+                        value: 8,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 102,
+                        value: 9,
                     },
                     {
                         name: 'Papel Canson 140g',
-                        value: 132,
+                        value: 14,
                     },
                     {
                         name: 'Papel Canson 200g',
-                        value: 152,
+                        value: 20,
                     },
                     {
                         name: 'Papel Preto',
-                        value: 139,
+                        value: 8,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 225,
+                        value: 36,
                     },
                     {
                         name: 'Papel Montval',
@@ -97,6 +98,7 @@ export default function Facheiro() {
             {
                 name: 'A4 - Paisagem',
                 id: 402,
+                basePrice: 40,
                 size: {
                     width: 21,
                     length: 29,
@@ -107,43 +109,43 @@ export default function Facheiro() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 67,
+                        value: 4,
                     },
                     {
                         name: 'Papel Marfim Liso',
-                        value: 67,
+                        value: 4,
                     },
                     {
                         name: 'Papel Marfim Pontilhado',
-                        value: 67,
+                        value: 4,
                     },
                     {
                         name: 'Papel Marfim Quadriculado',
-                        value: 67,
+                        value: 4,
                     },
                     {
                         name: 'Papel Marfim Pautado',
-                        value: 67,
+                        value: 4,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 72,
+                        value: 5,
                     },
                     {
                         name: 'Papel Canson 140g',
-                        value: 82,
+                        value: 7,
                     },
                     {
                         name: 'Papel Canson 200g',
-                        value: 92,
+                        value: 10,
                     },
                     {
                         name: 'Papel Preto',
-                        value: 85,
+                        value: 8,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 122,
+                        value: 18,
                     },
                     {
                         name: 'Papel Montval',
@@ -154,6 +156,7 @@ export default function Facheiro() {
             {
                 name: 'A5 - Paisagem',
                 id: 403,
+                basePrice: 30,
                 size: {
                     width: 15,
                     length: 21,
@@ -164,65 +167,66 @@ export default function Facheiro() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 45,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado',
-                        value: 45,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Quadriculado',
-                        value: 45,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Pautado',
-                        value: 45,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Liso',
-                        value: 45,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Pontilhado',
-                        value: 45,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Quadriculado',
-                        value: 45,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Pautado',
-                        value: 45,
+                        value: 2,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 49,
+                        value: 2,
                     },
                     {
                         name: 'Papel Canson 140g',
-                        value: 55,
+                        value: 4,
                     },
                     {
                         name: 'Papel Canson 200g',
-                        value: 62,
+                        value: 5,
                     },
                     {
                         name: 'Papel Preto',
-                        value: 59,
+                        value: 4,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 85,
+                        value: 9,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 85,
+                        value: 9,
                     },
                 ],
             },
             {
                 name: 'A6 - Paisagem',
                 id: 404,
+                basePrice: 20,
                 size: {
                     width: 10.5,
                     length: 15,
@@ -233,65 +237,66 @@ export default function Facheiro() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 30,
+                        value: 1,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado',
-                        value: 30,
+                        value: 1,
                     },
                     {
                         name: 'Papel Reciclado Quadriculado',
-                        value: 30,
+                        value: 1,
                     },
                     {
                         name: 'Papel Reciclado Pautado',
-                        value: 30,
+                        value: 1,
                     },
                     {
                         name: 'Papel Marfim Liso',
-                        value: 30,
+                        value: 1,
                     },
                     {
                         name: 'Papel Marfim Pontilhado',
-                        value: 30,
+                        value: 1,
                     },
                     {
                         name: 'Papel Marfim Quadriculado',
-                        value: 30,
+                        value: 1,
                     },
                     {
                         name: 'Papel Marfim Pautado',
-                        value: 30,
+                        value: 1,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 35,
+                        value: 1,
                     },
                     {
                         name: 'Papel Canson 140g',
-                        value: 40,
+                        value: 2,
                     },
                     {
                         name: 'Papel Canson 200g',
-                        value: 45,
+                        value: 3,
                     },
                     {
                         name: 'Papel Preto',
-                        value: 42,
+                        value: 2,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 50,
+                        value: 5,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 50,
+                        value: 5,
                     },
                 ],
             },
             {
                 name: '21X21',
                 id: 405,
+                basePrice: 40,
                 size: {
                     width: 21,
                     length: 21,
@@ -302,43 +307,43 @@ export default function Facheiro() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 67,
+                        value: 4,
                     },
                     {
                         name: 'Papel Marfim Liso',
-                        value: 67,
+                        value: 4,
                     },
                     {
                         name: 'Papel Marfim Pontilhado',
-                        value: 67,
+                        value: 4,
                     },
                     {
                         name: 'Papel Marfim Quadriculado',
-                        value: 67,
+                        value: 4,
                     },
                     {
                         name: 'Papel Marfim Pautado',
-                        value: 67,
+                        value: 4,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 72,
+                        value: 5,
                     },
                     {
                         name: 'Papel Canson 140g',
-                        value: 82,
+                        value: 7,
                     },
                     {
                         name: 'Papel Canson 200g',
-                        value: 92,
+                        value: 10,
                     },
                     {
                         name: 'Papel Preto',
-                        value: 85,
+                        value: 8,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 122,
+                        value: 18,
                     },
                     {
                         name: 'Papel Montval',
@@ -349,6 +354,7 @@ export default function Facheiro() {
             {
                 name: '15X15',
                 id: 406,
+                basePrice: 30,
                 size: {
                     width: 15,
                     length: 15,
@@ -359,65 +365,66 @@ export default function Facheiro() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 45,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado',
-                        value: 45,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Quadriculado',
-                        value: 45,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Pautado',
-                        value: 45,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Liso',
-                        value: 45,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Pontilhado',
-                        value: 45,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Quadriculado',
-                        value: 45,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Pautado',
-                        value: 45,
+                        value: 2,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 49,
+                        value: 2,
                     },
                     {
                         name: 'Papel Canson 140g',
-                        value: 55,
+                        value: 4,
                     },
                     {
                         name: 'Papel Canson 200g',
-                        value: 62,
+                        value: 5,
                     },
                     {
                         name: 'Papel Preto',
-                        value: 59,
+                        value: 4,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 85,
+                        value: 9,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 85,
+                        value: 9,
                     },
                 ],
             },
             {
                 name: '10X10',
                 id: 407,
+                basePrice: 20,
                 size: {
                     width: 10,
                     length: 10,
@@ -428,65 +435,66 @@ export default function Facheiro() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 30,
+                        value: 1,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado',
-                        value: 30,
+                        value: 1,
                     },
                     {
                         name: 'Papel Reciclado Quadriculado',
-                        value: 30,
+                        value: 1,
                     },
                     {
                         name: 'Papel Reciclado Pautado',
-                        value: 30,
+                        value: 1,
                     },
                     {
                         name: 'Papel Marfim Liso',
-                        value: 30,
+                        value: 1,
                     },
                     {
                         name: 'Papel Marfim Pontilhado',
-                        value: 30,
+                        value: 1,
                     },
                     {
                         name: 'Papel Marfim Quadriculado',
-                        value: 30,
+                        value: 1,
                     },
                     {
                         name: 'Papel Marfim Pautado',
-                        value: 30,
+                        value: 1,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 35,
+                        value: 1,
                     },
                     {
                         name: 'Papel Canson 140g',
-                        value: 40,
+                        value: 2,
                     },
                     {
                         name: 'Papel Canson 200g',
-                        value: 45,
+                        value: 3,
                     },
                     {
                         name: 'Papel Preto',
-                        value: 42,
+                        value: 2,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 50,
+                        value: 5,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 50,
+                        value: 5,
                     },
                 ],
             },
             {
                 name: 'A4 - Retrato',
                 id: 408,
+                basePrice: 40,
                 size: {
                     width: 21,
                     length: 29,
@@ -497,43 +505,43 @@ export default function Facheiro() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 67,
+                        value: 4,
                     },
                     {
                         name: 'Papel Marfim Liso',
-                        value: 67,
+                        value: 4,
                     },
                     {
                         name: 'Papel Marfim Pontilhado',
-                        value: 67,
+                        value: 4,
                     },
                     {
                         name: 'Papel Marfim Quadriculado',
-                        value: 67,
+                        value: 4,
                     },
                     {
                         name: 'Papel Marfim Pautado',
-                        value: 67,
+                        value: 4,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 72,
+                        value: 5,
                     },
                     {
                         name: 'Papel Canson 140g',
-                        value: 82,
+                        value: 7,
                     },
                     {
                         name: 'Papel Canson 200g',
-                        value: 92,
+                        value: 10,
                     },
                     {
                         name: 'Papel Preto',
-                        value: 85,
+                        value: 8,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 122,
+                        value: 18,
                     },
                     {
                         name: 'Papel Montval',
@@ -544,6 +552,7 @@ export default function Facheiro() {
             {
                 name: 'A5 - Retrato',
                 id: 409,
+                basePrice: 30,
                 size: {
                     width: 15,
                     length: 21,
@@ -554,65 +563,66 @@ export default function Facheiro() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 45,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado',
-                        value: 45,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Quadriculado',
-                        value: 45,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Pautado',
-                        value: 45,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Liso',
-                        value: 45,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Pontilhado',
-                        value: 45,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Quadriculado',
-                        value: 45,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Pautado',
-                        value: 45,
+                        value: 2,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 49,
+                        value: 2,
                     },
                     {
                         name: 'Papel Canson 140g',
-                        value: 55,
+                        value: 4,
                     },
                     {
                         name: 'Papel Canson 200g',
-                        value: 62,
+                        value: 5,
                     },
                     {
                         name: 'Papel Preto',
-                        value: 59,
+                        value: 4,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 85,
+                        value: 9,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 85,
+                        value: 9,
                     },
                 ],
             },
             {
                 name: 'A6 - Retrato',
                 id: 410,
+                basePrice: 20,
                 size: {
                     width: 10.5,
                     length: 15,
@@ -623,59 +633,59 @@ export default function Facheiro() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 30,
+                        value: 1,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado',
-                        value: 30,
+                        value: 1,
                     },
                     {
                         name: 'Papel Reciclado Quadriculado',
-                        value: 30,
+                        value: 1,
                     },
                     {
                         name: 'Papel Reciclado Pautado',
-                        value: 30,
+                        value: 1,
                     },
                     {
                         name: 'Papel Marfim Liso',
-                        value: 30,
+                        value: 1,
                     },
                     {
                         name: 'Papel Marfim Pontilhado',
-                        value: 30,
+                        value: 1,
                     },
                     {
                         name: 'Papel Marfim Quadriculado',
-                        value: 30,
+                        value: 1,
                     },
                     {
                         name: 'Papel Marfim Pautado',
-                        value: 30,
+                        value: 1,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 35,
+                        value: 1,
                     },
                     {
                         name: 'Papel Canson 140g',
-                        value: 40,
+                        value: 2,
                     },
                     {
                         name: 'Papel Canson 200g',
-                        value: 45,
+                        value: 3,
                     },
                     {
                         name: 'Papel Preto',
-                        value: 42,
+                        value: 2,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 50,
+                        value: 5,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 50,
+                        value: 5,
                     },
                 ],
             },
@@ -703,6 +713,9 @@ export default function Facheiro() {
         let position = event.target.value;
         setSketchbookInfos(formatTypes[position]);
     }
+    useEffect(() => {
+        console.log(sketchbookInfos);
+    }, [sketchbookInfos]);
 
     function onAuthStateChanged(user) {
         firebase.auth().onAuthStateChanged((user) => {
