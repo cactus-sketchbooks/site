@@ -838,6 +838,7 @@ export default function Facheiro() {
             selectedDifferentPapersQuantity +
                 typeof selectedDifferentPapersQuantity
         );
+        console.log();
     }, [selectedDifferentPapersQuantity]);
 
     function handleSelectedSpiralColor(event) {
@@ -963,21 +964,150 @@ export default function Facheiro() {
                         <option value='4'>4</option>
                     </select>
 
-                    <label for='paper'>Selecione o papel do miolo</label>
+                    <div class='paperTypeSelector Selector1 hide'>
+                        <label for='paper'>Selecione o papel do miolo</label>
+                        <br />
+                        <select onChange={handleSelectedType} className='paper'>
+                            <option value='' selected disabled>
+                                Papel do miolo
+                            </option>
 
-                    <select onChange={handleSelectedType} className='paper'>
-                        <option value='' selected disabled>
-                            Papel do miolo
-                        </option>
+                            {formatTypes.map((type, index) => {
+                                return (
+                                    <option value={index} key={index}>
+                                        {type.name} - R$ {type.value}
+                                    </option>
+                                );
+                            })}
+                        </select>
+                        <br />
+                        <label for='paper1Quantity'>
+                            Selecione a quantidade de blocos do Papel 1
+                        </label>
+                        <select onChange={''} className='paper1Quantity'>
+                            <option value='' selected disabled>
+                                Quantidade de blocos do Papel 1
+                            </option>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value='3'>3</option>
+                            <option value='4'>4</option>
+                            <option value='5'>5</option>
+                            <option value='6'>6</option>
+                            <option value='7'>7</option>
+                            <option value='8'>8</option>
+                            <option value='9'>9</option>
+                            <option value='10'>10</option>
+                        </select>
+                    </div>
+                    <div class='paperTypeSelector Selector2 hide'>
+                        <label for='paper'>Selecione o papel do miolo</label>
+                        <br />
+                        <select onChange={handleSelectedType} className='paper'>
+                            <option value='' selected disabled>
+                                Papel do miolo
+                            </option>
 
-                        {formatTypes.map((type, index) => {
-                            return (
-                                <option value={index} key={index}>
-                                    {type.name} - R$ {type.value}
-                                </option>
-                            );
-                        })}
-                    </select>
+                            {formatTypes.map((type, index) => {
+                                return (
+                                    <option value={index} key={index}>
+                                        {type.name} - R$ {type.value}
+                                    </option>
+                                );
+                            })}
+                        </select>
+                        <br />
+                        <label for='paper2Quantity'>
+                            Selecione a quantidade de blocos do Papel 2
+                        </label>
+                        <select onChange={''} className='paper1Quantity'>
+                            <option value='' selected disabled>
+                                Quantidade de blocos do Papel 2
+                            </option>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value='3'>3</option>
+                            <option value='4'>4</option>
+                            <option value='5'>5</option>
+                            <option value='6'>6</option>
+                            <option value='7'>7</option>
+                            <option value='8'>8</option>
+                            <option value='9'>9</option>
+                            <option value='10'>10</option>
+                        </select>
+                    </div>
+                    <div class='paperTypeSelector Selector3 hide'>
+                        <label for='paper'>Selecione o papel do miolo</label>
+                        <br />
+                        <select onChange={handleSelectedType} className='paper'>
+                            <option value='' selected disabled>
+                                Papel do miolo
+                            </option>
+
+                            {formatTypes.map((type, index) => {
+                                return (
+                                    <option value={index} key={index}>
+                                        {type.name} - R$ {type.value}
+                                    </option>
+                                );
+                            })}
+                        </select>
+                        <br />
+                        <label for='paper3Quantity'>
+                            Selecione a quantidade de blocos do Papel 3
+                        </label>
+                        <select onChange={''} className='paper1Quantity'>
+                            <option value='' selected disabled>
+                                Quantidade de blocos do Papel 3
+                            </option>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value='3'>3</option>
+                            <option value='4'>4</option>
+                            <option value='5'>5</option>
+                            <option value='6'>6</option>
+                            <option value='7'>7</option>
+                            <option value='8'>8</option>
+                            <option value='9'>9</option>
+                            <option value='10'>10</option>
+                        </select>
+                    </div>
+                    <div class='paperTypeSelector Selector3 hide'>
+                        <label for='paper'>Selecione o papel do miolo</label>
+                        <br />
+                        <select onChange={handleSelectedType} className='paper'>
+                            <option value='' selected disabled>
+                                Papel do miolo
+                            </option>
+
+                            {formatTypes.map((type, index) => {
+                                return (
+                                    <option value={index} key={index}>
+                                        {type.name} - R$ {type.value}
+                                    </option>
+                                );
+                            })}
+                        </select>
+                        <br />
+                        <label for='paper4Quantity'>
+                            Selecione a quantidade de blocos do Papel 4
+                        </label>
+                        <select onChange={''} className='paper1Quantity'>
+                            <option value='' selected disabled>
+                                Quantidade de blocos do Papel 4
+                            </option>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value='3'>3</option>
+                            <option value='4'>4</option>
+                            <option value='5'>5</option>
+                            <option value='6'>6</option>
+                            <option value='7'>7</option>
+                            <option value='8'>8</option>
+                            <option value='9'>9</option>
+                            <option value='10'>10</option>
+                        </select>
+                    </div>
 
                     <p>
                         Veja mais sobre a gramatura e quantidade de páginas
