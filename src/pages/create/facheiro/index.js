@@ -967,6 +967,10 @@ export default function Facheiro() {
                     <div className='textBackground'>
                         <h2>Papel do Miolo</h2>
                     </div>
+                    <p>
+                        Nossos Skecths podem ser montados com até 4 tipos de
+                        papéis diferentes no miolo.
+                    </p>
                 </div>
 
                 <fieldset>
@@ -986,13 +990,31 @@ export default function Facheiro() {
                         <option value='3'>3</option>
                         <option value='4'>4</option>
                     </select>
-
+                    <p>
+                        Os Sketchs podem ser montados adicionando blocos de
+                        <b> 16 páginas</b>
+                    </p>
+                    <br />
+                    <p>
+                        Os Sketchs devem ter no mínimo
+                        <b> 6 blocos (96 páginas)</b> e no máximo
+                        <b> 10 blocos (160 páginas)</b>
+                    </p>
+                    <br />
+                    <br />
+                    <p>
+                        Veja mais sobre a gramatura e quantidade de páginas
+                        clicando <Link to='/gramaturas'>aqui</Link>
+                    </p>
+                    <br />
                     <div class='paperTypeSelector Selector1 hide'>
-                        <label for='paper'>Selecione o papel do miolo</label>
+                        <label for='paper'>
+                            Selecione o primeiro papel do miolo
+                        </label>
                         <br />
                         <select onChange={handleSelectedType} className='paper'>
                             <option value='' selected disabled>
-                                Papel do miolo
+                                (1) - Papel do miolo
                             </option>
 
                             {formatTypes.map((type, index) => {
@@ -1011,24 +1033,26 @@ export default function Facheiro() {
                             <option value='' selected disabled>
                                 Quantidade de blocos do Papel 1
                             </option>
-                            <option value='1'>1</option>
-                            <option value='2'>2</option>
-                            <option value='3'>3</option>
-                            <option value='4'>4</option>
-                            <option value='5'>5</option>
-                            <option value='6'>6</option>
-                            <option value='7'>7</option>
-                            <option value='8'>8</option>
-                            <option value='9'>9</option>
-                            <option value='10'>10</option>
+                            <option value='1'>1 - 16 páginas</option>
+                            <option value='2'>2 - 32 páginas</option>
+                            <option value='3'>3 - 48 páginas</option>
+                            <option value='4'>4 - 64 páginas</option>
+                            <option value='5'>5 - 80 páginas</option>
+                            <option value='6'>6 - 96 páginas</option>
+                            <option value='7'>7 - 112 páginas</option>
+                            <option value='8'>8 - 128 páginas</option>
+                            <option value='9'>9 - 144 páginas</option>
+                            <option value='10'>10 - 160 páginas</option>
                         </select>
                     </div>
                     <div class='paperTypeSelector Selector2 hide'>
-                        <label for='paper'>Selecione o papel do miolo</label>
+                        <label for='paper'>
+                            Selecione o segundo papel do miolo
+                        </label>
                         <br />
                         <select onChange={handleSelectedType} className='paper'>
                             <option value='' selected disabled>
-                                Papel do miolo
+                                (2) - Papel do miolo
                             </option>
 
                             {formatTypes.map((type, index) => {
@@ -1047,24 +1071,26 @@ export default function Facheiro() {
                             <option value='' selected disabled>
                                 Quantidade de blocos do Papel 2
                             </option>
-                            <option value='1'>1</option>
-                            <option value='2'>2</option>
-                            <option value='3'>3</option>
-                            <option value='4'>4</option>
-                            <option value='5'>5</option>
-                            <option value='6'>6</option>
-                            <option value='7'>7</option>
-                            <option value='8'>8</option>
-                            <option value='9'>9</option>
-                            <option value='10'>10</option>
+                            <option value='1'>1 - 16 páginas</option>
+                            <option value='2'>2 - 32 páginas</option>
+                            <option value='3'>3 - 48 páginas</option>
+                            <option value='4'>4 - 64 páginas</option>
+                            <option value='5'>5 - 80 páginas</option>
+                            <option value='6'>6 - 96 páginas</option>
+                            <option value='7'>7 - 112 páginas</option>
+                            <option value='8'>8 - 128 páginas</option>
+                            <option value='9'>9 - 144 páginas</option>
+                            <option value='10'>10 - 160 páginas</option>
                         </select>
                     </div>
                     <div class='paperTypeSelector Selector3 hide'>
-                        <label for='paper'>Selecione o papel do miolo</label>
+                        <label for='paper'>
+                            Selecione o terceiro papel do miolo
+                        </label>
                         <br />
                         <select onChange={handleSelectedType} className='paper'>
                             <option value='' selected disabled>
-                                Papel do miolo
+                                (3) - Papel do miolo
                             </option>
 
                             {formatTypes.map((type, index) => {
@@ -1083,24 +1109,26 @@ export default function Facheiro() {
                             <option value='' selected disabled>
                                 Quantidade de blocos do Papel 3
                             </option>
-                            <option value='1'>1</option>
-                            <option value='2'>2</option>
-                            <option value='3'>3</option>
-                            <option value='4'>4</option>
-                            <option value='5'>5</option>
-                            <option value='6'>6</option>
-                            <option value='7'>7</option>
-                            <option value='8'>8</option>
-                            <option value='9'>9</option>
-                            <option value='10'>10</option>
+                            <option value='1'>1 - 16 páginas</option>
+                            <option value='2'>2 - 32 páginas</option>
+                            <option value='3'>3 - 48 páginas</option>
+                            <option value='4'>4 - 64 páginas</option>
+                            <option value='5'>5 - 80 páginas</option>
+                            <option value='6'>6 - 96 páginas</option>
+                            <option value='7'>7 - 112 páginas</option>
+                            <option value='8'>8 - 128 páginas</option>
+                            <option value='9'>9 - 144 páginas</option>
+                            <option value='10'>10 - 160 páginas</option>
                         </select>
                     </div>
                     <div class='paperTypeSelector Selector4 hide'>
-                        <label for='paper'>Selecione o papel do miolo</label>
+                        <label for='paper'>
+                            Selecione o quarto papel do miolo
+                        </label>
                         <br />
                         <select onChange={handleSelectedType} className='paper'>
                             <option value='' selected disabled>
-                                Papel do miolo
+                                (4) - Papel do miolo
                             </option>
 
                             {formatTypes.map((type, index) => {
@@ -1115,27 +1143,22 @@ export default function Facheiro() {
                         <label for='paper4Quantity'>
                             Selecione a quantidade de blocos do Papel 4
                         </label>
-                        <select onChange={''} className='paper1Quantity'>
+                        <select onChange={''} className='paper4Quantity'>
                             <option value='' selected disabled>
                                 Quantidade de blocos do Papel 4
                             </option>
-                            <option value='1'>1</option>
-                            <option value='2'>2</option>
-                            <option value='3'>3</option>
-                            <option value='4'>4</option>
-                            <option value='5'>5</option>
-                            <option value='6'>6</option>
-                            <option value='7'>7</option>
-                            <option value='8'>8</option>
-                            <option value='9'>9</option>
-                            <option value='10'>10</option>
+                            <option value='1'>1 - 16 páginas</option>
+                            <option value='2'>2 - 32 páginas</option>
+                            <option value='3'>3 - 48 páginas</option>
+                            <option value='4'>4 - 64 páginas</option>
+                            <option value='5'>5 - 80 páginas</option>
+                            <option value='6'>6 - 96 páginas</option>
+                            <option value='7'>7 - 112 páginas</option>
+                            <option value='8'>8 - 128 páginas</option>
+                            <option value='9'>9 - 144 páginas</option>
+                            <option value='10'>10 - 160 páginas</option>
                         </select>
                     </div>
-
-                    <p>
-                        Veja mais sobre a gramatura e quantidade de páginas
-                        clicando <Link to='/gramaturas'>aqui</Link>
-                    </p>
                 </fieldset>
 
                 <div className='textWrapper'>
