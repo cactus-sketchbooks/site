@@ -715,7 +715,7 @@ export default function Facheiro() {
         setSketchbookInfos(formatTypes[position]);
     }
     useEffect(() => {
-        console.log(sketchbookInfos);
+        console.log(Object.entries(sketchbookInfos));
     }, [sketchbookInfos]);
 
     function onAuthStateChanged(user) {
@@ -881,6 +881,10 @@ export default function Facheiro() {
             default:
         }
     }, [selectedDifferentPapersQuantity]);
+
+    function handleSelectedPaperQuantity(event) {
+        console.log(event.target);
+    }
 
     function handleSelectedSpiralColor(event) {
         setSelectedSpiralColor(event.target.value);
@@ -1050,7 +1054,10 @@ export default function Facheiro() {
                         <label for='paper1Quantity'>
                             Selecione a quantidade de blocos do Papel 1
                         </label>
-                        <select onChange={''} className='paper1Quantity'>
+                        <select
+                            onChange={handleSelectedPaperQuantity}
+                            className='paper1Quantity'
+                        >
                             <option value='' selected disabled>
                                 Quantidade de blocos do Papel 1
                             </option>
@@ -1088,7 +1095,10 @@ export default function Facheiro() {
                         <label for='paper2Quantity'>
                             Selecione a quantidade de blocos do Papel 2
                         </label>
-                        <select onChange={''} className='paper1Quantity'>
+                        <select
+                            onChange={handleSelectedPaperQuantity}
+                            className='paper2Quantity'
+                        >
                             <option value='' selected disabled>
                                 Quantidade de blocos do Papel 2
                             </option>
@@ -1126,7 +1136,10 @@ export default function Facheiro() {
                         <label for='paper3Quantity'>
                             Selecione a quantidade de blocos do Papel 3
                         </label>
-                        <select onChange={''} className='paper1Quantity'>
+                        <select
+                            onChange={handleSelectedPaperQuantity}
+                            className='paper1Quantity'
+                        >
                             <option value='' selected disabled>
                                 Quantidade de blocos do Papel 3
                             </option>
@@ -1164,7 +1177,10 @@ export default function Facheiro() {
                         <label for='paper4Quantity'>
                             Selecione a quantidade de blocos do Papel 4
                         </label>
-                        <select onChange={''} className='paper4Quantity'>
+                        <select
+                            onChange={handleSelectedPaperQuantity}
+                            className='paper4Quantity'
+                        >
                             <option value='' selected disabled>
                                 Quantidade de blocos do Papel 4
                             </option>
