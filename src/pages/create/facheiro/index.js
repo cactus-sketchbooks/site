@@ -715,7 +715,7 @@ export default function Facheiro() {
         setSketchbookInfos(formatTypes[position]);
     }
     useEffect(() => {
-        console.log(Object.entries(sketchbookInfos));
+        console.log(sketchbookInfos);
     }, [sketchbookInfos]);
 
     function onAuthStateChanged(user) {
@@ -883,7 +883,19 @@ export default function Facheiro() {
     }, [selectedDifferentPapersQuantity]);
 
     function handleSelectedPaperQuantity(event) {
-        console.log(event.target);
+        let test = Object.defineProperty(
+            sketchbookInfos,
+            'QuantidadeDeBlocos',
+            {
+                enumerable: true, // não enumerável
+                configurable: true, // não configurável
+                writable: true, // não gravável
+                value: parseInt(event.target.value),
+            }
+        );
+
+        setSketchbookInfos(test);
+        //console.log(sketchbookInfos);
     }
 
     function handleSelectedSpiralColor(event) {
