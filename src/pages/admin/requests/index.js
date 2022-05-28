@@ -595,6 +595,23 @@ export default function Requests() {
                                                   ) : (
                                                       ''
                                                   )}
+                                                  {/*
+                                                  Acho que aqui deve ir o tipo de acabamento
+                                                  {product.sketchFinish ? (
+                                                      <li className='productData'>
+                                                          <span>
+                                                              Tipo de acabamento:{' '}
+                                                          </span>
+                                                          <b>
+                                                              {
+                                                                  product.sketchFinish
+                                                              }
+                                                          </b>
+                                                      </li>
+                                                  ) : (
+                                                      ''
+                                                  )} 
+                                                   */}
 
                                                   {product.size ? (
                                                       <>

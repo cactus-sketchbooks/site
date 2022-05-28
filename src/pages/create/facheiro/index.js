@@ -36,6 +36,7 @@ export default function Facheiro() {
     ] = useState(0);
     const [selectedSpiralColor, setSelectedSpiralColor] = useState('');
     const [selectedElasticColor, setSelectedElasticColor] = useState('');
+    const [selectedSketchFinish, setSelectedSketchFinish] = useState('');
     const [clientNote, setClientNote] = useState('');
     const [sketchbookInfos, setSketchbookInfos] = useState('');
     const [displayModal, setDisplayModal] = useState('none');
@@ -763,6 +764,7 @@ export default function Facheiro() {
             value: sketchbookInfos.value,
             spiralColor: selectedSpiralColor,
             elasticColor: selectedElasticColor,
+            sketchFinish: selectedSketchFinish,
             coverColors: selectedColors,
             clientNote: clientNote,
             size: formatSize,
@@ -828,6 +830,7 @@ export default function Facheiro() {
             sketchbookInfos === '' ||
             selectedSpiralColor === '' ||
             selectedElasticColor === '' ||
+            selectedSketchFinish === '' ||
             checkedBoxes > 2 ||
             checkedBoxes === 0
         ) {
@@ -840,6 +843,7 @@ export default function Facheiro() {
         sketchbookInfos,
         selectedSpiralColor,
         selectedElasticColor,
+        selectedSketchFinish,
         checkedBoxes,
     ]);
 
@@ -884,6 +888,10 @@ export default function Facheiro() {
 
     function handleSelectedElasticColor(item, event) {
         setSelectedElasticColor(event);
+    }
+
+    function handleSelectedSketchFinish(event) {
+        setSelectedSketchFinish(event.target.value);
     }
 
     function handleClientNote(event) {
@@ -1326,6 +1334,30 @@ export default function Facheiro() {
                     </div>
                 </section>
 
+                <div className='textWrapper'>
+                    <div className='textBackground'>
+                        <h2>Tipo de Acabamento</h2>
+                    </div>
+                </div>
+                {/* Inserir aqui a imagem de mostra dos tipos de acabamento */}
+
+                <fieldset>
+                    <label for='paper'>
+                        Selecione o tipo de acabamento nas bordas
+                    </label>
+
+                    <select
+                        onChange={(event) => handleSelectedSketchFinish(event)}
+                        className='SketchFinish'
+                    >
+                        <option value='' selected disabled>
+                            Tipo de Acabamento
+                        </option>
+                        <option value='Reto'>Reto</option>
+                        <option value='Arredondado'>Arredondado</option>
+                    </select>
+                </fieldset>
+
                 <div className='additionalInfos'>
                     <label for='additionalInfos'>
                         Informações adicionais <strong>(opcional)</strong>
@@ -1376,6 +1408,10 @@ export default function Facheiro() {
                                     <li>
                                         <strong>Cor do elástico: </strong>
                                         {selectedElasticColor.colorName}
+                                    </li>
+                                    <li>
+                                        <strong>Tipo de Acabamento: </strong>
+                                        {selectedSketchFinish}
                                     </li>
                                 </ul>
 
