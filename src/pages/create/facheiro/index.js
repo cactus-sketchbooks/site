@@ -23,9 +23,11 @@ import FirebaseConfig from '../../../FirebaseConfig.js';
 const PaperOption = ({ tipos, quantidade, setSketchPaperInfo, index }) => {
     return (
         <>
+            <label for='paperSelector'>
+                Selecione o Papel do Miolo {index + 1}
+            </label>
             <select
-                name=''
-                id=''
+                name='paperSelector'
                 onChange={(e) =>
                     setSketchPaperInfo((prev) => {
                         let newArr = [...prev];
@@ -49,9 +51,12 @@ const PaperOption = ({ tipos, quantidade, setSketchPaperInfo, index }) => {
                     );
                 })}
             </select>
+
+            <label for='paperQuantity'>
+                Selecione a quantidade de blocos do Papel do Miolo {index + 1}
+            </label>
             <select
-                name=''
-                id=''
+                name='paperQuantity'
                 onChange={(e) =>
                     setSketchPaperInfo((prev) => {
                         let newArr = [...prev];
@@ -63,12 +68,17 @@ const PaperOption = ({ tipos, quantidade, setSketchPaperInfo, index }) => {
                     })
                 }
             >
+                <option value='' selected disabled>
+                    Quantidade de Blocos{' '}
+                </option>
                 {[...Array(10)].map((_, i) => (
                     <option value={quantidade * (i + 1)}>{`${i + 1} - ${
                         quantidade * (i + 1)
                     } páginas`}</option>
                 ))}
             </select>
+            <br />
+            <br />
         </>
     );
 };
