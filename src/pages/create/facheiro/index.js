@@ -83,6 +83,8 @@ export default function Facheiro() {
     const [isValidated, setIsValidated] = useState(false);
     const [checkedBoxes, setCheckedBoxes] = useState(0);
     const [selectedPaperWidth, setSelectedPaperWidth] = useState('');
+    const [sketchbookBasePrice, setSketchbookBasePrice] = useState(0);
+    const [sketchbookTotalPrice, setSketchbookTotalPrice] = useState(0);
     const [
         selectedDifferentPapersQuantity,
         setSelectedDifferentPapersQuantity,
@@ -768,6 +770,8 @@ export default function Facheiro() {
         setformatTypes(values.formats[position].types);
         setFormatSize(values.formats[position].size);
         setFormatId(values.formats[position].id);
+        setSketchbookBasePrice(values.formats[position].basePrice);
+        calculateTotalPrice();
     }
 
     function handleSelectedType(event) {
@@ -881,12 +885,14 @@ export default function Facheiro() {
     };
 
     useEffect(() => {
+        //gambiarra para atualizar o preço
+        calculateTotalPrice();
         if (
             formatTypes === '' ||
-            sketchbookInfos === '' ||
             selectedSpiralColor === '' ||
             selectedElasticColor === '' ||
             selectedSketchFinish === '' ||
+            sketchbookTotalPrice === 0 ||
             checkedBoxes > 2 ||
             checkedBoxes === 0
         ) {
@@ -896,10 +902,11 @@ export default function Facheiro() {
         }
     }, [
         formatTypes,
-        sketchbookInfos,
+        sketchPaperInfo,
         selectedSpiralColor,
         selectedElasticColor,
         selectedSketchFinish,
+        sketchbookTotalPrice,
         checkedBoxes,
     ]);
 
@@ -908,6 +915,7 @@ export default function Facheiro() {
     }
     useEffect(() => {
         console.log(sketchPaperInfo);
+        calculateTotalPrice();
     }, [sketchPaperInfo]);
 
     function handleSelectedSpiralColor(event) {
@@ -924,6 +932,12 @@ export default function Facheiro() {
 
     function handleClientNote(event) {
         setClientNote(event.target.value);
+    }
+
+    function calculateTotalPrice() {
+        let totalPrice = 0;
+        totalPrice = sketchbookBasePrice;
+        setSketchbookTotalPrice(totalPrice);
     }
 
     function handleModalInfos() {
@@ -1303,7 +1317,7 @@ export default function Facheiro() {
 
                                 <h3>
                                     Valor do sketchbook: R${' '}
-                                    {sketchbookInfos.value}
+                                    {sketchbookTotalPrice}
                                 </h3>
 
                                 <button onClick={() => addToCart()}>
