@@ -103,10 +103,10 @@ export default function Facheiro() {
     const [selectedElasticColor, setSelectedElasticColor] = useState('');
     const [selectedSketchFinish, setSelectedSketchFinish] = useState('');
     const [sketchPaperInfo, setSketchPaperInfo] = useState([
-        { nomePapel: '', precoUnitario: '', quantidade: '' },
-        { nomePapel: '', precoUnitario: '', quantidade: '' },
-        { nomePapel: '', precoUnitario: '', quantidade: '' },
-        { nomePapel: '', precoUnitario: '', quantidade: '' },
+        { nomePapel: '', precoUnitario: 0, quantidade: 0 },
+        { nomePapel: '', precoUnitario: 0, quantidade: 0 },
+        { nomePapel: '', precoUnitario: 0, quantidade: 0 },
+        { nomePapel: '', precoUnitario: 0, quantidade: 0 },
     ]);
     const [clientNote, setClientNote] = useState('');
     const [sketchbookInfos, setSketchbookInfos] = useState([]);
@@ -924,7 +924,9 @@ export default function Facheiro() {
         setSelectedDifferentPapersQuantity(parseInt(event.target.value));
     }
     useEffect(() => {
-        console.log(sketchPaperInfo.slice(0, selectedDifferentPapersQuantity));
+        setSketchbookInfos(
+            sketchPaperInfo.slice(0, selectedDifferentPapersQuantity)
+        );
         calculateTotalPrice();
     }, [sketchPaperInfo]);
 
@@ -948,16 +950,19 @@ export default function Facheiro() {
         let totalPrice = 0;
         totalPrice = sketchbookBasePrice;
 
+        sketchbookInfos.forEach(function (papel) {
+            totalPrice += papel.precoUnitario * papel.quantidade;
+        });
+
         setSketchbookTotalPrice(totalPrice);
     }
     useEffect(() => {
-        // Pseudo calculateTotalPrice();
-        let totalPrice = 0;
-        totalPrice = sketchbookBasePrice;
-        setSketchbookTotalPrice(totalPrice);
         console.log('preco mudou ' + sketchbookTotalPrice);
-        console.log(sketchPaperInfo);
-    }, [formatTypes, sketchPaperInfo]);
+    }, [sketchbookTotalPrice]);
+
+    useEffect(() => {
+        console.log(sketchbookInfos);
+    }, [sketchbookInfos]);
 
     function handleModalInfos() {
         displayModal === 'none'
