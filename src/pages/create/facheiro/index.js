@@ -62,7 +62,7 @@ const PaperOption = ({ tipos, quantidade, setSketchPaperInfo, index }) => {
                         let newArr = [...prev];
                         newArr[index] = {
                             ...prev[index],
-                            quantidade: e.target.value,
+                            quantidade: Number(e.target.value),
                         };
                         return newArr;
                     })
@@ -72,7 +72,7 @@ const PaperOption = ({ tipos, quantidade, setSketchPaperInfo, index }) => {
                     Quantidade de Blocos{' '}
                 </option>
                 {[...Array(10)].map((_, i) => (
-                    <option value={quantidade * (i + 1)}>{`${i + 1} - ${
+                    <option value={i + 1}>{`${i + 1} - ${
                         quantidade * (i + 1)
                     } páginas`}</option>
                 ))}
@@ -109,7 +109,7 @@ export default function Facheiro() {
         { nomePapel: '', precoUnitario: '', quantidade: '' },
     ]);
     const [clientNote, setClientNote] = useState('');
-    const [sketchbookInfos, setSketchbookInfos] = useState('');
+    const [sketchbookInfos, setSketchbookInfos] = useState([]);
     const [displayModal, setDisplayModal] = useState('none');
     const [maxSlides, setMaxSlides] = useState(5);
     const paginasPorBloco = 16;
@@ -924,7 +924,7 @@ export default function Facheiro() {
         setSelectedDifferentPapersQuantity(parseInt(event.target.value));
     }
     useEffect(() => {
-        console.log(sketchPaperInfo);
+        console.log(sketchPaperInfo.slice(0, selectedDifferentPapersQuantity));
         calculateTotalPrice();
     }, [sketchPaperInfo]);
 
@@ -947,8 +947,17 @@ export default function Facheiro() {
     function calculateTotalPrice() {
         let totalPrice = 0;
         totalPrice = sketchbookBasePrice;
+
         setSketchbookTotalPrice(totalPrice);
     }
+    useEffect(() => {
+        // Pseudo calculateTotalPrice();
+        let totalPrice = 0;
+        totalPrice = sketchbookBasePrice;
+        setSketchbookTotalPrice(totalPrice);
+        console.log('preco mudou ' + sketchbookTotalPrice);
+        console.log(sketchPaperInfo);
+    }, [formatTypes, sketchPaperInfo]);
 
     function handleModalInfos() {
         displayModal === 'none'
@@ -1081,7 +1090,6 @@ export default function Facheiro() {
                     </p>
                     <br />
 
-                    {/* aqui teste do novo renderizador de selects de papeis */}
                     {[...Array(selectedDifferentPapersQuantity)].map((_, i) => (
                         <PaperOption
                             tipos={formatTypes}
