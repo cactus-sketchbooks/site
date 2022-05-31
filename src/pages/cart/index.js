@@ -250,13 +250,13 @@ export default function Cart() {
 
         }
 
-        if (pickup !== 'Retirada física') {
+        if (pickup === 'Retirada física' || pickup === 'Entrega por aplicativo') {
 
-            setDisplayAddressForms('flex');
+            setDisplayAddressForms('none');
 
         } else {
 
-            setDisplayAddressForms('none');
+            setDisplayAddressForms('flex');
 
         }
 
@@ -843,7 +843,7 @@ export default function Cart() {
                                             <select className="pickupSelect" onChange={handlePickupSelect} >
 
                                                 <option disabled selected value=''>Selecione como deseja receber sua encomenda</option>
-                                                <option value='Entrega a domicílio'>Entrega a domicílio (Para toda São Luís - MA)</option>
+                                                <option value='Entrega por aplicativo'>Combinar entrega por aplicativo de viagem (Uber ou 99) com a Cactus</option>
                                                 <option value="Impresso módico ou Carta registrada" >Impresso módico ou Carta registrada</option>
                                                 <option value="Retirada física" >Retirada física: Travessa da Lapa - 162 - Centro/Desterro</option>
 
@@ -854,7 +854,7 @@ export default function Cart() {
                                             <select className="pickupSelect" onChange={handlePickupSelect} >
 
                                                 <option disabled selected value=''>Selecione como deseja receber sua encomenda</option>
-                                                <option value='Entrega a domicílio'>Entrega a domicílio (Para toda São Luís - MA)</option>
+                                                <option value='Entrega por aplicativo'>Combinar entrega por aplicativo de viagem (Uber ou 99) com a Cactus</option>
                                                 <option value="Frete por transportadora" >Entrega por transportadora</option>
                                                 <option value="Impresso módico ou Carta registrada" >Impresso módico ou Carta registrada</option>
                                                 <option value="Retirada física" >Retirada física: Travessa da Lapa - 162 - Centro/Desterro</option>

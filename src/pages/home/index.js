@@ -5,7 +5,7 @@ import Footer from '../../components/footer/index.js'
 
 import { Link } from 'react-router-dom'
 
-import cacto1 from '../../images/cactopng2.png'
+import logoCactus from '../../images/cactopng2.png'
 import foto from '../../images/foto1.png'
 import mandacaru from '../../images/mandacaru.png'
 import baiao from '../../images/baiao.png'
@@ -129,7 +129,7 @@ function Home() {
 
                     <div className="hero-title">
                         <h1>cactus</h1>
-                        <img src={cacto1} alt="Imagem de um cacto" />
+                        <img src={logoCactus} alt="Imagem de um cacto" />
                         <h1>sketchbooks</h1>
                     </div>
 

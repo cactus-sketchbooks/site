@@ -7,7 +7,7 @@ import './style.scss'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import logo from '../../../images/baiao.png';
+import logo from '../../../images/baiao2.jpg';
 import Baiao1Cor from '../../../images/capas/Baiao1Cor.png';
 import Baiao2Cores from '../../../images/capas/Baiao2Cores.png';
 

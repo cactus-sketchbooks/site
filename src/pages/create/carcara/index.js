@@ -7,7 +7,7 @@ import './style.scss'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import logo from '../../../images/carcara.png';
+import logo from '../../../images/carcara2.jpg';
 import CarcaraRetangular from '../../../images/capas/CarcaraRetangular.png';
 import CarcaraQuadrado from '../../../images/capas/CarcaraQuadrado.png';
 
