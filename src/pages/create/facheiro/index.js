@@ -20,6 +20,59 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import FirebaseConfig from '../../../FirebaseConfig.js';
 
+const PaperOption = ({ tipos, quantidade, setSketchPaperInfo, index }) => {
+    return (
+        <>
+            <select
+                name=''
+                id=''
+                onChange={(e) =>
+                    setSketchPaperInfo((prev) => {
+                        let newArr = [...prev];
+                        newArr[index] = {
+                            ...prev[index],
+                            nomePapel: tipos[e.target.value].name,
+                            precoUnitario: tipos[e.target.value].value,
+                        };
+                        return newArr;
+                    })
+                }
+            >
+                <option value='' selected disabled>
+                    ({index + 1}) - Papel do miolo
+                </option>
+                {tipos.map((type, index) => {
+                    return (
+                        <option value={index} key={index}>
+                            {type.name} - R$ {type.value}
+                        </option>
+                    );
+                })}
+            </select>
+            <select
+                name=''
+                id=''
+                onChange={(e) =>
+                    setSketchPaperInfo((prev) => {
+                        let newArr = [...prev];
+                        newArr[index] = {
+                            ...prev[index],
+                            quantidade: e.target.value,
+                        };
+                        return newArr;
+                    })
+                }
+            >
+                {[...Array(10)].map((_, i) => (
+                    <option value={quantidade * (i + 1)}>{`${i + 1} - ${
+                        quantidade * (i + 1)
+                    } páginas`}</option>
+                ))}
+            </select>
+        </>
+    );
+};
+
 export default function Facheiro() {
     const [dataColors, setDataColors] = useState([]);
     const [formatTypes, setformatTypes] = useState([]);
@@ -37,10 +90,17 @@ export default function Facheiro() {
     const [selectedSpiralColor, setSelectedSpiralColor] = useState('');
     const [selectedElasticColor, setSelectedElasticColor] = useState('');
     const [selectedSketchFinish, setSelectedSketchFinish] = useState('');
+    const [sketchPaperInfo, setSketchPaperInfo] = useState([
+        { nomePapel: '', precoUnitario: '', quantidade: '' },
+        { nomePapel: '', precoUnitario: '', quantidade: '' },
+        { nomePapel: '', precoUnitario: '', quantidade: '' },
+        { nomePapel: '', precoUnitario: '', quantidade: '' },
+    ]);
     const [clientNote, setClientNote] = useState('');
     const [sketchbookInfos, setSketchbookInfos] = useState('');
     const [displayModal, setDisplayModal] = useState('none');
     const [maxSlides, setMaxSlides] = useState(5);
+    const paginasPorBloco = 16;
 
     const settings = {
         className: 'start',
@@ -714,9 +774,6 @@ export default function Facheiro() {
         let position = event.target.value;
         setSketchbookInfos(formatTypes[position]);
     }
-    useEffect(() => {
-        console.log(sketchbookInfos);
-    }, [sketchbookInfos]);
 
     function onAuthStateChanged(user) {
         firebase.auth().onAuthStateChanged((user) => {
@@ -760,8 +817,7 @@ export default function Facheiro() {
             model: 'Facheiro',
             id: formatId,
             paperWidth: selectedPaperWidth,
-            paper: sketchbookInfos.name,
-            value: sketchbookInfos.value,
+            sketchPaperInfo: sketchPaperInfo,
             spiralColor: selectedSpiralColor,
             elasticColor: selectedElasticColor,
             sketchFinish: selectedSketchFinish,
@@ -850,53 +906,9 @@ export default function Facheiro() {
     function handleSelectedDiiferentPapersQuatity(event) {
         setSelectedDifferentPapersQuantity(parseInt(event.target.value));
     }
-
     useEffect(() => {
-        switch (selectedDifferentPapersQuantity) {
-            case 1:
-                document.querySelector('.Selector1').classList.remove('hide');
-                document.querySelector('.Selector2').classList.add('hide');
-                document.querySelector('.Selector3').classList.add('hide');
-                document.querySelector('.Selector4').classList.add('hide');
-
-                break;
-            case 2:
-                document.querySelector('.Selector1').classList.remove('hide');
-                document.querySelector('.Selector2').classList.remove('hide');
-                document.querySelector('.Selector3').classList.add('hide');
-                document.querySelector('.Selector4').classList.add('hide');
-                break;
-            case 3:
-                document.querySelector('.Selector1').classList.remove('hide');
-                document.querySelector('.Selector2').classList.remove('hide');
-                document.querySelector('.Selector3').classList.remove('hide');
-                document.querySelector('.Selector4').classList.add('hide');
-                break;
-            case 4:
-                document.querySelector('.Selector1').classList.remove('hide');
-                document.querySelector('.Selector2').classList.remove('hide');
-                document.querySelector('.Selector3').classList.remove('hide');
-                document.querySelector('.Selector4').classList.remove('hide');
-                break;
-            default:
-        }
-    }, [selectedDifferentPapersQuantity]);
-
-    function handleSelectedPaperQuantity(event) {
-        let test = Object.defineProperty(
-            sketchbookInfos,
-            'QuantidadeDeBlocos',
-            {
-                enumerable: true, // não enumerável
-                configurable: true, // não configurável
-                writable: true, // não gravável
-                value: parseInt(event.target.value),
-            }
-        );
-
-        setSketchbookInfos(test);
-        //console.log(sketchbookInfos);
-    }
+        console.log(sketchPaperInfo);
+    }, [sketchPaperInfo]);
 
     function handleSelectedSpiralColor(event) {
         setSelectedSpiralColor(event.target.value);
@@ -1044,170 +1056,16 @@ export default function Facheiro() {
                         clicando <Link to='/gramaturas'>aqui</Link>
                     </p>
                     <br />
-                    <div class='paperTypeSelector Selector1 hide'>
-                        <label for='paper'>
-                            Selecione o primeiro papel do miolo
-                        </label>
-                        <br />
-                        <select onChange={handleSelectedType} className='paper'>
-                            <option value='' selected disabled>
-                                (1) - Papel do miolo
-                            </option>
 
-                            {formatTypes.map((type, index) => {
-                                return (
-                                    <option value={index} key={index}>
-                                        {type.name} - R$ {type.value}
-                                    </option>
-                                );
-                            })}
-                        </select>
-                        <br />
-                        <label for='paper1Quantity'>
-                            Selecione a quantidade de blocos do Papel 1
-                        </label>
-                        <select
-                            onChange={handleSelectedPaperQuantity}
-                            className='paper1Quantity'
-                        >
-                            <option value='' selected disabled>
-                                Quantidade de blocos do Papel 1
-                            </option>
-                            <option value='1'>1 - 16 páginas</option>
-                            <option value='2'>2 - 32 páginas</option>
-                            <option value='3'>3 - 48 páginas</option>
-                            <option value='4'>4 - 64 páginas</option>
-                            <option value='5'>5 - 80 páginas</option>
-                            <option value='6'>6 - 96 páginas</option>
-                            <option value='7'>7 - 112 páginas</option>
-                            <option value='8'>8 - 128 páginas</option>
-                            <option value='9'>9 - 144 páginas</option>
-                            <option value='10'>10 - 160 páginas</option>
-                        </select>
-                    </div>
-                    <div class='paperTypeSelector Selector2 hide'>
-                        <label for='paper'>
-                            Selecione o segundo papel do miolo
-                        </label>
-                        <br />
-                        <select onChange={handleSelectedType} className='paper'>
-                            <option value='' selected disabled>
-                                (2) - Papel do miolo
-                            </option>
-
-                            {formatTypes.map((type, index) => {
-                                return (
-                                    <option value={index} key={index}>
-                                        {type.name} - R$ {type.value}
-                                    </option>
-                                );
-                            })}
-                        </select>
-                        <br />
-                        <label for='paper2Quantity'>
-                            Selecione a quantidade de blocos do Papel 2
-                        </label>
-                        <select
-                            onChange={handleSelectedPaperQuantity}
-                            className='paper2Quantity'
-                        >
-                            <option value='' selected disabled>
-                                Quantidade de blocos do Papel 2
-                            </option>
-                            <option value='1'>1 - 16 páginas</option>
-                            <option value='2'>2 - 32 páginas</option>
-                            <option value='3'>3 - 48 páginas</option>
-                            <option value='4'>4 - 64 páginas</option>
-                            <option value='5'>5 - 80 páginas</option>
-                            <option value='6'>6 - 96 páginas</option>
-                            <option value='7'>7 - 112 páginas</option>
-                            <option value='8'>8 - 128 páginas</option>
-                            <option value='9'>9 - 144 páginas</option>
-                            <option value='10'>10 - 160 páginas</option>
-                        </select>
-                    </div>
-                    <div class='paperTypeSelector Selector3 hide'>
-                        <label for='paper'>
-                            Selecione o terceiro papel do miolo
-                        </label>
-                        <br />
-                        <select onChange={handleSelectedType} className='paper'>
-                            <option value='' selected disabled>
-                                (3) - Papel do miolo
-                            </option>
-
-                            {formatTypes.map((type, index) => {
-                                return (
-                                    <option value={index} key={index}>
-                                        {type.name} - R$ {type.value}
-                                    </option>
-                                );
-                            })}
-                        </select>
-                        <br />
-                        <label for='paper3Quantity'>
-                            Selecione a quantidade de blocos do Papel 3
-                        </label>
-                        <select
-                            onChange={handleSelectedPaperQuantity}
-                            className='paper1Quantity'
-                        >
-                            <option value='' selected disabled>
-                                Quantidade de blocos do Papel 3
-                            </option>
-                            <option value='1'>1 - 16 páginas</option>
-                            <option value='2'>2 - 32 páginas</option>
-                            <option value='3'>3 - 48 páginas</option>
-                            <option value='4'>4 - 64 páginas</option>
-                            <option value='5'>5 - 80 páginas</option>
-                            <option value='6'>6 - 96 páginas</option>
-                            <option value='7'>7 - 112 páginas</option>
-                            <option value='8'>8 - 128 páginas</option>
-                            <option value='9'>9 - 144 páginas</option>
-                            <option value='10'>10 - 160 páginas</option>
-                        </select>
-                    </div>
-                    <div class='paperTypeSelector Selector4 hide'>
-                        <label for='paper'>
-                            Selecione o quarto papel do miolo
-                        </label>
-                        <br />
-                        <select onChange={handleSelectedType} className='paper'>
-                            <option value='' selected disabled>
-                                (4) - Papel do miolo
-                            </option>
-
-                            {formatTypes.map((type, index) => {
-                                return (
-                                    <option value={index} key={index}>
-                                        {type.name} - R$ {type.value}
-                                    </option>
-                                );
-                            })}
-                        </select>
-                        <br />
-                        <label for='paper4Quantity'>
-                            Selecione a quantidade de blocos do Papel 4
-                        </label>
-                        <select
-                            onChange={handleSelectedPaperQuantity}
-                            className='paper4Quantity'
-                        >
-                            <option value='' selected disabled>
-                                Quantidade de blocos do Papel 4
-                            </option>
-                            <option value='1'>1 - 16 páginas</option>
-                            <option value='2'>2 - 32 páginas</option>
-                            <option value='3'>3 - 48 páginas</option>
-                            <option value='4'>4 - 64 páginas</option>
-                            <option value='5'>5 - 80 páginas</option>
-                            <option value='6'>6 - 96 páginas</option>
-                            <option value='7'>7 - 112 páginas</option>
-                            <option value='8'>8 - 128 páginas</option>
-                            <option value='9'>9 - 144 páginas</option>
-                            <option value='10'>10 - 160 páginas</option>
-                        </select>
-                    </div>
+                    {/* aqui teste do novo renderizador de selects de papeis */}
+                    {[...Array(selectedDifferentPapersQuantity)].map((_, i) => (
+                        <PaperOption
+                            tipos={formatTypes}
+                            quantidade={paginasPorBloco}
+                            setSketchPaperInfo={setSketchPaperInfo}
+                            index={i}
+                        />
+                    ))}
                 </fieldset>
 
                 <div className='textWrapper'>
