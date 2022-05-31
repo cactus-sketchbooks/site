@@ -1030,20 +1030,22 @@ export default function Facheiro() {
                     </div>
                 </div>
                 <fieldset>
-                    <label for='paperWidth'>Selecione o tamanho do papel</label>
+                    <label for='paperWidth'>
+                        Selecione o tamanho e orientação do papel
+                    </label>
 
                     <select
                         onChange={handleSelectedSketchbook}
                         className='paperWidth'
                     >
                         <option value='' selected disabled>
-                            Tamanho do papel
+                            Tamanho e orientação do papel
                         </option>
 
                         {values.formats.map((format, index) => {
                             return (
                                 <option value={index} key={index}>
-                                    {format.name}
+                                    {format.name} (+ R$ {format.basePrice})
                                 </option>
                             );
                         })}
