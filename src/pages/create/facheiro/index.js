@@ -832,6 +832,7 @@ export default function Facheiro() {
             id: formatId,
             paperWidth: selectedPaperWidth,
             sketchPaperInfo: sketchPaperInfo,
+            value: sketchbookTotalPrice,
             spiralColor: selectedSpiralColor,
             elasticColor: selectedElasticColor,
             sketchFinish: selectedSketchFinish,
