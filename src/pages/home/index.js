@@ -5,7 +5,7 @@ import Footer from '../../components/footer/index.js'
 
 import { Link } from 'react-router-dom'
 
-import logoCactus from '../../images/cactopng2.png'
+import logoCactus from '../../images/logoCactus2.png'
 import foto from '../../images/foto1.png'
 import mandacaru from '../../images/mandacaru.png'
 import baiao from '../../images/baiao.png'
