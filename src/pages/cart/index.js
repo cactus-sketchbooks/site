@@ -747,7 +747,29 @@ export default function Cart() {
                                                         <strong>
                                                             Papel do miolo:
                                                         </strong>{' '}
-                                                        {product.paper}
+                                                        {product.paper.map(
+                                                            (papel, index) => {
+                                                                return (
+                                                                    <p>
+                                                                        {index +
+                                                                            1}{' '}
+                                                                        -{' '}
+                                                                        <strong>
+                                                                            {
+                                                                                papel.quantidade
+                                                                            }
+                                                                        </strong>{' '}
+                                                                        bloco(s)
+                                                                        de{' '}
+                                                                        <strong>
+                                                                            {
+                                                                                papel.nomePapel
+                                                                            }
+                                                                        </strong>
+                                                                    </p>
+                                                                );
+                                                            }
+                                                        )}
                                                     </li>
                                                 ) : (
                                                     ''
