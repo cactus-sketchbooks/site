@@ -1578,11 +1578,32 @@ export default function Cart() {
                                                               <b>
                                                                   Papel do miolo
                                                               </b>
-                                                              <span>
-                                                                  {
-                                                                      product.paper
+                                                              {product.paper.map(
+                                                                  (
+                                                                      papel,
+                                                                      index
+                                                                  ) => {
+                                                                      return (
+                                                                          <p>
+                                                                              {index +
+                                                                                  1}{' '}
+                                                                              -{' '}
+                                                                              <strong>
+                                                                                  {
+                                                                                      papel.quantidade
+                                                                                  }
+                                                                              </strong>{' '}
+                                                                              bloco(s)
+                                                                              de{' '}
+                                                                              <strong>
+                                                                                  {
+                                                                                      papel.nomePapel
+                                                                                  }
+                                                                              </strong>
+                                                                          </p>
+                                                                      );
                                                                   }
-                                                              </span>
+                                                              )}
                                                           </li>
                                                       ) : (
                                                           ''
