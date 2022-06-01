@@ -595,6 +595,21 @@ export default function Requests() {
                                                   ) : (
                                                       ''
                                                   )}
+                                                  {product.sketchFinish ? (
+                                                      <li className='productData'>
+                                                          <span>
+                                                              Tipo de
+                                                              Acabamento:{' '}
+                                                          </span>
+                                                          <b>
+                                                              {
+                                                                  product.sketchFinish
+                                                              }
+                                                          </b>
+                                                      </li>
+                                                  ) : (
+                                                      ''
+                                                  )}
 
                                                   {product.size ? (
                                                       <>
