@@ -142,6 +142,7 @@ export default function UserRequests() {
             window.location.reload();
         }
     }
+    console.log(requestData);
 
     return (
         <div className='requestsPage'>
@@ -312,7 +313,10 @@ export default function UserRequests() {
                                                 {product.paper ? (
                                                     <li>
                                                         <b>Papel do miolo:</b>{' '}
-                                                        {product.paper}
+                                                        {
+                                                            product.paper[0]
+                                                                .nomePapel
+                                                        }
                                                     </li>
                                                 ) : (
                                                     ''
