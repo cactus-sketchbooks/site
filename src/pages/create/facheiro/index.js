@@ -109,6 +109,7 @@ export default function Facheiro() {
         { nomePapel: '', precoUnitario: 0, quantidade: 0 },
     ]);
     const [clientNote, setClientNote] = useState('');
+    //sketchbookInfos é igual ao SketchPaperInfo só que com somente com a quantidade de papel selecionado
     const [sketchbookInfos, setSketchbookInfos] = useState([]);
     const [displayModal, setDisplayModal] = useState('none');
     const [maxSlides, setMaxSlides] = useState(5);
@@ -914,7 +915,7 @@ export default function Facheiro() {
         }
     }, [
         formatTypes,
-        sketchPaperInfo,
+        sketchbookInfos,
         selectedSpiralColor,
         selectedElasticColor,
         selectedSketchFinish,
@@ -925,12 +926,13 @@ export default function Facheiro() {
     function handleSelectedDiiferentPapersQuatity(event) {
         setSelectedDifferentPapersQuantity(parseInt(event.target.value));
     }
+    // tambem adicionar o currentStep ao controle do useEffect
     useEffect(() => {
         setSketchbookInfos(
             sketchPaperInfo.slice(0, selectedDifferentPapersQuantity)
         );
         calculateTotalPrice();
-    }, [sketchPaperInfo]);
+    }, [sketchPaperInfo, selectedPaperWidth, selectedDifferentPapersQuantity]);
 
     function handleSelectedSpiralColor(event) {
         setSelectedSpiralColor(event.target.value);
@@ -1058,10 +1060,6 @@ export default function Facheiro() {
                     <div className='textBackground'>
                         <h2>Papel do Miolo</h2>
                     </div>
-                    <p>
-                        Nossos Skecths podem ser montados com até 4 tipos de
-                        papéis diferentes no miolo.
-                    </p>
                 </div>
 
                 <fieldset>
@@ -1308,8 +1306,22 @@ export default function Facheiro() {
                                         {selectedPaperWidth}
                                     </li>
                                     <li>
-                                        <strong>Papel do miolo: </strong>
-                                        {sketchbookInfos.name}
+                                        <strong>Papel do miolo: </strong> <br />
+                                        <br />
+                                        {sketchbookInfos.map((papel, index) => {
+                                            return (
+                                                <p>
+                                                    {index + 1} -{' '}
+                                                    <strong>
+                                                        {papel.quantidade}
+                                                    </strong>{' '}
+                                                    bloco(s) de{' '}
+                                                    <strong>
+                                                        {papel.nomePapel}
+                                                    </strong>
+                                                </p>
+                                            );
+                                        })}
                                     </li>
 
                                     <li>
