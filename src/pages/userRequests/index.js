@@ -233,7 +233,10 @@ export default function UserRequests() {
                                             Forma de pagamento: {item.payment}
                                         </h4>
 
-                                        <h4>Chave PIX: cactussketchs@gmail.com - Cactus Sketchbooks (C6Bank)</h4>
+                                        <h4>
+                                            Chave PIX: cactussketchs@gmail.com -
+                                            Cactus Sketchbooks (C6Bank)
+                                        </h4>
 
                                         {item.paymentProof ? (
                                             <h4>
@@ -364,6 +367,16 @@ export default function UserRequests() {
                                                     <li>
                                                         <b>Cor do espiral:</b>{' '}
                                                         {product.spiralColor}
+                                                    </li>
+                                                ) : (
+                                                    ''
+                                                )}
+                                                {product.sketchFinish ? (
+                                                    <li>
+                                                        <b>
+                                                            Tipo de Acabamento:
+                                                        </b>{' '}
+                                                        {product.sketchFinish}
                                                     </li>
                                                 ) : (
                                                     ''
