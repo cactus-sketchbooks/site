@@ -831,7 +831,7 @@ export default function Facheiro() {
             model: 'Facheiro',
             id: formatId,
             paperWidth: selectedPaperWidth,
-            sketchPaperInfo: sketchPaperInfo,
+            paper: sketchbookInfos,
             value: sketchbookTotalPrice,
             spiralColor: selectedSpiralColor,
             elasticColor: selectedElasticColor,
@@ -897,6 +897,7 @@ export default function Facheiro() {
 
     useEffect(() => {
         //gambiarra para atualizar o preço
+        // [] adicionar o calculate no useEffect do currentStep (quando adicionado)
         calculateTotalPrice();
         if (
             formatTypes === '' ||
