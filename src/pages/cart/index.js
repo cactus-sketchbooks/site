@@ -811,6 +811,16 @@ export default function Cart() {
                                                 ) : (
                                                     ''
                                                 )}
+                                                {product.sketchFinish ? (
+                                                    <li>
+                                                        <strong>
+                                                            Tipo de Acabamento:
+                                                        </strong>{' '}
+                                                        {product.sketchFinish}
+                                                    </li>
+                                                ) : (
+                                                    ''
+                                                )}
 
                                                 {product.clientNote ? (
                                                     <li>
