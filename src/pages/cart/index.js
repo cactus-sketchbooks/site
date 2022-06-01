@@ -1641,6 +1641,21 @@ export default function Cart() {
                                                       ) : (
                                                           ''
                                                       )}
+                                                      {product.sketchFinish ? (
+                                                          <li>
+                                                              <b>
+                                                                  Tipo de
+                                                                  Acabamento:
+                                                              </b>
+                                                              <span>
+                                                                  {
+                                                                      product.sketchFinish
+                                                                  }
+                                                              </span>
+                                                          </li>
+                                                      ) : (
+                                                          ''
+                                                      )}
 
                                                       {product.clientNote ? (
                                                           <li>
