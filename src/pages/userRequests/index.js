@@ -142,6 +142,7 @@ export default function UserRequests() {
             window.location.reload();
         }
     }
+    console.log(requestData);
 
     return (
         <div className='requestsPage'>
@@ -233,7 +234,10 @@ export default function UserRequests() {
                                             Forma de pagamento: {item.payment}
                                         </h4>
 
-                                        <h4>Chave PIX: cactussketchs@gmail.com - Cactus Sketchbooks (C6Bank)</h4>
+                                        <h4>
+                                            Chave PIX: cactussketchs@gmail.com -
+                                            Cactus Sketchbooks (C6Bank)
+                                        </h4>
 
                                         {item.paymentProof ? (
                                             <h4>
@@ -309,7 +313,10 @@ export default function UserRequests() {
                                                 {product.paper ? (
                                                     <li>
                                                         <b>Papel do miolo:</b>{' '}
-                                                        {product.paper}
+                                                        {
+                                                            product.paper[0]
+                                                                .nomePapel
+                                                        }
                                                     </li>
                                                 ) : (
                                                     ''
