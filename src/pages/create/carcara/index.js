@@ -29,6 +29,7 @@ export default function Carcara() {
     const [checkedBoxes, setCheckedBoxes] = useState(0);
     const [selectedPaperWidth, setSelectedPaperWidth] = useState('');
     const [selectedElasticColor, setSelectedElasticColor] = useState('');
+    const [selectedSketchFinish, setSelectedSketchFinish] = useState('');
     const [clientNote, setClientNote] = useState('');
     const [sketchbookInfos, setSketchbookInfos] = useState('');
     const [displayModal, setDisplayModal] = useState('none');
@@ -573,6 +574,7 @@ export default function Carcara() {
             value: sketchbookInfos.value,
             elasticColor: selectedElasticColor,
             coverColors: selectedColors,
+            sketchFinish: selectedSketchFinish,
             clientNote: clientNote,
             size: formatSize,
         };
@@ -636,6 +638,7 @@ export default function Carcara() {
             formatTypes === '' ||
             sketchbookInfos === '' ||
             selectedElasticColor === '' ||
+            selectedSketchFinish === '' ||
             checkedBoxes > 1 ||
             checkedBoxes === 0
         ) {
@@ -643,10 +646,20 @@ export default function Carcara() {
         } else {
             setIsValidated(true);
         }
-    }, [formatTypes, sketchbookInfos, selectedElasticColor, checkedBoxes]);
+    }, [
+        formatTypes,
+        sketchbookInfos,
+        selectedElasticColor,
+        checkedBoxes,
+        selectedSketchFinish,
+    ]);
 
     function handleSelectedElasticColor(item, event) {
         setSelectedElasticColor(event);
+    }
+
+    function handleSelectedSketchFinish(event) {
+        setSelectedSketchFinish(event.target.value);
     }
 
     function handleClientNote(event) {
@@ -870,6 +883,30 @@ export default function Carcara() {
                     </div>
                 </section>
 
+                <div className='textWrapper'>
+                    <div className='textBackground'>
+                        <h2>Tipo de Acabamento</h2>
+                    </div>
+                </div>
+                {/* Inserir aqui a imagem de mostra dos tipos de acabamento */}
+
+                <fieldset>
+                    <label for='SketchFinish'>
+                        Selecione o tipo de acabamento nas bordas
+                    </label>
+
+                    <select
+                        onChange={(event) => handleSelectedSketchFinish(event)}
+                        className='SketchFinish'
+                    >
+                        <option value='' selected disabled>
+                            Tipo de Acabamento
+                        </option>
+                        <option value='Reto'>Reto</option>
+                        <option value='Arredondado'>Arredondado</option>
+                    </select>
+                </fieldset>
+
                 <div className='additionalInfos'>
                     <label for='additionalInfos'>
                         Informações adicionais <strong>(opcional)</strong>
@@ -912,6 +949,10 @@ export default function Carcara() {
                                     <li>
                                         <strong>Cor do elástico: </strong>
                                         {selectedElasticColor.colorName}
+                                    </li>
+                                    <li>
+                                        <strong>Tipo de Acabamento: </strong>
+                                        {selectedSketchFinish}
                                     </li>
                                 </ul>
 
