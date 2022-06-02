@@ -72,9 +72,9 @@ const PaperOption = ({ tipos, quantidade, setSketchPaperInfo, index }) => {
                     Quantidade de Blocos{' '}
                 </option>
                 {[...Array(10)].map((_, i) => (
-                    <option value={i + 1}>{`${i + 1} - ${
-                        quantidade * (i + 1)
-                    } páginas`}</option>
+                    <option value={i + 1}>
+                        {`${i + 1} - ${quantidade * (i + 1)} páginas`}
+                    </option>
                 ))}
             </select>
             <br />
