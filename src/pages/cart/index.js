@@ -743,34 +743,47 @@ export default function Cart() {
                                                 )}
 
                                                 {product.paper ? (
-                                                    <li>
-                                                        <strong>
-                                                            Papel do miolo:
-                                                        </strong>{' '}
-                                                        {product.paper.map(
-                                                            (papel, index) => {
-                                                                return (
-                                                                    <p>
-                                                                        {index +
-                                                                            1}{' '}
-                                                                        -{' '}
-                                                                        <strong>
-                                                                            {
-                                                                                papel.quantidade
-                                                                            }
-                                                                        </strong>{' '}
-                                                                        bloco(s)
-                                                                        de{' '}
-                                                                        <strong>
-                                                                            {
-                                                                                papel.nomePapel
-                                                                            }
-                                                                        </strong>
-                                                                    </p>
-                                                                );
-                                                            }
-                                                        )}
-                                                    </li>
+                                                    typeof product.paper ===
+                                                    'string' ? (
+                                                        <li>
+                                                            <b>
+                                                                Papel do miolo:
+                                                            </b>{' '}
+                                                            {product.paper}
+                                                        </li>
+                                                    ) : (
+                                                        <li>
+                                                            <strong>
+                                                                Papel do miolo:
+                                                            </strong>{' '}
+                                                            {product.paper.map(
+                                                                (
+                                                                    papel,
+                                                                    index
+                                                                ) => {
+                                                                    return (
+                                                                        <p>
+                                                                            {index +
+                                                                                1}{' '}
+                                                                            -{' '}
+                                                                            <strong>
+                                                                                {
+                                                                                    papel.quantidade
+                                                                                }
+                                                                            </strong>{' '}
+                                                                            bloco(s)
+                                                                            de{' '}
+                                                                            <strong>
+                                                                                {
+                                                                                    papel.nomePapel
+                                                                                }
+                                                                            </strong>
+                                                                        </p>
+                                                                    );
+                                                                }
+                                                            )}
+                                                        </li>
+                                                    )
                                                 ) : (
                                                     ''
                                                 )}
@@ -1574,37 +1587,51 @@ export default function Cart() {
                                                       )}
 
                                                       {product.paper ? (
-                                                          <li>
-                                                              <b>
-                                                                  Papel do miolo
-                                                              </b>
-                                                              {product.paper.map(
-                                                                  (
-                                                                      papel,
-                                                                      index
-                                                                  ) => {
-                                                                      return (
-                                                                          <p>
-                                                                              {index +
-                                                                                  1}{' '}
-                                                                              -{' '}
-                                                                              <strong>
-                                                                                  {
-                                                                                      papel.quantidade
-                                                                                  }
-                                                                              </strong>{' '}
-                                                                              bloco(s)
-                                                                              de{' '}
-                                                                              <strong>
-                                                                                  {
-                                                                                      papel.nomePapel
-                                                                                  }
-                                                                              </strong>
-                                                                          </p>
-                                                                      );
+                                                          typeof product.paper ===
+                                                          'string' ? (
+                                                              <li>
+                                                                  <b>
+                                                                      Papel do
+                                                                      miolo:
+                                                                  </b>{' '}
+                                                                  {
+                                                                      product.paper
                                                                   }
-                                                              )}
-                                                          </li>
+                                                              </li>
+                                                          ) : (
+                                                              <li>
+                                                                  <strong>
+                                                                      Papel do
+                                                                      miolo:
+                                                                  </strong>{' '}
+                                                                  {product.paper.map(
+                                                                      (
+                                                                          papel,
+                                                                          index
+                                                                      ) => {
+                                                                          return (
+                                                                              <p>
+                                                                                  {index +
+                                                                                      1}{' '}
+                                                                                  -{' '}
+                                                                                  <strong>
+                                                                                      {
+                                                                                          papel.quantidade
+                                                                                      }
+                                                                                  </strong>{' '}
+                                                                                  bloco(s)
+                                                                                  de{' '}
+                                                                                  <strong>
+                                                                                      {
+                                                                                          papel.nomePapel
+                                                                                      }
+                                                                                  </strong>
+                                                                              </p>
+                                                                          );
+                                                                      }
+                                                                  )}
+                                                              </li>
+                                                          )
                                                       ) : (
                                                           ''
                                                       )}
