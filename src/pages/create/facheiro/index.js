@@ -37,6 +37,12 @@ export default function Facheiro() {
         selectedDifferentPapersQuantity,
         setSelectedDifferentPapersQuantity,
     ] = useState(0);
+    //esse armazena a quantidade total de blocos selecionados
+    const [totalPaperBlocksQtd, setTotalPaperBlocksQtd] = useState(0);
+
+    //esse aqui armazena quantos seletores de quantidade de blocos foram selecionados
+    const [selectedPaperBlocksQtd, setSelectedPaperBlocksQtd] = useState(0);
+    const [selectedPaperTypeQtd, setSelectedPaperTypeQtd] = useState(0);
     const [selectedSpiralColor, setSelectedSpiralColor] = useState('');
     const [selectedElasticColor, setSelectedElasticColor] = useState('');
     const [selectedSketchFinish, setSelectedSketchFinish] = useState('');
@@ -840,6 +846,10 @@ export default function Facheiro() {
         calculateTotalPrice();
         if (
             formatTypes === '' ||
+            selectedPaperTypeQtd < selectedDifferentPapersQuantity ||
+            selectedPaperBlocksQtd < selectedDifferentPapersQuantity ||
+            totalPaperBlocksQtd > 10 ||
+            totalPaperBlocksQtd < 6 ||
             selectedSpiralColor === '' ||
             selectedElasticColor === '' ||
             selectedSketchFinish === '' ||
@@ -854,6 +864,9 @@ export default function Facheiro() {
     }, [
         formatTypes,
         sketchbookInfos,
+        selectedPaperTypeQtd,
+        selectedPaperBlocksQtd,
+        totalPaperBlocksQtd,
         selectedSpiralColor,
         selectedElasticColor,
         selectedSketchFinish,
@@ -862,6 +875,21 @@ export default function Facheiro() {
     ]);
 
     function handleSelectedDiiferentPapersQuatity(event) {
+        //zera os elementos do array se o cliente mudar de ideia e diminuir a quantidade de papeis
+        if (parseInt(event.target.value) < selectedDifferentPapersQuantity) {
+            for (let index = parseInt(event.target.value); index < 4; index++) {
+                setSketchPaperInfo((prev) => {
+                    let newArr = [...prev];
+                    newArr[index] = {
+                        ...prev[index],
+                        nomePapel: '',
+                        precoUnitario: 0,
+                        quantidade: 0,
+                    };
+                    return newArr;
+                });
+            }
+        }
         setSelectedDifferentPapersQuantity(parseInt(event.target.value));
     }
     // tambem adicionar o currentStep ao controle do useEffect
@@ -927,6 +955,14 @@ export default function Facheiro() {
             }, 0)
         );
     }, [sketchbookInfos]);
+
+    useEffect(() => {
+        console.log('qtd de papeis selecionados ' + selectedPaperTypeQtd);
+    }, [selectedPaperTypeQtd]);
+
+    useEffect(() => {
+        console.log('qtd de blocos selecionados ' + selectedPaperBlocksQtd);
+    }, [selectedPaperBlocksQtd]);
 
     function handleModalInfos() {
         displayModal === 'none'
@@ -1042,17 +1078,11 @@ export default function Facheiro() {
                         <option value='4'>4</option>
                     </select>
                     <p>
-                        Os Sketchs podem ser montados adicionando blocos de
+                        Os Sketchboks podem ser montados adicionando blocos de
                         <b> 16 páginas</b>
                     </p>
                     <br />
-                    <p>
-                        Os Sketchs devem ter no mínimo
-                        <b> 6 blocos (96 páginas)</b> e no máximo
-                        <b> 10 blocos (160 páginas)</b>
-                    </p>
-                    <br />
-                    <br />
+
                     <p>
                         Veja mais sobre a gramatura e quantidade de páginas
                         clicando <Link to='/gramaturas'>aqui</Link>
@@ -1068,6 +1098,54 @@ export default function Facheiro() {
                             key={i}
                         />
                     ))}
+
+                    <p>
+                        Os Sketchbooks devem ter ao final, no mínimo
+                        <b> 6 blocos (96 páginas)</b> e no máximo
+                        <b> 10 blocos (160 páginas)</b>
+                    </p>
+                    <br />
+
+                    <h3 id='paperWarning'>
+                        Seu Sketchbook tem atualmente{' '}
+                        <b>{totalPaperBlocksQtd}</b> blocos.
+                    </h3>
+
+                    {totalPaperBlocksQtd > 10 || totalPaperBlocksQtd < 6 ? (
+                        <p>
+                            Ajuste a quantidade de blocos antes de avançar para
+                            a próxima etapa.
+                        </p>
+                    ) : (
+                        ''
+                    )}
+                    {selectedPaperTypeQtd < selectedDifferentPapersQuantity ? (
+                        <p>
+                            Você deve selecionar{' '}
+                            <strong>todas as opções</strong> de papéis antes de
+                            prosseguir
+                        </p>
+                    ) : (
+                        ''
+                    )}
+                    {selectedPaperBlocksQtd <
+                    selectedDifferentPapersQuantity ? (
+                        <p>
+                            Você deve selecionar{' '}
+                            <strong>todas as opções</strong> de quantidade de
+                            blocos antes de prosseguir
+                        </p>
+                    ) : (
+                        ''
+                    )}
+                    {totalPaperBlocksQtd > 10 ||
+                    totalPaperBlocksQtd < 6 ||
+                    selectedPaperTypeQtd < selectedDifferentPapersQuantity ||
+                    selectedPaperBlocksQtd < selectedDifferentPapersQuantity ? (
+                        ''
+                    ) : (
+                        <p>Vamos continuar!</p>
+                    )}
                 </fieldset>
 
                 <div className='textWrapper'>
@@ -1275,7 +1353,7 @@ export default function Facheiro() {
                                         <br />
                                         {sketchbookInfos.map((papel, index) => {
                                             return (
-                                                <p>
+                                                <p key={index}>
                                                     {index + 1} -{' '}
                                                     <strong>
                                                         {papel.quantidade}
