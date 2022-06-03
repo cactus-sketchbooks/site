@@ -1,26 +1,24 @@
-@import '../../global.scss';
+@import "../../global.scss";
 
 * {
     font-family: 'Urbanist', sans-serif;
 }
 
-h1,
-h2,
-h3,
-h4,
-p {
+h1, h2, h3, h4, p {
     margin: 0;
     padding: 0;
 }
 
 #mainHome {
+
     display: flex;
     flex-direction: column;
     width: 100vw;
     background: linear-gradient(45deg, $orange, $light-orange);
     position: relative;
-
+    
     .divModal {
+
         position: absolute;
         top: 0;
         left: 0;
@@ -30,6 +28,7 @@ p {
         z-index: 3;
 
         .modalContent {
+
             position: fixed;
             display: flex;
             align-items: center;
@@ -41,18 +40,23 @@ p {
             text-align: center;
 
             .sketchbookImgWrapper {
+
                 display: flex;
                 width: 50%;
                 height: 100%;
 
                 img {
+
                     object-fit: cover;
                     width: 100%;
                     border-radius: 8px 0 0 8px;
+
                 }
+
             }
 
             .sketchbookInfosWrapper {
+
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -65,11 +69,14 @@ p {
                 }
 
                 h1 {
+
                     text-transform: uppercase;
                     color: $dark-green;
+
                 }
 
                 a {
+
                     font-weight: bold;
                     background-color: $orange;
                     text-decoration: none;
@@ -79,10 +86,13 @@ p {
                     border-radius: 5px;
                     position: absolute;
                     bottom: 30px;
+
                 }
+
             }
 
             span {
+
                 display: flex;
                 width: 35px;
                 height: 35px;
@@ -97,19 +107,26 @@ p {
                 cursor: pointer;
                 font-weight: 700;
                 font-size: 20px;
+                
             }
+
         }
+
     }
+
 }
 
 #hero-section {
+    
     padding-top: 125px;
     display: flex;
     flex-direction: column;
     align-items: center;
 
     .hero-wrapper {
+
         max-width: 95vw;
+
     }
 
     .hero-title {
@@ -125,7 +142,7 @@ p {
             color: $offWhite;
             font-family: 'Bebas Neue', sans-serif;
             font-size: 4.75rem;
-            letter-spacing: 0.55rem;
+            letter-spacing: .55rem;
             cursor: default;
             user-select: none;
         }
@@ -150,7 +167,7 @@ p {
         overflow: hidden;
 
         &:hover {
-            letter-spacing: 0.2rem;
+            letter-spacing: .2rem;
         }
     }
 }
@@ -162,39 +179,43 @@ p {
     width: 100%;
     display: flex;
     flex-direction: column;
-
+    
     h2 {
         padding: 0;
         color: $light-green;
         font-family: 'Bebas Neue', sans-serif;
         font-size: 2.5rem;
         text-shadow: 2px 1px 3px rgba(20, 20, 20, 0.8);
-        letter-spacing: 0.3rem;
+        letter-spacing: .3rem;
         text-align: center;
     }
 
     #bottomText {
-        background-color: #f2f2f2;
+
+        background-color: #F2F2F2;
         text-shadow: none;
         padding: 0 3rem;
         margin: 2rem 0;
+
     }
 
     .service-wrapper {
+
         margin: 0 5rem;
-        margin-top: 0.5rem;
+        margin-top: .5rem;
         width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
         margin-bottom: 4rem;
-
+        
         a {
             text-decoration: none;
         }
-
+        
         .service-card {
+
             width: 200px;
             height: 280px;
             padding: 0;
@@ -207,32 +228,37 @@ p {
             cursor: pointer;
             background-color: $light-green;
             border-radius: 5px;
-            transition: 0.3s ease-in-out;
+            transition: .3s ease-in-out;
 
             &:hover {
+
                 filter: none;
-                transform: scale(1.1);
-                transition: 0.3s ease-in-out;
-                box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-                    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+                transform: scale(1.10);
+                transition: .3s ease-in-out;
+                box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
             }
 
-            &:hover > img {
+            &:hover>img {
+
                 filter: none;
+
             }
 
             img {
+
                 padding-top: 1rem;
                 height: 170px;
-                filter: opacity(0.85);
+                filter: opacity(.85);
                 transition: 400ms ease-in-out;
+
             }
 
             h3 {
                 color: $offWhite;
                 font-size: 1.5rem;
                 font-family: 'Bebas Neue', sans-serif;
-                letter-spacing: 0.32rem;
+                letter-spacing: .32rem;
             }
 
             h4 {
@@ -243,34 +269,40 @@ p {
                 padding: 5px;
                 font-weight: 500;
             }
+
         }
+
     }
 
     .paperTypeInfos {
+
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
 
         h3 {
+
             padding: 0;
-            color: #72a67f;
-            font-family: 'Bebas Neue', sans-serif;
+            color: #72A67F;
+            font-family: "Bebas Neue", sans-serif;
             font-size: 2.5rem;
             text-shadow: 2px 1px 3px rgba(20, 20, 20, 0.8);
             letter-spacing: 0.3rem;
             text-align: center;
+
         }
 
         a {
+                
             width: 20%;
-            margin: 0.8rem 0;
-            padding: 0.5rem 1rem;
+            margin: .8rem 0;
+            padding: .5rem 1rem;
             border: none;
             background-color: $light-green;
             border-radius: 5px;
             cursor: pointer;
-            transition: 0.2s ease-in-out;
+            transition: .2s ease-in-out;
             color: $offWhite;
             font-weight: bold;
             font-size: 1.25rem;
@@ -279,21 +311,27 @@ p {
             text-decoration: none;
 
             &:hover {
+
                 opacity: 0.9;
+
             }
         }
+
     }
+
 }
 
 #section-showcase {
+
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content:center;
     width: 100vw;
     height: 70vh; //mudar
     margin: 1rem 0;
 
     .showcase-wrapper {
+
         width: 100%;
         height: 100%;
         display: flex;
@@ -302,17 +340,22 @@ p {
         justify-content: center;
 
         .showcase-image-wrapper {
+
             display: flex;
             width: 40%;
             height: 100%;
 
             img {
+
                 width: 100%;
                 object-fit: cover;
+
             }
+                    
         }
 
         .showcase-text {
+
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -323,47 +366,47 @@ p {
             color: $offWhite;
 
             h1 {
-                padding: 0.25rem 0;
+                padding: .25rem 0;
                 color: $light-orange;
                 font-family: 'Bebas Neue', sans-serif;
                 font-size: 2.5rem;
                 text-shadow: 2px 1px 3px rgba(29, 29, 29, 0.5);
-                letter-spacing: 0.3rem;
+                letter-spacing: .3rem;
             }
 
             h2 {
                 padding: 0;
                 color: $offWhite;
                 font-size: 1.5rem;
-                letter-spacing: 0.175rem;
-
+                letter-spacing: .175rem;
+                
                 &.highlight-showcase-text {
                     font-family: 'Bebas Neue', sans-serif;
                     text-transform: uppercase;
                     font-size: 2.57rem;
-                    letter-spacing: 0.3rem;
+                    letter-spacing:.3rem;
                     background: linear-gradient(
-                        to right,
-                        $yellow-green,
+                        to right, 
+                        $yellow-green, 
                         $light-blue
                     );
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                 }
                 background-image: linear-gradient(
-                    transparent,
-                    $light-orange 1px
+                    transparent, 
+                    $light-orange 1px,
                 );
                 background-size: 33%;
                 background-repeat: no-repeat;
                 display: inline;
                 transition: 0.5s ease-in-out;
             }
-
+            
             h3 {
                 color: $offWhite;
-                padding: 0.25rem 0;
-                letter-spacing: 0.32rem;
+                padding: .25rem 0;
+                letter-spacing:.32rem;
             }
 
             p {
@@ -372,14 +415,15 @@ p {
             }
 
             a {
+                
                 width: 20%;
-                margin: 0.8rem 0;
-                padding: 0.5rem 1rem;
+                margin: .8rem 0;
+                padding: .5rem 1rem;
                 border: none;
                 background-color: $light-green;
                 border-radius: 5px;
                 cursor: pointer;
-                transition: 0.2s ease-in-out;
+                transition: .2s ease-in-out;
                 color: $offWhite;
                 font-weight: bold;
                 font-size: 1.25rem;
@@ -387,11 +431,17 @@ p {
                 text-align: center;
 
                 &:hover {
+
                     opacity: 0.9;
+
                 }
+
             }
+
         }
+
     }
+
 }
 
 @keyframes typing {
@@ -401,60 +451,74 @@ p {
 }
 
 @media screen and (max-width: 768px) {
+
     #mainHome .divModal .modalContent {
+
         width: 80%;
         left: 10%;
         top: 12.5%;
 
         .sketchbookInfosWrapper {
-            h3 {
-                font-size: 0.6rem;
-                padding: 0 0.5rem;
-            }
 
+            h3 {
+                font-size: .6rem;
+                padding: 0 .5rem;
+            }
+                
             span {
+
                 width: 20px;
                 height: 20px;
-                font-size: 0.7rem;
+                font-size: .7rem;
+                
             }
 
             h1 {
-                font-size: 0.8rem;
+                font-size: .8rem;
             }
-
+            
             a {
+
                 width: 35vw;
-                padding: 0.5rem 0.5rem;
-                font-size: 0.7rem;
+                padding: .5rem .5rem;
+                font-size: .7rem;
                 position: static;
                 font-size: 8px;
                 margin-top: 10px;
+
             }
         }
     }
 
     #hero-section {
+
         .hero-title {
+
             flex-direction: column;
             padding-left: 0;
-
+    
             h1 {
                 font-size: 3.5rem;
             }
-
+    
             img {
                 height: 95px;
             }
-        }
 
+        }
+    
         .hero-data {
+
             height: 35px;
             font-size: 1.5rem;
             width: 90vw;
-        }
-    }
 
+        }
+
+    }
+    
     #services-section {
+        
         h2 {
             font-size: 2rem;
         }
@@ -465,43 +529,54 @@ p {
         }
 
         .service-wrapper {
+
             margin: 1rem auto 2.5rem;
             flex-direction: column;
-
+            
             .service-card {
                 margin: 4px auto;
             }
+
         }
 
         .paperTypeInfos {
+
             h3 {
+
                 width: 95vw;
+    
             }
 
             a {
                 width: 40%;
             }
         }
+
     }
 
     #section-showcase {
+
         height: auto;
 
         .showcase-wrapper {
+
             flex-direction: column;
 
             .showcase-image-wrapper {
+
                 width: 100%;
+
             }
 
             .showcase-text {
+
                 padding: 1rem 2rem;
 
                 h1 {
                     padding: 0;
                     font-size: 2.5rem;
                     text-shadow: 2px 1px 3px rgba(29, 29, 29, 0.5);
-                    letter-spacing: 0.3rem;
+                    letter-spacing: .3rem;
                 }
 
                 h2 {
@@ -512,21 +587,30 @@ p {
                         font-size: 2.3rem;
                     }
                 }
-
+                
+              
                 p {
                     margin: 0.7rem 0;
                 }
 
                 a {
+                    
                     width: 40%;
+
                 }
+
             }
+
         }
+
     }
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
+
     #mainHome .divModal .modalContent {
+
         width: 60vw;
         left: 20%;
         top: 12.5%;
@@ -538,25 +622,32 @@ p {
     }
 
     #hero-section {
+
         .hero-title {
+
             flex-direction: column;
             padding-left: 0;
-
+    
             h1 {
                 margin-top: 2rem;
             }
-
+    
             img {
                 height: 95px;
             }
-        }
 
+        }
+    
         .hero-data {
-            width: 90vw;
-        }
-    }
 
+            width: 90vw;
+
+        }
+
+    }
+    
     #services-section {
+        
         h2 {
             width: 90vw;
         }
@@ -567,44 +658,56 @@ p {
         }
 
         .service-wrapper {
+
             width: 90%;
             margin: 0;
             display: grid;
             grid-template-columns: auto auto auto;
             grid-gap: 0 1.5rem;
-
+            
+            
             .service-card {
                 margin: 12px auto;
             }
+
         }
 
         .paperTypeInfos {
+
             h3 {
+
                 margin-top: 1.3rem;
                 width: 90vw;
+    
             }
 
             a {
                 width: 25%;
             }
         }
+
     }
 
     #section-showcase {
+
         .showcase-wrapper {
+
             padding: 0;
             margin: 0;
 
             .showcase-image-wrapper {
+
                 height: 100%;
                 width: 50%;
-
+                
                 img {
                     height: 100%;
                 }
+
             }
 
             .showcase-text {
+
                 width: 70%;
                 height: 100%;
                 margin: 0;
@@ -623,16 +726,23 @@ p {
                         font-size: 2.3rem;
                     }
                 }
-
+                
+              
                 p {
                     margin: 0.7rem 0;
                     font-size: 18px;
                 }
 
                 a {
+                    
                     width: 50%;
+
                 }
+
             }
+
         }
+
     }
+    
 }

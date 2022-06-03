@@ -1,14 +1,10 @@
-@import '../../global.scss';
+@import "../../global.scss";
 
 * {
     font-family: 'Urbanist', sans-serif;
 }
 
-h1,
-h2,
-h3,
-h4,
-p {
+h1, h2, h3, h4, p {
     margin: 0;
     padding: 0;
 }
@@ -22,8 +18,7 @@ p {
     justify-content: center;
     align-items: center;
 
-    h1,
-    p {
+    h1, p {
         color: $offWhite;
         text-align: center;
         width: 80%;
@@ -37,11 +32,10 @@ p {
         align-items: center;
         margin: 1rem;
 
-        input,
-        textarea {
+        input, textarea {
             width: 50%;
-            margin: 0.3rem 0;
-            padding: 0.7rem 1rem;
+            margin: .3rem 0;
+            padding: .7rem 1rem;
             border-radius: 5px;
             border: 1.7px solid #e8e8e8;
             outline-color: $orange;
@@ -57,7 +51,7 @@ p {
             input {
                 background-color: $dark-green;
                 color: $offWhite;
-                transition: 0.2s ease-in-out;
+                transition: .2s ease-in-out;
                 cursor: pointer;
                 border: none;
 
@@ -73,8 +67,7 @@ p {
 @media (max-width: 768px) {
     #contact-body {
         .contact-form {
-            input,
-            textarea {
+            input, textarea {
                 width: 100%;
                 padding: 0.8rem;
             }
