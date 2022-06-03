@@ -8,7 +8,7 @@ export default function PaperOption({
 }) {
     return (
         <>
-            <label for='paperSelector'>
+            <label htmlFor='paperSelector'>
                 Selecione o Papel do Miolo {index + 1}
             </label>
             <select
@@ -24,8 +24,9 @@ export default function PaperOption({
                         return newArr;
                     })
                 }
+                defaultValue='0'
             >
-                <option value='' selected disabled>
+                <option value='0' disabled>
                     ({index + 1}) - Papel do miolo
                 </option>
                 {tipos.map((type, index) => {
@@ -37,7 +38,7 @@ export default function PaperOption({
                 })}
             </select>
 
-            <label for='paperQuantity'>
+            <label htmlFor='paperQuantity'>
                 Selecione a quantidade de blocos do Papel do Miolo {index + 1}
             </label>
             <select
@@ -52,12 +53,13 @@ export default function PaperOption({
                         return newArr;
                     })
                 }
+                defaultValue='0'
             >
-                <option value='' selected disabled>
+                <option value='0' disabled>
                     Quantidade de Blocos{' '}
                 </option>
                 {[...Array(10)].map((_, i) => (
-                    <option value={i + 1}>
+                    <option value={i + 1} key={i + 1}>
                         {`${i + 1} - ${quantidade * (i + 1)} páginas`}
                     </option>
                 ))}

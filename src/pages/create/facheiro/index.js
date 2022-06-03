@@ -904,6 +904,28 @@ export default function Facheiro() {
 
     useEffect(() => {
         console.log(sketchbookInfos);
+        let paperQtd = 0;
+        sketchbookInfos.map((papel) => {
+            paperQtd += papel.quantidade;
+        });
+        setTotalPaperBlocksQtd(paperQtd);
+
+        setSelectedPaperTypeQtd(
+            sketchbookInfos.reduce((count, papel) => {
+                if (papel.nomePapel !== '') {
+                    count += 1;
+                }
+                return count;
+            }, 0)
+        );
+        setSelectedPaperBlocksQtd(
+            sketchbookInfos.reduce((count, papel) => {
+                if (papel.quantidade !== 0) {
+                    count += 1;
+                }
+                return count;
+            }, 0)
+        );
     }, [sketchbookInfos]);
 
     function handleModalInfos() {
@@ -972,15 +994,16 @@ export default function Facheiro() {
                     </div>
                 </div>
                 <fieldset>
-                    <label for='paperWidth'>
+                    <label htmlFor='paperWidth'>
                         Selecione o tamanho e orientação do papel
                     </label>
 
                     <select
                         onChange={handleSelectedSketchbook}
                         className='paperWidth'
+                        defaultValue='0'
                     >
-                        <option value='' selected disabled>
+                        <option value='0' disabled>
                             Tamanho e orientação do papel
                         </option>
 
@@ -1001,15 +1024,16 @@ export default function Facheiro() {
                 </div>
 
                 <fieldset>
-                    <label for='paper'>
+                    <label htmlFor='paper'>
                         Selecione a quantidade de Papeis Diferentes no Miolo do
                         Sketch
                     </label>
                     <select
                         onChange={handleSelectedDiiferentPapersQuatity}
                         className='paper'
+                        defaultValue='0'
                     >
-                        <option value='' selected disabled>
+                        <option value='0' disabled>
                             Quantidade de Papeis Diferentes
                         </option>
                         <option value='1'>1</option>
@@ -1041,6 +1065,7 @@ export default function Facheiro() {
                             quantidade={paginasPorBloco}
                             setSketchPaperInfo={setSketchPaperInfo}
                             index={i}
+                            key={i}
                         />
                     ))}
                 </fieldset>
@@ -1072,9 +1097,9 @@ export default function Facheiro() {
                         {dataColors.map((item, index) =>
                             item.models.includes('facheiro') &&
                             item.categories.includes('cover') ? (
-                                <div className='cardColor'>
+                                <div className='cardColor' key={index}>
                                     <label
-                                        for={index}
+                                        htmlFor={index}
                                         onClick={(event) => changeColor(event)}
                                     />
 
@@ -1126,13 +1151,14 @@ export default function Facheiro() {
                 </div>
 
                 <fieldset>
-                    <label for='paper'>Selecione a cor do espiral</label>
+                    <label htmlFor='paper'>Selecione a cor do espiral</label>
 
                     <select
                         onChange={handleSelectedSpiralColor}
                         className='paper'
+                        defaultValue='0'
                     >
-                        <option value='' selected disabled>
+                        <option value='0' disabled>
                             Cor do espiral
                         </option>
                         <option value='Preto'>Preto</option>
@@ -1156,7 +1182,7 @@ export default function Facheiro() {
                             {dataColors.map((item, index) =>
                                 item.models.includes('buriti') &&
                                 item.categories.includes('elastic') ? (
-                                    <div className='colorWrapper'>
+                                    <div className='colorWrapper' key={index}>
                                         {item.image ? (
                                             <div className='elasticColor'>
                                                 <img
@@ -1205,15 +1231,16 @@ export default function Facheiro() {
                 {/* Inserir aqui a imagem de mostra dos tipos de acabamento */}
 
                 <fieldset>
-                    <label for='paper'>
+                    <label htmlFor='paper'>
                         Selecione o tipo de acabamento nas bordas
                     </label>
 
                     <select
                         onChange={(event) => handleSelectedSketchFinish(event)}
                         className='SketchFinish'
+                        defaultValue='0'
                     >
-                        <option value='' selected disabled>
+                        <option value='0' disabled>
                             Tipo de Acabamento
                         </option>
                         <option value='Reto'>Reto</option>
@@ -1222,7 +1249,7 @@ export default function Facheiro() {
                 </fieldset>
 
                 <div className='additionalInfos'>
-                    <label for='additionalInfos'>
+                    <label htmlFor='additionalInfos'>
                         Informações adicionais <strong>(opcional)</strong>
                     </label>
 
