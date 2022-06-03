@@ -1,11 +1,14 @@
 @import '../../../global.scss';
 
 #mainRequestAdmin {
+
     position: relative;
     min-height: 100vh;
+
 }
 
 .divModalRequests {
+
     position: absolute;
     top: 0;
     left: 0;
@@ -15,6 +18,7 @@
     z-index: 3;
 
     .modalContentRequests {
+
         position: fixed;
         display: flex;
         flex-direction: column;
@@ -30,6 +34,7 @@
         overflow-y: scroll;
 
         .modalFirstInfo {
+            
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -38,35 +43,44 @@
             margin-bottom: 1rem;
 
             h1 {
+
                 text-decoration: underline solid $dark-green;
+
             }
 
             span {
+
                 font-weight: 500;
                 background-color: $orange;
-                padding: 0.2rem 0.5rem;
+                padding: .2rem .5rem;
                 border-radius: 5px;
-                margin: 0.5rem 0;
+                margin: .5rem 0;
                 color: #fff;
+
             }
+            
         }
 
+
         h2 {
+
             margin-bottom: 2rem;
             background-color: $orange;
             color: #fff;
             padding: 3px 20px;
             border-radius: 100px;
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-                rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
         }
 
         .closeModalDiv {
+
             display: flex;
             width: 100%;
             justify-content: flex-end;
 
             span {
+
                 display: flex;
                 width: 35px;
                 height: 35px;
@@ -79,16 +93,20 @@
                 font-weight: 700;
                 font-size: 20px;
                 margin: 5px 5px 5px 0;
+                
             }
+
         }
 
         .userInfosWrapper {
+
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
 
             .userData {
+
                 display: flex;
                 margin: 10px 6px;
                 background-color: $orange;
@@ -97,12 +115,17 @@
                 border-radius: 100px;
 
                 b {
+
                     margin-left: 6px;
+
                 }
+
             }
+
         }
 
         .productModalInfos {
+
             display: flex;
             flex-wrap: wrap;
             flex-direction: row;
@@ -111,6 +134,7 @@
             justify-content: center;
 
             .productCard {
+
                 display: flex;
                 justify-content: center;
                 list-style: none;
@@ -122,48 +146,60 @@
                 border-radius: 5px;
                 margin: 10px;
                 padding: 10px;
-                box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-                    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 
                 h4 {
+
                     margin-bottom: 1rem;
                     align-self: center;
                     background-color: $light-green;
                     color: #fff;
                     padding: 0 10px;
                     border-radius: 50px;
-                    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-                        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
                 }
 
                 .productData {
+
                     font-weight: 500;
+
                 }
 
                 #coverColor {
+
                     display: flex;
 
                     span {
+
                         margin-left: 6px;
+
                     }
+
                 }
 
                 #productValue {
+
                     margin-top: 1rem;
                     align-self: center;
                     background-color: $light-green;
                     color: #fff;
                     padding: 0 10px;
                     border-radius: 50px;
-                    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-                        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
                 }
+
             }
+
         }
+
     }
+
 }
 
 #MainRequests {
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -171,29 +207,32 @@
     margin-top: 8rem;
 
     .filterNameSearch {
+
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        
+        h3, p {  
 
-        h3,
-        p {
             text-align: center;
             color: #fff;
             text-align: center;
+
         }
     }
-
+    
     .searchUsername {
+
         display: flex;
         align-items: center;
-
+    
         input {
             width: 30vw;
             height: 40px;
             border: none;
             // text-align: center;
-            font-size: 0.9rem;
+            font-size: .9rem;
             margin-top: 1rem;
             border-radius: 5px;
             background-color: $dark-green;
@@ -201,25 +240,26 @@
             color: white;
             padding-left: 15px;
         }
-
+    
         ::placeholder {
             color: white;
         }
     }
-
+    
     .divSearchUsernameResult {
+
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
         color: white;
-
+    
         a {
             display: flex;
             color: $branco;
             padding: 15px;
-            margin-top: 0.5rem;
+            margin-top: .5rem;
             margin-bottom: 1.5rem;
             cursor: pointer;
             background-color: $orange;
@@ -227,9 +267,11 @@
             justify-content: center;
             font-weight: 700;
         }
+    
     }
 
     .selectWrapper {
+
         display: flex;
         width: 70vw;
         align-items: center;
@@ -237,29 +279,36 @@
         margin-top: 1rem;
 
         h3 {
-            margin: 0 0 0.5rem 0;
+    
+            margin: 0 0 .5rem 0;
             text-align: center;
             color: #fff;
+
         }
 
         .finishOrder {
+
             display: flex;
             flex-direction: column;
-
+    
             .finishOrderWrapper {
+    
                 display: flex;
                 align-items: center;
-
+    
                 select {
+    
                     outline: none;
                     border: none;
                     border-radius: 5px;
-                    padding: 0.5rem 0.2rem;
+                    padding: .5rem .2rem;
+    
                 }
-
+    
                 button {
+    
                     margin-left: 10px;
-                    padding: 0.5rem 0.4rem;
+                    padding: .5rem .4rem;
                     border-radius: 5px;
                     outline: none;
                     border: none;
@@ -267,39 +316,50 @@
                     color: #fff;
                     font-weight: 700;
                     cursor: pointer;
-                    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-                        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    
                 }
+    
             }
+    
         }
 
         .selectPeriodChangeDiv {
+
             display: flex;
             flex-direction: column;
             text-align: center;
             align-items: center;
             justify-content: center;
-
+    
             select {
+    
                 width: 70%;
                 outline: none;
                 border: none;
                 border-radius: 5px;
-                padding: 0.5rem 0.2rem;
+                padding: .5rem .2rem;
+    
             }
+    
         }
+
     }
 
     #resultSearch {
+
         margin-top: 2rem;
+
     }
 
     .boxOrderWrapper {
+
         display: flex;
         flex-direction: column-reverse;
         width: 80%;
 
         .boxOrder {
+
             display: flex;
             flex-direction: column;
             padding: 25px;
@@ -308,26 +368,32 @@
             border-radius: 15px;
             margin: 2em auto;
             align-items: center;
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-                rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 
             h1 {
+
                 text-align: center;
                 color: #fff;
                 text-decoration: underline solid $dark-green;
+
             }
 
             span {
+
                 text-align: center;
                 color: #fff;
                 font-weight: 500;
+
             }
 
             h5 {
+
                 margin: 1rem 0 2rem;
+
             }
 
             .infosWrapper {
+
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
@@ -336,21 +402,24 @@
                 width: 100%;
 
                 .userInfosWrapper {
+
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     width: 33%;
 
                     #status {
+
                         margin-bottom: 1rem;
                         text-align: center;
+        
                     }
 
                     button {
+
                         margin-bottom: 1rem;
                         background-color: $dark-green;
-                        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-                            rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
                         padding: 5px 15px;
                         border: none;
                         border-radius: 50px;
@@ -358,36 +427,44 @@
                         font-weight: 700;
                         cursor: pointer;
                         font-size: 16px;
+
                     }
 
                     .rowItens {
+
                         display: flex;
                         flex-direction: column;
                         align-items: center;
                         margin: 10px 0;
                         text-align: center;
+
                     }
 
                     .requestStatus {
+
                         display: flex;
                         width: 100%;
                         align-items: center;
                         justify-content: center;
 
-                        select,
-                        button {
-                            padding: 0.5rem 0.2rem;
+                        select, button {
+
+                            padding: .5rem .2rem;
                             margin: 5px;
+
                         }
 
                         select {
+
                             width: 50%;
                             outline: none;
                             border: none;
                             border-radius: 5px;
+
                         }
 
                         button {
+
                             padding-left: 10px;
                             padding-right: 10px;
                             border-radius: 5px;
@@ -396,25 +473,31 @@
                             color: #fff;
                             text-align: center;
                             cursor: pointer;
-                            transition: 0.2s ease-in-out;
+                            transition: .2s ease-in-out;
                             font-size: 16px;
                             font-weight: 700;
-
+                
                             &:hover {
+                
                                 background-color: $offWhite;
                                 color: $dark-green;
+                
                             }
+
                         }
+
                     }
 
                     .clientMessage {
+
                         display: flex;
                         flex-direction: column;
                         margin-top: 1rem;
                         align-items: center;
                         width: 100%;
-
+            
                         input {
+            
                             padding: 10px;
                             width: 100%;
                             border-radius: 5px;
@@ -422,9 +505,11 @@
                             background-color: $offWhite;
                             border: none;
                             outline: none;
+            
                         }
-
+            
                         button {
+            
                             margin: 1rem 0;
                             padding: 10px 20px;
                             border-radius: 5px;
@@ -434,32 +519,45 @@
                             text-align: center;
                             margin: 10px;
                             cursor: pointer;
-                            transition: 0.2s ease-in-out;
+                            transition: .2s ease-in-out;
                             font-size: 16px;
                             font-weight: 700;
-
+                
                             &:hover {
+                
                                 background-color: $offWhite;
                                 color: $dark-green;
+                
                             }
+            
                         }
 
                         .adminNoteDiv {
+
                             display: flex;
                             flex-direction: column;
                             align-items: center;
                             text-align: center;
                             width: 100%;
+
                         }
+            
                     }
+
                 }
+
             }
+
         }
+
     }
+
 }
 
 @media screen and (max-width: 768px) {
+
     .divModalRequests {
+
         position: absolute;
         top: 0;
         left: 0;
@@ -467,48 +565,59 @@
         bottom: 0;
         background-color: rgba(0, 0, 0, 0.3);
         z-index: 3;
-
+    
         .modalContentRequests {
+           
             margin-top: -95vh;
-
+    
             .modalFirstInfo {
+                
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
                 text-align: center;
                 margin-bottom: 1rem;
-
+    
                 h1 {
+    
                     text-decoration: underline solid $dark-green;
+    
                 }
-
+    
                 span {
+    
                     font-weight: 500;
                     background-color: $orange;
-                    padding: 0.2rem 0.5rem;
+                    padding: .2rem .5rem;
                     border-radius: 5px;
-                    margin: 0.5rem 0;
+                    margin: .5rem 0;
                     color: #fff;
+    
                 }
+                
             }
-
+    
+    
             h2 {
+    
                 margin-bottom: 2rem;
                 background-color: $orange;
                 color: #fff;
                 padding: 3px 20px;
                 border-radius: 100px;
-                box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-                    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    
             }
-
+    
             .closeModalDiv {
+    
                 display: flex;
                 width: 100%;
                 justify-content: flex-end;
-
+    
                 span {
+    
                     display: flex;
                     width: 35px;
                     height: 35px;
@@ -521,100 +630,124 @@
                     font-weight: 700;
                     font-size: 20px;
                     margin: 5px 5px 5px 0;
+                    
                 }
+    
             }
-
+    
             .userInfosWrapper {
+    
                 display: flex;
                 flex-wrap: wrap;
                 align-items: center;
                 justify-content: center;
-
+    
                 .userData {
+    
                     display: flex;
                     margin: 10px 6px;
                     background-color: $orange;
                     color: #fff;
                     padding: 3px 10px;
                     border-radius: 100px;
-
+    
                     b {
+    
                         margin-left: 6px;
+    
                     }
+    
                 }
+    
             }
-
+    
             .productModalInfos {
+    
                 display: flex;
                 flex-wrap: wrap;
                 flex-direction: row;
                 width: 100%;
                 align-items: center;
                 justify-content: center;
-
+    
                 .productCard {
+    
                     min-height: 200px;
                     min-width: 75%;
                     min-width: 85%;
-
+    
                     h4 {
+    
                         margin-bottom: 1rem;
                         align-self: center;
                         background-color: $light-green;
                         color: #fff;
                         padding: 0 10px;
                         border-radius: 50px;
-                        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-                            rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    
                     }
-
+    
                     .productData {
+
                         display: flex;
                         flex-direction: column;
                         text-align: center;
                         font-weight: 500;
                         margin: 10px 0;
+    
                     }
-
+    
                     #coverColor {
+    
                         display: flex;
                         flex-direction: column;
                         text-align: center;
-
+    
                         span {
+    
                             margin: 0;
+    
                         }
+    
                     }
-
+    
                     #productValue {
+    
                         margin-top: 1rem;
                         align-self: center;
                         background-color: $light-green;
                         color: #fff;
                         padding: 0 10px;
                         border-radius: 50px;
-                        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-                            rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    
                     }
+    
                 }
+    
             }
+    
         }
+    
     }
-
+    
     #MainRequests {
+
         .divSearchUsernameResult {
+    
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
-
+        
             a {
                 display: flex;
                 color: $branco;
                 padding: 15px;
-                margin-top: 0.5rem;
+                margin-top: .5rem;
                 margin-bottom: 1.5rem;
                 cursor: pointer;
                 background-color: $orange;
@@ -622,34 +755,43 @@
                 justify-content: center;
                 font-weight: 700;
             }
+        
         }
 
         .searchUsername input {
-            width: 70vw;
-        }
 
+            width: 70vw;
+
+        }
+    
         .selectWrapper {
+    
             display: flex;
             flex-direction: column;
-
+    
             .finishOrder {
+    
                 display: flex;
                 flex-direction: column;
-
+        
                 .finishOrderWrapper {
+        
                     display: flex;
                     align-items: center;
-
+        
                     select {
+        
                         outline: none;
                         border: none;
                         border-radius: 5px;
-                        padding: 0.5rem 0.2rem;
+                        padding: .5rem .2rem;
+        
                     }
-
+        
                     button {
+        
                         margin-left: 10px;
-                        padding: 0.5rem 0.4rem;
+                        padding: .5rem .4rem;
                         border-radius: 5px;
                         outline: none;
                         border: none;
@@ -657,35 +799,46 @@
                         color: #fff;
                         font-weight: 700;
                         cursor: pointer;
-                        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-                            rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        
                     }
+        
                 }
+        
             }
-
+    
             .selectPeriodChangeDiv {
+    
                 margin-top: 1rem;
-
+        
                 select {
+        
                     width: 70%;
                     outline: none;
                     border: none;
                     border-radius: 5px;
-                    padding: 0.5rem 0.2rem;
+                    padding: .5rem .2rem;
+        
                 }
+        
             }
+    
         }
-
+    
         #resultSearch {
+    
             margin-top: 2rem;
+    
         }
-
+    
         .boxOrderWrapper {
+    
             display: flex;
             flex-direction: column-reverse;
             width: 80%;
-
+    
             .boxOrder {
+    
                 display: flex;
                 flex-direction: column;
                 padding: 25px;
@@ -694,43 +847,50 @@
                 border-radius: 15px;
                 margin: 2em auto;
                 align-items: center;
-                box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-                    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    
                 h1 {
+    
                     text-align: center;
                     color: #fff;
                     text-decoration: underline solid $dark-green;
+    
                 }
-
+    
                 span {
+    
                     text-align: center;
                     color: #fff;
                     font-weight: 500;
+    
                 }
-
+    
                 h5 {
+    
                     margin: 1rem 0 2rem;
+    
                 }
-
+    
                 .infosWrapper {
+    
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
                     color: #fff;
                     width: 100%;
-
+    
                     .userInfosWrapper {
+    
                         display: flex;
                         flex-direction: column;
                         align-items: center;
                         width: auto;
-
+    
                         button {
+    
                             margin-bottom: 1rem;
                             background-color: $dark-green;
-                            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-                                rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
                             padding: 5px 15px;
                             border: none;
                             border-radius: 50px;
@@ -738,36 +898,44 @@
                             font-weight: 700;
                             cursor: pointer;
                             font-size: 16px;
+    
                         }
-
+    
                         .rowItens {
+    
                             display: flex;
                             flex-direction: column;
                             align-items: center;
                             margin: 10px 0;
                             text-align: center;
+    
                         }
-
+    
                         .requestStatus {
+    
                             display: flex;
                             width: 100%;
                             align-items: center;
                             justify-content: center;
-
-                            select,
-                            button {
-                                padding: 0.5rem 0.2rem;
+    
+                            select, button {
+    
+                                padding: .5rem .2rem;
                                 margin: 5px;
+    
                             }
-
+    
                             select {
+    
                                 width: 50%;
                                 outline: none;
                                 border: none;
                                 border-radius: 5px;
+    
                             }
-
+    
                             button {
+    
                                 padding-left: 10px;
                                 padding-right: 10px;
                                 border-radius: 5px;
@@ -776,25 +944,31 @@
                                 color: #fff;
                                 text-align: center;
                                 cursor: pointer;
-                                transition: 0.2s ease-in-out;
+                                transition: .2s ease-in-out;
                                 font-size: 16px;
                                 font-weight: 700;
-
+                    
                                 &:hover {
+                    
                                     background-color: $offWhite;
                                     color: $dark-green;
+                    
                                 }
+    
                             }
+    
                         }
-
+    
                         .clientMessage {
+    
                             display: flex;
                             flex-direction: column;
                             margin-top: 1rem;
                             align-items: center;
                             width: 100%;
-
+                
                             input {
+                
                                 padding: 10px;
                                 width: 100%;
                                 border-radius: 5px;
@@ -802,9 +976,11 @@
                                 background-color: $offWhite;
                                 border: none;
                                 outline: none;
+                
                             }
-
+                
                             button {
+                
                                 margin: 1rem 0;
                                 padding: 10px 20px;
                                 border-radius: 5px;
@@ -814,27 +990,39 @@
                                 text-align: center;
                                 margin: 10px;
                                 cursor: pointer;
-                                transition: 0.2s ease-in-out;
+                                transition: .2s ease-in-out;
                                 font-size: 16px;
                                 font-weight: 700;
-
+                    
                                 &:hover {
+                    
                                     background-color: $offWhite;
                                     color: $dark-green;
+                    
                                 }
+                
                             }
-
+    
                             .adminNoteDiv {
+    
                                 display: flex;
                                 flex-direction: column;
                                 align-items: center;
                                 text-align: center;
                                 width: 100%;
+    
                             }
+                
                         }
+    
                     }
+    
                 }
+    
             }
+    
         }
+    
     }
+
 }

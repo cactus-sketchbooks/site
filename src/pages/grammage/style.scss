@@ -1,24 +1,22 @@
-@import '../../global.scss';
+@import "../../global.scss";
 
 * {
     font-family: 'Urbanist', sans-serif;
 }
 
-h1,
-h2,
-h3,
-h4,
-p {
+h1, h2, h3, h4, p {
     margin: 0;
     padding: 0;
 }
 
 #mainGrammage {
+
     width: 100vw;
     display: flex;
     flex-direction: column;
 
     body {
+
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -28,22 +26,25 @@ p {
         text-align: center;
 
         h1 {
+
             font-size: 2.3rem;
             color: #fff;
+
         }
 
         .grammageInfos {
+
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             margin-top: 2rem;
             width: 40%;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
+            background: rgba( 255, 255, 255, 0.15 );
+            backdrop-filter: blur( 4px );
+            -webkit-backdrop-filter: blur( 4px );
             border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
             color: $offWhite;
             box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.24);
             margin-bottom: 2rem;
@@ -54,50 +55,71 @@ p {
             align-items: center;
 
             span {
+
                 padding: 0 1rem;
                 background-color: $orange;
                 border-radius: 50px;
+
             }
 
             ul {
+                
                 list-style: none;
-
+    
                 li {
+    
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     justify-content: center;
                     margin: 2rem 0;
+    
                 }
+    
             }
+
         }
+
     }
+
 }
 
 @media screen and (max-width: 768px) {
+        
     #mainGrammage body {
+
         h1 {
             font-size: 1.5rem;
-            margin: 1rem;
+            margin: 1rem; 
         }
 
         .grammageInfos {
-            margin-bottom: 0.5rem;
+
+            margin-bottom: .5rem;
             width: 80%;
+
         }
+    
     }
+      
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
+
     #mainGrammage body {
+
         h1 {
             font-size: 1.5rem;
             margin: 3rem 0 0;
         }
 
         .grammageInfos {
-            margin-bottom: 0.5rem;
+
+            margin-bottom: .5rem;
             width: 65%;
+
         }
+    
     }
+
 }

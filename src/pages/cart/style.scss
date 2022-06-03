@@ -1,22 +1,20 @@
-@import '../../global.scss';
+@import "../../global.scss";
 
 * {
     font-family: 'Urbanist', sans-serif;
 }
 
-h1,
-h2,
-h3,
-h4,
-p {
+h1, h2, h3, h4, p {
     margin: 0;
     padding: 0;
 }
 
 #mainCartPage {
+
     position: relative;
 
     .cartPopupWrapper {
+
         position: absolute;
         background-color: rgba(119, 118, 118, 0.5);
         top: 0;
@@ -24,8 +22,9 @@ p {
         left: 0;
         right: 0;
         z-index: 101;
-
+    
         .cartPopupContent {
+    
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -40,12 +39,15 @@ p {
             margin: 6rem auto;
             text-align: center;
             border-radius: 8px;
-
+    
             h3 {
+    
                 padding: 1rem 0;
+    
             }
-
+    
             button {
+    
                 outline: none;
                 background-color: $orange;
                 border: none;
@@ -58,9 +60,13 @@ p {
                 font-weight: 700;
                 width: 150px;
                 margin-top: 1rem;
+    
             }
+    
         }
+    
     }
+
 }
 
 #cart {
@@ -69,6 +75,7 @@ p {
 }
 
 .emptyCart {
+
     display: flex;
     flex-direction: column;
     min-height: 50vh;
@@ -77,42 +84,52 @@ p {
     text-align: center;
 
     h3 {
+
         color: #fff;
         text-transform: uppercase;
+
     }
 
     span {
+
         margin-top: 2rem;
         color: #fff;
         font-weight: 500;
+
     }
 
     #requests {
+
         text-decoration: none;
         color: $yellow-green;
         font-weight: 700;
+
     }
 
     #redirect {
+
         margin-top: 2rem;
         text-decoration: none;
         width: 20%;
-        margin: 0.8rem 0;
-        padding: 0.5rem 1rem;
+        margin: .8rem 0;
+        padding: .5rem 1rem;
         border: none;
         background-color: $orange;
         border-radius: 5px;
         cursor: pointer;
-        transition: 0.2s ease-in-out;
+        transition: .2s ease-in-out;
         color: $offWhite;
         font-weight: bold;
         font-size: 1.25rem;
         text-decoration: none;
         text-align: center;
+
     }
+
 }
 
 #purchaseInfo {
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -127,7 +144,7 @@ p {
         font-size: 2.5rem;
         color: $light-green;
         text-shadow: 2px 1px 3px rgba(29, 29, 29, 0.5);
-        letter-spacing: 0.3rem;
+        letter-spacing: .3rem;
         text-align: center;
     }
 }
@@ -143,26 +160,26 @@ p {
 // }
 
 .ourClients {
-    width: 70%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+   width: 70%;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-around;
 
-    img {
-        height: 205px;
-        border-radius: 5px;
-        margin: 0.2rem;
-    }
+   img {
+       height: 205px;
+       border-radius: 5px;
+       margin: .2rem
+   }
 }
 
 .productsInfo {
     width: 90%;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    background: rgba( 255, 255, 255, 0.15 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
     color: $offWhite;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.24);
     margin: 1rem 0;
@@ -185,10 +202,11 @@ p {
             list-style: none;
             align-items: center;
             margin: 0 0 0 2rem;
-
+            
             li {
-                margin-bottom: 0.5rem;
+                margin-bottom: .5rem;
             }
+
         }
 
         img {
@@ -197,6 +215,7 @@ p {
         }
 
         .productsButtons {
+
             margin: 0;
             padding: 0;
 
@@ -205,22 +224,24 @@ p {
             align-items: center;
 
             h1 {
+
                 font-size: 1.3rem;
                 background-color: $orange;
                 padding: 5px 12px;
                 border-radius: 100px;
                 text-align: center;
+
             }
 
             button {
                 width: 16vw;
-                margin: 0.8rem 0;
-                padding: 0.5rem 1rem;
+                margin: .8rem 0;
+                padding: .5rem 1rem;
                 border: none;
                 background-color: $dark-green;
                 border-radius: 5px;
                 cursor: pointer;
-                transition: 0.2s ease-in-out;
+                transition: .2s ease-in-out;
                 color: $offWhite;
                 font-size: 1rem;
                 text-decoration: none;
@@ -228,8 +249,8 @@ p {
                 font-weight: 600;
                 text-transform: uppercase;
                 font-size: 1rem;
-                letter-spacing: 0.1rem;
-
+                letter-spacing: .1rem;
+    
                 &:hover {
                     background-color: $light-green;
                 }
@@ -241,7 +262,7 @@ p {
 .checkout {
     border: 1px solid $light-green;
     border-radius: 5px;
-    padding: 0.7rem;
+    padding: .7rem;
     width: 90%;
     display: flex;
     flex-direction: row;
@@ -252,13 +273,13 @@ p {
     button {
         // padding: .75rem;
         //width: 30%;
-        margin: 0.8rem 0;
-        padding: 0.5rem 1rem;
+        margin: .8rem 0;
+        padding: .5rem 1rem;
         border: none;
         background-color: $light-orange;
         border-radius: 5px;
         cursor: pointer;
-        transition: 0.2s ease-in-out;
+        transition: .2s ease-in-out;
         color: $offWhite;
         font-size: 1rem;
         text-decoration: none;
@@ -266,7 +287,7 @@ p {
         font-weight: 600;
         text-transform: uppercase;
         font-size: 1rem;
-        letter-spacing: 0.1rem;
+        letter-spacing: .1rem;
 
         &:hover {
             background-color: $orange;
@@ -276,7 +297,7 @@ p {
     h3 {
         color: $offWhite;
         font-family: 'Bebas Neue', sans-serif;
-        letter-spacing: 0.4rem;
+        letter-spacing: .4rem;
         font-size: 2rem;
     }
 
@@ -286,10 +307,10 @@ p {
         border-radius: 5px;
         background: $light-green;
         color: $offWhite;
-        padding: 0.5rem 1rem;
+        padding: .5rem 1rem;
         justify-content: center;
         align-items: center;
-        transition: 0.2s ease-in-out;
+        transition: .2s ease-in-out;
 
         &:hover {
             background-color: $dark-green;
@@ -297,6 +318,7 @@ p {
     }
 
     .finishOrder {
+
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -306,35 +328,44 @@ p {
         margin-top: 2rem;
 
         h2 {
+
             margin-bottom: 1rem;
+
         }
 
         select {
+
             margin-bottom: 2rem;
             width: 80%;
             background-color: $light-green;
             color: $offWhite;
             font-size: 1.02rem;
             border: none;
-            padding: 0.5rem 1rem;
+            padding:.5rem 1rem;
             border-radius: 5px;
             outline: none;
+
         }
 
         span {
+
             width: 80%;
             text-align: center;
             margin-bottom: 4rem;
             color: $offWhite;
+
         }
 
         label {
+
             color: #fff;
             font-weight: 700;
+
         }
 
         #CepNumber {
-            margin: 0.5rem 1rem;
+    
+            margin: .5rem 1rem;
             width: 25%;
             height: 45px;
             border: none;
@@ -344,11 +375,15 @@ p {
             color: $branco;
 
             &::placeholder {
+
                 color: rgb(224, 224, 224);
+
             }
+
         }
 
         .transportInfos {
+
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -357,53 +392,68 @@ p {
             margin: 2rem 0;
 
             h1 {
+
                 color: $branco;
                 margin-bottom: 1rem;
+
             }
 
             .optionsTransport {
+    
                 display: flex;
                 width: 100%;
                 height: 100px;
-                margin: 0.3rem;
+                margin: .3rem;
                 padding: 1rem 0;
                 align-items: center;
 
                 background-color: $branco;
-
+                
                 border-radius: 15px;
 
                 &:hover {
+
                     background-color: #eee;
+
                 }
 
                 .radioButton {
+
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     width: 5%;
 
                     input {
+
                         width: auto;
                         margin: 0;
+
                     }
+                    
                 }
 
                 .transportLogoWrapper {
+
                     display: flex;
                     width: 15%;
                     align-items: center;
                     justify-content: center;
-
+    
                     img {
+    
                         width: auto;
                         overflow: hidden;
                         padding: 1rem;
+                        
                     }
+                    
                 }
+    
             }
 
             .textTransportInfos {
+
                 display: flex;
                 align-items: center;
                 justify-content: space-around;
@@ -411,34 +461,41 @@ p {
                 height: 100%;
 
                 span {
+
                     margin: 0;
                     color: #000;
+
                 }
+
             }
+
         }
 
         .transportDiv {
+
             display: flex;
             flex-direction: column;
             align-items: center;
             width: 100%;
             margin: 3rem 0 4rem 0;
-
+            
             h2 {
-                margin-bottom: 1rem;
-            }
 
+                margin-bottom: 1rem;
+
+            }
+    
             .userInfos {
+    
                 display: flex;
                 width: 100%;
                 flex-wrap: wrap;
                 align-items: center;
                 justify-content: center;
-
-                input,
-                #CepNumber,
-                select {
-                    margin: 0.5rem 1rem;
+    
+                input, #CepNumber, select {
+    
+                    margin: .5rem 1rem;
                     width: 45%;
                     height: 45px;
                     border: none;
@@ -448,49 +505,67 @@ p {
                     color: $branco;
 
                     &::placeholder {
+
                         color: rgb(224, 224, 224);
+
                     }
+    
                 }
+    
             }
+
         }
 
         .paypalButtons {
+
             width: 70%;
             // background-color: #fff;
             // padding: 2rem 3rem 0 3rem;
             margin: 1rem 0 2rem 0;
             border-radius: 5px;
             z-index: 1;
+
         }
 
         .checkoutOptions {
+
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: space-around;
             width: 100%;
+
         }
+
     }
+
 }
 
 .loginRedirect {
+
     margin: 2rem 0;
 
     p {
+
         color: #fff;
         font-weight: 500;
         font-size: 18px;
         text-align: center;
 
         a {
+
             color: $yellow-green;
             text-decoration: none;
             font-weight: 700;
+
         }
+
     }
+
 }
 
 .ourServices {
+
     margin: 0;
     margin-top: 1rem;
     width: 100%;
@@ -499,15 +574,15 @@ p {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-
+    
     .service-title {
-        margin-right: 0.3rem;
-
+        margin-right: .3rem;
+        
         width: 218px;
-        padding: 1rem 0.8rem 1rem 0.8rem;
+        padding: 1rem .8rem 1rem .8rem;
         height: 280px;
         border-radius: 5px;
-
+        
         background-color: $offWhite;
 
         h1 {
@@ -517,11 +592,12 @@ p {
             text-transform: uppercase;
             font-size: 3rem;
             text-shadow: 2px 1px 3px rgba(29, 29, 29, 0.07);
-            letter-spacing: 0.3rem;
+            letter-spacing:.3rem;
         }
     }
 
     .service-card {
+
         width: 200px;
         height: 280px;
         padding: 0;
@@ -534,38 +610,45 @@ p {
         cursor: pointer;
         background-color: $light-green;
         border-radius: 5px;
-        transition: 0.3s ease-in-out;
+        transition: .3s ease-in-out;
 
         &:hover {
+
             filter: none;
-            transform: scale(1.1);
-            transition: 0.3s ease-in-out;
-            box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-                rgba(0, 0, 0, 0.22) 0px 15px 12px;
+            transform: scale(1.10);
+            transition: .3s ease-in-out;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
         }
 
-        &:hover > img {
+        &:hover>img {
+
             filter: none;
+
         }
 
         img {
+
             padding-top: 1rem;
             height: 150px;
-            filter: opacity(0.85);
+            filter: opacity(.85);
             transition: 400ms ease-in-out;
+
         }
 
         #carcara {
+
             width: 170px;
             height: 170px;
             border-radius: 50%;
+
         }
 
         h3 {
             color: $offWhite;
             font-size: 1.5rem;
             font-family: 'Bebas Neue', sans-serif;
-            letter-spacing: 0.32rem;
+            letter-spacing: .32rem;
             text-shadow: 4.25px 0px $dark-green;
         }
 
@@ -573,11 +656,14 @@ p {
             color: $offWhite;
             font-weight: 200;
         }
+
     }
 }
 
 #mainPaidForm {
+
     body {
+
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -585,45 +671,54 @@ p {
         width: 100vw;
         margin: 7rem auto;
 
-        h1 {
+        h1{
+
             color: #fff;
             margin: 5px 0;
+
         }
 
         h4 {
+
             color: #fff;
 
             a {
+
                 text-decoration: none;
                 color: $yellow-green;
+    
             }
+
         }
 
         .buyInfosWrapper {
+
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: flex-start;
             width: 90%;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
+            background: rgba( 255, 255, 255, 0.15 );
+            backdrop-filter: blur( 4px );
+            -webkit-backdrop-filter: blur( 4px );
             border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
             color: $offWhite;
             box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.24);
             margin: 2rem 0;
             padding: 2rem;
 
             .buyInfosData {
+
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                padding: 1rem 0.2rem 1rem 1rem;
+                padding: 1rem .2rem 1rem 1rem;
                 width: 100%;
 
                 .rowDataInfos {
+
                     display: flex;
                     margin: 10px 6px;
                     background-color: $orange;
@@ -632,11 +727,15 @@ p {
                     border-radius: 100px;
 
                     span:before {
-                        content: '\00a0';
+
+                        content: "\00a0";
+
                     }
+                    
                 }
 
                 #pixProofDiv {
+
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -646,33 +745,45 @@ p {
                     border-radius: 5px;
 
                     a {
+
                         text-decoration: none;
                         font-weight: 700;
                         color: $yellow-green;
+
                     }
 
                     h4 {
+
                         margin-top: 2rem;
+
                     }
 
                     span {
+
                         margin-bottom: 1rem;
+
                     }
 
                     .rowDataInfos {
+
                         justify-content: center;
                         margin-top: 1rem;
 
-                        h4,
-                        span {
+                        h4, span {
+
                             margin: 0;
                             padding: 0;
+                            
                         }
+
                     }
+
                 }
+
             }
 
             .boxProductInfos {
+
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -680,6 +791,7 @@ p {
                 width: 100%;
 
                 ul {
+
                     display: flex;
                     justify-content: space-around;
                     align-items: center;
@@ -692,124 +804,173 @@ p {
                     border-radius: 5px;
                     margin: 10px;
                     padding: 10px;
-                    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-                        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
                     text-align: center;
 
                     h2 {
+
                         margin-bottom: 1rem;
                         align-self: center;
                         background-color: $light-green;
                         color: #fff;
                         padding: 0 10px;
                         border-radius: 50px;
-                        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-                            rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    
                     }
-
+    
                     li {
+    
                         display: flex;
                         flex-direction: column;
                         text-align: center;
                         margin: 1rem 0;
+    
                     }
-
+    
                     #coverColorDiv {
+    
                         display: flex;
                         flex-direction: column;
 
                         #coverColorWrapper {
+
                             display: flex;
-                        }
 
+                        }
+    
                         span {
+    
                             margin-left: 6px;
+    
                         }
+    
                     }
-
+    
                     #productValue {
+    
                         margin-top: 1rem;
                         align-self: center;
                         background-color: $light-green;
                         color: #fff;
                         padding: 0 10px;
                         border-radius: 50px;
-                        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-                            rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    
                     }
+
                 }
+
             }
+
         }
+
     }
+
 }
 
 @media screen and (max-width: 768px) {
+
     #mainCartPage {
+
         .cartPopupWrapper {
+        
             .cartPopupContent {
+        
                 width: 80vw;
                 padding: 1rem;
                 left: 0;
                 right: 0;
                 margin: 8rem auto;
+        
             }
+        
         }
+    
     }
 
     #cart #purchaseInfo {
+
         h2 {
+
             font-size: 2rem;
+
         }
 
         section.checkout {
             width: 80vw;
 
             .finishOrder {
+               
                 span {
                     margin-bottom: 0;
                 }
-
+                
                 label {
+
                     margin-top: 1rem;
+
                 }
 
                 #CepNumber {
+
                     width: 60%;
+
                 }
 
                 .transportInfos {
+
                     .optionsTransport {
+
                         flex-direction: column;
                         height: auto;
 
                         .transportLogoWrapper {
+
                             width: 40%;
+
                         }
 
                         .textTransportInfos {
+
                             flex-direction: column;
 
                             span {
+
                                 margin: 5px;
+                                
                             }
 
                             span:nth-child(2):before {
-                                content: 'Valor: ';
+
+                                content: "Valor: ";
+
                             }
+
                         }
+
                     }
+
                 }
 
                 .transportDiv {
+
                     h2 {
+
                         font-size: 2rem;
+
                     }
 
                     .userInfos {
+
                         input {
+
                             width: 80%;
+
                         }
+
                     }
+
                 }
 
                 .checkoutOptions {
@@ -825,25 +986,28 @@ p {
                     }
                 }
             }
+
         }
 
         section.ourClients {
             display: grid;
             grid-template-columns: auto auto;
-            gap: 0.7rem;
+            gap: .7rem;
 
             img {
                 margin: 0;
-                height: 90%;
+                height: 90%;    
             }
+
         }
 
         section.ourServices {
             display: grid;
             grid-template-columns: auto auto;
-            gap: 0.2rem;
+            gap: .2rem;
 
             .service-title {
+
                 width: 170px;
                 height: 200px;
                 background-color: $offWhite;
@@ -869,6 +1033,7 @@ p {
                 }
             }
         }
+
     }
 
     .productsInfo {
@@ -887,14 +1052,18 @@ p {
                 text-align: center;
 
                 li {
-                    margin: 0.85rem 0;
+                    margin: .85rem 0;
                 }
             }
 
             .productsButtons {
+                
+               
                 button {
                     width: 45vw;
+                   
                 }
+
             }
         }
 
@@ -904,97 +1073,133 @@ p {
     }
 
     #mainPaidForm {
-        body {
-            text-align: center;
 
-            h1 {
+        body {
+
+            text-align: center;
+            
+            h1{
+    
                 color: #fff;
                 margin: 5px 0;
                 padding: 1rem 0;
+    
             }
-
+    
             h4 {
+    
                 color: #fff;
                 padding: 0 2rem;
+    
             }
-
+    
             .buyInfosWrapper {
+    
                 .buyInfosData {
+    
                     padding: 0;
 
                     .rowDataInfos {
+    
                         display: flex;
                         margin: 10px 2px;
                         flex-direction: column;
-
+    
                         span:before {
-                            content: '\00a0';
+    
+                            content: "\00a0";
+    
                         }
+                        
                     }
-
+    
                     #pixProofDiv {
+    
                         a {
+    
                             text-decoration: none;
                             font-weight: 700;
                             color: $yellow-green;
+    
                         }
+    
                     }
+    
                 }
-
+    
                 .boxProductInfos {
+    
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     flex-wrap: wrap;
                     width: 100%;
-
+    
                     ul {
+    
                         min-width: 100%;
-
+    
                         h2 {
+    
                             margin-bottom: 1rem;
                             align-self: center;
                             background-color: $light-green;
                             color: #fff;
                             padding: 0 10px;
                             border-radius: 50px;
-                            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-                                rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        
                         }
-
+        
                         li {
+        
                             display: flex;
                             flex-direction: column;
                             text-align: center;
                             margin: 1rem 0;
+        
                         }
-
+        
                         #coverColorDiv {
+        
                             display: flex;
                             flex-direction: column;
-
+    
                             #coverColorWrapper {
+    
                                 display: flex;
+    
                             }
-
+        
                             span {
+        
                                 margin-left: 6px;
+        
                             }
+        
                         }
-
+        
                         #productValue {
+        
                             margin-top: 1rem;
                             align-self: center;
                             background-color: $light-green;
                             color: #fff;
                             padding: 0 10px;
                             border-radius: 50px;
-                            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-                                rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        
                         }
+    
                     }
+    
                 }
+    
             }
+    
         }
+        
     }
+
+
 }

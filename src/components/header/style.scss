@@ -1,4 +1,4 @@
-@import '../../global.scss';
+@import "../../global.scss";
 
 .header {
     width: 100vw;
@@ -13,25 +13,32 @@
     z-index: 2;
 
     .logo {
+
         a {
+
             img {
                 height: 10vh;
                 margin: 0.5rem;
+
             }
         }
+
     }
 
     .linkWrapper {
+
         display: flex;
         align-items: center;
         justify-content: center;
         width: 50%;
 
         a {
-            margin: 0 0.4rem;
+
+            margin: 0 .4rem;
             text-decoration: none;
             color: #fff;
             font-weight: 700;
+
         }
     }
 
@@ -48,21 +55,22 @@
             padding: 0;
 
             li {
+
                 margin: 0.5rem;
                 padding: 0.5rem;
 
                 a {
                     text-decoration: none;
                     color: $dark-green;
-                    background-color: $offWhite;
-                    padding: 0.5rem;
-                    border-radius: 5px;
-                    transition: transform 0.45s ease, background 0.15s ease;
+					background-color: $offWhite;
+					padding: 0.5rem;
+					border-radius: 5px;
+					transition: transform .45s ease, background .15s ease;
 
-                    &:hover {
-                        background-color: $light-green;
-                        color: $branco;
-                    }
+					&:hover {
+						background-color: $light-green;
+						color: $branco;
+					}
                 }
             }
         }
@@ -88,11 +96,15 @@
 }
 
 .sandwich {
+
     display: none;
 
     input {
+
         opacity: 0;
+    
     }
+
 }
 
 .header.active {
@@ -100,11 +112,13 @@
 }
 
 @media screen and (max-width: 1000px) {
+   
     .menu {
         display: none;
     }
 
     .sandwich {
+
         display: flex;
         align-items: center;
         justify-content: center;
@@ -116,60 +130,76 @@
         #checkbox {
             display: none;
         }
+
     }
 
     .sandwich label {
+
         cursor: pointer;
         position: relative;
         display: block;
         height: 5px;
         width: 50px;
+
     }
 
     .sandwich span {
+
         position: absolute;
         height: 3px;
         width: 30px;
         background: $offWhite;
-        transition: 0.5s ease-in-out;
+        transition: .5s ease-in-out;
+
     }
 
     .sandwich span:nth-child(1) {
+
         position: absolute;
         top: -8px;
         height: 3px;
         width: 30px;
         background: $offWhite;
+
     }
 
     .sandwich span:nth-child(3) {
+
         position: absolute;
         top: 8px;
         height: 3px;
         width: 30px;
         background: $offWhite;
+
     }
 
     #checkbox:checked + label span:nth-child(1) {
+
         transform: rotate(-225deg);
         top: 0px;
+
     }
 
     #checkbox:checked + label span:nth-child(2) {
+
         opacity: 0;
+
     }
 
     #checkbox:checked + label span:nth-child(3) {
+
         transform: rotate(225deg);
         top: 0px;
+
     }
 
     .menu-mobile {
+
         width: 100vw;
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        background-color: $dark-green;
+		background-color: $dark-green;
         display: none;
 
         ul {
@@ -189,15 +219,15 @@
                 a {
                     text-decoration: none;
                     color: $dark-green;
-                    background-color: $offWhite;
-                    padding: 0.5rem;
-                    border-radius: 5px;
-                    transition: transform 0.45s ease, background 0.15s ease;
+					background-color: $offWhite;
+					padding: 0.5rem;
+					border-radius: 5px;
+					transition: transform .45s ease, background .15s ease;
 
-                    &:hover {
-                        background-color: $light-green;
-                        color: $branco;
-                    }
+					&:hover {
+						background-color: $light-green;
+						color: $branco;
+					}
                 }
             }
         }
