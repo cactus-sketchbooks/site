@@ -811,6 +811,16 @@ export default function Cart() {
                                                 ) : (
                                                     ''
                                                 )}
+                                                {product.sketchFinish ? (
+                                                    <li>
+                                                        <strong>
+                                                            Tipo de Acabamento:
+                                                        </strong>{' '}
+                                                        {product.sketchFinish}
+                                                    </li>
+                                                ) : (
+                                                    ''
+                                                )}
 
                                                 {product.clientNote ? (
                                                     <li>
@@ -1625,6 +1635,21 @@ export default function Cart() {
                                                               <span>
                                                                   {
                                                                       product.spiralColor
+                                                                  }
+                                                              </span>
+                                                          </li>
+                                                      ) : (
+                                                          ''
+                                                      )}
+                                                      {product.sketchFinish ? (
+                                                          <li>
+                                                              <b>
+                                                                  Tipo de
+                                                                  Acabamento:
+                                                              </b>
+                                                              <span>
+                                                                  {
+                                                                      product.sketchFinish
                                                                   }
                                                               </span>
                                                           </li>
