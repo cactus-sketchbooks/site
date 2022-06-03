@@ -24,12 +24,13 @@ function Home() {
     const [displayModal, setDisplayModal] = useState('none');
     const [modalData, setModalData] = useState({});
 
-    const sketchbooksInfos = [
+    const sketchbooksInfos = [ //arrumar os preços
         {
             id: 0,
             name: 'mandacaru',
             description: 'Sketchbook costura copta',
             link: '/mandacaru',
+            price: 'R$15,00',
             imgSrc: [mandacaru, mandacaruQuadrado],
         },
 
@@ -38,6 +39,7 @@ function Home() {
             name: 'baião',
             description: 'Sketchbook quadrado copta',
             link: '/baiao',
+            price: 'R$25,00',
             imgSrc: [baiao, baiaoQuadrado],
         },
 
@@ -46,6 +48,7 @@ function Home() {
             name: 'facheiro',
             description: 'Sketchbook espiral',
             link: '/facheiro',
+            price: 'R$30,00',
             imgSrc: [facheiro, facheiroQuadrado],
         },
 
@@ -54,6 +57,7 @@ function Home() {
             name: 'sertão',
             description: 'Journal',
             link: '/sertao',
+            price: 'R$8,00',
             imgSrc: [sertao, sertaoQuadrado],
         },
 
@@ -62,6 +66,7 @@ function Home() {
             name: 'buriti',
             description: 'Cases para kindle e tablet',
             link: '/buriti',
+            price: 'R$25,00',
             imgSrc: [buriti, buritiQuadrado],
         },
 
@@ -70,6 +75,7 @@ function Home() {
             name: 'carcará',
             description: 'Moleskine',
             link: '/carcara',
+            price: 'R$18,00',
             imgSrc: [carcara, carcaraQuadrado],
         },
     ];
@@ -147,6 +153,7 @@ function Home() {
                                 >
                                     <h3>{item.name}</h3>
                                     <h4>{item.description}</h4>
+                                    <h5><u>A partir de {item.price}</u></h5>
                                     <img
                                         src={item.imgSrc[0]}
                                         alt={item.imgSrc[0]}
