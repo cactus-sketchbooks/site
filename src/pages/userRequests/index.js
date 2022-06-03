@@ -142,7 +142,6 @@ export default function UserRequests() {
             window.location.reload();
         }
     }
-    console.log(requestData);
 
     return (
         <div className='requestsPage'>
