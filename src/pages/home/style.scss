@@ -391,6 +391,7 @@ h1, h2, h3, h4, p {
                         $light-blue
                     );
                     -webkit-background-clip: text;
+                    background-clip: text;
                     -webkit-text-fill-color: transparent;
                 }
                 background-image: linear-gradient(
