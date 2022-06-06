@@ -314,7 +314,7 @@ export default function Cart() {
 
         }
 
-        if ((counter === 9 && pickupSelect) || pickupSelect === 'Retirada física') {
+        if ((counter === 9 && pickupSelect) || pickupSelect === 'Retirada física' || pickupSelect === 'Entrega por aplicativo') {
 
             setDisplayPaymentOption('flex')
 
