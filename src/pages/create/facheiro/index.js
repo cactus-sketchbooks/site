@@ -15,6 +15,7 @@ import FacheiroQuadrado2Cores from '../../../images/capas/CAPA MODELO FACHEIRO Q
 
 import Header from '../../../components/header/index.js';
 import Footer from '../../../components/footer/index.js';
+import PaperOption from '../../../components/paperOption';
 
 import firebase from 'firebase/app';
 import 'firebase/auth';
@@ -30,12 +31,33 @@ export default function Facheiro() {
     const [isValidated, setIsValidated] = useState(false);
     const [checkedBoxes, setCheckedBoxes] = useState(0);
     const [selectedPaperWidth, setSelectedPaperWidth] = useState('');
+    const [sketchbookBasePrice, setSketchbookBasePrice] = useState(0);
+    const [sketchbookTotalPrice, setSketchbookTotalPrice] = useState(0);
+    const [
+        selectedDifferentPapersQuantity,
+        setSelectedDifferentPapersQuantity,
+    ] = useState(0);
+    //esse armazena a quantidade total de blocos selecionados
+    const [totalPaperBlocksQtd, setTotalPaperBlocksQtd] = useState(0);
+
+    //esse aqui armazena quantos seletores de quantidade de blocos foram selecionados
+    const [selectedPaperBlocksQtd, setSelectedPaperBlocksQtd] = useState(0);
+    const [selectedPaperTypeQtd, setSelectedPaperTypeQtd] = useState(0);
     const [selectedSpiralColor, setSelectedSpiralColor] = useState('');
     const [selectedElasticColor, setSelectedElasticColor] = useState('');
+    const [selectedSketchFinish, setSelectedSketchFinish] = useState('');
+    const [sketchPaperInfo, setSketchPaperInfo] = useState([
+        { nomePapel: '', precoUnitario: 0, quantidade: 0 },
+        { nomePapel: '', precoUnitario: 0, quantidade: 0 },
+        { nomePapel: '', precoUnitario: 0, quantidade: 0 },
+        { nomePapel: '', precoUnitario: 0, quantidade: 0 },
+    ]);
     const [clientNote, setClientNote] = useState('');
-    const [sketchbookInfos, setSketchbookInfos] = useState('');
+    //sketchbookInfos é igual ao SketchPaperInfo só que com somente com a quantidade de papel selecionado
+    const [sketchbookInfos, setSketchbookInfos] = useState([]);
     const [displayModal, setDisplayModal] = useState('none');
     const [maxSlides, setMaxSlides] = useState(5);
+    const paginasPorBloco = 16;
 
     const settings = {
         className: 'start',
@@ -46,471 +68,647 @@ export default function Facheiro() {
     };
 
     const values = {
-
-        name: "Facheiro",
-        id: 14,
-        formats: [{
-
-            name: "A3",
-            size: {
-                width: 29.7,
-                length: 42,
-                height: 3,
-                // height: 2.5,
-                weight: 0.5
+        name: 'Facheiro',
+        formats: [
+            {
+                name: 'A3 - Paisagem',
+                id: 401,
+                basePrice: 60,
+                size: {
+                    width: 29.7,
+                    length: 42,
+                    height: 3,
+                    // height: 2.5,
+                    weight: 0.5,
+                },
+                types: [
+                    {
+                        name: 'Papel Reciclado Liso',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Kraft',
+                        value: 9,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 14,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 20,
+                    },
+                    {
+                        name: 'Papel Preto',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Canson Aquarela',
+                        value: 36,
+                    },
+                    {
+                        name: 'Papel Montval',
+                        value: 225,
+                    },
+                ],
             },
-            types: [
 
-                {
-                    name: "Papel Reciclado Liso",
-                    value: 97
+            {
+                name: 'A4 - Paisagem',
+                id: 402,
+                basePrice: 40,
+                size: {
+                    width: 21,
+                    length: 29,
+                    height: 3,
+                    // height: 2.5,
+                    weight: 0.5,
                 },
-                {
-                    name: "Papel Kraft",
-                    value: 102
-                },
-                {
-                    name: "Papel Canson 140g",
-                    value: 132
-                },
-                {
-                    name: "Papel Canson 200g",
-                    value: 152
-                },
-                {
-                    name: "Papel Preto",
-                    value: 139
-                },
-                {
-                    name: "Papel Canson Aquarela",
-                    value: 225
-                },
-                {
-                    name: "Papel Montval",
-                    value: 225
-                }
-
-            ]
-
-        },
-        {
-
-            name: "A4",
-            id: 15,
-            size: {
-                width: 21,
-                length: 29,
-                height: 3,
-                // height: 2.5,
-                weight: 0.5
+                types: [
+                    {
+                        name: 'Papel Reciclado Liso',
+                        value: 4,
+                    },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 4,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado',
+                        value: 4,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado',
+                        value: 4,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado',
+                        value: 4,
+                    },
+                    {
+                        name: 'Papel Kraft',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 10,
+                    },
+                    {
+                        name: 'Papel Preto',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Canson Aquarela',
+                        value: 18,
+                    },
+                    {
+                        name: 'Papel Montval',
+                        value: 122,
+                    },
+                ],
             },
-            types: [
-
-                {
-                    name: "Papel Reciclado Liso",
-                    value: 67
+            {
+                name: 'A5 - Paisagem',
+                id: 403,
+                basePrice: 30,
+                size: {
+                    width: 15,
+                    length: 21,
+                    // height: 2.5,
+                    height: 3,
+                    weight: 0.5,
                 },
-                {
-                    name: "Papel Marfim Liso",
-                    value: 67
-                },
-                {
-                    name: "Papel Marfim Pontilhado",
-                    value: 67
-                },
-                {
-                    name: "Papel Marfim Quadriculado",
-                    value: 67
-                },
-                {
-                    name: "Papel Marfim Pautado",
-                    value: 67
-                },
-                {
-                    name: "Papel Kraft",
-                    value: 72
-                },
-                {
-                    name: "Papel Canson 140g",
-                    value: 82
-                },
-                {
-                    name: "Papel Canson 200g",
-                    value: 92
-                },
-                {
-                    name: "Papel Preto",
-                    value: 85
-                },
-                {
-                    name: "Papel Canson Aquarela",
-                    value: 122
-                },
-                {
-                    name: "Papel Montval",
-                    value: 122
-                }
-
-            ]
-
-        },
-        {
-
-            name: "A5",
-            id: 16,
-            size: {
-                width: 15,
-                length: 21,
-                // height: 2.5,
-                height: 3,
-                weight: 0.5
+                types: [
+                    {
+                        name: 'Papel Reciclado Liso',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Reciclado Pontilhado',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Reciclado Quadriculado',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Reciclado Pautado',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Kraft',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 4,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Preto',
+                        value: 4,
+                    },
+                    {
+                        name: 'Papel Canson Aquarela',
+                        value: 9,
+                    },
+                    {
+                        name: 'Papel Montval',
+                        value: 9,
+                    },
+                ],
             },
-            types: [
-
-                {
-                    name: "Papel Reciclado Liso",
-                    value: 45
+            {
+                name: 'A6 - Paisagem',
+                id: 404,
+                basePrice: 20,
+                size: {
+                    width: 10.5,
+                    length: 15,
+                    // height: 2.5,
+                    height: 3,
+                    weight: 0.5,
                 },
-                {
-                    name: "Papel Reciclado Pontilhado",
-                    value: 45
-                },
-                {
-                    name: "Papel Reciclado Quadriculado",
-                    value: 45
-                },
-                {
-                    name: "Papel Reciclado Pautado",
-                    value: 45
-                },
-                {
-                    name: "Papel Marfim Liso",
-                    value: 45
-                },
-                {
-                    name: "Papel Marfim Pontilhado",
-                    value: 45
-                },
-                {
-                    name: "Papel Marfim Quadriculado",
-                    value: 45
-                },
-                {
-                    name: "Papel Marfim Pautado",
-                    value: 45
-                },
-                {
-                    name: "Papel Kraft",
-                    value: 49
-                },
-                {
-                    name: "Papel Canson 140g",
-                    value: 55
-                },
-                {
-                    name: "Papel Canson 200g",
-                    value: 62
-                },
-                {
-                    name: "Papel Preto",
-                    value: 59
-                },
-                {
-                    name: "Papel Canson Aquarela",
-                    value: 85
-                },
-                {
-                    name: "Papel Montval",
-                    value: 85
-                }
-
-            ]
-
-        },
-        {
-
-            name: "A6",
-            id: 17,
-            size: {
-                width: 10.5,
-                length: 15,
-                // height: 2.5,
-                height: 3,
-                weight: 0.5
+                types: [
+                    {
+                        name: 'Papel Reciclado Liso',
+                        value: 1,
+                    },
+                    {
+                        name: 'Papel Reciclado Pontilhado',
+                        value: 1,
+                    },
+                    {
+                        name: 'Papel Reciclado Quadriculado',
+                        value: 1,
+                    },
+                    {
+                        name: 'Papel Reciclado Pautado',
+                        value: 1,
+                    },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 1,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado',
+                        value: 1,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado',
+                        value: 1,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado',
+                        value: 1,
+                    },
+                    {
+                        name: 'Papel Kraft',
+                        value: 1,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 3,
+                    },
+                    {
+                        name: 'Papel Preto',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Canson Aquarela',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Montval',
+                        value: 5,
+                    },
+                ],
             },
-            types: [
-
-                {
-                    name: "Papel Reciclado Liso",
-                    value: 30
+            {
+                name: '21X21',
+                id: 405,
+                basePrice: 40,
+                size: {
+                    width: 21,
+                    length: 21,
+                    // height: 2.5,
+                    height: 3,
+                    weight: 0.5,
                 },
-                {
-                    name: "Papel Reciclado Pontilhado",
-                    value: 30
-                },
-                {
-                    name: "Papel Reciclado Quadriculado",
-                    value: 30
-                },
-                {
-                    name: "Papel Reciclado Pautado",
-                    value: 30
-                },
-                {
-                    name: "Papel Marfim Liso",
-                    value: 30
-                },
-                {
-                    name: "Papel Marfim Pontilhado",
-                    value: 30
-                },
-                {
-                    name: "Papel Marfim Quadriculado",
-                    value: 30
-                },
-                {
-                    name: "Papel Marfim Pautado",
-                    value: 30
-                },
-                {
-                    name: "Papel Kraft",
-                    value: 35
-                },
-                {
-                    name: "Papel Canson 140g",
-                    value: 40
-                },
-                {
-                    name: "Papel Canson 200g",
-                    value: 45
-                },
-                {
-                    name: "Papel Preto",
-                    value: 42
-                },
-                {
-                    name: "Papel Canson Aquarela",
-                    value: 50
-                },
-                {
-                    name: "Papel Montval",
-                    value: 50
-                }
-
-            ]
-
-        },
-        {
-
-            name: "21X21",
-            id: 18,
-            size: {
-                width: 21,
-                length: 21,
-                // height: 2.5,
-                height: 3,
-                weight: 0.5
+                types: [
+                    {
+                        name: 'Papel Reciclado Liso',
+                        value: 4,
+                    },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 4,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado',
+                        value: 4,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado',
+                        value: 4,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado',
+                        value: 4,
+                    },
+                    {
+                        name: 'Papel Kraft',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 10,
+                    },
+                    {
+                        name: 'Papel Preto',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Canson Aquarela',
+                        value: 18,
+                    },
+                    {
+                        name: 'Papel Montval',
+                        value: 122,
+                    },
+                ],
             },
-            types: [
-
-                {
-                    name: "Papel Reciclado Liso",
-                    value: 67
+            {
+                name: '15X15',
+                id: 406,
+                basePrice: 30,
+                size: {
+                    width: 15,
+                    length: 15,
+                    // height: 2.5,
+                    height: 3,
+                    weight: 0.5,
                 },
-                {
-                    name: "Papel Marfim Liso",
-                    value: 67
-                },
-                {
-                    name: "Papel Marfim Pontilhado",
-                    value: 67
-                },
-                {
-                    name: "Papel Marfim Quadriculado",
-                    value: 67
-                },
-                {
-                    name: "Papel Marfim Pautado",
-                    value: 67
-                },
-                {
-                    name: "Papel Kraft",
-                    value: 72
-                },
-                {
-                    name: "Papel Canson 140g",
-                    value: 82
-                },
-                {
-                    name: "Papel Canson 200g",
-                    value: 92
-                },
-                {
-                    name: "Papel Preto",
-                    value: 85
-                },
-                {
-                    name: "Papel Canson Aquarela",
-                    value: 122
-                },
-                {
-                    name: "Papel Montval",
-                    value: 122
-                }
-
-            ]
-
-        },
-        {
-
-            name: "15X15",
-            id: 19,
-            size: {
-                width: 15,
-                length: 15,
-                // height: 2.5,
-                height: 3,
-                weight: 0.5
+                types: [
+                    {
+                        name: 'Papel Reciclado Liso',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Reciclado Pontilhado',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Reciclado Quadriculado',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Reciclado Pautado',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Kraft',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 4,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Preto',
+                        value: 4,
+                    },
+                    {
+                        name: 'Papel Canson Aquarela',
+                        value: 9,
+                    },
+                    {
+                        name: 'Papel Montval',
+                        value: 9,
+                    },
+                ],
             },
-            types: [
-
-                {
-                    name: "Papel Reciclado Liso",
-                    value: 45
+            {
+                name: '10X10',
+                id: 407,
+                basePrice: 20,
+                size: {
+                    width: 10,
+                    length: 10,
+                    height: 3,
+                    // height: 2.5,
+                    weight: 0.5,
                 },
-                {
-                    name: "Papel Reciclado Pontilhado",
-                    value: 45
-                },
-                {
-                    name: "Papel Reciclado Quadriculado",
-                    value: 45
-                },
-                {
-                    name: "Papel Reciclado Pautado",
-                    value: 45
-                },
-                {
-                    name: "Papel Marfim Liso",
-                    value: 45
-                },
-                {
-                    name: "Papel Marfim Pontilhado",
-                    value: 45
-                },
-                {
-                    name: "Papel Marfim Quadriculado",
-                    value: 45
-                },
-                {
-                    name: "Papel Marfim Pautado",
-                    value: 45
-                },
-                {
-                    name: "Papel Kraft",
-                    value: 49
-                },
-                {
-                    name: "Papel Canson 140g",
-                    value: 55
-                },
-                {
-                    name: "Papel Canson 200g",
-                    value: 62
-                },
-                {
-                    name: "Papel Preto",
-                    value: 59
-                },
-                {
-                    name: "Papel Canson Aquarela",
-                    value: 85
-                },
-                {
-                    name: "Papel Montval",
-                    value: 85
-                }
-
-            ]
-
-        },
-        {
-
-            name: "10X10",
-            id: 20,
-            size: {
-                width: 10,
-                length: 10,
-                height: 3,
-                // height: 2.5,
-                weight: 0.5
+                types: [
+                    {
+                        name: 'Papel Reciclado Liso',
+                        value: 1,
+                    },
+                    {
+                        name: 'Papel Reciclado Pontilhado',
+                        value: 1,
+                    },
+                    {
+                        name: 'Papel Reciclado Quadriculado',
+                        value: 1,
+                    },
+                    {
+                        name: 'Papel Reciclado Pautado',
+                        value: 1,
+                    },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 1,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado',
+                        value: 1,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado',
+                        value: 1,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado',
+                        value: 1,
+                    },
+                    {
+                        name: 'Papel Kraft',
+                        value: 1,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 3,
+                    },
+                    {
+                        name: 'Papel Preto',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Canson Aquarela',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Montval',
+                        value: 5,
+                    },
+                ],
             },
-            types: [
-
-                {
-                    name: "Papel Reciclado Liso",
-                    value: 30
+            {
+                name: 'A4 - Retrato',
+                id: 408,
+                basePrice: 40,
+                size: {
+                    width: 21,
+                    length: 29,
+                    height: 3,
+                    // height: 2.5,
+                    weight: 0.5,
                 },
-                {
-                    name: "Papel Reciclado Pontilhado",
-                    value: 30
+                types: [
+                    {
+                        name: 'Papel Reciclado Liso',
+                        value: 4,
+                    },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 4,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado',
+                        value: 4,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado',
+                        value: 4,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado',
+                        value: 4,
+                    },
+                    {
+                        name: 'Papel Kraft',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 10,
+                    },
+                    {
+                        name: 'Papel Preto',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Canson Aquarela',
+                        value: 18,
+                    },
+                    {
+                        name: 'Papel Montval',
+                        value: 122,
+                    },
+                ],
+            },
+            {
+                name: 'A5 - Retrato',
+                id: 409,
+                basePrice: 30,
+                size: {
+                    width: 15,
+                    length: 21,
+                    // height: 2.5,
+                    height: 3,
+                    weight: 0.5,
                 },
-                {
-                    name: "Papel Reciclado Quadriculado",
-                    value: 30
+                types: [
+                    {
+                        name: 'Papel Reciclado Liso',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Reciclado Pontilhado',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Reciclado Quadriculado',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Reciclado Pautado',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Kraft',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 4,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Preto',
+                        value: 4,
+                    },
+                    {
+                        name: 'Papel Canson Aquarela',
+                        value: 9,
+                    },
+                    {
+                        name: 'Papel Montval',
+                        value: 9,
+                    },
+                ],
+            },
+            {
+                name: 'A6 - Retrato',
+                id: 410,
+                basePrice: 20,
+                size: {
+                    width: 10.5,
+                    length: 15,
+                    // height: 2.5,
+                    height: 3,
+                    weight: 0.5,
                 },
-                {
-                    name: "Papel Reciclado Pautado",
-                    value: 30
-                },
-                {
-                    name: "Papel Marfim Liso",
-                    value: 30
-                },
-                {
-                    name: "Papel Marfim Pontilhado",
-                    value: 30
-                },
-                {
-                    name: "Papel Marfim Quadriculado",
-                    value: 30
-                },
-                {
-                    name: "Papel Marfim Pautado",
-                    value: 30
-                },
-                {
-                    name: "Papel Kraft",
-                    value: 35
-                },
-                {
-                    name: "Papel Canson 140g",
-                    value: 40
-                },
-                {
-                    name: "Papel Canson 200g",
-                    value: 45
-                },
-                {
-                    name: "Papel Preto",
-                    value: 42
-                },
-                {
-                    name: "Papel Canson Aquarela",
-                    value: 50
-                },
-                {
-                    name: "Papel Montval",
-                    value: 50
-                }
-
-            ]
-
-        },
-
-        ]
-
-    }
+                types: [
+                    {
+                        name: 'Papel Reciclado Liso',
+                        value: 1,
+                    },
+                    {
+                        name: 'Papel Reciclado Pontilhado',
+                        value: 1,
+                    },
+                    {
+                        name: 'Papel Reciclado Quadriculado',
+                        value: 1,
+                    },
+                    {
+                        name: 'Papel Reciclado Pautado',
+                        value: 1,
+                    },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 1,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado',
+                        value: 1,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado',
+                        value: 1,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado',
+                        value: 1,
+                    },
+                    {
+                        name: 'Papel Kraft',
+                        value: 1,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 3,
+                    },
+                    {
+                        name: 'Papel Preto',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Canson Aquarela',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Montval',
+                        value: 5,
+                    },
+                ],
+            },
+        ],
+    };
 
     useEffect(() => {
         if (window.innerWidth < 820) {
@@ -527,6 +725,8 @@ export default function Facheiro() {
         setformatTypes(values.formats[position].types);
         setFormatSize(values.formats[position].size);
         setFormatId(values.formats[position].id);
+        setSketchbookBasePrice(values.formats[position].basePrice);
+        calculateTotalPrice();
     }
 
     function handleSelectedType(event) {
@@ -576,10 +776,11 @@ export default function Facheiro() {
             model: 'Facheiro',
             id: formatId,
             paperWidth: selectedPaperWidth,
-            paper: sketchbookInfos.name,
-            value: sketchbookInfos.value,
+            paper: sketchbookInfos,
+            value: sketchbookTotalPrice,
             spiralColor: selectedSpiralColor,
             elasticColor: selectedElasticColor,
+            sketchFinish: selectedSketchFinish,
             coverColors: selectedColors,
             clientNote: clientNote,
             size: formatSize,
@@ -640,11 +841,19 @@ export default function Facheiro() {
     };
 
     useEffect(() => {
+        //gambiarra para atualizar o preço
+        // [] adicionar o calculate no useEffect do currentStep (quando adicionado)
+        calculateTotalPrice();
         if (
             formatTypes === '' ||
-            sketchbookInfos === '' ||
+            selectedPaperTypeQtd < selectedDifferentPapersQuantity ||
+            selectedPaperBlocksQtd < selectedDifferentPapersQuantity ||
+            totalPaperBlocksQtd > 10 ||
+            totalPaperBlocksQtd < 6 ||
             selectedSpiralColor === '' ||
             selectedElasticColor === '' ||
+            selectedSketchFinish === '' ||
+            sketchbookTotalPrice === 0 ||
             checkedBoxes > 2 ||
             checkedBoxes === 0
         ) {
@@ -655,10 +864,41 @@ export default function Facheiro() {
     }, [
         formatTypes,
         sketchbookInfos,
+        selectedPaperTypeQtd,
+        selectedPaperBlocksQtd,
+        totalPaperBlocksQtd,
         selectedSpiralColor,
         selectedElasticColor,
+        selectedSketchFinish,
+        sketchbookTotalPrice,
         checkedBoxes,
     ]);
+
+    function handleSelectedDiiferentPapersQuatity(event) {
+        //zera os elementos do array se o cliente mudar de ideia e diminuir a quantidade de papeis
+        if (parseInt(event.target.value) < selectedDifferentPapersQuantity) {
+            for (let index = parseInt(event.target.value); index < 4; index++) {
+                setSketchPaperInfo((prev) => {
+                    let newArr = [...prev];
+                    newArr[index] = {
+                        ...prev[index],
+                        nomePapel: '',
+                        precoUnitario: 0,
+                        quantidade: 0,
+                    };
+                    return newArr;
+                });
+            }
+        }
+        setSelectedDifferentPapersQuantity(parseInt(event.target.value));
+    }
+    // tambem adicionar o currentStep ao controle do useEffect
+    useEffect(() => {
+        setSketchbookInfos(
+            sketchPaperInfo.slice(0, selectedDifferentPapersQuantity)
+        );
+        calculateTotalPrice();
+    }, [sketchPaperInfo, selectedPaperWidth, selectedDifferentPapersQuantity]);
 
     function handleSelectedSpiralColor(event) {
         setSelectedSpiralColor(event.target.value);
@@ -668,9 +908,60 @@ export default function Facheiro() {
         setSelectedElasticColor(event);
     }
 
+    function handleSelectedSketchFinish(event) {
+        setSelectedSketchFinish(event.target.value);
+    }
+
     function handleClientNote(event) {
         setClientNote(event.target.value);
     }
+
+    function calculateTotalPrice() {
+        let totalPrice = sketchbookBasePrice;
+
+        sketchbookInfos.forEach(function (papel) {
+            totalPrice += papel.precoUnitario * papel.quantidade;
+        });
+
+        setSketchbookTotalPrice(totalPrice);
+    }
+    useEffect(() => {
+        console.log('preco mudou ' + sketchbookTotalPrice);
+    }, [sketchbookTotalPrice]);
+
+    useEffect(() => {
+        console.log(sketchbookInfos);
+        let paperQtd = 0;
+        sketchbookInfos.map((papel) => {
+            paperQtd += papel.quantidade;
+        });
+        setTotalPaperBlocksQtd(paperQtd);
+
+        setSelectedPaperTypeQtd(
+            sketchbookInfos.reduce((count, papel) => {
+                if (papel.nomePapel !== '') {
+                    count += 1;
+                }
+                return count;
+            }, 0)
+        );
+        setSelectedPaperBlocksQtd(
+            sketchbookInfos.reduce((count, papel) => {
+                if (papel.quantidade !== 0) {
+                    count += 1;
+                }
+                return count;
+            }, 0)
+        );
+    }, [sketchbookInfos]);
+
+    useEffect(() => {
+        console.log('qtd de papeis selecionados ' + selectedPaperTypeQtd);
+    }, [selectedPaperTypeQtd]);
+
+    useEffect(() => {
+        console.log('qtd de blocos selecionados ' + selectedPaperBlocksQtd);
+    }, [selectedPaperBlocksQtd]);
 
     function handleModalInfos() {
         displayModal === 'none'
@@ -732,48 +1023,128 @@ export default function Facheiro() {
                     </h5>
                 </div>
 
+                <div className='textWrapper'>
+                    <div className='textBackground'>
+                        <h2>Tamanho e Orientação</h2>
+                    </div>
+                </div>
                 <fieldset>
-                    <label for='paperWidth'>Selecione o tamanho do papel</label>
+                    <label htmlFor='paperWidth'>
+                        Selecione o tamanho e orientação do papel
+                    </label>
 
                     <select
                         onChange={handleSelectedSketchbook}
                         className='paperWidth'
+                        defaultValue='0'
                     >
-                        <option value='' selected disabled>
-                            Tamanho do papel
+                        <option value='0' disabled>
+                            Tamanho e orientação do papel
                         </option>
 
                         {values.formats.map((format, index) => {
                             return (
                                 <option value={index} key={index}>
-                                    {format.name}
+                                    {format.name} (+ R$ {format.basePrice})
                                 </option>
                             );
                         })}
                     </select>
                 </fieldset>
 
+                <div className='textWrapper'>
+                    <div className='textBackground'>
+                        <h2>Papel do Miolo</h2>
+                    </div>
+                </div>
+
                 <fieldset>
-                    <label for='paper'>Selecione o papel do miolo</label>
-
-                    <select onChange={handleSelectedType} className='paper'>
-                        <option value='' selected disabled>
-                            Papel do miolo
+                    <label htmlFor='paper'>
+                        Selecione a quantidade de Papeis Diferentes no Miolo do
+                        Sketch
+                    </label>
+                    <select
+                        onChange={handleSelectedDiiferentPapersQuatity}
+                        className='paper'
+                        defaultValue='0'
+                    >
+                        <option value='0' disabled>
+                            Quantidade de Papeis Diferentes
                         </option>
-
-                        {formatTypes.map((type, index) => {
-                            return (
-                                <option value={index} key={index}>
-                                    {type.name} - R$ {type.value}
-                                </option>
-                            );
-                        })}
+                        <option value='1'>1</option>
+                        <option value='2'>2</option>
+                        <option value='3'>3</option>
+                        <option value='4'>4</option>
                     </select>
+                    <p>
+                        Os Sketchboks podem ser montados adicionando blocos de
+                        <b> 16 páginas</b>
+                    </p>
+                    <br />
 
                     <p>
                         Veja mais sobre a gramatura e quantidade de páginas
                         clicando <Link to='/gramaturas'>aqui</Link>
                     </p>
+                    <br />
+
+                    {[...Array(selectedDifferentPapersQuantity)].map((_, i) => (
+                        <PaperOption
+                            tipos={formatTypes}
+                            quantidade={paginasPorBloco}
+                            setSketchPaperInfo={setSketchPaperInfo}
+                            index={i}
+                            key={i}
+                        />
+                    ))}
+
+                    <p>
+                        Os Sketchbooks devem ter ao final, no mínimo
+                        <b> 6 blocos (96 páginas)</b> e no máximo
+                        <b> 10 blocos (160 páginas)</b>
+                    </p>
+                    <br />
+
+                    <h3 id='paperWarning'>
+                        Seu Sketchbook tem atualmente{' '}
+                        <b>{totalPaperBlocksQtd}</b> blocos.
+                    </h3>
+
+                    {totalPaperBlocksQtd > 10 || totalPaperBlocksQtd < 6 ? (
+                        <p>
+                            Ajuste a quantidade de blocos antes de avançar para
+                            a próxima etapa.
+                        </p>
+                    ) : (
+                        ''
+                    )}
+                    {selectedPaperTypeQtd < selectedDifferentPapersQuantity ? (
+                        <p>
+                            Você deve selecionar{' '}
+                            <strong>todas as opções</strong> de papéis antes de
+                            prosseguir
+                        </p>
+                    ) : (
+                        ''
+                    )}
+                    {selectedPaperBlocksQtd <
+                    selectedDifferentPapersQuantity ? (
+                        <p>
+                            Você deve selecionar{' '}
+                            <strong>todas as opções</strong> de quantidade de
+                            blocos antes de prosseguir
+                        </p>
+                    ) : (
+                        ''
+                    )}
+                    {totalPaperBlocksQtd > 10 ||
+                    totalPaperBlocksQtd < 6 ||
+                    selectedPaperTypeQtd < selectedDifferentPapersQuantity ||
+                    selectedPaperBlocksQtd < selectedDifferentPapersQuantity ? (
+                        ''
+                    ) : (
+                        <p>Vamos continuar!</p>
+                    )}
                 </fieldset>
 
                 <div className='textWrapper'>
@@ -803,9 +1174,9 @@ export default function Facheiro() {
                         {dataColors.map((item, index) =>
                             item.models.includes('facheiro') &&
                             item.categories.includes('cover') ? (
-                                <div className='cardColor'>
+                                <div className='cardColor' key={index}>
                                     <label
-                                        for={index}
+                                        htmlFor={index}
                                         onClick={(event) => changeColor(event)}
                                     />
 
@@ -857,13 +1228,14 @@ export default function Facheiro() {
                 </div>
 
                 <fieldset>
-                    <label for='paper'>Selecione a cor do espiral</label>
+                    <label htmlFor='paper'>Selecione a cor do espiral</label>
 
                     <select
                         onChange={handleSelectedSpiralColor}
                         className='paper'
+                        defaultValue='0'
                     >
-                        <option value='' selected disabled>
+                        <option value='0' disabled>
                             Cor do espiral
                         </option>
                         <option value='Preto'>Preto</option>
@@ -887,7 +1259,7 @@ export default function Facheiro() {
                             {dataColors.map((item, index) =>
                                 item.models.includes('buriti') &&
                                 item.categories.includes('elastic') ? (
-                                    <div className='colorWrapper'>
+                                    <div className='colorWrapper' key={index}>
                                         {item.image ? (
                                             <div className='elasticColor'>
                                                 <img
@@ -928,8 +1300,33 @@ export default function Facheiro() {
                     </div>
                 </section>
 
+                <div className='textWrapper'>
+                    <div className='textBackground'>
+                        <h2>Tipo de Acabamento</h2>
+                    </div>
+                </div>
+                {/* Inserir aqui a imagem de mostra dos tipos de acabamento */}
+
+                <fieldset>
+                    <label htmlFor='paper'>
+                        Selecione o tipo de acabamento nas bordas
+                    </label>
+
+                    <select
+                        onChange={(event) => handleSelectedSketchFinish(event)}
+                        className='SketchFinish'
+                        defaultValue='0'
+                    >
+                        <option value='0' disabled>
+                            Tipo de Acabamento
+                        </option>
+                        <option value='Reto'>Reto</option>
+                        <option value='Arredondado'>Arredondado</option>
+                    </select>
+                </fieldset>
+
                 <div className='additionalInfos'>
-                    <label for='additionalInfos'>
+                    <label htmlFor='additionalInfos'>
                         Informações adicionais <strong>(opcional)</strong>
                     </label>
 
@@ -951,8 +1348,22 @@ export default function Facheiro() {
                                         {selectedPaperWidth}
                                     </li>
                                     <li>
-                                        <strong>Papel do miolo: </strong>
-                                        {sketchbookInfos.name}
+                                        <strong>Papel do miolo: </strong> <br />
+                                        <br />
+                                        {sketchbookInfos.map((papel, index) => {
+                                            return (
+                                                <p key={index}>
+                                                    {index + 1} -{' '}
+                                                    <strong>
+                                                        {papel.quantidade}
+                                                    </strong>{' '}
+                                                    bloco(s) de{' '}
+                                                    <strong>
+                                                        {papel.nomePapel}
+                                                    </strong>
+                                                </p>
+                                            );
+                                        })}
                                     </li>
 
                                     <li>
@@ -979,11 +1390,15 @@ export default function Facheiro() {
                                         <strong>Cor do elástico: </strong>
                                         {selectedElasticColor.colorName}
                                     </li>
+                                    <li>
+                                        <strong>Tipo de Acabamento: </strong>
+                                        {selectedSketchFinish}
+                                    </li>
                                 </ul>
 
                                 <h3>
                                     Valor do sketchbook: R${' '}
-                                    {sketchbookInfos.value}
+                                    {sketchbookTotalPrice}
                                 </h3>
 
                                 <button onClick={() => addToCart()}>
