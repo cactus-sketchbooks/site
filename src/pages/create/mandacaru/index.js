@@ -7,7 +7,7 @@ import './style.scss';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import logo from '../../../images/mandacaru.png';
+import logo from '../../../images/mandacaru2.jpg';
 import Mandacaru2Cores from '../../../images/capas/CAPA MODELO MANDACARU DUAS CORES.png';
 import Mandacaru1Cor from '../../../images/capas/CAPA MODELO MANDACARU UMA COR.png';
 

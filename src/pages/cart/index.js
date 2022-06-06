@@ -211,10 +211,13 @@ export default function Cart() {
             }
         }
 
-        if (pickup !== 'Retirada física') {
-            setDisplayAddressForms('flex');
-        } else {
+        if (
+            pickup === 'Retirada física' ||
+            pickup === 'Entrega por aplicativo'
+        ) {
             setDisplayAddressForms('none');
+        } else {
+            setDisplayAddressForms('flex');
         }
     }
 
@@ -876,9 +879,10 @@ export default function Cart() {
                                                     Selecione como deseja
                                                     receber sua encomenda
                                                 </option>
-                                                <option value='Entrega a domicílio'>
-                                                    Entrega a domicílio (Para
-                                                    toda São Luís - MA)
+                                                <option value='Entrega por aplicativo'>
+                                                    Combinar entrega por
+                                                    aplicativo de viagem (Uber
+                                                    ou 99) com a Cactus
                                                 </option>
                                                 <option value='Impresso módico ou Carta registrada'>
                                                     Impresso módico ou Carta
@@ -902,9 +906,10 @@ export default function Cart() {
                                                     Selecione como deseja
                                                     receber sua encomenda
                                                 </option>
-                                                <option value='Entrega a domicílio'>
-                                                    Entrega a domicílio (Para
-                                                    toda São Luís - MA)
+                                                <option value='Entrega por aplicativo'>
+                                                    Combinar entrega por
+                                                    aplicativo de viagem (Uber
+                                                    ou 99) com a Cactus
                                                 </option>
                                                 <option value='Frete por transportadora'>
                                                     Entrega por transportadora

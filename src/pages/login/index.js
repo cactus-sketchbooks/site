@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 
 import './style.scss';
 
-import logo from '../../images/cactopng2.png';
+import logo from '../../images/logoCactus2.png';
 import sapo from '../../images/sapofoto.png';
 import garota from '../../images/garota.jpg';
 import olhos from '../../images/olhos.jpg';

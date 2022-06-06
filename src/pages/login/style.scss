@@ -46,7 +46,7 @@ h1, h2, h3, h4, p {
 
             img {
 
-                width: 70px;
+                width: 35px;
                 object-fit: cover;
 
             }
@@ -204,18 +204,19 @@ h1, h2, h3, h4, p {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                width: 25%;
-                height: 25%;
+                width: 120px;
+                height: 120px;
+                background-color: $light-orange;
+                border-radius: 100%;
     
                 position: static;
     
                 img {
     
-                    width: 120px;
-                    border-radius: 100px;
-                    background-color: $light-orange;
+                    width: 60px;
                     padding: 5px;
                     object-fit: cover;
+                    margin: 15px 0 0 0;
     
                 }
     
