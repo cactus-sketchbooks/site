@@ -1002,6 +1002,16 @@ export default function Requests() {
                                                   </button>
                                               </div>
 
+                                            <div className='trackingCode'>
+                                                <input
+                                                      placeholder='Código de Rastreio'
+                                                />
+                                                
+                                                <button>
+                                                    Enviar código de rastreio
+                                                </button>
+                                            </div>
+
                                               <div className='clientMessage'>
                                                   <input
                                                       placeholder='Recado para cliente'
