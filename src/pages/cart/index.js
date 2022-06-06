@@ -746,12 +746,47 @@ export default function Cart() {
                                                 )}
 
                                                 {product.paper ? (
-                                                    <li>
-                                                        <strong>
-                                                            Papel do miolo:
-                                                        </strong>{' '}
-                                                        {product.paper}
-                                                    </li>
+                                                    typeof product.paper ===
+                                                    'string' ? (
+                                                        <li>
+                                                            <b>
+                                                                Papel do miolo:
+                                                            </b>{' '}
+                                                            {product.paper}
+                                                        </li>
+                                                    ) : (
+                                                        <li>
+                                                            <strong>
+                                                                Papel do miolo:
+                                                            </strong>{' '}
+                                                            {product.paper.map(
+                                                                (
+                                                                    papel,
+                                                                    index
+                                                                ) => {
+                                                                    return (
+                                                                        <p>
+                                                                            {index +
+                                                                                1}{' '}
+                                                                            -{' '}
+                                                                            <strong>
+                                                                                {
+                                                                                    papel.quantidade
+                                                                                }
+                                                                            </strong>{' '}
+                                                                            bloco(s)
+                                                                            de{' '}
+                                                                            <strong>
+                                                                                {
+                                                                                    papel.nomePapel
+                                                                                }
+                                                                            </strong>
+                                                                        </p>
+                                                                    );
+                                                                }
+                                                            )}
+                                                        </li>
+                                                    )
                                                 ) : (
                                                     ''
                                                 )}
@@ -810,6 +845,16 @@ export default function Cart() {
                                                             Cor do espiral:
                                                         </strong>{' '}
                                                         {product.spiralColor}
+                                                    </li>
+                                                ) : (
+                                                    ''
+                                                )}
+                                                {product.sketchFinish ? (
+                                                    <li>
+                                                        <strong>
+                                                            Tipo de Acabamento:
+                                                        </strong>{' '}
+                                                        {product.sketchFinish}
                                                     </li>
                                                 ) : (
                                                     ''
@@ -1547,16 +1592,51 @@ export default function Cart() {
                                                       )}
 
                                                       {product.paper ? (
-                                                          <li>
-                                                              <b>
-                                                                  Papel do miolo
-                                                              </b>
-                                                              <span>
+                                                          typeof product.paper ===
+                                                          'string' ? (
+                                                              <li>
+                                                                  <b>
+                                                                      Papel do
+                                                                      miolo:
+                                                                  </b>{' '}
                                                                   {
                                                                       product.paper
                                                                   }
-                                                              </span>
-                                                          </li>
+                                                              </li>
+                                                          ) : (
+                                                              <li>
+                                                                  <strong>
+                                                                      Papel do
+                                                                      miolo:
+                                                                  </strong>{' '}
+                                                                  {product.paper.map(
+                                                                      (
+                                                                          papel,
+                                                                          index
+                                                                      ) => {
+                                                                          return (
+                                                                              <p>
+                                                                                  {index +
+                                                                                      1}{' '}
+                                                                                  -{' '}
+                                                                                  <strong>
+                                                                                      {
+                                                                                          papel.quantidade
+                                                                                      }
+                                                                                  </strong>{' '}
+                                                                                  bloco(s)
+                                                                                  de{' '}
+                                                                                  <strong>
+                                                                                      {
+                                                                                          papel.nomePapel
+                                                                                      }
+                                                                                  </strong>
+                                                                              </p>
+                                                                          );
+                                                                      }
+                                                                  )}
+                                                              </li>
+                                                          )
                                                       ) : (
                                                           ''
                                                       )}
@@ -1630,6 +1710,21 @@ export default function Cart() {
                                                               <span>
                                                                   {
                                                                       product.spiralColor
+                                                                  }
+                                                              </span>
+                                                          </li>
+                                                      ) : (
+                                                          ''
+                                                      )}
+                                                      {product.sketchFinish ? (
+                                                          <li>
+                                                              <b>
+                                                                  Tipo de
+                                                                  Acabamento:
+                                                              </b>
+                                                              <span>
+                                                                  {
+                                                                      product.sketchFinish
                                                                   }
                                                               </span>
                                                           </li>

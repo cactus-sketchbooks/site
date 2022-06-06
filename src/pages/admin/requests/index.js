@@ -514,13 +514,56 @@ export default function Requests() {
                                                       </li>
                                                   )}
 
+                                                  {/* Aqui tem 2 conferencias primeiro se existe, e depois  se o paper é uma string
+                                                isso é feito pq no inicio o paper (como só tinha 1 tipo de papel) era uma string
+                                                agora, o paper é um array de objetos, contendo o nome do papel e a quantidade de cada um escolhido
+                                                Por isso que se nao for uma string (um pedido feito depois da adicao da combinacao de papeis ou
+                                                um sketch que continua so podendo um tipo de papel, como o Sertao), ele mostra cada um dos tipos do papeis 
+                                                que estao no array de objetos salvo*/}
                                                   {product.paper ? (
-                                                      <li className='productData'>
-                                                          <span>
-                                                              Papel do miolo:{' '}
-                                                          </span>
-                                                          <b>{product.paper}</b>
-                                                      </li>
+                                                      typeof product.paper ===
+                                                      'string' ? (
+                                                          <li>
+                                                              <b>
+                                                                  Papel do
+                                                                  miolo:
+                                                              </b>{' '}
+                                                              {product.paper}
+                                                          </li>
+                                                      ) : (
+                                                          <li>
+                                                              <b>
+                                                                  Papel do
+                                                                  miolo:
+                                                              </b>{' '}
+                                                              {product.paper.map(
+                                                                  (
+                                                                      papel,
+                                                                      index
+                                                                  ) => {
+                                                                      return (
+                                                                          <p>
+                                                                              {index +
+                                                                                  1}{' '}
+                                                                              -{' '}
+                                                                              <strong>
+                                                                                  {
+                                                                                      papel.quantidade
+                                                                                  }
+                                                                              </strong>{' '}
+                                                                              bloco(s)
+                                                                              de{' '}
+                                                                              <strong>
+                                                                                  {
+                                                                                      papel.nomePapel
+                                                                                  }
+                                                                              </strong>
+                                                                          </p>
+                                                                      );
+                                                                  }
+                                                              )}
+                                                          </li>
+                                                      )
                                                   ) : (
                                                       ''
                                                   )}
@@ -589,6 +632,21 @@ export default function Requests() {
                                                           <b>
                                                               {
                                                                   product.spiralColor
+                                                              }
+                                                          </b>
+                                                      </li>
+                                                  ) : (
+                                                      ''
+                                                  )}
+                                                  {product.sketchFinish ? (
+                                                      <li className='productData'>
+                                                          <span>
+                                                              Tipo de
+                                                              Acabamento:{' '}
+                                                          </span>
+                                                          <b>
+                                                              {
+                                                                  product.sketchFinish
                                                               }
                                                           </b>
                                                       </li>
