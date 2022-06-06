@@ -26,10 +26,12 @@ export default function Buriti() {
     const [checkedBoxes, setCheckedBoxes] = useState(0);
     const [selectedModel, setSelectedModel] = useState('');
     const [selectedElasticColor, setSelectedElasticColor] = useState('');
+    const [selectedSketchFinish, setSelectedSketchFinish] = useState('');
     const [clientNote, setClientNote] = useState('');
     const [displayModal, setDisplayModal] = useState('none');
     const [maxSlides, setMaxSlides] = useState(5);
     const [displayDimensionForms, setDisplayDimensionForms] = useState('none');
+    const [currentStep, setCurrentStep] = useState(1);
 
     const [userDimensions, setUserDimensions] = useState({
         width: '',
@@ -181,6 +183,7 @@ export default function Buriti() {
             kindleModel: selectedModel.name,
             value: selectedModel.value,
             elasticColor: selectedElasticColor,
+            sketchFinish: selectedSketchFinish,
             coverColors: selectedColors,
             clientNote: clientNote,
             size:
@@ -247,6 +250,7 @@ export default function Buriti() {
         if (
             selectedModel === '' ||
             selectedElasticColor === '' ||
+            selectedSketchFinish === '' ||
             checkedBoxes > 1 ||
             checkedBoxes === 0
         ) {
@@ -254,10 +258,19 @@ export default function Buriti() {
         } else {
             setIsValidated(true);
         }
-    }, [selectedModel, selectedElasticColor, checkedBoxes]);
+    }, [
+        selectedModel,
+        selectedElasticColor,
+        checkedBoxes,
+        selectedSketchFinish,
+    ]);
 
     function handleSelectedElasticColor(item, event) {
         setSelectedElasticColor(event);
+    }
+
+    function handleSelectedSketchFinish(event) {
+        setSelectedSketchFinish(event.target.value);
     }
 
     function handleClientNote(event) {
@@ -268,6 +281,157 @@ export default function Buriti() {
         if (displayModal === 'none') setDisplayModal('flex');
         else {
             setDisplayModal('none');
+        }
+    }
+
+    function handleNextStep() {
+        if (currentStep <= 4) {
+            setCurrentStep(currentStep + 1);
+        }
+    }
+    function handlePreviousStep() {
+        if (currentStep >= 2) {
+            setCurrentStep(currentStep - 1);
+        }
+    }
+    useEffect(() => {
+        updateStepIndicator(currentStep);
+        updateStepChoices(currentStep);
+    }, [currentStep]);
+
+    function updateStepIndicator(currentStep) {
+        const stepsTitles = document.querySelectorAll('.stepTitle');
+
+        switch (currentStep) {
+            case 1:
+                //Para ter certeza que somente o primeiro indicador de passo está pintado com a cor de ativo
+                stepsTitles.forEach(function (step) {
+                    step.classList.remove('active-step');
+                });
+                document
+                    .querySelector('.stepTitle:nth-child(1)')
+                    .classList.add('active-step');
+
+                // esconde o botao de voltar se estiver no primeiro passo
+                document.querySelector('.btn.previous').classList.add('hide');
+                break;
+            case 2:
+                // mostra novamente o botao de voltar neste passo
+                document
+                    .querySelector('.btn.previous')
+                    .classList.remove('hide');
+
+                //mostra o segundo como ativo e tira a cor de ativo do primeiro
+                document
+                    .querySelector('.stepTitle:nth-child(2)')
+                    .classList.add('active-step');
+                document
+                    .querySelector('.stepTitle:nth-child(1)')
+                    .classList.remove('active-step');
+                document
+                    .querySelector('.stepTitle:nth-child(3)')
+                    .classList.remove('active-step');
+                break;
+            case 3:
+                //mostra o terceiro como ativo e tira a cor de ativo do segundo e quarto
+                document
+                    .querySelector('.stepTitle:nth-child(3)')
+                    .classList.add('active-step');
+
+                document
+                    .querySelector('.stepTitle:nth-child(2)')
+                    .classList.remove('active-step');
+                document
+                    .querySelector('.stepTitle:nth-child(4)')
+                    .classList.remove('active-step');
+                break;
+            case 4:
+                //mostra o quarto como ativo e tira a cor de ativo do terceiro e quinto
+                document
+                    .querySelector('.stepTitle:nth-child(4)')
+                    .classList.add('active-step');
+
+                document
+                    .querySelector('.stepTitle:nth-child(3)')
+                    .classList.remove('active-step');
+                document
+                    .querySelector('.stepTitle:nth-child(5)')
+                    .classList.remove('active-step');
+
+                // volta a mostrar o botao de avancar caso o usuario vá ao ultimo passo e volte
+                document.querySelector('.btn.next').classList.remove('hide');
+                break;
+            case 5:
+                // esconde o botao de proxima pagina se estiver no ultimo passo (pq ja tem o de adicionar ao carrinho)
+                document.querySelector('.btn.next').classList.add('hide');
+
+                //mostra o quinto como ativo e tira a cor de ativo do quarto
+                document
+                    .querySelector('.stepTitle:nth-child(5)')
+                    .classList.add('active-step');
+
+                document
+                    .querySelector('.stepTitle:nth-child(4)')
+                    .classList.remove('active-step');
+                break;
+            default:
+        }
+    }
+
+    function updateStepChoices(currentStep) {
+        const steps = document.querySelectorAll('.steps');
+        switch (currentStep) {
+            case 1:
+                steps.forEach(function (step) {
+                    // esconde todas as outras divs
+                    step.classList.add('hide');
+                    if (step.classList.contains(`step${currentStep}`)) {
+                        // mostra a div do passo 1
+                        step.classList.remove('hide');
+                    }
+                });
+                break;
+            case 2:
+                steps.forEach(function (step) {
+                    // esconde todas as outras divs
+                    step.classList.add('hide');
+                    if (step.classList.contains(`step${currentStep}`)) {
+                        // mostra a div do passo 2
+                        step.classList.remove('hide');
+                    }
+                });
+                break;
+            case 3:
+                steps.forEach(function (step) {
+                    // esconde todas as outras divs
+                    step.classList.add('hide');
+                    if (step.classList.contains(`step${currentStep}`)) {
+                        // mostra a div do passo 3
+                        step.classList.remove('hide');
+                    }
+                });
+                break;
+            case 4:
+                steps.forEach(function (step) {
+                    // esconde todas as outras divs
+                    step.classList.add('hide');
+                    if (step.classList.contains(`step${currentStep}`)) {
+                        // mostra a div do passo 4
+                        step.classList.remove('hide');
+                    }
+                });
+                break;
+            case 5:
+                steps.forEach(function (step) {
+                    // esconde todas as outras divs
+                    step.classList.add('hide');
+                    if (step.classList.contains(`step${currentStep}`)) {
+                        // mostra a div do passo 5
+                        step.classList.remove('hide');
+                    }
+                });
+                break;
+            default:
         }
     }
 
@@ -302,250 +466,351 @@ export default function Buriti() {
                     </h5>
                 </div>
 
-                <fieldset>
-                    <label for='kindleModel'>Selecione o modelo</label>
-
-                    <select
-                        onChange={handleSelectedModel}
-                        className='kindleModel'
-                    >
-                        <option value='' selected disabled>
-                            Modelo do seu aparelho
-                        </option>
-
-                        {values.formats.map((format, index) => {
-                            return (
-                                <option value={index} key={index}>
-                                    {format.name}
-                                </option>
-                            );
-                        })}
-                    </select>
-
-                    <p>
-                        Veja as especificações dos modelos clicando{' '}
-                        <Link to='/gramaturas'>aqui</Link>
-                    </p>
-                </fieldset>
-
-                <fieldset
-                    className='userModel'
-                    style={{ display: displayDimensionForms }}
-                >
-                    <label for='userModel'>Insira as dimensões abaixo</label>
-
-                    <form className='userModel'>
-                        <input
-                            id='width'
-                            name='width'
-                            type='number'
-                            onChange={handleInputDimensionsChange}
-                            placeholder='Largura'
-                        />
-                        <input
-                            id='length'
-                            name='length'
-                            type='number'
-                            onChange={handleInputDimensionsChange}
-                            placeholder='Comprimento'
-                        />
-                        <input
-                            id='height'
-                            name='height'
-                            type='number'
-                            onChange={handleInputDimensionsChange}
-                            placeholder='Altura'
-                        />
-                    </form>
-                </fieldset>
-
-                <div className='textWrapper'>
-                    <div className='textBackground'>
-                        <h2>Cor da capa</h2>
+                <div id='steps-indicator'>
+                    <div className='stepTitle title1 active-step'>
+                        <h3>Etapa 1</h3>
                     </div>
-
-                    <p>
-                        Selecione <strong>uma</strong> cor. Arraste para o lado
-                        para conferir todas as opções.
-                    </p>
+                    <div className='stepTitle title2'>
+                        <h3>Etapa 2</h3>
+                    </div>
+                    <div className='stepTitle title3'>
+                        <h3>Etapa 3</h3>
+                    </div>
+                    <div className='stepTitle title4'>
+                        <h3>Etapa 4</h3>
+                    </div>
+                    <div className='stepTitle title5'>
+                        <h3>Resumo do Pedido</h3>
+                    </div>
                 </div>
 
-                <div className='sliderColors'>
-                    <Slider {...settings}>
-                        {dataColors.map((item, index) =>
-                            item.models.includes('buriti') &&
-                            item.categories.includes('cover') ? (
-                                <div className='cardColor'>
-                                    <label
-                                        for={index}
-                                        onClick={(event) => changeColor(event)}
-                                    />
+                <div className='steps step1 full '>
+                    <div className='textWrapper'>
+                        <div className='textBackground'>
+                            <h2>Modelo do Dispositivo</h2>
+                        </div>
+                    </div>
+                    <fieldset>
+                        <label htmlFor='kindleModel'>Selecione o modelo</label>
 
-                                    {item.image ? (
-                                        <div key={item.id} className='colorBox'>
-                                            <img
-                                                draggable='false'
-                                                src={item.image}
-                                                alt='cor'
-                                            />
-                                        </div>
-                                    ) : (
-                                        <div
-                                            key={item.id}
-                                            style={{
-                                                backgroundColor: item.colorCode,
-                                            }}
-                                            className='colorBox'
-                                        >
-                                            <p>{item.colorCode}</p>
-                                        </div>
-                                    )}
+                        <select
+                            onChange={handleSelectedModel}
+                            className='kindleModel'
+                            defaultValue='0'
+                        >
+                            <option value='0' disabled>
+                                Modelo do seu aparelho
+                            </option>
 
-                                    <div className='colorName'>
-                                        <p>{item.colorName}</p>
+                            {values.formats.map((format, index) => {
+                                return (
+                                    <option value={index} key={index}>
+                                        {format.name}
+                                    </option>
+                                );
+                            })}
+                        </select>
+                    </fieldset>
 
-                                        <input
-                                            type='checkbox'
-                                            value={index}
-                                            id={index}
-                                            onChange={(event) =>
-                                                checkColor(item, event)
-                                            }
-                                            style={{
-                                                accentColor: item.colorCode,
-                                            }}
-                                        />
-                                    </div>
-                                </div>
-                            ) : null
-                        )}
-                    </Slider>
+                    <fieldset
+                        className='userModel'
+                        style={{ display: displayDimensionForms }}
+                    >
+                        <label htmlFor='userModel'>
+                            Insira as dimensões abaixo
+                        </label>
+
+                        <form className='userModel'>
+                            <input
+                                id='width'
+                                name='width'
+                                type='number'
+                                onChange={handleInputDimensionsChange}
+                                placeholder='Largura'
+                            />
+                            <input
+                                id='length'
+                                name='length'
+                                type='number'
+                                onChange={handleInputDimensionsChange}
+                                placeholder='Comprimento'
+                            />
+                            <input
+                                id='height'
+                                name='height'
+                                type='number'
+                                onChange={handleInputDimensionsChange}
+                                placeholder='Altura'
+                            />
+                        </form>
+                    </fieldset>
                 </div>
 
-                <section id='RadioSelectionColors'>
-                    <div className='boxColor'>
-                        <div className='textWrapper'>
-                            <div className='textBackground'>
-                                <h2>Cor do elástico</h2>
-                            </div>
-
-                            <p>
-                                Selecione <strong>uma</strong> cor
-                            </p>
+                {/*aparentemente o passo 2 não precisa do width: 100%  (classe full)*/}
+                <div className='steps step2 hide'>
+                    <div className='textWrapper'>
+                        <div className='textBackground'>
+                            <h2>Cor da capa</h2>
                         </div>
 
-                        <div className='elasticColorWrapper'>
+                        <p>
+                            Selecione <strong>uma</strong> cor. Arraste para o
+                            lado para conferir todas as opções.
+                        </p>
+                    </div>
+
+                    <div className='sliderColors'>
+                        <Slider {...settings}>
                             {dataColors.map((item, index) =>
                                 item.models.includes('buriti') &&
-                                item.categories.includes('elastic') ? (
-                                    <div className='colorWrapper'>
+                                item.categories.includes('cover') ? (
+                                    <div className='cardColor' key={index}>
+                                        <label
+                                            htmlFor={index}
+                                            onClick={(event) =>
+                                                changeColor(event)
+                                            }
+                                        />
+
                                         {item.image ? (
-                                            <div className='elasticColor'>
+                                            <div
+                                                key={item.id}
+                                                className='colorBox'
+                                            >
                                                 <img
+                                                    draggable='false'
                                                     src={item.image}
-                                                    alt='cor do elástico'
+                                                    alt='cor'
                                                 />
                                             </div>
                                         ) : (
                                             <div
+                                                key={item.id}
                                                 style={{
                                                     backgroundColor:
                                                         item.colorCode,
                                                 }}
-                                                className='elasticColor'
-                                            />
+                                                className='colorBox'
+                                            >
+                                                <p>{item.colorCode}</p>
+                                            </div>
                                         )}
 
-                                        <input
-                                            type='radio'
-                                            onClick={(event) =>
-                                                handleSelectedElasticColor(
-                                                    event,
-                                                    item,
-                                                    index
-                                                )
-                                            }
-                                            name='selectedElasticColor'
-                                            key={item.id}
-                                            value={item.name}
-                                            style={{
-                                                accentColor: item.colorCode,
-                                            }}
-                                        />
+                                        <div className='colorName'>
+                                            <p>{item.colorName}</p>
+
+                                            <input
+                                                type='checkbox'
+                                                value={index}
+                                                id={index}
+                                                onChange={(event) =>
+                                                    checkColor(item, event)
+                                                }
+                                                style={{
+                                                    accentColor: item.colorCode,
+                                                }}
+                                            />
+                                        </div>
                                     </div>
                                 ) : null
                             )}
+                        </Slider>
+                    </div>
+                </div>
+                {/*aparentemente o passo 3 tbm não precisa do width: 100%  */}
+                <div className='steps step3 hide'>
+                    <section id='RadioSelectionColors'>
+                        <div className='boxColor'>
+                            <div className='textWrapper'>
+                                <div className='textBackground'>
+                                    <h2>Cor do elástico</h2>
+                                </div>
+
+                                <p>
+                                    Selecione <strong>uma</strong> cor
+                                </p>
+                            </div>
+
+                            <div className='elasticColorWrapper'>
+                                {dataColors.map((item, index) =>
+                                    item.models.includes('buriti') &&
+                                    item.categories.includes('elastic') ? (
+                                        <div
+                                            className='colorWrapper'
+                                            key={index}
+                                        >
+                                            {item.image ? (
+                                                <div className='elasticColor'>
+                                                    <img
+                                                        src={item.image}
+                                                        alt='cor do elástico'
+                                                    />
+                                                </div>
+                                            ) : (
+                                                <div
+                                                    style={{
+                                                        backgroundColor:
+                                                            item.colorCode,
+                                                    }}
+                                                    className='elasticColor'
+                                                />
+                                            )}
+
+                                            <input
+                                                type='radio'
+                                                onClick={(event) =>
+                                                    handleSelectedElasticColor(
+                                                        event,
+                                                        item,
+                                                        index
+                                                    )
+                                                }
+                                                name='selectedElasticColor'
+                                                key={item.id}
+                                                value={item.name}
+                                                style={{
+                                                    accentColor: item.colorCode,
+                                                }}
+                                            />
+                                        </div>
+                                    ) : null
+                                )}
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div className='steps step4 full hide'>
+                    <div className='textWrapper'>
+                        <div className='textBackground'>
+                            <h2>Tipo de Acabamento</h2>
                         </div>
                     </div>
-                </section>
+                    {/* Inserir aqui a imagem de mostra dos tipos de acabamento */}
 
-                <div className='additionalInfos'>
-                    <label for='additionalInfos'>
-                        Informações adicionais <strong>(opcional)</strong>
-                    </label>
+                    <fieldset>
+                        <label htmlFor='SketchFinish'>
+                            Selecione o tipo de acabamento nas bordas
+                        </label>
 
-                    <textarea
-                        type='text'
-                        name='additionalInfos'
-                        id='additionalInfos'
-                        onChange={handleClientNote}
-                    />
+                        <select
+                            onChange={(event) =>
+                                handleSelectedSketchFinish(event)
+                            }
+                            className='SketchFinish'
+                            defaultValue='0'
+                        >
+                            <option value='0' disabled>
+                                Tipo de Acabamento
+                            </option>
+                            <option value='Reto'>Reto</option>
+                            <option value='Arredondado'>Arredondado</option>
+                        </select>
+                    </fieldset>
+                </div>
+                <div className='steps step5 full hide'>
+                    <div className='additionalInfos'>
+                        <label htmlFor='additionalInfos'>
+                            Informações adicionais <strong>(opcional)</strong>
+                        </label>
 
-                    {isValidated ? (
-                        <>
-                            <div className='productInfosWrapper'>
-                                <h1>Seu sketchbook</h1>
-
-                                <ul>
-                                    <li>
-                                        <strong>Modelo: </strong>
-                                        {selectedModel.name}
-                                    </li>
-
-                                    <li>
-                                        <strong>Cor da capa: </strong>
-                                        {selectedColors.map((color, index) => {
-                                            return (
-                                                <span key={index}>
-                                                    {(index ? ' + ' : '') +
-                                                        color.name}
-                                                </span>
-                                            );
-                                        })}
-                                    </li>
-
-                                    <li>
-                                        <strong>Cor do elástico: </strong>
-                                        {selectedElasticColor.colorName}
-                                    </li>
-                                </ul>
-
-                                {selectedModel.name === 'iPad/Tablet' ? (
-                                    <h3>
-                                        Realize o pedido e aguarde o retorno da
-                                        Cactus
-                                    </h3>
-                                ) : (
-                                    <h3>
-                                        Valor do sketchbook: R${' '}
-                                        {selectedModel.value}
-                                    </h3>
-                                )}
-
-                                <button onClick={() => addToCart()}>
-                                    Adicionar ao carrinho
-                                </button>
-                            </div>
-                        </>
-                    ) : (
-                        <>
+                        {selectedModel.name === 'iPad/Tablet' ? (
                             <p>
-                                Você deve selecionar{' '}
-                                <strong>todas as opções</strong> antes de
-                                finalizar seu sketchbook
+                                Se preferir, conte-nos aqui em baixo o modelo do
+                                seu iPad/Tablet
                             </p>
-                        </>
-                    )}
+                        ) : (
+                            ''
+                        )}
+
+                        <textarea
+                            type='text'
+                            name='additionalInfos'
+                            id='additionalInfos'
+                            onChange={handleClientNote}
+                        />
+
+                        {isValidated ? (
+                            <>
+                                <div className='productInfosWrapper'>
+                                    <h1>Seu sketchbook</h1>
+
+                                    <ul>
+                                        <li>
+                                            <strong>Modelo: </strong>
+                                            {selectedModel.name}
+                                        </li>
+
+                                        <li>
+                                            <strong>Cor da capa: </strong>
+                                            {selectedColors.map(
+                                                (color, index) => {
+                                                    return (
+                                                        <span key={index}>
+                                                            {(index
+                                                                ? ' + '
+                                                                : '') +
+                                                                color.name}
+                                                        </span>
+                                                    );
+                                                }
+                                            )}
+                                        </li>
+
+                                        <li>
+                                            <strong>Cor do elástico: </strong>
+                                            {selectedElasticColor.colorName}
+                                        </li>
+                                        <li>
+                                            <strong>
+                                                Tipo de Acabamento:{' '}
+                                            </strong>
+                                            {selectedSketchFinish}
+                                        </li>
+                                    </ul>
+
+                                    {selectedModel.name === 'iPad/Tablet' ? (
+                                        <h3>
+                                            Realize o pedido e aguarde o retorno
+                                            da Cactus
+                                        </h3>
+                                    ) : (
+                                        <h3>
+                                            Valor do sketchbook: R${' '}
+                                            {selectedModel.value}
+                                        </h3>
+                                    )}
+
+                                    <button onClick={() => addToCart()}>
+                                        Adicionar ao carrinho
+                                    </button>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <p>
+                                    Você deve selecionar{' '}
+                                    <strong>todas as opções</strong> antes de
+                                    finalizar seu sketchbook
+                                </p>
+                            </>
+                        )}
+                    </div>
+                </div>
+
+                <div id='btns'>
+                    <button
+                        className='btn previous hide'
+                        onClick={(e) => handlePreviousStep()}
+                    >
+                        Etapa Anterior
+                    </button>
+                    <button
+                        className='btn next'
+                        onClick={(e) => handleNextStep()}
+                    >
+                        Próxima Etapa
+                    </button>
                 </div>
             </section>
 
