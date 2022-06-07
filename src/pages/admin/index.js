@@ -92,7 +92,7 @@ export default function Admin() {
                     <ul>
                         <Link to='/listaDeClientes'>Lista de clientes</Link>
                         <Link to='/gerenciarCores'>Gerenciar cores</Link>
-                        <Link to='/cadastrarProduto'>Cadastro de produto</Link>
+                        <Link to='/gerenciarProdutos'>Gerenciar produtos</Link>
                         {/* <Link to="/gerenciarTipos">Gerenciar tipos</Link> */}
                         <Link to='/pedidos'> Pedidos em andamento</Link>
                         {/* <Link to="">Alterar conteúdo das páginas</Link> */}

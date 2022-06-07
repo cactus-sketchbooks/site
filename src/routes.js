@@ -62,7 +62,7 @@ const Routes = () => {
             <Route component={DataChange} path='/alterarDados' />
             <Route component={Privacy} path='/politicaDePrivacidade' />
             <Route component={Terms} path='/termosDeUso' />
-            <Route component={RegisterProducts} path='/cadastrarProduto' />
+            <Route component={RegisterProducts} path='/gerenciarProdutos' />
             <Route component={Products} path='/produtos' />
         </BrowserRouter>
     );

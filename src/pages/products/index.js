@@ -1,6 +1,6 @@
 import { React } from 'react';
 import { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 import Header from '../../components/header';
 import Footer from '../../components/footer';
@@ -73,8 +73,14 @@ export default function Products() {
             <Header />
 
             <body>
+
                 <section id='searchSection'>
-                    <h4>Pesquisar produto</h4>
+
+                    <h1>Nossos Produtos</h1>
+
+                    <span>Atenção! Essa é uma seção de produtos pronta-entrega, se você deseja um Cactus personalizado do seu jeito basta acessar a <Link to="/">página inicial</Link> e montar um Cactus que mais combina com você!</span>
+
+                    <h3>Pesquisar produto</h3>
 
                     <div className='search'>
                         <input
@@ -83,6 +89,7 @@ export default function Products() {
                             onKeyDown={handleSearchInput}
                         />
                     </div>
+
                 </section>
 
                 <section id='productsSection'>
@@ -99,7 +106,7 @@ export default function Products() {
 
                                     <div className='productInfos'>
                                         <h2>{product.productName}</h2>
-                                        <h4>{product.description}</h4>
+                                        <span>{product.description}</span>
                                         <h2>R$ {product.value}</h2>
                                     </div>
                                 </div>
