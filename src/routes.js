@@ -24,6 +24,7 @@ import CreateColor from './pages/admin/createColor';
 // import CreateTypes from './pages/admin/createTypes'
 import Requests from './pages/admin/requests';
 import RegisterProducts from './pages/admin/registerProduct';
+import Products from './pages/products';
 import UserRequests from './pages/userRequests';
 import ForgotPassword from './pages/forgotPassword';
 import Grammage from './pages/grammage';
@@ -62,6 +63,7 @@ const Routes = () => {
             <Route component={Privacy} path='/politicaDePrivacidade' />
             <Route component={Terms} path='/termosDeUso' />
             <Route component={RegisterProducts} path='/cadastrarProduto' />
+            <Route component={Products} path='/produtos' />
         </BrowserRouter>
     );
 };

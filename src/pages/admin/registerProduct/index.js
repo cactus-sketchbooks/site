@@ -16,6 +16,7 @@ export default function RegisterProduct() {
     const [selectedModel, setSelectedModel] = useState('');
     const [selectedPaperWidth, setSelectedPaperWidth] = useState('');
     const [selectedSpiralColor, setSelectedSpiralColor] = useState('');
+    const [selectedBorderType, setSelectedBorderType] = useState('');
     const [imageUrl, setImageUrl] = useState('');
     const [dataColors, setDataColors] = useState([]);
 
@@ -26,11 +27,11 @@ export default function RegisterProduct() {
         model: '',
         paperWidth: '',
         paper: '',
-        principalCoverColor: '',
-        secondaryCoverColor: '',
+        coverColors: ['', ''],
         lineColor: '',
         elasticColor: '',
         spiralColor: '',
+        borderType: '',
         size: {},
         value: 0,
         stock: '',
@@ -76,6 +77,10 @@ export default function RegisterProduct() {
         setSelectedSpiralColor(event.target.value);
     }
 
+    function handleSelectedBorderType(event) {
+        setSelectedBorderType(event.target.value);
+    }
+
     function handleInputProductsChange(event) {
         const { name, value } = event.target;
 
@@ -108,25 +113,55 @@ export default function RegisterProduct() {
     }
 
     function registerProduct() {
+        const id = firebase.database().ref().child('products').push().key;
+
         const productData = {
-            // id: id,
+            id: id,
             productName: sketchbookData.productName,
             description: sketchbookData.description,
             model: selectedModel,
             paperWidth: selectedPaperWidth,
             paper: sketchbookData.paper,
-            principalCoverColor: sketchbookData.principalCoverColor,
-            secondaryCoverColor: sketchbookData.secondaryCoverColor,
+            coverColors: [
+                sketchbookData.principalCoverColor ? sketchbookData.principalCoverColor : '',
+                sketchbookData.secondaryCoverColor ? sketchbookData.secondaryCoverColor : ''
+            ],
             lineColor: sketchbookData.lineColor,
             elasticColor: sketchbookData.elasticColor,
             spiralColor: selectedSpiralColor,
+            borderType: selectedBorderType,
             size: productSize,
             value: sketchbookData.value,
             stock: sketchbookData.stock,
             productImage: imageUrl,
         };
 
-        console.log(productData);
+        firebase
+            .database()
+            .ref('products/' + id)
+            .set(productData)
+            .then((err) => console.log(err));
+
+        setSketchbookData({
+            id: '',
+            productName: '',
+            description: '',
+            model: '',
+            paperWidth: '',
+            paper: '',
+            coverColors: [],
+            lineColor: '',
+            elasticColor: '',
+            spiralColor: '',
+            size: {},
+            value: 0,
+            stock: '',
+            productImage: '',
+        });
+
+        alert('Item inserido com sucesso!');
+        window.location.reload();
+        
     }
 
     return (
@@ -136,7 +171,7 @@ export default function RegisterProduct() {
             <section id='optionSection'>
                 <div className='selectProductType'>
                     <h1>Cadastrar um produto</h1>
-                    
+
                     <label htmlFor='selectProductType'>Tipo de produto</label>
                     <select
                         name='selectProductType'
@@ -169,7 +204,9 @@ export default function RegisterProduct() {
                             onChange={handleInputProductsChange}
                         />
 
-                        <label htmlFor='description'>Descrição do produto</label>
+                        <label htmlFor='description'>
+                            Descrição do produto
+                        </label>
                         <input
                             type='text'
                             name='description'
@@ -178,7 +215,9 @@ export default function RegisterProduct() {
                             onChange={handleInputProductsChange}
                         />
 
-                        <label htmlFor='selectModel'>Modelo do sketchbook</label>
+                        <label htmlFor='selectModel'>
+                            Modelo do sketchbook
+                        </label>
                         <select
                             name='selectModel'
                             id='selectModel'
@@ -200,7 +239,9 @@ export default function RegisterProduct() {
                             </option>
                         </select>
 
-                        <label htmlFor='selectPaperWidth'>Tamanho do papel</label>
+                        <label htmlFor='selectPaperWidth'>
+                            Tamanho do papel
+                        </label>
                         <select
                             name='selectPaperWidth'
                             id='selectPaperWidth'
@@ -222,7 +263,9 @@ export default function RegisterProduct() {
                         </select>
 
                         <fieldset>
-                            <label htmlFor='paperOptionId'>Papel do miolo</label>
+                            <label htmlFor='paperOptionId'>
+                                Papel do miolo
+                            </label>
                             <input
                                 type='text'
                                 list='paperOption'
@@ -274,7 +317,26 @@ export default function RegisterProduct() {
                         </fieldset>
 
                         <fieldset>
-                            <label htmlFor='principalCoverColorOptionId'>Cor de capa principal</label>
+                            <label htmlFor='borderType'>
+                                Tipo da borda
+                            </label>
+
+                            <select
+                                onChange={handleSelectedBorderType}
+                                id='borderType'
+                            >
+                                <option value='' selected disabled>
+                                    Tipo da borda
+                                </option>
+                                <option value='Quadrada'>Quadrada</option>
+                                <option value='Arredondada'>Arredondada</option>
+                            </select>
+                        </fieldset>
+
+                        <fieldset>
+                            <label htmlFor='principalCoverColorOptionId'>
+                                Cor de capa principal
+                            </label>
                             <input
                                 type='text'
                                 list='principalCoverColorOption'
@@ -295,7 +357,9 @@ export default function RegisterProduct() {
                         </fieldset>
 
                         <fieldset>
-                            <label htmlFor='secondaryCoverColorOptionId'>Cor de capa secundária (caso tenha)</label>
+                            <label htmlFor='secondaryCoverColorOptionId'>
+                                Cor de capa secundária (caso tenha)
+                            </label>
                             <input
                                 type='text'
                                 list='secondaryCoverColorOption'
@@ -316,7 +380,9 @@ export default function RegisterProduct() {
                         </fieldset>
 
                         <fieldset>
-                            <label htmlFor='lineColorOptionsId'>Cor da linha (caso tenha)</label>
+                            <label htmlFor='lineColorOptionsId'>
+                                Cor da linha (caso tenha)
+                            </label>
                             <input
                                 type='text'
                                 list='lineColorOptions'
@@ -335,7 +401,9 @@ export default function RegisterProduct() {
                         </fieldset>
 
                         <fieldset>
-                        <label htmlFor='spiralColor'>Cor da espiral (caso tenha)</label>
+                            <label htmlFor='spiralColor'>
+                                Cor da espiral (caso tenha)
+                            </label>
 
                             <select
                                 onChange={handleSelectedSpiralColor}
@@ -350,7 +418,9 @@ export default function RegisterProduct() {
                         </fieldset>
 
                         <fieldset>
-                            <label htmlFor='elasticColorOptionsId'>Cor do elástico (caso tenha)</label>
+                            <label htmlFor='elasticColorOptionsId'>
+                                Cor do elástico (caso tenha)
+                            </label>
                             <input
                                 type='text'
                                 list='elasticColorOptions'
@@ -389,7 +459,9 @@ export default function RegisterProduct() {
                                 placeholder='Largura'
                             />
 
-                            <label htmlFor='length'>Comprimento do produto</label>
+                            <label htmlFor='length'>
+                                Comprimento do produto
+                            </label>
                             <input
                                 id='length'
                                 name='length'
@@ -407,7 +479,7 @@ export default function RegisterProduct() {
                                 placeholder='Altura'
                             />
                         </fieldset>
-                        
+
                         <label htmlFor='value'>Preço do produto</label>
                         <input
                             id='value'
