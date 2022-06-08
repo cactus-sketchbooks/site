@@ -243,10 +243,11 @@ $amarelo: #ffff00;
         }
 
         .sliderColors {
+            margin: auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 90vw;
+            width: 85vw;
             height: 20vw;
 
             button {
