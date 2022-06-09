@@ -309,18 +309,18 @@ export default function Buriti() {
             }
 
             // mostra e esconde os botoes de avancar ou retroceder se estivar na primeira ou ultima pagina
-            if (currentStep == 1) {
+            if (currentStep === 1) {
                 // esconde o botao de voltar se estiver no primeiro passo
                 document.querySelector('.btn.previous').classList.add('hide');
-            } else if (currentStep == 2) {
+            } else if (currentStep === 2) {
                 // mostra novamente o botao de voltar neste passo
                 document
                     .querySelector('.btn.previous')
                     .classList.remove('hide');
-            } else if (currentStep == 4) {
+            } else if (currentStep === 4) {
                 // volta a mostrar o botao de avancar caso o usuario vá ao ultimo passo e volte
                 document.querySelector('.btn.next').classList.remove('hide');
-            } else if (currentStep == 5) {
+            } else if (currentStep === 5) {
                 // esconde o botao de proxima pagina se estiver no ultimo passo (pq ja tem o de adicionar ao carrinho)
                 document.querySelector('.btn.next').classList.add('hide');
             }
