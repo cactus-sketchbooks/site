@@ -1004,18 +1004,18 @@ export default function Facheiro() {
             }
 
             // mostra e esconde os botoes de avancar ou retroceder se estivar na primeira ou ultima pagina
-            if (currentStep == 1) {
+            if (currentStep === 1) {
                 // esconde o botao de voltar se estiver no primeiro passo
                 document.querySelector('.btn.previous').classList.add('hide');
-            } else if (currentStep == 2) {
+            } else if (currentStep === 2) {
                 // mostra novamente o botao de voltar neste passo
                 document
                     .querySelector('.btn.previous')
                     .classList.remove('hide');
-            } else if (currentStep == 6) {
+            } else if (currentStep === 6) {
                 // volta a mostrar o botao de avancar caso o usuario vá ao ultimo passo e volte
                 document.querySelector('.btn.next').classList.remove('hide');
-            } else if (currentStep == 7) {
+            } else if (currentStep === 7) {
                 // esconde o botao de proxima pagina se estiver no ultimo passo (pq ja tem o de adicionar ao carrinho)
                 document.querySelector('.btn.next').classList.add('hide');
             }
@@ -1145,7 +1145,7 @@ export default function Facheiro() {
 
                     <fieldset>
                         <label htmlFor='paper'>
-                            Selecione a quantidade de Papeis Diferentes no Miolo
+                            Selecione a quantidade de Papéis Diferentes no Miolo
                             do Sketch
                         </label>
                         <select
@@ -1154,7 +1154,7 @@ export default function Facheiro() {
                             defaultValue='0'
                         >
                             <option value='0' disabled>
-                                Quantidade de Papeis Diferentes
+                                Quantidade de Papéis Diferentes
                             </option>
                             <option value='1'>1</option>
                             <option value='2'>2</option>
@@ -1187,7 +1187,7 @@ export default function Facheiro() {
                         )}
 
                         {/* so mostra os avisos se a pessoa escolher a quantidade de papeis diferentes, pra deixar o visual mais limpo */}
-                        {selectedDifferentPapersQuantity == 0 ? (
+                        {selectedDifferentPapersQuantity === 0 ? (
                             ''
                         ) : (
                             <>

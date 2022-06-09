@@ -348,7 +348,7 @@ $amarelo: #ffff00;
             }
         }
 
-        #RadioSelectionColors {
+        #RadioSelectionColors, #RadioSelectionLineColor {
             display: flex;
             width: 100%;
             margin-bottom: 0.5rem;
@@ -366,7 +366,7 @@ $amarelo: #ffff00;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    width: 30vw;
+                    width: 40vw;
                     flex-wrap: wrap;
                     background-color: $offWhite;
                     border-radius: 8px;
@@ -517,6 +517,7 @@ $amarelo: #ffff00;
             padding: 10px 20px;
             border-radius: 10px;
             background: $orange;
+            color: $offBlack;
         }
 
         .active-step {
@@ -587,7 +588,7 @@ $amarelo: #ffff00;
             text-align: center;
 
             select {
-                width: 60%;
+                width: 70%;
             }
 
             .sliderColors {
@@ -670,7 +671,7 @@ $amarelo: #ffff00;
                 }
             }
 
-            #RadioSelectionColors {
+            #RadioSelectionColors, #RadioSelectionLineColor {
                 flex-direction: column;
 
                 h2 {
