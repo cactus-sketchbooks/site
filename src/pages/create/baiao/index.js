@@ -54,6 +54,7 @@ export default function Baiao() {
     const [sketchbookInfos, setSketchbookInfos] = useState([]);
     const [displayModal, setDisplayModal] = useState('none');
     const [maxSlides, setMaxSlides] = useState(5);
+    const [currentStep, setCurrentStep] = useState(1);
     const paginasPorBloco = 16;
 
     const settings = {
@@ -391,9 +392,6 @@ export default function Baiao() {
     };
 
     useEffect(() => {
-        //gambiarra para atualizar o preço
-        // [] adicionar o calculate no useEffect do currentStep (quando adicionado)
-        calculateTotalPrice();
         if (
             formatTypes === '' ||
             selectedPaperTypeQtd < selectedDifferentPapersQuantity ||
@@ -442,7 +440,7 @@ export default function Baiao() {
         }
         setSelectedDifferentPapersQuantity(parseInt(event.target.value));
     }
-    // tambem adicionar o currentStep ao controle do useEffect
+
     useEffect(() => {
         setSketchbookInfos(
             sketchPaperInfo.slice(0, selectedDifferentPapersQuantity)
@@ -514,6 +512,63 @@ export default function Baiao() {
         }
     }
 
+    function handleNextStep() {
+        if (currentStep <= 6) {
+            setCurrentStep(currentStep + 1);
+        }
+    }
+    function handlePreviousStep() {
+        if (currentStep >= 2) {
+            setCurrentStep(currentStep - 1);
+        }
+    }
+
+    useEffect(() => {
+        updateStepIndicator(currentStep);
+        updateStepChoices(currentStep);
+        calculateTotalPrice();
+    }, [currentStep]);
+
+    function updateStepIndicator(currentStep) {
+        const stepsTitles = document.querySelectorAll('.stepTitle');
+        stepsTitles.forEach(function (step) {
+            step.classList.remove('active-step');
+            if (step.classList.contains(`title${currentStep}`)) {
+                // mostra a div do passo atual
+                step.classList.add('active-step');
+            }
+
+            // mostra e esconde os botoes de avancar ou retroceder se estivar na primeira ou ultima pagina
+            if (currentStep === 1) {
+                // esconde o botao de voltar se estiver no primeiro passo
+                document.querySelector('.btn.previous').classList.add('hide');
+            } else if (currentStep === 2) {
+                // mostra novamente o botao de voltar neste passo
+                document
+                    .querySelector('.btn.previous')
+                    .classList.remove('hide');
+            } else if (currentStep === 6) {
+                // volta a mostrar o botao de avancar caso o usuario vá ao ultimo passo e volte
+                document.querySelector('.btn.next').classList.remove('hide');
+            } else if (currentStep === 7) {
+                // esconde o botao de proxima pagina se estiver no ultimo passo (pq ja tem o de adicionar ao carrinho)
+                document.querySelector('.btn.next').classList.add('hide');
+            }
+        });
+    }
+
+    function updateStepChoices(currentStep) {
+        const steps = document.querySelectorAll('.steps');
+        steps.forEach(function (step) {
+            // esconde todas as outras divs
+            step.classList.add('hide');
+            if (step.classList.contains(`step${currentStep}`)) {
+                // mostra a div do passo atual
+                step.classList.remove('hide');
+            }
+        });
+    }
+
     return (
         <main id='MainSketchbook'>
             <div
@@ -551,351 +606,407 @@ export default function Baiao() {
                     </h5>
                 </div>
 
-                <div className='textWrapper'>
-                    <div className='textBackground'>
-                        <h2>Tamanho</h2>
+                <div id='steps-indicator'>
+                    <div className='stepTitle title1 active-step'>
+                        <h3>Etapa 1</h3>
+                    </div>
+                    <div className='stepTitle title2'>
+                        <h3>Etapa 2</h3>
+                    </div>
+                    <div className='stepTitle title3'>
+                        <h3>Etapa 3</h3>
+                    </div>
+                    <div className='stepTitle title4'>
+                        <h3>Etapa 4</h3>
+                    </div>
+                    <div className='stepTitle title5'>
+                        <h3>Etapa 5</h3>
+                    </div>
+                    <div className='stepTitle title6'>
+                        <h3>Etapa 6</h3>
+                    </div>
+                    <div className='stepTitle title7'>
+                        <h3>Resumo do Pedido</h3>
                     </div>
                 </div>
-                <fieldset>
-                    <label htmlFor='paperWidth'>
-                        Selecione o tamanho do papel
-                    </label>
 
-                    <select
-                        onChange={handleSelectedSketchbook}
-                        className='paperWidth'
-                        defaultValue='0'
-                    >
-                        <option value='0' disabled>
-                            Tamanho do papel
-                        </option>
-
-                        {values.formats.map((format, index) => {
-                            return (
-                                <option value={index} key={index}>
-                                    {format.name} (+ R$ {format.basePrice})
-                                </option>
-                            );
-                        })}
-                    </select>
-                </fieldset>
-
-                <div className='textWrapper'>
-                    <div className='textBackground'>
-                        <h2>Papel do Miolo</h2>
+                <div className='steps step1 full hide'>
+                    <div className='textWrapper'>
+                        <div className='textBackground'>
+                            <h2>Tamanho</h2>
+                        </div>
                     </div>
-                </div>
-                <fieldset>
-                    <label htmlFor='paperQtd'>
-                        Selecione a quantidade de Papéis Diferentes no Miolo do
-                        Sketchbook
-                    </label>
-                    <select
-                        onChange={handleSelectedDiiferentPapersQuatity}
-                        className='paperQtd'
-                        defaultValue='0'
-                    >
-                        <option value='0' disabled>
-                            Quantidade de Papéis Diferentes
-                        </option>
-                        <option value='1'>1</option>
-                        <option value='2'>2</option>
-                        <option value='3'>3</option>
-                        <option value='4'>4</option>
-                    </select>
-                    <p>
-                        Os Sketchbooks podem ser montados adicionando blocos de
-                        <b> 16 páginas</b>
-                    </p>
-                    <br />
-                    <p>
-                        Veja mais sobre a gramatura clicando{' '}
-                        <Link to='/gramaturas'>aqui</Link>
-                    </p>
-                    <br />
+                    <fieldset>
+                        <label htmlFor='paperWidth'>
+                            Selecione o tamanho do papel
+                        </label>
 
-                    {[...Array(selectedDifferentPapersQuantity)].map((_, i) => (
-                        <PaperOption
-                            tipos={formatTypes}
-                            quantidade={paginasPorBloco}
-                            setSketchPaperInfo={setSketchPaperInfo}
-                            index={i}
-                            key={i}
-                        />
-                    ))}
+                        <select
+                            onChange={handleSelectedSketchbook}
+                            className='paperWidth'
+                            defaultValue='0'
+                        >
+                            <option value='0' disabled>
+                                Tamanho do papel
+                            </option>
 
-                    {selectedDifferentPapersQuantity === 0 ? (
-                        ''
-                    ) : (
-                        <>
-                            <p>
-                                Os Sketchbooks devem ter ao final, no mínimo
-                                <b> 6 blocos (96 páginas)</b> e no máximo
-                                <b> 10 blocos (160 páginas)</b>
-                            </p>
-                            <br />
-
-                            <h3 id='paperWarning'>
-                                Seu Sketchbook tem atualmente{' '}
-                                <b>{totalPaperBlocksQtd}</b> blocos.
-                            </h3>
-
-                            {totalPaperBlocksQtd > 10 ||
-                            totalPaperBlocksQtd < 6 ? (
-                                <p>
-                                    Ajuste a quantidade de blocos antes de
-                                    avançar para a próxima etapa.
-                                </p>
-                            ) : (
-                                ''
-                            )}
-                            {selectedPaperTypeQtd <
-                            selectedDifferentPapersQuantity ? (
-                                <p>
-                                    Você deve selecionar{' '}
-                                    <strong>todas as opções</strong> de papéis
-                                    antes de prosseguir
-                                </p>
-                            ) : (
-                                ''
-                            )}
-                            {selectedPaperBlocksQtd <
-                            selectedDifferentPapersQuantity ? (
-                                <p>
-                                    Você deve selecionar{' '}
-                                    <strong>todas as opções</strong> de
-                                    quantidade de blocos antes de prosseguir
-                                </p>
-                            ) : (
-                                ''
-                            )}
-                            {totalPaperBlocksQtd > 10 ||
-                            totalPaperBlocksQtd < 6 ||
-                            selectedPaperTypeQtd <
-                                selectedDifferentPapersQuantity ||
-                            selectedPaperBlocksQtd <
-                                selectedDifferentPapersQuantity ? (
-                                ''
-                            ) : (
-                                <p>Vamos continuar!</p>
-                            )}
-                        </>
-                    )}
-                </fieldset>
-
-                <div className='textWrapper'>
-                    <div className='textBackground'>
-                        <h2>Cor da capa</h2>
-                    </div>
-
-                    <p>
-                        Selecione <strong>até duas</strong> cores. Arraste para
-                        o lado para conferir todas as opções.{' '}
-                        <button onClick={() => handleModalInfos()}>
-                            Clique aqui para visualizar os modelos de capa
-                        </button>
-                    </p>
-                    <p>
-                        A <b>primeira</b> cor selecionada é referente à parte
-                        maior (inferior) e a <b>segunda</b> é referente à parte
-                        menor (superior). Não é possível escolher dois tipos de
-                        tecido por capa, e se um tecido for esolhido, ele{' '}
-                        <b>obrigatoriamente</b> ficará na parte de baixo
-                        (maior).
-                    </p>
+                            {values.formats.map((format, index) => {
+                                return (
+                                    <option value={index} key={index}>
+                                        {format.name} (+ R$ {format.basePrice})
+                                    </option>
+                                );
+                            })}
+                        </select>
+                    </fieldset>
                 </div>
 
-                <div className='sliderColors'>
-                    <Slider {...settings}>
-                        {dataColors.map((item, index) =>
-                            item.models.includes('baiao') &&
-                            item.categories.includes('cover') ? (
-                                <div className='cardColor' key={index}>
-                                    <label
-                                        htmlFor={index}
-                                        onClick={(event) => changeColor(event)}
-                                    />
+                <div className='steps step2 full hide'>
+                    <div className='textWrapper'>
+                        <div className='textBackground'>
+                            <h2>Papel do Miolo</h2>
+                        </div>
+                    </div>
+                    <fieldset>
+                        <label htmlFor='paperQtd'>
+                            Selecione a quantidade de Papéis Diferentes no Miolo
+                            do Sketchbook
+                        </label>
+                        <select
+                            onChange={handleSelectedDiiferentPapersQuatity}
+                            className='paperQtd'
+                            defaultValue='0'
+                        >
+                            <option value='0' disabled>
+                                Quantidade de Papéis Diferentes
+                            </option>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value='3'>3</option>
+                            <option value='4'>4</option>
+                        </select>
+                        <p>
+                            Os Sketchbooks podem ser montados adicionando blocos
+                            de
+                            <b> 16 páginas</b>
+                        </p>
+                        <br />
+                        <p>
+                            Veja mais sobre a gramatura clicando{' '}
+                            <Link to='/gramaturas'>aqui</Link>
+                        </p>
+                        <br />
 
-                                    {item.image ? (
-                                        <div key={item.id} className='colorBox'>
-                                            <img
-                                                draggable='false'
-                                                src={item.image}
-                                                alt='cor'
-                                            />
-                                        </div>
-                                    ) : (
-                                        <div
-                                            key={item.id}
-                                            style={{
-                                                backgroundColor: item.colorCode,
-                                            }}
-                                            className='colorBox'
-                                        >
-                                            <p>{item.colorCode}</p>
-                                        </div>
-                                    )}
-
-                                    <div className='colorName'>
-                                        <p>{item.colorName}</p>
-
-                                        <input
-                                            type='checkbox'
-                                            value={index}
-                                            id={index}
-                                            onChange={(event) =>
-                                                checkColor(item, event)
-                                            }
-                                            style={{
-                                                accentColor: item.colorCode,
-                                            }}
-                                        />
-                                    </div>
-                                </div>
-                            ) : null
+                        {[...Array(selectedDifferentPapersQuantity)].map(
+                            (_, i) => (
+                                <PaperOption
+                                    tipos={formatTypes}
+                                    quantidade={paginasPorBloco}
+                                    setSketchPaperInfo={setSketchPaperInfo}
+                                    index={i}
+                                    key={i}
+                                />
+                            )
                         )}
-                    </Slider>
+
+                        {/* so mostra os avisos se a pessoa escolher a quantidade de papeis diferentes, pra deixar o visual mais limpo */}
+                        {selectedDifferentPapersQuantity === 0 ? (
+                            ''
+                        ) : (
+                            <>
+                                <p>
+                                    Os Sketchbooks devem ter ao final, no mínimo
+                                    <b> 6 blocos (96 páginas)</b> e no máximo
+                                    <b> 10 blocos (160 páginas)</b>
+                                </p>
+                                <br />
+
+                                <h3 id='paperWarning'>
+                                    Seu Sketchbook tem atualmente{' '}
+                                    <b>{totalPaperBlocksQtd}</b> blocos.
+                                </h3>
+
+                                {totalPaperBlocksQtd > 10 ||
+                                totalPaperBlocksQtd < 6 ? (
+                                    <p>
+                                        Ajuste a quantidade de blocos antes de
+                                        avançar para a próxima etapa.
+                                    </p>
+                                ) : (
+                                    ''
+                                )}
+                                {selectedPaperTypeQtd <
+                                selectedDifferentPapersQuantity ? (
+                                    <p>
+                                        Você deve selecionar{' '}
+                                        <strong>todas as opções</strong> de
+                                        papéis antes de prosseguir
+                                    </p>
+                                ) : (
+                                    ''
+                                )}
+                                {selectedPaperBlocksQtd <
+                                selectedDifferentPapersQuantity ? (
+                                    <p>
+                                        Você deve selecionar{' '}
+                                        <strong>todas as opções</strong> de
+                                        quantidade de blocos antes de prosseguir
+                                    </p>
+                                ) : (
+                                    ''
+                                )}
+                                {totalPaperBlocksQtd > 10 ||
+                                totalPaperBlocksQtd < 6 ||
+                                selectedPaperTypeQtd <
+                                    selectedDifferentPapersQuantity ||
+                                selectedPaperBlocksQtd <
+                                    selectedDifferentPapersQuantity ? (
+                                    ''
+                                ) : (
+                                    <p>Vamos continuar!</p>
+                                )}
+                            </>
+                        )}
+                    </fieldset>
                 </div>
 
-                <section id='RadioSelectionColors'>
-                    <div className='boxColor'>
-                        <div className='textWrapper'>
-                            <div className='textBackground'>
-                                <h2>Cor da linha</h2>
-                            </div>
-
-                            <p>
-                                Selecione <strong>uma</strong> cor
-                            </p>
+                <div className='steps step3 full hide'>
+                    <div className='textWrapper'>
+                        <div className='textBackground'>
+                            <h2>Cor da capa</h2>
                         </div>
 
-                        <div className='lineColorWrapper'>
+                        <p>
+                            Selecione <strong>até duas</strong> cores. Arraste
+                            para o lado para conferir todas as opções.{' '}
+                            <button onClick={() => handleModalInfos()}>
+                                Clique aqui para visualizar os modelos de capa
+                            </button>
+                        </p>
+                        <p>
+                            A <b>primeira</b> cor selecionada é referente à
+                            parte maior (inferior) e a <b>segunda</b> é
+                            referente à parte menor (superior). Não é possível
+                            escolher dois tipos de tecido por capa, e se um
+                            tecido for esolhido, ele <b>obrigatoriamente</b>{' '}
+                            ficará na parte de baixo (maior).
+                        </p>
+                    </div>
+
+                    <div className='sliderColors'>
+                        <Slider {...settings}>
                             {dataColors.map((item, index) =>
                                 item.models.includes('baiao') &&
-                                item.categories.includes('line') ? (
-                                    <div className='colorWrapper' key={index}>
+                                item.categories.includes('cover') ? (
+                                    <div className='cardColor' key={index}>
+                                        <label
+                                            htmlFor={index}
+                                            onClick={(event) =>
+                                                changeColor(event)
+                                            }
+                                        />
+
                                         {item.image ? (
-                                            <div className='elasticColor'>
+                                            <div
+                                                key={item.id}
+                                                className='colorBox'
+                                            >
                                                 <img
+                                                    draggable='false'
                                                     src={item.image}
-                                                    alt='cor do elástico'
+                                                    alt='cor'
                                                 />
                                             </div>
                                         ) : (
                                             <div
+                                                key={item.id}
                                                 style={{
                                                     backgroundColor:
                                                         item.colorCode,
                                                 }}
-                                                className='elasticColor'
-                                            />
-                                        )}
-
-                                        <input
-                                            type='radio'
-                                            onClick={(event) =>
-                                                handleSelectedLineColor(
-                                                    event,
-                                                    item,
-                                                    index
-                                                )
-                                            }
-                                            name='selectedLineColor'
-                                            key={item.id}
-                                            value={item.name}
-                                            className='checkbox'
-                                            style={{
-                                                accentColor: item.colorCode,
-                                            }}
-                                        />
-                                    </div>
-                                ) : null
-                            )}
-                        </div>
-                    </div>
-
-                    <div className='boxColor'>
-                        <div className='textWrapper'>
-                            <div className='textBackground'>
-                                <h2>Cor do elástico</h2>
-                            </div>
-
-                            <p>
-                                Selecione <strong>uma</strong> cor
-                            </p>
-                        </div>
-
-                        <div className='elasticColorWrapper'>
-                            {dataColors.map((item, index) =>
-                                item.models.includes('baiao') &&
-                                item.categories.includes('elastic') ? (
-                                    <div className='colorWrapper' key={index}>
-                                        {item.image ? (
-                                            <div className='elasticColor'>
-                                                <img
-                                                    src={item.image}
-                                                    alt='cor do elástico'
-                                                />
+                                                className='colorBox'
+                                            >
+                                                <p>{item.colorCode}</p>
                                             </div>
-                                        ) : (
-                                            <div
-                                                style={{
-                                                    backgroundColor:
-                                                        item.colorCode,
-                                                }}
-                                                className='elasticColor'
-                                            />
                                         )}
 
-                                        <input
-                                            type='radio'
-                                            onClick={(event) =>
-                                                handleSelectedElasticColor(
-                                                    event,
-                                                    item,
-                                                    index
-                                                )
-                                            }
-                                            name='selectedElasticColor'
-                                            key={item.id}
-                                            value={item.name}
-                                            style={{
-                                                accentColor: item.colorCode,
-                                            }}
-                                        />
+                                        <div className='colorName'>
+                                            <p>{item.colorName}</p>
+
+                                            <input
+                                                type='checkbox'
+                                                value={index}
+                                                id={index}
+                                                onChange={(event) =>
+                                                    checkColor(item, event)
+                                                }
+                                                style={{
+                                                    accentColor: item.colorCode,
+                                                }}
+                                            />
+                                        </div>
                                     </div>
                                 ) : null
                             )}
-                        </div>
-                    </div>
-                </section>
-
-                <div className='textWrapper'>
-                    <div className='textBackground'>
-                        <h2>Tipo de Acabamento</h2>
+                        </Slider>
                     </div>
                 </div>
-                {/* Inserir aqui a imagem de mostra dos tipos de acabamento */}
 
-                <fieldset>
-                    <label htmlFor='SketchFinish'>
-                        Selecione o tipo de acabamento nas bordas
-                    </label>
+                <div className='steps step4 full hide'>
+                    <section id='RadioSelectionLineColor'>
+                        <div className='boxColor'>
+                            <div className='textWrapper'>
+                                <div className='textBackground'>
+                                    <h2>Cor da linha</h2>
+                                </div>
 
-                    <select
-                        onChange={(event) => handleSelectedSketchFinish(event)}
-                        className='SketchFinish'
-                        defaultValue='0'
-                    >
-                        <option value='0' disabled>
-                            Tipo de Acabamento
-                        </option>
-                        <option value='Reto'>Reto</option>
-                        <option value='Arredondado'>Arredondado</option>
-                    </select>
-                </fieldset>
+                                <p>
+                                    Selecione <strong>uma</strong> cor
+                                </p>
+                            </div>
 
-                <div className='additionalInfos'>
+                            <div className='lineColorWrapper'>
+                                {dataColors.map((item, index) =>
+                                    item.models.includes('baiao') &&
+                                    item.categories.includes('line') ? (
+                                        <div
+                                            className='colorWrapper'
+                                            key={index}
+                                        >
+                                            {item.image ? (
+                                                <div className='elasticColor'>
+                                                    <img
+                                                        src={item.image}
+                                                        alt='cor do elástico'
+                                                    />
+                                                </div>
+                                            ) : (
+                                                <div
+                                                    style={{
+                                                        backgroundColor:
+                                                            item.colorCode,
+                                                    }}
+                                                    className='elasticColor'
+                                                />
+                                            )}
+
+                                            <input
+                                                type='radio'
+                                                onClick={(event) =>
+                                                    handleSelectedLineColor(
+                                                        event,
+                                                        item,
+                                                        index
+                                                    )
+                                                }
+                                                name='selectedLineColor'
+                                                key={item.id}
+                                                value={item.name}
+                                                className='checkbox'
+                                                style={{
+                                                    accentColor: item.colorCode,
+                                                }}
+                                            />
+                                        </div>
+                                    ) : null
+                                )}
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div className='steps step5 full hide'>
+                    <section id='RadioSelectionColors'>
+                        <div className='boxColor'>
+                            <div className='textWrapper'>
+                                <div className='textBackground'>
+                                    <h2>Cor do elástico</h2>
+                                </div>
+
+                                <p>
+                                    Selecione <strong>uma</strong> cor
+                                </p>
+                            </div>
+
+                            <div className='elasticColorWrapper'>
+                                {dataColors.map((item, index) =>
+                                    item.models.includes('baiao') &&
+                                    item.categories.includes('elastic') ? (
+                                        <div
+                                            className='colorWrapper'
+                                            key={index}
+                                        >
+                                            {item.image ? (
+                                                <div className='elasticColor'>
+                                                    <img
+                                                        src={item.image}
+                                                        alt='cor do elástico'
+                                                    />
+                                                </div>
+                                            ) : (
+                                                <div
+                                                    style={{
+                                                        backgroundColor:
+                                                            item.colorCode,
+                                                    }}
+                                                    className='elasticColor'
+                                                />
+                                            )}
+
+                                            <input
+                                                type='radio'
+                                                onClick={(event) =>
+                                                    handleSelectedElasticColor(
+                                                        event,
+                                                        item,
+                                                        index
+                                                    )
+                                                }
+                                                name='selectedElasticColor'
+                                                key={item.id}
+                                                value={item.name}
+                                                style={{
+                                                    accentColor: item.colorCode,
+                                                }}
+                                            />
+                                        </div>
+                                    ) : null
+                                )}
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div className='steps step6 full hide'>
+                    <div className='textWrapper'>
+                        <div className='textBackground'>
+                            <h2>Tipo de Acabamento</h2>
+                        </div>
+                    </div>
+                    {/* Inserir aqui a imagem de mostra dos tipos de acabamento */}
+
+                    <fieldset>
+                        <label htmlFor='SketchFinish'>
+                            Selecione o tipo de acabamento nas bordas
+                        </label>
+
+                        <select
+                            onChange={(event) =>
+                                handleSelectedSketchFinish(event)
+                            }
+                            className='SketchFinish'
+                            defaultValue='0'
+                        >
+                            <option value='0' disabled>
+                                Tipo de Acabamento
+                            </option>
+                            <option value='Reto'>Reto</option>
+                            <option value='Arredondado'>Arredondado</option>
+                        </select>
+                    </fieldset>
+                </div>
+
+                <div className='additionalInfos steps step7 hide'>
                     <label htmlFor='additionalInfos'>
                         Informações adicionais <strong>(opcional)</strong>
                     </label>
@@ -986,6 +1097,21 @@ export default function Baiao() {
                             </p>
                         </>
                     )}
+                </div>
+
+                <div id='btns'>
+                    <button
+                        className='btn previous hide'
+                        onClick={(e) => handlePreviousStep()}
+                    >
+                        Etapa Anterior
+                    </button>
+                    <button
+                        className='btn next'
+                        onClick={(e) => handleNextStep()}
+                    >
+                        Próxima Etapa
+                    </button>
                 </div>
             </section>
 
