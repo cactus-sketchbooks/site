@@ -29,10 +29,12 @@ export default function Sertao() {
     const [checkedBoxes, setCheckedBoxes] = useState(0);
     const [selectedPaperWidth, setSelectedPaperWidth] = useState('');
     const [selectedLineColor, setSelectedLineColor] = useState('');
+    const [selectedSketchFinish, setSelectedSketchFinish] = useState('');
     const [clientNote, setClientNote] = useState('');
     const [sketchbookInfos, setSketchbookInfos] = useState('');
     const [displayModal, setDisplayModal] = useState('none');
     const [maxSlides, setMaxSlides] = useState(5);
+    const [currentStep, setCurrentStep] = useState(1);
 
     const settings = {
         className: 'start',
@@ -43,396 +45,371 @@ export default function Sertao() {
     };
 
     const values = {
-
-        name: "Sertão",
-        formats: [{
-
-            name: "A4",
-            id: 32,
-            size: {
-                width: 21,
-                length: 29,
-                height: 3,
-                weight: 0.7
+        name: 'Sertão',
+        formats: [
+            {
+                name: 'A4',
+                id: 32,
+                size: {
+                    width: 21,
+                    length: 29,
+                    height: 3,
+                    weight: 0.7,
+                },
+                types: [
+                    {
+                        name: 'Papel Reciclado Liso',
+                        value: 24,
+                    },
+                    {
+                        name: 'Papel Reciclado Pontilhado',
+                        value: 24,
+                    },
+                    {
+                        name: 'Papel Reciclado Quadriculado',
+                        value: 24,
+                    },
+                    {
+                        name: 'Papel Reciclado Pautado',
+                        value: 24,
+                    },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 24,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado',
+                        value: 24,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado',
+                        value: 24,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado',
+                        value: 24,
+                    },
+                    {
+                        name: 'Papel Kraft',
+                        value: 25,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 25,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 28,
+                    },
+                    {
+                        name: 'Papel Preto',
+                        value: 26,
+                    },
+                ],
             },
-            types: [
-
-                {
-                    name: "Papel Reciclado Liso",
-                    value: 24
+            {
+                name: 'A5',
+                id: 26,
+                size: {
+                    width: 14,
+                    length: 20,
+                    height: 1,
+                    weight: 0.5,
                 },
-                {
-                    name: "Papel Reciclado Pontilhado",
-                    value: 24
-                },
-                {
-                    name: "Papel Reciclado Quadriculado",
-                    value: 24
-                },
-                {
-                    name: "Papel Reciclado Pautado",
-                    value: 24
-                },
-                {
-                    name: "Papel Marfim Liso",
-                    value: 24
-                },
-                {
-                    name: "Papel Marfim Pontilhado",
-                    value: 24
-                },
-                {
-                    name: "Papel Marfim Quadriculado",
-                    value: 24
-                },
-                {
-                    name: "Papel Marfim Pautado",
-                    value: 24
-                },
-                {
-                    name: "Papel Kraft",
-                    value: 25
-                },
-                {
-                    name: "Papel Canson 140g",
-                    value: 25
-                },
-                {
-                    name: "Papel Canson 200g",
-                    value: 28
-                },
-                {
-                    name: "Papel Preto",
-                    value: 26
-                },
-
-            ]
-
-        },
-        {
-            name: "A5",
-            id: 26,
-            size: {
-                width: 14,
-                length: 20,
-                height: 1,
-                weight: 0.5
+                types: [
+                    {
+                        name: 'Papel Reciclado Liso',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Reciclado Pontilhado',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Reciclado Quadriculado',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Reciclado Pautado',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Kraft',
+                        value: 14,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 14,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 14,
+                    },
+                    {
+                        name: 'Papel Preto',
+                        value: 14,
+                    },
+                ],
             },
-            types: [
-
-                {
-                    name: "Papel Reciclado Liso",
-                    value: 12
+            {
+                name: 'A6',
+                id: 27,
+                size: {
+                    // width: 9.5,
+                    width: 10,
+                    length: 14,
+                    height: 1,
+                    weight: 0.5,
                 },
-                {
-                    name: "Papel Reciclado Pontilhado",
-                    value: 12
-                },
-                {
-                    name: "Papel Reciclado Quadriculado",
-                    value: 12
-                },
-                {
-                    name: "Papel Reciclado Pautado",
-                    value: 12
-                },
-                {
-                    name: "Papel Marfim Liso",
-                    value: 12
-                },
-                {
-                    name: "Papel Marfim Pontilhado",
-                    value: 12
-                },
-                {
-                    name: "Papel Marfim Quadriculado",
-                    value: 12
-                },
-                {
-                    name: "Papel Marfim Pautado",
-                    value: 12
-                },
-                {
-                    name: "Papel Kraft",
-                    value: 14
-                },
-                {
-                    name: "Papel Canson 140g",
-                    value: 14
-                },
-                {
-                    name: "Papel Canson 200g",
-                    value: 14
-                },
-                {
-                    name: "Papel Preto",
-                    value: 14
-                },
-
-            ]
-
-        },
-        {
-
-            name: "A6",
-            id: 27,
-            size: {
-                // width: 9.5,
-                width: 10,
-                length: 14,
-                height: 1,
-                weight: 0.5
+                types: [
+                    {
+                        name: 'Papel Reciclado Liso',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Reciclado Pontilhado',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Reciclado Quadriculado',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Reciclado Pautado',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Kraft',
+                        value: 10,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 10,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 10,
+                    },
+                    {
+                        name: 'Papel Preto',
+                        value: 10,
+                    },
+                ],
             },
-            types: [
-
-                {
-                    name: "Papel Reciclado Liso",
-                    value: 8
+            {
+                name: '10X10',
+                id: 28,
+                size: {
+                    width: 10,
+                    length: 10,
+                    height: 1,
+                    weight: 0.5,
                 },
-                {
-                    name: "Papel Reciclado Pontilhado",
-                    value: 8
-                },
-                {
-                    name: "Papel Reciclado Quadriculado",
-                    value: 8
-                },
-                {
-                    name: "Papel Reciclado Pautado",
-                    value: 8
-                },
-                {
-                    name: "Papel Marfim Liso",
-                    value: 8
-                },
-                {
-                    name: "Papel Marfim Pontilhado",
-                    value: 8
-                },
-                {
-                    name: "Papel Marfim Quadriculado",
-                    value: 8
-                },
-                {
-                    name: "Papel Marfim Pautado",
-                    value: 8
-                },
-                {
-                    name: "Papel Kraft",
-                    value: 10
-                },
-                {
-                    name: "Papel Canson 140g",
-                    value: 10
-                },
-                {
-                    name: "Papel Canson 200g",
-                    value: 10
-                },
-                {
-                    name: "Papel Preto",
-                    value: 10
-                },
-
-            ]
-
-        },
-        {
-
-            name: "10X10",
-            id: 28,
-            size: {
-                width: 10,
-                length: 10,
-                height: 1,
-                weight: 0.5
+                types: [
+                    {
+                        name: 'Papel Reciclado Liso',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Reciclado Pontilhado',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Reciclado Quadriculado',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Reciclado Pautado',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Kraft',
+                        value: 10,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 10,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 10,
+                    },
+                    {
+                        name: 'Papel Preto',
+                        value: 10,
+                    },
+                ],
             },
-            types: [
-
-                {
-                    name: "Papel Reciclado Liso",
-                    value: 8
+            {
+                name: '14X14',
+                id: 29,
+                size: {
+                    width: 14,
+                    length: 14,
+                    height: 1,
+                    weight: 0.5,
                 },
-                {
-                    name: "Papel Reciclado Pontilhado",
-                    value: 8
-                },
-                {
-                    name: "Papel Reciclado Quadriculado",
-                    value: 8
-                },
-                {
-                    name: "Papel Reciclado Pautado",
-                    value: 8
-                },
-                {
-                    name: "Papel Marfim Liso",
-                    value: 8
-                },
-                {
-                    name: "Papel Marfim Pontilhado",
-                    value: 8
-                },
-                {
-                    name: "Papel Marfim Quadriculado",
-                    value: 8
-                },
-                {
-                    name: "Papel Marfim Pautado",
-                    value: 8
-                },
-                {
-                    name: "Papel Kraft",
-                    value: 10
-                },
-                {
-                    name: "Papel Canson 140g",
-                    value: 10
-                },
-                {
-                    name: "Papel Canson 200g",
-                    value: 10
-                },
-                {
-                    name: "Papel Preto",
-                    value: 10
-                },
-
-            ]
-
-        },
-        {
-
-            name: "14X14",
-            id: 29,
-            size: {
-                width: 14,
-                length: 14,
-                height: 1,
-                weight: 0.5
+                types: [
+                    {
+                        name: 'Papel Reciclado Liso',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Reciclado Pontilhado',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Reciclado Quadriculado',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Reciclado Pautado',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Kraft',
+                        value: 14,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 14,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 14,
+                    },
+                    {
+                        name: 'Papel Preto',
+                        value: 14,
+                    },
+                ],
             },
-            types: [
-
-                {
-                    name: "Papel Reciclado Liso",
-                    value: 12
+            {
+                name: '20X20',
+                id: 33,
+                size: {
+                    width: 20,
+                    length: 20,
+                    height: 1,
+                    weight: 0.5,
                 },
-                {
-                    name: "Papel Reciclado Pontilhado",
-                    value: 12
-                },
-                {
-                    name: "Papel Reciclado Quadriculado",
-                    value: 12
-                },
-                {
-                    name: "Papel Reciclado Pautado",
-                    value: 12
-                },
-                {
-                    name: "Papel Marfim Liso",
-                    value: 12
-                },
-                {
-                    name: "Papel Marfim Pontilhado",
-                    value: 12
-                },
-                {
-                    name: "Papel Marfim Quadriculado",
-                    value: 12
-                },
-                {
-                    name: "Papel Marfim Pautado",
-                    value: 12
-                },
-                {
-                    name: "Papel Kraft",
-                    value: 14
-                },
-                {
-                    name: "Papel Canson 140g",
-                    value: 14
-                },
-                {
-                    name: "Papel Canson 200g",
-                    value: 14
-                },
-                {
-                    name: "Papel Preto",
-                    value: 14
-                },
-
-            ]
-
-        },
-        {
-
-            name: "20X20",
-            id: 33,
-            size: {
-                width: 20,
-                length: 20,
-                height: 1,
-                weight: 0.5
+                types: [
+                    {
+                        name: 'Papel Reciclado Liso',
+                        value: 24,
+                    },
+                    {
+                        name: 'Papel Reciclado Pontilhado',
+                        value: 24,
+                    },
+                    {
+                        name: 'Papel Reciclado Quadriculado',
+                        value: 24,
+                    },
+                    {
+                        name: 'Papel Reciclado Pautado',
+                        value: 24,
+                    },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 24,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado',
+                        value: 24,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado',
+                        value: 24,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado',
+                        value: 24,
+                    },
+                    {
+                        name: 'Papel Kraft',
+                        value: 25,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 25,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 28,
+                    },
+                    {
+                        name: 'Papel Preto',
+                        value: 26,
+                    },
+                ],
             },
-            types: [
-
-                {
-                    name: "Papel Reciclado Liso",
-                    value: 24
-                },
-                {
-                    name: "Papel Reciclado Pontilhado",
-                    value: 24
-                },
-                {
-                    name: "Papel Reciclado Quadriculado",
-                    value: 24
-                },
-                {
-                    name: "Papel Reciclado Pautado",
-                    value: 24
-                },
-                {
-                    name: "Papel Marfim Liso",
-                    value: 24
-                },
-                {
-                    name: "Papel Marfim Pontilhado",
-                    value: 24
-                },
-                {
-                    name: "Papel Marfim Quadriculado",
-                    value: 24
-                },
-                {
-                    name: "Papel Marfim Pautado",
-                    value: 24
-                },
-                {
-                    name: "Papel Kraft",
-                    value: 25
-                },
-                {
-                    name: "Papel Canson 140g",
-                    value: 25
-                },
-                {
-                    name: "Papel Canson 200g",
-                    value: 28
-                },
-                {
-                    name: "Papel Preto",
-                    value: 26
-                },
-
-            ]
-
-        }
-
-        ]
-
-    }
+        ],
+    };
 
     useEffect(() => {
         if (window.innerWidth < 820) {
@@ -449,6 +426,10 @@ export default function Sertao() {
         setformatTypes(values.formats[position].types);
         setFormatSize(values.formats[position].size);
         setFormatId(values.formats[position].id);
+
+        // zera o seletor de papel do miolo caso o cliente mude de ideia e mude o tamanho do sketchbook depois de ter selecionado o papel do miolo
+        setSketchbookInfos('');
+        document.querySelector('.paper').selectedIndex = 0;
     }
 
     function handleSelectedType(event) {
@@ -502,6 +483,7 @@ export default function Sertao() {
             value: sketchbookInfos.value,
             lineColor: selectedLineColor,
             coverColors: selectedColors,
+            sketchFinish: selectedSketchFinish,
             clientNote: clientNote,
             size: formatSize,
         };
@@ -564,6 +546,7 @@ export default function Sertao() {
             formatTypes === '' ||
             sketchbookInfos === '' ||
             selectedLineColor === '' ||
+            selectedSketchFinish === '' ||
             checkedBoxes > 1 ||
             checkedBoxes === 0
         ) {
@@ -571,10 +554,20 @@ export default function Sertao() {
         } else {
             setIsValidated(true);
         }
-    }, [formatTypes, sketchbookInfos, selectedLineColor, checkedBoxes]);
+    }, [
+        formatTypes,
+        sketchbookInfos,
+        selectedLineColor,
+        selectedSketchFinish,
+        checkedBoxes,
+    ]);
 
     function handleSelectedLineColor(item, event) {
         setSelectedLineColor(event);
+    }
+
+    function handleSelectedSketchFinish(event) {
+        setSelectedSketchFinish(event.target.value);
     }
 
     function handleClientNote(event) {
@@ -592,6 +585,62 @@ export default function Sertao() {
         else {
             setDisplayModal('none');
         }
+    }
+
+    function handleNextStep() {
+        if (currentStep <= 5) {
+            setCurrentStep(currentStep + 1);
+        }
+    }
+    function handlePreviousStep() {
+        if (currentStep >= 2) {
+            setCurrentStep(currentStep - 1);
+        }
+    }
+
+    useEffect(() => {
+        updateStepIndicator(currentStep);
+        updateStepChoices(currentStep);
+    }, [currentStep]);
+
+    function updateStepIndicator(currentStep) {
+        const stepsTitles = document.querySelectorAll('.stepTitle');
+        stepsTitles.forEach(function (step) {
+            step.classList.remove('active-step');
+            if (step.classList.contains(`title${currentStep}`)) {
+                // mostra a div do passo atual
+                step.classList.add('active-step');
+            }
+
+            // mostra e esconde os botoes de avancar ou retroceder se estivar na primeira ou ultima pagina
+            if (currentStep == 1) {
+                // esconde o botao de voltar se estiver no primeiro passo
+                document.querySelector('.btn.previous').classList.add('hide');
+            } else if (currentStep == 2) {
+                // mostra novamente o botao de voltar neste passo
+                document
+                    .querySelector('.btn.previous')
+                    .classList.remove('hide');
+            } else if (currentStep == 5) {
+                // volta a mostrar o botao de avancar caso o usuario vá ao ultimo passo e volte
+                document.querySelector('.btn.next').classList.remove('hide');
+            } else if (currentStep == 6) {
+                // esconde o botao de proxima pagina se estiver no ultimo passo (pq ja tem o de adicionar ao carrinho)
+                document.querySelector('.btn.next').classList.add('hide');
+            }
+        });
+    }
+
+    function updateStepChoices(currentStep) {
+        const steps = document.querySelectorAll('.steps');
+        steps.forEach(function (step) {
+            // esconde todas as outras divs
+            step.classList.add('hide');
+            if (step.classList.contains(`step${currentStep}`)) {
+                // mostra a div do passo atual
+                step.classList.remove('hide');
+            }
+        });
     }
 
     return (
@@ -631,176 +680,262 @@ export default function Sertao() {
                     </h5>
                 </div>
 
-                <fieldset>
-                    <label for='paperWidth'>Selecione o tamanho do papel</label>
-
-                    <select
-                        onChange={handleSelectedSketchbook}
-                        className='paperWidth'
-                    >
-                        <option value='' selected disabled>
-                            Tamanho do papel
-                        </option>
-
-                        {values.formats.map((format, index) => {
-                            return (
-                                <option value={index} key={index}>
-                                    {format.name}
-                                </option>
-                            );
-                        })}
-                    </select>
-                </fieldset>
-
-                <fieldset>
-                    <label for='paper'>Selecione o papel do miolo</label>
-
-                    <select onChange={handleSelectedType} className='paper'>
-                        <option value='0' selected disabled>
-                            Papel do miolo
-                        </option>
-
-                        {formatTypes.map((type, index) => {
-                            return (
-                                <option value={index} key={index}>
-                                    {type.name} - R$ {type.value}
-                                </option>
-                            );
-                        })}
-                    </select>
-
-                    <p>
-                        Veja mais sobre a gramatura e quantidade de páginas
-                        clicando <Link to='/gramaturas'>aqui</Link>
-                    </p>
-                </fieldset>
-
-                <div className='textWrapper'>
-                    <div className='textBackground'>
-                        <h2>Cor da capa</h2>
+                <div id='steps-indicator'>
+                    <div className='stepTitle title1 active-step'>
+                        <h3>Etapa 1</h3>
                     </div>
-
-                    <p>
-                        Selecione <strong>uma única</strong> cor. Arraste para o
-                        lado para conferir todas as opções.{' '}
-                        <button onClick={() => handleModalInfos()}>
-                            Clique aqui para visualizar os modelos de capa
-                        </button>
-                    </p>
+                    <div className='stepTitle title2'>
+                        <h3>Etapa 2</h3>
+                    </div>
+                    <div className='stepTitle title3'>
+                        <h3>Etapa 3</h3>
+                    </div>
+                    <div className='stepTitle title4'>
+                        <h3>Etapa 4</h3>
+                    </div>
+                    <div className='stepTitle title5'>
+                        <h3>Etapa 5</h3>
+                    </div>
+                    <div className='stepTitle title6'>
+                        <h3>Resumo do Pedido</h3>
+                    </div>
                 </div>
 
-                <div className='sliderColors'>
-                    <Slider {...settings}>
-                        {dataColors.map((item, index) =>
-                            item.models.includes('sertao') &&
-                            item.categories.includes('cover') ? (
-                                <div className='cardColor'>
-                                    <label
-                                        for={index}
-                                        onClick={(event) => changeColor(event)}
-                                    />
+                <div className='steps step1 full hide'>
+                    <div className='textWrapper'>
+                        <div className='textBackground'>
+                            <h2>Tamanho</h2>
+                        </div>
+                    </div>
+                    <fieldset>
+                        <label htmlFor='paperWidth'>
+                            Selecione o tamanho do papel
+                        </label>
 
-                                    {item.image ? (
-                                        <div key={item.id} className='colorBox'>
-                                            <img
-                                                draggable='false'
-                                                src={item.image}
-                                                alt='cor'
-                                            />
-                                        </div>
-                                    ) : (
-                                        <div
-                                            key={item.id}
-                                            style={{
-                                                backgroundColor: item.colorCode,
-                                            }}
-                                            className='colorBox'
-                                        >
-                                            <p>{item.colorCode}</p>
-                                        </div>
-                                    )}
+                        <select
+                            onChange={handleSelectedSketchbook}
+                            className='paperWidth'
+                            defaultValue='0'
+                        >
+                            <option value='0' disabled>
+                                Tamanho do papel
+                            </option>
 
-                                    <div className='colorName'>
-                                        <p>{item.colorName}</p>
-
-                                        <input
-                                            type='checkbox'
-                                            value={index}
-                                            id={index}
-                                            onChange={(event) =>
-                                                checkColor(item, event)
-                                            }
-                                            style={{
-                                                accentColor: item.colorCode,
-                                            }}
-                                        />
-                                    </div>
-                                </div>
-                            ) : null
-                        )}
-                    </Slider>
+                            {values.formats.map((format, index) => {
+                                return (
+                                    <option value={index} key={index}>
+                                        {format.name}
+                                    </option>
+                                );
+                            })}
+                        </select>
+                    </fieldset>
                 </div>
 
-                <section id='RadioSelectionColors'>
-                    <div className='boxColor'>
-                        <div className='textWrapper'>
-                            <div className='textBackground'>
-                                <h2>Cor da linha</h2>
-                            </div>
+                <div className='steps step2 full hide'>
+                    <div className='textWrapper'>
+                        <div className='textBackground'>
+                            <h2>Papel do Miolo</h2>
+                        </div>
+                    </div>
+                    <fieldset>
+                        <label htmlFor='paper'>
+                            Selecione o papel do miolo
+                        </label>
 
-                            <p>
-                                Selecione <strong>uma</strong> cor
-                            </p>
+                        <select
+                            onChange={handleSelectedType}
+                            className='paper'
+                            defaultValue='0'
+                        >
+                            <option value='0' disabled>
+                                Papel do miolo
+                            </option>
+
+                            {formatTypes.map((type, index) => {
+                                return (
+                                    <option value={index} key={index}>
+                                        {type.name} - R$ {type.value}
+                                    </option>
+                                );
+                            })}
+                        </select>
+
+                        <p>
+                            Veja mais sobre a gramatura e quantidade de páginas
+                            clicando <Link to='/gramaturas'>aqui</Link>
+                        </p>
+                    </fieldset>
+                </div>
+
+                <div className='steps step3 full hide'>
+                    <div className='textWrapper'>
+                        <div className='textBackground'>
+                            <h2>Cor da capa</h2>
                         </div>
 
-                        <div className='lineColorWrapper'>
+                        <p>
+                            Selecione <strong>uma única</strong> cor. Arraste
+                            para o lado para conferir todas as opções.{' '}
+                            <button onClick={() => handleModalInfos()}>
+                                Clique aqui para visualizar os modelos de capa
+                            </button>
+                        </p>
+                    </div>
+
+                    <div className='sliderColors'>
+                        <Slider {...settings}>
                             {dataColors.map((item, index) =>
                                 item.models.includes('sertao') &&
-                                item.categories.includes('line') ? (
-                                    <div className='colorWrapper'>
+                                item.categories.includes('cover') ? (
+                                    <div className='cardColor' key={index}>
+                                        <label
+                                            htmlFor={index}
+                                            onClick={(event) =>
+                                                changeColor(event)
+                                            }
+                                        />
+
                                         {item.image ? (
-                                            <div className='elasticColor'>
+                                            <div
+                                                key={item.id}
+                                                className='colorBox'
+                                            >
                                                 <img
+                                                    draggable='false'
                                                     src={item.image}
-                                                    alt='cor da linha'
+                                                    alt='cor'
                                                 />
                                             </div>
                                         ) : (
                                             <div
+                                                key={item.id}
                                                 style={{
                                                     backgroundColor:
                                                         item.colorCode,
                                                 }}
-                                                className='elasticColor'
-                                            />
+                                                className='colorBox'
+                                            >
+                                                <p>{item.colorCode}</p>
+                                            </div>
                                         )}
 
-                                        <input
-                                            type='radio'
-                                            onClick={(event) =>
-                                                handleSelectedLineColor(
-                                                    event,
-                                                    item,
-                                                    index
-                                                )
-                                            }
-                                            name='selectedLineColor'
-                                            key={item.id}
-                                            value={item.name}
-                                            className='checkbox'
-                                            style={{
-                                                accentColor: item.colorCode,
-                                            }}
-                                        />
+                                        <div className='colorName'>
+                                            <p>{item.colorName}</p>
+
+                                            <input
+                                                type='checkbox'
+                                                value={index}
+                                                id={index}
+                                                onChange={(event) =>
+                                                    checkColor(item, event)
+                                                }
+                                                style={{
+                                                    accentColor: item.colorCode,
+                                                }}
+                                            />
+                                        </div>
                                     </div>
                                 ) : null
                             )}
+                        </Slider>
+                    </div>
+                </div>
+
+                <div className='steps step4 full hide'>
+                    <section id='RadioSelectionColors'>
+                        <div className='boxColor'>
+                            <div className='textWrapper'>
+                                <div className='textBackground'>
+                                    <h2>Cor da linha</h2>
+                                </div>
+
+                                <p>
+                                    Selecione <strong>uma</strong> cor
+                                </p>
+                            </div>
+
+                            <div className='lineColorWrapper'>
+                                {dataColors.map((item, index) =>
+                                    item.models.includes('sertao') &&
+                                    item.categories.includes('line') ? (
+                                        <div
+                                            className='colorWrapper'
+                                            key={index}
+                                        >
+                                            {item.image ? (
+                                                <div className='elasticColor'>
+                                                    <img
+                                                        src={item.image}
+                                                        alt='cor da linha'
+                                                    />
+                                                </div>
+                                            ) : (
+                                                <div
+                                                    style={{
+                                                        backgroundColor:
+                                                            item.colorCode,
+                                                    }}
+                                                    className='elasticColor'
+                                                />
+                                            )}
+
+                                            <input
+                                                type='radio'
+                                                onClick={(event) =>
+                                                    handleSelectedLineColor(
+                                                        event,
+                                                        item,
+                                                        index
+                                                    )
+                                                }
+                                                name='selectedLineColor'
+                                                key={item.id}
+                                                value={item.name}
+                                                className='checkbox'
+                                                style={{
+                                                    accentColor: item.colorCode,
+                                                }}
+                                            />
+                                        </div>
+                                    ) : null
+                                )}
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div className='steps step5 full hide'>
+                    <div className='textWrapper'>
+                        <div className='textBackground'>
+                            <h2>Tipo de Acabamento</h2>
                         </div>
                     </div>
-                </section>
+                    {/* Inserir aqui a imagem de mostra dos tipos de acabamento */}
 
-                <div className='additionalInfos'>
-                    <label for='additionalInfos'>
+                    <fieldset>
+                        <label htmlFor='SketchFinish'>
+                            Selecione o tipo de acabamento nas bordas
+                        </label>
+
+                        <select
+                            onChange={(event) =>
+                                handleSelectedSketchFinish(event)
+                            }
+                            className='SketchFinish'
+                            defaultValue='0'
+                        >
+                            <option value='0' disabled>
+                                Tipo de Acabamento
+                            </option>
+                            <option value='Reto'>Reto</option>
+                            <option value='Arredondado'>Arredondado</option>
+                        </select>
+                    </fieldset>
+                </div>
+
+                <div className='additionalInfos steps step6 hide'>
+                    <label htmlFor='additionalInfos'>
                         Informações adicionais <strong>(opcional)</strong>
                     </label>
 
@@ -842,6 +977,10 @@ export default function Sertao() {
                                         <strong>Cor da linha: </strong>
                                         {selectedLineColor.colorName}
                                     </li>
+                                    <li>
+                                        <strong>Tipo de Acabamento: </strong>
+                                        {selectedSketchFinish}
+                                    </li>
                                 </ul>
 
                                 <h3>
@@ -863,6 +1002,21 @@ export default function Sertao() {
                             </p>
                         </>
                     )}
+                </div>
+
+                <div id='btns'>
+                    <button
+                        className='btn previous hide'
+                        onClick={(e) => handlePreviousStep()}
+                    >
+                        Etapa Anterior
+                    </button>
+                    <button
+                        className='btn next'
+                        onClick={(e) => handleNextStep()}
+                    >
+                        Próxima Etapa
+                    </button>
                 </div>
             </section>
 
