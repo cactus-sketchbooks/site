@@ -16,12 +16,13 @@ export default function RegisterProduct() {
     const [selectedModel, setSelectedModel] = useState('');
     const [selectedPaperWidth, setSelectedPaperWidth] = useState('');
     const [selectedSpiralColor, setSelectedSpiralColor] = useState('');
-    const [selectedBorderType, setSelectedBorderType] = useState('');
+    const [selectedSketchFinish, setSelectedSketchFinish] = useState('');
     const [imageUrl, setImageUrl] = useState('');
     const [dataColors, setDataColors] = useState([]);
 
     const [sketchbookData, setSketchbookData] = useState({
         id: '',
+        productType: '',
         productName: '',
         description: '',
         model: '',
@@ -31,7 +32,7 @@ export default function RegisterProduct() {
         lineColor: '',
         elasticColor: '',
         spiralColor: '',
-        borderType: '',
+        sketchFinish: '',
         size: {},
         value: 0,
         stock: '',
@@ -77,8 +78,8 @@ export default function RegisterProduct() {
         setSelectedSpiralColor(event.target.value);
     }
 
-    function handleSelectedBorderType(event) {
-        setSelectedBorderType(event.target.value);
+    function handleSelectedSketchFinish(event) {
+        setSelectedSketchFinish(event.target.value);
     }
 
     function handleInputProductsChange(event) {
@@ -117,6 +118,7 @@ export default function RegisterProduct() {
 
         const productData = {
             id: id,
+            productType: selectedProductType,
             productName: sketchbookData.productName,
             description: sketchbookData.description,
             model: selectedModel,
@@ -129,7 +131,7 @@ export default function RegisterProduct() {
             lineColor: sketchbookData.lineColor,
             elasticColor: sketchbookData.elasticColor,
             spiralColor: selectedSpiralColor,
-            borderType: selectedBorderType,
+            sketchFinish: selectedSketchFinish,
             size: productSize,
             value: sketchbookData.value,
             stock: sketchbookData.stock,
@@ -144,6 +146,7 @@ export default function RegisterProduct() {
 
         setSketchbookData({
             id: '',
+            productType: '',
             productName: '',
             description: '',
             model: '',
@@ -317,13 +320,13 @@ export default function RegisterProduct() {
                         </fieldset>
 
                         <fieldset>
-                            <label htmlFor='borderType'>
+                            <label htmlFor='sketchFinish'>
                                 Tipo da borda
                             </label>
 
                             <select
-                                onChange={handleSelectedBorderType}
-                                id='borderType'
+                                onChange={handleSelectedSketchFinish}
+                                id='sketchFinish'
                             >
                                 <option value='' selected disabled>
                                     Tipo da borda

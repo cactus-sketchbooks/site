@@ -95,7 +95,11 @@ export default function Products() {
                 <section id='productsSection'>
                         {data.map((product) => {
                             return (
-                                <div className='productWrapper'>
+                                <Link
+                                    className='productWrapper'
+                                    key={product.id}
+                                    to={`/produto/${product.id}`}
+                                >
                                     <div className='productImgWrapper'>
                                         <img
                                             src={product.productImage}
@@ -109,7 +113,7 @@ export default function Products() {
                                         <span>{product.description}</span>
                                         <h2>R$ {product.value}</h2>
                                     </div>
-                                </div>
+                                </Link>
                             );
                         })}
                 </section>
