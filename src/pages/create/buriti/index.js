@@ -301,138 +301,42 @@ export default function Buriti() {
 
     function updateStepIndicator(currentStep) {
         const stepsTitles = document.querySelectorAll('.stepTitle');
+        stepsTitles.forEach(function (step) {
+            step.classList.remove('active-step');
+            if (step.classList.contains(`title${currentStep}`)) {
+                // mostra a div do passo atual
+                step.classList.add('active-step');
+            }
 
-        switch (currentStep) {
-            case 1:
-                //Para ter certeza que somente o primeiro indicador de passo está pintado com a cor de ativo
-                stepsTitles.forEach(function (step) {
-                    step.classList.remove('active-step');
-                });
-                document
-                    .querySelector('.stepTitle:nth-child(1)')
-                    .classList.add('active-step');
-
+            // mostra e esconde os botoes de avancar ou retroceder se estivar na primeira ou ultima pagina
+            if (currentStep === 1) {
                 // esconde o botao de voltar se estiver no primeiro passo
                 document.querySelector('.btn.previous').classList.add('hide');
-                break;
-            case 2:
+            } else if (currentStep === 2) {
                 // mostra novamente o botao de voltar neste passo
                 document
                     .querySelector('.btn.previous')
                     .classList.remove('hide');
-
-                //mostra o segundo como ativo e tira a cor de ativo do primeiro
-                document
-                    .querySelector('.stepTitle:nth-child(2)')
-                    .classList.add('active-step');
-                document
-                    .querySelector('.stepTitle:nth-child(1)')
-                    .classList.remove('active-step');
-                document
-                    .querySelector('.stepTitle:nth-child(3)')
-                    .classList.remove('active-step');
-                break;
-            case 3:
-                //mostra o terceiro como ativo e tira a cor de ativo do segundo e quarto
-                document
-                    .querySelector('.stepTitle:nth-child(3)')
-                    .classList.add('active-step');
-
-                document
-                    .querySelector('.stepTitle:nth-child(2)')
-                    .classList.remove('active-step');
-                document
-                    .querySelector('.stepTitle:nth-child(4)')
-                    .classList.remove('active-step');
-                break;
-            case 4:
-                //mostra o quarto como ativo e tira a cor de ativo do terceiro e quinto
-                document
-                    .querySelector('.stepTitle:nth-child(4)')
-                    .classList.add('active-step');
-
-                document
-                    .querySelector('.stepTitle:nth-child(3)')
-                    .classList.remove('active-step');
-                document
-                    .querySelector('.stepTitle:nth-child(5)')
-                    .classList.remove('active-step');
-
+            } else if (currentStep === 4) {
                 // volta a mostrar o botao de avancar caso o usuario vá ao ultimo passo e volte
                 document.querySelector('.btn.next').classList.remove('hide');
-                break;
-            case 5:
+            } else if (currentStep === 5) {
                 // esconde o botao de proxima pagina se estiver no ultimo passo (pq ja tem o de adicionar ao carrinho)
                 document.querySelector('.btn.next').classList.add('hide');
-
-                //mostra o quinto como ativo e tira a cor de ativo do quarto
-                document
-                    .querySelector('.stepTitle:nth-child(5)')
-                    .classList.add('active-step');
-
-                document
-                    .querySelector('.stepTitle:nth-child(4)')
-                    .classList.remove('active-step');
-                break;
-            default:
-        }
+            }
+        });
     }
 
     function updateStepChoices(currentStep) {
         const steps = document.querySelectorAll('.steps');
-        switch (currentStep) {
-            case 1:
-                steps.forEach(function (step) {
-                    // esconde todas as outras divs
-                    step.classList.add('hide');
-                    if (step.classList.contains(`step${currentStep}`)) {
-                        // mostra a div do passo 1
-                        step.classList.remove('hide');
-                    }
-                });
-                break;
-            case 2:
-                steps.forEach(function (step) {
-                    // esconde todas as outras divs
-                    step.classList.add('hide');
-                    if (step.classList.contains(`step${currentStep}`)) {
-                        // mostra a div do passo 2
-                        step.classList.remove('hide');
-                    }
-                });
-                break;
-            case 3:
-                steps.forEach(function (step) {
-                    // esconde todas as outras divs
-                    step.classList.add('hide');
-                    if (step.classList.contains(`step${currentStep}`)) {
-                        // mostra a div do passo 3
-                        step.classList.remove('hide');
-                    }
-                });
-                break;
-            case 4:
-                steps.forEach(function (step) {
-                    // esconde todas as outras divs
-                    step.classList.add('hide');
-                    if (step.classList.contains(`step${currentStep}`)) {
-                        // mostra a div do passo 4
-                        step.classList.remove('hide');
-                    }
-                });
-                break;
-            case 5:
-                steps.forEach(function (step) {
-                    // esconde todas as outras divs
-                    step.classList.add('hide');
-                    if (step.classList.contains(`step${currentStep}`)) {
-                        // mostra a div do passo 5
-                        step.classList.remove('hide');
-                    }
-                });
-                break;
-            default:
-        }
+        steps.forEach(function (step) {
+            // esconde todas as outras divs
+            step.classList.add('hide');
+            if (step.classList.contains(`step${currentStep}`)) {
+                // mostra a div do passo atual
+                step.classList.remove('hide');
+            }
+        });
     }
 
     return (
