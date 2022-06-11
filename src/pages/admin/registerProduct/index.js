@@ -444,7 +444,7 @@ export default function RegisterProduct() {
                         </fieldset>
 
                         <fieldset>
-                            <label htmlFor='weight'>Peso do produto</label>
+                            <label htmlFor='weight'>Peso do produto (em kg)</label>
                             <input
                                 id='weight'
                                 name='weight'
@@ -453,7 +453,16 @@ export default function RegisterProduct() {
                                 placeholder='Peso'
                             />
 
-                            <label htmlFor='width'>Largura do produto</label>
+                            <div className="observations">
+                                <h3>Observações - Melhor Envio</h3>
+                                <span>Caso o tamanho do produto informado seja decimal, o mesmo deve ser aproximado para um número inteiro  (exemplo: 18,7 cm = 19 cm).</span>
+
+                                <span>Caso o produto seja enviado em uma embalagem, coloque as especificações de tamanho da embalagem.</span>
+
+                                <span>Para produtos maleáveis, insira as dimensões de acordo com o seu formato ao enviar (exemplo: ecobag dobrada).</span>
+                            </div>
+
+                            <label htmlFor='width'>Largura do produto (em cm)</label>
                             <input
                                 id='width'
                                 name='width'
@@ -463,7 +472,7 @@ export default function RegisterProduct() {
                             />
 
                             <label htmlFor='length'>
-                                Comprimento do produto
+                                Comprimento do produto (em cm)
                             </label>
                             <input
                                 id='length'
@@ -473,7 +482,7 @@ export default function RegisterProduct() {
                                 placeholder='Comprimento'
                             />
 
-                            <label htmlFor='height'>Altura do produto</label>
+                            <label htmlFor='height'>Altura do produto (em cm)</label>
                             <input
                                 id='height'
                                 name='height'

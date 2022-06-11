@@ -799,7 +799,8 @@ export default function Cart() {
                                                     {product.coverColors.map(
                                                         (color, index) => {
                                                             return (
-                                                                <span
+                                                                color.name ? (
+                                                                    <span
                                                                     key={index}
                                                                 >
                                                                     {(index
@@ -807,6 +808,17 @@ export default function Cart() {
                                                                         : '') +
                                                                         color.name}
                                                                 </span>
+                                                                ) : (
+                                                                    <span
+                                                                    key={index}
+                                                                >
+                                                                    {(index
+                                                                        ? ' + '
+                                                                        : '') +
+                                                                        color}
+                                                                </span>
+                                                                )
+                                                                
                                                             );
                                                         }
                                                     )}
@@ -819,7 +831,7 @@ export default function Cart() {
                                                         </strong>{' '}
                                                         {
                                                             product.elasticColor
-                                                                .colorName
+                                                                .colorName ? product.elasticColor.colorName : product.elasticColor
                                                         }
                                                     </li>
                                                 ) : (
@@ -833,7 +845,7 @@ export default function Cart() {
                                                         </strong>{' '}
                                                         {
                                                             product.lineColor
-                                                                .colorName
+                                                                .colorName ? product.lineColor.colorName : product.lineColor
                                                         }
                                                     </li>
                                                 ) : (
@@ -892,6 +904,12 @@ export default function Cart() {
                                                         com o valor de seu
                                                         produto
                                                     </h1>
+                                                )}
+
+                                                {product.quantity ? (
+                                                    <h4>Quantidade: {product.quantity}</h4>
+                                                ) : (
+                                                    <h4>Quantidade: 1</h4>
                                                 )}
 
                                                 <button
@@ -1652,7 +1670,8 @@ export default function Cart() {
                                                                       index
                                                                   ) => {
                                                                       return (
-                                                                          <span
+                                                                        color.name ? (
+                                                                            <span
                                                                               key={
                                                                                   index
                                                                               }
@@ -1662,6 +1681,19 @@ export default function Cart() {
                                                                                   : '') +
                                                                                   color.name}
                                                                           </span>
+                                                                        ) : (
+                                                                            <span
+                                                                              key={
+                                                                                  index
+                                                                              }
+                                                                          >
+                                                                              {(index
+                                                                                  ? ' + '
+                                                                                  : '') +
+                                                                                  color}
+                                                                          </span>
+                                                                        )
+                                                                          
                                                                       );
                                                                   }
                                                               )}
@@ -1677,7 +1709,7 @@ export default function Cart() {
                                                                   {
                                                                       product
                                                                           .lineColor
-                                                                          .colorName
+                                                                          .colorName ? product.lineColor.colorName : product.lineColor
                                                                   }
                                                               </span>
                                                           </li>
@@ -1695,7 +1727,7 @@ export default function Cart() {
                                                                   {
                                                                       product
                                                                           .elasticColor
-                                                                          .colorName
+                                                                          .colorName ? product.elasticColor.colorName : product.elasticColor
                                                                   }
                                                               </span>
                                                           </li>

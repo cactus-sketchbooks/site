@@ -56,14 +56,11 @@ export default function Products() {
     }
 
     function handleSearchInput() {
-
         if (searchInput !== '') {
             clearSearchItem();
             searchItem();
             setButtonType('clear');
-        }
-        
-        else {
+        } else {
             setData(dataBackup);
         }
     }
@@ -71,7 +68,7 @@ export default function Products() {
     function handleSearch(event) {
         setSearchInput(event.target.value);
 
-        if(event.target.value === '') {
+        if (event.target.value === '') {
             setButtonType('search');
         }
     }
@@ -88,12 +85,15 @@ export default function Products() {
             <Header />
 
             <body>
-
                 <section id='searchSection'>
-
                     <h1>Nossos Produtos</h1>
 
-                    <span>Atenção! Essa é uma seção de produtos pronta-entrega, se você deseja um Cactus personalizado do seu jeito basta acessar a <Link to="/">página inicial</Link> e montar um Cactus que mais combina com você!</span>
+                    <span>
+                        Atenção! Essa é uma seção de produtos pronta-entrega, se
+                        você deseja um Cactus personalizado do seu jeito basta
+                        acessar a <Link to='/'>página inicial</Link> e montar um
+                        Cactus que mais combina com você!
+                    </span>
 
                     <h3>Pesquisar produto</h3>
 
@@ -105,42 +105,50 @@ export default function Products() {
                         />
                     </div>
 
-                    <div className="buttonSearch">
-
+                    <div className='buttonSearch'>
                         {buttonType === 'search' ? (
-                            <button type="button" onClick={handleSearchInput}>Buscar</button>
+                            <button type='button' onClick={handleSearchInput}>
+                                Buscar
+                            </button>
                         ) : (
-                            <button type="button" onClick={() => { clearSearchItem() }}>Limpar</button>
+                            <button
+                                type='button'
+                                onClick={() => {
+                                    clearSearchItem();
+                                }}
+                            >
+                                Limpar
+                            </button>
                         )}
-
                     </div>
-
                 </section>
 
                 <section id='productsSection'>
-                        {data.map((product) => {
-                            return (
-                                <Link
-                                    className='productWrapper'
-                                    key={product.id}
-                                    to={`/produto/${product.id}`}
-                                >
-                                    <div className='productImgWrapper'>
-                                        <img
-                                            src={product.productImage}
-                                            alt={product.productName}
-                                            loading="lazy"
-                                        />
-                                    </div>
+                    {data.map((product) => {
+                        return product.stock > 0 ? (
+                            <Link
+                                className='productWrapper'
+                                key={product.id}
+                                to={`/produto/${product.id}`}
+                            >
+                                <div className='productImgWrapper'>
+                                    <img
+                                        src={product.productImage}
+                                        alt={product.productName}
+                                        loading='lazy'
+                                    />
+                                </div>
 
-                                    <div className='productInfos'>
-                                        <h2>{product.productName}</h2>
-                                        <span>{product.description}</span>
-                                        <h2>R$ {product.value}</h2>
-                                    </div>
-                                </Link>
-                            );
-                        })}
+                                <div className='productInfos'>
+                                    <h2>{product.productName}</h2>
+                                    <span>{product.description}</span>
+                                    <h2>R$ {product.value}</h2>
+                                </div>
+                            </Link>
+                        ) : (
+                            null
+                        );
+                    })}
                 </section>
             </body>
 

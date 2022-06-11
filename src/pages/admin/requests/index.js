@@ -490,7 +490,11 @@ export default function Requests() {
                                       return (
                                           <>
                                               <ul className='productCard'>
-                                                  <h4>{product.model}</h4>
+                                                {product.productType ? (
+                                                  <h4>{product.model}: produto pronta-entrega</h4>
+                                                ) : (
+                                                    <h4>{product.model}</h4>
+                                                )}
 
                                                   {product.paperWidth ? (
                                                       <li className='productData'>
@@ -572,7 +576,7 @@ export default function Requests() {
                                                       Cor da capa:
                                                       {product.coverColors.map(
                                                           (color, index) => {
-                                                              return (
+                                                              return color.name ? (
                                                                   <span
                                                                       key={
                                                                           index
@@ -583,6 +587,19 @@ export default function Requests() {
                                                                               ? ' + '
                                                                               : '') +
                                                                               color.name}
+                                                                      </b>
+                                                                  </span>
+                                                              ) : (
+                                                                  <span
+                                                                      key={
+                                                                          index
+                                                                      }
+                                                                  >
+                                                                      <b>
+                                                                          {(index
+                                                                              ? ' + '
+                                                                              : '') +
+                                                                              color}
                                                                       </b>
                                                                   </span>
                                                               );

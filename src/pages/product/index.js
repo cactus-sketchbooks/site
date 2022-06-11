@@ -1,6 +1,6 @@
 import { React } from 'react';
 import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
 
 import Header from '../../components/header';
 import Footer from '../../components/footer';
@@ -16,7 +16,12 @@ export default function Products() {
     const [data, setData] = useState([]);
     const [dataProduct, setDataProduct] = useState([]);
     const [path, setPath] = useState('');
-    const [quantity, setQuantity] = useState(0);
+    const [quantity, setQuantity] = useState(1);
+    const [finalValue, setFinalValue] = useState(0);
+    const [visibilityPlusButton, setvisibilityPlusButton] = useState('visible');
+    const [visibilityMinusButton, setvisibilityMinusButton] =
+        useState('visible');
+    const [visibilityFinishBuy, setvisibilityFinishBuy] = useState('visible');
 
     const idProduct = useParams().idProduct;
 
@@ -47,19 +52,98 @@ export default function Products() {
             if (product.id === path) {
                 setDataProduct(product);
                 console.log(product);
+                setFinalValue(Number(product.value));
             }
         });
     }, [data]);
 
+    useEffect(() => {
+        setFinalValue(Number(dataProduct.value) * quantity);
+
+        if (quantity === dataProduct.stock) {
+            setvisibilityPlusButton('hidden');
+            setvisibilityMinusButton('visible');
+            setvisibilityFinishBuy('visible');
+        } else if (quantity > 0 && quantity <= dataProduct.stock) {
+            setvisibilityPlusButton('visible');
+            setvisibilityMinusButton('visible');
+            setvisibilityFinishBuy('visible');
+        } else if (quantity === 0) {
+            setvisibilityPlusButton('visible');
+            setvisibilityMinusButton('hidden');
+            setvisibilityFinishBuy('hidden');
+        }
+    }, [quantity]);
+
     function decreaseQuantity() {
         if (quantity > 0) {
             setQuantity(quantity - 1);
+            setvisibilityMinusButton('visible');
+        } else {
+            setvisibilityMinusButton('hidden');
         }
     }
 
     function increaseQuantity() {
         if (Number(dataProduct.stock) > quantity) {
             setQuantity(quantity + 1);
+            setvisibilityPlusButton('visible');
+        } else {
+            setvisibilityPlusButton('hidden');
+            setTimeout(() => {
+                alert('Limite de produtos atingido');
+            }, 100);
+        }
+    }
+
+    let history = useHistory();
+
+    function addToCart() {
+        const temp = JSON.parse(localStorage.getItem('products'));
+        var listOfItems =
+            temp !== null ? Object.keys(temp).map((key) => temp[key]) : [];
+
+        const newItems = [];
+
+        if (dataProduct.productType === 'Sketchbook') {
+            const dataToSend = {
+                id: dataProduct.id,
+                productType: dataProduct.productType,
+                productName: dataProduct.productName,
+                description: dataProduct.description,
+                model: dataProduct.model,
+                paperWidth: dataProduct.paperWidth,
+                paper: dataProduct.paper,
+                coverColors: dataProduct.coverColors,
+                lineColor: dataProduct.lineColor ? dataProduct.lineColor : '',
+                elasticColor: dataProduct.elasticColor
+                    ? dataProduct.elasticColor
+                    : '',
+                spiralColor: dataProduct.spiralColor
+                    ? dataProduct.spiralColor
+                    : '',
+                sketchFinish: dataProduct.sketchFinish,
+                size: {
+                        height: Number(dataProduct.size.height),
+                        length: Number(dataProduct.size.length),
+                        weight: Number(dataProduct.size.weight),
+                        width: Number(dataProduct.size.width)
+                    },
+                value: finalValue,
+                quantity: quantity,
+                productImage: dataProduct.productImage,
+            };
+
+            newItems.push(dataToSend);
+
+            newItems.map((item) => listOfItems.push(item));
+            localStorage.setItem('products', JSON.stringify(listOfItems));
+            // } else {
+            //     newItems.map((item) => listOfItems.push(item));
+            //     localStorage.setItem('products', JSON.stringify(listOfItems));
+            // }
+
+            history.push('/Carrinho');
         }
     }
 
@@ -106,7 +190,7 @@ export default function Products() {
                                             (coverColor, index) => {
                                                 return (
                                                     <span key={index}>
-                                                        {(index ? ' + ' : '') +
+                                                        {(index && coverColor !== '' ? ' + ' : '') +
                                                             coverColor}
                                                     </span>
                                                 );
@@ -150,16 +234,33 @@ export default function Products() {
                         </div>
 
                         <div className='productButtons'>
-
-                            <div className="btnWrapper" onClick={decreaseQuantity}>
+                            <div
+                                style={{ visibility: visibilityMinusButton }}
+                                className='btnWrapper'
+                                onClick={decreaseQuantity}
+                            >
                                 <h3>-</h3>
                             </div>
 
                             <h2>{quantity}</h2>
 
-                            <div className="btnWrapper" onClick={increaseQuantity}>
+                            <div
+                                style={{ visibility: visibilityPlusButton }}
+                                className='btnWrapper'
+                                onClick={increaseQuantity}
+                            >
                                 <h3>+</h3>
                             </div>
+                        </div>
+
+                        <div
+                            style={{ visibility: visibilityFinishBuy }}
+                            className='finishBuy'
+                        >
+                            <h3>Valor: R$ {finalValue.toFixed(2)}</h3>
+                            <button type='button' onClick={() => addToCart()}>
+                                Adicionar ao carrinho
+                            </button>
                         </div>
                     </div>
                 </section>

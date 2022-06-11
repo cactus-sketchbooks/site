@@ -369,7 +369,8 @@ export default function UserRequests() {
                                                     {product.coverColors.map(
                                                         (color, index) => {
                                                             return (
-                                                                <span
+                                                                color.name ? (
+                                                                    <span
                                                                     key={index}
                                                                 >
                                                                     {(index
@@ -377,6 +378,17 @@ export default function UserRequests() {
                                                                         : '') +
                                                                         color.name}
                                                                 </span>
+                                                                ) : (
+                                                                    <span
+                                                                    key={index}
+                                                                >
+                                                                    {(index
+                                                                        ? ' + '
+                                                                        : '') +
+                                                                        color}
+                                                                </span>
+                                                                )
+                                                                
                                                             );
                                                         }
                                                     )}
@@ -387,7 +399,7 @@ export default function UserRequests() {
                                                         <b>Cor da linha:</b>{' '}
                                                         {
                                                             product.lineColor
-                                                                .colorName
+                                                                .colorName ? product.lineColor.colorName : product.lineColor
                                                         }
                                                     </li>
                                                 ) : (
@@ -399,7 +411,7 @@ export default function UserRequests() {
                                                         <b>Cor do elástico:</b>{' '}
                                                         {
                                                             product.elasticColor
-                                                                .colorName
+                                                                .colorName ? product.elasticColor.colorName : product.elasticColor
                                                         }
                                                     </li>
                                                 ) : (
