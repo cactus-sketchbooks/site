@@ -701,23 +701,87 @@ export default function Cart() {
 
                             <section className='productsInfo'>
                                 {data.map((product, index) => {
-                                    return (
+                                    return product.productType &&
+                                        product.productType === 'Outros' ? (
                                         <div className='productDetails'>
-                                            {images.map((sketchbook) => (
+                                            <div>
+                                                <img
+                                                    src={product.productImage}
+                                                    alt='Imagem'
+                                                />
+                                            </div>
+
+                                            <ul>
+                                                <li>{product.productName}</li>
+                                            </ul>
+
+                                            <div className='productsButtons'>
+                                                {product.value > 0 ? (
+                                                    <h1>
+                                                        R${' '}
+                                                        {product.value.toFixed(
+                                                            2
+                                                        )}
+                                                    </h1>
+                                                ) : (
+                                                    <h1
+                                                        style={{
+                                                            fontSize: '14px',
+                                                        }}
+                                                    >
+                                                        Finalize o pedido e
+                                                        aguarde nosso retorno
+                                                        com o valor de seu
+                                                        produto
+                                                    </h1>
+                                                )}
+
+                                                {product.quantity ? (
+                                                    <h4>
+                                                        Quantidade:{' '}
+                                                        {product.quantity}
+                                                    </h4>
+                                                ) : (
+                                                    <h4>Quantidade: 1</h4>
+                                                )}
+
+                                                <button
+                                                    onClick={() => {
+                                                        removeItemInCart(index);
+                                                    }}
+                                                >
+                                                    Excluir
+                                                </button>
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <div className='productDetails'>
+                                            {product.productImage ? (
                                                 <div>
-                                                    {sketchbook.name ===
-                                                    product.model ? (
-                                                        <img
-                                                            src={
-                                                                sketchbook.image
-                                                            }
-                                                            alt='Modelo'
-                                                        />
-                                                    ) : (
-                                                        ''
-                                                    )}
+                                                    <img
+                                                        src={
+                                                            product.productImage
+                                                        }
+                                                        alt='Modelo'
+                                                    />
                                                 </div>
-                                            ))}
+                                            ) : (
+                                                images.map((sketchbook) => (
+                                                    <div>
+                                                        {sketchbook.name ===
+                                                        product.model ? (
+                                                            <img
+                                                                src={
+                                                                    sketchbook.image
+                                                                }
+                                                                alt='Modelo'
+                                                            />
+                                                        ) : (
+                                                            ''
+                                                        )}
+                                                    </div>
+                                                ))
+                                            )}
 
                                             <ul>
                                                 <li>
@@ -798,9 +862,8 @@ export default function Cart() {
                                                     </strong>
                                                     {product.coverColors.map(
                                                         (color, index) => {
-                                                            return (
-                                                                color.name ? (
-                                                                    <span
+                                                            return color.name ? (
+                                                                <span
                                                                     key={index}
                                                                 >
                                                                     {(index
@@ -808,8 +871,8 @@ export default function Cart() {
                                                                         : '') +
                                                                         color.name}
                                                                 </span>
-                                                                ) : (
-                                                                    <span
+                                                            ) : (
+                                                                <span
                                                                     key={index}
                                                                 >
                                                                     {(index
@@ -817,8 +880,6 @@ export default function Cart() {
                                                                         : '') +
                                                                         color}
                                                                 </span>
-                                                                )
-                                                                
                                                             );
                                                         }
                                                     )}
@@ -829,10 +890,12 @@ export default function Cart() {
                                                         <strong>
                                                             Cor do elástico:
                                                         </strong>{' '}
-                                                        {
-                                                            product.elasticColor
-                                                                .colorName ? product.elasticColor.colorName : product.elasticColor
-                                                        }
+                                                        {product.elasticColor
+                                                            .colorName
+                                                            ? product
+                                                                  .elasticColor
+                                                                  .colorName
+                                                            : product.elasticColor}
                                                     </li>
                                                 ) : (
                                                     ''
@@ -843,10 +906,11 @@ export default function Cart() {
                                                         <strong>
                                                             Cor da linha:
                                                         </strong>{' '}
-                                                        {
-                                                            product.lineColor
-                                                                .colorName ? product.lineColor.colorName : product.lineColor
-                                                        }
+                                                        {product.lineColor
+                                                            .colorName
+                                                            ? product.lineColor
+                                                                  .colorName
+                                                            : product.lineColor}
                                                     </li>
                                                 ) : (
                                                     ''
@@ -865,7 +929,7 @@ export default function Cart() {
                                                 {product.sketchFinish ? (
                                                     <li>
                                                         <strong>
-                                                            Tipo de Acabamento:
+                                                            Tipo de Acabamento: 
                                                         </strong>{' '}
                                                         {product.sketchFinish}
                                                     </li>
@@ -907,7 +971,10 @@ export default function Cart() {
                                                 )}
 
                                                 {product.quantity ? (
-                                                    <h4>Quantidade: {product.quantity}</h4>
+                                                    <h4>
+                                                        Quantidade:{' '}
+                                                        {product.quantity}
+                                                    </h4>
                                                 ) : (
                                                     <h4>Quantidade: 1</h4>
                                                 )}
@@ -1525,7 +1592,7 @@ export default function Cart() {
                                                 <strong>
                                                     cactussketchs@gmail.com
                                                 </strong>{' '}
-                                                - Cactus Sketchbooks (C6Bank)
+                                                - Cactus Sketchbooks (C6 Bank)
                                             </span>
                                             <span>
                                                 envie seu comprovante na página
@@ -1586,9 +1653,24 @@ export default function Cart() {
                                 {purchasedProductData.products
                                     ? purchasedProductData.products.map(
                                           (product) => {
-                                              return (
+                                              return product.productType &&
+                                                  product.productType ===
+                                                      'Outros' ? (
+                                                  <ul>
+                                                      <li><h2>{product.productName}</h2></li>
+                                                      <li><span>{product.description}</span></li>
+                                                      <li><b>Quantidade </b> <span>{product.quantity}</span></li>
+                                                      <li> {product.value > 0 ? (
+                                                          <h2>
+                                                              R$ {product.value}
+                                                          </h2>
+                                                      ) : (
+                                                          ''
+                                                      )}</li>
+                                                  </ul>
+                                              ) : (
                                                   <ul className='productInfo'>
-                                                      <h2>{product.model}</h2>
+                                                      <h2>{product.productName ? product.productName : product.model}</h2>
 
                                                       {product.paperWidth ? (
                                                           <li>
@@ -1669,9 +1751,8 @@ export default function Cart() {
                                                                       color,
                                                                       index
                                                                   ) => {
-                                                                      return (
-                                                                        color.name ? (
-                                                                            <span
+                                                                      return color.name ? (
+                                                                          <span
                                                                               key={
                                                                                   index
                                                                               }
@@ -1681,8 +1762,8 @@ export default function Cart() {
                                                                                   : '') +
                                                                                   color.name}
                                                                           </span>
-                                                                        ) : (
-                                                                            <span
+                                                                      ) : (
+                                                                          <span
                                                                               key={
                                                                                   index
                                                                               }
@@ -1692,8 +1773,6 @@ export default function Cart() {
                                                                                   : '') +
                                                                                   color}
                                                                           </span>
-                                                                        )
-                                                                          
                                                                       );
                                                                   }
                                                               )}
@@ -1706,11 +1785,13 @@ export default function Cart() {
                                                                   Cor da linha
                                                               </b>
                                                               <span>
-                                                                  {
-                                                                      product
-                                                                          .lineColor
-                                                                          .colorName ? product.lineColor.colorName : product.lineColor
-                                                                  }
+                                                                  {product
+                                                                      .lineColor
+                                                                      .colorName
+                                                                      ? product
+                                                                            .lineColor
+                                                                            .colorName
+                                                                      : product.lineColor}
                                                               </span>
                                                           </li>
                                                       ) : (
@@ -1724,11 +1805,13 @@ export default function Cart() {
                                                                   elástico
                                                               </b>
                                                               <span>
-                                                                  {
-                                                                      product
-                                                                          .elasticColor
-                                                                          .colorName ? product.elasticColor.colorName : product.elasticColor
-                                                                  }
+                                                                  {product
+                                                                      .elasticColor
+                                                                      .colorName
+                                                                      ? product
+                                                                            .elasticColor
+                                                                            .colorName
+                                                                      : product.elasticColor}
                                                               </span>
                                                           </li>
                                                       ) : (
@@ -1753,7 +1836,7 @@ export default function Cart() {
                                                           <li>
                                                               <b>
                                                                   Tipo de
-                                                                  Acabamento:
+                                                                  Acabamento
                                                               </b>
                                                               <span>
                                                                   {

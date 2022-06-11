@@ -24,6 +24,7 @@ import CreateColor from './pages/admin/createColor';
 // import CreateTypes from './pages/admin/createTypes'
 import Requests from './pages/admin/requests';
 import RegisterProducts from './pages/admin/registerProduct';
+import ManageProducts from './pages/admin/manageProduct';
 import Products from './pages/products';
 import Product from './pages/product';
 import UserRequests from './pages/userRequests';
@@ -63,7 +64,8 @@ const Routes = () => {
             <Route component={DataChange} path='/alterarDados' />
             <Route component={Privacy} path='/politicaDePrivacidade' />
             <Route component={Terms} path='/termosDeUso' />
-            <Route component={RegisterProducts} path='/gerenciarProdutos' />
+            <Route component={RegisterProducts} path='/cadastrarProdutos' />
+            <Route component={ManageProducts} path='/gerenciarProdutos' />
             <Route component={Products} path='/produtos' />
             <Route component={Product} path='/produto/:idProduct' />
         </BrowserRouter>

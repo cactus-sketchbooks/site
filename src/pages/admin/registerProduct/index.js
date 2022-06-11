@@ -39,7 +39,25 @@ export default function RegisterProduct() {
         productImage: '',
     });
 
+    const [otherProductData, setOtherProductData] = useState({
+        id: '',
+        productType: '',
+        productName: '',
+        description: '',
+        size: {},
+        value: 0,
+        stock: '',
+        productImage: '',
+    });
+
     const [productSize, setProductSize] = useState({
+        weight: 0,
+        width: 0,
+        length: 0,
+        height: 0,
+    });
+
+    const [otherProductSize, setOtherProductSize] = useState({
         weight: 0,
         width: 0,
         length: 0,
@@ -91,11 +109,29 @@ export default function RegisterProduct() {
         });
     }
 
+    function handleInputOtherProductsChange(event) {
+        const { name, value } = event.target;
+
+        setOtherProductData({
+            ...otherProductData,
+            [name]: value,
+        });
+    }
+
     function handleInputProductsSizeChange(event) {
         const { name, value } = event.target;
 
         setProductSize({
             ...productSize,
+            [name]: value,
+        });
+    }
+
+    function handleInputOtherProductsSizeChange(event) {
+        const { name, value } = event.target;
+
+        setOtherProductSize({
+            ...otherProductSize,
             [name]: value,
         });
     }
@@ -135,7 +171,7 @@ export default function RegisterProduct() {
             size: productSize,
             value: sketchbookData.value,
             stock: sketchbookData.stock,
-            productImage: imageUrl,
+            productImage: imageUrl ? imageUrl : '',
         };
 
         firebase
@@ -167,6 +203,42 @@ export default function RegisterProduct() {
         
     }
 
+    function registerOtherProducts() {
+        const id = firebase.database().ref().child('products').push().key;
+
+        const productData = {
+            id: id,
+            productType: selectedProductType,
+            productName: otherProductData.productName,
+            description: otherProductData.description,
+            size: otherProductSize,
+            value: otherProductData.value,
+            stock: otherProductData.stock,
+            productImage: imageUrl ? imageUrl : '',
+        };
+
+        firebase
+            .database()
+            .ref('products/' + id)
+            .set(productData)
+            .then((err) => console.log(err));
+
+        setOtherProductData({
+            id: '',
+            productType: '',
+            productName: '',
+            description: '',
+            size: {},
+            value: 0,
+            stock: '',
+            productImage: '',
+        });
+
+        alert('Item inserido com sucesso!');
+        window.location.reload();
+        
+    }
+
     return (
         <main id='registerProduct'>
             <Header />
@@ -182,14 +254,14 @@ export default function RegisterProduct() {
                         onChange={handleSelectedProductType}
                     >
                         <option value='Sketchbook'>Sketchbook</option>
-                        <option value='Outros'>Outro</option>
+                        <option value='Outros'>Outros</option>
                     </select>
                 </div>
             </section>
 
             <section id='formSection'>
                 {selectedProductType === 'Sketchbook' ? (
-                    <form>
+                    <form id="formSketchbook">
                         <label htmlFor='imageUrl'>Imagem do produto</label>
                         <input
                             type='file'
@@ -449,7 +521,7 @@ export default function RegisterProduct() {
                                 id='weight'
                                 name='weight'
                                 type='number'
-                                onChange={handleInputProductsSizeChange}
+                                onChange={handleInputOtherProductsSizeChange}
                                 placeholder='Peso'
                             />
 
@@ -467,7 +539,7 @@ export default function RegisterProduct() {
                                 id='width'
                                 name='width'
                                 type='number'
-                                onChange={handleInputProductsSizeChange}
+                                onChange={handleInputOtherProductsSizeChange}
                                 placeholder='Largura'
                             />
 
@@ -478,7 +550,7 @@ export default function RegisterProduct() {
                                 id='length'
                                 name='length'
                                 type='number'
-                                onChange={handleInputProductsSizeChange}
+                                onChange={handleInputOtherProductsSizeChange}
                                 placeholder='Comprimento'
                             />
 
@@ -487,7 +559,7 @@ export default function RegisterProduct() {
                                 id='height'
                                 name='height'
                                 type='number'
-                                onChange={handleInputProductsSizeChange}
+                                onChange={handleInputOtherProductsSizeChange}
                                 placeholder='Altura'
                             />
                         </fieldset>
@@ -497,7 +569,7 @@ export default function RegisterProduct() {
                             id='value'
                             name='value'
                             type='number'
-                            onChange={handleInputProductsChange}
+                            onChange={handleInputOtherProductsChange}
                             placeholder='Preço'
                         />
 
@@ -506,7 +578,7 @@ export default function RegisterProduct() {
                             id='stock'
                             name='stock'
                             type='number'
-                            onChange={handleInputProductsChange}
+                            onChange={handleInputOtherProductsChange}
                             placeholder='Quantidade no estoque'
                         />
 
@@ -515,7 +587,106 @@ export default function RegisterProduct() {
                         </button>
                     </form>
                 ) : (
-                    <h1>Olá</h1>
+                    <form id="formOtherProducts">
+                        <label htmlFor='imageUrl'>Imagem do produto</label>
+                        <input
+                            type='file'
+                            id='imageUrl'
+                            accept='image/png, image/jpeg'
+                            onChange={uploadImage}
+                        />
+
+                        <label htmlFor='productName'>Nome do produto</label>
+                        <input
+                            type='text'
+                            name='productName'
+                            id='productName'
+                            placeholder='Nome do produto'
+                            onChange={handleInputOtherProductsChange}
+                        />
+
+                        <label htmlFor='description'>
+                            Descrição do produto
+                        </label>
+                        <input
+                            type='text'
+                            name='description'
+                            id='description'
+                            placeholder='Descrição do produto'
+                            onChange={handleInputOtherProductsChange}
+                        />
+
+                        <fieldset>
+                            <label htmlFor='weight'>Peso do produto (em kg)</label>
+                            <input
+                                id='weight'
+                                name='weight'
+                                type='number'
+                                onChange={handleInputOtherProductsSizeChange}
+                                placeholder='Peso'
+                            />
+
+                            <div className="observations">
+                                <h3>Observações - Melhor Envio</h3>
+                                <span>Caso o tamanho do produto informado seja decimal, o mesmo deve ser aproximado para um número inteiro  (exemplo: 18,7 cm = 19 cm).</span>
+
+                                <span>Caso o produto seja enviado em uma embalagem, coloque as especificações de tamanho da embalagem.</span>
+
+                                <span>Para produtos maleáveis, insira as dimensões de acordo com o seu formato ao enviar (exemplo: ecobag dobrada).</span>
+                            </div>
+
+                            <label htmlFor='width'>Largura do produto (em cm)</label>
+                            <input
+                                id='width'
+                                name='width'
+                                type='number'
+                                onChange={handleInputOtherProductsSizeChange}
+                                placeholder='Largura'
+                            />
+
+                            <label htmlFor='length'>
+                                Comprimento do produto (em cm)
+                            </label>
+                            <input
+                                id='length'
+                                name='length'
+                                type='number'
+                                onChange={handleInputOtherProductsSizeChange}
+                                placeholder='Comprimento'
+                            />
+
+                            <label htmlFor='height'>Altura do produto (em cm)</label>
+                            <input
+                                id='height'
+                                name='height'
+                                type='number'
+                                onChange={handleInputOtherProductsSizeChange}
+                                placeholder='Altura'
+                            />
+                        </fieldset>
+
+                        <label htmlFor='value'>Preço do produto</label>
+                        <input
+                            id='value'
+                            name='value'
+                            type='number'
+                            onChange={handleInputOtherProductsChange}
+                            placeholder='Preço'
+                        />
+
+                        <label htmlFor='stock'>Quantidade em estoque</label>
+                        <input
+                            id='stock'
+                            name='stock'
+                            type='number'
+                            onChange={handleInputOtherProductsChange}
+                            placeholder='Quantidade no estoque'
+                        />
+
+                        <button type='button' onClick={registerOtherProducts}>
+                            Cadastrar produto
+                        </button>
+                    </form>
                 )}
             </section>
 

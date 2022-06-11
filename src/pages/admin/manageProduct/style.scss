@@ -1,13 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 @import "../../../global.scss";
 
-#registerProduct {
+#changeProduct {
     display: flex;
     justify-content: center;
     flex-direction: column;
     overflow-x: hidden;
     max-width: 100vw;
     width: 100vw;
+    min-height: 100vh;
 
     input, select {
         margin-bottom: 2rem;
@@ -34,17 +35,16 @@
 
     }
 
-    #optionSection {
+    #optionSection, #deleteSection {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         overflow-x: hidden;
         width: 100%;
-        padding-top: 20vh;
         align-items: center;
 
-        .selectProductType {
+        .selectProduct {
 
             display: flex;
             flex-direction: column;
@@ -67,6 +67,33 @@
                 margin-top: 2rem;
                 text-align: center;
             }
+        }
+    }
+
+    #optionSection {
+        padding-top: 20vh;
+    }
+
+    #deleteSection {
+        margin: 5vh 0 ;
+        button {
+
+            padding: .7rem 2rem;
+            background-color: $orange;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: .2s ease-in-out;
+    
+            &:hover {
+    
+                background-color: $light-orange;
+    
+            }
+    
         }
     }
 

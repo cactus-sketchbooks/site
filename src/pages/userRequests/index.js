@@ -235,7 +235,7 @@ export default function UserRequests() {
 
                                         <h4>
                                             Chave PIX: cactussketchs@gmail.com -
-                                            Cactus Sketchbooks (C6Bank)
+                                            Cactus Sketchbooks (C6 Bank)
                                         </h4>
 
                                         {item.paymentProof ? (
@@ -292,8 +292,22 @@ export default function UserRequests() {
                                 <div className='boxProductInfos'>
                                     {item.products.map((product) => {
                                         return (
-                                            <ul className='productInfo'>
-                                                <h2>{product.model}</h2>
+                                            product.productType && product.productType === 'Outros' ? (
+                                                <ul className='productInfo'>
+                                                    <h2>{product.productName}</h2>
+                                                    <li><span>{product.description}</span></li>
+                                                      <li><b>Quantidade </b> <span>{product.quantity}</span></li>
+                                                      <li> {product.value > 0 ? (
+                                                          <h2>
+                                                              R$ {product.value}
+                                                          </h2>
+                                                      ) : (
+                                                          ''
+                                                      )}</li>
+                                                </ul>
+                                            ) : (
+                                                <ul className='productInfo'>
+                                                <h2>{product.productName ? product.productName : product.model}</h2>
 
                                                 {product.paperWidth ? (
                                                     <>
@@ -460,6 +474,8 @@ export default function UserRequests() {
                                                     </h2>
                                                 )}
                                             </ul>
+                                            )
+                                            
                                         );
                                     })}
                                 </div>

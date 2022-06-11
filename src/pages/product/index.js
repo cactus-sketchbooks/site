@@ -51,7 +51,6 @@ export default function Products() {
         data.map((product) => {
             if (product.id === path) {
                 setDataProduct(product);
-                console.log(product);
                 setFinalValue(Number(product.value));
             }
         });
@@ -124,11 +123,11 @@ export default function Products() {
                     : '',
                 sketchFinish: dataProduct.sketchFinish,
                 size: {
-                        height: Number(dataProduct.size.height),
-                        length: Number(dataProduct.size.length),
-                        weight: Number(dataProduct.size.weight),
-                        width: Number(dataProduct.size.width)
-                    },
+                    height: Number(dataProduct.size.height),
+                    length: Number(dataProduct.size.length),
+                    weight: Number(dataProduct.size.weight),
+                    width: Number(dataProduct.size.width),
+                },
                 value: finalValue,
                 quantity: quantity,
                 productImage: dataProduct.productImage,
@@ -138,12 +137,33 @@ export default function Products() {
 
             newItems.map((item) => listOfItems.push(item));
             localStorage.setItem('products', JSON.stringify(listOfItems));
-            // } else {
-            //     newItems.map((item) => listOfItems.push(item));
-            //     localStorage.setItem('products', JSON.stringify(listOfItems));
-            // }
 
             history.push('/Carrinho');
+        } else {
+
+            const dataToSend = {
+                id: dataProduct.id,
+                productType: dataProduct.productType,
+                productName: dataProduct.productName,
+                description: dataProduct.description,
+                size: {
+                    height: Number(dataProduct.size.height),
+                    length: Number(dataProduct.size.length),
+                    weight: Number(dataProduct.size.weight),
+                    width: Number(dataProduct.size.width),
+                },
+                value: finalValue,
+                quantity: quantity,
+                productImage: dataProduct.productImage,
+            };
+
+            newItems.push(dataToSend);
+
+            newItems.map((item) => listOfItems.push(item));
+            localStorage.setItem('products', JSON.stringify(listOfItems));
+
+            history.push('/Carrinho');
+
         }
     }
 
@@ -164,74 +184,83 @@ export default function Products() {
                         <h1>{dataProduct.productName}</h1>
                         <span>{dataProduct.description}</span>
 
-                        <div className='productSpecifications'>
-                            <h2>Especificações</h2>
+                        {dataProduct.productType === 'Sketchbook' ? (
+                            <div className='productSpecifications'>
+                                <h2>Especificações</h2>
 
-                            <ul>
-                                <li>
-                                    <b>Modelo: </b>
-                                    <span>{dataProduct.model}</span>
-                                </li>
-
-                                <li>
-                                    <b>Tamanho do papel: </b>
-                                    <span>{dataProduct.paperWidth}</span>
-                                </li>
-
-                                <li>
-                                    <b>Papel do miolo: </b>
-                                    <span>{dataProduct.paper}</span>
-                                </li>
-
-                                {dataProduct.coverColors ? (
+                                <ul>
                                     <li>
-                                        <b>Cor da capa: </b>
-                                        {dataProduct.coverColors.map(
-                                            (coverColor, index) => {
-                                                return (
-                                                    <span key={index}>
-                                                        {(index && coverColor !== '' ? ' + ' : '') +
-                                                            coverColor}
-                                                    </span>
-                                                );
-                                            }
-                                        )}
+                                        <b>Modelo: </b>
+                                        <span>{dataProduct.model}</span>
                                     </li>
-                                ) : (
-                                    ''
-                                )}
 
-                                {dataProduct.lineColor &&
-                                dataProduct.lineColor !== '' ? (
                                     <li>
-                                        <b>Cor da linha: </b>
-                                        <span>{dataProduct.lineColor}</span>
+                                        <b>Tamanho do papel: </b>
+                                        <span>{dataProduct.paperWidth}</span>
                                     </li>
-                                ) : (
-                                    ''
-                                )}
 
-                                {dataProduct.elasticColor &&
-                                dataProduct.elasticColor !== '' ? (
                                     <li>
-                                        <b>Cor do elástico: </b>
-                                        <span>{dataProduct.elasticColor}</span>
+                                        <b>Papel do miolo: </b>
+                                        <span>{dataProduct.paper}</span>
                                     </li>
-                                ) : (
-                                    ''
-                                )}
 
-                                {dataProduct.spiralColor &&
-                                dataProduct.spiralColor !== '' ? (
-                                    <li>
-                                        <b>Cor da espiral: </b>
-                                        <span>{dataProduct.spiralColor}</span>
-                                    </li>
-                                ) : (
-                                    ''
-                                )}
-                            </ul>
-                        </div>
+                                    {dataProduct.coverColors ? (
+                                        <li>
+                                            <b>Cor da capa: </b>
+                                            {dataProduct.coverColors.map(
+                                                (coverColor, index) => {
+                                                    return (
+                                                        <span key={index}>
+                                                            {(index &&
+                                                            coverColor !== ''
+                                                                ? ' + '
+                                                                : '') +
+                                                                coverColor}
+                                                        </span>
+                                                    );
+                                                }
+                                            )}
+                                        </li>
+                                    ) : (
+                                        ''
+                                    )}
+
+                                    {dataProduct.lineColor &&
+                                    dataProduct.lineColor !== '' ? (
+                                        <li>
+                                            <b>Cor da linha: </b>
+                                            <span>{dataProduct.lineColor}</span>
+                                        </li>
+                                    ) : (
+                                        ''
+                                    )}
+
+                                    {dataProduct.elasticColor &&
+                                    dataProduct.elasticColor !== '' ? (
+                                        <li>
+                                            <b>Cor do elástico: </b>
+                                            <span>
+                                                {dataProduct.elasticColor}
+                                            </span>
+                                        </li>
+                                    ) : (
+                                        ''
+                                    )}
+
+                                    {dataProduct.spiralColor &&
+                                    dataProduct.spiralColor !== '' ? (
+                                        <li>
+                                            <b>Cor da espiral: </b>
+                                            <span>
+                                                {dataProduct.spiralColor}
+                                            </span>
+                                        </li>
+                                    ) : (
+                                        ''
+                                    )}
+                                </ul>
+                            </div>
+                        ) : null}
 
                         <div className='productButtons'>
                             <div
