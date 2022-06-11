@@ -15,9 +15,10 @@ import firebaseConfig from '../../FirebaseConfig.js';
 export default function Products() {
     const [data, setData] = useState([]);
     const [dataBackup, setDataBackup] = useState([]);
-    const [searchInput, setSearchInput] = useState([]);
+    const [searchInput, setSearchInput] = useState('');
     const [selectedProduct, setSelectedProduct] = useState('');
     const [displaySearchResult, setDisplaySearchResult] = useState('none');
+    const [buttonType, setButtonType] = useState('search');
 
     useEffect(() => {
         if (!firebase.apps.length) {
@@ -54,18 +55,32 @@ export default function Products() {
         setDisplaySearchResult('flex');
     }
 
-    function handleSearchInput(event) {
-        if (event.key === 'Enter') {
+    function handleSearchInput() {
+
+        if (searchInput !== '') {
             clearSearchItem();
             searchItem();
+            setButtonType('clear');
         }
+        
+        else {
+            setData(dataBackup);
+        }
+    }
+
+    function handleSearch(event) {
         setSearchInput(event.target.value);
+
+        if(event.target.value === '') {
+            setButtonType('search');
+        }
     }
 
     function clearSearchItem() {
         setDisplaySearchResult('none');
         setData(dataBackup);
         setSelectedProduct('');
+        setButtonType('search');
     }
 
     return (
@@ -86,8 +101,18 @@ export default function Products() {
                         <input
                             type='text'
                             placeholder='Procurar'
-                            onKeyDown={handleSearchInput}
+                            onChange={handleSearch}
                         />
+                    </div>
+
+                    <div className="buttonSearch">
+
+                        {buttonType === 'search' ? (
+                            <button type="button" onClick={handleSearchInput}>Buscar</button>
+                        ) : (
+                            <button type="button" onClick={() => { clearSearchItem() }}>Limpar</button>
+                        )}
+
                     </div>
 
                 </section>
