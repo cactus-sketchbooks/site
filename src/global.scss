@@ -104,6 +104,10 @@ $amarelo: #ffff00;
             top: 10vh;
             left: 25%;
         }
+        
+        .hide {
+            display: none;
+        }
     }
 
     #CreateSketchbookSection {
@@ -116,6 +120,10 @@ $amarelo: #ffff00;
 
         p {
             color: $offWhite;
+        }
+
+        label, .upperCaseText{
+            text-transform: uppercase;
         }
 
         .logoWrapper {
@@ -231,6 +239,7 @@ $amarelo: #ffff00;
                 margin: 0.5rem 0;
                 padding: 0 0.5rem;
                 text-align: center;
+                text-transform: uppercase;
             }
 
             button {
@@ -502,6 +511,20 @@ $amarelo: #ffff00;
         
         #paperWarning {
             color: #fff;
+            margin: 1rem;
+            line-height: 2;
+            
+        }
+
+        .emphasisWarning {
+            background: #72a67f;
+            box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.24);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            margin-bottom: 1rem;
+            padding: 0.5rem;
         }
 
         #steps-indicator {

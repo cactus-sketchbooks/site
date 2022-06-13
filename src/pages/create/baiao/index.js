@@ -608,22 +608,22 @@ export default function Baiao() {
 
                 <div id='steps-indicator'>
                     <div className='stepTitle title1 active-step'>
-                        <h3>Etapa 1</h3>
+                        <h3>1: Tamanho</h3>
                     </div>
                     <div className='stepTitle title2'>
-                        <h3>Etapa 2</h3>
+                        <h3>2: Papel do Miolo</h3>
                     </div>
                     <div className='stepTitle title3'>
-                        <h3>Etapa 3</h3>
+                        <h3>3: Cor da Capa</h3>
                     </div>
                     <div className='stepTitle title4'>
-                        <h3>Etapa 4</h3>
+                        <h3>4: Cor da Linha</h3>
                     </div>
                     <div className='stepTitle title5'>
-                        <h3>Etapa 5</h3>
+                        <h3>5: Cor do Elástico</h3>
                     </div>
                     <div className='stepTitle title6'>
-                        <h3>Etapa 6</h3>
+                        <h3>6: Acabamento</h3>
                     </div>
                     <div className='stepTitle title7'>
                         <h3>Resumo do Pedido</h3>

@@ -5,20 +5,20 @@ import Footer from '../../components/footer/index.js';
 
 import { Link } from 'react-router-dom';
 
-import logoCactus from '../../images/logoCactus2.png'
-import foto from '../../images/foto1.png'
-import mandacaru from '../../images/mandacaru.png'
-import baiao from '../../images/baiao.png'
-import facheiro from '../../images/facheiro.png'
-import sertao from '../../images/sertaoRedondo.png'
+import logoCactus from '../../images/logoCactus2.png';
+import foto from '../../images/foto1.png';
+import mandacaru from '../../images/mandacaru.png';
+import baiao from '../../images/baiao.png';
+import facheiro from '../../images/facheiro.png';
+import sertao from '../../images/sertaoRedondo.png';
 import buriti from '../../images/buriti-kindle.png';
-import carcara from '../../images/carcara.png'
-import mandacaruQuadrado from '../../images/mandacaruQuadrado.jpg'
-import baiaoQuadrado from '../../images/baiaoQuadrado.jpg'
-import facheiroQuadrado from '../../images/facheiroQuadrado.jpg'
-import sertaoQuadrado from '../../images/sertao3.png'
-import buritiQuadrado from '../../images/buritiQuadrado.jpg'
-import carcaraQuadrado from '../../images/carcaraQuadrado.jpg'
+import carcara from '../../images/carcara.png';
+import mandacaruQuadrado from '../../images/mandacaruQuadrado.jpg';
+import baiaoQuadrado from '../../images/baiaoQuadrado.jpg';
+import facheiroQuadrado from '../../images/facheiroQuadrado.jpg';
+import sertaoQuadrado from '../../images/sertao3.png';
+import buritiQuadrado from '../../images/buritiQuadrado.jpg';
+import carcaraQuadrado from '../../images/carcaraQuadrado.jpg';
 
 function Home() {
     const [displayModal, setDisplayModal] = useState('none');
@@ -72,6 +72,13 @@ function Home() {
             link: '/carcara',
             imgSrc: [carcara, carcaraQuadrado],
         },
+        {
+            id: 6,
+            name: 'personalizado',
+            description: 'Monte do seu Jeito!',
+            link: '/personalizado',
+            imgSrc: [logoCactus, foto],
+        },
     ];
 
     function handleModalInfos(index) {
@@ -121,7 +128,7 @@ function Home() {
                 <div className='hero-wrapper'>
                     <div className='hero-title'>
                         <h1>cactus</h1>
-                        <img src={logoCactus} alt="Imagem de um cacto" />
+                        <img src={logoCactus} alt='Imagem de um cacto' />
                         <h1>sketchbooks</h1>
                     </div>
 

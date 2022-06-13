@@ -7,29 +7,43 @@ import './style.scss';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import logo from '../../../images/facheiro.png';
+import logo from '../../../images/mandacaru2.jpg';
+import Mandacaru2Cores from '../../../images/capas/CAPA MODELO MANDACARU DUAS CORES.png';
+import Mandacaru1Cor from '../../../images/capas/CAPA MODELO MANDACARU UMA COR.png';
 import Facheiro1Cor from '../../../images/capas/CAPA MODELO FACHEIRO UMA COR.png';
 import Facheiro2Cores from '../../../images/capas/CAPA MODELO FACHEIRO DUAS CORES.png';
 import FacheiroQuadrado1Cor from '../../../images/capas/CAPA MODELO FACHEIRO QUADRADO UMA COR.png';
 import FacheiroQuadrado2Cores from '../../../images/capas/CAPA MODELO FACHEIRO QUADRADO DUAS CORES.png';
+import Baiao1Cor from '../../../images/capas/Baiao1Cor.png';
+import Baiao2Cores from '../../../images/capas/Baiao2Cores.png';
+import CarcaraRetangular from '../../../images/capas/CarcaraRetangular.png';
+import CarcaraQuadrado from '../../../images/capas/CarcaraQuadrado.png';
 
 import Header from '../../../components/header/index.js';
 import Footer from '../../../components/footer/index.js';
 import PaperOption from '../../../components/paperOption';
 
+// vetor com todas as informações dos modelos, preços, tamanhos e papeis disponíveis
+import { models } from '../custom/modelsInfos';
+
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import FirebaseConfig from '../../../FirebaseConfig.js';
 
-export default function Facheiro() {
+export default function Custom() {
     const [dataColors, setDataColors] = useState([]);
     const [formatTypes, setformatTypes] = useState([]);
     const [formatSize, setFormatSize] = useState({});
     const [formatId, setFormatId] = useState('');
     const [userIsLogged, setUserIsLogged] = useState(false);
+    const [selectedSketchModel, setSelectedSketchModel] = useState('');
+    const [values, setValues] = useState({ formats: [] });
+    const [selectedSpiralColor, setSelectedSpiralColor] = useState('');
     const [selectedColors, setSelectedColors] = useState([]);
+    const [selectedSketchFinish, setSelectedSketchFinish] = useState('');
     const [isValidated, setIsValidated] = useState(false);
     const [checkedBoxes, setCheckedBoxes] = useState(0);
+    const [maxCheckedBoxes, setmaxCheckedBoxes] = useState(2);
     const [selectedPaperWidth, setSelectedPaperWidth] = useState('');
     const [sketchbookBasePrice, setSketchbookBasePrice] = useState(0);
     const [sketchbookTotalPrice, setSketchbookTotalPrice] = useState(0);
@@ -43,17 +57,15 @@ export default function Facheiro() {
     //esse aqui armazena quantos seletores de quantidade de blocos foram selecionados
     const [selectedPaperBlocksQtd, setSelectedPaperBlocksQtd] = useState(0);
     const [selectedPaperTypeQtd, setSelectedPaperTypeQtd] = useState(0);
-    const [selectedSpiralColor, setSelectedSpiralColor] = useState('');
+    const [selectedLineColor, setSelectedLineColor] = useState('');
     const [selectedElasticColor, setSelectedElasticColor] = useState('');
-    const [selectedSketchFinish, setSelectedSketchFinish] = useState('');
+    const [clientNote, setClientNote] = useState('');
     const [sketchPaperInfo, setSketchPaperInfo] = useState([
         { nomePapel: '', precoUnitario: 0, quantidade: 0 },
         { nomePapel: '', precoUnitario: 0, quantidade: 0 },
         { nomePapel: '', precoUnitario: 0, quantidade: 0 },
         { nomePapel: '', precoUnitario: 0, quantidade: 0 },
     ]);
-    const [clientNote, setClientNote] = useState('');
-    //sketchbookInfos é igual ao SketchPaperInfo só que com somente com a quantidade de papel selecionado
     const [sketchbookInfos, setSketchbookInfos] = useState([]);
     const [displayModal, setDisplayModal] = useState('none');
     const [maxSlides, setMaxSlides] = useState(5);
@@ -68,653 +80,6 @@ export default function Facheiro() {
         swipeToSlide: true,
     };
 
-    const values = {
-        name: 'Facheiro',
-        formats: [
-            {
-                name: 'A3 - Paisagem',
-                id: 401,
-                basePrice: 60,
-                size: {
-                    width: 29.7,
-                    length: 42,
-                    height: 3,
-                    // height: 2.5,
-                    weight: 0.5,
-                },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso',
-                        value: 8,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 9,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 14,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 20,
-                    },
-                    {
-                        name: 'Papel Preto',
-                        value: 8,
-                    },
-                    {
-                        name: 'Papel Canson Aquarela',
-                        value: 36,
-                    },
-                    // conferir
-                    // {
-                    //     name: 'Papel Montval',
-                    //     value: 225,
-                    // },
-                ],
-            },
-
-            {
-                name: 'A4 - Paisagem',
-                id: 402,
-                basePrice: 40,
-                size: {
-                    width: 21,
-                    length: 29,
-                    height: 3,
-                    // height: 2.5,
-                    weight: 0.5,
-                },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Marfim Liso',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 5,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 7,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 10,
-                    },
-                    {
-                        name: 'Papel Preto',
-                        value: 8,
-                    },
-                    {
-                        name: 'Papel Canson Aquarela',
-                        value: 18,
-                    },
-                    // conferir
-                    // {
-                    //     name: 'Papel Montval',
-                    //     value: 122,
-                    // },
-                ],
-            },
-            {
-                name: 'A5 - Paisagem',
-                id: 403,
-                basePrice: 30,
-                size: {
-                    width: 15,
-                    length: 21,
-                    // height: 2.5,
-                    height: 3,
-                    weight: 0.5,
-                },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Liso',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 5,
-                    },
-                    {
-                        name: 'Papel Preto',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Canson Aquarela',
-                        value: 9,
-                    },
-                    {
-                        name: 'Papel Montval',
-                        value: 9,
-                    },
-                ],
-            },
-            {
-                name: 'A6 - Paisagem',
-                id: 404,
-                basePrice: 20,
-                size: {
-                    width: 10.5,
-                    length: 15,
-                    // height: 2.5,
-                    height: 3,
-                    weight: 0.5,
-                },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Marfim Liso',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 3,
-                    },
-                    {
-                        name: 'Papel Preto',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Canson Aquarela',
-                        value: 5,
-                    },
-                    {
-                        name: 'Papel Montval',
-                        value: 5,
-                    },
-                ],
-            },
-            {
-                name: '21X21',
-                id: 405,
-                basePrice: 40,
-                size: {
-                    width: 21,
-                    length: 21,
-                    // height: 2.5,
-                    height: 3,
-                    weight: 0.5,
-                },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Marfim Liso',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 5,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 7,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 10,
-                    },
-                    {
-                        name: 'Papel Preto',
-                        value: 8,
-                    },
-                    {
-                        name: 'Papel Canson Aquarela',
-                        value: 18,
-                    },
-                    // conferir
-                    // {
-                    //     name: 'Papel Montval',
-                    //     value: 122,
-                    // },
-                ],
-            },
-            {
-                name: '15X15',
-                id: 406,
-                basePrice: 30,
-                size: {
-                    width: 15,
-                    length: 15,
-                    // height: 2.5,
-                    height: 3,
-                    weight: 0.5,
-                },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Liso',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 5,
-                    },
-                    {
-                        name: 'Papel Preto',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Canson Aquarela',
-                        value: 9,
-                    },
-                    {
-                        name: 'Papel Montval',
-                        value: 9,
-                    },
-                ],
-            },
-            {
-                name: '10X10',
-                id: 407,
-                basePrice: 20,
-                size: {
-                    width: 10,
-                    length: 10,
-                    height: 3,
-                    // height: 2.5,
-                    weight: 0.5,
-                },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Marfim Liso',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 3,
-                    },
-                    {
-                        name: 'Papel Preto',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Canson Aquarela',
-                        value: 5,
-                    },
-                    {
-                        name: 'Papel Montval',
-                        value: 5,
-                    },
-                ],
-            },
-            {
-                name: 'A4 - Retrato',
-                id: 408,
-                basePrice: 40,
-                size: {
-                    width: 21,
-                    length: 29,
-                    height: 3,
-                    // height: 2.5,
-                    weight: 0.5,
-                },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Marfim Liso',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 5,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 7,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 10,
-                    },
-                    {
-                        name: 'Papel Preto',
-                        value: 8,
-                    },
-                    {
-                        name: 'Papel Canson Aquarela',
-                        value: 18,
-                    },
-                    // conferir
-                    // {
-                    //     name: 'Papel Montval',
-                    //     value: 122,
-                    // },
-                ],
-            },
-            {
-                name: 'A5 - Retrato',
-                id: 409,
-                basePrice: 30,
-                size: {
-                    width: 15,
-                    length: 21,
-                    // height: 2.5,
-                    height: 3,
-                    weight: 0.5,
-                },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Liso',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 5,
-                    },
-                    {
-                        name: 'Papel Preto',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Canson Aquarela',
-                        value: 9,
-                    },
-                    {
-                        name: 'Papel Montval',
-                        value: 9,
-                    },
-                ],
-            },
-            {
-                name: 'A6 - Retrato',
-                id: 410,
-                basePrice: 20,
-                size: {
-                    width: 10.5,
-                    length: 15,
-                    // height: 2.5,
-                    height: 3,
-                    weight: 0.5,
-                },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Marfim Liso',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 3,
-                    },
-                    {
-                        name: 'Papel Preto',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Canson Aquarela',
-                        value: 5,
-                    },
-                    {
-                        name: 'Papel Montval',
-                        value: 5,
-                    },
-                ],
-            },
-        ],
-    };
-
     useEffect(() => {
         if (window.innerWidth < 820) {
             setMaxSlides(3);
@@ -723,14 +88,48 @@ export default function Facheiro() {
         }
     }, []);
 
+    function handleSelectedSketchModel(event) {
+        let position = event.target.value;
+        setSelectedSketchModel(models[position].modelName);
+        setValues(models[position]);
+
+        if (models[position].modelName === 'Carcará') {
+            setmaxCheckedBoxes(1);
+        } else {
+            setmaxCheckedBoxes(2);
+        }
+
+        document.querySelector('.paperWidth').selectedIndex = 0;
+        zerarEscolhaDePapeis();
+
+        setSelectedSpiralColor('');
+        setSelectedLineColor('');
+
+        document
+            .querySelectorAll('input[type=checkbox]')
+            .forEach(function (check) {
+                if (check.checked === true) {
+                    // conferir com o como passar a informacao do checkbox para a funcao checkColor para "despintar" marcação
+                    check.checked = false;
+                }
+            });
+        setSelectedColors([]);
+        setCheckedBoxes(0);
+    }
+
     function handleSelectedSketchbook(event) {
         let position = event.target.value;
-
         setSelectedPaperWidth(values.formats[position].name);
         setformatTypes(values.formats[position].types);
         setFormatSize(values.formats[position].size);
         setFormatId(values.formats[position].id);
         setSketchbookBasePrice(values.formats[position].basePrice);
+
+        zerarEscolhaDePapeis();
+        calculateTotalPrice();
+    }
+
+    function zerarEscolhaDePapeis() {
         // zera o selector de papeis se o cliente chegar a selecionar os papeis, mas mudar de ideia e voltar e mudar o tamanho do sketchbook
         // forçando-o a escolher novamente os papeis do miolo, garantindo que o preço e os papeis escolhidos estarão corretos
         setSelectedDifferentPapersQuantity(0);
@@ -740,14 +139,7 @@ export default function Facheiro() {
             { nomePapel: '', precoUnitario: 0, quantidade: 0 },
             { nomePapel: '', precoUnitario: 0, quantidade: 0 },
         ]);
-        document.querySelector('.DiffPaperQtdSelector').selectedIndex = 0;
-
-        calculateTotalPrice();
-    }
-
-    function handleSelectedType(event) {
-        let position = event.target.value;
-        setSketchbookInfos(formatTypes[position]);
+        document.querySelector('.paperQtd').selectedIndex = 0;
     }
 
     function onAuthStateChanged(user) {
@@ -789,13 +181,14 @@ export default function Facheiro() {
         const newItems = [];
 
         const dataToSend = {
-            model: 'Facheiro',
+            model: selectedSketchModel,
             id: formatId,
             paperWidth: selectedPaperWidth,
             paper: sketchbookInfos,
             value: sketchbookTotalPrice,
-            spiralColor: selectedSpiralColor,
+            lineColor: selectedLineColor,
             elasticColor: selectedElasticColor,
+            spiralColor: selectedSpiralColor,
             sketchFinish: selectedSketchFinish,
             coverColors: selectedColors,
             clientNote: clientNote,
@@ -856,18 +249,38 @@ export default function Facheiro() {
         }
     };
 
+    function checkLineOrSpiralOk() {
+        // checa se a selecao de cor da linha e da espiral estã de acordo com o modelo selecionado
+        let condition = false;
+        if (selectedSketchModel === 'Carcará') {
+            if (selectedSpiralColor === '' && selectedLineColor === '') {
+                condition = true;
+            }
+        } else if (selectedSketchModel === 'Facheiro') {
+            if (selectedSpiralColor != '' && selectedLineColor === '') {
+                condition = true;
+            }
+        } else {
+            if (selectedSpiralColor === '' && selectedLineColor != '') {
+                condition = true;
+            }
+        }
+        return condition;
+    }
+
     useEffect(() => {
+        checkLineOrSpiralOk();
         if (
             formatTypes === '' ||
             selectedPaperTypeQtd < selectedDifferentPapersQuantity ||
             selectedPaperBlocksQtd < selectedDifferentPapersQuantity ||
             totalPaperBlocksQtd > 10 ||
             totalPaperBlocksQtd < 6 ||
-            selectedSpiralColor === '' ||
+            checkLineOrSpiralOk() === false ||
             selectedElasticColor === '' ||
             selectedSketchFinish === '' ||
             sketchbookTotalPrice === 0 ||
-            checkedBoxes > 2 ||
+            checkedBoxes > maxCheckedBoxes ||
             checkedBoxes === 0
         ) {
             setIsValidated(false);
@@ -880,6 +293,7 @@ export default function Facheiro() {
         selectedPaperTypeQtd,
         selectedPaperBlocksQtd,
         totalPaperBlocksQtd,
+        selectedLineColor,
         selectedSpiralColor,
         selectedElasticColor,
         selectedSketchFinish,
@@ -905,13 +319,17 @@ export default function Facheiro() {
         }
         setSelectedDifferentPapersQuantity(parseInt(event.target.value));
     }
-    // atualiza o array de papeis selecionados e calcula o preco do sketchbook a cada modificacao no sketchbook
+
     useEffect(() => {
         setSketchbookInfos(
             sketchPaperInfo.slice(0, selectedDifferentPapersQuantity)
         );
         calculateTotalPrice();
     }, [sketchPaperInfo, selectedPaperWidth, selectedDifferentPapersQuantity]);
+
+    function handleSelectedLineColor(item, event) {
+        setSelectedLineColor(event);
+    }
 
     function handleSelectedSpiralColor(event) {
         setSelectedSpiralColor(event.target.value);
@@ -968,6 +386,17 @@ export default function Facheiro() {
         displayModal === 'none'
             ? setDisplayModal('flex')
             : setDisplayModal('none');
+
+        document.querySelectorAll('.modalContent').forEach(function (modal) {
+            modal.classList.add('hide');
+        });
+        if (selectedSketchModel !== '') {
+            document
+                .querySelector(`#${selectedSketchModel.toLowerCase()}Version`)
+                .classList.remove('hide');
+        } else {
+            document.querySelector('#nullVersion').classList.remove('hide');
+        }
     }
 
     function closeModal() {
@@ -978,7 +407,7 @@ export default function Facheiro() {
     }
 
     function handleNextStep() {
-        if (currentStep <= 6) {
+        if (currentStep <= 7) {
             setCurrentStep(currentStep + 1);
         }
     }
@@ -996,30 +425,38 @@ export default function Facheiro() {
 
     function updateStepIndicator(currentStep) {
         const stepsTitles = document.querySelectorAll('.stepTitle');
+
+        // retira a cor de ativo de todos pra garantir
         stepsTitles.forEach(function (step) {
             step.classList.remove('active-step');
-            if (step.classList.contains(`title${currentStep}`)) {
-                // mostra a div do passo atual
-                step.classList.add('active-step');
-            }
+        });
+        // adiciona a cor de ativo no indicador do passo atual
+        document
+            .querySelector(`.title${currentStep}`)
+            .classList.add('active-step');
 
-            // mostra e esconde os botoes de avancar ou retroceder se estivar na primeira ou ultima pagina
-            if (currentStep === 1) {
+        // mostra e esconde os botoes de avancar ou retroceder se estivar na primeira ou ultima pagina
+        switch (currentStep) {
+            case 1:
                 // esconde o botao de voltar se estiver no primeiro passo
                 document.querySelector('.btn.previous').classList.add('hide');
-            } else if (currentStep === 2) {
+                break;
+            case 2:
                 // mostra novamente o botao de voltar neste passo
                 document
                     .querySelector('.btn.previous')
                     .classList.remove('hide');
-            } else if (currentStep === 6) {
+                break;
+            case 7:
                 // volta a mostrar o botao de avancar caso o usuario vá ao ultimo passo e volte
                 document.querySelector('.btn.next').classList.remove('hide');
-            } else if (currentStep === 7) {
+                break;
+            case 8:
                 // esconde o botao de proxima pagina se estiver no ultimo passo (pq ja tem o de adicionar ao carrinho)
                 document.querySelector('.btn.next').classList.add('hide');
-            }
-        });
+                break;
+            default:
+        }
     }
 
     function updateStepChoices(currentStep) {
@@ -1027,11 +464,9 @@ export default function Facheiro() {
         steps.forEach(function (step) {
             // esconde todas as outras divs
             step.classList.add('hide');
-            if (step.classList.contains(`step${currentStep}`)) {
-                // mostra a div do passo atual
-                step.classList.remove('hide');
-            }
         });
+
+        document.querySelector(`.step${currentStep}`).classList.remove('hide');
     }
 
     return (
@@ -1041,7 +476,20 @@ export default function Facheiro() {
                 role='dialog'
                 className='divModal'
             >
-                <div id='facheiroVersion' className='modalContent'>
+                <div id='mandacaruVersion' className='modalContent'>
+                    <span onClick={closeModal}>x</span>
+
+                    <div className='sketchbookImgWrapper'>
+                        <h3>Modelo de capa com uma cor</h3>
+                        <img src={Mandacaru1Cor} alt='' />
+                    </div>
+
+                    <div className='sketchbookImgWrapper'>
+                        <h3>Modelo de capa com duas cores</h3>
+                        <img src={Mandacaru2Cores} alt='' />
+                    </div>
+                </div>
+                <div id='facheiroVersion' className='modalContent hide'>
                     <span onClick={closeModal}>x</span>
 
                     <div className='sketchbookImgWrapper'>
@@ -1064,17 +512,52 @@ export default function Facheiro() {
                         <img src={FacheiroQuadrado2Cores} alt='' />
                     </div>
                 </div>
+                <div id='baiãoVersion' className='modalContent hide'>
+                    <span onClick={closeModal}>x</span>
+
+                    <div className='sketchbookImgWrapper'>
+                        <h3>Modelo de capa com uma cor</h3>
+                        <img src={Baiao1Cor} alt='' />
+                    </div>
+
+                    <div className='sketchbookImgWrapper'>
+                        <h3>Modelo de capa com duas cores</h3>
+                        <img src={Baiao2Cores} alt='' />
+                    </div>
+                </div>
+                <div id='carcaráVersion' className='modalContent hide'>
+                    <span onClick={closeModal}>x</span>
+
+                    <div className='sketchbookImgWrapper'>
+                        <h3>Modelo de capa retangular</h3>
+                        <img src={CarcaraRetangular} alt='' />
+                    </div>
+
+                    <div className='sketchbookImgWrapper'>
+                        <h3>Modelo de capa quadrado</h3>
+                        <img src={CarcaraQuadrado} alt='' />
+                    </div>
+                </div>
+
+                {/* caso a pessoa clique em abrir o modal sem ter selecionado um modelo de sketchbook */}
+                <div id='nullVersion' className='modalContent hide'>
+                    <span onClick={closeModal}>x</span>
+
+                    <div className='sketchbookImgWrapper'>
+                        <h3>
+                            Selecione o primeiro o modelo do sketchbook para
+                            mostar os modelos de capas de acordo com o
+                            escolhido.
+                        </h3>
+                    </div>
+                </div>
             </div>
 
             <Header />
 
             <section id='CreateSketchbookSection'>
-                <div className='logoWrapper'>
-                    <img src={logo} alt='logo' />
-                </div>
-
                 <div className='textIntro'>
-                    <h1>Monte seu Facheiro</h1>
+                    <h1>Monte seu Sketchbook personalizado</h1>
                     <h5>
                         Selecione as opções abaixo e monte seu cactus do seu
                         jeito
@@ -1083,34 +566,69 @@ export default function Facheiro() {
 
                 <div id='steps-indicator'>
                     <div className='stepTitle title1 active-step'>
-                        <h3>1: Tamanho</h3>
+                        <h3>1: Modelo</h3>
                     </div>
                     <div className='stepTitle title2'>
-                        <h3>2: Papel do Miolo</h3>
+                        <h3>2: Tamanho</h3>
                     </div>
                     <div className='stepTitle title3'>
-                        <h3>3: Cor da Capa</h3>
+                        <h3>3: Papel do Miolo</h3>
                     </div>
                     <div className='stepTitle title4'>
-                        <h3>4: Cor da Espiral</h3>
+                        <h3>4: Cor da Capa</h3>
                     </div>
                     <div className='stepTitle title5'>
-                        <h3>5: Cor do Elástico</h3>
+                        <h3>5: Cor da Linha/Espiral</h3>
                     </div>
                     <div className='stepTitle title6'>
-                        <h3>6: Acabamento</h3>
+                        <h3>6: Cor do Elástico</h3>
                     </div>
                     <div className='stepTitle title7'>
+                        <h3>7: Acabamento</h3>
+                    </div>
+                    <div className='stepTitle title8'>
                         <h3>Resumo do Pedido</h3>
                     </div>
                 </div>
+                <div className='steps step1 full '>
+                    <div className='textWrapper'>
+                        <div className='textBackground'>
+                            <h2>Modelo</h2>
+                        </div>
+                    </div>
 
-                <div className='steps step1 full hide'>
+                    <fieldset>
+                        <label htmlFor='modelSelector'>
+                            Selecione o modelo do Sketchbook
+                        </label>
+
+                        <select
+                            onChange={handleSelectedSketchModel}
+                            className='modelSelector'
+                            defaultValue='0'
+                        >
+                            <option value='0' disabled>
+                                Modelo do Sketchbook
+                            </option>
+
+                            {models.map((model, index) => {
+                                return (
+                                    <option value={index} key={index}>
+                                        {model.modelName}
+                                    </option>
+                                );
+                            })}
+                        </select>
+                    </fieldset>
+                </div>
+
+                <div className='steps step2 full hide'>
                     <div className='textWrapper'>
                         <div className='textBackground'>
                             <h2>Tamanho e Orientação</h2>
                         </div>
                     </div>
+
                     <fieldset>
                         <label htmlFor='paperWidth'>
                             Selecione o tamanho e orientação do papel
@@ -1136,7 +654,7 @@ export default function Facheiro() {
                     </fieldset>
                 </div>
 
-                <div className='steps step2 full hide'>
+                <div className='steps step3 full hide'>
                     <div className='textWrapper'>
                         <div className='textBackground'>
                             <h2>Papel do Miolo</h2>
@@ -1144,13 +662,13 @@ export default function Facheiro() {
                     </div>
 
                     <fieldset>
-                        <label htmlFor='paper'>
+                        <label htmlFor='paperQtd'>
                             Selecione a quantidade de Papéis Diferentes no Miolo
-                            do Sketch
+                            do Sketchbook
                         </label>
                         <select
                             onChange={handleSelectedDiiferentPapersQuatity}
-                            className='DiffPaperQtdSelector'
+                            className='paperQtd'
                             defaultValue='0'
                         >
                             <option value='0' disabled>
@@ -1161,8 +679,9 @@ export default function Facheiro() {
                             <option value='3'>3</option>
                             <option value='4'>4</option>
                         </select>
-                        <p>
-                            Os Sketchboks podem ser montados adicionando blocos
+
+                        <p className='upperCaseText'>
+                            Os Sketchbooks podem ser montados adicionando blocos
                             de
                             <b> 16 páginas</b>
                         </p>
@@ -1191,21 +710,28 @@ export default function Facheiro() {
                             ''
                         ) : (
                             <>
-                                <p>
-                                    Os Sketchbooks devem ter ao final, no mínimo
-                                    <b> 6 blocos (96 páginas)</b> e no máximo
-                                    <b> 10 blocos (160 páginas)</b>
+                                <p className='upperCaseText'>
+                                    Os Sketchbooks devem ter ao final, no mínimo{' '}
+                                    <b>6 blocos (96 páginas)</b> e no máximo{' '}
+                                    <b>10 blocos (160 páginas)</b>
                                 </p>
-                                <br />
 
                                 <h3 id='paperWarning'>
                                     Seu Sketchbook tem atualmente{' '}
-                                    <b>{totalPaperBlocksQtd}</b> blocos.
+                                    <b className='emphasisWarning'>
+                                        {totalPaperBlocksQtd}
+                                    </b>{' '}
+                                    blocos.
                                 </h3>
 
                                 {totalPaperBlocksQtd > 10 ||
                                 totalPaperBlocksQtd < 6 ? (
-                                    <p>
+                                    <p
+                                        style={{
+                                            marginBottom: '0.6rem',
+                                            textTransform: 'uppercase',
+                                        }}
+                                    >
                                         Ajuste a quantidade de blocos antes de
                                         avançar para a próxima etapa.
                                     </p>
@@ -1214,7 +740,12 @@ export default function Facheiro() {
                                 )}
                                 {selectedPaperTypeQtd <
                                 selectedDifferentPapersQuantity ? (
-                                    <p>
+                                    <p
+                                        style={{
+                                            marginBottom: '0.6rem',
+                                            textTransform: 'uppercase',
+                                        }}
+                                    >
                                         Você deve selecionar{' '}
                                         <strong>todas as opções</strong> de
                                         papéis antes de prosseguir
@@ -1224,7 +755,12 @@ export default function Facheiro() {
                                 )}
                                 {selectedPaperBlocksQtd <
                                 selectedDifferentPapersQuantity ? (
-                                    <p>
+                                    <p
+                                        style={{
+                                            marginBottom: '0.6rem',
+                                            textTransform: 'uppercase',
+                                        }}
+                                    >
                                         Você deve selecionar{' '}
                                         <strong>todas as opções</strong> de
                                         quantidade de blocos antes de prosseguir
@@ -1247,34 +783,54 @@ export default function Facheiro() {
                     </fieldset>
                 </div>
 
-                <div className='steps step3 full hide'>
+                <div className='steps step4 full hide'>
                     <div className='textWrapper'>
                         <div className='textBackground'>
                             <h2>Cor da capa</h2>
                         </div>
-
-                        <p>
-                            Selecione <strong>até duas</strong> cores. Arraste
-                            para o lado para conferir todas as opções.{' '}
-                            <button onClick={() => handleModalInfos()}>
-                                Clique aqui para visualizar os modelos de capa
-                            </button>
-                        </p>
-                        <p>
-                            A <b>primeira</b> cor selecionada é referente à
-                            parte maior (inferior) e a <b>segunda</b> é
-                            referente à parte menor (superior). Não é possível
-                            escolher dois tipos de tecido por capa, e se um
-                            tecido for esolhido, ele <b>obrigatoriamente</b>{' '}
-                            ficará na parte de baixo (maior).
-                        </p>
+                        {selectedSketchModel === 'Carcará' ? (
+                            <p>
+                                Selecione <strong>uma</strong> cor. Arraste para
+                                o lado para conferir todas as opções.{' '}
+                                <button onClick={() => handleModalInfos()}>
+                                    Clique aqui para visualizar os modelos de
+                                    capa
+                                </button>
+                            </p>
+                        ) : (
+                            <>
+                                <p>
+                                    Selecione <strong>até duas</strong> cores.
+                                    Arraste para o lado para conferir todas as
+                                    opções.{' '}
+                                    <button onClick={() => handleModalInfos()}>
+                                        Clique aqui para visualizar os modelos
+                                        de capa
+                                    </button>
+                                </p>
+                                <p>
+                                    A <b>primeira</b> cor selecionada é
+                                    referente à parte maior (inferior) e a{' '}
+                                    <b>segunda</b> é referente à parte menor
+                                    (superior). Não é possível escolher dois
+                                    tipos de tecido por capa, e se um tecido for
+                                    esolhido, ele <b>obrigatoriamente</b> ficará
+                                    na parte de baixo (maior).
+                                </p>
+                            </>
+                        )}
                     </div>
 
                     <div className='sliderColors'>
                         <Slider {...settings}>
                             {dataColors.map((item, index) =>
-                                item.models.includes('facheiro') &&
-                                item.categories.includes('cover') ? (
+                                item.models.includes(
+                                    // transforma o nome do modelo escolhido para minusculo e sem acento para adequar a como foi criado no cadastro das cores
+                                    selectedSketchModel
+                                        .toLowerCase()
+                                        .normalize('NFD')
+                                        .replace(/[\u0300-\u036f]/g, '')
+                                ) && item.categories.includes('cover') ? (
                                     <div className='cardColor' key={index}>
                                         <label
                                             htmlFor={index}
@@ -1329,33 +885,116 @@ export default function Facheiro() {
                     </div>
                 </div>
 
-                <div className='steps step4 full hide'>
-                    <div className='textWrapper'>
-                        <div className='textBackground'>
-                            <h2>Cor do espiral</h2>
+                <div className='steps step5 full hide'>
+                    {selectedSketchModel === 'Mandacaru' ||
+                    selectedSketchModel === 'Baião' ? (
+                        <section id='RadioSelectionLineColor'>
+                            <div className='boxColor'>
+                                <div className='textWrapper'>
+                                    <div className='textBackground'>
+                                        <h2>Cor da linha</h2>
+                                    </div>
+
+                                    <p>
+                                        Selecione <strong>uma</strong> cor
+                                    </p>
+                                </div>
+
+                                <div className='lineColorWrapper'>
+                                    {dataColors.map((item, index) =>
+                                        item.models.includes(
+                                            selectedSketchModel
+                                                .toLowerCase()
+                                                .normalize('NFD')
+                                                .replace(/[\u0300-\u036f]/g, '')
+                                        ) &&
+                                        item.categories.includes('line') ? (
+                                            <div
+                                                className='colorWrapper'
+                                                key={index}
+                                            >
+                                                {item.image ? (
+                                                    <div className='elasticColor'>
+                                                        <img
+                                                            src={item.image}
+                                                            alt='cor do elástico'
+                                                        />
+                                                    </div>
+                                                ) : (
+                                                    <div
+                                                        style={{
+                                                            backgroundColor:
+                                                                item.colorCode,
+                                                        }}
+                                                        className='elasticColor'
+                                                    />
+                                                )}
+
+                                                <input
+                                                    type='radio'
+                                                    onClick={(event) =>
+                                                        handleSelectedLineColor(
+                                                            event,
+                                                            item,
+                                                            index
+                                                        )
+                                                    }
+                                                    name='selectedLineColor'
+                                                    key={item.id}
+                                                    value={item.name}
+                                                    className='checkbox'
+                                                    style={{
+                                                        accentColor:
+                                                            item.colorCode,
+                                                    }}
+                                                />
+                                            </div>
+                                        ) : null
+                                    )}
+                                </div>
+                            </div>
+                        </section>
+                    ) : selectedSketchModel === 'Facheiro' ? (
+                        <>
+                            <div className='textWrapper'>
+                                <div className='textBackground'>
+                                    <h2>Cor do espiral</h2>
+                                </div>
+                            </div>
+
+                            <fieldset>
+                                <label htmlFor='paper'>
+                                    Selecione a cor do espiral
+                                </label>
+
+                                <select
+                                    onChange={handleSelectedSpiralColor}
+                                    className='paper'
+                                    defaultValue='0'
+                                >
+                                    <option value='0' disabled>
+                                        Cor do espiral
+                                    </option>
+                                    <option value='Preto'>Preto</option>
+                                    <option value='Branco'>Branco</option>
+                                </select>
+                            </fieldset>
+                        </>
+                    ) : (
+                        <div className='textWrapper'>
+                            <div className='textBackground'>
+                                <h2>Cor da linha</h2>
+                            </div>
+
+                            <p>
+                                O {selectedSketchModel} não permite escolha de
+                                cor da linha, avance para a próxima etapa.
+                            </p>
                         </div>
-                    </div>
-
-                    <fieldset>
-                        <label htmlFor='paper'>
-                            Selecione a cor do espiral
-                        </label>
-
-                        <select
-                            onChange={handleSelectedSpiralColor}
-                            className='paper'
-                            defaultValue='0'
-                        >
-                            <option value='0' disabled>
-                                Cor do espiral
-                            </option>
-                            <option value='Preto'>Preto</option>
-                            <option value='Branco'>Branco</option>
-                        </select>
-                    </fieldset>
+                    )}
                 </div>
 
-                <div className='steps step5 full hide'>
+                <div className='steps step6 full hide'>
                     <section id='RadioSelectionColors'>
                         <div className='boxColor'>
                             <div className='textWrapper'>
@@ -1370,8 +1009,12 @@ export default function Facheiro() {
 
                             <div className='elasticColorWrapper'>
                                 {dataColors.map((item, index) =>
-                                    item.models.includes('buriti') &&
-                                    item.categories.includes('elastic') ? (
+                                    item.models.includes(
+                                        selectedSketchModel
+                                            .toLowerCase()
+                                            .normalize('NFD')
+                                            .replace(/[\u0300-\u036f]/g, '')
+                                    ) && item.categories.includes('elastic') ? (
                                         <div
                                             className='colorWrapper'
                                             key={index}
@@ -1417,7 +1060,7 @@ export default function Facheiro() {
                     </section>
                 </div>
 
-                <div className='steps step6 full hide'>
+                <div className='steps step7 full hide'>
                     <div className='textWrapper'>
                         <div className='textBackground'>
                             <h2>Tipo de Acabamento</h2>
@@ -1426,7 +1069,7 @@ export default function Facheiro() {
                     {/* Inserir aqui a imagem de mostra dos tipos de acabamento */}
 
                     <fieldset>
-                        <label htmlFor='paper'>
+                        <label htmlFor='SketchFinish'>
                             Selecione o tipo de acabamento nas bordas
                         </label>
 
@@ -1446,7 +1089,7 @@ export default function Facheiro() {
                     </fieldset>
                 </div>
 
-                <div className='additionalInfos steps step7 hide'>
+                <div className='additionalInfos steps step8 hide'>
                     <label htmlFor='additionalInfos'>
                         Informações adicionais <strong>(opcional)</strong>
                     </label>
@@ -1465,11 +1108,16 @@ export default function Facheiro() {
 
                                 <ul>
                                     <li>
+                                        <strong>Modelo: </strong>
+                                        {selectedSketchModel}
+                                    </li>
+                                    <li>
                                         <strong>Tamanho do papel: </strong>
                                         {selectedPaperWidth}
                                     </li>
                                     <li>
-                                        <strong>Papel do miolo: </strong> <br />
+                                        <strong>Papel do miolo: </strong>
+                                        <br />
                                         <br />
                                         {sketchbookInfos.map((papel, index) => {
                                             return (
@@ -1503,10 +1151,20 @@ export default function Facheiro() {
                                         )}
                                     </li>
 
-                                    <li>
-                                        <strong>Cor do espiral: </strong>
-                                        {selectedSpiralColor}
-                                    </li>
+                                    {selectedLineColor ? (
+                                        <li>
+                                            <strong>Cor da linha: </strong>
+                                            {selectedLineColor.colorName}
+                                        </li>
+                                    ) : null}
+
+                                    {selectedSpiralColor ? (
+                                        <li>
+                                            <strong>Cor do espiral: </strong>
+                                            {selectedSpiralColor}
+                                        </li>
+                                    ) : null}
+
                                     <li>
                                         <strong>Cor do elástico: </strong>
                                         {selectedElasticColor.colorName}
@@ -1519,7 +1177,7 @@ export default function Facheiro() {
 
                                 <h3>
                                     Valor do sketchbook: R${' '}
-                                    {sketchbookTotalPrice}
+                                    {sketchbookTotalPrice.toFixed(2)}
                                 </h3>
 
                                 <button onClick={() => addToCart()}>
