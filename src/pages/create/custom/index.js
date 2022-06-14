@@ -105,14 +105,16 @@ export default function Custom() {
         setSelectedSpiralColor('');
         setSelectedLineColor('');
 
+        // desmarca todas as checkboxes
         document
             .querySelectorAll('input[type=checkbox]')
             .forEach(function (check) {
-                if (check.checked === true) {
-                    // conferir com o como passar a informacao do checkbox para a funcao checkColor para "despintar" marcação
-                    check.checked = false;
-                }
+                check.checked = false;
             });
+        //"despinta" todas as checkboxes
+        document.querySelectorAll('.coverColorLabel').forEach((label) => {
+            label.style.backgroundColor = 'transparent';
+        });
         setSelectedColors([]);
         setCheckedBoxes(0);
     }
@@ -250,7 +252,10 @@ export default function Custom() {
     };
 
     function checkLineOrSpiralOk() {
-        // checa se a selecao de cor da linha e da espiral estã de acordo com o modelo selecionado
+        // checa se a selecao de cor da linha e da espiral estão de acordo com o modelo selecionado
+        // o Caracará nao tem linha nem espiral
+        // O facheiro tem espiral e nao tem linha
+        // e o Baiao e o Mandacaru tem linha e nao tem espiral
         let condition = false;
         if (selectedSketchModel === 'Carcará') {
             if (selectedSpiralColor === '' && selectedLineColor === '') {
@@ -269,14 +274,14 @@ export default function Custom() {
     }
 
     useEffect(() => {
-        checkLineOrSpiralOk();
+        let isLineOrSpiralOk = checkLineOrSpiralOk();
         if (
             formatTypes === '' ||
             selectedPaperTypeQtd < selectedDifferentPapersQuantity ||
             selectedPaperBlocksQtd < selectedDifferentPapersQuantity ||
             totalPaperBlocksQtd > 10 ||
             totalPaperBlocksQtd < 6 ||
-            checkLineOrSpiralOk() === false ||
+            isLineOrSpiralOk === false ||
             selectedElasticColor === '' ||
             selectedSketchFinish === '' ||
             sketchbookTotalPrice === 0 ||
@@ -834,6 +839,7 @@ export default function Custom() {
                                     <div className='cardColor' key={index}>
                                         <label
                                             htmlFor={index}
+                                            className='coverColorLabel'
                                             onClick={(event) =>
                                                 changeColor(event)
                                             }

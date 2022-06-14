@@ -55,7 +55,7 @@ const Routes = () => {
             <Route component={Carcara} path='/carcara' />
             <Route component={Buriti} path='/buriti' />
             <Route component={Sertao} path='/sertao' />
-            <Route component={Custom} path='/personalizado' />
+            <Route component={Custom} path='/mescla' />
             <Route component={ClientList} path='/listaDeClientes' />
             <Route component={CreatePost} path='/criarPost' />
             <Route component={CreateColor} path='/gerenciarCores' />

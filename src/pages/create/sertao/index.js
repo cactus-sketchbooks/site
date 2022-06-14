@@ -604,43 +604,48 @@ export default function Sertao() {
     }, [currentStep]);
 
     function updateStepIndicator(currentStep) {
-        const stepsTitles = document.querySelectorAll('.stepTitle');
-        stepsTitles.forEach(function (step) {
+        // retira a cor de ativo de todos pra garantir
+        document.querySelectorAll('.stepTitle').forEach(function (step) {
             step.classList.remove('active-step');
-            if (step.classList.contains(`title${currentStep}`)) {
-                // mostra a div do passo atual
-                step.classList.add('active-step');
-            }
+        });
 
-            // mostra e esconde os botoes de avancar ou retroceder se estivar na primeira ou ultima pagina
-            if (currentStep === 1) {
+        // adiciona a cor de ativo no indicador do passo atual
+        document
+            .querySelector(`.title${currentStep}`)
+            .classList.add('active-step');
+
+        // mostra e esconde os botoes de avancar ou retroceder se estivar na primeira ou ultima pagina
+        switch (currentStep) {
+            case 1:
                 // esconde o botao de voltar se estiver no primeiro passo
                 document.querySelector('.btn.previous').classList.add('hide');
-            } else if (currentStep === 2) {
+                break;
+            case 2:
                 // mostra novamente o botao de voltar neste passo
                 document
                     .querySelector('.btn.previous')
                     .classList.remove('hide');
-            } else if (currentStep === 5) {
+                break;
+            case 5:
                 // volta a mostrar o botao de avancar caso o usuario vá ao ultimo passo e volte
                 document.querySelector('.btn.next').classList.remove('hide');
-            } else if (currentStep === 6) {
+                break;
+            case 6:
                 // esconde o botao de proxima pagina se estiver no ultimo passo (pq ja tem o de adicionar ao carrinho)
                 document.querySelector('.btn.next').classList.add('hide');
-            }
-        });
+                break;
+            default:
+        }
     }
 
     function updateStepChoices(currentStep) {
-        const steps = document.querySelectorAll('.steps');
-        steps.forEach(function (step) {
+        document.querySelectorAll('.steps').forEach(function (step) {
             // esconde todas as outras divs
             step.classList.add('hide');
-            if (step.classList.contains(`step${currentStep}`)) {
-                // mostra a div do passo atual
-                step.classList.remove('hide');
-            }
         });
+
+        // mostra somente a div atual
+        document.querySelector(`.step${currentStep}`).classList.remove('hide');
     }
 
     return (

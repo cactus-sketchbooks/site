@@ -34,7 +34,7 @@ export default function Facheiro() {
     const [selectedElasticColor, setSelectedElasticColor] = useState('');
     const [selectedSketchFinish, setSelectedSketchFinish] = useState('');
     const [clientNote, setClientNote] = useState('');
-    const [sketchbookInfos, setSketchbookInfos] = useState([]);
+    const [sketchbookInfos, setSketchbookInfos] = useState('');
     const [displayModal, setDisplayModal] = useState('none');
     const [maxSlides, setMaxSlides] = useState(5);
     const [currentStep, setCurrentStep] = useState(1);

@@ -19,6 +19,8 @@ import facheiroQuadrado from '../../images/facheiroQuadrado.jpg';
 import sertaoQuadrado from '../../images/sertao3.png';
 import buritiQuadrado from '../../images/buritiQuadrado.jpg';
 import carcaraQuadrado from '../../images/carcaraQuadrado.jpg';
+import mescla1 from '../../images/Mescla1.png';
+import mescla2 from '../../images/Mescla2.jpg';
 
 function Home() {
     const [displayModal, setDisplayModal] = useState('none');
@@ -74,10 +76,10 @@ function Home() {
         },
         {
             id: 6,
-            name: 'personalizado',
-            description: 'Monte do seu Jeito!',
-            link: '/personalizado',
-            imgSrc: [logoCactus, foto],
+            name: 'mescla',
+            description: 'Miolo com até 4 papéis!',
+            link: '/mescla',
+            imgSrc: [mescla1, mescla2],
         },
     ];
 
