@@ -13,7 +13,6 @@ import Baiao2Cores from '../../../images/capas/Baiao2Cores.png';
 
 import Header from '../../../components/header/index.js';
 import Footer from '../../../components/footer/index.js';
-import PaperOption from '../../../components/paperOption';
 
 import firebase from 'firebase/app';
 import 'firebase/auth';
@@ -29,33 +28,14 @@ export default function Baiao() {
     const [isValidated, setIsValidated] = useState(false);
     const [checkedBoxes, setCheckedBoxes] = useState(0);
     const [selectedPaperWidth, setSelectedPaperWidth] = useState('');
-    const [sketchbookBasePrice, setSketchbookBasePrice] = useState(0);
-    const [sketchbookTotalPrice, setSketchbookTotalPrice] = useState(0);
-    const [
-        selectedDifferentPapersQuantity,
-        setSelectedDifferentPapersQuantity,
-    ] = useState(0);
-    //esse armazena a quantidade total de blocos selecionados
-    const [totalPaperBlocksQtd, setTotalPaperBlocksQtd] = useState(0);
-
-    //esse aqui armazena quantos seletores de quantidade de blocos foram selecionados
-    const [selectedPaperBlocksQtd, setSelectedPaperBlocksQtd] = useState(0);
-    const [selectedPaperTypeQtd, setSelectedPaperTypeQtd] = useState(0);
-    const [sketchPaperInfo, setSketchPaperInfo] = useState([
-        { nomePapel: '', precoUnitario: 0, quantidade: 0 },
-        { nomePapel: '', precoUnitario: 0, quantidade: 0 },
-        { nomePapel: '', precoUnitario: 0, quantidade: 0 },
-        { nomePapel: '', precoUnitario: 0, quantidade: 0 },
-    ]);
     const [selectedLineColor, setSelectedLineColor] = useState('');
     const [selectedElasticColor, setSelectedElasticColor] = useState('');
     const [selectedSketchFinish, setSelectedSketchFinish] = useState('');
     const [clientNote, setClientNote] = useState('');
-    const [sketchbookInfos, setSketchbookInfos] = useState([]);
+    const [sketchbookInfos, setSketchbookInfos] = useState('');
     const [displayModal, setDisplayModal] = useState('none');
     const [maxSlides, setMaxSlides] = useState(5);
     const [currentStep, setCurrentStep] = useState(1);
-    const paginasPorBloco = 16;
 
     const settings = {
         className: 'start',
@@ -71,7 +51,6 @@ export default function Baiao() {
             {
                 name: '21X21',
                 id: 101,
-                basePrice: 30,
                 size: {
                     width: 21,
                     length: 21,
@@ -82,39 +61,37 @@ export default function Baiao() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 4,
+                        value: 60,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 5,
+                        value: 65,
                     },
                     {
                         name: 'Papel Canson 140g',
-                        value: 7,
+                        value: 75,
                     },
                     {
                         name: 'Papel Canson 200g',
-                        value: 10,
+                        value: 85,
                     },
                     {
                         name: 'Papel Preto',
-                        value: 8,
+                        value: 82,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 18,
+                        value: 115,
                     },
-                    // Conferir
-                    // {
-                    //     name: 'Papel Montval',
-                    //     value: 115,
-                    // },
+                    {
+                        name: 'Papel Montval',
+                        value: 115,
+                    },
                 ],
             },
             {
                 name: '15X15',
                 id: 102,
-                basePrice: 20,
                 size: {
                     width: 15,
                     length: 15,
@@ -125,66 +102,65 @@ export default function Baiao() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 2,
+                        value: 38,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado',
-                        value: 2,
+                        value: 38,
                     },
                     {
                         name: 'Papel Reciclado Quadriculado',
-                        value: 2,
+                        value: 38,
                     },
                     {
                         name: 'Papel Reciclado Pautado',
-                        value: 2,
+                        value: 38,
                     },
                     {
                         name: 'Papel Marfim Liso',
-                        value: 2,
+                        value: 38,
                     },
                     {
                         name: 'Papel Marfim Pontilhado',
-                        value: 2,
+                        value: 38,
                     },
                     {
                         name: 'Papel Marfim Quadriculado',
-                        value: 2,
+                        value: 38,
                     },
                     {
                         name: 'Papel Marfim Pautado',
-                        value: 2,
+                        value: 38,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 2,
+                        value: 42,
                     },
                     {
                         name: 'Papel Canson 140g',
-                        value: 4,
+                        value: 48,
                     },
                     {
                         name: 'Papel Canson 200g',
-                        value: 5,
+                        value: 55,
                     },
                     {
                         name: 'Papel Preto',
-                        value: 4,
+                        value: 52,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 9,
+                        value: 78,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 9,
+                        value: 78,
                     },
                 ],
             },
             {
                 name: '10X10',
                 id: 103,
-                basePrice: 15,
                 size: {
                     width: 10,
                     length: 10,
@@ -195,59 +171,59 @@ export default function Baiao() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 1,
+                        value: 25,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado',
-                        value: 1,
+                        value: 25,
                     },
                     {
                         name: 'Papel Reciclado Quadriculado',
-                        value: 1,
+                        value: 25,
                     },
                     {
                         name: 'Papel Reciclado Pautado',
-                        value: 1,
+                        value: 25,
                     },
                     {
                         name: 'Papel Marfim Liso',
-                        value: 1,
+                        value: 25,
                     },
                     {
                         name: 'Papel Marfim Pontilhado',
-                        value: 1,
+                        value: 25,
                     },
                     {
                         name: 'Papel Marfim Quadriculado',
-                        value: 1,
+                        value: 25,
                     },
                     {
                         name: 'Papel Marfim Pautado',
-                        value: 1,
+                        value: 25,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 1,
+                        value: 30,
                     },
                     {
                         name: 'Papel Canson 140g',
-                        value: 2,
+                        value: 35,
                     },
                     {
                         name: 'Papel Canson 200g',
-                        value: 3,
+                        value: 40,
                     },
                     {
                         name: 'Papel Preto',
-                        value: 2,
+                        value: 36,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 5,
+                        value: 45,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 5,
+                        value: 45,
                     },
                 ],
             },
@@ -269,20 +245,16 @@ export default function Baiao() {
         setformatTypes(values.formats[position].types);
         setFormatSize(values.formats[position].size);
         setFormatId(values.formats[position].id);
-        setSketchbookBasePrice(values.formats[position].basePrice);
 
-        // zera o selector de papeis se o cliente chegar a selecionar os papeis, mas mudar de ideia e voltar e mudar o tamanho do sketchbook
-        // forçando-o a escolher novamente os papeis do miolo, garantindo que o preço e os papeis escolhidos estarão corretos
-        setSelectedDifferentPapersQuantity(0);
-        setSketchPaperInfo([
-            { nomePapel: '', precoUnitario: 0, quantidade: 0 },
-            { nomePapel: '', precoUnitario: 0, quantidade: 0 },
-            { nomePapel: '', precoUnitario: 0, quantidade: 0 },
-            { nomePapel: '', precoUnitario: 0, quantidade: 0 },
-        ]);
-        document.querySelector('.paperQtd').selectedIndex = 0;
+        //zera as informaoes de tipo e preco do papel do miolo se o cliente mudar de ideia e mudar o tamanho do sketchbook
+        // forçando-o a escolher novamente o papel do miolo, garantindo que o preço e o papel escolhidos estarão corretos
+        setSketchbookInfos('');
+        document.querySelector('.paper').selectedIndex = 0;
+    }
 
-        calculateTotalPrice();
+    function handleSelectedType(event) {
+        let position = event.target.value;
+        setSketchbookInfos(formatTypes[position]);
     }
 
     function onAuthStateChanged(user) {
@@ -327,8 +299,8 @@ export default function Baiao() {
             model: 'Baião',
             id: formatId,
             paperWidth: selectedPaperWidth,
-            paper: sketchbookInfos,
-            value: sketchbookTotalPrice,
+            paper: sketchbookInfos.name,
+            value: sketchbookInfos.value,
             lineColor: selectedLineColor,
             elasticColor: selectedElasticColor,
             coverColors: selectedColors,
@@ -394,14 +366,10 @@ export default function Baiao() {
     useEffect(() => {
         if (
             formatTypes === '' ||
-            selectedPaperTypeQtd < selectedDifferentPapersQuantity ||
-            selectedPaperBlocksQtd < selectedDifferentPapersQuantity ||
-            totalPaperBlocksQtd > 10 ||
-            totalPaperBlocksQtd < 6 ||
+            sketchbookInfos === '' ||
             selectedLineColor === '' ||
             selectedElasticColor === '' ||
             selectedSketchFinish === '' ||
-            sketchbookTotalPrice === 0 ||
             checkedBoxes > 2 ||
             checkedBoxes === 0
         ) {
@@ -412,41 +380,11 @@ export default function Baiao() {
     }, [
         formatTypes,
         sketchbookInfos,
-        selectedPaperTypeQtd,
-        selectedPaperBlocksQtd,
-        totalPaperBlocksQtd,
         selectedLineColor,
         selectedElasticColor,
         selectedSketchFinish,
-        sketchbookTotalPrice,
         checkedBoxes,
     ]);
-
-    function handleSelectedDiiferentPapersQuatity(event) {
-        //zera os elementos do array se o cliente mudar de ideia e diminuir a quantidade de papeis
-        if (parseInt(event.target.value) < selectedDifferentPapersQuantity) {
-            for (let index = parseInt(event.target.value); index < 4; index++) {
-                setSketchPaperInfo((prev) => {
-                    let newArr = [...prev];
-                    newArr[index] = {
-                        ...prev[index],
-                        nomePapel: '',
-                        precoUnitario: 0,
-                        quantidade: 0,
-                    };
-                    return newArr;
-                });
-            }
-        }
-        setSelectedDifferentPapersQuantity(parseInt(event.target.value));
-    }
-
-    useEffect(() => {
-        setSketchbookInfos(
-            sketchPaperInfo.slice(0, selectedDifferentPapersQuantity)
-        );
-        calculateTotalPrice();
-    }, [sketchPaperInfo, selectedPaperWidth, selectedDifferentPapersQuantity]);
 
     function handleSelectedLineColor(item, event) {
         setSelectedLineColor(event);
@@ -463,41 +401,6 @@ export default function Baiao() {
     function handleClientNote(event) {
         setClientNote(event.target.value);
     }
-
-    function calculateTotalPrice() {
-        let totalPrice = sketchbookBasePrice;
-
-        sketchbookInfos.forEach(function (papel) {
-            totalPrice += papel.precoUnitario * papel.quantidade;
-        });
-
-        setSketchbookTotalPrice(totalPrice);
-    }
-
-    useEffect(() => {
-        let paperQtd = 0;
-        sketchbookInfos.map((papel) => {
-            paperQtd += papel.quantidade;
-        });
-        setTotalPaperBlocksQtd(paperQtd);
-
-        setSelectedPaperTypeQtd(
-            sketchbookInfos.reduce((count, papel) => {
-                if (papel.nomePapel !== '') {
-                    count += 1;
-                }
-                return count;
-            }, 0)
-        );
-        setSelectedPaperBlocksQtd(
-            sketchbookInfos.reduce((count, papel) => {
-                if (papel.quantidade !== 0) {
-                    count += 1;
-                }
-                return count;
-            }, 0)
-        );
-    }, [sketchbookInfos]);
 
     function handleModalInfos() {
         displayModal === 'none'
@@ -526,47 +429,51 @@ export default function Baiao() {
     useEffect(() => {
         updateStepIndicator(currentStep);
         updateStepChoices(currentStep);
-        calculateTotalPrice();
     }, [currentStep]);
 
     function updateStepIndicator(currentStep) {
-        const stepsTitles = document.querySelectorAll('.stepTitle');
-        stepsTitles.forEach(function (step) {
+        // retira a cor de ativo de todos pra garantir
+        document.querySelectorAll('.stepTitle').forEach(function (step) {
             step.classList.remove('active-step');
-            if (step.classList.contains(`title${currentStep}`)) {
-                // mostra a div do passo atual
-                step.classList.add('active-step');
-            }
+        });
 
-            // mostra e esconde os botoes de avancar ou retroceder se estivar na primeira ou ultima pagina
-            if (currentStep === 1) {
+        // adiciona a cor de ativo no indicador do passo atual
+        document
+            .querySelector(`.title${currentStep}`)
+            .classList.add('active-step');
+
+        // mostra e esconde os botoes de avancar ou retroceder se estivar na primeira ou ultima pagina
+        switch (currentStep) {
+            case 1:
                 // esconde o botao de voltar se estiver no primeiro passo
                 document.querySelector('.btn.previous').classList.add('hide');
-            } else if (currentStep === 2) {
+                break;
+            case 2:
                 // mostra novamente o botao de voltar neste passo
                 document
                     .querySelector('.btn.previous')
                     .classList.remove('hide');
-            } else if (currentStep === 6) {
+                break;
+            case 6:
                 // volta a mostrar o botao de avancar caso o usuario vá ao ultimo passo e volte
                 document.querySelector('.btn.next').classList.remove('hide');
-            } else if (currentStep === 7) {
+                break;
+            case 7:
                 // esconde o botao de proxima pagina se estiver no ultimo passo (pq ja tem o de adicionar ao carrinho)
                 document.querySelector('.btn.next').classList.add('hide');
-            }
-        });
+                break;
+            default:
+        }
     }
 
     function updateStepChoices(currentStep) {
-        const steps = document.querySelectorAll('.steps');
-        steps.forEach(function (step) {
+        document.querySelectorAll('.steps').forEach(function (step) {
             // esconde todas as outras divs
             step.classList.add('hide');
-            if (step.classList.contains(`step${currentStep}`)) {
-                // mostra a div do passo atual
-                step.classList.remove('hide');
-            }
         });
+
+        // mostra somente a div atual
+        document.querySelector(`.step${currentStep}`).classList.remove('hide');
     }
 
     return (
@@ -630,7 +537,7 @@ export default function Baiao() {
                     </div>
                 </div>
 
-                <div className='steps step1 full hide'>
+                <div className='steps step1 full '>
                     <div className='textWrapper'>
                         <div className='textBackground'>
                             <h2>Tamanho</h2>
@@ -653,7 +560,7 @@ export default function Baiao() {
                             {values.formats.map((format, index) => {
                                 return (
                                     <option value={index} key={index}>
-                                        {format.name} (+ R$ {format.basePrice})
+                                        {format.name}
                                     </option>
                                 );
                             })}
@@ -668,105 +575,31 @@ export default function Baiao() {
                         </div>
                     </div>
                     <fieldset>
-                        <label htmlFor='paperQtd'>
-                            Selecione a quantidade de Papéis Diferentes no Miolo
-                            do Sketchbook
+                        <label htmlFor='paper'>
+                            Selecione o papel do miolo
                         </label>
+
                         <select
-                            onChange={handleSelectedDiiferentPapersQuatity}
-                            className='paperQtd'
+                            onChange={handleSelectedType}
+                            className='paper'
                             defaultValue='0'
                         >
                             <option value='0' disabled>
-                                Quantidade de Papéis Diferentes
+                                Papel do miolo
                             </option>
-                            <option value='1'>1</option>
-                            <option value='2'>2</option>
-                            <option value='3'>3</option>
-                            <option value='4'>4</option>
+
+                            {formatTypes.map((type, index) => {
+                                return (
+                                    <option value={index} key={index}>
+                                        {type.name} - R$ {type.value}
+                                    </option>
+                                );
+                            })}
                         </select>
                         <p>
-                            Os Sketchbooks podem ser montados adicionando blocos
-                            de
-                            <b> 16 páginas</b>
+                            Veja mais sobre a gramatura e quantidade de páginas
+                            clicando <Link to='/gramaturas'>aqui</Link>
                         </p>
-                        <br />
-                        <p>
-                            Veja mais sobre a gramatura clicando{' '}
-                            <Link to='/gramaturas'>aqui</Link>
-                        </p>
-                        <br />
-
-                        {[...Array(selectedDifferentPapersQuantity)].map(
-                            (_, i) => (
-                                <PaperOption
-                                    tipos={formatTypes}
-                                    quantidade={paginasPorBloco}
-                                    setSketchPaperInfo={setSketchPaperInfo}
-                                    index={i}
-                                    key={i}
-                                />
-                            )
-                        )}
-
-                        {/* so mostra os avisos se a pessoa escolher a quantidade de papeis diferentes, pra deixar o visual mais limpo */}
-                        {selectedDifferentPapersQuantity === 0 ? (
-                            ''
-                        ) : (
-                            <>
-                                <p>
-                                    Os Sketchbooks devem ter ao final, no mínimo
-                                    <b> 6 blocos (96 páginas)</b> e no máximo
-                                    <b> 10 blocos (160 páginas)</b>
-                                </p>
-                                <br />
-
-                                <h3 id='paperWarning'>
-                                    Seu Sketchbook tem atualmente{' '}
-                                    <b>{totalPaperBlocksQtd}</b> blocos.
-                                </h3>
-
-                                {totalPaperBlocksQtd > 10 ||
-                                totalPaperBlocksQtd < 6 ? (
-                                    <p>
-                                        Ajuste a quantidade de blocos antes de
-                                        avançar para a próxima etapa.
-                                    </p>
-                                ) : (
-                                    ''
-                                )}
-                                {selectedPaperTypeQtd <
-                                selectedDifferentPapersQuantity ? (
-                                    <p>
-                                        Você deve selecionar{' '}
-                                        <strong>todas as opções</strong> de
-                                        papéis antes de prosseguir
-                                    </p>
-                                ) : (
-                                    ''
-                                )}
-                                {selectedPaperBlocksQtd <
-                                selectedDifferentPapersQuantity ? (
-                                    <p>
-                                        Você deve selecionar{' '}
-                                        <strong>todas as opções</strong> de
-                                        quantidade de blocos antes de prosseguir
-                                    </p>
-                                ) : (
-                                    ''
-                                )}
-                                {totalPaperBlocksQtd > 10 ||
-                                totalPaperBlocksQtd < 6 ||
-                                selectedPaperTypeQtd <
-                                    selectedDifferentPapersQuantity ||
-                                selectedPaperBlocksQtd <
-                                    selectedDifferentPapersQuantity ? (
-                                    ''
-                                ) : (
-                                    <p>Vamos continuar!</p>
-                                )}
-                            </>
-                        )}
                     </fieldset>
                 </div>
 
@@ -1030,22 +863,7 @@ export default function Baiao() {
                                     </li>
                                     <li>
                                         <strong>Papel do miolo: </strong>
-                                        <br />
-                                        <br />
-                                        {sketchbookInfos.map((papel, index) => {
-                                            return (
-                                                <p key={index}>
-                                                    {index + 1} -{' '}
-                                                    <strong>
-                                                        {papel.quantidade}
-                                                    </strong>{' '}
-                                                    bloco(s) de{' '}
-                                                    <strong>
-                                                        {papel.nomePapel}
-                                                    </strong>
-                                                </p>
-                                            );
-                                        })}
+                                        {sketchbookInfos.name}
                                     </li>
 
                                     <li>
@@ -1080,7 +898,7 @@ export default function Baiao() {
 
                                 <h3>
                                     Valor do sketchbook: R${' '}
-                                    {sketchbookTotalPrice.toFixed(2)}
+                                    {sketchbookInfos.value}
                                 </h3>
 
                                 <button onClick={() => addToCart()}>
