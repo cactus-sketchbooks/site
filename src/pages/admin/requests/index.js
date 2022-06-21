@@ -1001,17 +1001,7 @@ export default function Requests() {
                                                       Alterar status
                                                   </button>
                                               </div>
-
-                                            <div className='trackingCode'>
-                                                <input
-                                                      placeholder='Código de Rastreio'
-                                                />
-                                                
-                                                <button>
-                                                    Enviar código de rastreio
-                                                </button>
-                                            </div>
-
+                                                      
                                               <div className='clientMessage'>
                                                   <input
                                                       placeholder='Recado para cliente'
@@ -1177,6 +1167,16 @@ export default function Requests() {
                                                       Alterar status
                                                   </button>
                                               </div>
+                                            
+                                              <div className='trackingCode'>
+                                                <input
+                                                      placeholder='Código de Rastreio'
+                                                />
+                                                
+                                                <button>
+                                                    Enviar Código de Rastreio
+                                                </button>
+                                                </div>
 
                                               <div className='clientMessage'>
                                                   <input
