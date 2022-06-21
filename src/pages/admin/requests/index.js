@@ -1025,7 +1025,7 @@ export default function Requests() {
                                                           );
                                                       }}
                                                   >
-                                                      Enviar Recado
+                                                    Enviar Recado
                                                   </button>
 
                                                   {item.adminNote ? (
