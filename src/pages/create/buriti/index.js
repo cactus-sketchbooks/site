@@ -300,31 +300,38 @@ export default function Buriti() {
     }, [currentStep]);
 
     function updateStepIndicator(currentStep) {
-        const stepsTitles = document.querySelectorAll('.stepTitle');
-        stepsTitles.forEach(function (step) {
+        // retira a cor de ativo de todos pra garantir
+        document.querySelectorAll('.stepTitle').forEach(function (step) {
             step.classList.remove('active-step');
-            if (step.classList.contains(`title${currentStep}`)) {
-                // mostra a div do passo atual
-                step.classList.add('active-step');
-            }
+        });
 
-            // mostra e esconde os botoes de avancar ou retroceder se estivar na primeira ou ultima pagina
-            if (currentStep === 1) {
+        // adiciona a cor de ativo no indicador do passo atual
+        document
+            .querySelector(`.title${currentStep}`)
+            .classList.add('active-step');
+
+        // mostra e esconde os botoes de avancar ou retroceder se estivar na primeira ou ultima pagina
+        switch (currentStep) {
+            case 1:
                 // esconde o botao de voltar se estiver no primeiro passo
                 document.querySelector('.btn.previous').classList.add('hide');
-            } else if (currentStep === 2) {
+                break;
+            case 2:
                 // mostra novamente o botao de voltar neste passo
                 document
                     .querySelector('.btn.previous')
                     .classList.remove('hide');
-            } else if (currentStep === 4) {
+                break;
+            case 4:
                 // volta a mostrar o botao de avancar caso o usuario vá ao ultimo passo e volte
                 document.querySelector('.btn.next').classList.remove('hide');
-            } else if (currentStep === 5) {
+                break;
+            case 5:
                 // esconde o botao de proxima pagina se estiver no ultimo passo (pq ja tem o de adicionar ao carrinho)
                 document.querySelector('.btn.next').classList.add('hide');
-            }
-        });
+                break;
+            default:
+        }
     }
 
     function updateStepChoices(currentStep) {
@@ -332,11 +339,8 @@ export default function Buriti() {
         steps.forEach(function (step) {
             // esconde todas as outras divs
             step.classList.add('hide');
-            if (step.classList.contains(`step${currentStep}`)) {
-                // mostra a div do passo atual
-                step.classList.remove('hide');
-            }
         });
+        document.querySelector(`.step${currentStep}`).classList.remove('hide');
     }
 
     return (
@@ -372,16 +376,16 @@ export default function Buriti() {
 
                 <div id='steps-indicator'>
                     <div className='stepTitle title1 active-step'>
-                        <h3>Etapa 1</h3>
+                        <h3>1: Modelo</h3>
                     </div>
                     <div className='stepTitle title2'>
-                        <h3>Etapa 2</h3>
+                        <h3>2: Cor da Capa</h3>
                     </div>
                     <div className='stepTitle title3'>
-                        <h3>Etapa 3</h3>
+                        <h3>3: Cor do Elástico</h3>
                     </div>
                     <div className='stepTitle title4'>
-                        <h3>Etapa 4</h3>
+                        <h3>4: Acabamento</h3>
                     </div>
                     <div className='stepTitle title5'>
                         <h3>Resumo do Pedido</h3>
