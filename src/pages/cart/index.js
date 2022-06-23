@@ -1217,13 +1217,20 @@ export default function Cart() {
                                         </span>
                                         <span>
                                             <strong>Atenção: </strong>
-                                            Todos os pedidos que contém produtos
-                                            personalizados tem um tempo de
-                                            produção de{' '}
-                                            <strong>5 dias úteis</strong>. E
-                                            todas os pedidos tem o prazo de{' '}
-                                            <strong>2 dias úteis</strong> até
-                                            ser enviado.
+                                            Pedidos feitos <strong>
+                                                FORA
+                                            </strong>{' '}
+                                            do "pronta entrega" tem um prazo de{' '}
+                                            <strong>
+                                                5 DIAS ÚTEIS DE PRODUÇÃO + 2
+                                                DIAS ÚTEIS PARA POSTAGEM OU
+                                                RETIRADA
+                                            </strong>{' '}
+                                            após a produção. Pedidos a pronta
+                                            entrega tem apenas o prazo de
+                                            postagem/entrega{' '}
+                                            <strong>(até 2 dias úteis)</strong>{' '}
+                                            .
                                         </span>
 
                                         <label
