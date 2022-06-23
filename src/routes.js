@@ -22,6 +22,7 @@ import Mescla from './pages/create/mescla';
 import ClientList from './pages/admin/clientList';
 import CreatePost from './pages/admin/createPost';
 import CreateColor from './pages/admin/createColor';
+import ManageVoucher from './pages/admin/manageVoucher';
 // import CreateTypes from './pages/admin/createTypes'
 import Requests from './pages/admin/requests';
 import RegisterProducts from './pages/admin/registerProduct';
@@ -68,6 +69,7 @@ const Routes = () => {
             <Route component={Terms} path='/termosDeUso' />
             <Route component={RegisterProducts} path='/cadastrarProdutos' />
             <Route component={ManageProducts} path='/gerenciarProdutos' />
+            <Route component={ManageVoucher} path='/gerenciarCupons' />
             <Route component={Products} path='/produtos' />
             <Route component={Product} path='/produto/:idProduct' />
         </BrowserRouter>

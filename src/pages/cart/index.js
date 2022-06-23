@@ -27,20 +27,26 @@ export default function Cart() {
     const [dataProduct, setDataProduct] = useState({});
     const [dataAccount, setDataAccount] = useState([]);
     const [userIsLogged, setUserIsLogged] = useState(false);
+    const [availableVouchers, setAvailableVouchers] = useState([]);
+    const [userVoucher, setUserVoucher] = useState('');
+    const [aplliedVoucher, setAplliedVoucher] = useState('None');
+    const [aplliedDiscount, setAplliedDiscount] = useState(0);
     const [transportData, setTransportData] = useState([]);
     const [customerCep, setCustomerCep] = useState('');
     const [redirect, setRedirect] = useState(useHistory());
     const [paidForm, setPaidForm] = useState(false);
+    const [displayDiscountValues, setDisplayDiscountValues] = useState('none');
     const [displayCepSearch, setDisplayCepSearch] = useState('none');
     const [displayAddressForms, setDisplayAddressForms] = useState('none');
     const [selectedTransportData, setSelectedTransportData] = useState({});
     const [transportValue, setTransportValue] = useState(0);
     const [economicTransportValue, setEconomicTransportValue] = useState(0);
+    const [productsSum, setProductsSum] = useState(0);
     const [totalValue, setTotalValue] = useState(0);
     const [finalValue, setFinalValue] = useState(0);
     const [loaded, setLoaded] = useState(false);
     const [selectedPayment, setSelectedPayment] = useState('');
-    const [pickupSelect, setPickupSelect] = useState('');
+    const [pickupSelect, setPickupSelect] = useState('0');
     const [displayPopup, setDisplayPopup] = useState('none');
     const [displayPaymentOption, setDisplayPaymentOption] = useState('none');
     const [displayFinishButton, setDisplayFinishButton] = useState('none');
@@ -159,12 +165,38 @@ export default function Cart() {
                 };
 
                 aux.push(productInfos); //passa as informações do produto no map para o array
-                setTotalValue(total); //valor total dos produtos
-                setFinalValue(total); //valor total (produtos + frete + desconto, etc)
+                setProductsSum(total); // valor total antes do desconto ser aplicado
+                setTotalValue(total); //valor total dos produtos (este sera modificado caso haja desconto)
+                setFinalValue(total); //valor total (produtos + frete, etc)
             });
 
             setDataProduct(aux);
         }
+    }, []);
+
+    // pega os cupons disponiveis
+    useEffect(() => {
+        if (!firebase.apps.length) firebase.initializeApp(FirebaseConfig);
+
+        var firebaseRef = firebase.database().ref('vouchers/');
+
+        firebaseRef.on('value', (snapshot) => {
+            if (snapshot.exists()) {
+                var data = snapshot.val();
+                var temp = Object.keys(data).map((key) => data[key]);
+                setAvailableVouchers(
+                    temp.sort((a, b) => {
+                        return a.title > b.title
+                            ? 1
+                            : b.title > a.title
+                            ? -1
+                            : 0;
+                    })
+                );
+            } else {
+                console.log('No data available');
+            }
+        });
     }, []);
 
     //remove o produto do carrinho
@@ -177,6 +209,53 @@ export default function Cart() {
             data.splice(index, 1);
             localStorage.setItem('products', JSON.stringify(data));
             window.location.reload();
+        }
+    }
+
+    //função para receber o cupom digitado
+    function handleUserVoucher(event) {
+        setUserVoucher(event.target.value);
+    }
+
+    //funcão que confere a validade e aplica o cupom de desconto
+    function redeemVoucher() {
+        let isVoucherOk = false;
+
+        //Pega a data de hoje e formata para o mesmo formato da data do cupom cadastrado
+        let dataAtual = new Date().toISOString().slice(0, 10);
+        const StateSelector = document.querySelector('.StateSelect');
+        const pickupSelector = document.querySelector('.pickupSelect');
+
+        availableVouchers.map((item) => {
+            if (userVoucher === item.voucherCode) {
+                //checa se a data de hoje está entre as datas de inicio e fim de validade do cupom, se nenhum cupom ja foi aplicado, e se o valor
+                // do pedido é maior que o minimo permitido pelo cupom
+                if (
+                    dataAtual <= item.endDate &&
+                    dataAtual >= item.beginDate &&
+                    aplliedVoucher === 'None' &&
+                    totalValue >= item.minOrderValue
+                ) {
+                    isVoucherOk = true;
+
+                    setTotalValue(
+                        totalValue - totalValue * (item.discountPercent / 100)
+                    );
+                    setAplliedVoucher(userVoucher);
+                    setAplliedDiscount(
+                        totalValue * (item.discountPercent / 100)
+                    );
+                    setDisplayDiscountValues('flex');
+
+                    window.alert('Cupom inserido com sucesso!');
+                }
+            }
+        });
+
+        if (isVoucherOk === false) {
+            window.alert(
+                'O cupom inserido é inválido ou não está mais disponível'
+            );
         }
     }
 
@@ -206,9 +285,11 @@ export default function Cart() {
         } else {
             setDisplayCepSearch('none');
 
-            if (transportValue !== 0 || economicTransportValue !== 0) {
-                setFinalValue(totalValue);
-            }
+            setFinalValue(totalValue);
+
+            // if (transportValue !== 0 || economicTransportValue !== 0) {
+            //     setFinalValue(totalValue);
+            // }
         }
 
         if (
@@ -465,6 +546,7 @@ export default function Cart() {
                         : '',
                     paymentProof: '',
                     adminNote: '',
+                    aplliedVoucher: aplliedVoucher,
                     requestStatus: '',
                     dateToCompare: new Date().toDateString(),
                     date: `${now.getUTCDate()}/${
@@ -511,6 +593,7 @@ export default function Cart() {
                     phoneNumber: dataAccount.phoneNumber,
                     paymentProof: '',
                     adminNote: '',
+                    aplliedVoucher: aplliedVoucher,
                     requestStatus: '',
                     dateToCompare: new Date().toDateString(),
                     date: `${now.getUTCDate()}/${
@@ -703,7 +786,10 @@ export default function Cart() {
                                 {data.map((product, index) => {
                                     return product.productType &&
                                         product.productType === 'Outros' ? (
-                                        <div className='productDetails'>
+                                        <div
+                                            className='productDetails'
+                                            key={index}
+                                        >
                                             <div>
                                                 <img
                                                     src={product.productImage}
@@ -755,7 +841,10 @@ export default function Cart() {
                                             </div>
                                         </div>
                                     ) : (
-                                        <div className='productDetails'>
+                                        <div
+                                            className='productDetails'
+                                            key={index}
+                                        >
                                             {product.productImage ? (
                                                 <div>
                                                     <img
@@ -830,7 +919,11 @@ export default function Cart() {
                                                                     index
                                                                 ) => {
                                                                     return (
-                                                                        <p>
+                                                                        <p
+                                                                            key={
+                                                                                index
+                                                                            }
+                                                                        >
                                                                             {index +
                                                                                 1}{' '}
                                                                             -{' '}
@@ -929,7 +1022,7 @@ export default function Cart() {
                                                 {product.sketchFinish ? (
                                                     <li>
                                                         <strong>
-                                                            Tipo de Acabamento: 
+                                                            Tipo de Acabamento:
                                                         </strong>{' '}
                                                         {product.sketchFinish}
                                                     </li>
@@ -997,16 +1090,66 @@ export default function Cart() {
                                     <div className='finishOrder'>
                                         <h2>Finalização do pedido</h2>
 
+                                        <div
+                                            id='VoucherArea'
+
+                                            // style={{
+                                            //     width: '100%',
+                                            //     margin: '1rem 0',
+                                            // }}
+                                        >
+                                            <h3>Cupom de Desconto</h3>
+
+                                            <input
+                                                type='text'
+                                                id='VoucherCode'
+                                                placeholder='Insira o cupom'
+                                                onChange={handleUserVoucher}
+                                            />
+                                            <button
+                                                onClick={() => {
+                                                    if (pickupSelect === '0') {
+                                                        redeemVoucher();
+                                                    } else {
+                                                        alert(
+                                                            'Voce deve aplicar o cupom antes de selecionar o envio. Recarregue a página e tente novamente.'
+                                                        );
+                                                    }
+                                                }}
+                                            >
+                                                Inserir Cupom
+                                            </button>
+                                            <br />
+                                            <div
+                                                className='ValuesWrapper'
+                                                style={{
+                                                    display:
+                                                        displayDiscountValues,
+                                                }}
+                                            >
+                                                <h4>
+                                                    Valor Anterior: R${' '}
+                                                    {productsSum.toFixed(2)}
+                                                </h4>
+                                                <h4>
+                                                    Desconto Aplicado: R${' '}
+                                                    {aplliedDiscount.toFixed(2)}
+                                                </h4>
+                                                <h4>
+                                                    Valor com Desconto: R${' '}
+                                                    {totalValue.toFixed(2)}
+                                                </h4>
+                                            </div>
+
+                                            <br />
+                                        </div>
                                         {data.length > 1 ? (
                                             <select
                                                 className='pickupSelect'
+                                                defaultValue='0'
                                                 onChange={handlePickupSelect}
                                             >
-                                                <option
-                                                    disabled
-                                                    selected
-                                                    value=''
-                                                >
+                                                <option disabled value='0'>
                                                     Selecione como deseja
                                                     receber sua encomenda
                                                 </option>
@@ -1027,13 +1170,10 @@ export default function Cart() {
                                         ) : (
                                             <select
                                                 className='pickupSelect'
+                                                defaultValue='0'
                                                 onChange={handlePickupSelect}
                                             >
-                                                <option
-                                                    disabled
-                                                    selected
-                                                    value=''
-                                                >
+                                                <option disabled value='0'>
                                                     Selecione como deseja
                                                     receber sua encomenda
                                                 </option>
@@ -1055,7 +1195,6 @@ export default function Cart() {
                                                 </option>
                                             </select>
                                         )}
-
                                         <span>
                                             <strong>Observação: </strong>
                                             As entregas por transportadora são
@@ -1076,12 +1215,22 @@ export default function Cart() {
                                             </strong>
                                             .
                                         </span>
+                                        <span>
+                                            <strong>Atenção: </strong>
+                                            Todos os pedidos que contém produtos
+                                            personalizados tem um tempo de
+                                            produção de{' '}
+                                            <strong>5 dias úteis</strong>. E
+                                            todas os pedidos tem o prazo de{' '}
+                                            <strong>2 dias úteis</strong> até
+                                            ser enviado.
+                                        </span>
 
                                         <label
                                             style={{
                                                 display: displayCepSearch,
                                             }}
-                                            for='cepNumber'
+                                            htmlFor='cepNumber'
                                         >
                                             Insira o CEP abaixo
                                         </label>
@@ -1097,7 +1246,6 @@ export default function Cart() {
                                             onChange={handleInputCep}
                                             placeholder='CEP'
                                         />
-
                                         <button
                                             style={{
                                                 display: displayCepSearch,
@@ -1108,7 +1256,6 @@ export default function Cart() {
                                         >
                                             Calcular frete
                                         </button>
-
                                         <div
                                             className='transportInfos'
                                             style={{
@@ -1123,7 +1270,10 @@ export default function Cart() {
                                                     ) {
                                                         if (!item.error) {
                                                             return (
-                                                                <div className='optionsTransport'>
+                                                                <div
+                                                                    className='optionsTransport'
+                                                                    key={index}
+                                                                >
                                                                     <div className='radioButton'>
                                                                         <input
                                                                             onClick={(
@@ -1202,7 +1352,6 @@ export default function Cart() {
                                                 }
                                             )}
                                         </div>
-
                                         <div
                                             style={{
                                                 display: displayAddressForms,
@@ -1319,10 +1468,11 @@ export default function Cart() {
                                                             onChange={
                                                                 handleSelectedState
                                                             }
+                                                            className='StateSelect'
+                                                            defaultValue='0'
                                                         >
                                                             <option
-                                                                value=''
-                                                                selected
+                                                                value='0'
                                                                 disabled
                                                             >
                                                                 Estado
@@ -1369,15 +1519,15 @@ export default function Cart() {
                                                 )}
                                             </div>
                                         </div>
-
                                         <select
                                             style={{
                                                 display: displayPaymentOption,
                                             }}
+                                            defaultValue='0'
                                             className='paymentSelect'
                                             onChange={handleSelectPayment}
                                         >
-                                            <option selected disabled value=''>
+                                            <option disabled value='0'>
                                                 Selecione o tipo de pagamento
                                             </option>
                                             <option value='PayPal'>
@@ -1388,12 +1538,10 @@ export default function Cart() {
                                             </option>
                                             <option value='Pix'>Pix</option>
                                         </select>
-
                                         <div
                                             className='paypalButtons'
                                             ref={(v) => (paypalRef = v)}
                                         />
-
                                         <div className='checkoutOptions'>
                                             <a href='/'>
                                                 Continuar comprando...
@@ -1657,20 +1805,47 @@ export default function Cart() {
                                                   product.productType ===
                                                       'Outros' ? (
                                                   <ul>
-                                                      <li><h2>{product.productName}</h2></li>
-                                                      <li><span>{product.description}</span></li>
-                                                      <li><b>Quantidade </b> <span>{product.quantity}</span></li>
-                                                      <li> {product.value > 0 ? (
+                                                      <li>
                                                           <h2>
-                                                              R$ {product.value}
+                                                              {
+                                                                  product.productName
+                                                              }
                                                           </h2>
-                                                      ) : (
-                                                          ''
-                                                      )}</li>
+                                                      </li>
+                                                      <li>
+                                                          <span>
+                                                              {
+                                                                  product.description
+                                                              }
+                                                          </span>
+                                                      </li>
+                                                      <li>
+                                                          <b>Quantidade </b>{' '}
+                                                          <span>
+                                                              {product.quantity}
+                                                          </span>
+                                                      </li>
+                                                      <li>
+                                                          {' '}
+                                                          {product.value > 0 ? (
+                                                              <h2>
+                                                                  R${' '}
+                                                                  {
+                                                                      product.value
+                                                                  }
+                                                              </h2>
+                                                          ) : (
+                                                              ''
+                                                          )}
+                                                      </li>
                                                   </ul>
                                               ) : (
                                                   <ul className='productInfo'>
-                                                      <h2>{product.productName ? product.productName : product.model}</h2>
+                                                      <h2>
+                                                          {product.productName
+                                                              ? product.productName
+                                                              : product.model}
+                                                      </h2>
 
                                                       {product.paperWidth ? (
                                                           <li>
@@ -1716,7 +1891,11 @@ export default function Cart() {
                                                                           index
                                                                       ) => {
                                                                           return (
-                                                                              <p>
+                                                                              <p
+                                                                                  key={
+                                                                                      index
+                                                                                  }
+                                                                              >
                                                                                   {index +
                                                                                       1}{' '}
                                                                                   -{' '}

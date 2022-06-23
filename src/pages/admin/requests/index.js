@@ -356,6 +356,25 @@ export default function Requests() {
                             ''
                         )}
 
+                        {modalDataProducts ? (
+                            // confere se existe a propriedade de cupom aplicado (pq os pedidos feitos antes do cupom ser implementado nao tem essa propriedade)
+                            modalDataProducts.aplliedVoucher ? (
+                                // confere se algum cupom foi aplicado (se nenhum foi aplicado ele vem como 'None')
+                                modalDataProducts.aplliedVoucher !== 'None' ? (
+                                    <h3>
+                                        Cupom Utilizado{' '}
+                                        {modalDataProducts.aplliedVoucher}
+                                    </h3>
+                                ) : (
+                                    ''
+                                )
+                            ) : (
+                                ''
+                            )
+                        ) : (
+                            ''
+                        )}
+
                         <div className='userInfosWrapper'>
                             {modalDataProducts ? (
                                 <>
@@ -490,11 +509,14 @@ export default function Requests() {
                                       return (
                                           <>
                                               <ul className='productCard'>
-                                                {product.productType ? (
-                                                  <h4>{product.model}: produto pronta-entrega</h4>
-                                                ) : (
-                                                    <h4>{product.model}</h4>
-                                                )}
+                                                  {product.productType ? (
+                                                      <h4>
+                                                          {product.model}:
+                                                          produto pronta-entrega
+                                                      </h4>
+                                                  ) : (
+                                                      <h4>{product.model}</h4>
+                                                  )}
 
                                                   {product.paperWidth ? (
                                                       <li className='productData'>
