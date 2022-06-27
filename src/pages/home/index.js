@@ -31,6 +31,7 @@ function Home() {
             id: 0,
             name: 'mandacaru',
             description: 'Sketchbook costura copta',
+            startPrice: 'R$15,00',
             link: '/mandacaru',
             imgSrc: [mandacaru, mandacaruQuadrado],
         },
@@ -39,6 +40,7 @@ function Home() {
             id: 1,
             name: 'baião',
             description: 'Sketchbook quadrado copta',
+            startPrice: 'R$25,00',
             link: '/baiao',
             imgSrc: [baiao, baiaoQuadrado],
         },
@@ -47,6 +49,7 @@ function Home() {
             id: 2,
             name: 'facheiro',
             description: 'Sketchbook espiral',
+            startPrice: 'R$30,00',
             link: '/facheiro',
             imgSrc: [facheiro, facheiroQuadrado],
         },
@@ -55,6 +58,7 @@ function Home() {
             id: 3,
             name: 'sertão',
             description: 'Journal',
+            startPrice: 'R$8,00',
             link: '/sertao',
             imgSrc: [sertao, sertaoQuadrado],
         },
@@ -63,6 +67,7 @@ function Home() {
             id: 4,
             name: 'buriti',
             description: 'Cases para kindle e tablet',
+            startPrice: 'R$25,00',
             link: '/buriti',
             imgSrc: [buriti, buritiQuadrado],
         },
@@ -71,6 +76,7 @@ function Home() {
             id: 5,
             name: 'carcará',
             description: 'Moleskine',
+            startPrice: 'R$18,00',
             link: '/carcara',
             imgSrc: [carcara, carcaraQuadrado],
         },
@@ -78,6 +84,7 @@ function Home() {
             id: 6,
             name: 'mescla',
             description: 'Miolo com até 4 papéis!',
+            startPrice: 'R$11,00',
             link: '/mescla',
             imgSrc: [mescla1, mescla2],
         },
@@ -156,6 +163,12 @@ function Home() {
                                 >
                                     <h3>{item.name}</h3>
                                     <h4>{item.description}</h4>
+                                    <h5>
+                                        A partir de{'  '}
+                                        <span className='startPrice'>
+                                            {item.startPrice}
+                                        </span>
+                                    </h5>
                                     <img
                                         src={item.imgSrc[0]}
                                         alt={item.imgSrc[0]}
