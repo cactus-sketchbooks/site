@@ -228,22 +228,21 @@ export default function Cart() {
 
         availableVouchers.map((item) => {
             if (userVoucher === item.voucherCode) {
-                //checa se a data de hoje está entre as datas de inicio e fim de validade do cupom, se nenhum cupom ja foi aplicado, e se o valor
+                //checa se a data de hoje está entre as datas de inicio e fim de validade do cupom, e se o valor
                 // do pedido é maior que o minimo permitido pelo cupom
                 if (
                     dataAtual <= item.endDate &&
                     dataAtual >= item.beginDate &&
-                    aplliedVoucher === 'None' &&
-                    totalValue >= item.minOrderValue
+                    productsSum >= item.minOrderValue
                 ) {
                     isVoucherOk = true;
 
                     setTotalValue(
-                        totalValue - totalValue * (item.discountPercent / 100)
+                        productsSum - productsSum * (item.discountPercent / 100)
                     );
                     setAplliedVoucher(userVoucher);
                     setAplliedDiscount(
-                        totalValue * (item.discountPercent / 100)
+                        productsSum * (item.discountPercent / 100)
                     );
                     setDisplayDiscountValues('flex');
 
