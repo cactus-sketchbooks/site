@@ -731,10 +731,10 @@ export const models = [
                         name: 'Papel Reciclado Liso',
                         value: 8,
                     },
-                    // {
-                    //     name: 'Papel Marfim Liso',
-                    //     value: 8,
-                    // },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 8,
+                    },
                     {
                         name: 'Papel Kraft',
                         value: 9,

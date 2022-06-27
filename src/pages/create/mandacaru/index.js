@@ -64,11 +64,10 @@ export default function Mandacaru() {
                         name: 'Papel Reciclado Liso',
                         value: 90,
                     },
-                    // conferir
-                    // {
-                    //     name: 'Papel Marfim Liso',
-                    //     value: 90,
-                    // },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 90,
+                    },
                     {
                         name: 'Papel Kraft',
                         value: 95,
@@ -136,11 +135,10 @@ export default function Mandacaru() {
                         name: 'Papel Reciclado Liso',
                         value: 60,
                     },
-                    // conferir
-                    // {
-                    //     name: 'Papel Marfim Liso',
-                    //     value: 4,
-                    // },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 60,
+                    },
                     {
                         name: 'Papel Kraft',
                         value: 65,

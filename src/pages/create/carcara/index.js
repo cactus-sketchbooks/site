@@ -64,11 +64,10 @@ export default function Carcara() {
                         name: 'Papel Reciclado Liso',
                         value: 102,
                     },
-                    // conferir
-                    // {
-                    //     name: 'Papel Marfim Liso',
-                    //     value: 102,
-                    // },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 102,
+                    },
                     {
                         name: 'Papel Kraft',
                         value: 107,
@@ -141,11 +140,10 @@ export default function Carcara() {
                         name: 'Papel Reciclado Liso',
                         value: 67,
                     },
-                    // conferir se esta disponivel
-                    // {
-                    //     name: 'Papel Marfim Liso',
-                    //     value: 67,
-                    // },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 67,
+                    },
                     {
                         name: 'Papel Kraft',
                         value: 72,
