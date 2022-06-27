@@ -845,7 +845,9 @@ export default function Mescla() {
                                                 .normalize('NFD')
                                                 .replace(/[\u0300-\u036f]/g, '')
                                         ) &&
-                                        item.categories.includes('cover') ? (
+                                        item.categories.includes('cover') &&
+                                        //nao mostra as capas ilustres pq nao estao disponiveis no mescla
+                                        !item.isIlustres ? (
                                             <div
                                                 className='cardColor'
                                                 key={index}
