@@ -129,6 +129,7 @@ export default function Products() {
                     width: Number(dataProduct.size.width),
                 },
                 value: finalValue,
+                stock: dataProduct.stock,
                 quantity: quantity,
                 productImage: dataProduct.productImage,
             };
@@ -153,6 +154,7 @@ export default function Products() {
                     width: Number(dataProduct.size.width),
                 },
                 value: finalValue,
+                stock: dataProduct.stock,
                 quantity: quantity,
                 productImage: dataProduct.productImage,
             };

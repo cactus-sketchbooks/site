@@ -16,8 +16,6 @@ export default function Products() {
     const [data, setData] = useState([]);
     const [dataBackup, setDataBackup] = useState([]);
     const [searchInput, setSearchInput] = useState('');
-    const [selectedProduct, setSelectedProduct] = useState('');
-    const [displaySearchResult, setDisplaySearchResult] = useState('none');
     const [buttonType, setButtonType] = useState('search');
 
     useEffect(() => {
@@ -52,7 +50,6 @@ export default function Products() {
         });
 
         setData(items);
-        setDisplaySearchResult('flex');
     }
 
     function handleSearchInput() {
@@ -74,9 +71,7 @@ export default function Products() {
     }
 
     function clearSearchItem() {
-        setDisplaySearchResult('none');
         setData(dataBackup);
-        setSelectedProduct('');
         setButtonType('search');
     }
 

@@ -190,6 +190,19 @@ h1, h2, h3, h4, p {
         text-align: center;
     }
 
+    a {
+        text-decoration: none;
+        color: $orange;
+        text-shadow: 1px 1px 1px rgba(20, 20, 20, 0.8);
+        background-color: $dark-green;
+        padding: 0 1rem;
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 2.5rem;
+        letter-spacing: .3rem;
+        text-align: center;
+        border-radius: 5px;
+    }
+
     #bottomText {
 
         background-color: #F2F2F2;

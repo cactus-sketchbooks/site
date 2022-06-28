@@ -497,6 +497,15 @@ export default function Cart() {
             });
     }, []);
 
+    function updateStock(product) {
+        if (product.stock) {
+            firebase
+            .database()
+            .ref('products/' + product.id)
+            .update({stock: Number(product.stock) - product.quantity})
+        }
+    }
+
     //função para enviar o pedido
     function sendOrder() {
         if (userIsLogged) {
@@ -573,6 +582,9 @@ export default function Cart() {
                     .ref('reportsSales/' + id)
                     .set(dataToSend)
                     .then(() => {
+                        data.forEach((product) => {
+                            updateStock(product);
+                        })
                         localStorage.setItem('products', '{}');
                         alert('Pedido finalizado com sucesso!');
                     });
@@ -616,6 +628,9 @@ export default function Cart() {
                     .ref('reportsSales/' + id)
                     .set(dataToSend)
                     .then(() => {
+                        data.forEach((product) => {
+                            updateStock(product);
+                        })
                         localStorage.setItem('products', '{}');
                         alert('Pedido finalizado com sucesso!');
                     });
@@ -671,6 +686,9 @@ export default function Cart() {
                     .ref('reportsSales/' + id)
                     .set(dataToSend);
                 setTimeout(() => {
+                    data.forEach((product) => {
+                        updateStock(product);
+                    })
                     localStorage.setItem('products', '{}');
                 }, 5000);
             } else {
@@ -738,6 +756,9 @@ export default function Cart() {
                     .ref('reportsSales/' + id)
                     .set(dataToSend);
                 setTimeout(() => {
+                    data.forEach((product) => {
+                        updateStock(product);
+                    })
                     localStorage.setItem('products', '{}');
                 }, 5000);
             }
@@ -1025,6 +1046,17 @@ export default function Cart() {
                                                             Tipo de Acabamento:
                                                         </strong>{' '}
                                                         {product.sketchFinish}
+                                                    </li>
+                                                ) : (
+                                                    ''
+                                                )}
+
+                                                {product.quantity ? (
+                                                    <li>
+                                                        <strong>
+                                                            Quantidade:
+                                                        </strong>{' '}
+                                                        {product.quantity}
                                                     </li>
                                                 ) : (
                                                     ''
@@ -2026,6 +2058,17 @@ export default function Cart() {
                                                       ) : (
                                                           ''
                                                       )}
+
+                                                    {product.quantity ? (
+                                                        <li>
+                                                            <strong>
+                                                                Quantidade
+                                                            </strong>{' '}
+                                                            {product.quantity}
+                                                        </li>
+                                                    ) : (
+                                                        ''
+                                                    )}
 
                                                       {product.clientNote ? (
                                                           <li>

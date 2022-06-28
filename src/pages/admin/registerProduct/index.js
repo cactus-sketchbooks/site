@@ -35,7 +35,7 @@ export default function RegisterProduct() {
         sketchFinish: '',
         size: {},
         value: 0,
-        stock: '',
+        stock: 0,
         productImage: '',
     });
 
@@ -46,7 +46,7 @@ export default function RegisterProduct() {
         description: '',
         size: {},
         value: 0,
-        stock: '',
+        stock: 0,
         productImage: '',
     });
 
@@ -521,7 +521,7 @@ export default function RegisterProduct() {
                                 id='weight'
                                 name='weight'
                                 type='number'
-                                onChange={handleInputOtherProductsSizeChange}
+                                onChange={handleInputProductsSizeChange}
                                 placeholder='Peso'
                             />
 
@@ -539,7 +539,7 @@ export default function RegisterProduct() {
                                 id='width'
                                 name='width'
                                 type='number'
-                                onChange={handleInputOtherProductsSizeChange}
+                                onChange={handleInputProductsSizeChange}
                                 placeholder='Largura'
                             />
 
@@ -550,7 +550,7 @@ export default function RegisterProduct() {
                                 id='length'
                                 name='length'
                                 type='number'
-                                onChange={handleInputOtherProductsSizeChange}
+                                onChange={handleInputProductsSizeChange}
                                 placeholder='Comprimento'
                             />
 
@@ -559,7 +559,7 @@ export default function RegisterProduct() {
                                 id='height'
                                 name='height'
                                 type='number'
-                                onChange={handleInputOtherProductsSizeChange}
+                                onChange={handleInputProductsSizeChange}
                                 placeholder='Altura'
                             />
                         </fieldset>
@@ -569,7 +569,7 @@ export default function RegisterProduct() {
                             id='value'
                             name='value'
                             type='number'
-                            onChange={handleInputOtherProductsChange}
+                            onChange={handleInputProductsChange}
                             placeholder='Preço'
                         />
 
@@ -578,7 +578,7 @@ export default function RegisterProduct() {
                             id='stock'
                             name='stock'
                             type='number'
-                            onChange={handleInputOtherProductsChange}
+                            onChange={handleInputProductsChange}
                             placeholder='Quantidade no estoque'
                         />
 

@@ -143,9 +143,9 @@ function Home() {
                     <h2>Monte seu Cactus: modelos, cores, tudo!</h2>
 
                     <h2 id='bottomText'>
-                        Selecione as opções abaixo e monte um cactus do seu
-                        jeito!
+                        Quer conhecer nossos produtos pronta-entrega? <br /><Link to="/produtos">Ver produtos</Link> <br /> Ou selecione as opções abaixo e monte um cactus do seu jeito!
                     </h2>
+
 
                     <div className='service-wrapper'>
                         {sketchbooksInfos.map((item, index) => {
