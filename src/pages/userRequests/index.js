@@ -227,6 +227,18 @@ export default function UserRequests() {
                                     ''
                                 )}
 
+                                {item.trakingCode ? (
+                                    <div className='rowData'>
+                                        <h4>Código de Rastreio: </h4>
+                                        <h4>{item.trakingCode}</h4>
+                                    </div>
+                                ) : (
+                                    <div className='rowData'>
+                                        <h4>Código de Rastreio: </h4>
+                                        <h4>Aguardando o Código ser Gerado</h4>
+                                    </div>
+                                )}  
+
                                 {item.payment === 'Pix' ? (
                                     <div id='pixProofDiv' className='rowData'>
                                         <h4>
@@ -278,6 +290,7 @@ export default function UserRequests() {
                                         <h4>{item.payment}</h4>
                                     </div>
                                 )}
+                                
 
                                 {item.adminNote ? (
                                     <div className='rowData' id='noteDiv'>
