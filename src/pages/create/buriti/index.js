@@ -471,7 +471,9 @@ export default function Buriti() {
                         <Slider {...settings}>
                             {dataColors.map((item, index) =>
                                 item.models.includes('buriti') &&
-                                item.categories.includes('cover') ? (
+                                item.categories.includes('cover') &&
+                                // não mostra as capas ilustres, caso seja cadastrada errado, pq nao esta disponivel pro buriti
+                                !item.isIlustres ? (
                                     <div className='cardColor' key={index}>
                                         <label
                                             htmlFor={index}

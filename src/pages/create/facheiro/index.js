@@ -32,9 +32,16 @@ export default function Facheiro() {
     const [selectedPaperWidth, setSelectedPaperWidth] = useState('');
     const [selectedSpiralColor, setSelectedSpiralColor] = useState('');
     const [selectedElasticColor, setSelectedElasticColor] = useState('');
+    const [preSelectedSpiralColor, setPreSelectedSpiralColor] = useState('');
+    const [preSelectedElasticColor, setPreSelectedElasticColor] = useState('');
+    const [displaySpiralColorSelection, setDisplaySpiralColorSelection] =
+        useState('flex');
+    const [displayElasticColorSelection, setDisplayElasticColorSelection] =
+        useState('flex');
     const [selectedSketchFinish, setSelectedSketchFinish] = useState('');
     const [clientNote, setClientNote] = useState('');
     const [sketchbookInfos, setSketchbookInfos] = useState('');
+    const [totalValue, setTotalValue] = useState(0);
     const [displayModal, setDisplayModal] = useState('none');
     const [maxSlides, setMaxSlides] = useState(5);
     const [currentStep, setCurrentStep] = useState(1);
@@ -699,11 +706,30 @@ export default function Facheiro() {
         // forçando-o a escolher novamente o papel do miolo, garantindo que o preço e os papel escolhidos estarão corretos
         setSketchbookInfos('');
         document.querySelector('.paper').selectedIndex = 0;
+        setTotalValue(0);
     }
 
     function handleSelectedType(event) {
         let position = event.target.value;
         setSketchbookInfos(formatTypes[position]);
+        setTotalValue(formatTypes[position].value);
+
+        // desmarca todas as checkboxes
+        document
+            .querySelectorAll('input[type=checkbox]')
+            .forEach(function (check) {
+                check.checked = false;
+            });
+        //"despinta" todas as checkboxes
+        document.querySelectorAll('.coverColorLabel').forEach((label) => {
+            label.style.backgroundColor = 'transparent';
+        });
+        // zera as capas selecionadas, para nao dar problema no calculo do preco se selecionar uma capa ILUSTRES
+        setSelectedColors([]);
+        setCheckedBoxes(0);
+        // zera as cores de linha e elastico selecionadas, para caso seja selecionado uma ilustres e o cliente volte para mudar o papel, e
+        // pelas linhas acima as capas sao zeradas, e se uma capa ilustre que tinha sido selecionada é zerada, suas cores (de linha e elastico) predefinidas tambem precisam ser zeradas
+        zerarCoresPreSelecionadas();
     }
 
     function onAuthStateChanged(user) {
@@ -749,7 +775,7 @@ export default function Facheiro() {
             id: formatId,
             paperWidth: selectedPaperWidth,
             paper: sketchbookInfos.name,
-            value: sketchbookInfos.value,
+            value: totalValue,
             spiralColor: selectedSpiralColor,
             elasticColor: selectedElasticColor,
             sketchFinish: selectedSketchFinish,
@@ -799,6 +825,30 @@ export default function Facheiro() {
             ]);
 
             setCheckedBoxes(checkedBoxes + 1);
+
+            if (item.isIlustres) {
+                setTotalValue(sketchbookInfos.value + item.aditionalPrice);
+                // define a cor do sketch e esconde o seletor de cor de linha se a pre definifa existir (se nao for uma string vazia)
+                if (item.preSelectedSpiralColor) {
+                    setDisplaySpiralColorSelection('none');
+                    setSelectedSpiralColor(item.preSelectedSpiralColor);
+                    setPreSelectedSpiralColor(item.preSelectedSpiralColor);
+                }
+                // define a cor do sketch e esconde o seletor de cor de elastico se a pre definifa existir (se nao for uma string vazia)
+                if (item.preSelectedElasticColor) {
+                    setDisplayElasticColorSelection('none');
+                    setSelectedElasticColor(item.preSelectedElasticColor);
+                    setPreSelectedElasticColor(item.preSelectedElasticColor);
+                }
+
+                // desmarca todos os radio buttons de cor de elastico e o seletor de cor da espiral
+                document.querySelector('#spiralColorSelect').selectedIndex = 0;
+                document
+                    .querySelectorAll('input[name=selectedElasticColor]')
+                    .forEach(function (check) {
+                        check.checked = false;
+                    });
+            }
         } else {
             const color = item.colorName;
             let index = selectedColors.findIndex(
@@ -809,8 +859,31 @@ export default function Facheiro() {
                 selectedColors.splice(index, 1);
                 setCheckedBoxes(checkedBoxes - 1);
             }
+
+            if (item.isIlustres) {
+                setTotalValue(sketchbookInfos.value);
+                zerarCoresPreSelecionadas();
+            }
         }
     };
+
+    function zerarCoresPreSelecionadas() {
+        setSelectedSpiralColor('');
+        setPreSelectedSpiralColor('');
+        setSelectedElasticColor('');
+        setPreSelectedElasticColor('');
+
+        setDisplaySpiralColorSelection('flex');
+        setDisplayElasticColorSelection('flex');
+
+        // desmarca todos os radio buttons de cor de elastico e o seletor de cor da espiral
+        document.querySelector('#spiralColorSelect').selectedIndex = 0;
+        document
+            .querySelectorAll('input[name=selectedElasticColor]')
+            .forEach(function (check) {
+                check.checked = false;
+            });
+    }
 
     useEffect(() => {
         if (
@@ -1089,12 +1162,15 @@ export default function Facheiro() {
 
                     <div className='sliderColors'>
                         <Slider {...settings}>
+                            {/* Mostra todas as capas que nao sao ilustres, que sao deste modelo */}
                             {dataColors.map((item, index) =>
                                 item.models.includes('facheiro') &&
-                                item.categories.includes('cover') ? (
+                                item.categories.includes('cover') &&
+                                !item.isIlustres ? (
                                     <div className='cardColor' key={index}>
                                         <label
                                             htmlFor={index}
+                                            className='coverColorLabel'
                                             onClick={(event) =>
                                                 changeColor(event)
                                             }
@@ -1142,6 +1218,77 @@ export default function Facheiro() {
                                     </div>
                                 ) : null
                             )}
+                            {/* Mostra as capas ilustres ao final para deixar agrupadas, que sao deste modelo, e que estao disponiveis para o tamanho selecionado */}
+                            {dataColors.map((item, index) =>
+                                item.availableSizes && selectedPaperWidth ? (
+                                    item.models.includes('mandacaru') &&
+                                    item.categories.includes('cover') &&
+                                    item.availableSizes.includes(
+                                        selectedPaperWidth
+                                    ) ? (
+                                        <div className='cardColor' key={index}>
+                                            <label
+                                                htmlFor={index}
+                                                className='coverColorLabel'
+                                                onClick={(event) =>
+                                                    changeColor(event)
+                                                }
+                                            />
+
+                                            {item.image ? (
+                                                <div
+                                                    key={item.id}
+                                                    className='colorBox'
+                                                >
+                                                    <img
+                                                        draggable='false'
+                                                        src={item.image}
+                                                        alt='cor'
+                                                    />
+                                                </div>
+                                            ) : (
+                                                <div
+                                                    key={item.id}
+                                                    style={{
+                                                        backgroundColor:
+                                                            item.colorCode,
+                                                    }}
+                                                    className='colorBox'
+                                                >
+                                                    <p>{item.colorCode}</p>
+                                                </div>
+                                            )}
+
+                                            <div className='colorName'>
+                                                <p>
+                                                    <span
+                                                        style={{
+                                                            color: 'green',
+                                                        }}
+                                                    >
+                                                        (+ R$
+                                                        {item.aditionalPrice})
+                                                    </span>{' '}
+                                                    {item.colorName}
+                                                </p>
+
+                                                <input
+                                                    type='checkbox'
+                                                    value={index}
+                                                    id={index}
+                                                    onChange={(event) =>
+                                                        checkColor(item, event)
+                                                    }
+                                                    style={{
+                                                        accentColor:
+                                                            item.colorCode,
+                                                    }}
+                                                />
+                                            </div>
+                                        </div>
+                                    ) : null
+                                ) : null
+                            )}
                         </Slider>
                     </div>
                 </div>
@@ -1151,16 +1298,27 @@ export default function Facheiro() {
                         <div className='textBackground'>
                             <h2>Cor do espiral</h2>
                         </div>
+                        {preSelectedSpiralColor ? (
+                            <p style={{ lineHeight: '2.5rem' }}>
+                                A capa escolhida já possui a cor de espiral:
+                                {'  '}
+                                <span className='emphasisWarning'>
+                                    {preSelectedSpiralColor}
+                                </span>
+                                {'  '}
+                                pré-definida. Avance para a próxima etapa.
+                            </p>
+                        ) : null}
                     </div>
 
-                    <fieldset>
-                        <label htmlFor='paper'>
+                    <fieldset style={{ display: displaySpiralColorSelection }}>
+                        <label htmlFor='spiralColorSelect'>
                             Selecione a cor do espiral
                         </label>
 
                         <select
                             onChange={handleSelectedSpiralColor}
-                            className='paper'
+                            id='spiralColorSelect'
                             defaultValue='0'
                         >
                             <option value='0' disabled>
@@ -1180,14 +1338,32 @@ export default function Facheiro() {
                                     <h2>Cor do elástico</h2>
                                 </div>
 
-                                <p>
-                                    Selecione <strong>uma</strong> cor
-                                </p>
+                                {preSelectedElasticColor ? (
+                                    <p style={{ lineHeight: '2.5rem' }}>
+                                        A capa escolhida já possui a cor do
+                                        elástico:{'  '}
+                                        <span className='emphasisWarning'>
+                                            {preSelectedElasticColor.colorName}
+                                        </span>
+                                        {'  '}
+                                        pré-definida. Avance para a próxima
+                                        etapa.
+                                    </p>
+                                ) : (
+                                    <p>
+                                        Selecione <strong>uma</strong> cor
+                                    </p>
+                                )}
                             </div>
 
-                            <div className='elasticColorWrapper'>
+                            <div
+                                className='elasticColorWrapper'
+                                style={{
+                                    display: displayElasticColorSelection,
+                                }}
+                            >
                                 {dataColors.map((item, index) =>
-                                    item.models.includes('buriti') &&
+                                    item.models.includes('facheiro') &&
                                     item.categories.includes('elastic') ? (
                                         <div
                                             className='colorWrapper'
@@ -1320,10 +1496,7 @@ export default function Facheiro() {
                                     </li>
                                 </ul>
 
-                                <h3>
-                                    Valor do sketchbook: R${' '}
-                                    {sketchbookInfos.value}
-                                </h3>
+                                <h3>Valor do sketchbook: R$ {totalValue}</h3>
 
                                 <button onClick={() => addToCart()}>
                                     Adicionar ao carrinho

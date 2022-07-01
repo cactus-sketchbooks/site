@@ -20,11 +20,20 @@ export default function CreateColor() {
         models: [],
         categories: [],
     });
+    const [newIlustresData, setNewIlustresData] = useState({
+        aditionalPrice: 0,
+        preSelectedLineColor: '',
+        preSelectedElasticColor: '',
+        preSelectedSpiralColor: '',
+    });
 
     const [colors, setColors] = useState([]);
     const [selectedModels, setSelectedModels] = useState([]);
     const [selectedCategories, setSelectedCategories] = useState([]);
+    const [selectedSizes, setSelectedSizes] = useState([]);
     const [imageUrl, setImageUrl] = useState('');
+    const [isIlustres, setIsIlustres] = useState(false);
+    const [displayIlustresData, setDisplayIlustresData] = useState('none');
     const [dataKeys, setDataKeys] = useState([]);
     const [selectItemToDelete, setSelectItemToDelete] = useState('');
 
@@ -37,6 +46,12 @@ export default function CreateColor() {
             colorCode: colorData.colorCode,
             models: selectedModels,
             categories: selectedCategories,
+            isIlustres: isIlustres,
+            aditionalPrice: Number(newIlustresData.aditionalPrice),
+            availableSizes: selectedSizes,
+            preSelectedLineColor: newIlustresData.preSelectedLineColor,
+            preSelectedElasticColor: newIlustresData.preSelectedElasticColor,
+            preSelectedSpiralColor: newIlustresData.preSelectedSpiralColor,
             image: imageUrl,
         };
 
@@ -52,7 +67,20 @@ export default function CreateColor() {
             image: '',
             models: [],
             categories: [],
+            aditionalPrice: 0,
         });
+        setNewIlustresData({
+            aditionalPrice: 0,
+            availableSizes: [],
+            preSelectedLineColor: '',
+            preSelectedElasticColor: '',
+            preSelectedSpiralColor: '',
+        });
+        setSelectedSizes([]);
+        setSelectedCategories([]);
+        setSelectedModels([]);
+        setImageUrl('');
+        setIsIlustres(false);
 
         alert('Cor inserida com sucesso!');
         window.location.reload();
@@ -134,6 +162,69 @@ export default function CreateColor() {
             .then((snapshot) => {
                 snapshot.ref.getDownloadURL().then((url) => setImageUrl(url));
             });
+    }
+
+    const checkSizes = (event) => {
+        const isChecked = event.target.checked;
+
+        if (isChecked) {
+            setSelectedSizes([...selectedSizes, event.target.value]);
+        } else {
+            let index = selectedSizes.findIndex(
+                (element) => element === event.target.value
+            );
+
+            if (index !== -1) {
+                selectedSizes.splice(index, 1);
+            }
+        }
+    };
+
+    function handleIlustresCoverChange(event) {
+        if (event.target.value === 'sim') {
+            setDisplayIlustresData('flex');
+            setIsIlustres(true);
+        }
+        if (event.target.value === 'nao') {
+            setDisplayIlustresData('none');
+            setIsIlustres(false);
+
+            //zera as infos da Capa ilustres
+            setNewIlustresData({
+                aditionalPrice: 0,
+                preSelectedLineColor: '',
+                preSelectedElasticColor: '',
+                preSelectedSpiralColor: '',
+            });
+
+            //zera o input de preço
+            document.querySelector('#ilustresPrice').value = '0';
+
+            // desmarca todas as checkboxes de tamanho
+            document
+                .querySelectorAll('.availableSizes')
+                .forEach(function (check) {
+                    check.checked = false;
+                });
+
+            setSelectedSizes([]);
+        }
+    }
+
+    function handleNewIlustresChange(event) {
+        const { name, value } = event.target;
+        setNewIlustresData({
+            ...newIlustresData,
+            [name]: value,
+        });
+    }
+
+    function handleSelectItemToIncludeToIlustres(event) {
+        const { name, value } = event.target;
+        setNewIlustresData({
+            ...newIlustresData,
+            [name]: colors[value],
+        });
     }
 
     function handleSelectItemToDelete(event) {
@@ -298,6 +389,168 @@ export default function CreateColor() {
                                 onChange={(event) => checkModel(event)}
                             />
                             <label for='sertao'>Sertão</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div className='checkboxSelector'>
+                    <h3>Capa ILUSTRES?</h3>
+                    <div className='checkboxWrapper'>
+                        <div className='checkbox'>
+                            <input
+                                type='radio'
+                                name='selectedCoverAdd'
+                                id='sim'
+                                value='sim'
+                                onChange={(event) =>
+                                    handleIlustresCoverChange(event)
+                                }
+                            />
+                            <label htmlFor='sim'>Sim</label>
+                        </div>
+                        <div className='checkbox'>
+                            <input
+                                type='radio'
+                                name='selectedCoverAdd'
+                                id='nao'
+                                value='nao'
+                                onChange={(event) =>
+                                    handleIlustresCoverChange(event)
+                                }
+                            />
+                            <label htmlFor='nao'>Nao</label>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    id='ilustresData'
+                    className='checkboxSelector'
+                    style={{ display: displayIlustresData }}
+                >
+                    <h3>Preço Adicional</h3>
+                    <input
+                        type='number'
+                        id='ilustresPrice'
+                        name='aditionalPrice'
+                        placeholder='Preço adicional da capa'
+                        min='0'
+                        onChange={handleNewIlustresChange}
+                    />
+
+                    <h3>Cor da Linha</h3>
+                    <select
+                        onChange={handleSelectItemToIncludeToIlustres}
+                        name='preSelectedLineColor'
+                    >
+                        <option selected disabled>
+                            Selecione a cor
+                        </option>
+
+                        {colors.map((item, index) =>
+                            item.categories.includes('line') ? (
+                                <option value={index} key={index}>
+                                    {item.colorName}
+                                </option>
+                            ) : null
+                        )}
+                    </select>
+
+                    <h3>Cor do Elástico</h3>
+                    <select
+                        onChange={handleSelectItemToIncludeToIlustres}
+                        name='preSelectedElasticColor'
+                    >
+                        <option selected disabled>
+                            Cor do Elástico
+                        </option>
+
+                        {colors.map((item, index) =>
+                            item.categories.includes('elastic') ? (
+                                <option value={index} key={index}>
+                                    {item.colorName}
+                                </option>
+                            ) : null
+                        )}
+                    </select>
+
+                    <h3>Cor da Espiral</h3>
+                    <select
+                        onChange={handleNewIlustresChange}
+                        name='preSelectedSpiralColor'
+                        defaultValue=''
+                    >
+                        <option value=''>Cor do Elástico</option>
+                        <option value='Preto'>Preto</option>
+                        <option value='Branco'>Branco</option>
+                    </select>
+
+                    <h3>Tamanhos Disponíveis</h3>
+                    <div className='checkboxWrapper'>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='A4 - Retrato'
+                                value='A4 - Retrato'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='A4 - Retrato'>A4 - Retrato</label>
+                        </div>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='A4 - Paisagem'
+                                value='A4 - Paisagem'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='A4 - Paisagem'>A4 - Paisagem</label>
+                        </div>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='A5 - Retrato'
+                                value='A5 - Retrato'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='A5 - Retrato'>A5 - Retrato</label>
+                        </div>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='A5 - Paisagem'
+                                value='A5 - Paisagem'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='A5 - Paisagem'>A5 - Paisagem</label>
+                        </div>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='A6 - Retrato'
+                                value='A6 - Retrato'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='A6 - Retrato'>A6 - Retrato</label>
+                        </div>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='A6 - Paisagem'
+                                value='A6 - Paisagem'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='A6 - Paisagem'>A6 - Paisagem</label>
                         </div>
                     </div>
                 </div>
