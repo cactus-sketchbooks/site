@@ -216,7 +216,10 @@ export default function Requests() {
                 payment: dataTemp[indexItem].payment,
                 phoneNumber: dataTemp[indexItem].phoneNumber,
                 pickupOption: dataTemp[indexItem].pickupOption,
-                requestStatus: requestStatus,
+                requestStatus:
+                    requestStatus !== ''
+                        ? requestStatus
+                        : dataTemp[indexItem].requestStatus,
                 selectedTransport: dataTemp[indexItem].selectedTransport
                     ? dataTemp[indexItem].selectedTransport
                     : '',
@@ -261,7 +264,10 @@ export default function Requests() {
                 payment: dataTemp[indexItem].payment,
                 phoneNumber: dataTemp[indexItem].phoneNumber,
                 pickupOption: dataTemp[indexItem].pickupOption,
-                requestStatus: requestStatus,
+                requestStatus:
+                    requestStatus !== ''
+                        ? requestStatus
+                        : dataTemp[indexItem].requestStatus,
                 selectedTransport: dataTemp[indexItem].selectedTransport
                     ? dataTemp[indexItem].selectedTransport
                     : '',
@@ -594,40 +600,45 @@ export default function Requests() {
                                                       ''
                                                   )}
 
-                                                  <li id='coverColor'>
-                                                      Cor da capa:
-                                                      {product.coverColors.map(
-                                                          (color, index) => {
-                                                              return color.name ? (
-                                                                  <span
-                                                                      key={
-                                                                          index
-                                                                      }
-                                                                  >
-                                                                      <b>
-                                                                          {(index
-                                                                              ? ' + '
-                                                                              : '') +
-                                                                              color.name}
-                                                                      </b>
-                                                                  </span>
-                                                              ) : (
-                                                                  <span
-                                                                      key={
-                                                                          index
-                                                                      }
-                                                                  >
-                                                                      <b>
-                                                                          {(index
-                                                                              ? ' + '
-                                                                              : '') +
-                                                                              color}
-                                                                      </b>
-                                                                  </span>
-                                                              );
-                                                          }
-                                                      )}
-                                                  </li>
+                                                  {product.coverColors ? (
+                                                      <li id='coverColor'>
+                                                          Cor da capa:
+                                                          {product.coverColors.map(
+                                                              (
+                                                                  color,
+                                                                  index
+                                                              ) => {
+                                                                  return color.name ? (
+                                                                      <span
+                                                                          key={
+                                                                              index
+                                                                          }
+                                                                      >
+                                                                          <b>
+                                                                              {(index
+                                                                                  ? ' + '
+                                                                                  : '') +
+                                                                                  color.name}
+                                                                          </b>
+                                                                      </span>
+                                                                  ) : (
+                                                                      <span
+                                                                          key={
+                                                                              index
+                                                                          }
+                                                                      >
+                                                                          <b>
+                                                                              {(index
+                                                                                  ? ' + '
+                                                                                  : '') +
+                                                                                  color}
+                                                                          </b>
+                                                                      </span>
+                                                                  );
+                                                              }
+                                                          )}
+                                                      </li>
+                                                  ) : null}
 
                                                   {product.lineColor ? (
                                                       <li className='productData'>
@@ -1015,8 +1026,9 @@ export default function Requests() {
                                                       onChange={
                                                           handleSelectedStatus
                                                       }
+                                                      defaultValue=''
                                                   >
-                                                      <option selected disabled>
+                                                      <option value='' disabled>
                                                           Status do pedido
                                                       </option>
                                                       <option value='Preparando'>
@@ -1181,8 +1193,9 @@ export default function Requests() {
                                                       onChange={
                                                           handleSelectedStatus
                                                       }
+                                                      defaultValue=''
                                                   >
-                                                      <option selected disabled>
+                                                      <option value='' disabled>
                                                           Status do pedido
                                                       </option>
                                                       <option value='Preparando'>
