@@ -115,7 +115,7 @@ export default function Buriti() {
 
                 {
                     name: "iPad/Tablet",
-                    value: 0
+                    value: 42
                 },
 
             ]
@@ -596,16 +596,7 @@ export default function Buriti() {
 
                                 </ul>
 
-
-                                {selectedModel.name === 'iPad/Tablet' ? (
-
-                                    <h3>Realize o pedido e aguarde o retorno da Cactus</h3>
-
-                                ) : (
-
-                                    <h3>Valor do sketchbook: R$ {selectedModel.value}</h3>
-
-                                )}
+                                <h3>Valor do sketchbook: R$ {selectedModel.value}</h3>
 
                                 <button onClick={() => addToCart()}>Adicionar ao carrinho</button>
 
