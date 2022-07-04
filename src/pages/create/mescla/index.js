@@ -471,6 +471,14 @@ export default function Mescla() {
         });
 
         document.querySelector(`.step${currentStep}`).classList.remove('hide');
+
+        // move a tela para cima para ficar melhor a percepcao do passo a passo
+        if (currentStep !== 1) {
+            window.scrollTo({
+                top: 120,
+                left: 0,
+            });
+        }
     }
 
     return (

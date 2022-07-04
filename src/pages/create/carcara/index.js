@@ -68,11 +68,10 @@ export default function Carcara() {
                         name: 'Papel Reciclado Liso',
                         value: 102,
                     },
-                    // conferir
-                    // {
-                    //     name: 'Papel Marfim Liso',
-                    //     value: 102,
-                    // },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 102,
+                    },
                     {
                         name: 'Papel Kraft',
                         value: 107,
@@ -145,11 +144,10 @@ export default function Carcara() {
                         name: 'Papel Reciclado Liso',
                         value: 67,
                     },
-                    // conferir se esta disponivel
-                    // {
-                    //     name: 'Papel Marfim Liso',
-                    //     value: 67,
-                    // },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 67,
+                    },
                     {
                         name: 'Papel Kraft',
                         value: 72,
@@ -1044,6 +1042,14 @@ export default function Carcara() {
 
         // mostra somente a div atual
         document.querySelector(`.step${currentStep}`).classList.remove('hide');
+
+        // move a tela para cima para ficar melhor a percepcao do passo a passo
+        if (currentStep !== 1) {
+            window.scrollTo({
+                top: 352,
+                left: 0,
+            });
+        }
     }
 
     return (

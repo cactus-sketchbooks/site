@@ -283,6 +283,15 @@ h1, h2, h3, h4, p {
                 font-weight: 500;
             }
 
+            h5{
+                color: $offWhite;
+                text-transform: uppercase;
+                letter-spacing: .05rem;
+                .startPrice{
+                    letter-spacing: .09rem;
+                }
+            }
+            
         }
 
     }

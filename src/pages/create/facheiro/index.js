@@ -996,6 +996,14 @@ export default function Facheiro() {
 
         // mostra somente a div atual
         document.querySelector(`.step${currentStep}`).classList.remove('hide');
+
+        // move a tela para cima para ficar melhor a percepcao do passo a passo
+        if (currentStep !== 1) {
+            window.scrollTo({
+                top: 352,
+                left: 0,
+            });
+        }
     }
 
     return (
