@@ -355,6 +355,7 @@ export default function RegisterProduct() {
                             id='selectProduct'
                             onChange={(e) => handleSelectedItem(e)}
                         >
+                            <option value='' selected='selected' disabled>Selecione o produto</option>
                             {data.map((product, index) => {
                                 return (
                                     <option value={index} key={index}>
@@ -792,6 +793,7 @@ export default function RegisterProduct() {
                             id='selectProduct'
                             onChange={(e) => handleSelectedItem(e)}
                         >
+                            <option value='' selected='selected' disabled>Selecione o produto</option>
                             {data.map((product, index) => {
                                 return (
                                     <option value={index} key={index}>
