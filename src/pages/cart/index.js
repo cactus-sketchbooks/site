@@ -500,9 +500,9 @@ export default function Cart() {
     function updateStock(product) {
         if (product.stock) {
             firebase
-            .database()
-            .ref('products/' + product.id)
-            .update({stock: Number(product.stock) - product.quantity})
+                .database()
+                .ref('products/' + product.id)
+                .update({ stock: Number(product.stock) - product.quantity });
         }
     }
 
@@ -555,6 +555,7 @@ export default function Cart() {
                         : '',
                     paymentProof: '',
                     adminNote: '',
+                    trackingCode: '',
                     aplliedVoucher: aplliedVoucher,
                     requestStatus: '',
                     dateToCompare: new Date().toDateString(),
@@ -584,7 +585,7 @@ export default function Cart() {
                     .then(() => {
                         data.forEach((product) => {
                             updateStock(product);
-                        })
+                        });
                         localStorage.setItem('products', '{}');
                         alert('Pedido finalizado com sucesso!');
                     });
@@ -605,6 +606,7 @@ export default function Cart() {
                     phoneNumber: dataAccount.phoneNumber,
                     paymentProof: '',
                     adminNote: '',
+                    trackingCode: '',
                     aplliedVoucher: aplliedVoucher,
                     requestStatus: '',
                     dateToCompare: new Date().toDateString(),
@@ -630,7 +632,7 @@ export default function Cart() {
                     .then(() => {
                         data.forEach((product) => {
                             updateStock(product);
-                        })
+                        });
                         localStorage.setItem('products', '{}');
                         alert('Pedido finalizado com sucesso!');
                     });
@@ -666,6 +668,7 @@ export default function Cart() {
                     phoneNumber: dataAccount.phoneNumber,
                     paymentProof: '',
                     adminNote: '',
+                    trackingCode: '',
                     requestStatus: '',
                     dateToCompare: new Date().toDateString(),
                     date: `${now.getUTCDate()}/${
@@ -688,7 +691,7 @@ export default function Cart() {
                 setTimeout(() => {
                     data.forEach((product) => {
                         updateStock(product);
-                    })
+                    });
                     localStorage.setItem('products', '{}');
                 }, 5000);
             } else {
@@ -736,6 +739,7 @@ export default function Cart() {
                         : '',
                     paymentProof: '',
                     adminNote: '',
+                    trackingCode: '',
                     requestStatus: '',
                     dateToCompare: new Date().toDateString(),
                     date: `${now.getUTCDate()}/${
@@ -758,7 +762,7 @@ export default function Cart() {
                 setTimeout(() => {
                     data.forEach((product) => {
                         updateStock(product);
-                    })
+                    });
                     localStorage.setItem('products', '{}');
                 }, 5000);
             }
@@ -2059,16 +2063,16 @@ export default function Cart() {
                                                           ''
                                                       )}
 
-                                                    {product.quantity ? (
-                                                        <li>
-                                                            <strong>
-                                                                Quantidade
-                                                            </strong>{' '}
-                                                            {product.quantity}
-                                                        </li>
-                                                    ) : (
-                                                        ''
-                                                    )}
+                                                      {product.quantity ? (
+                                                          <li>
+                                                              <strong>
+                                                                  Quantidade
+                                                              </strong>{' '}
+                                                              {product.quantity}
+                                                          </li>
+                                                      ) : (
+                                                          ''
+                                                      )}
 
                                                       {product.clientNote ? (
                                                           <li>

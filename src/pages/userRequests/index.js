@@ -178,12 +178,25 @@ export default function UserRequests() {
 
                                 {item.pickupOption ===
                                 'Impresso módico ou Carta registrada' ? (
-                                    <div className='rowData'>
-                                        <h4>Valor do frete: </h4>
-                                        <h4>
-                                            R$ {item.economicTransportValue}
-                                        </h4>
-                                    </div>
+                                    <>
+                                        <div className='rowData'>
+                                            <h4>Valor do frete: </h4>
+                                            <h4>
+                                                R$ {item.economicTransportValue}
+                                            </h4>
+                                        </div>
+                                        {item.trackingCode ? (
+                                            <div className='rowData'>
+                                                <h4>Código de Rastreio: </h4>
+                                                <h4>{item.trackingCode}</h4>
+                                            </div>
+                                        ) : (
+                                            <div className='rowData'>
+                                                <h4>Código de Rastreio: </h4>
+                                                <h4>Pendente</h4>
+                                            </div>
+                                        )}
+                                    </>
                                 ) : (
                                     ''
                                 )}
@@ -222,6 +235,17 @@ export default function UserRequests() {
                                                 {item.selectedTransport.price}
                                             </h4>
                                         </div>
+                                        {item.trackingCode ? (
+                                            <div className='rowData'>
+                                                <h4>Código de Rastreio: </h4>
+                                                <h4>{item.trackingCode}</h4>
+                                            </div>
+                                        ) : (
+                                            <div className='rowData'>
+                                                <h4>Código de Rastreio: </h4>
+                                                <h4>Pendente</h4>
+                                            </div>
+                                        )}
                                     </>
                                 ) : (
                                     ''
@@ -291,23 +315,39 @@ export default function UserRequests() {
 
                                 <div className='boxProductInfos'>
                                     {item.products.map((product) => {
-                                        return (
-                                            product.productType && product.productType === 'Outros' ? (
-                                                <ul className='productInfo'>
-                                                    <h2>{product.productName}</h2>
-                                                    <li><span>{product.description}</span></li>
-                                                      <li><b>Quantidade </b> <span>{product.quantity}</span></li>
-                                                      <li> {product.value > 0 ? (
-                                                          <h2>
-                                                              R$ {product.value}
-                                                          </h2>
-                                                      ) : (
-                                                          ''
-                                                      )}</li>
-                                                </ul>
-                                            ) : (
-                                                <ul className='productInfo'>
-                                                <h2>{product.productName ? product.productName : product.model}</h2>
+                                        return product.productType &&
+                                            product.productType === 'Outros' ? (
+                                            <ul className='productInfo'>
+                                                <h2>{product.productName}</h2>
+                                                <li>
+                                                    <span>
+                                                        {product.description}
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <b>Quantidade </b>{' '}
+                                                    <span>
+                                                        {product.quantity}
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    {' '}
+                                                    {product.value > 0 ? (
+                                                        <h2>
+                                                            R$ {product.value}
+                                                        </h2>
+                                                    ) : (
+                                                        ''
+                                                    )}
+                                                </li>
+                                            </ul>
+                                        ) : (
+                                            <ul className='productInfo'>
+                                                <h2>
+                                                    {product.productName
+                                                        ? product.productName
+                                                        : product.model}
+                                                </h2>
 
                                                 {product.paperWidth ? (
                                                     <>
@@ -324,10 +364,9 @@ export default function UserRequests() {
                                                 )}
 
                                                 {/* Aqui tem 2 conferencias primeiro se existe, e depois  se o paper é uma string
-                                                isso é feito pq no inicio o paper (como só tinha 1 tipo de papel) era uma string
-                                                agora, o paper é um array de objetos, contendo o nome do papel e a quantidade de cada um escolhido
-                                                Por isso que se nao for uma string (um pedido feito depois da adicao da combinacao de papeis ou
-                                                um sketch que continua so podendo um tipo de papel, como o Sertao), ele mostra cada um dos tipos do papeis 
+                                                isso é feito pq no sketchbooks padrao o paper é uma string
+                                                e no mescla o paper é um array de objetos, contendo o nome do papel e a quantidade de cada um escolhido
+                                                Por isso que se nao for uma string , ele mostra cada um dos tipos do papeis 
                                                 que estao no array de objetos salvo*/}
                                                 {product.paper ? (
                                                     typeof product.paper ===
@@ -382,9 +421,8 @@ export default function UserRequests() {
 
                                                     {product.coverColors.map(
                                                         (color, index) => {
-                                                            return (
-                                                                color.name ? (
-                                                                    <span
+                                                            return color.name ? (
+                                                                <span
                                                                     key={index}
                                                                 >
                                                                     {(index
@@ -392,8 +430,8 @@ export default function UserRequests() {
                                                                         : '') +
                                                                         color.name}
                                                                 </span>
-                                                                ) : (
-                                                                    <span
+                                                            ) : (
+                                                                <span
                                                                     key={index}
                                                                 >
                                                                     {(index
@@ -401,8 +439,6 @@ export default function UserRequests() {
                                                                         : '') +
                                                                         color}
                                                                 </span>
-                                                                )
-                                                                
                                                             );
                                                         }
                                                     )}
@@ -411,10 +447,11 @@ export default function UserRequests() {
                                                 {product.lineColor ? (
                                                     <li>
                                                         <b>Cor da linha:</b>{' '}
-                                                        {
-                                                            product.lineColor
-                                                                .colorName ? product.lineColor.colorName : product.lineColor
-                                                        }
+                                                        {product.lineColor
+                                                            .colorName
+                                                            ? product.lineColor
+                                                                  .colorName
+                                                            : product.lineColor}
                                                     </li>
                                                 ) : (
                                                     ''
@@ -423,10 +460,12 @@ export default function UserRequests() {
                                                 {product.elasticColor ? (
                                                     <li>
                                                         <b>Cor do elástico:</b>{' '}
-                                                        {
-                                                            product.elasticColor
-                                                                .colorName ? product.elasticColor.colorName : product.elasticColor
-                                                        }
+                                                        {product.elasticColor
+                                                            .colorName
+                                                            ? product
+                                                                  .elasticColor
+                                                                  .colorName
+                                                            : product.elasticColor}
                                                     </li>
                                                 ) : (
                                                     ''
@@ -474,8 +513,6 @@ export default function UserRequests() {
                                                     </h2>
                                                 )}
                                             </ul>
-                                            )
-                                            
                                         );
                                     })}
                                 </div>

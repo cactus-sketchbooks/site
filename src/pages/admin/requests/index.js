@@ -15,6 +15,7 @@ export default function Requests() {
     const [dataBackup, setDataBackup] = useState([]);
     const [selectItem, setSelectItem] = useState('');
     const [noteAdmin, setNoteAdmin] = useState('');
+    const [trackingCode, setTrackingCode] = useState('');
     const [requestStatus, setRequestStatus] = useState('');
     const [modalDataProducts, setModalDataProducts] = useState();
     const [displayModal, setDisplayModal] = useState('none');
@@ -159,6 +160,10 @@ export default function Requests() {
         setNoteAdmin(event.target.value);
     }
 
+    function handleInputTrackingCode(event) {
+        setTrackingCode(event.target.value);
+    }
+
     function handleIdSelected(event) {
         setSelectItem(event.target.value);
     }
@@ -171,6 +176,122 @@ export default function Requests() {
             .then(() => alert('Pedido finalizado com sucesso!'));
 
         window.location.reload();
+    }
+
+    function sendTrackingCode(indexItem) {
+        if (dataPeriod.length > 0) {
+            var dataTemp = dataPeriod;
+        } else {
+            var dataTemp = dataAdmin;
+        }
+
+        firebase
+            .database()
+            .ref('requests/' + dataTemp[indexItem].id)
+            .update({
+                address: dataTemp[indexItem].address
+                    ? dataTemp[indexItem].address
+                    : '',
+                adminNote: dataTemp[indexItem].adminNote
+                    ? dataTemp[indexItem].adminNote
+                    : '',
+                cepNumber: dataTemp[indexItem].cepNumber
+                    ? dataTemp[indexItem].cepNumber
+                    : '',
+                cep: dataTemp[indexItem].cep ? dataTemp[indexItem].cep : '',
+                city: dataTemp[indexItem].city ? dataTemp[indexItem].city : '',
+                complement: dataTemp[indexItem].complement
+                    ? dataTemp[indexItem].complement
+                    : '',
+                cpf: dataTemp[indexItem].cpf ? dataTemp[indexItem].cpf : '',
+                date: dataTemp[indexItem].date,
+                dateToCompare: dataTemp[indexItem].dateToCompare,
+                district: dataTemp[indexItem].district
+                    ? dataTemp[indexItem].district
+                    : '',
+                houseNumber: dataTemp[indexItem].houseNumber
+                    ? dataTemp[indexItem].houseNumber
+                    : '',
+                id: dataTemp[indexItem].id,
+                products: dataTemp[indexItem].products,
+                paymentProof: dataTemp[indexItem].paymentProof
+                    ? dataTemp[indexItem].paymentProof
+                    : '',
+                payment: dataTemp[indexItem].payment,
+                phoneNumber: dataTemp[indexItem].phoneNumber,
+                pickupOption: dataTemp[indexItem].pickupOption,
+                requestStatus: dataTemp[indexItem].requestStatus
+                    ? dataTemp[indexItem].requestStatus
+                    : '',
+                selectedTransport: dataTemp[indexItem].selectedTransport
+                    ? dataTemp[indexItem].selectedTransport
+                    : '',
+                totalValue: dataTemp[indexItem].totalValue,
+                trackingCode:
+                    trackingCode !== ''
+                        ? trackingCode
+                        : dataTemp[indexItem].trackingCode,
+                userEmail: dataTemp[indexItem].userEmail,
+                userName: dataTemp[indexItem].userName,
+            });
+
+        firebase
+            .database()
+            .ref('reportsSales/' + dataTemp[indexItem].id)
+            .update({
+                address: dataTemp[indexItem].address
+                    ? dataTemp[indexItem].address
+                    : '',
+                adminNote: dataTemp[indexItem].adminNote
+                    ? dataTemp[indexItem].adminNote
+                    : '',
+                cepNumber: dataTemp[indexItem].cepNumber
+                    ? dataTemp[indexItem].cepNumber
+                    : '',
+                cep: dataTemp[indexItem].cep ? dataTemp[indexItem].cep : '',
+                city: dataTemp[indexItem].city ? dataTemp[indexItem].city : '',
+                complement: dataTemp[indexItem].complement
+                    ? dataTemp[indexItem].complement
+                    : '',
+                cpf: dataTemp[indexItem].cpf ? dataTemp[indexItem].cpf : '',
+                date: dataTemp[indexItem].date,
+                dateToCompare: dataTemp[indexItem].dateToCompare,
+                district: dataTemp[indexItem].district
+                    ? dataTemp[indexItem].district
+                    : '',
+                houseNumber: dataTemp[indexItem].houseNumber
+                    ? dataTemp[indexItem].houseNumber
+                    : '',
+                id: dataTemp[indexItem].id,
+                products: dataTemp[indexItem].products,
+                paymentProof: dataTemp[indexItem].paymentProof
+                    ? dataTemp[indexItem].paymentProof
+                    : '',
+                payment: dataTemp[indexItem].payment,
+                phoneNumber: dataTemp[indexItem].phoneNumber,
+                pickupOption: dataTemp[indexItem].pickupOption,
+                requestStatus: dataTemp[indexItem].requestStatus
+                    ? dataTemp[indexItem].requestStatus
+                    : '',
+                selectedTransport: dataTemp[indexItem].selectedTransport
+                    ? dataTemp[indexItem].selectedTransport
+                    : '',
+                totalValue: dataTemp[indexItem].totalValue,
+                trackingCode:
+                    trackingCode !== ''
+                        ? trackingCode
+                        : dataTemp[indexItem].trackingCode,
+                userEmail: dataTemp[indexItem].userEmail,
+                userName: dataTemp[indexItem].userName,
+            })
+            .then(() => {
+                window.alert('Código enviado!');
+            })
+            .catch((error) => {
+                window.alert('Código Erro!');
+            });
+
+        setNoteAdmin('');
     }
 
     function sendNoteAdmin(indexItem) {
@@ -216,7 +337,10 @@ export default function Requests() {
                 payment: dataTemp[indexItem].payment,
                 phoneNumber: dataTemp[indexItem].phoneNumber,
                 pickupOption: dataTemp[indexItem].pickupOption,
-                requestStatus: requestStatus,
+                requestStatus:
+                    requestStatus !== ''
+                        ? requestStatus
+                        : dataTemp[indexItem].requestStatus,
                 selectedTransport: dataTemp[indexItem].selectedTransport
                     ? dataTemp[indexItem].selectedTransport
                     : '',
@@ -261,7 +385,10 @@ export default function Requests() {
                 payment: dataTemp[indexItem].payment,
                 phoneNumber: dataTemp[indexItem].phoneNumber,
                 pickupOption: dataTemp[indexItem].pickupOption,
-                requestStatus: requestStatus,
+                requestStatus:
+                    requestStatus !== ''
+                        ? requestStatus
+                        : dataTemp[indexItem].requestStatus,
                 selectedTransport: dataTemp[indexItem].selectedTransport
                     ? dataTemp[indexItem].selectedTransport
                     : '',
@@ -541,10 +668,9 @@ export default function Requests() {
                                                   )}
 
                                                   {/* Aqui tem 2 conferencias primeiro se existe, e depois  se o paper é uma string
-                                                isso é feito pq no inicio o paper (como só tinha 1 tipo de papel) era uma string
-                                                agora, o paper é um array de objetos, contendo o nome do papel e a quantidade de cada um escolhido
-                                                Por isso que se nao for uma string (um pedido feito depois da adicao da combinacao de papeis ou
-                                                um sketch que continua so podendo um tipo de papel, como o Sertao), ele mostra cada um dos tipos do papeis 
+                                                isso é feito pq no sketchbooks padrao o paper é uma string,
+                                                e no mescla o paper é um array de objetos, contendo o nome do papel e a quantidade de cada um escolhido
+                                                Por isso que se nao for uma string , ele mostra cada um dos tipos do papeis 
                                                 que estao no array de objetos salvo*/}
                                                   {product.paper ? (
                                                       typeof product.paper ===
@@ -594,40 +720,45 @@ export default function Requests() {
                                                       ''
                                                   )}
 
-                                                  <li id='coverColor'>
-                                                      Cor da capa:
-                                                      {product.coverColors.map(
-                                                          (color, index) => {
-                                                              return color.name ? (
-                                                                  <span
-                                                                      key={
-                                                                          index
-                                                                      }
-                                                                  >
-                                                                      <b>
-                                                                          {(index
-                                                                              ? ' + '
-                                                                              : '') +
-                                                                              color.name}
-                                                                      </b>
-                                                                  </span>
-                                                              ) : (
-                                                                  <span
-                                                                      key={
-                                                                          index
-                                                                      }
-                                                                  >
-                                                                      <b>
-                                                                          {(index
-                                                                              ? ' + '
-                                                                              : '') +
-                                                                              color}
-                                                                      </b>
-                                                                  </span>
-                                                              );
-                                                          }
-                                                      )}
-                                                  </li>
+                                                  {product.coverColors ? (
+                                                      <li id='coverColor'>
+                                                          Cor da capa:
+                                                          {product.coverColors.map(
+                                                              (
+                                                                  color,
+                                                                  index
+                                                              ) => {
+                                                                  return color.name ? (
+                                                                      <span
+                                                                          key={
+                                                                              index
+                                                                          }
+                                                                      >
+                                                                          <b>
+                                                                              {(index
+                                                                                  ? ' + '
+                                                                                  : '') +
+                                                                                  color.name}
+                                                                          </b>
+                                                                      </span>
+                                                                  ) : (
+                                                                      <span
+                                                                          key={
+                                                                              index
+                                                                          }
+                                                                      >
+                                                                          <b>
+                                                                              {(index
+                                                                                  ? ' + '
+                                                                                  : '') +
+                                                                                  color}
+                                                                          </b>
+                                                                      </span>
+                                                                  );
+                                                              }
+                                                          )}
+                                                      </li>
+                                                  ) : null}
 
                                                   {product.lineColor ? (
                                                       <li className='productData'>
@@ -829,9 +960,11 @@ export default function Requests() {
                                 <select
                                     onChange={handleIdSelected}
                                     className='selectFinishOrder'
+                                    defaultValue=''
                                 >
                                     <option
                                         disabled
+                                        value=''
                                         className='optionSelectOrder'
                                     >
                                         Selecionar
@@ -912,7 +1045,7 @@ export default function Requests() {
                     <div className='boxOrderWrapper'>
                         {selectedPeriod && !hasSearched
                             ? dataPeriod.map((item, indexItem) => (
-                                  <div className='boxOrder'>
+                                  <div className='boxOrder' key={indexItem}>
                                       <h1>{item.userName}</h1>
                                       <span>{item.date}</span>
 
@@ -1015,8 +1148,9 @@ export default function Requests() {
                                                       onChange={
                                                           handleSelectedStatus
                                                       }
+                                                      defaultValue=''
                                                   >
-                                                      <option selected disabled>
+                                                      <option value='' disabled>
                                                           Status do pedido
                                                       </option>
                                                       <option value='Preparando'>
@@ -1040,6 +1174,47 @@ export default function Requests() {
                                                       Alterar status
                                                   </button>
                                               </div>
+
+                                              {item.pickupOption ===
+                                                  'Frete por transportadora' ||
+                                              item.pickupOption ===
+                                                  'Impresso módico ou Carta registrada' ? (
+                                                  <div className='trackingCode'>
+                                                      <input
+                                                          type='text'
+                                                          placeholder='Código de Rastreio'
+                                                          onChange={
+                                                              handleInputTrackingCode
+                                                          }
+                                                      />
+
+                                                      <button
+                                                          onClick={() => {
+                                                              sendTrackingCode(
+                                                                  indexItem
+                                                              );
+                                                          }}
+                                                      >
+                                                          Enviar Código
+                                                      </button>
+
+                                                      {item.trackingCode ? (
+                                                          <div className='adminNoteDiv'>
+                                                              <p>
+                                                                  Código de
+                                                                  Rastreio
+                                                              </p>
+                                                              <b>
+                                                                  {
+                                                                      item.trackingCode
+                                                                  }
+                                                              </b>
+                                                          </div>
+                                                      ) : (
+                                                          ''
+                                                      )}
+                                                  </div>
+                                              ) : null}
 
                                               <div className='clientMessage'>
                                                   <input
@@ -1073,7 +1248,7 @@ export default function Requests() {
                                   </div>
                               ))
                             : dataAdmin.map((item, indexItem) => (
-                                  <div className='boxOrder'>
+                                  <div className='boxOrder' key={indexItem}>
                                       <h1>{item.userName}</h1>
 
                                       <div className='infosWrapper'>
@@ -1181,8 +1356,9 @@ export default function Requests() {
                                                       onChange={
                                                           handleSelectedStatus
                                                       }
+                                                      defaultValue=''
                                                   >
-                                                      <option selected disabled>
+                                                      <option value='' disabled>
                                                           Status do pedido
                                                       </option>
                                                       <option value='Preparando'>
@@ -1206,6 +1382,47 @@ export default function Requests() {
                                                       Alterar status
                                                   </button>
                                               </div>
+
+                                              {item.pickupOption ===
+                                                  'Frete por transportadora' ||
+                                              item.pickupOption ===
+                                                  'Impresso módico ou Carta registrada' ? (
+                                                  <div className='trackingCode'>
+                                                      <input
+                                                          type='text'
+                                                          placeholder='Código de Rastreio'
+                                                          onChange={
+                                                              handleInputTrackingCode
+                                                          }
+                                                      />
+
+                                                      <button
+                                                          onClick={() => {
+                                                              sendTrackingCode(
+                                                                  indexItem
+                                                              );
+                                                          }}
+                                                      >
+                                                          Enviar Código
+                                                      </button>
+
+                                                      {item.trackingCode ? (
+                                                          <div className='adminNoteDiv'>
+                                                              <p>
+                                                                  Código de
+                                                                  Rastreio
+                                                              </p>
+                                                              <b>
+                                                                  {
+                                                                      item.trackingCode
+                                                                  }
+                                                              </b>
+                                                          </div>
+                                                      ) : (
+                                                          ''
+                                                      )}
+                                                  </div>
+                                              ) : null}
 
                                               <div className='clientMessage'>
                                                   <input
