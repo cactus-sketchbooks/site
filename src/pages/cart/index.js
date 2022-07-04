@@ -228,22 +228,21 @@ export default function Cart() {
 
         availableVouchers.map((item) => {
             if (userVoucher === item.voucherCode) {
-                //checa se a data de hoje está entre as datas de inicio e fim de validade do cupom, se nenhum cupom ja foi aplicado, e se o valor
+                //checa se a data de hoje está entre as datas de inicio e fim de validade do cupom, e se o valor
                 // do pedido é maior que o minimo permitido pelo cupom
                 if (
                     dataAtual <= item.endDate &&
                     dataAtual >= item.beginDate &&
-                    aplliedVoucher === 'None' &&
-                    totalValue >= item.minOrderValue
+                    productsSum >= item.minOrderValue
                 ) {
                     isVoucherOk = true;
 
                     setTotalValue(
-                        totalValue - totalValue * (item.discountPercent / 100)
+                        productsSum - productsSum * (item.discountPercent / 100)
                     );
                     setAplliedVoucher(userVoucher);
                     setAplliedDiscount(
-                        totalValue * (item.discountPercent / 100)
+                        productsSum * (item.discountPercent / 100)
                     );
                     setDisplayDiscountValues('flex');
 
@@ -500,9 +499,9 @@ export default function Cart() {
     function updateStock(product) {
         if (product.stock) {
             firebase
-            .database()
-            .ref('products/' + product.id)
-            .update({stock: Number(product.stock) - product.quantity})
+                .database()
+                .ref('products/' + product.id)
+                .update({ stock: Number(product.stock) - product.quantity });
         }
     }
 
@@ -555,6 +554,7 @@ export default function Cart() {
                         : '',
                     paymentProof: '',
                     adminNote: '',
+                    trackingCode: '',
                     aplliedVoucher: aplliedVoucher,
                     requestStatus: '',
                     dateToCompare: new Date().toDateString(),
@@ -584,7 +584,7 @@ export default function Cart() {
                     .then(() => {
                         data.forEach((product) => {
                             updateStock(product);
-                        })
+                        });
                         localStorage.setItem('products', '{}');
                         alert('Pedido finalizado com sucesso!');
                     });
@@ -605,6 +605,7 @@ export default function Cart() {
                     phoneNumber: dataAccount.phoneNumber,
                     paymentProof: '',
                     adminNote: '',
+                    trackingCode: '',
                     aplliedVoucher: aplliedVoucher,
                     requestStatus: '',
                     dateToCompare: new Date().toDateString(),
@@ -630,7 +631,7 @@ export default function Cart() {
                     .then(() => {
                         data.forEach((product) => {
                             updateStock(product);
-                        })
+                        });
                         localStorage.setItem('products', '{}');
                         alert('Pedido finalizado com sucesso!');
                     });
@@ -666,6 +667,7 @@ export default function Cart() {
                     phoneNumber: dataAccount.phoneNumber,
                     paymentProof: '',
                     adminNote: '',
+                    trackingCode: '',
                     requestStatus: '',
                     dateToCompare: new Date().toDateString(),
                     date: `${now.getUTCDate()}/${
@@ -688,7 +690,7 @@ export default function Cart() {
                 setTimeout(() => {
                     data.forEach((product) => {
                         updateStock(product);
-                    })
+                    });
                     localStorage.setItem('products', '{}');
                 }, 5000);
             } else {
@@ -736,6 +738,7 @@ export default function Cart() {
                         : '',
                     paymentProof: '',
                     adminNote: '',
+                    trackingCode: '',
                     requestStatus: '',
                     dateToCompare: new Date().toDateString(),
                     date: `${now.getUTCDate()}/${
@@ -758,7 +761,7 @@ export default function Cart() {
                 setTimeout(() => {
                     data.forEach((product) => {
                         updateStock(product);
-                    })
+                    });
                     localStorage.setItem('products', '{}');
                 }, 5000);
             }
@@ -1249,13 +1252,20 @@ export default function Cart() {
                                         </span>
                                         <span>
                                             <strong>Atenção: </strong>
-                                            Todos os pedidos que contém produtos
-                                            personalizados tem um tempo de
-                                            produção de{' '}
-                                            <strong>5 dias úteis</strong>. E
-                                            todas os pedidos tem o prazo de{' '}
-                                            <strong>2 dias úteis</strong> até
-                                            ser enviado.
+                                            Pedidos feitos <strong>
+                                                FORA
+                                            </strong>{' '}
+                                            do "pronta entrega" tem um prazo de{' '}
+                                            <strong>
+                                                5 DIAS ÚTEIS DE PRODUÇÃO + 2
+                                                DIAS ÚTEIS PARA POSTAGEM OU
+                                                RETIRADA
+                                            </strong>{' '}
+                                            após a produção. Pedidos a pronta
+                                            entrega tem apenas o prazo de
+                                            postagem/entrega{' '}
+                                            <strong>(até 2 dias úteis)</strong>{' '}
+                                            .
                                         </span>
 
                                         <label
@@ -2059,16 +2069,16 @@ export default function Cart() {
                                                           ''
                                                       )}
 
-                                                    {product.quantity ? (
-                                                        <li>
-                                                            <strong>
-                                                                Quantidade
-                                                            </strong>{' '}
-                                                            {product.quantity}
-                                                        </li>
-                                                    ) : (
-                                                        ''
-                                                    )}
+                                                      {product.quantity ? (
+                                                          <li>
+                                                              <strong>
+                                                                  Quantidade
+                                                              </strong>{' '}
+                                                              {product.quantity}
+                                                          </li>
+                                                      ) : (
+                                                          ''
+                                                      )}
 
                                                       {product.clientNote ? (
                                                           <li>

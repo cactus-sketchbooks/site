@@ -258,7 +258,7 @@ $amarelo: #ffff00;
             align-items: center;
             justify-content: center;
             width: 85vw;
-            height: 20vw;
+            height: 30vw;
 
             button {
                 display: none !important;
@@ -527,6 +527,8 @@ $amarelo: #ffff00;
             border: 1px solid rgba(255, 255, 255, 0.18);
             margin-bottom: 1rem;
             padding: 0.5rem;
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
         }
 
         #steps-indicator {
@@ -633,6 +635,7 @@ $amarelo: #ffff00;
                 }
 
                 min-height: 25vh;
+                height: 60vw;
 
                 div .cardColor {
                     margin: 0;

@@ -471,6 +471,14 @@ export default function Mescla() {
         });
 
         document.querySelector(`.step${currentStep}`).classList.remove('hide');
+
+        // move a tela para cima para ficar melhor a percepcao do passo a passo
+        if (currentStep !== 1) {
+            window.scrollTo({
+                top: 120,
+                left: 0,
+            });
+        }
     }
 
     return (
@@ -845,7 +853,9 @@ export default function Mescla() {
                                                 .normalize('NFD')
                                                 .replace(/[\u0300-\u036f]/g, '')
                                         ) &&
-                                        item.categories.includes('cover') ? (
+                                        item.categories.includes('cover') &&
+                                        //nao mostra as capas ilustres pq nao estao disponiveis no mescla
+                                        !item.isIlustres ? (
                                             <div
                                                 className='cardColor'
                                                 key={index}

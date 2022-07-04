@@ -474,6 +474,14 @@ export default function Baiao() {
 
         // mostra somente a div atual
         document.querySelector(`.step${currentStep}`).classList.remove('hide');
+
+        // move a tela para cima para ficar melhor a percepcao do passo a passo
+        if (currentStep !== 1) {
+            window.scrollTo({
+                top: 355,
+                left: 0,
+            });
+        }
     }
 
     return (
@@ -630,7 +638,9 @@ export default function Baiao() {
                         <Slider {...settings}>
                             {dataColors.map((item, index) =>
                                 item.models.includes('baiao') &&
-                                item.categories.includes('cover') ? (
+                                item.categories.includes('cover') &&
+                                // não mostra as capas ilustres, caso seja cadastrada errado, pq nao esta disponivel pro baiao
+                                !item.isIlustres ? (
                                     <div className='cardColor' key={index}>
                                         <label
                                             htmlFor={index}
