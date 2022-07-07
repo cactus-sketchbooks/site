@@ -623,7 +623,6 @@ export default function Cart() {
                 firebase.database().ref('requests/' + id).set(dataToSend)
 
                 firebase.database().ref('reportsSales/' + id).set(dataToSend)
-                setTimeout(() => { localStorage.setItem('products', '{}') }, 5000);
 
             } else {
 
@@ -664,7 +663,6 @@ export default function Cart() {
                 firebase.database().ref('requests/' + id).set(dataToSend)
 
                 firebase.database().ref('reportsSales/' + id).set(dataToSend)
-                setTimeout(() => { localStorage.setItem('products', '{}') }, 5000);
 
             }
 
