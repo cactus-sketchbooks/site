@@ -12,6 +12,10 @@ import Facheiro1Cor from '../../../images/capas/CAPA MODELO FACHEIRO UMA COR.png
 import Facheiro2Cores from '../../../images/capas/CAPA MODELO FACHEIRO DUAS CORES.png';
 import FacheiroQuadrado1Cor from '../../../images/capas/CAPA MODELO FACHEIRO QUADRADO UMA COR.png';
 import FacheiroQuadrado2Cores from '../../../images/capas/CAPA MODELO FACHEIRO QUADRADO DUAS CORES.png';
+import TAMANHOS_E_ORIENTACOES from '../../../images/FACHEIRO_TAMANHOS_E_ORIENTACOES.jpg';
+import PAPEIS_DO_MIOLO from '../../../images/PAPEIS_DO_MIOLO.jpg';
+import COR_ESPIRAL from '../../../images/COR_ESPIRAL.jpg';
+import ACABAMENTO from '../../../images/ACABAMENTO.jpg';
 
 import Header from '../../../components/header/index.js';
 import Footer from '../../../components/footer/index.js';
@@ -1082,6 +1086,10 @@ export default function Facheiro() {
                         <div className='textBackground'>
                             <h2>Tamanho e Orientação</h2>
                         </div>
+                        <img
+                            src={TAMANHOS_E_ORIENTACOES}
+                            alt='Demonstração dos tamanhos disponíveis, retangular do A4 ao A7 e quadrado sendo 10x10, 15x15 ou 21x21, e também das orientações, podendo ser retrato ou paisagem'
+                        />
                     </div>
                     <fieldset>
                         <label htmlFor='paperWidth'>
@@ -1113,6 +1121,10 @@ export default function Facheiro() {
                         <div className='textBackground'>
                             <h2>Papel do Miolo</h2>
                         </div>
+                        <img
+                            src={PAPEIS_DO_MIOLO}
+                            alt='Imagem mostrando os diferentes tipos de papeis que podem ser selecionados no sketchbook'
+                        />
                     </div>
 
                     <fieldset>
@@ -1306,8 +1318,17 @@ export default function Facheiro() {
                         <div className='textBackground'>
                             <h2>Cor do espiral</h2>
                         </div>
+                        <img
+                            src={COR_ESPIRAL}
+                            alt='Imagem mostrando as cores da espiral, branco ou preto'
+                        />
                         {preSelectedSpiralColor ? (
-                            <p style={{ lineHeight: '2.5rem' }}>
+                            <p
+                                style={{
+                                    lineHeight: '2.5rem',
+                                    marginTop: '2rem',
+                                }}
+                            >
                                 A capa escolhida já possui a cor de espiral:
                                 {'  '}
                                 <span className='emphasisWarning'>
@@ -1347,7 +1368,12 @@ export default function Facheiro() {
                                 </div>
 
                                 {preSelectedElasticColor ? (
-                                    <p style={{ lineHeight: '2.5rem' }}>
+                                    <p
+                                        style={{
+                                            lineHeight: '2.5rem',
+                                            marginTop: '2rem',
+                                        }}
+                                    >
                                         A capa escolhida já possui a cor do
                                         elástico:{'  '}
                                         <span className='emphasisWarning'>
@@ -1423,8 +1449,11 @@ export default function Facheiro() {
                         <div className='textBackground'>
                             <h2>Tipo de Acabamento</h2>
                         </div>
+                        <img
+                            src={ACABAMENTO}
+                            alt='Demonstração do acabamento das bordas do sketchbook, podendo ser arredondado ou reto'
+                        />
                     </div>
-                    {/* Inserir aqui a imagem de mostra dos tipos de acabamento */}
 
                     <fieldset>
                         <label htmlFor='paper'>

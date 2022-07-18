@@ -250,6 +250,11 @@ $amarelo: #ffff00;
                 color: $yellow-green;
                 background-color: transparent;
             }
+
+            img {
+                width: 40%;
+                border-radius: 25px;
+            }
         }
 
         .sliderColors {
@@ -671,6 +676,13 @@ $amarelo: #ffff00;
             .textWrapper .textBackground {
                 h2 {
                     font-size: 1.2rem;
+                }
+            }
+            
+            .textWrapper {
+                img {
+                    width: 95%;
+                    border-radius: 15px;
                 }
             }
 

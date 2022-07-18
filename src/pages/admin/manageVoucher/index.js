@@ -277,7 +277,8 @@ export default function ManageVoucher() {
                             {vouchers.map((item, index) => {
                                 return (
                                     <option value={index} key={index}>
-                                        {item.voucherCode}
+                                        {item.voucherCode} - (
+                                        {item.discountPercent}%)
                                     </option>
                                 );
                             })}

@@ -10,6 +10,9 @@ import 'slick-carousel/slick/slick-theme.css';
 import logo from '../../../images/baiao2.jpg';
 import Baiao1Cor from '../../../images/capas/Baiao1Cor.png';
 import Baiao2Cores from '../../../images/capas/Baiao2Cores.png';
+import TAMANHOS_E_ORIENTACOES from '../../../images/BAIAO_TAMANHOS_E_ORIENTACOES.jpg';
+import PAPEIS_DO_MIOLO from '../../../images/PAPEIS_DO_MIOLO.jpg';
+import ACABAMENTO from '../../../images/ACABAMENTO.jpg';
 
 import Header from '../../../components/header/index.js';
 import Footer from '../../../components/footer/index.js';
@@ -550,6 +553,10 @@ export default function Baiao() {
                         <div className='textBackground'>
                             <h2>Tamanho</h2>
                         </div>
+                        <img
+                            src={TAMANHOS_E_ORIENTACOES}
+                            alt='Demonstração dos tamanhos disponíveis: 10x10, 15x15 e 21x21'
+                        />
                     </div>
                     <fieldset>
                         <label htmlFor='paperWidth'>
@@ -581,6 +588,10 @@ export default function Baiao() {
                         <div className='textBackground'>
                             <h2>Papel do Miolo</h2>
                         </div>
+                        <img
+                            src={PAPEIS_DO_MIOLO}
+                            alt='Imagem mostrando os diferentes tipos de papeis que podem ser selecionados no sketchbook'
+                        />
                     </div>
                     <fieldset>
                         <label htmlFor='paper'>
@@ -825,8 +836,11 @@ export default function Baiao() {
                         <div className='textBackground'>
                             <h2>Tipo de Acabamento</h2>
                         </div>
+                        <img
+                            src={ACABAMENTO}
+                            alt='Demonstração do acabamento das bordas do sketchbook, podendo ser arredondado ou reto'
+                        />
                     </div>
-                    {/* Inserir aqui a imagem de mostra dos tipos de acabamento */}
 
                     <fieldset>
                         <label htmlFor='SketchFinish'>

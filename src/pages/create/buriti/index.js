@@ -8,6 +8,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import logo from '../../../images/buriti-kindle.png';
+import ACABAMENTO from '../../../images/ACABAMENTO.jpg';
 
 import Header from '../../../components/header/index.js';
 import Footer from '../../../components/footer/index.js';
@@ -603,8 +604,11 @@ export default function Buriti() {
                         <div className='textBackground'>
                             <h2>Tipo de Acabamento</h2>
                         </div>
+                        <img
+                            src={ACABAMENTO}
+                            alt='Demonstração do acabamento das bordas do sketchbook, podendo ser arredondado ou reto'
+                        />
                     </div>
-                    {/* Inserir aqui a imagem de mostra dos tipos de acabamento */}
 
                     <fieldset>
                         <label htmlFor='SketchFinish'>

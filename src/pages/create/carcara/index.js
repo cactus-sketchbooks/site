@@ -10,6 +10,9 @@ import 'slick-carousel/slick/slick-theme.css';
 import logo from '../../../images/carcara2.jpg';
 import CarcaraRetangular from '../../../images/capas/CarcaraRetangular.png';
 import CarcaraQuadrado from '../../../images/capas/CarcaraQuadrado.png';
+import TAMANHOS_E_ORIENTACOES from '../../../images/CARCARA_TAMANHOS_E_ORIENTACOES.jpg';
+import PAPEIS_DO_MIOLO from '../../../images/PAPEIS_DO_MIOLO.jpg';
+import ACABAMENTO from '../../../images/ACABAMENTO.jpg';
 
 import Header from '../../../components/header/index.js';
 import Footer from '../../../components/footer/index.js';
@@ -1115,6 +1118,10 @@ export default function Carcara() {
                         <div className='textBackground'>
                             <h2>Tamanho e Orientação</h2>
                         </div>
+                        <img
+                            src={TAMANHOS_E_ORIENTACOES}
+                            alt='Demonstração dos tamanhos disponíveis, retangular do A4 ao A7 e quadrado sendo 10x10, 15x15 ou 21x21, e também das orientações, podendo ser retrato ou paisagem'
+                        />
                     </div>
                     <fieldset>
                         <label htmlFor='paperWidth'>
@@ -1146,6 +1153,10 @@ export default function Carcara() {
                         <div className='textBackground'>
                             <h2>Papel do Miolo</h2>
                         </div>
+                        <img
+                            src={PAPEIS_DO_MIOLO}
+                            alt='Imagem mostrando os diferentes tipos de papeis que podem ser selecionados no sketchbook'
+                        />
                     </div>
                     <fieldset>
                         <label htmlFor='paper'>
@@ -1410,8 +1421,11 @@ export default function Carcara() {
                         <div className='textBackground'>
                             <h2>Tipo de Acabamento</h2>
                         </div>
+                        <img
+                            src={ACABAMENTO}
+                            alt='Demonstração do acabamento das bordas do sketchbook, podendo ser arredondado ou reto'
+                        />
                     </div>
-                    {/* Inserir aqui a imagem de mostra dos tipos de acabamento */}
 
                     <fieldset>
                         <label htmlFor='SketchFinish'>

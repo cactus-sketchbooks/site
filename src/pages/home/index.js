@@ -5,7 +5,7 @@ import Footer from '../../components/footer/index.js';
 
 import { Link } from 'react-router-dom';
 
-import logoCactus from '../../images/logoCactus2.png';
+import logoCactus from '../../images/logoCactus3.png';
 import foto from '../../images/foto1.png';
 import mandacaru from '../../images/mandacaru.png';
 import baiao from '../../images/baiao.png';
@@ -136,23 +136,25 @@ function Home() {
             <section id='hero-section'>
                 <div className='hero-wrapper'>
                     <div className='hero-title'>
-                        <h1>cactus</h1>
                         <img src={logoCactus} alt='Imagem de um cacto' />
-                        <h1>sketchbooks</h1>
+                        <h1>cactus sketchbooks</h1>
                     </div>
 
                     <div className='hero-data'>
-                        <p>Você cria, nós fazemos 🌵🧡</p>
+                        <p>Feito com você 🌵🧡</p>
                     </div>
                 </div>
 
                 <section id='services-section'>
-                    <h2>Monte seu Cactus: modelos, cores, tudo!</h2>
-
-                    <h2 id='bottomText'>
-                        Quer conhecer nossos produtos pronta-entrega? <br /><Link to="/produtos">Ver produtos</Link> <br /> Ou selecione as opções abaixo e monte um cactus do seu jeito!
+                    <h2>
+                        Quer conhecer nossos produtos pronta-entrega? <br />
+                        <Link to='/produtos'>Ver produtos</Link> <br />
                     </h2>
 
+                    <h2 id='bottomText'>
+                        Ou selecione as opções abaixo e monte um cactus do seu
+                        jeito!
+                    </h2>
 
                     <div className='service-wrapper'>
                         {sketchbooksInfos.map((item, index) => {
@@ -161,8 +163,8 @@ function Home() {
                                     onClick={() => handleModalInfos(index)}
                                     className='service-card'
                                 >
-                                    <h3>{item.name}</h3>
                                     <h4>{item.description}</h4>
+                                    <h3>{item.name}</h3>
                                     <h5>
                                         A partir de{'  '}
                                         <span className='startPrice'>
