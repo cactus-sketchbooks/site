@@ -10,6 +10,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import logo from '../../../images/sertaoRedondo.png';
 import SertaoTipo1 from '../../../images/capas/CAPA MODELO JOURNAL UMA COR (A5-A6).png';
 import SertaoTipo2 from '../../../images/capas/CAPA MODELO JOURNAL UMA COR (14X14 - 10X10).png';
+import PAPEIS_DO_MIOLO from '../../../images/PAPEIS_DO_MIOLO.jpg';
+import ACABAMENTO from '../../../images/ACABAMENTO.jpg';
 
 import Header from '../../../components/header/index.js';
 import Footer from '../../../components/footer/index.js';
@@ -750,6 +752,10 @@ export default function Sertao() {
                         <div className='textBackground'>
                             <h2>Papel do Miolo</h2>
                         </div>
+                        <img
+                            src={PAPEIS_DO_MIOLO}
+                            alt='Imagem mostrando os diferentes tipos de papeis que podem ser selecionados no sketchbook'
+                        />
                     </div>
                     <fieldset>
                         <label htmlFor='paper'>
@@ -925,8 +931,11 @@ export default function Sertao() {
                         <div className='textBackground'>
                             <h2>Tipo de Acabamento</h2>
                         </div>
+                        <img
+                            src={ACABAMENTO}
+                            alt='Demonstração do acabamento das bordas do sketchbook, podendo ser arredondado ou reto'
+                        />
                     </div>
-                    {/* Inserir aqui a imagem de mostra dos tipos de acabamento */}
 
                     <fieldset>
                         <label htmlFor='SketchFinish'>
