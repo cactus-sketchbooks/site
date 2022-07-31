@@ -10,6 +10,9 @@ import 'slick-carousel/slick/slick-theme.css';
 import logo from '../../../images/mandacaru2.jpg';
 import Mandacaru2Cores from '../../../images/capas/CAPA MODELO MANDACARU DUAS CORES.png';
 import Mandacaru1Cor from '../../../images/capas/CAPA MODELO MANDACARU UMA COR.png';
+import TAMANHOS_E_ORIENTACOES from '../../../images/MANDACARU_TAMANHOS_E_ORIENTACOES.jpg';
+import PAPEIS_DO_MIOLO from '../../../images/PAPEIS_DO_MIOLO.jpg';
+import ACABAMENTO from '../../../images/ACABAMENTO.jpg';
 
 import Header from '../../../components/header/index.js';
 import Footer from '../../../components/footer/index.js';
@@ -980,6 +983,10 @@ export default function Mandacaru() {
                         <div className='textBackground'>
                             <h2>Tamanho e Orientação</h2>
                         </div>
+                        <img
+                            src={TAMANHOS_E_ORIENTACOES}
+                            alt='Demonstração dos tamanhos disponíveis do A4 ao A7, e também das orientações, podendo ser retrato ou paisagem'
+                        />
                     </div>
 
                     <fieldset>
@@ -1012,6 +1019,11 @@ export default function Mandacaru() {
                         <div className='textBackground'>
                             <h2>Papel do Miolo</h2>
                         </div>
+
+                        <img
+                            src={PAPEIS_DO_MIOLO}
+                            alt='Imagem mostrando os diferentes tipos de papeis que podem ser selecionados no sketchbook'
+                        />
                     </div>
 
                     <fieldset>
@@ -1365,8 +1377,11 @@ export default function Mandacaru() {
                         <div className='textBackground'>
                             <h2>Tipo de Acabamento</h2>
                         </div>
+                        <img
+                            src={ACABAMENTO}
+                            alt='Demonstração do acabamento das bordas do sketchbook, podendo ser arredondado ou reto'
+                        />
                     </div>
-                    {/* Inserir aqui a imagem de mostra dos tipos de acabamento */}
 
                     <fieldset>
                         <label htmlFor='SketchFinish'>
