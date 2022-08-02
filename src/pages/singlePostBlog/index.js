@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import instagram from '../../images/instagram2.svg'
-import behance from '../../images/behance.svg'
-import youtube from '../../images/youtube.svg'
+import instagram from '../../images/instagram2.svg';
+import behance from '../../images/behance.svg';
+import youtube from '../../images/youtube.svg';
 
 import firebase from 'firebase/app';
-import "firebase/firestore";
-import "firebase/database";
-import firebaseConfig from '../../FirebaseConfig.js'
+import 'firebase/firestore';
+import 'firebase/database';
+import firebaseConfig from '../../FirebaseConfig.js';
 
 import './style.scss';
 
@@ -16,65 +16,45 @@ import Header from '../../components/header/index.js';
 import Footer from '../../components/footer/index.js';
 
 export default function SinglePost() {
-
     const [path, setPath] = useState('');
     const [dataPost, setDataPost] = useState([]);
     const [dataBlog, setDataBlog] = useState([]);
 
-    const idPost = useParams().idPost
+    const idPost = useParams().idPost;
 
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
 
     useEffect(() => {
-
-        if (!firebase.apps.length)
-            firebase.initializeApp(firebaseConfig);
+        if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
 
         var firebaseRef = firebase.database().ref('posts/');
         firebaseRef.on('value', (snapshot) => {
-
             if (snapshot.exists()) {
-
-                var data = snapshot.val()
-                var temp = Object.keys(data).map((key) => data[key])
-                setDataBlog(temp)
-
+                var data = snapshot.val();
+                var temp = Object.keys(data).map((key) => data[key]);
+                setDataBlog(temp);
             }
-
-        })
-
+        });
     }, []);
 
     useEffect(() => {
-
-        setPath(idPost)
-
-    }, [idPost])
+        setPath(idPost);
+    }, [idPost]);
 
     useEffect(() => {
-
-        dataBlog.map((post => {
-
+        dataBlog.map((post) => {
             if (post.id === path) {
-
-                setDataPost(post)
-
+                setDataPost(post);
             }
-
-        }))
-
-    }, [dataBlog])
+        });
+    }, [dataBlog]);
 
     return (
-
-        <main id="MainBlog">
-
+        <main id='MainBlog'>
             <Header />
 
-            <section id="PostAuthorSection">
-
-                <div className="textIntroWrapper">
-
+            <section id='PostAuthorSection'>
+                <div className='textIntroWrapper'>
                     <span>Publicado em {dataPost.date}</span>
 
                     <h1>{dataPost.title}</h1>
@@ -82,111 +62,85 @@ export default function SinglePost() {
                     <p>{dataPost.description}</p>
 
                     <ul>
-
                         {dataPost.hashtags ? (
-
                             <>
-
-                                {
-                                    dataPost.hashtags.map((hashtag) => {
-
-                                        return (
-
-                                            <li>{hashtag}</li>
-
-                                        )
-
-                                    })
-                                }
-
+                                {dataPost.hashtags.map((hashtag) => {
+                                    return <li>{hashtag}</li>;
+                                })}
                             </>
-
-
-                        ) : ('')
-
-                        }
-
+                        ) : (
+                            ''
+                        )}
                     </ul>
-
                 </div>
 
-                <div className="authorInfos">
-
-                    <div className="authorImgWrapper">
-
-                        <img src={dataPost.authorPicture} alt="" />
-
+                <div className='authorInfos'>
+                    <div className='authorImgWrapper'>
+                        <img src={dataPost.authorPicture} alt='' />
                     </div>
 
-                    <div className="authorSocials">
-
+                    <div className='authorSocials'>
                         <h1>{dataPost.author}</h1>
 
-                        <div className="socialMediaWrapper">
+                        <div className='socialMediaWrapper'>
+                            {dataPost.instagram ? (
+                                <div className='socialMedias'>
+                                    <a
+                                        id='socialMediaLink'
+                                        target='_blank'
+                                        rel='noreferrer'
+                                        href={dataPost.instagram}
+                                    >
+                                        <img src={instagram} alt='' />
+                                    </a>
+                                </div>
+                            ) : (
+                                ''
+                            )}
 
-                            {dataPost.instagram ?
+                            {dataPost.behance ? (
+                                <div className='socialMedias'>
+                                    <a
+                                        id='socialMediaLink'
+                                        target='_blank'
+                                        rel='noreferrer'
+                                        href={dataPost.behance}
+                                    >
+                                        <img src={behance} alt='' />
+                                    </a>
+                                </div>
+                            ) : (
+                                ''
+                            )}
 
-                                (
-                                    <div className="socialMedias">
-
-                                        <a id="socialMediaLink" target="_blank" rel="noreferrer" href={dataPost.instagram}><img src={instagram} alt="" /></a>
-
-                                    </div>
-
-                                ) : ('')
-
-                            }
-
-                            {dataPost.behance ?
-
-                                (
-                                    <div className="socialMedias">
-
-                                        <a id="socialMediaLink" target="_blank" rel="noreferrer" href={dataPost.behance}><img src={behance} alt="" /></a>
-
-                                    </div>
-
-                                ) : ('')
-
-                            }
-
-                            {dataPost.youtube ?
-
-                                (
-                                    <div className="socialMedias">
-
-                                        <a id="socialMediaLink" target="_blank" rel="noreferrer" href={dataPost.youtube}><img src={youtube} alt="" /></a>
-
-                                    </div>
-
-                                ) : ('')
-
-                            }
-
+                            {dataPost.youtube ? (
+                                <div className='socialMedias'>
+                                    <a
+                                        id='socialMediaLink'
+                                        target='_blank'
+                                        rel='noreferrer'
+                                        href={dataPost.youtube}
+                                    >
+                                        <img src={youtube} alt='' />
+                                    </a>
+                                </div>
+                            ) : (
+                                ''
+                            )}
                         </div>
-
                     </div>
-
                 </div>
 
-                <div className="postImgWrapper">
-
-                    <img src={dataPost.imageUrl} alt="" />
-
+                <div className='postImgWrapper'>
+                    <img src={dataPost.imageUrl} alt='' />
                 </div>
-
             </section>
 
-            <section id="PostTextSection">
-
+            <section id='PostTextSection'>
                 <p>{dataPost.paragraphs}</p>
-
             </section>
 
             <Footer />
-
         </main>
-
-    )
-
+    );
 }

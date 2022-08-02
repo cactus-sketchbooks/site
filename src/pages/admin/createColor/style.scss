@@ -65,7 +65,7 @@ main {
 
         }
 
-        input[type=text] {
+        input[type=text], #ilustresPrice{
 
             margin-bottom: 2rem;
             width: 50%;
@@ -147,6 +147,20 @@ main {
 
             }
 
+        }
+
+        #ilustresData{
+            select {
+            
+                    margin: .2rem .2rem;
+                    padding: .7rem 0;
+                    border-radius: 5px;
+                    width: 50%;
+            
+                    border: 1.7px solid #e8e8e8;
+                    outline-color: $orange;
+            
+                }
         }
 
     }
@@ -255,6 +269,11 @@ main {
                 }
     
             }
+            #ilustresData{
+                select, #ilustresPrice {
+                    width: 100%;            
+                    }
+                }   
     
         }
     
