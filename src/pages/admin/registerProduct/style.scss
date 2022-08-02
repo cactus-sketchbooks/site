@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@import "../../../global.scss";
+
+#registerProduct {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100vw;
+
+    input, select {
+        margin-bottom: 2rem;
+        color: #eee;
+    }
+
+    input::placeholder {
+        color: #eee;
+    }
+
+    select {
+
+        width: 100%;
+        background-color: $light-green;
+        font-size: 1rem;
+        border: none;
+        padding:.5rem 1rem;
+        border-radius: 5px;
+        outline: none;
+
+        option {
+            border: none;
+        }
+
+    }
+
+    #optionSection {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        overflow-x: hidden;
+        width: 100%;
+        padding-top: 20vh;
+        align-items: center;
+
+        .selectProductType {
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+    
+            h1 {
+                margin: 1rem 0;
+                padding: 0.3rem 1rem;
+                background-color: $orange;
+                border-radius: 100px;
+                color: #fff;
+            }
+
+            label {
+                font-size: 1.15rem;
+                margin-bottom: 0.35rem;
+                color: #F2F2F2;
+                margin-top: 2rem;
+                text-align: center;
+            }
+        }
+    }
+
+    #formSection {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow-x: hidden;
+        width: 100%;
+
+        form {
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 50%;
+
+            label {
+                font-size: 1.15rem;
+                margin-bottom: 0.35rem;
+                color: #F2F2F2;
+                text-align: center;
+            }
+
+            input {
+
+                width: 100%;
+                background-color: $light-green;
+                font-size: 1.02rem;
+                border: none;
+                padding:.5rem 1rem;
+                border-radius: 5px;
+                outline: none;
+
+            }
+
+            fieldset {
+
+                display: flex;
+                flex-direction: column;
+                border: none;
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+                font-weight: 500;
+
+            }
+
+            .observations {
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                color: #fff;
+                margin: 1rem 0 2rem 0;
+
+                span {
+                    margin: 10px 0;
+                }
+
+            }
+            
+            button {
+
+                padding: .7rem 2rem;
+                margin: 2rem 0;
+                background-color: $orange;
+                border: none;
+                cursor: pointer;
+                color: #fff;
+                font-size: 16px;
+                font-weight: 600;
+                border-radius: 5px;
+                transition: .2s ease-in-out;
+        
+                &:hover {
+        
+                    background-color: $light-orange;
+        
+                }
+        
+            }
+
+        }
+
+    }
+    
+}
