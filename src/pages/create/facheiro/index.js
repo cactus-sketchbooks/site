@@ -118,6 +118,18 @@ export default function Facheiro() {
                         value: 67,
                     },
                     {
+                        name: 'Papel Reciclado Pontilhado',
+                        value: 67,
+                    },
+                    {
+                        name: 'Papel Reciclado Quadriculado',
+                        value: 67,
+                    },
+                    {
+                        name: 'Papel Reciclado Pautado',
+                        value: 67,
+                    },
+                    {
                         name: 'Papel Marfim Liso',
                         value: 67,
                     },
@@ -172,6 +184,18 @@ export default function Facheiro() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
+                        value: 67,
+                    },
+                    {
+                        name: 'Papel Reciclado Pontilhado',
+                        value: 67,
+                    },
+                    {
+                        name: 'Papel Reciclado Quadriculado',
+                        value: 67,
+                    },
+                    {
+                        name: 'Papel Reciclado Pautado',
                         value: 67,
                     },
                     {
