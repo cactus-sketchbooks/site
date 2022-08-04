@@ -544,6 +544,10 @@ export const models = [
                         value: 4,
                     },
                     {
+                        name: 'Papel Marfim Liso',
+                        value: 4,
+                    },
+                    {
                         name: 'Papel Kraft',
                         value: 5,
                     },
