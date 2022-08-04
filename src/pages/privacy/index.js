@@ -20,8 +20,8 @@ export default function Privacy() {
                         medidas de segurança e proteção de dados aplicadas nos
                         processos de tratamento de dados pessoais em toda a
                         plataforma Cactus Sketchbooks, com sede na cidade de São
-                        Luís, Estado do Maranhão, situada na Travessa da Lapa,
-                        nº 162, Centro, CEP 65010-330.
+                        Luís, Estado do Maranhão, situada na Rua da Inveja - n°
+                        488 A - Centro, CEP 65015-180.
                     </p>
 
                     <p>
