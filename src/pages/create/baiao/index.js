@@ -67,6 +67,10 @@ export default function Baiao() {
                         value: 60,
                     },
                     {
+                        name: 'Papel Marfim Liso',
+                        value: 60,
+                    },
+                    {
                         name: 'Papel Kraft',
                         value: 65,
                     },

@@ -20,8 +20,8 @@ export default function Terms() {
                         O presente documento tem por objeto estabelecer as
                         Condições Gerais de Uso do site Cactus Sketchbooks na
                         Internet na cidade de São Luís, Estado do Maranhão,
-                        situada na Travessa da Lapa, nº 162, Centro, CEP
-                        65010-330.
+                        situada na Rua da Inveja - n° 488 A - Centro, CEP
+                        65015-180.
                     </p>
 
                     <p>

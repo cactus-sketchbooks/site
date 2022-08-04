@@ -373,7 +373,7 @@ export default function Cart() {
     //informações necessárias para a api do melhor envio
     const dataToSend = {
         from: {
-            postal_code: '65010330',
+            postal_code: '65015180',
         },
         to: {
             postal_code: customerCep,
@@ -1198,8 +1198,8 @@ export default function Cart() {
                                                     registrada
                                                 </option>
                                                 <option value='Retirada física'>
-                                                    Retirada física: Travessa da
-                                                    Lapa - 162 - Centro/Desterro
+                                                    Retirada física: Rua da
+                                                    Inveja - n° 488 A - Centro
                                                 </option>
                                             </select>
                                         ) : (
@@ -1225,8 +1225,8 @@ export default function Cart() {
                                                     registrada
                                                 </option>
                                                 <option value='Retirada física'>
-                                                    Retirada física: Travessa da
-                                                    Lapa - 162 - Centro/Desterro
+                                                    Retirada física: Rua da
+                                                    Inveja - n° 488 A - Centro
                                                 </option>
                                             </select>
                                         )}
