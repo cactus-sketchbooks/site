@@ -230,18 +230,6 @@ export default function Carcara() {
                         value: 45,
                     },
                     {
-                        name: 'Papel Reciclado Pontilhado',
-                        value: 45,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado',
-                        value: 45,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado',
-                        value: 45,
-                    },
-                    {
                         name: 'Papel Kraft',
                         value: 49,
                     },

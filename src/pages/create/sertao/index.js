@@ -64,31 +64,7 @@ export default function Sertao() {
                         value: 24,
                     },
                     {
-                        name: 'Papel Reciclado Pontilhado',
-                        value: 24,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado',
-                        value: 24,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado',
-                        value: 24,
-                    },
-                    {
                         name: 'Papel Marfim Liso',
-                        value: 24,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado',
-                        value: 24,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado',
-                        value: 24,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado',
                         value: 24,
                     },
                     {

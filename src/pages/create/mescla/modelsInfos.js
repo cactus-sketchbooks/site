@@ -177,18 +177,6 @@ export const models = [
                         value: 2,
                     },
                     {
-                        name: 'Papel Reciclado Pontilhado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado',
-                        value: 2,
-                    },
-                    {
                         name: 'Papel Kraft',
                         value: 2,
                     },
@@ -891,18 +879,6 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado',
                         value: 2,
                     },
                     {

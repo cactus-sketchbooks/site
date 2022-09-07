@@ -228,31 +228,7 @@ export default function Mandacaru() {
                         value: 38,
                     },
                     {
-                        name: 'Papel Reciclado Pontilhado',
-                        value: 38,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado',
-                        value: 38,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado',
-                        value: 38,
-                    },
-                    {
                         name: 'Papel Marfim Liso',
-                        value: 38,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado',
-                        value: 38,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado',
-                        value: 38,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado',
                         value: 38,
                     },
                     {
