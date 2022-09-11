@@ -482,7 +482,9 @@ export default function Mescla() {
         // move a tela para cima para ficar melhor a percepcao do passo a passo
         if (currentStep !== 1) {
             window.scrollTo({
-                top: 120,
+                top:
+                    120 +
+                    document.querySelector('.iframe-container').clientHeight,
                 left: 0,
             });
         }
@@ -575,6 +577,20 @@ export default function Mescla() {
             <Header />
 
             <section id='CreateSketchbookSection'>
+                <div
+                    className='iframe-container'
+                    style={{ marginBottom: '1rem' }}
+                >
+                    <iframe
+                        width='560'
+                        height='315'
+                        src='https://www.youtube.com/embed/KkLTdW1SLS4'
+                        title='YouTube video player'
+                        frameborder='0'
+                        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                        allowfullscreen
+                    ></iframe>
+                </div>
                 <div className='textIntro'>
                     <h1>Monte seu Sketchbook personalizado</h1>
                     <h5>

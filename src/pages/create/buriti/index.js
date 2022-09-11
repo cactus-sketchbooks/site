@@ -346,7 +346,9 @@ export default function Buriti() {
         // move a tela para cima para ficar melhor a percepcao do passo a passo
         if (currentStep !== 1) {
             window.scrollTo({
-                top: 355,
+                top:
+                    355 +
+                    document.querySelector('.iframe-container').clientHeight,
                 left: 0,
             });
         }
@@ -371,6 +373,20 @@ export default function Buriti() {
             <Header />
 
             <section id='CreateSketchbookSection'>
+                <div
+                    className='iframe-container'
+                    style={{ marginBottom: '1rem' }}
+                >
+                    <iframe
+                        width='560'
+                        height='315'
+                        src='https://www.youtube.com/embed/d6vE5nG2PoY'
+                        title='YouTube video player'
+                        frameborder='0'
+                        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                        allowfullscreen
+                    ></iframe>
+                </div>
                 <div className='logoWrapper'>
                     <img src={logo} alt='logo' />
                 </div>
