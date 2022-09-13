@@ -178,47 +178,47 @@ export default function Baiao() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 25,
+                        value: 20,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado',
-                        value: 25,
+                        value: 20,
                     },
                     {
                         name: 'Papel Reciclado Quadriculado',
-                        value: 25,
+                        value: 20,
                     },
                     {
                         name: 'Papel Reciclado Pautado',
-                        value: 25,
+                        value: 20,
                     },
                     {
                         name: 'Papel Marfim Liso',
-                        value: 25,
+                        value: 20,
                     },
                     {
                         name: 'Papel Marfim Pontilhado',
-                        value: 25,
+                        value: 20,
                     },
                     {
                         name: 'Papel Marfim Quadriculado',
-                        value: 25,
+                        value: 20,
                     },
                     {
                         name: 'Papel Marfim Pautado',
-                        value: 25,
+                        value: 20,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 30,
+                        value: 25,
                     },
                     {
                         name: 'Papel Canson 140g',
-                        value: 35,
+                        value: 28,
                     },
                     {
                         name: 'Papel Canson 200g',
-                        value: 40,
+                        value: 34,
                     },
                     {
                         name: 'Papel Preto',
@@ -226,11 +226,11 @@ export default function Baiao() {
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 45,
+                        value: 38,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 45,
+                        value: 38,
                     },
                 ],
             },
@@ -485,7 +485,9 @@ export default function Baiao() {
         // move a tela para cima para ficar melhor a percepcao do passo a passo
         if (currentStep !== 1) {
             window.scrollTo({
-                top: 355,
+                top:
+                    355 +
+                    document.querySelector('.iframe-container').clientHeight,
                 left: 0,
             });
         }
@@ -516,6 +518,20 @@ export default function Baiao() {
             <Header />
 
             <section id='CreateSketchbookSection'>
+                <div
+                    className='iframe-container'
+                    style={{ marginBottom: '1rem' }}
+                >
+                    <iframe
+                        width='560'
+                        height='315'
+                        src='https://www.youtube.com/embed/yX0AHbdAkHY'
+                        title='YouTube video player'
+                        frameborder='0'
+                        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                        allowfullscreen
+                    ></iframe>
+                </div>
                 <div className='logoWrapper'>
                     <img src={logo} alt='logo' />
                 </div>

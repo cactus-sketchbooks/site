@@ -17,19 +17,19 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 8,
+                        value: 10,
                     },
                     {
                         name: 'Papel Marfim Liso',
-                        value: 8,
+                        value: 10,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 9,
+                        value: 12,
                     },
                     {
                         name: 'Papel Preto',
-                        value: 8,
+                        value: 12,
                     },
                 ],
             },
@@ -48,31 +48,31 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 8,
+                        value: 10,
                     },
                     {
                         name: 'Papel Marfim Liso',
-                        value: 8,
+                        value: 10,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 9,
+                        value: 12,
                     },
                     {
                         name: 'Papel Canson 140g',
-                        value: 14,
+                        value: 16,
                     },
                     {
                         name: 'Papel Canson 200g',
-                        value: 20,
+                        value: 22,
                     },
                     {
                         name: 'Papel Preto',
-                        value: 8,
+                        value: 12,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 36,
+                        value: 58,
                     },
                 ],
             },
@@ -90,27 +90,27 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 4,
+                        value: 7,
                     },
                     {
                         name: 'Papel Marfim Liso',
-                        value: 4,
+                        value: 7,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 5,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 10,
-                    },
-                    {
-                        name: 'Papel Preto',
                         value: 8,
                     },
                     {
+                        name: 'Papel Canson 200g',
+                        value: 14,
+                    },
+                    {
+                        name: 'Papel Preto',
+                        value: 12,
+                    },
+                    {
                         name: 'Papel Canson Aquarela',
-                        value: 18,
+                        value: 30,
                     },
                 ],
             },
@@ -128,35 +128,35 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Marfim Liso',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 5,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
                         value: 7,
                     },
                     {
-                        name: 'Papel Canson 200g',
-                        value: 10,
+                        name: 'Papel Marfim Liso',
+                        value: 7,
                     },
                     {
-                        name: 'Papel Preto',
+                        name: 'Papel Kraft',
                         value: 8,
                     },
                     {
+                        name: 'Papel Canson 140g',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 14,
+                    },
+                    {
+                        name: 'Papel Preto',
+                        value: 12,
+                    },
+                    {
                         name: 'Papel Canson Aquarela',
-                        value: 18,
+                        value: 30,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 18,
+                        value: 30,
                     },
                 ],
             },
@@ -174,31 +174,31 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
                         value: 5,
                     },
                     {
+                        name: 'Papel Kraft',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 9,
+                    },
+                    {
                         name: 'Papel Preto',
-                        value: 4,
+                        value: 9,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 9,
+                        value: 21,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 9,
+                        value: 21,
                     },
                 ],
             },
@@ -216,59 +216,59 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Liso',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
                         value: 5,
                     },
                     {
+                        name: 'Papel Reciclado Pontilhado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Reciclado Quadriculado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Reciclado Pautado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Kraft',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 9,
+                    },
+                    {
                         name: 'Papel Preto',
-                        value: 4,
+                        value: 9,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 9,
+                        value: 21,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 9,
+                        value: 21,
                     },
                 ],
             },
@@ -287,59 +287,59 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Quadriculado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Pautado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Liso',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Pontilhado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Quadriculado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Pautado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
                         value: 3,
                     },
                     {
+                        name: 'Papel Canson 140g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 7,
+                    },
+                    {
                         name: 'Papel Preto',
-                        value: 2,
+                        value: 7,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 5,
+                        value: 12,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 5,
+                        value: 12,
                     },
                 ],
             },
@@ -358,59 +358,59 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Quadriculado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Pautado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Liso',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Pontilhado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Quadriculado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Pautado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
                         value: 3,
                     },
                     {
+                        name: 'Papel Canson 140g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 7,
+                    },
+                    {
                         name: 'Papel Preto',
-                        value: 2,
+                        value: 7,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 5,
+                        value: 12,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 5,
+                        value: 12,
                     },
                 ],
             },
@@ -430,35 +430,35 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado',
-                        value: 0.5,
-                    },
-                    {
-                        name: 'Papel Marfim',
-                        value: 0.5,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 0.5,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
                         value: 1.5,
                     },
                     {
+                        name: 'Papel Marfim',
+                        value: 1.5,
+                    },
+                    {
+                        name: 'Papel Kraft',
+                        value: 1.5,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 3,
+                    },
+                    {
                         name: 'Papel Preto',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 2.5,
+                        value: 6,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 2.5,
+                        value: 6,
                     },
                 ],
             },
@@ -478,35 +478,35 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado',
-                        value: 0.5,
-                    },
-                    {
-                        name: 'Papel Marfim',
-                        value: 0.5,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 0.5,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
                         value: 1.5,
                     },
                     {
+                        name: 'Papel Marfim',
+                        value: 1.5,
+                    },
+                    {
+                        name: 'Papel Kraft',
+                        value: 1.5,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 3,
+                    },
+                    {
                         name: 'Papel Preto',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 2.5,
+                        value: 6,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 2.5,
+                        value: 6,
                     },
                 ],
             },
@@ -529,35 +529,35 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Marfim Liso',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 5,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
                         value: 7,
                     },
                     {
-                        name: 'Papel Canson 200g',
-                        value: 10,
+                        name: 'Papel Marfim Liso',
+                        value: 7,
                     },
                     {
-                        name: 'Papel Preto',
+                        name: 'Papel Kraft',
                         value: 8,
                     },
                     {
+                        name: 'Papel Canson 140g',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 14,
+                    },
+                    {
+                        name: 'Papel Preto',
+                        value: 12,
+                    },
+                    {
                         name: 'Papel Canson Aquarela',
-                        value: 18,
+                        value: 30,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 18,
+                        value: 30,
                     },
                 ],
             },
@@ -575,59 +575,59 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Liso',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
                         value: 5,
                     },
                     {
+                        name: 'Papel Reciclado Pontilhado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Reciclado Quadriculado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Reciclado Pautado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Kraft',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 9,
+                    },
+                    {
                         name: 'Papel Preto',
-                        value: 4,
+                        value: 9,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 9,
+                        value: 21,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 9,
+                        value: 21,
                     },
                 ],
             },
@@ -645,59 +645,59 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Quadriculado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Pautado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Liso',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Pontilhado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Quadriculado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Pautado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
                         value: 3,
                     },
                     {
+                        name: 'Papel Canson 140g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 7,
+                    },
+                    {
                         name: 'Papel Preto',
-                        value: 2,
+                        value: 7,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 5,
+                        value: 12,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 5,
+                        value: 12,
                     },
                 ],
             },
@@ -721,20 +721,20 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 8,
+                        value: 10,
                     },
                     {
                         name: 'Papel Marfim Liso',
-                        value: 8,
+                        value: 10,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 9,
+                        value: 12,
                     },
 
                     {
                         name: 'Papel Preto',
-                        value: 8,
+                        value: 12,
                     },
                 ],
             },
@@ -753,31 +753,31 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 8,
+                        value: 10,
                     },
                     {
                         name: 'Papel Marfim Liso',
-                        value: 8,
+                        value: 10,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 9,
+                        value: 12,
                     },
                     {
                         name: 'Papel Canson 140g',
-                        value: 14,
+                        value: 16,
                     },
                     {
                         name: 'Papel Canson 200g',
-                        value: 20,
+                        value: 22,
                     },
                     {
                         name: 'Papel Preto',
-                        value: 8,
+                        value: 12,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 36,
+                        value: 58,
                     },
                 ],
             },
@@ -795,27 +795,27 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 4,
+                        value: 7,
                     },
                     {
                         name: 'Papel Marfim Liso',
-                        value: 4,
+                        value: 7,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 5,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 10,
-                    },
-                    {
-                        name: 'Papel Preto',
                         value: 8,
                     },
                     {
+                        name: 'Papel Canson 200g',
+                        value: 14,
+                    },
+                    {
+                        name: 'Papel Preto',
+                        value: 12,
+                    },
+                    {
                         name: 'Papel Canson Aquarela',
-                        value: 18,
+                        value: 30,
                     },
                 ],
             },
@@ -833,35 +833,35 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Marfim Liso',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 5,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
                         value: 7,
                     },
                     {
-                        name: 'Papel Canson 200g',
-                        value: 10,
+                        name: 'Papel Marfim Liso',
+                        value: 7,
                     },
                     {
-                        name: 'Papel Preto',
+                        name: 'Papel Kraft',
                         value: 8,
                     },
                     {
+                        name: 'Papel Canson 140g',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 14,
+                    },
+                    {
+                        name: 'Papel Preto',
+                        value: 12,
+                    },
+                    {
                         name: 'Papel Canson Aquarela',
-                        value: 18,
+                        value: 30,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 18,
+                        value: 30,
                     },
                 ],
             },
@@ -879,31 +879,31 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
                         value: 5,
                     },
                     {
+                        name: 'Papel Kraft',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 9,
+                    },
+                    {
                         name: 'Papel Preto',
-                        value: 4,
+                        value: 9,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 9,
+                        value: 21,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 9,
+                        value: 21,
                     },
                 ],
             },
@@ -921,59 +921,59 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Liso',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
                         value: 5,
                     },
                     {
+                        name: 'Papel Reciclado Pontilhado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Reciclado Quadriculado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Reciclado Pautado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Kraft',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 9,
+                    },
+                    {
                         name: 'Papel Preto',
-                        value: 4,
+                        value: 9,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 9,
+                        value: 21,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 9,
+                        value: 21,
                     },
                 ],
             },
@@ -992,59 +992,59 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Quadriculado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Pautado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Liso',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Pontilhado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Quadriculado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Pautado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
                         value: 3,
                     },
                     {
+                        name: 'Papel Canson 140g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 7,
+                    },
+                    {
                         name: 'Papel Preto',
-                        value: 2,
+                        value: 7,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 5,
+                        value: 12,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 5,
+                        value: 12,
                     },
                 ],
             },
@@ -1063,59 +1063,59 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Quadriculado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Pautado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Liso',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Pontilhado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Quadriculado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Pautado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
                         value: 3,
                     },
                     {
+                        name: 'Papel Canson 140g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 7,
+                    },
+                    {
                         name: 'Papel Preto',
-                        value: 2,
+                        value: 7,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 5,
+                        value: 12,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 5,
+                        value: 12,
                     },
                 ],
             },
@@ -1135,35 +1135,35 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado',
-                        value: 0.5,
-                    },
-                    {
-                        name: 'Papel Marfim Liso',
-                        value: 0.5,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 0.5,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
                         value: 1.5,
                     },
                     {
+                        name: 'Papel Marfim Liso',
+                        value: 1.5,
+                    },
+                    {
+                        name: 'Papel Kraft',
+                        value: 1.5,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 3,
+                    },
+                    {
                         name: 'Papel Preto',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 2.5,
+                        value: 6,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 2.5,
+                        value: 6,
                     },
                 ],
             },
@@ -1183,35 +1183,35 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado',
-                        value: 0.5,
-                    },
-                    {
-                        name: 'Papel Marfim Liso',
-                        value: 0.5,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 0.5,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
                         value: 1.5,
                     },
                     {
+                        name: 'Papel Marfim Liso',
+                        value: 1.5,
+                    },
+                    {
+                        name: 'Papel Kraft',
+                        value: 1.5,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 2,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 3,
+                    },
+                    {
                         name: 'Papel Preto',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 2.5,
+                        value: 6,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 2.5,
+                        value: 6,
                     },
                 ],
             },
@@ -1229,31 +1229,31 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 5,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
                         value: 7,
                     },
                     {
-                        name: 'Papel Canson 200g',
-                        value: 10,
-                    },
-                    {
-                        name: 'Papel Preto',
+                        name: 'Papel Kraft',
                         value: 8,
                     },
                     {
+                        name: 'Papel Canson 140g',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 14,
+                    },
+                    {
+                        name: 'Papel Preto',
+                        value: 12,
+                    },
+                    {
                         name: 'Papel Canson Aquarela',
-                        value: 18,
+                        value: 30,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 18,
+                        value: 30,
                     },
                 ],
             },
@@ -1271,59 +1271,59 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Liso',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Pontado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
                         value: 5,
                     },
                     {
+                        name: 'Papel Reciclado Pontilhado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Reciclado Quadriculado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Reciclado Pautado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Pontado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Kraft',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 9,
+                    },
+                    {
                         name: 'Papel Preto',
-                        value: 4,
+                        value: 9,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 9,
+                        value: 21,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 9,
+                        value: 21,
                     },
                 ],
             },
@@ -1341,59 +1341,59 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Quadriculado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Pautado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Liso',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Quadriculado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Pontilhado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Pautado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
                         value: 3,
                     },
                     {
+                        name: 'Papel Canson 140g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 7,
+                    },
+                    {
                         name: 'Papel Preto',
-                        value: 2,
+                        value: 7,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 5,
+                        value: 12,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 5,
+                        value: 12,
                     },
                 ],
             },
@@ -1416,35 +1416,34 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 8,
+                        value: 10,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 9,
+                        value: 12,
                     },
                     {
                         name: 'Papel Canson 140g',
-                        value: 14,
+                        value: 16,
                     },
                     {
                         name: 'Papel Canson 200g',
-                        value: 20,
+                        value: 22,
                     },
                     {
                         name: 'Papel Preto',
-                        value: 8,
+                        value: 12,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 36,
+                        value: 58,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 36,
+                        value: 58,
                     },
                 ],
             },
-
             {
                 name: 'A4 - Paisagem',
                 id: 1402,
@@ -1459,47 +1458,47 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Marfim Liso',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 5,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
                         value: 7,
                     },
                     {
-                        name: 'Papel Canson 200g',
-                        value: 10,
+                        name: 'Papel Marfim Liso',
+                        value: 7,
                     },
                     {
-                        name: 'Papel Preto',
+                        name: 'Papel Marfim Pontilhado',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Kraft',
                         value: 8,
                     },
                     {
+                        name: 'Papel Canson 140g',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 14,
+                    },
+                    {
+                        name: 'Papel Preto',
+                        value: 12,
+                    },
+                    {
                         name: 'Papel Canson Aquarela',
-                        value: 18,
+                        value: 30,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 18,
+                        value: 30,
                     },
                 ],
             },
@@ -1517,47 +1516,47 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Marfim Liso',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 5,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
                         value: 7,
                     },
                     {
-                        name: 'Papel Canson 200g',
-                        value: 10,
+                        name: 'Papel Marfim Liso',
+                        value: 7,
                     },
                     {
-                        name: 'Papel Preto',
+                        name: 'Papel Marfim Pontilhado',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Kraft',
                         value: 8,
                     },
                     {
+                        name: 'Papel Canson 140g',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 14,
+                    },
+                    {
+                        name: 'Papel Preto',
+                        value: 12,
+                    },
+                    {
                         name: 'Papel Canson Aquarela',
-                        value: 18,
+                        value: 30,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 18,
+                        value: 30,
                     },
                 ],
             },
@@ -1575,59 +1574,59 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Liso',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
                         value: 5,
                     },
                     {
+                        name: 'Papel Reciclado Pontilhado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Reciclado Quadriculado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Reciclado Pautado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Kraft',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 9,
+                    },
+                    {
                         name: 'Papel Preto',
-                        value: 4,
+                        value: 9,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 9,
+                        value: 21,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 9,
+                        value: 21,
                     },
                 ],
             },
@@ -1645,59 +1644,59 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Liso',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
                         value: 5,
                     },
                     {
+                        name: 'Papel Reciclado Pontilhado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Reciclado Quadriculado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Reciclado Pautado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Kraft',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 9,
+                    },
+                    {
                         name: 'Papel Preto',
-                        value: 4,
+                        value: 9,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 9,
+                        value: 21,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 9,
+                        value: 21,
                     },
                 ],
             },
@@ -1715,59 +1714,59 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Quadriculado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Pautado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Liso',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Pontilhado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Quadriculado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Pautado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
                         value: 3,
                     },
                     {
+                        name: 'Papel Canson 140g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 7,
+                    },
+                    {
                         name: 'Papel Preto',
-                        value: 2,
+                        value: 7,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 5,
+                        value: 12,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 5,
+                        value: 12,
                     },
                 ],
             },
@@ -1785,59 +1784,59 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Quadriculado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Pautado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Liso',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Pontilhado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Quadriculado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Pautado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
                         value: 3,
                     },
                     {
+                        name: 'Papel Canson 140g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 7,
+                    },
+                    {
                         name: 'Papel Preto',
-                        value: 2,
+                        value: 7,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 5,
+                        value: 12,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 5,
+                        value: 12,
                     },
                 ],
             },
@@ -1855,47 +1854,47 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Marfim Liso',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 5,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
                         value: 7,
                     },
                     {
-                        name: 'Papel Canson 200g',
-                        value: 10,
+                        name: 'Papel Marfim Liso',
+                        value: 7,
                     },
                     {
-                        name: 'Papel Preto',
+                        name: 'Papel Marfim Pontilhado',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Kraft',
                         value: 8,
                     },
                     {
+                        name: 'Papel Canson 140g',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 14,
+                    },
+                    {
+                        name: 'Papel Preto',
+                        value: 12,
+                    },
+                    {
                         name: 'Papel Canson Aquarela',
-                        value: 18,
+                        value: 30,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 18,
+                        value: 30,
                     },
                 ],
             },
@@ -1913,59 +1912,59 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Liso',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 4,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
                         value: 5,
                     },
                     {
+                        name: 'Papel Reciclado Pontilhado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Reciclado Quadriculado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Reciclado Pautado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Liso',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Kraft',
+                        value: 5,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 9,
+                    },
+                    {
                         name: 'Papel Preto',
-                        value: 4,
+                        value: 9,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 9,
+                        value: 21,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 9,
+                        value: 21,
                     },
                 ],
             },
@@ -1983,59 +1982,59 @@ export const models = [
                 types: [
                     {
                         name: 'Papel Reciclado Liso',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Quadriculado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Reciclado Pautado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Liso',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Pontilhado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Quadriculado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Marfim Pautado',
-                        value: 1,
+                        value: 2,
                     },
                     {
                         name: 'Papel Kraft',
-                        value: 1,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 2,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
                         value: 3,
                     },
                     {
+                        name: 'Papel Canson 140g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 7,
+                    },
+                    {
                         name: 'Papel Preto',
-                        value: 2,
+                        value: 7,
                     },
                     {
                         name: 'Papel Canson Aquarela',
-                        value: 5,
+                        value: 12,
                     },
                     {
                         name: 'Papel Montval',
-                        value: 5,
+                        value: 12,
                     },
                 ],
             },

@@ -886,8 +886,10 @@ export default function Mandacaru() {
 
         // move a tela para cima para ficar melhor a percepcao do passo a passo
         if (currentStep !== 1) {
+            let videoHeight =
+                document.querySelector('.iframe-container').clientHeight;
             window.scrollTo({
-                top: 352,
+                top: 369 + videoHeight,
                 left: 0,
             });
         }
@@ -918,6 +920,21 @@ export default function Mandacaru() {
             <Header />
 
             <section id='CreateSketchbookSection'>
+                <div
+                    className='iframe-container'
+                    style={{ marginBottom: '1rem' }}
+                >
+                    <iframe
+                        width='560'
+                        height='315'
+                        src='https://www.youtube.com/embed/V1MmZM_4QzE'
+                        title='YouTube video player'
+                        frameborder='0'
+                        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                        allowfullscreen
+                    ></iframe>
+                </div>
+
                 <div className='logoWrapper'>
                     <img src={logo} alt='logo' />
                 </div>
