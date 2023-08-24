@@ -63,32 +63,40 @@ export default function Baiao() {
                 },
                 types: [
                     {
-                        name: 'Papel Reciclado Liso',
+                        name: 'Papel Reciclado Liso 120g (112 páginas)',
                         value: 60,
                     },
                     {
-                        name: 'Papel Kraft',
+                        name: 'Papel Marfim Liso 120g (112 páginas)',
+                        value: 60,
+                    },
+                    {
+                        name: 'Papel Kraft 140g (112 páginas)',
                         value: 65,
                     },
                     {
-                        name: 'Papel Canson 140g',
+                        name: 'Papel Canson 140g (112 páginas)',
                         value: 75,
                     },
                     {
-                        name: 'Papel Canson 200g',
+                        name: 'Papel Canson 200g (80 páginas)',
                         value: 85,
                     },
                     {
-                        name: 'Papel Preto',
+                        name: 'Papel Preto 180g (80 páginas)',
                         value: 82,
                     },
                     {
-                        name: 'Papel Canson Aquarela',
+                        name: 'Papel Canson Aquarela 300g  (48 páginas)',
                         value: 115,
                     },
                     {
-                        name: 'Papel Montval',
+                        name: 'Papel Montval 300g (48 páginas)',
                         value: 115,
+                    },
+                    {
+                        name: 'Papel Hahnemühle (48 páginas)',
+                        value: 245,
                     },
                 ],
             },
@@ -104,60 +112,56 @@ export default function Baiao() {
                 },
                 types: [
                     {
-                        name: 'Papel Reciclado Liso',
+                        name: 'Papel Reciclado Liso 120g (112 páginas)',
                         value: 38,
                     },
                     {
-                        name: 'Papel Reciclado Pontilhado',
+                        name: 'Papel Reciclado Pontilhado 120g (112 páginas)',
                         value: 38,
                     },
                     {
-                        name: 'Papel Reciclado Quadriculado',
+                        name: 'Papel Reciclado Quadriculado 120g (112 páginas)',
                         value: 38,
                     },
                     {
-                        name: 'Papel Reciclado Pautado',
+                        name: 'Papel Marfim Liso 120g (112 páginas)',
                         value: 38,
                     },
                     {
-                        name: 'Papel Marfim Liso',
+                        name: 'Papel Marfim Pontilhado 120g (112 páginas)',
                         value: 38,
                     },
                     {
-                        name: 'Papel Marfim Pontilhado',
+                        name: 'Papel Marfim Quadriculado 120g (112 páginas)',
                         value: 38,
                     },
                     {
-                        name: 'Papel Marfim Quadriculado',
-                        value: 38,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado',
-                        value: 38,
-                    },
-                    {
-                        name: 'Papel Kraft',
+                        name: 'Papel Kraft 140g (112 páginas)',
                         value: 42,
                     },
                     {
-                        name: 'Papel Canson 140g',
+                        name: 'Papel Canson 140g (112 páginas)',
                         value: 48,
                     },
                     {
-                        name: 'Papel Canson 200g',
+                        name: 'Papel Canson 200g (80 páginas)',
                         value: 55,
                     },
                     {
-                        name: 'Papel Preto',
+                        name: 'Papel Preto 180g (80 páginas)',
                         value: 52,
                     },
                     {
-                        name: 'Papel Canson Aquarela',
+                        name: 'Papel Canson Aquarela 300g  (48 páginas)',
                         value: 78,
                     },
                     {
-                        name: 'Papel Montval',
+                        name: 'Papel Montval 300g (48 páginas)',
                         value: 78,
+                    },
+                    {
+                        name: 'Papel Hahnemühle (48 páginas)',
+                        value: 170,
                     },
                 ],
             },
@@ -173,60 +177,56 @@ export default function Baiao() {
                 },
                 types: [
                     {
-                        name: 'Papel Reciclado Liso',
+                        name: 'Papel Reciclado Liso 120g (112 páginas)',
+                        value: 20,
+                    },
+                    {
+                        name: 'Papel Reciclado Pontilhado 120g (112 páginas)',
+                        value: 20,
+                    },
+                    {
+                        name: 'Papel Reciclado Quadriculado 120g (112 páginas)',
+                        value: 20,
+                    },
+                    {
+                        name: 'Papel Marfim Liso 120g (112 páginas)',
+                        value: 20,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado 120g (112 páginas)',
+                        value: 20,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado 120g (112 páginas)',
+                        value: 20,
+                    },
+                    {
+                        name: 'Papel Kraft 140g (112 páginas)',
                         value: 25,
                     },
                     {
-                        name: 'Papel Reciclado Pontilhado',
-                        value: 25,
+                        name: 'Papel Canson 140g (112 páginas)',
+                        value: 28,
                     },
                     {
-                        name: 'Papel Reciclado Quadriculado',
-                        value: 25,
+                        name: 'Papel Canson 200g (80 páginas)',
+                        value: 34,
                     },
                     {
-                        name: 'Papel Reciclado Pautado',
-                        value: 25,
-                    },
-                    {
-                        name: 'Papel Marfim Liso',
-                        value: 25,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado',
-                        value: 25,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado',
-                        value: 25,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado',
-                        value: 25,
-                    },
-                    {
-                        name: 'Papel Kraft',
-                        value: 30,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 35,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 40,
-                    },
-                    {
-                        name: 'Papel Preto',
+                        name: 'Papel Preto 180g (80 páginas)',
                         value: 36,
                     },
                     {
-                        name: 'Papel Canson Aquarela',
-                        value: 45,
+                        name: 'Papel Canson Aquarela 300g  (48 páginas)',
+                        value: 38,
                     },
                     {
-                        name: 'Papel Montval',
-                        value: 45,
+                        name: 'Papel Montval 300g (48 páginas)',
+                        value: 38,
+                    },
+                    {
+                        name: 'Papel Hahnemühle (48 páginas)',
+                        value: 72,
                     },
                 ],
             },

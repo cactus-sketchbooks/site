@@ -59,7 +59,7 @@ export default function Mandacaru() {
         name: 'Mandacaru',
         formats: [
             {
-                name: 'A3 - Paisagem',
+                name: 'A3 - Paisagem (29x32 cm)',
                 id: 501,
                 size: {
                     // width: 29.7,
@@ -71,25 +71,25 @@ export default function Mandacaru() {
                 },
                 types: [
                     {
-                        name: 'Papel Reciclado Liso',
+                        name: 'Papel Reciclado Liso 120g (112 páginas)',
                         value: 90,
                     },
                     {
-                        name: 'Papel Marfim Liso',
+                        name: 'Papel Marfim Liso 120g (112 páginas)',
                         value: 90,
                     },
                     {
-                        name: 'Papel Kraft',
+                        name: 'Papel Kraft 140g (112 páginas)',
                         value: 95,
                     },
                     {
-                        name: 'Papel Preto',
+                        name: 'Papel Preto 180g (80 páginas)',
                         value: 148,
                     },
                 ],
             },
             {
-                name: 'A3 - Retrato',
+                name: 'A3 - Retrato (32x29 cm)',
                 id: 502,
                 size: {
                     // width: 29.7,
@@ -101,37 +101,33 @@ export default function Mandacaru() {
                 },
                 types: [
                     {
-                        name: 'Papel Reciclado Liso',
+                        name: 'Papel Reciclado Liso 120g (112 páginas)',
                         value: 90,
                     },
                     {
-                        name: 'Papel Marfim Liso',
+                        name: 'Papel Marfim Liso 120g (112 páginas)',
                         value: 90,
                     },
                     {
-                        name: 'Papel Kraft',
+                        name: 'Papel Kraft 140g (112 páginas)',
                         value: 95,
                     },
                     {
-                        name: 'Papel Canson 140g',
-                        value: 140,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
+                        name: 'Papel Canson 200g (80 páginas)',
                         value: 150,
                     },
                     {
-                        name: 'Papel Preto',
+                        name: 'Papel Preto 180g (80 páginas)',
                         value: 148,
                     },
                     {
-                        name: 'Papel Canson Aquarela',
+                        name: 'Papel Canson Aquarela 300g  (48 páginas)',
                         value: 215,
                     },
                 ],
             },
             {
-                name: 'A4 - Paisagem',
+                name: 'A4 - Paisagem (21x29 cm)',
                 id: 503,
                 size: {
                     width: 21,
@@ -142,33 +138,33 @@ export default function Mandacaru() {
                 },
                 types: [
                     {
-                        name: 'Papel Reciclado Liso',
+                        name: 'Papel Reciclado Liso 120g (112 páginas)',
                         value: 60,
                     },
                     {
-                        name: 'Papel Marfim Liso',
+                        name: 'Papel Marfim Liso 120g (112 páginas)',
                         value: 60,
                     },
                     {
-                        name: 'Papel Kraft',
+                        name: 'Papel Kraft 140g (112 páginas)',
                         value: 65,
                     },
                     {
-                        name: 'Papel Canson 200g',
+                        name: 'Papel Canson 200g (80 páginas)',
                         value: 85,
                     },
                     {
-                        name: 'Papel Preto',
+                        name: 'Papel Preto 180g (80 páginas)',
                         value: 82,
                     },
                     {
-                        name: 'Papel Canson Aquarela',
+                        name: 'Papel Canson Aquarela 300g  (48 páginas)',
                         value: 115,
                     },
                 ],
             },
             {
-                name: 'A4 - Retrato',
+                name: 'A4 - Retrato (29x21 cm)',
                 id: 504,
                 size: {
                     width: 21,
@@ -179,41 +175,45 @@ export default function Mandacaru() {
                 },
                 types: [
                     {
-                        name: 'Papel Reciclado Liso',
+                        name: 'Papel Reciclado Liso 120g (112 páginas)',
                         value: 60,
                     },
                     {
-                        name: 'Papel Marfim Liso',
+                        name: 'Papel Marfim Liso 120g (112 páginas)',
                         value: 60,
                     },
                     {
-                        name: 'Papel Kraft',
+                        name: 'Papel Kraft 140g (112 páginas)',
                         value: 65,
                     },
                     {
-                        name: 'Papel Canson 140g',
+                        name: 'Papel Canson 140g (112 páginas)',
                         value: 75,
                     },
                     {
-                        name: 'Papel Canson 200g',
+                        name: 'Papel Canson 200g (80 páginas)',
                         value: 85,
                     },
                     {
-                        name: 'Papel Preto',
+                        name: 'Papel Preto 180g (80 páginas)',
                         value: 82,
                     },
                     {
-                        name: 'Papel Canson Aquarela',
+                        name: 'Papel Canson Aquarela 300g  (48 páginas)',
                         value: 115,
                     },
                     {
-                        name: 'Papel Montval',
+                        name: 'Papel Montval 300g (48 páginas)',
                         value: 115,
+                    },
+                    {
+                        name: 'Papel Hahnemühle (48 páginas)',
+                        value: 245,
                     },
                 ],
             },
             {
-                name: 'A5 - Paisagem',
+                name: 'A5 - Paisagem (15x21 cm)',
                 id: 505,
                 size: {
                     width: 15,
@@ -224,65 +224,45 @@ export default function Mandacaru() {
                 },
                 types: [
                     {
-                        name: 'Papel Reciclado Liso',
+                        name: 'Papel Reciclado Liso 120g (112 páginas)',
                         value: 38,
                     },
                     {
-                        name: 'Papel Reciclado Pontilhado',
+                        name: 'Papel Marfim Liso 120g (112 páginas)',
                         value: 38,
                     },
                     {
-                        name: 'Papel Reciclado Quadriculado',
-                        value: 38,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado',
-                        value: 38,
-                    },
-                    {
-                        name: 'Papel Marfim Liso',
-                        value: 38,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado',
-                        value: 38,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado',
-                        value: 38,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado',
-                        value: 38,
-                    },
-                    {
-                        name: 'Papel Kraft',
+                        name: 'Papel Kraft 140g (112 páginas)',
                         value: 42,
                     },
                     {
-                        name: 'Papel Canson 140g',
+                        name: 'Papel Canson 140g (112 páginas)',
                         value: 48,
                     },
                     {
-                        name: 'Papel Canson 200g',
+                        name: 'Papel Canson 200g (80 páginas)',
                         value: 55,
                     },
                     {
-                        name: 'Papel Preto',
+                        name: 'Papel Preto 180g (80 páginas)',
                         value: 52,
                     },
                     {
-                        name: 'Papel Canson Aquarela',
+                        name: 'Papel Canson Aquarela 300g  (48 páginas)',
                         value: 78,
                     },
                     {
-                        name: 'Papel Montval',
+                        name: 'Papel Montval 300g (48 páginas)',
                         value: 78,
+                    },
+                    {
+                        name: 'Papel Hahnemühle (48 páginas)',
+                        value: 170,
                     },
                 ],
             },
             {
-                name: 'A5 - Retrato',
+                name: 'A5 - Retrato (21x15 cm)',
                 id: 506,
                 size: {
                     width: 15,
@@ -293,65 +273,69 @@ export default function Mandacaru() {
                 },
                 types: [
                     {
-                        name: 'Papel Reciclado Liso',
+                        name: 'Papel Reciclado Liso 120g (112 páginas)',
                         value: 38,
                     },
                     {
-                        name: 'Papel Reciclado Pontilhado',
+                        name: 'Papel Reciclado Pontilhado 120g (112 páginas)',
                         value: 38,
                     },
                     {
-                        name: 'Papel Reciclado Quadriculado',
+                        name: 'Papel Reciclado Quadriculado 120g (112 páginas)',
                         value: 38,
                     },
                     {
-                        name: 'Papel Reciclado Pautado',
+                        name: 'Papel Reciclado Pautado 120g (112 páginas)',
                         value: 38,
                     },
                     {
-                        name: 'Papel Marfim Liso',
+                        name: 'Papel Marfim Liso 120g (112 páginas)',
                         value: 38,
                     },
                     {
-                        name: 'Papel Marfim Pontilhado',
+                        name: 'Papel Marfim Pontilhado 120g (112 páginas)',
                         value: 38,
                     },
                     {
-                        name: 'Papel Marfim Quadriculado',
+                        name: 'Papel Marfim Quadriculado 120g (112 páginas)',
                         value: 38,
                     },
                     {
-                        name: 'Papel Marfim Pautado',
+                        name: 'Papel Marfim Pautado 120g (112 páginas)',
                         value: 38,
                     },
                     {
-                        name: 'Papel Kraft',
+                        name: 'Papel Kraft 140g (112 páginas)',
                         value: 42,
                     },
                     {
-                        name: 'Papel Canson 140g',
+                        name: 'Papel Canson 140g (112 páginas)',
                         value: 48,
                     },
                     {
-                        name: 'Papel Canson 200g',
+                        name: 'Papel Canson 200g (80 páginas)',
                         value: 55,
                     },
                     {
-                        name: 'Papel Preto',
+                        name: 'Papel Preto 180g (80 páginas)',
                         value: 52,
                     },
                     {
-                        name: 'Papel Canson Aquarela',
+                        name: 'Papel Canson Aquarela 300g  (48 páginas)',
                         value: 78,
                     },
                     {
-                        name: 'Papel Montval',
+                        name: 'Papel Montval 300g (48 páginas)',
                         value: 78,
+                    },
+                    {
+                        name: 'Papel Hahnemühle (48 páginas)',
+                        value: 170,
                     },
                 ],
             },
             {
-                name: 'A6 - Paisagem',
+                name: 'A6 - Paisagem (10,5x15 cm)',
                 id: 507,
                 size: {
                     width: 11,
@@ -363,65 +347,69 @@ export default function Mandacaru() {
                 },
                 types: [
                     {
-                        name: 'Papel Reciclado Liso',
+                        name: 'Papel Reciclado Liso 120g (112 páginas)',
                         value: 25,
                     },
                     {
-                        name: 'Papel Reciclado Pontilhado',
+                        name: 'Papel Reciclado Pontilhado 120g (112 páginas)',
                         value: 25,
                     },
                     {
-                        name: 'Papel Reciclado Quadriculado',
+                        name: 'Papel Reciclado Quadriculado 120g (112 páginas)',
                         value: 25,
                     },
                     {
-                        name: 'Papel Reciclado Pautado',
+                        name: 'Papel Reciclado Pautado 120g (112 páginas)',
                         value: 25,
                     },
                     {
-                        name: 'Papel Marfim Liso',
+                        name: 'Papel Marfim Liso 120g (112 páginas)',
                         value: 25,
                     },
                     {
-                        name: 'Papel Marfim Pontilhado',
+                        name: 'Papel Marfim Pontilhado 120g (112 páginas)',
                         value: 25,
                     },
                     {
-                        name: 'Papel Marfim Quadriculado',
+                        name: 'Papel Marfim Quadriculado 120g (112 páginas)',
                         value: 25,
                     },
                     {
-                        name: 'Papel Marfim Pautado',
+                        name: 'Papel Marfim Pautado 120g (112 páginas)',
                         value: 25,
                     },
                     {
-                        name: 'Papel Kraft',
+                        name: 'Papel Kraft 140g (112 páginas)',
                         value: 30,
                     },
                     {
-                        name: 'Papel Canson 140g',
+                        name: 'Papel Canson 140g (112 páginas)',
                         value: 35,
                     },
                     {
-                        name: 'Papel Canson 200g',
+                        name: 'Papel Canson 200g (80 páginas)',
                         value: 40,
                     },
                     {
-                        name: 'Papel Preto',
+                        name: 'Papel Preto 180g (80 páginas)',
                         value: 36,
                     },
                     {
-                        name: 'Papel Canson Aquarela',
+                        name: 'Papel Canson Aquarela 300g  (48 páginas)',
                         value: 45,
                     },
                     {
-                        name: 'Papel Montval',
+                        name: 'Papel Montval 300g (48 páginas)',
                         value: 45,
+                    },
+                    {
+                        name: 'Papel Hahnemühle (48 páginas)',
+                        value: 72,
                     },
                 ],
             },
             {
-                name: 'A6 - Retrato',
+                name: 'A6 - Retrato (15x10,5 cm)',
                 id: 508,
                 size: {
                     width: 11,
@@ -433,65 +421,69 @@ export default function Mandacaru() {
                 },
                 types: [
                     {
-                        name: 'Papel Reciclado Liso',
+                        name: 'Papel Reciclado Liso 120g (112 páginas)',
                         value: 25,
                     },
                     {
-                        name: 'Papel Reciclado Pontilhado',
+                        name: 'Papel Reciclado Pontilhado 120g (112 páginas)',
                         value: 25,
                     },
                     {
-                        name: 'Papel Reciclado Quadriculado',
+                        name: 'Papel Reciclado Quadriculado 120g (112 páginas)',
                         value: 25,
                     },
                     {
-                        name: 'Papel Reciclado Pautado',
+                        name: 'Papel Reciclado Pautado 120g (112 páginas)',
                         value: 25,
                     },
                     {
-                        name: 'Papel Marfim Liso',
+                        name: 'Papel Marfim Liso 120g (112 páginas)',
                         value: 25,
                     },
                     {
-                        name: 'Papel Marfim Pontilhado',
+                        name: 'Papel Marfim Pontilhado 120g (112 páginas)',
                         value: 25,
                     },
                     {
-                        name: 'Papel Marfim Quadriculado',
+                        name: 'Papel Marfim Quadriculado 120g (112 páginas)',
                         value: 25,
                     },
                     {
-                        name: 'Papel Marfim Pautado',
+                        name: 'Papel Marfim Pautado 120g (112 páginas)',
                         value: 25,
                     },
                     {
-                        name: 'Papel Kraft',
+                        name: 'Papel Kraft 140g (112 páginas)',
                         value: 30,
                     },
                     {
-                        name: 'Papel Canson 140g',
+                        name: 'Papel Canson 140g (112 páginas)',
                         value: 35,
                     },
                     {
-                        name: 'Papel Canson 200g',
+                        name: 'Papel Canson 200g (80 páginas)',
                         value: 40,
                     },
                     {
-                        name: 'Papel Preto',
+                        name: 'Papel Preto 180g (80 páginas)',
                         value: 36,
                     },
                     {
-                        name: 'Papel Canson Aquarela',
+                        name: 'Papel Canson Aquarela 300g  (48 páginas)',
                         value: 45,
                     },
                     {
-                        name: 'Papel Montval',
+                        name: 'Papel Montval 300g (48 páginas)',
                         value: 45,
+                    },
+                    {
+                        name: 'Papel Hahnemühle (48 páginas)',
+                        value: 72,
                     },
                 ],
             },
             {
-                name: 'A7 - Paisagem',
+                name: 'A7 - Paisagem (7,5x10,5 cm)',
                 id: 509,
                 size: {
                     // width: 7.5,
@@ -504,41 +496,45 @@ export default function Mandacaru() {
                 },
                 types: [
                     {
-                        name: 'Papel Reciclado',
+                        name: 'Papel Reciclado Liso 120g (112 páginas)',
                         value: 15,
                     },
                     {
-                        name: 'Papel Marfim',
+                        name: 'Papel Marfim Liso 120g (112 páginas)',
                         value: 15,
                     },
                     {
-                        name: 'Papel Kraft',
+                        name: 'Papel Kraft 140g (112 páginas)',
                         value: 15,
                     },
                     {
-                        name: 'Papel Canson 140g',
+                        name: 'Papel Canson 140g (112 páginas)',
                         value: 16,
                     },
                     {
-                        name: 'Papel Canson 200g',
+                        name: 'Papel Canson 200g (80 páginas)',
                         value: 18,
                     },
                     {
-                        name: 'Papel Preto',
+                        name: 'Papel Preto 180g (80 páginas)',
                         value: 17,
                     },
                     {
-                        name: 'Papel Canson Aquarela',
+                        name: 'Papel Canson Aquarela 300g  (48 páginas)',
                         value: 20,
                     },
                     {
-                        name: 'Papel Montval',
+                        name: 'Papel Montval 300g (48 páginas)',
                         value: 20,
+                    },
+                    {
+                        name: 'Papel Hahnemühle (48 páginas)',
+                        value: 30,
                     },
                 ],
             },
             {
-                name: 'A7 - Retrato',
+                name: 'A7 - Retrato (10,5x7,5 cm)',
                 id: 510,
                 size: {
                     // width: 7.5,
@@ -551,36 +547,118 @@ export default function Mandacaru() {
                 },
                 types: [
                     {
-                        name: 'Papel Reciclado',
+                        name: 'Papel Reciclado Liso 120g (112 páginas)',
                         value: 15,
                     },
                     {
-                        name: 'Papel Marfim',
+                        name: 'Papel Marfim Liso 120g (112 páginas)',
                         value: 15,
                     },
                     {
-                        name: 'Papel Kraft',
+                        name: 'Papel Kraft 140g (112 páginas)',
                         value: 15,
                     },
                     {
-                        name: 'Papel Canson 140g',
+                        name: 'Papel Canson 140g (112 páginas)',
                         value: 16,
                     },
                     {
-                        name: 'Papel Canson 200g',
+                        name: 'Papel Canson 200g (80 páginas)',
                         value: 18,
                     },
                     {
-                        name: 'Papel Preto',
+                        name: 'Papel Preto 180g (80 páginas)',
                         value: 17,
                     },
                     {
-                        name: 'Papel Canson Aquarela',
+                        name: 'Papel Canson Aquarela 300g  (48 páginas)',
                         value: 20,
                     },
                     {
-                        name: 'Papel Montval',
+                        name: 'Papel Montval 300g (48 páginas)',
                         value: 20,
+                    },
+                    {
+                        name: 'Papel Hahnemühle (48 páginas)',
+                        value: 30,
+                    },
+                ],
+            },
+            {
+                name: 'Colegial - Paisagem (18x24 cm)',
+                id: 511,
+                size: {
+                    width: 18,
+                    length: 24,
+                    // height: 2.5,
+                    height: 3,
+                    weight: 0.5,
+                },
+                types: [
+                    {
+                        name: 'Papel Reciclado Liso 120g (112 páginas)',
+                        value: 60,
+                    },
+                    {
+                        name: 'Papel Marfim Liso 120g (112 páginas)',
+                        value: 60,
+                    },
+                    {
+                        name: 'Papel Kraft 140g (112 páginas)',
+                        value: 65,
+                    },
+                    {
+                        name: 'Papel Canson 200g (80 páginas)',
+                        value: 85,
+                    },
+                    {
+                        name: 'Papel Preto 180g (80 páginas)',
+                        value: 82,
+                    },
+                    {
+                        name: 'Papel Canson Aquarela 300g  (48 páginas)',
+                        value: 115,
+                    },
+                ],
+            },
+            {
+                name: 'Colegial - Retrato (24x18 cm)',
+                id: 512,
+                size: {
+                    width: 24,
+                    length: 18,
+                    // height: 2.5,
+                    height: 3,
+                    weight: 0.5,
+                },
+                types: [
+                    {
+                        name: 'Papel Reciclado Liso 120g (112 páginas)',
+                        value: 60,
+                    },
+                    {
+                        name: 'Papel Marfim Liso 120g (112 páginas)',
+                        value: 60,
+                    },
+                    {
+                        name: 'Papel Kraft 140g (112 páginas)',
+                        value: 65,
+                    },
+                    {
+                        name: 'Papel Canson 200g (80 páginas)',
+                        value: 85,
+                    },
+                    {
+                        name: 'Papel Preto 180g (80 páginas)',
+                        value: 82,
+                    },
+                    {
+                        name: 'Papel Canson Aquarela 300g  (48 páginas)',
+                        value: 115,
+                    },
+                    {
+                        name: 'Papel Hahnemühle (48 páginas)',
+                        value: 245,
                     },
                 ],
             },

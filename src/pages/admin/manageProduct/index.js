@@ -464,31 +464,31 @@ export default function RegisterProduct() {
                                 onChange={handleInputProductsChange}
                             />
                             <datalist id='paperOption'>
-                                <option value='Papel Reciclado Liso'>
-                                    Papel Reciclado Liso
+                                <option value='Papel Reciclado Liso 120g'>
+                                    Papel Reciclado Liso 120g
                                 </option>
-                                <option value='Papel Reciclado Pontilhado'>
-                                    Papel Reciclado Pontilhado
+                                <option value='Papel Reciclado Pontilhado 120g'>
+                                    Papel Reciclado Pontilhado 120g
                                 </option>
-                                <option value='Papel Reciclado Quadriculado'>
-                                    Papel Reciclado Quadriculado
+                                <option value='Papel Reciclado Quadriculado 120g'>
+                                    Papel Reciclado Quadriculado 120g
                                 </option>
-                                <option value='Papel Reciclado Pautado'>
-                                    Papel Reciclado Pautado
+                                <option value='Papel Reciclado Pautado 120g'>
+                                    Papel Reciclado Pautado 120g
                                 </option>
-                                <option value='Papel Marfim Liso'>
-                                    Papel Marfim Liso
+                                <option value='Papel Marfim Liso 120g'>
+                                    Papel Marfim Liso 120g
                                 </option>
-                                <option value='Papel Marfim Pontilhado'>
-                                    Papel Marfim Pontilhado
+                                <option value='Papel Marfim Pontilhado 120g'>
+                                    Papel Marfim Pontilhado 120g
                                 </option>
-                                <option value='Papel Marfim Quadriculado'>
-                                    Papel Marfim Quadriculado
+                                <option value='Papel Marfim Quadriculado 120g'>
+                                    Papel Marfim Quadriculado 120g
                                 </option>
-                                <option value='Papel Marfim Pautado'>
-                                    Papel Marfim Pautado
+                                <option value='Papel Marfim Pautado 120g'>
+                                    Papel Marfim Pautado 120g
                                 </option>
-                                <option value='Papel Kraft'>Papel Kraft</option>
+                                <option value='Papel Kraft 140g'>Papel Kraft 140g</option>
                                 <option value='Papel Canson 140g'>
                                     Papel Canson 140g
                                 </option>
@@ -496,11 +496,11 @@ export default function RegisterProduct() {
                                     Papel Canson 200g
                                 </option>
                                 <option value='Papel Preto'>Papel Preto</option>
-                                <option value='Papel Canson Aquarela'>
-                                    Papel Canson Aquarela
+                                <option value='Papel Canson Aquarela 300g '>
+                                    Papel Canson Aquarela 300g 
                                 </option>
-                                <option value='Papel Montval'>
-                                    Papel Montval
+                                <option value='Papel Montval 300g'>
+                                    Papel Montval 300g
                                 </option>
                             </datalist>
                         </fieldset>
