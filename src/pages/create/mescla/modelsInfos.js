@@ -28,8 +28,8 @@ export const models = [
                         value: 12,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 12,
+                        name: 'Papel Preto 180g',
+                        value: 8,
                     },
                 ],
             },
@@ -67,8 +67,8 @@ export const models = [
                         value: 22,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 12,
+                        name: 'Papel Preto 180g',
+                        value: 8,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -105,8 +105,8 @@ export const models = [
                         value: 14,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 12,
+                        name: 'Papel Preto 180g',
+                        value: 8,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -147,8 +147,8 @@ export const models = [
                         value: 14,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 12,
+                        name: 'Papel Preto 180g',
+                        value: 8,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -189,8 +189,8 @@ export const models = [
                         value: 9,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 9,
+                        name: 'Papel Preto 180g',
+                        value: 4,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -259,8 +259,8 @@ export const models = [
                         value: 9,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 9,
+                        name: 'Papel Preto 180g',
+                        value: 4,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -330,8 +330,8 @@ export const models = [
                         value: 7,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 7,
+                        name: 'Papel Preto 180g',
+                        value: 2,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -401,8 +401,8 @@ export const models = [
                         value: 7,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 7,
+                        name: 'Papel Preto 180g',
+                        value: 2,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -449,8 +449,8 @@ export const models = [
                         value: 3,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 2,
+                        name: 'Papel Preto 180g',
+                        value: 1,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -497,8 +497,8 @@ export const models = [
                         value: 3,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 2,
+                        name: 'Papel Preto 180g',
+                        value: 1,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -548,8 +548,8 @@ export const models = [
                         value: 14,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 12,
+                        name: 'Papel Preto 180g',
+                        value: 8,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -618,8 +618,8 @@ export const models = [
                         value: 9,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 9,
+                        name: 'Papel Preto 180g',
+                        value: 4,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -688,8 +688,8 @@ export const models = [
                         value: 7,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 7,
+                        name: 'Papel Preto 180g',
+                        value: 2,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -733,8 +733,8 @@ export const models = [
                     },
 
                     {
-                        name: 'Papel Preto',
-                        value: 12,
+                        name: 'Papel Preto 180g',
+                        value: 8,
                     },
                 ],
             },
@@ -772,8 +772,8 @@ export const models = [
                         value: 22,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 12,
+                        name: 'Papel Preto 180g',
+                        value: 8,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -810,8 +810,8 @@ export const models = [
                         value: 14,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 12,
+                        name: 'Papel Preto 180g',
+                        value: 8,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -852,8 +852,8 @@ export const models = [
                         value: 14,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 12,
+                        name: 'Papel Preto 180g',
+                        value: 8,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -894,8 +894,8 @@ export const models = [
                         value: 9,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 9,
+                        name: 'Papel Preto 180g',
+                        value: 4,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -964,8 +964,8 @@ export const models = [
                         value: 9,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 9,
+                        name: 'Papel Preto 180g',
+                        value: 4,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -1035,8 +1035,8 @@ export const models = [
                         value: 7,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 7,
+                        name: 'Papel Preto 180g',
+                        value: 2,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -1106,8 +1106,8 @@ export const models = [
                         value: 7,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 7,
+                        name: 'Papel Preto 180g',
+                        value: 2,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -1154,8 +1154,8 @@ export const models = [
                         value: 3,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 2,
+                        name: 'Papel Preto 180g',
+                        value: 1,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -1202,8 +1202,8 @@ export const models = [
                         value: 3,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 2,
+                        name: 'Papel Preto 180g',
+                        value: 1,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -1244,8 +1244,8 @@ export const models = [
                         value: 14,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 12,
+                        name: 'Papel Preto 180g',
+                        value: 8,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -1314,8 +1314,8 @@ export const models = [
                         value: 9,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 9,
+                        name: 'Papel Preto 180g',
+                        value: 4,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -1384,8 +1384,8 @@ export const models = [
                         value: 7,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 7,
+                        name: 'Papel Preto 180g',
+                        value: 2,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -1431,8 +1431,8 @@ export const models = [
                         value: 22,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 12,
+                        name: 'Papel Preto 180g',
+                        value: 8,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -1489,8 +1489,8 @@ export const models = [
                         value: 14,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 12,
+                        name: 'Papel Preto 180g',
+                        value: 8,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -1547,8 +1547,8 @@ export const models = [
                         value: 14,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 12,
+                        name: 'Papel Preto 180g',
+                        value: 8,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -1617,8 +1617,8 @@ export const models = [
                         value: 9,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 9,
+                        name: 'Papel Preto 180g',
+                        value: 4,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -1687,8 +1687,8 @@ export const models = [
                         value: 9,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 9,
+                        name: 'Papel Preto 180g',
+                        value: 4,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -1757,8 +1757,8 @@ export const models = [
                         value: 7,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 7,
+                        name: 'Papel Preto 180g',
+                        value: 2,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -1827,8 +1827,8 @@ export const models = [
                         value: 7,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 7,
+                        name: 'Papel Preto 180g',
+                        value: 2,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -1885,8 +1885,8 @@ export const models = [
                         value: 14,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 12,
+                        name: 'Papel Preto 180g',
+                        value: 8,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -1955,8 +1955,8 @@ export const models = [
                         value: 9,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 9,
+                        name: 'Papel Preto 180g',
+                        value: 4,
                     },
                     {
                         name: 'Papel Canson Aquarela',
@@ -2025,8 +2025,8 @@ export const models = [
                         value: 7,
                     },
                     {
-                        name: 'Papel Preto',
-                        value: 7,
+                        name: 'Papel Preto 180g',
+                        value: 2,
                     },
                     {
                         name: 'Papel Canson Aquarela',

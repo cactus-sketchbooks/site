@@ -80,7 +80,7 @@ export default function Sertao() {
                         value: 28,
                     },
                     {
-                        name: 'Papel Preto',
+                        name: 'Papel Preto 180g',
                         value: 26,
                     },
                 ],
@@ -140,7 +140,7 @@ export default function Sertao() {
                         value: 14,
                     },
                     {
-                        name: 'Papel Preto',
+                        name: 'Papel Preto 180g',
                         value: 14,
                     },
                 ],
@@ -201,7 +201,7 @@ export default function Sertao() {
                         value: 10,
                     },
                     {
-                        name: 'Papel Preto',
+                        name: 'Papel Preto 180g',
                         value: 10,
                     },
                 ],
@@ -261,7 +261,7 @@ export default function Sertao() {
                         value: 10,
                     },
                     {
-                        name: 'Papel Preto',
+                        name: 'Papel Preto 180g',
                         value: 10,
                     },
                 ],
@@ -321,7 +321,7 @@ export default function Sertao() {
                         value: 14,
                     },
                     {
-                        name: 'Papel Preto',
+                        name: 'Papel Preto 180g',
                         value: 14,
                     },
                 ],
@@ -357,8 +357,8 @@ export default function Sertao() {
                         value: 24,
                     },
                     {
-                        name: 'Papel Marfim Pontilhado',
-                        value: 24,
+                        name: 'Papel Preto 180g',
+                        value: 26,
                     },
                     {
                         name: 'Papel Marfim Quadriculado',
@@ -381,7 +381,7 @@ export default function Sertao() {
                         value: 28,
                     },
                     {
-                        name: 'Papel Preto',
+                        name: 'Papel Preto 180g',
                         value: 26,
                     },
                 ],
