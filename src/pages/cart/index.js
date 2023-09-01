@@ -311,14 +311,10 @@ export default function Cart() {
         if (payment === 'Pix') {
             setDisplayPopup('flex');
             setDisplayFinishButton('flex');
-        } else {
-            setDisplayPopup('none');
-            setDisplayFinishButton('none');
-        }
-
-        if (payment === 'Cartão') {
+        } else if (payment === 'Cartão') {
             setDisplayFinishButton('flex');
         } else {
+            setDisplayPopup('none');
             setDisplayFinishButton('none');
         }
     }
