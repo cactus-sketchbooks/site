@@ -315,6 +315,12 @@ export default function Cart() {
             setDisplayPopup('none');
             setDisplayFinishButton('none');
         }
+
+        if (payment === 'Cartão') {
+            setDisplayFinishButton('flex');
+        } else {
+            setDisplayFinishButton('none');
+        }
     }
 
     function closePopup() {
@@ -430,7 +436,7 @@ export default function Cart() {
         document.body.appendChild(script);
 
         if (loaded) {
-            if (selectedPayment === 'PayPal' || selectedPayment === 'Cartão') {
+            if (selectedPayment === 'PayPal') {
                 setTimeout(() => {
                     window.paypal
                         .Buttons({
@@ -1232,23 +1238,29 @@ export default function Cart() {
                                         )}
                                         <span>
                                             <strong>Observação: </strong>
-                                            As entregas por transportadora são
-                                            limitadas a um produto. As entregas
-                                            por carta registrada e registro
-                                            módico são formas de envio mais
-                                            baratas e permitem o envio de mais
-                                            de um produto, porém, o envio não é
-                                            atualizado a todo momento (apenas
-                                            quando é postado, chegou na sua
-                                            cidade, saiu para entrega). O envio
-                                            é feito pelos Correios com um valor
-                                            fixo de R$ 15,00 para as regiões{' '}
+                                            As entregas por Transportadora
+                                            (modos de envio PAC ou Sedex pelos
+                                            Correios) são formas de envio com
+                                            valor mais alto, status atualizado
+                                            ao longo do envio porém limitadas a
+                                            um único produto, logo se você
+                                            selecionou mais de um produto essa
+                                            forma de envio não está disponível.
+                                            As entregas por Impresso Módico são
+                                            formas de envio mais baratas e a
+                                            única disponível para envios com
+                                            mais de um produto, também feito
+                                            pelos Correios com valor fixo de R$
+                                            15,00 para as regiões{' '}
                                             <strong>Norte e Nordeste</strong>, e
                                             R$ 20,00 para as regiões{' '}
                                             <strong>
-                                                Sul, Sudeste e Centro-Oeste
-                                            </strong>
-                                            .
+                                                Sul, Sudeste e Centro-Oeste.
+                                            </strong>{' '}
+                                            Além disso o envio não é atualizado
+                                            a todo momento: somente quando é
+                                            postado na agência, chegou na sua
+                                            cidade e saiu para entrega.
                                         </span>
                                         <span>
                                             <strong>Atenção: </strong>
@@ -1304,7 +1316,7 @@ export default function Cart() {
                                                 display: displayCepSearch,
                                             }}
                                         >
-                                            {transportData.map(
+                                            {Object.values(transportData).map(
                                                 (item, index) => {
                                                     if (
                                                         item.id === 1 ||
@@ -1337,7 +1349,6 @@ export default function Cart() {
                                                                             }
                                                                         />
                                                                     </div>
-
                                                                     <div className='transportLogoWrapper'>
                                                                         <img
                                                                             src={
@@ -1352,7 +1363,6 @@ export default function Cart() {
                                                                             }
                                                                         />
                                                                     </div>
-
                                                                     <div className='textTransportInfos'>
                                                                         <span>
                                                                             {
@@ -1386,7 +1396,7 @@ export default function Cart() {
                                                                                 úteis
                                                                             </strong>
                                                                         </span>
-                                                                    </div>
+                                                                    </div>{' '}
                                                                 </div>
                                                             );
                                                         }
@@ -1394,6 +1404,7 @@ export default function Cart() {
                                                 }
                                             )}
                                         </div>
+
                                         <div
                                             style={{
                                                 display: displayAddressForms,
@@ -1561,25 +1572,46 @@ export default function Cart() {
                                                 )}
                                             </div>
                                         </div>
-                                        <select
+                                        <div
                                             style={{
                                                 display: displayPaymentOption,
+                                                flexDirection: 'column',
+                                                width: '100%',
+                                                alignItems: 'center',
                                             }}
-                                            defaultValue='0'
-                                            className='paymentSelect'
-                                            onChange={handleSelectPayment}
                                         >
-                                            <option disabled value='0'>
-                                                Selecione o tipo de pagamento
-                                            </option>
-                                            <option value='PayPal'>
-                                                PayPal{' '}
-                                            </option>
-                                            <option value='Cartão'>
-                                                Cartão{' '}
-                                            </option>
-                                            <option value='Pix'>Pix</option>
-                                        </select>
+                                            <select
+                                                defaultValue='0'
+                                                className='paymentSelect'
+                                                onChange={handleSelectPayment}
+                                            >
+                                                <option disabled value='0'>
+                                                    Selecione o tipo de
+                                                    pagamento
+                                                </option>
+                                                <option value='PayPal'>
+                                                    PayPal{' '}
+                                                </option>
+                                                <option value='Cartão'>
+                                                    Finalizar por Cartão
+                                                    (WhatsApp)
+                                                </option>
+                                                <option value='Pix'>Pix</option>
+                                            </select>
+                                            <span>
+                                                <strong>
+                                                    Pagamento por cartão:
+                                                </strong>{' '}
+                                                ao selecionar o pagamento por
+                                                cartão o seu pedido aparecerá na
+                                                nossa lista de pedidos! Para
+                                                concluir o pagamento enviaremos
+                                                um link pelo WhatsApp para que
+                                                você conclua a compra. Por isso
+                                                aguarde para que entremos em
+                                                contato ;)
+                                            </span>
+                                        </div>
                                         <div
                                             className='paypalButtons'
                                             ref={(v) => (paypalRef = v)}

@@ -51,7 +51,7 @@ export default function Grammage() {
                             </p>
                         </li>
 
-                        <h2>Papel Kraft 140g/m²</h2>
+                        <h2>Papel Kraft 140g 140g/m²</h2>
                         <li>
                             <p>Levemente texturizado</p>
                             <p>Ideal para técnicas secas</p>
@@ -69,6 +69,21 @@ export default function Grammage() {
                                 Para trabalhos com lápis branco, marcadores,
                                 lápis de cor, giz pastel seco e oleoso,
                                 canetinhas e metálicos
+                            </p>
+                        </li>
+
+                        <h2>Papel Canson 200g/m²</h2>
+                        <li>
+                            <p>
+                                Papel colado na massa
+                            </p>
+                            <p>Possui leve textura</p>
+                            <p>Livre de ácido (não amarela com o tempo)</p>
+                            <p>
+                            Ideal para técnicas secas e úmidas (usado pouca água)
+                            </p>
+                            <p>
+                            Para trabalhos com lápis grafite, marcadores (pode marcar o verso), lápis de cor, giz pastel seco e oleoso, aquarela e guache
                             </p>
                         </li>
 

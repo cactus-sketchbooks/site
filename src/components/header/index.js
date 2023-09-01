@@ -7,6 +7,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import firebaseConfig from '../../FirebaseConfig.js';
 import logo from '../../images/cactopng.png';
+import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
 export default function Header() {
     const [userIsLogged, setUserIsLogged] = useState(false);
@@ -71,127 +72,144 @@ export default function Header() {
             });
     }, []);
 
+
+    const location = useLocation();
+    const pathName = location.pathname;
+
+    let divClass = '';
+
+    if (pathName === '/') {
+        divClass = 'postDate';
+    } else {
+        divClass = 'displayNone';
+    }
+
     return (
         <div>
             <header className={header ? 'header active' : 'header'}>
-                <div onClick={scrollToTop} className='logo'>
-                    <Link to='/'>
-                        {' '}
-                        <img src={logo} alt='Logo' />
-                    </Link>
-                </div>
-
-                {window.innerWidth < 820 ? (
-                    <div className='linkWrapper'>
-                        <Link to='/carrinho'>Carrinho</Link>
-                        <Link to='/login'>Login</Link>
+                <div className='innerHeader'>
+                    <div onClick={scrollToTop} className='logo'>
+                        <Link to='/'>
+                            {' '}
+                            <img src={logo} alt='Logo' />
+                        </Link>
                     </div>
-                ) : (
-                    ''
-                )}
 
-                <div className='menu'>
-                    {isAdmin ? (
-                        <>
-                            <ul>
-                                <li>
-                                    <Link onClick={scrollToTop} to='/sobre'>
-                                        {' '}
-                                        Quem Somos{' '}
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link onClick={scrollToTop} to='/admin'>
-                                        {' '}
-                                        Admin{' '}
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link onClick={scrollToTop} to='/contato'>
-                                        {' '}
-                                        Contato{' '}
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        onClick={scrollToTop}
-                                        to='/nossosClientes'
-                                    >
-                                        {' '}
-                                        Use e Apareça{' '}
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link onClick={scrollToTop} to='/carrinho'>
-                                        {' '}
-                                        Carrinho{' '}
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link onClick={scrollToTop} to='/login'>
-                                        {' '}
-                                        Login{' '}
-                                    </Link>
-                                </li>
-                            </ul>
-                        </>
+                    {window.innerWidth < 820 ? (
+                        <div className='linkWrapper'>
+                            <Link to='/carrinho'>Carrinho</Link>
+                            <Link to='/login'>Login</Link>
+                        </div>
                     ) : (
-                        <>
-                            <ul>
-                                <li>
-                                    <Link onClick={scrollToTop} to='/sobre'>
-                                        {' '}
-                                        Quem Somos{' '}
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link onClick={scrollToTop} to='/contato'>
-                                        {' '}
-                                        Contato{' '}
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        onClick={scrollToTop}
-                                        to='/nossosClientes'
-                                    >
-                                        {' '}
-                                        Use e Apareça{' '}
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link onClick={scrollToTop} to='/carrinho'>
-                                        {' '}
-                                        Carrinho{' '}
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link onClick={scrollToTop} to='/login'>
-                                        {' '}
-                                        Login{' '}
-                                    </Link>
-                                </li>
-                            </ul>
-                        </>
+                        ''
                     )}
+
+                    <div className='menu'>
+                        {isAdmin ? (
+                            <>
+                                <ul>
+                                    <li>
+                                        <Link onClick={scrollToTop} to='/sobre'>
+                                            {' '}
+                                            Quem Somos{' '}
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link onClick={scrollToTop} to='/admin'>
+                                            {' '}
+                                            Admin{' '}
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link onClick={scrollToTop} to='/contato'>
+                                            {' '}
+                                            Contato{' '}
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            onClick={scrollToTop}
+                                            to='/nossosClientes'
+                                        >
+                                            {' '}
+                                            Use e Apareça{' '}
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link onClick={scrollToTop} to='/carrinho'>
+                                            {' '}
+                                            Carrinho{' '}
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link onClick={scrollToTop} to='/login'>
+                                            {' '}
+                                            Login{' '}
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </>
+                        ) : (
+                            <>
+                                <ul>
+                                    <li>
+                                        <Link onClick={scrollToTop} to='/sobre'>
+                                            {' '}
+                                            Quem Somos{' '}
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link onClick={scrollToTop} to='/contato'>
+                                            {' '}
+                                            Contato{' '}
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            onClick={scrollToTop}
+                                            to='/nossosClientes'
+                                        >
+                                            {' '}
+                                            Use e Apareça{' '}
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link onClick={scrollToTop} to='/carrinho'>
+                                            {' '}
+                                            Carrinho{' '}
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link onClick={scrollToTop} to='/login'>
+                                            {' '}
+                                            Login{' '}
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </>
+                        )}
+                    </div>
+
+                    <div className='sandwich'>
+                        <input
+                            type='checkbox'
+                            id='checkbox'
+                            onClick={() => {
+                                setIsChecked(!isChecked);
+                                showMenuMobile();
+                                window.scrollTo(0, 0);
+                            }}
+                        />
+
+                        <label htmlFor='checkbox'>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </label>
+                    </div>
                 </div>
-
-                <div className='sandwich'>
-                    <input
-                        type='checkbox'
-                        id='checkbox'
-                        onClick={() => {
-                            setIsChecked(!isChecked);
-                            showMenuMobile();
-                            window.scrollTo(0, 0);
-                        }}
-                    />
-
-                    <label htmlFor='checkbox'>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </label>
+                <div className={divClass}>
+                    <h3>5 dias de produção + 2 dias úteis para postagem</h3>
                 </div>
             </header>
 
