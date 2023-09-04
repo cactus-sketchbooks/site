@@ -122,6 +122,33 @@ export default function Grammage() {
                                 oleoso, lápis grafite e de cor
                             </p>
                         </li>
+
+                        <h2>Strathmore Bristol 270g/m</h2>
+                        <li>
+                            <p>Alta qualidade</p>
+                            <p>Gramatura alta que garante acabamento as suas artes
+Papel branco natural</p>
+                            <p>Textura Lisa</p>
+                            <p>Para desenhos mecânicos </p>
+                            <p>Indicado para o uso com marcadores, aerógrafos, caneta e nanquim</p>
+                            <p>Livre de ácidos (não amarela com o tempo)</p>
+                        </li>
+
+                        <h2>Hahnemühle Expression 300g/m</h2>
+                        <li>
+                            <p>Textura fina</p>
+                            <p>Colado na superfície, não possui gelatina e outros derivados de animais </p>
+                            <p>Absorção mais lenta que permite trabalhar bem a tinta sem que absorva rápido</p>
+                            <p>Máscaras líquidas e fitas saem mais fácil com este papel e não deixa resíduo tão facilmente </p>
+                            <p>Livre de ácido (não amarela com o tempo)</p>
+                            <p>Resistente à luz e envelhecimento </p>
+                            <p>
+                            Feito com máquina plana, água pura e naturalmente resistente contra fungos e bactérias
+                            </p>
+                            <p>
+                            Indicado para trabalhos de técnicas aguadas como aquarela e guache
+                            </p>
+                        </li>
                     </ul>
                 </div>
 

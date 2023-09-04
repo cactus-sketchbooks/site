@@ -56,7 +56,7 @@ export default function Carcara() {
         name: 'Carcará',
         formats: [
             {
-                name: 'A3 - Paisagem (29x32 cm)',
+                name: 'A3 - Paisagem (29x42 cm)',
                 id: 301,
                 size: {
                     // width: 29.7,
@@ -114,7 +114,7 @@ export default function Carcara() {
                 ],
             },
             {
-                name: 'A3 - Retrato (29x32 cm)',
+                name: 'A3 - Retrato (29x42 cm)',
                 id: 302,
                 size: {
                     // width: 29.7,

@@ -195,7 +195,7 @@ export default function Buriti() {
         setSelectedModel(values.formats[position].types[0]);
         setFormatId(values.formats[position].id);
 
-        if (values.formats[position].types[0].name === 'iPad/Tablet') {
+        if (values.formats[position].types[0].name === 'iPad/Tablet (Personalize o tamanho)') {
             setDisplayDimensionForms('flex');
         } else {
             setFormatSize(values.formats[position].size);
