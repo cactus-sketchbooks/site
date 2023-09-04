@@ -209,7 +209,7 @@ export default function Header() {
                     </div>
                 </div>
                 <div className={divClass}>
-                    <h3>5 dias de produção + 2 dias úteis para postagem</h3>
+                    <h3>5 dias úteis de produção + 2 dias úteis para postagem</h3>
                 </div>
             </header>
 

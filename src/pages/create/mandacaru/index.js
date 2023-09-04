@@ -59,7 +59,7 @@ export default function Mandacaru() {
         name: 'Mandacaru',
         formats: [
             {
-                name: 'A3 - Paisagem (29x32 cm)',
+                name: 'A3 - Paisagem (29x42 cm)',
                 id: 501,
                 size: {
                     // width: 29.7,
