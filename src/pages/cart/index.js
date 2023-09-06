@@ -386,26 +386,28 @@ export default function Cart() {
 
     //api do melhor envio para calculo de frete
     const calculaFrete = async () => {
-        await fetch('https://melhorenvio.com.br/api/v2/me/shipment/calculate', {
+        try {
+          const response = await fetch('https://melhorenvio.com.br/api/v2/me/shipment/calculate', {
             method: 'POST',
             headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${process.env.REACT_APP_BEARER_KEY} `,
-                'User-Agent': 'Cactus Sketchbooks cactussketchs@gmail.com',
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${process.env.REACT_APP_BEARER_KEY}`,
             },
             body: JSON.stringify(dataToSend),
-        })
-            .then((response) => {
-                return response.json();
-            })
-            .then((data) => {
-                setTransportData(data);
-            })
-            .catch(error => {
-                console.error('Erro:', error);
-              })
-    };
+          });
+      
+          if (!response.ok) {
+            throw new Error('Erro na resposta da API');
+          }
+      
+          const data = await response.json();
+          setTransportData(data);
+        } catch (error) {
+          console.error('Erro:', error);
+        }
+      };
+      
 
     //seleciona a transportadora escolhida
     function handleSelectedTransport(item, event) {
