@@ -402,7 +402,9 @@ export default function Cart() {
             .then((data) => {
                 setTransportData(data);
             })
-            .catch((err) => console.log(err));
+            .catch(error => {
+                console.error('Erro:', error);
+              })
     };
 
     //seleciona a transportadora escolhida
