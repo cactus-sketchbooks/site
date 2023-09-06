@@ -566,6 +566,98 @@ export const models = [
                     },
                 ],
             },
+            {
+                name: 'Colegial - Paisagem',
+                id: 1511,
+                basePrice: 30,
+                size: {
+                    width: 21,
+                    length: 29,
+                    // height: 2.5,
+                    height: 3,
+                    weight: 0.5,
+                },
+                types: [
+                    {
+                        name: 'Papel Reciclado Liso 120g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Marfim Liso 120g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Kraft 140g',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 14,
+                    },
+                    {
+                        name: 'Papel Preto 180g',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Canson Aquarela 300g ',
+                        value: 30,
+                    },
+                ],
+            },
+            {
+                name: 'Colegial - Retrato',
+                id: 1512,
+                basePrice: 30,
+                size: {
+                    width: 21,
+                    length: 29,
+                    // height: 2.5,
+                    height: 3,
+                    weight: 0.5,
+                },
+                types: [
+                    {
+                        name: 'Papel Reciclado Liso 120g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Marfim Liso 120g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Kraft 140g',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 14,
+                    },
+                    {
+                        name: 'Papel Preto 180g',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Canson Aquarela 300g ',
+                        value: 30,
+                    },
+                    {
+                        name: 'Papel Montval 300g',
+                        value: 30,
+                    },
+                    {
+                        name: 'Papel Strathmore Bristol 270g',
+                        value: 30,
+                    },
+                    {
+                        name: 'Papel Hahnemühle Expression 300g',
+                        value: 75,
+                    },
+                ],
+            },
         ],
     },
     {
@@ -614,6 +706,10 @@ export const models = [
                     {
                         name: 'Papel Montval 300g',
                         value: 30,
+                    },
+                    {
+                        name: 'Papel Strathmore Bristol 270g',
+                        value: 42,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g',
@@ -690,6 +786,10 @@ export const models = [
                         value: 21,
                     },
                     {
+                        name: 'Papel Strathmore Bristol 270g',
+                        value: 22,
+                    },
+                    {
                         name: 'Papel Hahnemühle Expression 300g',
                         value: 54,
                     },
@@ -761,6 +861,10 @@ export const models = [
                     },
                     {
                         name: 'Papel Montval 300g',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Strathmore Bristol 270g',
                         value: 12,
                     },
                     {
@@ -1378,6 +1482,14 @@ export const models = [
                         name: 'Papel Montval 300g',
                         value: 30,
                     },
+                    {
+                        name: 'Papel Strathmore Bristol 270g',
+                        value: 44,
+                    },
+                    {
+                        name: 'Papel Hahnemühle Expression 300g',
+                        value: 80,
+                    },
                 ],
             },
             {
@@ -1448,6 +1560,14 @@ export const models = [
                         name: 'Papel Montval 300g',
                         value: 21,
                     },
+                    {
+                        name: 'Papel Strathmore Bristol 270g',
+                        value: 24,
+                    },
+                    {
+                        name: 'Papel Hahnemühle Expression 300g',
+                        value: 60,
+                    },
                 ],
             },
             {
@@ -1517,6 +1637,106 @@ export const models = [
                     {
                         name: 'Papel Montval 300g',
                         value: 12,
+                    },
+                    {
+                        name: 'Papel Strathmore Bristol 270g',
+                        value: 14,
+                    },
+                    {
+                        name: 'Papel Hahnemühle Expression 300g',
+                        value: 25,
+                    },
+                ],
+            },
+            {
+                name: 'Colegial - Paisagem',
+                id: 1313,
+                basePrice: 40,
+                size: {
+                    width: 21,
+                    length: 29,
+                    // height: 2.5,
+                    height: 3,
+                    weight: 0.7,
+                },
+                types: [
+                    {
+                        name: 'Papel Reciclado Liso 120g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Marfim Liso 120g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Kraft 140g',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 14,
+                    },
+                    {
+                        name: 'Papel Preto 180g',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Canson Aquarela 300g ',
+                        value: 30,
+                    },
+                ],
+            },
+            {
+                name: 'Colegial - Retrato',
+                id: 1314,
+                basePrice: 40,
+                size: {
+                    width: 21,
+                    length: 29,
+                    // height: 2.5,
+                    height: 3,
+                    weight: 0.7,
+                },
+                types: [
+                    {
+                        name: 'Papel Reciclado Liso 120g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Marfim Liso 120g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Kraft 140g',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 14,
+                    },
+                    {
+                        name: 'Papel Preto 180g',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Canson Aquarela 300g ',
+                        value: 30,
+                    },
+                    {
+                        name: 'Papel Montval 300g',
+                        value: 30,
+                    },
+                    {
+                        name: 'Papel Strathmore Bristol 270g',
+                        value: 40,
+                    },
+                    {
+                        name: 'Papel Hahnemühle Expression 300g',
+                        value: 80,
                     },
                 ],
             },
@@ -2238,6 +2458,138 @@ export const models = [
                     {
                         name: 'Papel Hahnemühle Expression 300g',
                         value: 21,
+                    },
+                ],
+            },
+            {
+                name: 'Colegial - Paisagem',
+                id: 1411,
+                basePrice: 40,
+                size: {
+                    width: 21,
+                    length: 29,
+                    height: 3,
+                    // height: 2.5,
+                    weight: 0.5,
+                },
+                types: [
+                    {
+                        name: 'Papel Reciclado Liso 120g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Marfim Liso 120g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado 120g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado 120g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado 120g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Kraft 140g',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 14,
+                    },
+                    {
+                        name: 'Papel Preto 180g',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Canson Aquarela 300g ',
+                        value: 30,
+                    },
+                    {
+                        name: 'Papel Montval 300g',
+                        value: 30,
+                    },
+                    {
+                        name: 'Papel Strathmore Bristol 270g',
+                        value: 40,
+                    },
+                    {
+                        name: 'Papel Hahnemühle Expression 300g',
+                        value: 75,
+                    },
+                ],
+            },
+            {
+                name: 'Colegial - retrato',
+                id: 1412,
+                basePrice: 40,
+                size: {
+                    width: 21,
+                    length: 29,
+                    height: 3,
+                    // height: 2.5,
+                    weight: 0.5,
+                },
+                types: [
+                    {
+                        name: 'Papel Reciclado Liso 120g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Marfim Liso 120g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado 120g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado 120g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado 120g',
+                        value: 7,
+                    },
+                    {
+                        name: 'Papel Kraft 140g',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Canson 140g',
+                        value: 12,
+                    },
+                    {
+                        name: 'Papel Canson 200g',
+                        value: 14,
+                    },
+                    {
+                        name: 'Papel Preto 180g',
+                        value: 8,
+                    },
+                    {
+                        name: 'Papel Canson Aquarela 300g ',
+                        value: 30,
+                    },
+                    {
+                        name: 'Papel Montval 300g',
+                        value: 30,
+                    },
+                    {
+                        name: 'Papel Strathmore Bristol 270g',
+                        value: 40,
+                    },
+                    {
+                        name: 'Papel Hahnemühle Expression 300g',
+                        value: 75,
                     },
                 ],
             },

@@ -335,6 +335,7 @@ export default function RegisterProduct() {
                             <option value='15X15'>15X15</option>
                             <option value='14X14'>14X14</option>
                             <option value='10X10'>10X10</option>
+                            <option value='Colegial'>Colegial</option>
                         </select>
 
                         <fieldset>
