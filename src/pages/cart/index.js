@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import InputMask from 'react-input-mask';
+import axios from 'axios';
 
 import './style.scss';
 import Header from '../../components/header/index.js';
@@ -385,29 +386,31 @@ export default function Cart() {
     };
 
     //api do melhor envio para calculo de frete
+
     const calculaFrete = async () => {
         try {
-          const response = await fetch('https://melhorenvio.com.br/api/v2/me/shipment/calculate', {
-            method: 'POST',
-            headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json',
-              Authorization: `Bearer ${process.env.REACT_APP_BEARER_KEY}`,
-            },
-            body: JSON.stringify(dataToSend),
-          });
-      
-          if (!response.ok) {
-            throw new Error('Erro na resposta da API');
-          }
-      
-          const data = await response.json();
-          setTransportData(data);
+            const response = await axios.post(
+                '/api/v2/me/shipment/calculate',
+                dataToSend,
+                {
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${process.env.REACT_APP_BEARER_KEY}`,
+                    },
+                }
+            );
+
+            if (response.status !== 200) {
+                throw new Error('Erro na resposta da API');
+            }
+
+            const data = response.data;
+            setTransportData(data);
         } catch (error) {
-          console.error('Erro:', error);
+            console.error('Erro:', error);
         }
-      };
-      
+    };
 
     //seleciona a transportadora escolhida
     function handleSelectedTransport(item, event) {
