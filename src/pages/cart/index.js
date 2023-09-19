@@ -390,7 +390,7 @@ export default function Cart() {
     const calculaFrete = async () => {
         try {
             const response = await axios.post(
-                `https://melhorenvio.com.br` + `/api/v2/me/shipment/calculate`,
+                '/api/v2/me/shipment/calculate',
                 dataToSend,
                 {
                     headers: {
