@@ -502,11 +502,11 @@ export default function CreateColor() {
                                 type='checkbox'
                                 name='selectedAvailableSize'
                                 className='availableSizes'
-                                id='A4 - Paisagem (29x21 cm)'
-                                value='A4 - Paisagem (29x21 cm)'
+                                id='A4 - Paisagem (21x29 cm)'
+                                value='A4 - Paisagem (21x29 cm)'
                                 onChange={(event) => checkSizes(event)}
                             />
-                            <label htmlFor='A4 - Paisagem (29x21 cm)'>A4 - Paisagem (29x21 cm)</label>
+                            <label htmlFor='A4 - Paisagem (21x29 cm)'>A4 - Paisagem (21x29 cm)</label>
                         </div>
                         <div className='checkbox'>
                             <input
