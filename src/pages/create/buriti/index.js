@@ -33,6 +33,7 @@ export default function Buriti() {
     const [maxSlides, setMaxSlides] = useState(5);
     const [displayDimensionForms, setDisplayDimensionForms] = useState('none');
     const [currentStep, setCurrentStep] = useState(1);
+    const [isCustomModel, setIsCustomModel] = useState(false);
 
     const [userDimensions, setUserDimensions] = useState({
         width: '',
@@ -195,7 +196,10 @@ export default function Buriti() {
         setSelectedModel(values.formats[position].types[0]);
         setFormatId(values.formats[position].id);
 
-        if (values.formats[position].types[0].name === 'iPad/Tablet (Personalize o tamanho)') {
+        if (
+            values.formats[position].types[0].name ===
+            'iPad/Tablet (Personalize o tamanho)'
+        ) {
             setDisplayDimensionForms('flex');
         } else {
             setFormatSize(values.formats[position].size);
@@ -245,11 +249,8 @@ export default function Buriti() {
 
     function addToCart() {
         const temp = JSON.parse(localStorage.getItem('products'));
-        var listOfItems =
-            temp !== null ? Object.keys(temp).map((key) => temp[key]) : [];
-
-        const newItems = [];
-
+        const listOfItems = temp !== null ? Object.keys(temp).map((key) => temp[key]) : [];
+    
         const dataToSend = {
             model: 'Buriti',
             id: formatId,
@@ -259,25 +260,15 @@ export default function Buriti() {
             sketchFinish: selectedSketchFinish,
             coverColors: selectedColors,
             clientNote: clientNote,
-            size:
-                selectedModel.name === 'iPad/Tablet'
-                    ? userDimensions
-                    : formatSize,
+            size: selectedModel.name === 'iPad/Tablet (Personalize o tamanho)' ? userDimensions : formatSize,
         };
-
-        newItems.push(dataToSend);
-
-        // n lembro o porquê disso (inclusive, length tá escrito errado, então a condição não funciona)
-        if (listOfItems.lenght > 0) {
-            newItems.map((item) => listOfItems.push(item));
-            localStorage.setItem('products', JSON.stringify(listOfItems));
-        } else {
-            newItems.map((item) => listOfItems.push(item));
-            localStorage.setItem('products', JSON.stringify(listOfItems));
-        }
-
+    
+        listOfItems.push(dataToSend);
+    
+        localStorage.setItem('products', JSON.stringify(listOfItems));
         history.push('/Carrinho');
     }
+    
 
     function changeColor(event) {
         let isChecked;
@@ -424,6 +415,23 @@ export default function Buriti() {
                 left: 0,
             });
         }
+    }
+
+    function handleSelectedModel(event) {
+        let position = event.target.value;
+        const selectedFormat = values.formats[position];
+
+        if (selectedFormat.name === 'iPad/Tablet (Personalize o tamanho)') {
+            setIsCustomModel(true);
+            setDisplayDimensionForms('flex');
+        } else {
+            setIsCustomModel(false);
+            setFormatSize(selectedFormat.size);
+            setDisplayDimensionForms('none');
+        }
+
+        setSelectedModel(selectedFormat.types[0]);
+        setFormatId(selectedFormat.id);
     }
 
     return (
@@ -750,6 +758,19 @@ export default function Buriti() {
                                             <strong>Modelo: </strong>
                                             {selectedModel.name}
                                         </li>
+
+                                        {isCustomModel && (
+                                            <li>
+                                                <strong>Dimensões: </strong>
+                                                Largura: {
+                                                    userDimensions.width
+                                                }{' '}
+                                                cm, Comprimento:{' '}
+                                                {userDimensions.length} cm,
+                                                Altura: {userDimensions.height}{' '}
+                                                cm
+                                            </li>
+                                        )}
 
                                         <li>
                                             <strong>Cor da capa: </strong>

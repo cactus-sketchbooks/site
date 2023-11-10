@@ -85,7 +85,7 @@ export default function Facheiro() {
                         value: 102,
                     },
                     {
-                        name: 'Papel Canson 140g (112 páginas)',
+                        name: 'Papel Canson 140g (80 páginas)',
                         value: 132,
                     },
                     {
@@ -175,7 +175,7 @@ export default function Facheiro() {
                         value: 95,
                     },
                     {
-                        name: 'Papel Canson 140g (112 páginas)',
+                        name: 'Papel Canson 140g (80 páginas)',
                         value: 140,
                     },
                     {
@@ -284,7 +284,7 @@ export default function Facheiro() {
                         value: 72,
                     },
                     {
-                        name: 'Papel Canson 140g (112 páginas)',
+                        name: 'Papel Canson 140g (80 páginas)',
                         value: 82,
                     },
                     {
@@ -401,7 +401,7 @@ export default function Facheiro() {
                         value: 72,
                     },
                     {
-                        name: 'Papel Canson 140g (112 páginas)',
+                        name: 'Papel Canson 140g (80 páginas)',
                         value: 82,
                     },
                     {
@@ -518,7 +518,7 @@ export default function Facheiro() {
                         value: 44,
                     },
                     {
-                        name: 'Papel Canson 140g (112 páginas)',
+                        name: 'Papel Canson 140g (80 páginas)',
                         value: 50,
                     },
                     {
@@ -635,7 +635,7 @@ export default function Facheiro() {
                         value: 44,
                     },
                     {
-                        name: 'Papel Canson 140g (112 páginas)',
+                        name: 'Papel Canson 140g (80 páginas)',
                         value: 50,
                     },
                     {
@@ -752,7 +752,7 @@ export default function Facheiro() {
                         value: 32,
                     },
                     {
-                        name: 'Papel Canson 140g (112 páginas)',
+                        name: 'Papel Canson 140g (80 páginas)',
                         value: 38,
                     },
                     {
@@ -869,7 +869,7 @@ export default function Facheiro() {
                         value: 32,
                     },
                     {
-                        name: 'Papel Canson 140g (112 páginas)',
+                        name: 'Papel Canson 140g (80 páginas)',
                         value: 38,
                     },
                     {
@@ -978,7 +978,7 @@ export default function Facheiro() {
                         value: 72,
                     },
                     {
-                        name: 'Papel Canson 140g (112 páginas)',
+                        name: 'Papel Canson 140g (80 páginas)',
                         value: 82,
                     },
                     {
@@ -1087,7 +1087,7 @@ export default function Facheiro() {
                         value: 44,
                     },
                     {
-                        name: 'Papel Canson 140g (112 páginas)',
+                        name: 'Papel Canson 140g (80 páginas)',
                         value: 50,
                     },
                     {
@@ -1196,7 +1196,7 @@ export default function Facheiro() {
                         value: 32,
                     },
                     {
-                        name: 'Papel Canson 140g (112 páginas)',
+                        name: 'Papel Canson 140g (80 páginas)',
                         value: 38,
                     },
                     {
@@ -1305,10 +1305,6 @@ export default function Facheiro() {
                         value: 72,
                     },
                     {
-                        name: 'Papel Canson 140g (112 páginas)',
-                        value: 82,
-                    },
-                    {
                         name: 'Papel Canson 200g (80 páginas)',
                         value: 92,
                     },
@@ -1406,7 +1402,7 @@ export default function Facheiro() {
                         value: 72,
                     },
                     {
-                        name: 'Papel Canson 140g (112 páginas)',
+                        name: 'Papel Canson 140g (80 páginas)',
                         value: 82,
                     },
                     {

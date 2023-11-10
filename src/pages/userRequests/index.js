@@ -490,6 +490,26 @@ export default function UserRequests() {
                                                     ''
                                                 )}
 
+                                                {product.kindleModel ===
+                                                    'iPad/Tablet (Personalize o tamanho)' &&
+                                                    product.size && (
+                                                        <li>
+                                                            <b>Tamanho</b>{' '}
+                                                            {product.size.width}{' '}
+                                                            x{' '}
+                                                            {
+                                                                product.size
+                                                                    .length
+                                                            }{' '}
+                                                            x{' '}
+                                                            {
+                                                                product.size
+                                                                    .height
+                                                            }
+                                                        </li>
+                                                    )}
+                                                {console.log(product)}
+
                                                 {product.clientNote ? (
                                                     <li>
                                                         <b>Observação:</b>{' '}

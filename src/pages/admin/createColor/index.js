@@ -491,66 +491,66 @@ export default function CreateColor() {
                                 type='checkbox'
                                 name='selectedAvailableSize'
                                 className='availableSizes'
-                                id='A4 - Retrato'
-                                value='A4 - Retrato'
+                                id='A4 - Retrato (29x21 cm)'
+                                value='A4  - Retrato (29x21 cm)'
                                 onChange={(event) => checkSizes(event)}
                             />
-                            <label htmlFor='A4 - Retrato'>A4 - Retrato</label>
+                            <label htmlFor='A4 - Retrato (29x21 cm)'>A4 - Retrato (29x21 cm)</label>
                         </div>
                         <div className='checkbox'>
                             <input
                                 type='checkbox'
                                 name='selectedAvailableSize'
                                 className='availableSizes'
-                                id='A4 - Paisagem'
-                                value='A4 - Paisagem'
+                                id='A4 - Paisagem (29x21 cm)'
+                                value='A4 - Paisagem (29x21 cm)'
                                 onChange={(event) => checkSizes(event)}
                             />
-                            <label htmlFor='A4 - Paisagem'>A4 - Paisagem</label>
+                            <label htmlFor='A4 - Paisagem (29x21 cm)'>A4 - Paisagem (29x21 cm)</label>
                         </div>
                         <div className='checkbox'>
                             <input
                                 type='checkbox'
                                 name='selectedAvailableSize'
                                 className='availableSizes'
-                                id='A5 - Retrato'
-                                value='A5 - Retrato'
+                                id='A5 - Retrato (21x15 cm)'
+                                value='A5 - Retrato (21x15 cm)'
                                 onChange={(event) => checkSizes(event)}
                             />
-                            <label htmlFor='A5 - Retrato'>A5 - Retrato</label>
+                            <label htmlFor='A5 - Retrato (21x15 cm)'>A5 - Retrato (21x15 cm)</label>
                         </div>
                         <div className='checkbox'>
                             <input
                                 type='checkbox'
                                 name='selectedAvailableSize'
                                 className='availableSizes'
-                                id='A5 - Paisagem'
-                                value='A5 - Paisagem'
+                                id='A5 - Paisagem (15x21 cm)'
+                                value='A5 - Paisagem (15x21 cm)'
                                 onChange={(event) => checkSizes(event)}
                             />
-                            <label htmlFor='A5 - Paisagem'>A5 - Paisagem</label>
+                            <label htmlFor='A5 - Paisagem (15x21 cm)'>A5 - Paisagem (15x21 cm)</label>
                         </div>
                         <div className='checkbox'>
                             <input
                                 type='checkbox'
                                 name='selectedAvailableSize'
                                 className='availableSizes'
-                                id='A6 - Retrato'
-                                value='A6 - Retrato'
+                                id='A6 - Retrato (15x10,5 cm)'
+                                value='A6 - Retrato (15x10,5 cm)'
                                 onChange={(event) => checkSizes(event)}
                             />
-                            <label htmlFor='A6 - Retrato'>A6 - Retrato</label>
+                            <label htmlFor='A6 - Retrato (15x10,5 cm)'>A6 - Retrato (15x10,5 cm)</label>
                         </div>
                         <div className='checkbox'>
                             <input
                                 type='checkbox'
                                 name='selectedAvailableSize'
                                 className='availableSizes'
-                                id='A6 - Paisagem'
-                                value='A6 - Paisagem'
+                                id='A6 - Paisagem (10,5x15 cm)'
+                                value='A6 - Paisagem (10,5x15 cm)'
                                 onChange={(event) => checkSizes(event)}
                             />
-                            <label htmlFor='A6 - Paisagem'>A6 - Paisagem</label>
+                            <label htmlFor='A6 - Paisagem (10,5x15 cm)'>A6 - Paisagem (10,5x15 cm)</label>
                         </div>
                     </div>
                 </div>

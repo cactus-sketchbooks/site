@@ -2498,10 +2498,6 @@ export const models = [
                         value: 8,
                     },
                     {
-                        name: 'Papel Canson 140g',
-                        value: 12,
-                    },
-                    {
                         name: 'Papel Canson 200g',
                         value: 14,
                     },

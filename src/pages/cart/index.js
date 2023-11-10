@@ -1063,6 +1063,26 @@ export default function Cart() {
                                                     ''
                                                 )}
 
+                                                {product.kindleModel ===
+                                                    'iPad/Tablet (Personalize o tamanho)' &&
+                                                    product.size && (
+                                                        <li>
+                                                            <b>Tamanho</b>{' '}
+                                                            {product.size.width}{' '}
+                                                            x{' '}
+                                                            {
+                                                                product.size
+                                                                    .length
+                                                            }{' '}
+                                                            x{' '}
+                                                            {
+                                                                product.size
+                                                                    .height
+                                                            }
+                                                        </li>
+                                                    )}
+                                                    {console.log(product)}
+
                                                 {product.quantity ? (
                                                     <li>
                                                         <strong>
@@ -1234,8 +1254,10 @@ export default function Cart() {
                                                     registrada
                                                 </option>
                                                 <option value='Retirada física'>
-                                                    Retirada física: Rua da
-                                                    Inveja - n° 488 A - Centro
+                                                    Rua do Outeiro - n° 196 -
+                                                    Centro (andar de cima,
+                                                    avenida do IEMA antigo
+                                                    Marista)
                                                 </option>
                                             </select>
                                         )}
@@ -1868,6 +1890,7 @@ export default function Cart() {
                                                 {
                                                     purchasedProductData.totalValue
                                                 }
+                                                Cor da capa
                                             </span>
                                         </div>
                                     </>

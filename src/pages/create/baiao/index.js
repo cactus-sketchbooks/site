@@ -75,7 +75,7 @@ export default function Baiao() {
                         value: 65,
                     },
                     {
-                        name: 'Papel Canson 140g (112 páginas)',
+                        name: 'Papel Canson 140g (80 páginas)',
                         value: 75,
                     },
                     {
@@ -184,7 +184,7 @@ export default function Baiao() {
                         value: 42,
                     },
                     {
-                        name: 'Papel Canson 140g (112 páginas)',
+                        name: 'Papel Canson 140g (80 páginas)',
                         value: 48,
                     },
                     {
@@ -293,7 +293,7 @@ export default function Baiao() {
                         value: 25,
                     },
                     {
-                        name: 'Papel Canson 140g (112 páginas)',
+                        name: 'Papel Canson 140g (80 páginas)',
                         value: 28,
                     },
                     {

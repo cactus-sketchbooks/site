@@ -52,7 +52,7 @@ export default function Mandacaru() {
         infinite: true,
         centerPadding: '60px',
         slidesToShow: maxSlides,
-        swipeToSlide: true,
+        swipeToSlide: true,dataColors
     };
 
     const values = {
@@ -105,14 +105,6 @@ export default function Mandacaru() {
                     {
                         name: 'Preto 180g (80 págs) + Papel Vegetal',
                         value: 252,
-                    },
-                    {
-                        name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
-                        value: 280,
-                    },
-                    {
-                        name: 'Montval 300g (48 págs) + Papel Vegetal',
-                        value: 280,
                     },
                 ],
             },
@@ -245,10 +237,6 @@ export default function Mandacaru() {
                         name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
                         value: 148,
                     },
-                    {
-                        name: 'Montval 300g (48 págs) + Papel Vegetal',
-                        value: 148,
-                    },
                 ],
             },
             {
@@ -275,7 +263,7 @@ export default function Mandacaru() {
                         value: 65,
                     },
                     {
-                        name: 'Papel Canson 140g (112 páginas)',
+                        name: 'Papel Canson 140g (80 páginas)',
                         value: 75,
                     },
                     {
@@ -368,7 +356,7 @@ export default function Mandacaru() {
                         value: 42,
                     },
                     {
-                        name: 'Papel Canson 140g (112 páginas)',
+                        name: 'Papel Canson 140g (80 páginas)',
                         value: 48,
                     },
                     {
@@ -485,7 +473,7 @@ export default function Mandacaru() {
                         value: 42,
                     },
                     {
-                        name: 'Papel Canson 140g (112 páginas)',
+                        name: 'Papel Canson 140g (80 páginas)',
                         value: 48,
                     },
                     {
@@ -603,7 +591,7 @@ export default function Mandacaru() {
                         value: 30,
                     },
                     {
-                        name: 'Papel Canson 140g (112 páginas)',
+                        name: 'Papel Canson 140g (80 páginas)',
                         value: 35,
                     },
                     {
@@ -721,7 +709,7 @@ export default function Mandacaru() {
                         value: 30,
                     },
                     {
-                        name: 'Papel Canson 140g (112 páginas)',
+                        name: 'Papel Canson 140g (80 páginas)',
                         value: 35,
                     },
                     {
@@ -816,7 +804,7 @@ export default function Mandacaru() {
                         value: 15,
                     },
                     {
-                        name: 'Papel Canson 140g (112 páginas)',
+                        name: 'Papel Canson 140g (80 páginas)',
                         value: 16,
                     },
                     {
@@ -911,7 +899,7 @@ export default function Mandacaru() {
                         value: 15,
                     },
                     {
-                        name: 'Papel Canson 140g (112 páginas)',
+                        name: 'Papel Canson 140g (80 páginas)',
                         value: 16,
                     },
                     {
@@ -1617,6 +1605,7 @@ export default function Mandacaru() {
                     <div className='sliderColors'>
                         <Slider {...settings}>
                             {/* Mostra todas as capas que nao sao ilustres, que sao deste modelo */}
+                            {console.log(dataColors)}
                             {dataColors.map((item, index) =>
                                 item.models.includes('mandacaru') &&
                                 item.categories.includes('cover') &&

@@ -1320,10 +1320,6 @@ export default function Carcara() {
                         value: 72,
                     },
                     {
-                        name: 'Papel Canson 140g (84 páginas)',
-                        value: 82,
-                    },
-                    {
                         name: 'Papel Canson 200g (84 páginas)',
                         value: 92,
                     },
