@@ -87,6 +87,10 @@ export default function Mandacaru() {
                         value: 148,
                     },
                     {
+                        name: 'Papel Canson 200g (80 páginas)',
+                        value: 150,
+                    },
+                    {
                         name: 'Papel Marfim 120g (112 págs) + Papel Vegetal',
                         value: 232,
                     },
@@ -999,10 +1003,6 @@ export default function Mandacaru() {
                         name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
                         value: 148,
                     },
-                    {
-                        name: 'Montval 300g (48 págs) + Papel Vegetal',
-                        value: 148,
-                    },
                 ],
             },
             {
@@ -1027,6 +1027,10 @@ export default function Mandacaru() {
                     {
                         name: 'Papel Kraft 140g (112 páginas)',
                         value: 65,
+                    },
+                    {
+                        name: 'Papel Canson 140g  (80 páginas)',
+                        value: 75,
                     },
                     {
                         name: 'Papel Canson 200g (80 páginas)',

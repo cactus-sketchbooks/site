@@ -1305,6 +1305,10 @@ export default function Facheiro() {
                         value: 72,
                     },
                     {
+                        name: 'Papel Canson 140g (80 páginas)',
+                        value: 82,
+                    },
+                    {
                         name: 'Papel Canson 200g (80 páginas)',
                         value: 92,
                     },

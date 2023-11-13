@@ -1363,10 +1363,6 @@ export default function Carcara() {
                         name: 'Canson Aquarela 300g (52 págs) + Papel Vegetal',
                         value: 158,
                     },
-                    {
-                        name: 'Montval 300g (52 págs) + Papel Vegetal',
-                        value: 158,
-                    },
                 ],
             },
             {

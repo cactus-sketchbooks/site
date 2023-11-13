@@ -1227,8 +1227,10 @@ export default function Cart() {
                                                     registrada
                                                 </option>
                                                 <option value='Retirada física'>
-                                                    Retirada física: Rua da
-                                                    Inveja - n° 488 A - Centro
+                                                Retirada física: Rua do Outeiro - n° 196 -
+                                                    Centro (andar de cima,
+                                                    avenida do IEMA antigo
+                                                    Marista)
                                                 </option>
                                             </select>
                                         ) : (
@@ -1254,7 +1256,7 @@ export default function Cart() {
                                                     registrada
                                                 </option>
                                                 <option value='Retirada física'>
-                                                    Rua do Outeiro - n° 196 -
+                                                Retirada física: Rua do Outeiro - n° 196 -
                                                     Centro (andar de cima,
                                                     avenida do IEMA antigo
                                                     Marista)
