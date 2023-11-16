@@ -113,12 +113,13 @@ main {
 
             .checkboxWrapper {
 
-                display: flex;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Ajuste conforme necessário */
+                gap: 1rem;
                 background-color: $light-green;
                 margin: 1rem 0;
                 width: 60vw;
                 align-items: center;
-                justify-content: space-around;
                 padding: 1rem 0;
                 border-radius: 5px;
 

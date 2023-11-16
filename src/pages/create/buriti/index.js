@@ -34,6 +34,7 @@ export default function Buriti() {
     const [displayDimensionForms, setDisplayDimensionForms] = useState('none');
     const [currentStep, setCurrentStep] = useState(1);
     const [isCustomModel, setIsCustomModel] = useState(false);
+    const [selectedCover, setSelectedCover] = useState('');
 
     const [userDimensions, setUserDimensions] = useState({
         width: '',
@@ -249,8 +250,9 @@ export default function Buriti() {
 
     function addToCart() {
         const temp = JSON.parse(localStorage.getItem('products'));
-        const listOfItems = temp !== null ? Object.keys(temp).map((key) => temp[key]) : [];
-    
+        const listOfItems =
+            temp !== null ? Object.keys(temp).map((key) => temp[key]) : [];
+
         const dataToSend = {
             model: 'Buriti',
             id: formatId,
@@ -260,15 +262,17 @@ export default function Buriti() {
             sketchFinish: selectedSketchFinish,
             coverColors: selectedColors,
             clientNote: clientNote,
-            size: selectedModel.name === 'iPad/Tablet (Personalize o tamanho)' ? userDimensions : formatSize,
+            size:
+                selectedModel.name === 'iPad/Tablet (Personalize o tamanho)'
+                    ? userDimensions
+                    : formatSize,
         };
-    
+
         listOfItems.push(dataToSend);
-    
+
         localStorage.setItem('products', JSON.stringify(listOfItems));
         history.push('/Carrinho');
     }
-    
 
     function changeColor(event) {
         let isChecked;
@@ -421,6 +425,10 @@ export default function Buriti() {
         let position = event.target.value;
         const selectedFormat = values.formats[position];
 
+        setSelectedCover((prevCover) => {
+            return selectedFormat.name;
+        });
+
         if (selectedFormat.name === 'iPad/Tablet (Personalize o tamanho)') {
             setIsCustomModel(true);
             setDisplayDimensionForms('flex');
@@ -433,6 +441,12 @@ export default function Buriti() {
         setSelectedModel(selectedFormat.types[0]);
         setFormatId(selectedFormat.id);
     }
+
+    useEffect(() => {
+        // Aqui, você pode realizar lógica com o valor atualizado de selectedCover
+        console.log(selectedCover);
+        // ...
+    }, [selectedCover]);
 
     return (
         <main id='MainSketchbook'>
@@ -627,6 +641,76 @@ export default function Buriti() {
                                             />
                                         </div>
                                     </div>
+                                ) : null
+                            )}
+                            {dataColors.map((item, index) =>
+                                item.availableSizes && selectedCover ? (
+                                    item.models.includes('buriti') &&
+                                    item.categories.includes('cover') &&
+                                    item.availableSizes.includes(
+                                        selectedCover
+                                    ) ? (
+                                        <div className='cardColor' key={index}>
+                                            <label
+                                                htmlFor={index}
+                                                className='coverColorLabel'
+                                                onClick={(event) =>
+                                                    changeColor(event)
+                                                }
+                                            />
+
+                                            {item.image ? (
+                                                <div
+                                                    key={item.id}
+                                                    className='colorBox'
+                                                >
+                                                    <img
+                                                        draggable='false'
+                                                        src={item.image}
+                                                        alt='cor'
+                                                    />
+                                                </div>
+                                            ) : (
+                                                <div
+                                                    key={item.id}
+                                                    style={{
+                                                        backgroundColor:
+                                                            item.colorCode,
+                                                    }}
+                                                    className='colorBox'
+                                                >
+                                                    <p>{item.colorCode}</p>
+                                                </div>
+                                            )}
+
+                                            <div className='colorName'>
+                                                <p>
+                                                    <span
+                                                        style={{
+                                                            color: 'green',
+                                                        }}
+                                                    >
+                                                        (+ R$
+                                                        {item.aditionalPrice})
+                                                    </span>{' '}
+                                                    {item.colorName}
+                                                </p>
+
+                                                <input
+                                                    type='checkbox'
+                                                    value={index}
+                                                    id={index}
+                                                    onChange={(event) =>
+                                                        checkColor(item, event)
+                                                    }
+                                                    style={{
+                                                        accentColor:
+                                                            item.colorCode,
+                                                    }}
+                                                />
+                                            </div>
+                                        </div>
+                                    ) : null
                                 ) : null
                             )}
                         </Slider>

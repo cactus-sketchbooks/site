@@ -485,17 +485,33 @@ export default function CreateColor() {
                     </select>
 
                     <h3>Tamanhos Disponíveis</h3>
+                    <h3>Mandacaru, Facheiro e Carcará</h3>
                     <div className='checkboxWrapper'>
                         <div className='checkbox'>
                             <input
                                 type='checkbox'
                                 name='selectedAvailableSize'
                                 className='availableSizes'
-                                id='A4 - Retrato (29x21 cm)'
-                                value='A4  - Retrato (29x21 cm)'
+                                id='A3 - Paisagem (29x42 cm)'
+                                value='A3 - Paisagem (29x42 cm)'
                                 onChange={(event) => checkSizes(event)}
                             />
-                            <label htmlFor='A4 - Retrato (29x21 cm)'>A4 - Retrato (29x21 cm)</label>
+                            <label htmlFor='A3 - Paisagem (29x42 cm)'>
+                                A3 - Paisagem (29x42 cm)
+                            </label>
+                        </div>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='A3 - Retrato (32x29 cm)'
+                                value='A3 - Retrato (32x29 cm)'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='A3 - Retrato (32x29 cm)'>
+                                A3 - Retrato (32x29 cm)
+                            </label>
                         </div>
                         <div className='checkbox'>
                             <input
@@ -506,7 +522,22 @@ export default function CreateColor() {
                                 value='A4 - Paisagem (21x29 cm)'
                                 onChange={(event) => checkSizes(event)}
                             />
-                            <label htmlFor='A4 - Paisagem (21x29 cm)'>A4 - Paisagem (21x29 cm)</label>
+                            <label htmlFor='A4 - Paisagem (21x29 cm)'>
+                                A4 - Paisagem (21x29 cm)
+                            </label>
+                        </div>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='A4 - Retrato (29x21 cm)'
+                                value='A4  - Retrato (29x21 cm)'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='A4 - Retrato (29x21 cm)'>
+                                A4 - Retrato (29x21 cm)
+                            </label>
                         </div>
                         <div className='checkbox'>
                             <input
@@ -517,7 +548,9 @@ export default function CreateColor() {
                                 value='A5 - Retrato (21x15 cm)'
                                 onChange={(event) => checkSizes(event)}
                             />
-                            <label htmlFor='A5 - Retrato (21x15 cm)'>A5 - Retrato (21x15 cm)</label>
+                            <label htmlFor='A5 - Retrato (21x15 cm)'>
+                                A5 - Retrato (21x15 cm)
+                            </label>
                         </div>
                         <div className='checkbox'>
                             <input
@@ -528,7 +561,9 @@ export default function CreateColor() {
                                 value='A5 - Paisagem (15x21 cm)'
                                 onChange={(event) => checkSizes(event)}
                             />
-                            <label htmlFor='A5 - Paisagem (15x21 cm)'>A5 - Paisagem (15x21 cm)</label>
+                            <label htmlFor='A5 - Paisagem (15x21 cm)'>
+                                A5 - Paisagem (15x21 cm)
+                            </label>
                         </div>
                         <div className='checkbox'>
                             <input
@@ -539,7 +574,9 @@ export default function CreateColor() {
                                 value='A6 - Retrato (15x10,5 cm)'
                                 onChange={(event) => checkSizes(event)}
                             />
-                            <label htmlFor='A6 - Retrato (15x10,5 cm)'>A6 - Retrato (15x10,5 cm)</label>
+                            <label htmlFor='A6 - Retrato (15x10,5 cm)'>
+                                A6 - Retrato (15x10,5 cm)
+                            </label>
                         </div>
                         <div className='checkbox'>
                             <input
@@ -550,7 +587,276 @@ export default function CreateColor() {
                                 value='A6 - Paisagem (10,5x15 cm)'
                                 onChange={(event) => checkSizes(event)}
                             />
-                            <label htmlFor='A6 - Paisagem (10,5x15 cm)'>A6 - Paisagem (10,5x15 cm)</label>
+                            <label htmlFor='A6 - Paisagem (10,5x15 cm)'>
+                                A6 - Paisagem (10,5x15 cm)
+                            </label>
+                        </div>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='A7 - Paisagem (7,5x10,5 cm)'
+                                value='A7 - Paisagem (7,5x10,5 cm)'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='A7 - Paisagem (7,5x10,5 cm)'>
+                                A7 - Paisagem (7,5x10,5 cm)
+                            </label>
+                        </div>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='A7 - Retrato (10,5x7,5 cm)'
+                                value='A7 - Retrato (10,5x7,5 cm)'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='A7 - Retrato (10,5x7,5 cm)'>
+                                A7 - Retrato (10,5x7,5 cm)
+                            </label>
+                        </div>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='Colegial - Retrato (24x18 cm)'
+                                value='Colegial - Retrato (24x18 cm)'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='Colegial - Retrato (24x18 cm)'>
+                                Colegial - Retrato (24x18 cm)
+                            </label>
+                        </div>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='Colegial - Paisagem (18x24 cm)'
+                                value='Colegial - Paisagem (18x24 cm)'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='Colegial - Paisagem (18x24 cm)'>
+                                Colegial - Paisagem (18x24 cm)
+                            </label>
+                        </div>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='21X21'
+                                value='21X21'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='21X21'>21X21</label>
+                        </div>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='15X15'
+                                value='15X15'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='15X15'>15X15</label>
+                        </div>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='10X10'
+                                value='10X10'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='10X10'>10X10</label>
+                        </div>
+                    </div>
+                    <h3>Buriti</h3>
+                    <div className='checkboxWrapper'>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='Kindle 8ª Geração (16x11,5 cm)'
+                                value='Kindle 8ª Geração (16x11,5 cm)'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='Kindle 8ª Geração (16x11,5 cm)'>
+                                Kindle 8ª Geração (16x11,5 cm)
+                            </label>
+                        </div>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='Kindle 10ª Geração (16x11,5 cm)'
+                                value='Kindle 10ª Geração (16x11,5 cm)'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='Kindle 10ª Geração (16x11,5 cm)'>
+                                Kindle 10ª Geração (16x11,5 cm)
+                            </label>
+                        </div>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='Kindle Paperwhite (17,5x12,5 cm)'
+                                value='Kindle Paperwhite (17,5x12,5 cm)'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='Kindle Paperwhite (17,5x12,5 cm)'>
+                                Kindle Paperwhite (17,5x12,5 cm)
+                            </label>
+                        </div>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='Kindle 11ª Geração (16x11 cm)'
+                                value='Kindle 11ª Geração (16x11 cm)'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='Kindle 11ª Geração (16x11 cm)'>
+                                Kindle 11ª Geração (16x11 cm)
+                            </label>
+                        </div>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='Kindle Oasis (16x14,1 cm)'
+                                value='Kindle Oasis (16x14,1 cm)'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='Kindle Oasis (16x14,1 cm)'>
+                                Kindle Oasis (16x14,1 cm)
+                            </label>
+                        </div>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='Kindle Scribe (19,6x22,9 cm)'
+                                value='Kindle Scribe (19,6x22,9 cm)'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='Kindle Scribe (19,6x22,9 cm)'>
+                                Kindle Scribe (19,6x22,9 cm)
+                            </label>
+                        </div>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='iPad/Tablet (Personalize o tamanho)'
+                                value='iPad/Tablet (Personalize o tamanho)'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='iPad/Tablet (Personalize o tamanho)'>
+                                iPad/Tablet (Personalize o tamanho)
+                            </label>
+                        </div>
+                    </div>
+                    <h3>Sertão</h3>
+                    <div className='checkboxWrapper'>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='A4 - Retrato (20x28 cm)'
+                                value='A4 - Retrato (20x28 cm)'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='A4 - Retrato (20x28 cm)'>
+                                A4 - Retrato (20x28 cm)
+                            </label>
+                        </div>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='A5 - Retrato (14x20 cm)'
+                                value='A5 - Retrato (14x20 cm)'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='A5 - Retrato (14x20 cm)'>
+                                A5 - Retrato (14x20 cm)
+                            </label>
+                        </div>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='A6 - Retrato (10x14 cm)'
+                                value='A6 - Retrato (10x14 cm)'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='A6 - Retrato (10x14 cm)'>
+                                A6 - Retrato (10x14 cm)
+                            </label>
+                        </div>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='10X10'
+                                value='10X10'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='10X10'>10X10</label>
+                        </div>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='14X14'
+                                value='14X14'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='14X14'>14X14</label>
+                        </div>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='20X20'
+                                value='20X20'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='20X20'>20X20</label>
+                        </div>
+                        <div className='checkbox'>
+                            <input
+                                type='checkbox'
+                                name='selectedAvailableSize'
+                                className='availableSizes'
+                                id='Colegial (17x23 cm)'
+                                value='Colegial (17x23 cm)'
+                                onChange={(event) => checkSizes(event)}
+                            />
+                            <label htmlFor='Colegial (17x23 cm)'>
+                                Colegial (17x23 cm)
+                            </label>
                         </div>
                     </div>
                 </div>

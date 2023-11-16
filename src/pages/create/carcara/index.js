@@ -1990,7 +1990,7 @@ export default function Carcara() {
                             {/* Mostra as capas ilustres ao final para deixar agrupadas, que sao deste modelo, e que estao disponiveis para o tamanho selecionado */}
                             {dataColors.map((item, index) =>
                                 item.availableSizes && selectedPaperWidth ? (
-                                    item.models.includes('mandacaru') &&
+                                    item.models.includes('carcara') &&
                                     item.categories.includes('cover') &&
                                     item.availableSizes.includes(
                                         selectedPaperWidth

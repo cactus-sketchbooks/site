@@ -847,6 +847,76 @@ export default function Sertao() {
                                     </div>
                                 ) : null
                             )}
+                            {dataColors.map((item, index) =>
+                                item.availableSizes && selectedPaperWidth ? (
+                                    item.models.includes('sertao') &&
+                                    item.categories.includes('cover') &&
+                                    item.availableSizes.includes(
+                                        selectedPaperWidth
+                                    ) ? (
+                                        <div className='cardColor' key={index}>
+                                            <label
+                                                htmlFor={index}
+                                                className='coverColorLabel'
+                                                onClick={(event) =>
+                                                    changeColor(event)
+                                                }
+                                            />
+
+                                            {item.image ? (
+                                                <div
+                                                    key={item.id}
+                                                    className='colorBox'
+                                                >
+                                                    <img
+                                                        draggable='false'
+                                                        src={item.image}
+                                                        alt='cor'
+                                                    />
+                                                </div>
+                                            ) : (
+                                                <div
+                                                    key={item.id}
+                                                    style={{
+                                                        backgroundColor:
+                                                            item.colorCode,
+                                                    }}
+                                                    className='colorBox'
+                                                >
+                                                    <p>{item.colorCode}</p>
+                                                </div>
+                                            )}
+
+                                            <div className='colorName'>
+                                                <p>
+                                                    <span
+                                                        style={{
+                                                            color: 'green',
+                                                        }}
+                                                    >
+                                                        (+ R$
+                                                        {item.aditionalPrice})
+                                                    </span>{' '}
+                                                    {item.colorName}
+                                                </p>
+
+                                                <input
+                                                    type='checkbox'
+                                                    value={index}
+                                                    id={index}
+                                                    onChange={(event) =>
+                                                        checkColor(item, event)
+                                                    }
+                                                    style={{
+                                                        accentColor:
+                                                            item.colorCode,
+                                                    }}
+                                                />
+                                            </div>
+                                        </div>
+                                    ) : null
+                                ) : null
+                            )}
                         </Slider>
                     </div>
                 </div>
