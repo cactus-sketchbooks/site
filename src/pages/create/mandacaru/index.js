@@ -113,7 +113,7 @@ export default function Mandacaru() {
                 ],
             },
             {
-                name: 'A3 - Retrato (32x29 cm)',
+                name: 'A3 - Retrato (42x29 cm)',
                 id: 502,
                 size: {
                     // width: 29.7,
@@ -1112,6 +1112,7 @@ export default function Mandacaru() {
         setformatTypes(values.formats[position].types);
         setFormatSize(values.formats[position].size);
         setFormatId(values.formats[position].id);
+        console.log("Cor selecionada:", selectedPaperWidth);
 
         // zera o selector de papel se o cliente chegar a selecionar o papel, mas mudar de ideia e voltar e mudar o tamanho do sketchbook
         // forçando-o a escolher novamente o papel do miolo, garantindo que o preço e o papel escolhidos estarão corretos
@@ -1670,6 +1671,7 @@ export default function Mandacaru() {
                                 item.availableSizes && selectedPaperWidth ? (
                                     item.models.includes('mandacaru') &&
                                     item.categories.includes('cover') &&
+                                    item.isIlustres &&
                                     item.availableSizes.includes(
                                         selectedPaperWidth
                                     ) ? (

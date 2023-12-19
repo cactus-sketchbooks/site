@@ -505,12 +505,12 @@ export default function CreateColor() {
                                 type='checkbox'
                                 name='selectedAvailableSize'
                                 className='availableSizes'
-                                id='A3 - Retrato (32x29 cm)'
-                                value='A3 - Retrato (32x29 cm)'
+                                id='A3 - Retrato (42x29 cm)'
+                                value='A3 - Retrato (42x29 cm)'
                                 onChange={(event) => checkSizes(event)}
                             />
-                            <label htmlFor='A3 - Retrato (32x29 cm)'>
-                                A3 - Retrato (32x29 cm)
+                            <label htmlFor='A3 - Retrato (42x29 cm)'>
+                                A3 - Retrato (42x29 cm)
                             </label>
                         </div>
                         <div className='checkbox'>
@@ -532,7 +532,7 @@ export default function CreateColor() {
                                 name='selectedAvailableSize'
                                 className='availableSizes'
                                 id='A4 - Retrato (29x21 cm)'
-                                value='A4  - Retrato (29x21 cm)'
+                                value='A4 - Retrato (29x21 cm)'
                                 onChange={(event) => checkSizes(event)}
                             />
                             <label htmlFor='A4 - Retrato (29x21 cm)'>

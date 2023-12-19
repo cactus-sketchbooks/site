@@ -151,7 +151,7 @@ export default function Facheiro() {
                 ],
             },
             {
-                name: 'A3 - Retrato (32x29 cm)',
+                name: 'A3 - Retrato (42x29 cm)',
                 id: 402,
                 size: {
                     // width: 29.7,
