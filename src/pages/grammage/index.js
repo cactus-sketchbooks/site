@@ -104,7 +104,7 @@ export default function Grammage() {
                             </p>
                         </li>
 
-                        <h2>Papel Montival 300g/m²</h2>
+                        <h2>Papel Montval 300g/m²</h2>
                         <li>
                             <p>Papel semi-profissional</p>
                             <p>Ideal para técnicas aguadas</p>
