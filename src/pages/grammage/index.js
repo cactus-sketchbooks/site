@@ -24,8 +24,7 @@ export default function Grammage() {
                             <p>Leve textura</p>
                             <p>Gramatura um pouco alta</p>
                             <p>
-                                Ideal para lápis grafite, de cor, aquarela e
-                                marcadores
+                                Ideal para lápis grafite, de cor, giz pastel, seco e oleoso.
                             </p>
                             <p>Para anotações e sketchs</p>
                         </li>
@@ -105,7 +104,7 @@ export default function Grammage() {
                             </p>
                         </li>
 
-                        <h2>Papel Canson Montival 300g/m²</h2>
+                        <h2>Papel Montival 300g/m²</h2>
                         <li>
                             <p>Papel semi-profissional</p>
                             <p>Ideal para técnicas aguadas</p>

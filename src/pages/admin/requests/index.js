@@ -582,7 +582,7 @@ export default function Requests() {
                                     )}
 
                                     {modalDataProducts.pickupOption ===
-                                    'Impresso módico ou Carta registrada' ? (
+                                    'Frete Correios por Impresso Módico' ? (
                                         <div className='userData'>
                                             <p>Valor do frete: </p>
                                             <b>
@@ -1176,9 +1176,9 @@ export default function Requests() {
                                               </div>
 
                                               {item.pickupOption ===
-                                                  'Frete por transportadora' ||
+                                                  'Frete Correios por PAC ou SEDEX' ||
                                               item.pickupOption ===
-                                                  'Impresso módico ou Carta registrada' ? (
+                                                  'Frete Correios por Impresso Módico' ? (
                                                   <div className='trackingCode'>
                                                       <input
                                                           type='text'
@@ -1384,9 +1384,9 @@ export default function Requests() {
                                               </div>
 
                                               {item.pickupOption ===
-                                                  'Frete por transportadora' ||
+                                                  'Frete Correios por PAC ou SEDEX' ||
                                               item.pickupOption ===
-                                                  'Impresso módico ou Carta registrada' ? (
+                                                  'Frete Correios por Impresso Módico' ? (
                                                   <div className='trackingCode'>
                                                       <input
                                                           type='text'

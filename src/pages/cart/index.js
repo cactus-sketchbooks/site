@@ -276,10 +276,10 @@ export default function Cart() {
         setPickupSelect(pickup);
 
         //mudança dos display de flex e none dependendo da opção de entrega para pegar os dados necessários
-        if (pickup === 'Frete por transportadora') {
+        if (pickup === 'Frete Correios por PAC ou SEDEX') {
             setDisplayCepSearch('flex');
             setFinalValue(totalValue + transportValue);
-        } else if (pickup === 'Impresso módico ou Carta registrada') {
+        } else if (pickup === 'Frete Correios por Impresso Módico') {
             setDisplayCepSearch('none');
             setFinalValue(totalValue + economicTransportValue);
         } else {
@@ -347,7 +347,7 @@ export default function Cart() {
         newDataReceiver.receiverCity !== '' ? counter++ : (counter = counter);
         selectedState !== '' ? counter++ : (counter = counter);
 
-        if (pickupSelect === 'Frete por transportadora') {
+        if (pickupSelect === 'Frete Correios por PAC ou SEDEX') {
             newDataReceiver.receiverCpf !== ''
                 ? counter++
                 : (counter = counter);
@@ -1222,7 +1222,7 @@ export default function Cart() {
                                                     aplicativo de viagem (Uber
                                                     ou 99) com a Cactus
                                                 </option>
-                                                <option value='Impresso módico ou Carta registrada'>
+                                                <option value='Frete Correios por Impresso Módico'>
                                                     Impresso módico ou Carta
                                                     registrada
                                                 </option>
@@ -1248,12 +1248,11 @@ export default function Cart() {
                                                     aplicativo de viagem (Uber
                                                     ou 99) com a Cactus
                                                 </option>
-                                                <option value='Frete por transportadora'>
-                                                    Entrega por transportadora
+                                                <option value='Frete Correios por PAC ou SEDEX'>
+                                                    Frete Correios por PAC ou SEDEX
                                                 </option>
-                                                <option value='Impresso módico ou Carta registrada'>
-                                                    Impresso módico ou Carta
-                                                    registrada
+                                                <option value='Frete Correios por Impresso Módico'>
+                                                    Frete Correios por Impresso Módico
                                                 </option>
                                                 <option value='Retirada física'>
                                                 Retirada física: Rua do Outeiro - n° 196 -
@@ -1265,29 +1264,16 @@ export default function Cart() {
                                         )}
                                         <span>
                                             <strong>Observação: </strong>
-                                            As entregas por Transportadora
-                                            (modos de envio PAC ou Sedex pelos
-                                            Correios) são formas de envio com
-                                            valor mais alto, status atualizado
-                                            ao longo do envio porém limitadas a
-                                            um único produto, logo se você
-                                            selecionou mais de um produto essa
-                                            forma de envio não está disponível.
-                                            As entregas por Impresso Módico são
-                                            formas de envio mais baratas e a
-                                            única disponível para envios com
-                                            mais de um produto, também feito
-                                            pelos Correios com valor fixo de R$
-                                            15,00 para as regiões{' '}
-                                            <strong>Norte e Nordeste</strong>, e
-                                            R$ 20,00 para as regiões{' '}
-                                            <strong>
-                                                Sul, Sudeste e Centro-Oeste.
-                                            </strong>{' '}
-                                            Além disso o envio não é atualizado
-                                            a todo momento: somente quando é
-                                            postado na agência, chegou na sua
-                                            cidade e saiu para entrega.
+                                            O frete por Impresso Módico é um tipo de envio dos Correios, a
+                                            forma mais barata e a única disponível para pedidos com 1 ou mais produtos.
+                                            Tem prazo de 10 a 13 dias úteis após a postagem. O envio por Impresso Módico
+                                            não é atualizado a todo momento, somente quando é postado na agência, quando
+                                            chega na sua cidade e sai para entrega. Tem valor fixo de R$ 15,00 para as
+                                            cidades das regiões <b>Norte e Nordeste,</b> e R$ 20,00 para as cidades das regiões
+                                            <b>Sul, Sudeste e Centro-Oeste.</b> Já o frete por PAC ou Sedex, também do Correios,
+                                            são formas de envio com valor mais alto, tem seu status atualizado ao longo do
+                                            envio porém para o PAC ou SEDEX o envio é limitado para apenas 1 único produto,
+                                            logo se você selecionou mais de um produto essa forma de envio não está disponível.
                                         </span>
                                         <span>
                                             <strong>Atenção: </strong>
@@ -1527,7 +1513,7 @@ export default function Cart() {
                                                 />
 
                                                 {pickupSelect ===
-                                                'Frete por transportadora' ? (
+                                                'Frete Correios por PAC ou SEDEX' ? (
                                                     <InputMask
                                                         id='receiverCpf'
                                                         name='receiverCpf'
@@ -1767,7 +1753,7 @@ export default function Cart() {
                                 </div>
 
                                 {purchasedProductData.pickupOption ===
-                                'Frete por transportadora' ? (
+                                'Frete Correios por PAC ou SEDEX' ? (
                                     <>
                                         <div className='rowDataInfos'>
                                             <h4>Transportadora: </h4>
@@ -1815,7 +1801,7 @@ export default function Cart() {
                                 )}
 
                                 {purchasedProductData.pickupOption ===
-                                'Impresso módico ou Carta registrada' ? (
+                                'Frete Correios por Impresso Módico' ? (
                                     <div className='rowDataInfos'>
                                         <h4>Valor do frete: </h4>
                                         <span>
