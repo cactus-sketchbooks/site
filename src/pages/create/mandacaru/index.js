@@ -59,126 +59,6 @@ export default function Mandacaru() {
         name: 'Mandacaru',
         formats: [
             {
-                name: 'A3 - Paisagem (29x42 cm)',
-                id: 501,
-                size: {
-                    // width: 29.7,
-                    width: 30,
-                    length: 42,
-                    // height: 2.5,
-                    height: 3,
-                    weight: 0.5,
-                },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso 120g (112 páginas)',
-                        value: 90,
-                    },
-                    {
-                        name: 'Papel Marfim Liso 120g (112 páginas)',
-                        value: 90,
-                    },
-                    {
-                        name: 'Papel Kraft 140g (112 páginas)',
-                        value: 95,
-                    },
-                    {
-                        name: 'Papel Preto 180g (80 páginas)',
-                        value: 148,
-                    },
-                    {
-                        name: 'Papel Canson 200g (80 páginas)',
-                        value: 150,
-                    },
-                    {
-                        name: 'Papel Marfim 120g (112 págs) + Papel Vegetal',
-                        value: 232,
-                    },
-                    {
-                        name: 'Reciclado 120g (112 págs) + Papel Vegetal',
-                        value: 232,
-                    },
-                    {
-                        name: 'Kraft 140g (112 págs) + Papel Vegetal',
-                        value: 237,
-                    },
-                    {
-                        name: 'Canson 200g (80 págs) + Papel Vegetal',
-                        value: 254,
-                    },
-                    {
-                        name: 'Preto 180g (80 págs) + Papel Vegetal',
-                        value: 252,
-                    },
-                ],
-            },
-            {
-                name: 'A3 - Retrato (42x29 cm)',
-                id: 502,
-                size: {
-                    // width: 29.7,
-                    width: 30,
-                    length: 42,
-                    // height: 2.5,
-                    height: 3,
-                    weight: 0.5,
-                },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso 120g (112 páginas)',
-                        value: 90,
-                    },
-                    {
-                        name: 'Papel Marfim Liso 120g (112 páginas)',
-                        value: 90,
-                    },
-                    {
-                        name: 'Papel Kraft 140g (112 páginas)',
-                        value: 95,
-                    },
-                    {
-                        name: 'Papel Canson 200g (80 páginas)',
-                        value: 150,
-                    },
-                    {
-                        name: 'Papel Preto 180g (80 páginas)',
-                        value: 148,
-                    },
-                    {
-                        name: 'Papel Canson Aquarela 300g  (48 páginas)',
-                        value: 215,
-                    },
-                    {
-                        name: 'Papel Marfim 120g (112 págs) + Papel Vegetal',
-                        value: 232,
-                    },
-                    {
-                        name: 'Reciclado 120g (112 págs) + Papel Vegetal',
-                        value: 232,
-                    },
-                    {
-                        name: 'Kraft 140g (112 págs) + Papel Vegetal',
-                        value: 237,
-                    },
-                    {
-                        name: 'Canson 200g (80 págs) + Papel Vegetal',
-                        value: 254,
-                    },
-                    {
-                        name: 'Preto 180g (80 págs) + Papel Vegetal',
-                        value: 252,
-                    },
-                    {
-                        name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
-                        value: 280,
-                    },
-                    {
-                        name: 'Montval 300g (48 págs) + Papel Vegetal',
-                        value: 280,
-                    },
-                ],
-            },
-            {
                 name: 'A4 - Paisagem (21x29 cm)',
                 id: 503,
                 size: {
@@ -191,39 +71,39 @@ export default function Mandacaru() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso 120g (112 páginas)',
-                        value: 60,
+                        value: 84,
                     },
                     {
                         name: 'Papel Marfim Liso 120g (112 páginas)',
-                        value: 60,
+                        value: 84,
                     },
                     {
                         name: 'Papel Kraft 140g (112 páginas)',
-                        value: 65,
+                        value: 70,
                     },
                     {
                         name: 'Papel Canson 200g (80 páginas)',
-                        value: 85,
+                        value: 108,
                     },
                     {
                         name: 'Papel Preto 180g (80 páginas)',
-                        value: 82,
+                        value: 97,
                     },
                     {
                         name: 'Papel Canson Aquarela 300g  (48 páginas)',
-                        value: 115,
+                        value: 132,
                     },
                     {
                         name: 'Marfim 120g (112 págs) + Papel Vegetal',
-                        value: 132,
+                        value: 148,
                     },
                     {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
-                        value: 132,
+                        value: 148,
                     },
                     {
                         name: 'Kraft 140g (112 págs) + Papel Vegetal',
-                        value: 136,
+                        value: 134,
                     },
                     {
                         name: 'Canson 140g (80 pags) + Papel Vegetal',
@@ -231,15 +111,15 @@ export default function Mandacaru() {
                     },
                     {
                         name: 'Canson 200g (80 págs) + Papel Vegetal',
-                        value: 138,
+                        value: 152,
                     },
                     {
                         name: 'Preto 180g (80 págs) + Papel Vegetal',
-                        value: 134,
+                        value: 142,
                     },
                     {
                         name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
-                        value: 148,
+                        value: 162,
                     },
                 ],
             },
@@ -256,55 +136,55 @@ export default function Mandacaru() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso 120g (112 páginas)',
-                        value: 60,
+                        value: 84,
                     },
                     {
                         name: 'Papel Marfim Liso 120g (112 páginas)',
-                        value: 60,
+                        value: 84,
                     },
                     {
                         name: 'Papel Kraft 140g (112 páginas)',
-                        value: 65,
+                        value: 70,
                     },
                     {
                         name: 'Papel Canson 140g (80 páginas)',
-                        value: 75,
+                        value: 84,
                     },
                     {
                         name: 'Papel Canson 200g (80 páginas)',
-                        value: 85,
+                        value: 108,
                     },
                     {
                         name: 'Papel Preto 180g (80 páginas)',
-                        value: 82,
+                        value: 97,
                     },
                     {
                         name: 'Papel Canson Aquarela 300g  (48 páginas)',
-                        value: 115,
+                        value: 132,
                     },
                     {
                         name: 'Papel Montval 300g (48 páginas)',
-                        value: 115,
+                        value: 132,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas)',
-                        value: 220,
+                        value: 385,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas)',
-                        value: 245,
+                        value: 402,
                     },
                     {
                         name: 'Marfim 120g (112 págs) + Papel Vegetal',
-                        value: 132,
+                        value: 148,
                     },
                     {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
-                        value: 132,
+                        value: 148,
                     },
                     {
                         name: 'Kraft 140g (112 págs) + Papel Vegetal',
-                        value: 136,
+                        value: 134,
                     },
                     {
                         name: 'Canson 140g (80 pags) + Papel Vegetal',
@@ -312,27 +192,27 @@ export default function Mandacaru() {
                     },
                     {
                         name: 'Canson 200g (80 págs) + Papel Vegetal',
-                        value: 138,
+                        value: 152,
                     },
                     {
                         name: 'Preto 180g (80 págs) + Papel Vegetal',
-                        value: 134,
+                        value: 142,
                     },
                     {
                         name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
-                        value: 148,
+                        value: 162,
                     },
                     {
                         name: 'Montval 300g (48 págs) + Papel Vegetal',
-                        value: 148,
+                        value: 162,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas) + Papel Vegetal',
-                        value: 272,
+                        value: 415,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas) + Papel Vegetal',
-                        value: 278,
+                        value: 432,
                     },
                 ],
             },
@@ -349,27 +229,27 @@ export default function Mandacaru() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso 120g (112 páginas)',
-                        value: 38,
-                    },
-                    {
-                        name: 'Papel Marfim Liso 120g (112 páginas)',
-                        value: 38,
-                    },
-                    {
-                        name: 'Papel Kraft 140g (112 páginas)',
-                        value: 42,
-                    },
-                    {
-                        name: 'Papel Canson 140g (80 páginas)',
                         value: 48,
                     },
                     {
+                        name: 'Papel Marfim Liso 120g (112 páginas)',
+                        value: 48,
+                    },
+                    {
+                        name: 'Papel Kraft 140g (112 páginas)',
+                        value: 45,
+                    },
+                    {
+                        name: 'Papel Canson 140g (80 páginas)',
+                        value: 52,
+                    },
+                    {
                         name: 'Papel Canson 200g (80 páginas)',
-                        value: 55,
+                        value: 63,
                     },
                     {
                         name: 'Papel Preto 180g (80 páginas)',
-                        value: 52,
+                        value: 62,
                     },
                     {
                         name: 'Papel Canson Aquarela 300g  (48 páginas)',
@@ -381,51 +261,51 @@ export default function Mandacaru() {
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas)',
-                        value: 115,
+                        value: 250,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas)',
-                        value: 170,
+                        value: 250,
                     },
                     {
                         name: 'Marfim 120g (112 págs) + Papel Vegetal',
-                        value: 74,
+                        value: 80,
                     },
                     {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
-                        value: 74,
+                        value: 80,
                     },
                     {
                         name: 'Kraft 140g (112 págs) + Papel Vegetal',
-                        value: 78,
+                        value: 77,
                     },
                     {
                         name: 'Canson 140g (80 pags) + Papel Vegetal',
-                        value: 74,
+                        value: 84,
                     },
                     {
                         name: 'Canson 200g (80 págs) + Papel Vegetal',
-                        value: 82,
+                        value: 84,
                     },
                     {
                         name: 'Preto 180g (80 págs) + Papel Vegetal',
-                        value: 78,
+                        value: 85,
                     },
                     {
                         name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
-                        value: 95,
+                        value: 93,
                     },
                     {
                         name: 'Montval 300g (48 págs) + Papel Vegetal',
-                        value: 95,
+                        value: 93,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas) + Papel Vegetal',
-                        value: 142,
+                        value: 272,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas) + Papel Vegetal',
-                        value: 170,
+                        value: 265,
                     },
                 ],
             },
@@ -442,51 +322,51 @@ export default function Mandacaru() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso 120g (112 páginas)',
-                        value: 38,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado 120g (112 páginas)',
-                        value: 38,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado 120g (112 páginas)',
-                        value: 38,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado 120g (112 páginas)',
-                        value: 38,
-                    },
-                    {
-                        name: 'Papel Marfim Liso 120g (112 páginas)',
-                        value: 38,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado 120g (112 páginas)',
-                        value: 38,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado 120g (112 páginas)',
-                        value: 38,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado 120g (112 páginas)',
-                        value: 38,
-                    },
-                    {
-                        name: 'Papel Kraft 140g (112 páginas)',
-                        value: 42,
-                    },
-                    {
-                        name: 'Papel Canson 140g (80 páginas)',
                         value: 48,
                     },
                     {
+                        name: 'Papel Reciclado Pontilhado 120g (112 páginas)',
+                        value: 48,
+                    },
+                    {
+                        name: 'Papel Reciclado Quadriculado 120g (112 páginas)',
+                        value: 48,
+                    },
+                    {
+                        name: 'Papel Reciclado Pautado 120g (112 páginas)',
+                        value: 48,
+                    },
+                    {
+                        name: 'Papel Marfim Liso 120g (112 páginas)',
+                        value: 48,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado 120g (112 páginas)',
+                        value: 48,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado 120g (112 páginas)',
+                        value: 48,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado 120g (112 páginas)',
+                        value: 48,
+                    },
+                    {
+                        name: 'Papel Kraft 140g (112 páginas)',
+                        value: 45,
+                    },
+                    {
+                        name: 'Papel Canson 140g (80 páginas)',
+                        value: 52,
+                    },
+                    {
                         name: 'Papel Canson 200g (80 páginas)',
-                        value: 55,
+                        value: 63,
                     },
                     {
                         name: 'Papel Preto 180g (80 páginas)',
-                        value: 52,
+                        value: 62,
                     },
                     {
                         name: 'Papel Canson Aquarela 300g  (48 páginas)',
@@ -498,51 +378,51 @@ export default function Mandacaru() {
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas)',
-                        value: 115,
+                        value: 250,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas)',
-                        value: 170,
+                        value: 250,
                     },
                     {
                         name: 'Marfim 120g (112 págs) + Papel Vegetal',
-                        value: 74,
+                        value: 80,
                     },
                     {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
-                        value: 74,
+                        value: 80,
                     },
                     {
                         name: 'Kraft 140g (112 págs) + Papel Vegetal',
-                        value: 78,
+                        value: 77,
                     },
                     {
                         name: 'Canson 140g (80 pags) + Papel Vegetal',
-                        value: 74,
+                        value: 84,
                     },
                     {
                         name: 'Canson 200g (80 págs) + Papel Vegetal',
-                        value: 82,
+                        value: 85,
                     },
                     {
                         name: 'Preto 180g (80 págs) + Papel Vegetal',
-                        value: 78,
+                        value: 84,
                     },
                     {
                         name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
-                        value: 95,
+                        value: 93,
                     },
                     {
                         name: 'Montval 300g (48 págs) + Papel Vegetal',
-                        value: 95,
+                        value: 93,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas) + Papel Vegetal',
-                        value: 142,
+                        value: 272,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas) + Papel Vegetal',
-                        value: 188,
+                        value: 265,
                     },
                 ],
             },
@@ -560,35 +440,35 @@ export default function Mandacaru() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso 120g (112 páginas)',
-                        value: 25,
+                        value: 32,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado 120g (112 páginas)',
-                        value: 25,
+                        value: 32,
                     },
                     {
                         name: 'Papel Reciclado Quadriculado 120g (112 páginas)',
-                        value: 25,
+                        value: 32,
                     },
                     {
                         name: 'Papel Reciclado Pautado 120g (112 páginas)',
-                        value: 25,
+                        value: 32,
                     },
                     {
                         name: 'Papel Marfim Liso 120g (112 páginas)',
-                        value: 25,
+                        value: 32,
                     },
                     {
                         name: 'Papel Marfim Pontilhado 120g (112 páginas)',
-                        value: 25,
+                        value: 32,
                     },
                     {
                         name: 'Papel Marfim Quadriculado 120g (112 páginas)',
-                        value: 25,
+                        value: 32,
                     },
                     {
                         name: 'Papel Marfim Pautado 120g (112 páginas)',
-                        value: 25,
+                        value: 32,
                     },
                     {
                         name: 'Papel Kraft 140g (112 páginas)',
@@ -604,7 +484,7 @@ export default function Mandacaru() {
                     },
                     {
                         name: 'Papel Preto 180g (80 páginas)',
-                        value: 36,
+                        value: 38,
                     },
                     {
                         name: 'Papel Canson Aquarela 300g  (48 páginas)',
@@ -616,51 +496,51 @@ export default function Mandacaru() {
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas)',
-                        value: 65,
+                        value: 125,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas)',
-                        value: 72,
+                        value: 125,
                     },
                     {
                         name: 'Marfim 120g (112 págs) + Papel Vegetal',
-                        value: 43,
+                        value: 48,
                     },
                     {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
-                        value: 43,
+                        value: 48,
                     },
                     {
                         name: 'Kraft 140g (112 págs) + Papel Vegetal',
-                        value: 48,
+                        value: 46,
                     },
                     {
                         name: 'Canson 140g (80 pags) + Papel Vegetal',
-                        value: 48,
+                        value: 46,
                     },
                     {
                         name: 'Canson 200g (80 págs) + Papel Vegetal',
-                        value: 54,
+                        value: 52,
                     },
                     {
                         name: 'Preto 180g (80 págs) + Papel Vegetal',
-                        value: 50,
+                        value: 49,
                     },
                     {
                         name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
-                        value: 52,
+                        value: 53,
                     },
                     {
                         name: 'Montval 300g (48 págs) + Papel Vegetal',
-                        value: 52,
+                        value: 53,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas) + Papel Vegetal',
-                        value: 78,
+                        value: 136,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas) + Papel Vegetal',
-                        value: 82,
+                        value: 133,
                     },
                 ],
             },
@@ -678,35 +558,35 @@ export default function Mandacaru() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso 120g (112 páginas)',
-                        value: 25,
+                        value: 32,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado 120g (112 páginas)',
-                        value: 25,
+                        value: 32,
                     },
                     {
                         name: 'Papel Reciclado Quadriculado 120g (112 páginas)',
-                        value: 25,
+                        value: 32,
                     },
                     {
                         name: 'Papel Reciclado Pautado 120g (112 páginas)',
-                        value: 25,
+                        value: 32,
                     },
                     {
                         name: 'Papel Marfim Liso 120g (112 páginas)',
-                        value: 25,
+                        value: 32,
                     },
                     {
                         name: 'Papel Marfim Pontilhado 120g (112 páginas)',
-                        value: 25,
+                        value: 32,
                     },
                     {
                         name: 'Papel Marfim Quadriculado 120g (112 páginas)',
-                        value: 25,
+                        value: 32,
                     },
                     {
                         name: 'Papel Marfim Pautado 120g (112 páginas)',
-                        value: 25,
+                        value: 32,
                     },
                     {
                         name: 'Papel Kraft 140g (112 páginas)',
@@ -722,7 +602,7 @@ export default function Mandacaru() {
                     },
                     {
                         name: 'Papel Preto 180g (80 páginas)',
-                        value: 36,
+                        value: 38,
                     },
                     {
                         name: 'Papel Canson Aquarela 300g  (48 páginas)',
@@ -734,51 +614,51 @@ export default function Mandacaru() {
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas)',
-                        value: 65,
+                        value: 125,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas)',
-                        value: 72,
+                        value: 125,
                     },
                     {
                         name: 'Marfim 120g (112 págs) + Papel Vegetal',
-                        value: 43,
+                        value: 48,
                     },
                     {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
-                        value: 43,
+                        value: 48,
                     },
                     {
                         name: 'Kraft 140g (112 págs) + Papel Vegetal',
-                        value: 48,
+                        value: 46,
                     },
                     {
                         name: 'Canson 140g (80 pags) + Papel Vegetal',
-                        value: 48,
+                        value: 46,
                     },
                     {
                         name: 'Canson 200g (80 págs) + Papel Vegetal',
-                        value: 54,
+                        value: 52,
                     },
                     {
                         name: 'Preto 180g (80 págs) + Papel Vegetal',
-                        value: 50,
+                        value: 49,
                     },
                     {
                         name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
-                        value: 52,
+                        value: 53,
                     },
                     {
                         name: 'Montval 300g (48 págs) + Papel Vegetal',
-                        value: 52,
+                        value: 53,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas) + Papel Vegetal',
-                        value: 78,
+                        value: 136,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas) + Papel Vegetal',
-                        value: 82,
+                        value: 133,
                     },
                 ],
             },
@@ -809,7 +689,7 @@ export default function Mandacaru() {
                     },
                     {
                         name: 'Papel Canson 140g (80 páginas)',
-                        value: 16,
+                        value: 15,
                     },
                     {
                         name: 'Papel Canson 200g (80 páginas)',
@@ -821,59 +701,59 @@ export default function Mandacaru() {
                     },
                     {
                         name: 'Papel Canson Aquarela 300g  (48 páginas)',
-                        value: 20,
+                        value: 22,
                     },
                     {
                         name: 'Papel Montval 300g (48 páginas)',
-                        value: 20,
+                        value: 22,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas)',
-                        value: 35,
+                        value: 58,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas)',
-                        value: 30,
+                        value: 58,
                     },
                     {
                         name: 'Marfim 120g (112 págs) + Papel Vegetal',
-                        value: 24,
+                        value: 23,
                     },
                     {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
-                        value: 24,
+                        value: 23,
                     },
                     {
                         name: 'Kraft 140g (112 págs) + Papel Vegetal',
-                        value: 24,
+                        value: 22,
                     },
                     {
                         name: 'Canson 140g (80 pags) + Papel Vegetal',
-                        value: 25,
+                        value: 21,
                     },
                     {
                         name: 'Canson 200g (80 págs) + Papel Vegetal',
-                        value: 27,
+                        value: 24,
                     },
                     {
                         name: 'Preto 180g (80 págs) + Papel Vegetal',
-                        value: 26,
+                        value: 23,
                     },
                     {
                         name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
-                        value: 28,
+                        value: 26,
                     },
                     {
                         name: 'Montval 300g (48 págs) + Papel Vegetal',
-                        value: 28,
+                        value: 26,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas) + Papel Vegetal',
-                        value: 42,
+                        value: 64,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas) + Papel Vegetal',
-                        value: 35,
+                        value: 64,
                     },
                 ],
             },
@@ -904,7 +784,7 @@ export default function Mandacaru() {
                     },
                     {
                         name: 'Papel Canson 140g (80 páginas)',
-                        value: 16,
+                        value: 15,
                     },
                     {
                         name: 'Papel Canson 200g (80 páginas)',
@@ -916,27 +796,59 @@ export default function Mandacaru() {
                     },
                     {
                         name: 'Papel Canson Aquarela 300g  (48 páginas)',
-                        value: 20,
+                        value: 22,
                     },
                     {
                         name: 'Papel Montval 300g (48 páginas)',
-                        value: 20,
+                        value: 22,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas)',
-                        value: 35,
+                        value: 58,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas)',
-                        value: 30,
+                        value: 58,
+                    },
+                    {
+                        name: 'Marfim 120g (112 págs) + Papel Vegetal',
+                        value: 23,
+                    },
+                    {
+                        name: 'Reciclado 120g (112 págs) + Papel Vegetal',
+                        value: 23,
+                    },
+                    {
+                        name: 'Kraft 140g (112 págs) + Papel Vegetal',
+                        value: 22,
+                    },
+                    {
+                        name: 'Canson 140g (80 pags) + Papel Vegetal',
+                        value: 21,
+                    },
+                    {
+                        name: 'Canson 200g (80 págs) + Papel Vegetal',
+                        value: 24,
+                    },
+                    {
+                        name: 'Preto 180g (80 págs) + Papel Vegetal',
+                        value: 23,
+                    },
+                    {
+                        name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
+                        value: 26,
+                    },
+                    {
+                        name: 'Montval 300g (48 págs) + Papel Vegetal',
+                        value: 26,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas) + Papel Vegetal',
-                        value: 42,
+                        value: 64,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas) + Papel Vegetal',
-                        value: 35,
+                        value: 64,
                     },
                 ],
             },
@@ -953,39 +865,39 @@ export default function Mandacaru() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso 120g (112 páginas)',
-                        value: 60,
+                        value: 84,
                     },
                     {
                         name: 'Papel Marfim Liso 120g (112 páginas)',
-                        value: 60,
+                        value: 84,
                     },
                     {
                         name: 'Papel Kraft 140g (112 páginas)',
-                        value: 65,
+                        value: 70,
                     },
                     {
                         name: 'Papel Canson 200g (80 páginas)',
-                        value: 85,
+                        value: 108,
                     },
                     {
                         name: 'Papel Preto 180g (80 páginas)',
-                        value: 82,
+                        value: 97,
                     },
                     {
                         name: 'Papel Canson Aquarela 300g  (48 páginas)',
-                        value: 115,
+                        value: 132,
                     },
                     {
                         name: 'Marfim 120g (112 págs) + Papel Vegetal',
-                        value: 132,
+                        value: 148,
                     },
                     {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
-                        value: 132,
+                        value: 148,
                     },
                     {
                         name: 'Kraft 140g (112 págs) + Papel Vegetal',
-                        value: 136,
+                        value: 134,
                     },
                     {
                         name: 'Canson 140g (80 pags) + Papel Vegetal',
@@ -993,15 +905,15 @@ export default function Mandacaru() {
                     },
                     {
                         name: 'Canson 200g (80 págs) + Papel Vegetal',
-                        value: 138,
+                        value: 152,
                     },
                     {
                         name: 'Preto 180g (80 págs) + Papel Vegetal',
-                        value: 134,
+                        value: 142,
                     },
                     {
                         name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
-                        value: 148,
+                        value: 162,
                     },
                 ],
             },
@@ -1018,51 +930,55 @@ export default function Mandacaru() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso 120g (112 páginas)',
-                        value: 60,
+                        value: 84,
                     },
                     {
                         name: 'Papel Marfim Liso 120g (112 páginas)',
-                        value: 60,
+                        value: 84,
                     },
                     {
                         name: 'Papel Kraft 140g (112 páginas)',
-                        value: 65,
+                        value: 70,
                     },
                     {
-                        name: 'Papel Canson 140g  (80 páginas)',
-                        value: 75,
+                        name: 'Papel Canson 140g (80 páginas)',
+                        value: 84,
                     },
                     {
                         name: 'Papel Canson 200g (80 páginas)',
-                        value: 85,
+                        value: 108,
                     },
                     {
                         name: 'Papel Preto 180g (80 páginas)',
-                        value: 82,
+                        value: 97,
                     },
                     {
                         name: 'Papel Canson Aquarela 300g  (48 páginas)',
-                        value: 115,
+                        value: 132,
+                    },
+                    {
+                        name: 'Papel Montval 300g (48 páginas)',
+                        value: 132,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas)',
-                        value: 220,
+                        value: 385,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas)',
-                        value: 245,
+                        value: 402,
                     },
                     {
                         name: 'Marfim 120g (112 págs) + Papel Vegetal',
-                        value: 132,
+                        value: 148,
                     },
                     {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
-                        value: 132,
+                        value: 148,
                     },
                     {
                         name: 'Kraft 140g (112 págs) + Papel Vegetal',
-                        value: 136,
+                        value: 134,
                     },
                     {
                         name: 'Canson 140g (80 pags) + Papel Vegetal',
@@ -1070,27 +986,27 @@ export default function Mandacaru() {
                     },
                     {
                         name: 'Canson 200g (80 págs) + Papel Vegetal',
-                        value: 138,
+                        value: 152,
                     },
                     {
                         name: 'Preto 180g (80 págs) + Papel Vegetal',
-                        value: 134,
+                        value: 142,
                     },
                     {
                         name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
-                        value: 148,
+                        value: 162,
                     },
                     {
                         name: 'Montval 300g (48 págs) + Papel Vegetal',
-                        value: 148,
+                        value: 162,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas) + Papel Vegetal',
-                        value: 272,
+                        value: 415,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas) + Papel Vegetal',
-                        value: 278,
+                        value: 432,
                     },
                 ],
             },

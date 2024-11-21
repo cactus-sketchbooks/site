@@ -62,181 +62,6 @@ export default function Facheiro() {
         name: 'Facheiro',
         formats: [
             {
-                name: 'A3 - Paisagem (29x42 cm)',
-                id: 401,
-                size: {
-                    width: 29.7,
-                    length: 42,
-                    height: 3,
-                    // height: 2.5,
-                    weight: 0.5,
-                },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso 120g 120g (112 páginas)',
-                        value: 97,
-                    },
-                    {
-                        name: 'Papel Marfim Liso 120g 120g (112 páginas)',
-                        value: 97,
-                    },
-                    {
-                        name: 'Papel Kraft 140g (112 páginas)',
-                        value: 102,
-                    },
-                    {
-                        name: 'Papel Canson 140g (80 páginas)',
-                        value: 132,
-                    },
-                    {
-                        name: 'Papel Canson 200g (80 páginas)',
-                        value: 152,
-                    },
-                    {
-                        name: 'Papel Preto 180g (80 páginas)',
-                        value: 139,
-                    },
-                    {
-                        name: 'Papel Canson Aquarela 300g  (48 páginas)',
-                        value: 225,
-                    },
-                    {
-                        name: 'Papel Montval 300g (48 páginas)',
-                        value: 225,
-                    },
-                    {
-                        name: 'Papel Strathmore Bristol 270g (80 páginas)',
-                        value: 410,
-                    },
-                    {
-                        name: 'Papel Hahnemühle Expression 300g (48 páginas)',
-                        value: 495,
-                    },
-                    {
-                        name: 'Papel Marfim 120g (112 págs) + Papel Vegetal',
-                        value: 232,
-                    },
-                    {
-                        name: 'Reciclado 120g (112 págs) + Papel Vegetal',
-                        value: 232,
-                    },
-                    {
-                        name: 'Kraft 140g (112 págs) + Papel Vegetal',
-                        value: 237,
-                    },
-                    {
-                        name: 'Canson 200g (80 págs) + Papel Vegetal',
-                        value: 254,
-                    },
-                    {
-                        name: 'Preto 180g (80 págs) + Papel Vegetal',
-                        value: 252,
-                    },
-                    {
-                        name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
-                        value: 280,
-                    },
-                    {
-                        name: 'Montval 300g (48 págs) + Papel Vegetal',
-                        value: 280,
-                    },
-                    {
-                        name: 'Papel Strathmore Bristol 270g (80 páginas) + Papel Vegetal',
-                        value: 515,
-                    },
-                    {
-                        name: 'Papel Hahnemühle Expression 300g (48 páginas) + Papel Vegetal',
-                        value: 566,
-                    },
-                ],
-            },
-            {
-                name: 'A3 - Retrato (42x29 cm)',
-                id: 402,
-                size: {
-                    // width: 29.7,
-                    width: 30,
-                    length: 42,
-                    // height: 2.5,
-                    height: 3,
-                    weight: 0.5,
-                },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso 120g (112 páginas)',
-                        value: 90,
-                    },
-                    {
-                        name: 'Papel Marfim Liso 120g (112 páginas)',
-                        value: 90,
-                    },
-                    {
-                        name: 'Papel Kraft 140g (112 páginas)',
-                        value: 95,
-                    },
-                    {
-                        name: 'Papel Canson 140g (80 páginas)',
-                        value: 140,
-                    },
-                    {
-                        name: 'Papel Canson 200g (80 páginas)',
-                        value: 150,
-                    },
-                    {
-                        name: 'Papel Preto 180g (80 páginas)',
-                        value: 148,
-                    },
-                    {
-                        name: 'Papel Canson Aquarela 300g  (48 páginas)',
-                        value: 215,
-                    },
-                    {
-                        name: 'Papel Strathmore Bristol 270g (80 páginas)',
-                        value: 410,
-                    },
-                    {
-                        name: 'Papel Hahnemühle Expression 300g (48 páginas)',
-                        value: 495,
-                    },
-                    {
-                        name: 'Papel Marfim 120g (112 págs) + Papel Vegetal',
-                        value: 232,
-                    },
-                    {
-                        name: 'Reciclado 120g (112 págs) + Papel Vegetal',
-                        value: 232,
-                    },
-                    {
-                        name: 'Kraft 140g (112 págs) + Papel Vegetal',
-                        value: 237,
-                    },
-                    {
-                        name: 'Canson 200g (80 págs) + Papel Vegetal',
-                        value: 254,
-                    },
-                    {
-                        name: 'Preto 180g (80 págs) + Papel Vegetal',
-                        value: 252,
-                    },
-                    {
-                        name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
-                        value: 280,
-                    },
-                    {
-                        name: 'Montval 300g (48 págs) + Papel Vegetal',
-                        value: 280,
-                    },
-                    {
-                        name: 'Papel Strathmore Bristol 270g (80 páginas) + Papel Vegetal',
-                        value: 515,
-                    },
-                    {
-                        name: 'Papel Hahnemühle Expression 300g (48 páginas) + Papel Vegetal',
-                        value: 566,
-                    },
-                ],
-            },
-            {
                 name: 'A4 - Paisagem (21x29 cm)',
                 id: 403,
                 size: {
@@ -249,79 +74,79 @@ export default function Facheiro() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Reciclado Quadriculado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Reciclado Pautado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Marfim Liso 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Marfim Pontilhado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Marfim Quadriculado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Marfim Pautado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Kraft 140g (112 páginas)',
-                        value: 72,
+                        value: 70,
                     },
                     {
                         name: 'Papel Canson 140g (80 páginas)',
-                        value: 82,
+                        value: 84,
                     },
                     {
                         name: 'Papel Canson 200g (80 páginas)',
-                        value: 92,
+                        value: 84,
                     },
                     {
                         name: 'Papel Preto 180g (80 páginas)',
-                        value: 85,
+                        value: 97,
                     },
                     {
                         name: 'Papel Canson Aquarela 300g  (48 páginas)',
-                        value: 122,
+                        value: 132,
                     },
                     {
                         name: 'Papel Montval 300g (48 páginas)',
-                        value: 122,
+                        value: 132,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas)',
-                        value: 228,
+                        value: 385,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas)',
-                        value: 252,
+                        value: 402,
                     },
                     {
                         name: 'Marfim 120g (112 págs) + Papel Vegetal',
-                        value: 132,
+                        value: 148,
                     },
                     {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
-                        value: 132,
+                        value: 148,
                     },
                     {
                         name: 'Kraft 140g (112 págs) + Papel Vegetal',
-                        value: 136,
+                        value: 134,
                     },
                     {
                         name: 'Canson 140g (80 pags) + Papel Vegetal',
@@ -329,27 +154,27 @@ export default function Facheiro() {
                     },
                     {
                         name: 'Canson 200g (80 págs) + Papel Vegetal',
-                        value: 138,
+                        value: 152,
                     },
                     {
                         name: 'Preto 180g (80 págs) + Papel Vegetal',
-                        value: 134,
+                        value: 142,
                     },
                     {
                         name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
-                        value: 148,
+                        value: 162,
                     },
                     {
                         name: 'Montval 300g (48 págs) + Papel Vegetal',
-                        value: 148,
+                        value: 162,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas) + Papel Vegetal',
-                        value: 280,
+                        value: 415,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas) + Papel Vegetal',
-                        value: 288,
+                        value: 432,
                     },
                 ],
             },
@@ -366,79 +191,79 @@ export default function Facheiro() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Reciclado Quadriculado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Reciclado Pautado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Marfim Liso 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Marfim Pontilhado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Marfim Quadriculado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Marfim Pautado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Kraft 140g (112 páginas)',
-                        value: 72,
+                        value: 70,
                     },
                     {
                         name: 'Papel Canson 140g (80 páginas)',
-                        value: 82,
+                        value: 84,
                     },
                     {
                         name: 'Papel Canson 200g (80 páginas)',
-                        value: 92,
+                        value: 84,
                     },
                     {
                         name: 'Papel Preto 180g (80 páginas)',
-                        value: 85,
+                        value: 97,
                     },
                     {
                         name: 'Papel Canson Aquarela 300g  (48 páginas)',
-                        value: 122,
+                        value: 132,
                     },
                     {
                         name: 'Papel Montval 300g (48 páginas)',
-                        value: 122,
+                        value: 132,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas)',
-                        value: 228,
+                        value: 385,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas)',
-                        value: 252,
+                        value: 402,
                     },
                     {
                         name: 'Marfim 120g (112 págs) + Papel Vegetal',
-                        value: 132,
+                        value: 148,
                     },
                     {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
-                        value: 132,
+                        value: 148,
                     },
                     {
                         name: 'Kraft 140g (112 págs) + Papel Vegetal',
-                        value: 136,
+                        value: 134,
                     },
                     {
                         name: 'Canson 140g (80 pags) + Papel Vegetal',
@@ -446,27 +271,27 @@ export default function Facheiro() {
                     },
                     {
                         name: 'Canson 200g (80 págs) + Papel Vegetal',
-                        value: 138,
+                        value: 152,
                     },
                     {
                         name: 'Preto 180g (80 págs) + Papel Vegetal',
-                        value: 134,
+                        value: 142,
                     },
                     {
                         name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
-                        value: 148,
+                        value: 162,
                     },
                     {
                         name: 'Montval 300g (48 págs) + Papel Vegetal',
-                        value: 148,
+                        value: 162,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas) + Papel Vegetal',
-                        value: 280,
+                        value: 415,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas) + Papel Vegetal',
-                        value: 288,
+                        value: 432,
                     },
                 ],
             },
@@ -483,107 +308,107 @@ export default function Facheiro() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso 120g (112 páginas)',
-                        value: 40,
+                        value: 48,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado 120g (112 páginas)',
-                        value: 40,
+                        value: 48,
                     },
                     {
                         name: 'Papel Reciclado Quadriculado 120g (112 páginas)',
-                        value: 40,
+                        value: 48,
                     },
                     {
                         name: 'Papel Reciclado Pautado 120g (112 páginas)',
-                        value: 40,
+                        value: 48,
                     },
                     {
                         name: 'Papel Marfim Liso 120g (112 páginas)',
-                        value: 40,
+                        value: 48,
                     },
                     {
                         name: 'Papel Marfim Pontilhado 120g (112 páginas)',
-                        value: 40,
+                        value: 48,
                     },
                     {
                         name: 'Papel Marfim Quadriculado 120g (112 páginas)',
-                        value: 40,
+                        value: 48,
                     },
                     {
                         name: 'Papel Marfim Pautado 120g (112 páginas)',
-                        value: 40,
+                        value: 48,
                     },
                     {
                         name: 'Papel Kraft 140g (112 páginas)',
-                        value: 44,
+                        value: 45,
                     },
                     {
                         name: 'Papel Canson 140g (80 páginas)',
-                        value: 50,
+                        value: 52,
                     },
                     {
                         name: 'Papel Canson 200g (80 páginas)',
-                        value: 57,
+                        value: 63,
                     },
                     {
                         name: 'Papel Preto 180g (80 páginas)',
-                        value: 54,
+                        value: 62,
                     },
                     {
                         name: 'Papel Canson Aquarela 300g  (48 páginas)',
-                        value: 80,
+                        value: 78,
                     },
                     {
                         name: 'Papel Montval 300g (48 páginas)',
-                        value: 80,
+                        value: 78,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas)',
-                        value: 124,
+                        value: 250,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas)',
-                        value: 182,
+                        value: 250,
                     },
                     {
                         name: 'Marfim 120g (112 págs) + Papel Vegetal',
-                        value: 74,
+                        value: 80,
                     },
                     {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
-                        value: 74,
+                        value: 80,
                     },
                     {
                         name: 'Kraft 140g (112 págs) + Papel Vegetal',
-                        value: 78,
+                        value: 77,
                     },
                     {
                         name: 'Canson 140g (80 pags) + Papel Vegetal',
-                        value: 74,
+                        value: 84,
                     },
                     {
                         name: 'Canson 200g (80 págs) + Papel Vegetal',
-                        value: 82,
+                        value: 85,
                     },
                     {
                         name: 'Preto 180g (80 págs) + Papel Vegetal',
-                        value: 78,
+                        value: 84,
                     },
                     {
                         name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
-                        value: 95,
+                        value: 93,
                     },
                     {
                         name: 'Montval 300g (48 págs) + Papel Vegetal',
-                        value: 95,
+                        value: 93,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas) + Papel Vegetal',
-                        value: 150,
+                        value: 272,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas) + Papel Vegetal',
-                        value: 202,
+                        value: 265,
                     },
                 ],
             },
@@ -600,107 +425,107 @@ export default function Facheiro() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso 120g (112 páginas)',
-                        value: 40,
+                        value: 48,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado 120g (112 páginas)',
-                        value: 40,
+                        value: 48,
                     },
                     {
                         name: 'Papel Reciclado Quadriculado 120g (112 páginas)',
-                        value: 40,
+                        value: 48,
                     },
                     {
                         name: 'Papel Reciclado Pautado 120g (112 páginas)',
-                        value: 40,
+                        value: 48,
                     },
                     {
                         name: 'Papel Marfim Liso 120g (112 páginas)',
-                        value: 40,
+                        value: 48,
                     },
                     {
                         name: 'Papel Marfim Pontilhado 120g (112 páginas)',
-                        value: 40,
+                        value: 48,
                     },
                     {
                         name: 'Papel Marfim Quadriculado 120g (112 páginas)',
-                        value: 40,
+                        value: 48,
                     },
                     {
                         name: 'Papel Marfim Pautado 120g (112 páginas)',
-                        value: 40,
+                        value: 48,
                     },
                     {
                         name: 'Papel Kraft 140g (112 páginas)',
-                        value: 44,
+                        value: 45,
                     },
                     {
                         name: 'Papel Canson 140g (80 páginas)',
-                        value: 50,
+                        value: 52,
                     },
                     {
                         name: 'Papel Canson 200g (80 páginas)',
-                        value: 57,
+                        value: 63,
                     },
                     {
                         name: 'Papel Preto 180g (80 páginas)',
-                        value: 54,
+                        value: 62,
                     },
                     {
                         name: 'Papel Canson Aquarela 300g  (48 páginas)',
-                        value: 80,
+                        value: 78,
                     },
                     {
                         name: 'Papel Montval 300g (48 páginas)',
-                        value: 80,
+                        value: 78,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas)',
-                        value: 124,
+                        value: 250,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas)',
-                        value: 182,
+                        value: 250,
                     },
                     {
                         name: 'Marfim 120g (112 págs) + Papel Vegetal',
-                        value: 74,
+                        value: 80,
                     },
                     {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
-                        value: 74,
+                        value: 80,
                     },
                     {
                         name: 'Kraft 140g (112 págs) + Papel Vegetal',
-                        value: 78,
+                        value: 77,
                     },
                     {
                         name: 'Canson 140g (80 pags) + Papel Vegetal',
-                        value: 74,
+                        value: 84,
                     },
                     {
                         name: 'Canson 200g (80 págs) + Papel Vegetal',
-                        value: 82,
+                        value: 85,
                     },
                     {
                         name: 'Preto 180g (80 págs) + Papel Vegetal',
-                        value: 78,
+                        value: 84,
                     },
                     {
                         name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
-                        value: 95,
+                        value: 93,
                     },
                     {
                         name: 'Montval 300g (48 págs) + Papel Vegetal',
-                        value: 95,
+                        value: 93,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas) + Papel Vegetal',
-                        value: 150,
+                        value: 272,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas) + Papel Vegetal',
-                        value: 202,
+                        value: 265,
                     },
                 ],
             },
@@ -717,107 +542,107 @@ export default function Facheiro() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso 120g (112 páginas)',
-                        value: 28,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado 120g (112 páginas)',
-                        value: 28,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado 120g (112 páginas)',
-                        value: 28,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado 120g (112 páginas)',
-                        value: 28,
-                    },
-                    {
-                        name: 'Papel Marfim Liso 120g (112 páginas)',
-                        value: 28,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado 120g (112 páginas)',
-                        value: 28,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado 120g (112 páginas)',
-                        value: 28,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado 120g (112 páginas)',
-                        value: 28,
-                    },
-                    {
-                        name: 'Papel Kraft 140g (112 páginas)',
                         value: 32,
                     },
                     {
+                        name: 'Papel Reciclado Pontilhado 120g (112 páginas)',
+                        value: 32,
+                    },
+                    {
+                        name: 'Papel Reciclado Quadriculado 120g (112 páginas)',
+                        value: 32,
+                    },
+                    {
+                        name: 'Papel Reciclado Pautado 120g (112 páginas)',
+                        value: 32,
+                    },
+                    {
+                        name: 'Papel Marfim Liso 120g (112 páginas)',
+                        value: 32,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado 120g (112 páginas)',
+                        value: 32,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado 120g (112 páginas)',
+                        value: 32,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado 120g (112 páginas)',
+                        value: 32,
+                    },
+                    {
+                        name: 'Papel Kraft 140g (112 páginas)',
+                        value: 30,
+                    },
+                    {
                         name: 'Papel Canson 140g (80 páginas)',
-                        value: 38,
+                        value: 35,
                     },
                     {
                         name: 'Papel Canson 200g (80 páginas)',
-                        value: 42,
+                        value: 40,
                     },
                     {
                         name: 'Papel Preto 180g (80 páginas)',
-                        value: 39,
+                        value: 38,
                     },
                     {
                         name: 'Papel Canson Aquarela 300g  (48 páginas)',
-                        value: 48,
+                        value: 45,
                     },
                     {
                         name: 'Papel Montval 300g (48 páginas)',
-                        value: 48,
+                        value: 45,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas)',
-                        value: 72,
+                        value: 125,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas)',
-                        value: 74,
+                        value: 125,
                     },
                     {
                         name: 'Marfim 120g (112 págs) + Papel Vegetal',
-                        value: 43,
+                        value: 48,
                     },
                     {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
-                        value: 43,
+                        value: 48,
                     },
                     {
                         name: 'Kraft 140g (112 págs) + Papel Vegetal',
-                        value: 48,
+                        value: 46,
                     },
                     {
                         name: 'Canson 140g (80 pags) + Papel Vegetal',
-                        value: 48,
+                        value: 46,
                     },
                     {
                         name: 'Canson 200g (80 págs) + Papel Vegetal',
-                        value: 54,
+                        value: 52,
                     },
                     {
                         name: 'Preto 180g (80 págs) + Papel Vegetal',
-                        value: 50,
+                        value: 49,
                     },
                     {
                         name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
-                        value: 52,
+                        value: 53,
                     },
                     {
                         name: 'Montval 300g (48 págs) + Papel Vegetal',
-                        value: 52,
+                        value: 53,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas) + Papel Vegetal',
-                        value: 85,
+                        value: 136,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas) + Papel Vegetal',
-                        value: 90,
+                        value: 133,
                     },
                 ],
             },
@@ -834,107 +659,107 @@ export default function Facheiro() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso 120g (112 páginas)',
-                        value: 28,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado 120g (112 páginas)',
-                        value: 28,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado 120g (112 páginas)',
-                        value: 28,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado 120g (112 páginas)',
-                        value: 28,
-                    },
-                    {
-                        name: 'Papel Marfim Liso 120g (112 páginas)',
-                        value: 28,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado 120g (112 páginas)',
-                        value: 28,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado 120g (112 páginas)',
-                        value: 28,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado 120g (112 páginas)',
-                        value: 28,
-                    },
-                    {
-                        name: 'Papel Kraft 140g (112 páginas)',
                         value: 32,
                     },
                     {
+                        name: 'Papel Reciclado Pontilhado 120g (112 páginas)',
+                        value: 32,
+                    },
+                    {
+                        name: 'Papel Reciclado Quadriculado 120g (112 páginas)',
+                        value: 32,
+                    },
+                    {
+                        name: 'Papel Reciclado Pautado 120g (112 páginas)',
+                        value: 32,
+                    },
+                    {
+                        name: 'Papel Marfim Liso 120g (112 páginas)',
+                        value: 32,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado 120g (112 páginas)',
+                        value: 32,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado 120g (112 páginas)',
+                        value: 32,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado 120g (112 páginas)',
+                        value: 32,
+                    },
+                    {
+                        name: 'Papel Kraft 140g (112 páginas)',
+                        value: 30,
+                    },
+                    {
                         name: 'Papel Canson 140g (80 páginas)',
-                        value: 38,
+                        value: 35,
                     },
                     {
                         name: 'Papel Canson 200g (80 páginas)',
-                        value: 42,
+                        value: 40,
                     },
                     {
                         name: 'Papel Preto 180g (80 páginas)',
-                        value: 39,
+                        value: 38,
                     },
                     {
                         name: 'Papel Canson Aquarela 300g  (48 páginas)',
-                        value: 48,
+                        value: 45,
                     },
                     {
                         name: 'Papel Montval 300g (48 páginas)',
-                        value: 48,
+                        value: 45,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas)',
-                        value: 72,
+                        value: 125,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas)',
-                        value: 74,
+                        value: 125,
                     },
                     {
                         name: 'Marfim 120g (112 págs) + Papel Vegetal',
-                        value: 43,
+                        value: 48,
                     },
                     {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
-                        value: 43,
+                        value: 48,
                     },
                     {
                         name: 'Kraft 140g (112 págs) + Papel Vegetal',
-                        value: 48,
+                        value: 46,
                     },
                     {
                         name: 'Canson 140g (80 pags) + Papel Vegetal',
-                        value: 48,
+                        value: 46,
                     },
                     {
                         name: 'Canson 200g (80 págs) + Papel Vegetal',
-                        value: 54,
+                        value: 52,
                     },
                     {
                         name: 'Preto 180g (80 págs) + Papel Vegetal',
-                        value: 50,
+                        value: 49,
                     },
                     {
                         name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
-                        value: 52,
+                        value: 53,
                     },
                     {
                         name: 'Montval 300g (48 págs) + Papel Vegetal',
-                        value: 52,
+                        value: 53,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas) + Papel Vegetal',
-                        value: 85,
+                        value: 136,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas) + Papel Vegetal',
-                        value: 90,
+                        value: 133,
                     },
                 ],
             },
@@ -951,71 +776,79 @@ export default function Facheiro() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso 120g (112 páginas)',
-                        value: 67,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
+                    },
+                    {
+                        name: 'Papel Reciclado Quadriculado 120g (112 páginas)',
+                        value: 84,
+                    },
+                    {
+                        name: 'Papel Reciclado Pautado 120g (112 páginas)',
+                        value: 84,
                     },
                     {
                         name: 'Papel Marfim Liso 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Marfim Pontilhado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Marfim Quadriculado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado 120g (112 páginas)',
+                        value: 84,
                     },
                     {
                         name: 'Papel Kraft 140g (112 páginas)',
-                        value: 72,
+                        value: 70,
                     },
                     {
                         name: 'Papel Canson 140g (80 páginas)',
-                        value: 82,
+                        value: 84,
                     },
                     {
                         name: 'Papel Canson 200g (80 páginas)',
-                        value: 92,
+                        value: 84,
                     },
                     {
                         name: 'Papel Preto 180g (80 páginas)',
-                        value: 85,
+                        value: 97,
                     },
                     {
                         name: 'Papel Canson Aquarela 300g  (48 páginas)',
-                        value: 122,
+                        value: 132,
                     },
                     {
                         name: 'Papel Montval 300g (48 páginas)',
-                        value: 122,
+                        value: 132,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas)',
-                        value: 228,
+                        value: 385,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas)',
-                        value: 252,
+                        value: 402,
                     },
                     {
                         name: 'Marfim 120g (112 págs) + Papel Vegetal',
-                        value: 132,
+                        value: 148,
                     },
                     {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
-                        value: 132,
+                        value: 148,
                     },
                     {
                         name: 'Kraft 140g (112 págs) + Papel Vegetal',
-                        value: 136,
+                        value: 134,
                     },
                     {
                         name: 'Canson 140g (80 pags) + Papel Vegetal',
@@ -1023,27 +856,27 @@ export default function Facheiro() {
                     },
                     {
                         name: 'Canson 200g (80 págs) + Papel Vegetal',
-                        value: 138,
+                        value: 152,
                     },
                     {
                         name: 'Preto 180g (80 págs) + Papel Vegetal',
-                        value: 134,
+                        value: 142,
                     },
                     {
                         name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
-                        value: 148,
+                        value: 162,
                     },
                     {
                         name: 'Montval 300g (48 págs) + Papel Vegetal',
-                        value: 148,
+                        value: 162,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas) + Papel Vegetal',
-                        value: 280,
+                        value: 415,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas) + Papel Vegetal',
-                        value: 288,
+                        value: 432,
                     },
                 ],
             },
@@ -1060,99 +893,99 @@ export default function Facheiro() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso 120g (112 páginas)',
-                        value: 40,
+                        value: 48,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado 120g (112 páginas)',
-                        value: 40,
+                        value: 48,
                     },
                     {
                         name: 'Papel Reciclado Quadriculado 120g (112 páginas)',
-                        value: 40,
+
                     },
                     {
                         name: 'Papel Marfim Liso 120g (112 páginas)',
-                        value: 40,
+                        value: 48,
                     },
                     {
                         name: 'Papel Marfim Pontilhado 120g (112 páginas)',
-                        value: 40,
+                        value: 48,
                     },
                     {
                         name: 'Papel Marfim Quadriculado 120g (112 páginas)',
-                        value: 40,
+
                     },
                     {
                         name: 'Papel Kraft 140g (112 páginas)',
-                        value: 44,
+                        value: 45,
                     },
                     {
                         name: 'Papel Canson 140g (80 páginas)',
-                        value: 50,
+                        value: 52,
                     },
                     {
                         name: 'Papel Canson 200g (80 páginas)',
-                        value: 57,
+                        value: 63,
                     },
                     {
                         name: 'Papel Preto 180g (80 páginas)',
-                        value: 54,
+                        value: 62,
                     },
                     {
                         name: 'Papel Canson Aquarela 300g  (48 páginas)',
-                        value: 80,
+                        value: 78,
                     },
                     {
                         name: 'Papel Montval 300g (48 páginas)',
-                        value: 80,
+                        value: 78,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas)',
-                        value: 124,
+                        value: 250,
                     },
                     {
-                        name: 'Papel Papel Hahnemühle Expression 300g (48 páginas)',
-                        value: 182,
+                        name: 'Papel Hahnemühle Expression 300g (48 páginas)',
+                        value: 250,
                     },
                     {
                         name: 'Marfim 120g (112 págs) + Papel Vegetal',
-                        value: 74,
+                        value: 80,
                     },
                     {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
-                        value: 74,
+                        value: 80,
                     },
                     {
                         name: 'Kraft 140g (112 págs) + Papel Vegetal',
-                        value: 78,
+                        value: 77,
                     },
                     {
                         name: 'Canson 140g (80 pags) + Papel Vegetal',
-                        value: 74,
+                        value: 84,
                     },
                     {
                         name: 'Canson 200g (80 págs) + Papel Vegetal',
-                        value: 82,
+                        value: 85,
                     },
                     {
                         name: 'Preto 180g (80 págs) + Papel Vegetal',
-                        value: 78,
+                        value: 84,
                     },
                     {
                         name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
-                        value: 95,
+                        value: 93,
                     },
                     {
                         name: 'Montval 300g (48 págs) + Papel Vegetal',
-                        value: 95,
+                        value: 93,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas) + Papel Vegetal',
-                        value: 150,
+                        value: 272,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas) + Papel Vegetal',
-                        value: 202,
+                        value: 265,
                     },
                 ],
             },
@@ -1169,91 +1002,87 @@ export default function Facheiro() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso 120g (112 páginas)',
-                        value: 28,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado 120g (112 páginas)',
-                        value: 28,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado 120g (112 páginas)',
-                        value: 28,
-                    },
-                    {
-                        name: 'Papel Marfim Liso 120g (112 páginas)',
-                        value: 28,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado 120g (112 páginas)',
-                        value: 28,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado 120g (112 páginas)',
-                        value: 28,
-                    },
-                    {
-                        name: 'Papel Kraft 140g (112 páginas)',
                         value: 32,
                     },
                     {
+                        name: 'Papel Reciclado Pontilhado 120g (112 páginas)',
+                        value: 32,
+                    },
+                    {
+                        name: 'Papel Reciclado Quadriculado 120g (112 páginas)',
+                        value: 32,
+                    },
+                    {
+                        name: 'Papel Marfim Liso 120g (112 páginas)',
+                        value: 32,
+                    },
+                    {
+                        name: 'Papel Marfim Pontilhado 120g (112 páginas)',
+                        value: 32,
+                    },
+                    {
+                        name: 'Papel Marfim Quadriculado 120g (112 páginas)',
+                        value: 32,
+                    },
+                    {
+                        name: 'Papel Kraft 140g (112 páginas)',
+                        value: 30,
+                    },
+                    {
                         name: 'Papel Canson 140g (80 páginas)',
-                        value: 38,
+                        value: 35,
                     },
                     {
                         name: 'Papel Canson 200g (80 páginas)',
-                        value: 42,
+                        value: 40,
                     },
                     {
                         name: 'Papel Preto 180g (80 páginas)',
-                        value: 39,
+                        value: 38,
                     },
                     {
                         name: 'Papel Canson Aquarela 300g  (48 páginas)',
-                        value: 48,
+                        value: 45,
                     },
                     {
                         name: 'Papel Montval 300g (48 páginas)',
-                        value: 48,
-                    },
-                    {
-                        name: 'Papel Papel Hahnemühle Expression 300g (48 páginas)',
-                        value: 80,
+                        value: 45,
                     },
                     {
                         name: 'Marfim 120g (112 págs) + Papel Vegetal',
-                        value: 43,
+                        value: 48,
                     },
                     {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
-                        value: 43,
+                        value: 48,
                     },
                     {
                         name: 'Kraft 140g (112 págs) + Papel Vegetal',
-                        value: 48,
+                        value: 46,
                     },
                     {
                         name: 'Canson 140g (80 pags) + Papel Vegetal',
-                        value: 48,
+                        value: 46,
                     },
                     {
                         name: 'Canson 200g (80 págs) + Papel Vegetal',
-                        value: 54,
+                        value: 52,
                     },
                     {
                         name: 'Preto 180g (80 págs) + Papel Vegetal',
-                        value: 50,
+                        value: 49,
                     },
                     {
                         name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
-                        value: 52,
+                        value: 53,
                     },
                     {
                         name: 'Montval 300g (48 págs) + Papel Vegetal',
-                        value: 52,
+
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas) + Papel Vegetal',
-                        value: 90,
+                        value: 133,
                     },
                 ],
             },
@@ -1267,74 +1096,82 @@ export default function Facheiro() {
                     // height: 2.5,
                     weight: 0.5,
                 },
-                types: [
+              types: [
                     {
                         name: 'Papel Reciclado Liso 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Reciclado Quadriculado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Reciclado Pautado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Marfim Liso 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Marfim Pontilhado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Marfim Quadriculado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Marfim Pautado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Kraft 140g (112 páginas)',
-                        value: 72,
+                        value: 70,
                     },
                     {
                         name: 'Papel Canson 140g (80 páginas)',
-                        value: 82,
+                        value: 84,
                     },
                     {
                         name: 'Papel Canson 200g (80 páginas)',
-                        value: 92,
+                        value: 84,
                     },
                     {
                         name: 'Papel Preto 180g (80 páginas)',
-                        value: 85,
+                        value: 97,
                     },
                     {
                         name: 'Papel Canson Aquarela 300g  (48 páginas)',
-                        value: 122,
+                        value: 132,
                     },
                     {
                         name: 'Papel Montval 300g (48 páginas)',
-                        value: 122,
+                        value: 132,
+                    },
+                    {
+                        name: 'Papel Strathmore Bristol 270g (80 páginas)',
+                        value: 385,
+                    },
+                    {
+                        name: 'Papel Hahnemühle Expression 300g (48 páginas)',
+                        value: 402,
                     },
                     {
                         name: 'Marfim 120g (112 págs) + Papel Vegetal',
-                        value: 132,
+                        value: 148,
                     },
                     {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
-                        value: 132,
+                        value: 148,
                     },
                     {
                         name: 'Kraft 140g (112 págs) + Papel Vegetal',
-                        value: 136,
+                        value: 134,
                     },
                     {
                         name: 'Canson 140g (80 pags) + Papel Vegetal',
@@ -1342,19 +1179,27 @@ export default function Facheiro() {
                     },
                     {
                         name: 'Canson 200g (80 págs) + Papel Vegetal',
-                        value: 138,
+                        value: 152,
                     },
                     {
                         name: 'Preto 180g (80 págs) + Papel Vegetal',
-                        value: 134,
+                        value: 142,
                     },
                     {
                         name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
-                        value: 148,
+                        value: 162,
                     },
                     {
                         name: 'Montval 300g (48 págs) + Papel Vegetal',
-                        value: 148,
+                        value: 162,
+                    },
+                    {
+                        name: 'Papel Strathmore Bristol 270g (80 páginas) + Papel Vegetal',
+                        value: 415,
+                    },
+                    {
+                        name: 'Papel Hahnemühle Expression 300g (48 páginas) + Papel Vegetal',
+                        value: 432,
                     },
                 ],
             },
@@ -1371,79 +1216,79 @@ export default function Facheiro() {
                 types: [
                     {
                         name: 'Papel Reciclado Liso 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Reciclado Pontilhado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Reciclado Quadriculado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Reciclado Pautado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Marfim Liso 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Marfim Pontilhado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Marfim Quadriculado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Marfim Pautado 120g (112 páginas)',
-                        value: 67,
+                        value: 84,
                     },
                     {
                         name: 'Papel Kraft 140g (112 páginas)',
-                        value: 72,
+                        value: 70,
                     },
                     {
                         name: 'Papel Canson 140g (80 páginas)',
-                        value: 82,
+                        value: 84,
                     },
                     {
                         name: 'Papel Canson 200g (80 páginas)',
-                        value: 92,
+                        value: 84,
                     },
                     {
                         name: 'Papel Preto 180g (80 páginas)',
-                        value: 85,
+                        value: 97,
                     },
                     {
                         name: 'Papel Canson Aquarela 300g  (48 páginas)',
-                        value: 122,
+                        value: 132,
                     },
                     {
                         name: 'Papel Montval 300g (48 páginas)',
-                        value: 122,
+                        value: 132,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas)',
-                        value: 228,
+                        value: 385,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas)',
-                        value: 252,
+                        value: 402,
                     },
                     {
                         name: 'Marfim 120g (112 págs) + Papel Vegetal',
-                        value: 132,
+                        value: 148,
                     },
                     {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
-                        value: 132,
+                        value: 148,
                     },
                     {
                         name: 'Kraft 140g (112 págs) + Papel Vegetal',
-                        value: 136,
+                        value: 134,
                     },
                     {
                         name: 'Canson 140g (80 pags) + Papel Vegetal',
@@ -1451,27 +1296,27 @@ export default function Facheiro() {
                     },
                     {
                         name: 'Canson 200g (80 págs) + Papel Vegetal',
-                        value: 138,
+                        value: 152,
                     },
                     {
                         name: 'Preto 180g (80 págs) + Papel Vegetal',
-                        value: 134,
+                        value: 142,
                     },
                     {
                         name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
-                        value: 148,
+                        value: 162,
                     },
                     {
                         name: 'Montval 300g (48 págs) + Papel Vegetal',
-                        value: 148,
+                        value: 162,
                     },
                     {
                         name: 'Papel Strathmore Bristol 270g (80 páginas) + Papel Vegetal',
-                        value: 280,
+                        value: 415,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas) + Papel Vegetal',
-                        value: 288,
+                        value: 432,
                     },
                 ],
             },
