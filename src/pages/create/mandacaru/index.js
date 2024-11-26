@@ -285,11 +285,11 @@ export default function Mandacaru() {
                     },
                     {
                         name: 'Canson 200g (80 págs) + Papel Vegetal',
-                        value: 84,
+                        value: 85,
                     },
                     {
                         name: 'Preto 180g (80 págs) + Papel Vegetal',
-                        value: 85,
+                        value: 84,
                     },
                     {
                         name: 'Canson Aquarela 300g (48 págs) + Papel Vegetal',
@@ -389,7 +389,31 @@ export default function Mandacaru() {
                         value: 80,
                     },
                     {
+                        name: 'Marfim Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
+                        name: 'Marfim Quadriculado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
+                        name: 'Marfim Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
+                        name: 'Reciclado Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
+                        name: 'Reciclado Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
+                        name: 'Reciclado Quadriculado 120g (112 págs) + Papel Vegetal',
                         value: 80,
                     },
                     {
@@ -507,7 +531,31 @@ export default function Mandacaru() {
                         value: 48,
                     },
                     {
+                        name: 'Marfim Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Marfim Quadriculado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Marfim Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Reciclado Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Reciclado Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Reciclado Quadriculado 120g (112 págs) + Papel Vegetal',
                         value: 48,
                     },
                     {
@@ -625,7 +673,31 @@ export default function Mandacaru() {
                         value: 48,
                     },
                     {
+                        name: 'Marfim Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Marfim Quadriculado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Marfim Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Reciclado Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Reciclado Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Reciclado Quadriculado 120g (112 págs) + Papel Vegetal',
                         value: 48,
                     },
                     {
@@ -720,7 +792,31 @@ export default function Mandacaru() {
                         value: 23,
                     },
                     {
+                        name: 'Marfim Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 23,
+                    },
+                    {
+                        name: 'Marfim Quadriculado 120g (112 págs) + Papel Vegetal',
+                        value: 23,
+                    },
+                    {
+                        name: 'Marfim Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 23,
+                    },
+                    {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
+                        value: 23,
+                    },
+                    {
+                        name: 'Reciclado Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 23,
+                    },
+                    {
+                        name: 'Reciclado Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 23,
+                    },
+                    {
+                        name: 'Reciclado Quadriculado 120g (112 págs) + Papel Vegetal',
                         value: 23,
                     },
                     {
@@ -815,7 +911,31 @@ export default function Mandacaru() {
                         value: 23,
                     },
                     {
+                        name: 'Marfim Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 23,
+                    },
+                    {
+                        name: 'Marfim Quadriculado 120g (112 págs) + Papel Vegetal',
+                        value: 23,
+                    },
+                    {
+                        name: 'Marfim Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 23,
+                    },
+                    {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
+                        value: 23,
+                    },
+                    {
+                        name: 'Reciclado Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 23,
+                    },
+                    {
+                        name: 'Reciclado Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 23,
+                    },
+                    {
+                        name: 'Reciclado Quadriculado 120g (112 págs) + Papel Vegetal',
                         value: 23,
                     },
                     {

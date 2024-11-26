@@ -114,10 +114,6 @@ export default function Carcara() {
                         name: 'Canson Aquarela 300g (52 págs) + Papel Vegetal',
                         value: 186,
                     },
-                    {
-                        name: 'Montval 300g (52 págs) + Papel Vegetal',
-                        value: 158,
-                    },
                 ],
             },
             {
@@ -242,7 +238,7 @@ export default function Carcara() {
                     },
                     {
                         name: 'Papel Canson 200g (84 páginas)',
-                        value: 71,
+                        value: 72,
                     },
                     {
                         name: 'Papel Preto 180g (84 páginas)',
@@ -386,7 +382,31 @@ export default function Carcara() {
                         value: 89,
                     },
                     {
+                        name: 'Marfim Pontilhado 120g (116 págs) + Papel Vegetal',
+                        value: 89,
+                    },
+                    {
+                        name: 'Marfim Quadriculado 120g (116 págs) + Papel Vegetal',
+                        value: 89,
+                    },
+                    {
+                        name: 'Marfim Pautado 120g (116 págs) + Papel Vegetal',
+                        value: 89,
+                    },
+                    {
                         name: 'Reciclado 120g (116 págs) + Papel Vegetal',
+                        value: 89,
+                    },
+                    {
+                        name: 'Reciclado Pontilhado 120g (116 págs) + Papel Vegetal',
+                        value: 89,
+                    },
+                    {
+                        name: 'Reciclado Pautado 120g (116 págs) + Papel Vegetal',
+                        value: 89,
+                    },
+                    {
+                        name: 'Reciclado Quadriculado 120g (116 págs) + Papel Vegetal',
                         value: 89,
                     },
                     {
@@ -504,7 +524,31 @@ export default function Carcara() {
                         value: 54,
                     },
                     {
+                        name: 'Marfim Pontilhado 120g (116 págs) + Papel Vegetal',
+                        value: 54,
+                    },
+                    {
+                        name: 'Marfim Quadriculado 120g (116 págs) + Papel Vegetal',
+                        value: 54,
+                    },
+                    {
+                        name: 'Marfim Pautado 120g (116 págs) + Papel Vegetal',
+                        value: 54,
+                    },
+                    {
                         name: 'Reciclado 120g (116 págs) + Papel Vegetal',
+                        value: 54,
+                    },
+                    {
+                        name: 'Reciclado Pontilhado 120g (116 págs) + Papel Vegetal',
+                        value: 54,
+                    },
+                    {
+                        name: 'Reciclado Pautado 120g (116 págs) + Papel Vegetal',
+                        value: 54,
+                    },
+                    {
+                        name: 'Reciclado Quadriculado 120g (116 págs) + Papel Vegetal',
                         value: 54,
                     },
                     {
@@ -622,7 +666,31 @@ export default function Carcara() {
                         value: 54,
                     },
                     {
+                        name: 'Marfim Pontilhado 120g (116 págs) + Papel Vegetal',
+                        value: 54,
+                    },
+                    {
+                        name: 'Marfim Quadriculado 120g (116 págs) + Papel Vegetal',
+                        value: 54,
+                    },
+                    {
+                        name: 'Marfim Pautado 120g (116 págs) + Papel Vegetal',
+                        value: 54,
+                    },
+                    {
                         name: 'Reciclado 120g (116 págs) + Papel Vegetal',
+                        value: 54,
+                    },
+                    {
+                        name: 'Reciclado Pontilhado 120g (116 págs) + Papel Vegetal',
+                        value: 54,
+                    },
+                    {
+                        name: 'Reciclado Pautado 120g (116 págs) + Papel Vegetal',
+                        value: 54,
+                    },
+                    {
+                        name: 'Reciclado Quadriculado 120g (116 págs) + Papel Vegetal',
                         value: 54,
                     },
                     {
@@ -978,10 +1046,6 @@ export default function Carcara() {
                         value: 55,
                     },
                     {
-                        name: 'Papel Marfim Pontilhado 120g (116 páginas)',	
-                        value: 55,
-                    },
-                    {
                         name: 'Papel Kraft 140g (116 páginas)',
                         value: 52,
                     },
@@ -1018,7 +1082,31 @@ export default function Carcara() {
                         value: 89,
                     },
                     {
+                        name: 'Marfim Pontilhado 120g (116 págs) + Papel Vegetal',
+                        value: 89,
+                    },
+                    {
+                        name: 'Marfim Quadriculado 120g (116 págs) + Papel Vegetal',
+                        value: 89,
+                    },
+                    {
+                        name: 'Marfim Pautado 120g (116 págs) + Papel Vegetal',
+                        value: 89,
+                    },
+                    {
                         name: 'Reciclado 120g (116 págs) + Papel Vegetal',
+                        value: 89,
+                    },
+                    {
+                        name: 'Reciclado Pontilhado 120g (116 págs) + Papel Vegetal',
+                        value: 89,
+                    },
+                    {
+                        name: 'Reciclado Pautado 120g (116 págs) + Papel Vegetal',
+                        value: 89,
+                    },
+                    {
+                        name: 'Reciclado Quadriculado 120g (116 págs) + Papel Vegetal',
                         value: 89,
                     },
                     {
@@ -1127,7 +1215,31 @@ export default function Carcara() {
                         value: 54,
                     },
                     {
+                        name: 'Marfim Pontilhado 120g (116 págs) + Papel Vegetal',
+                        value: 54,
+                    },
+                    {
+                        name: 'Marfim Quadriculado 120g (116 págs) + Papel Vegetal',
+                        value: 54,
+                    },
+                    {
+                        name: 'Marfim Pautado 120g (116 págs) + Papel Vegetal',
+                        value: 54,
+                    },
+                    {
                         name: 'Reciclado 120g (116 págs) + Papel Vegetal',
+                        value: 54,
+                    },
+                    {
+                        name: 'Reciclado Pontilhado 120g (116 págs) + Papel Vegetal',
+                        value: 54,
+                    },
+                    {
+                        name: 'Reciclado Pautado 120g (116 págs) + Papel Vegetal',
+                        value: 54,
+                    },
+                    {
+                        name: 'Reciclado Quadriculado 120g (116 págs) + Papel Vegetal',
                         value: 54,
                     },
                     {
@@ -1198,10 +1310,6 @@ export default function Carcara() {
                     {
                         name: 'Papel Canson Aquarela 300g (52 páginas)',
                         value: 152,
-                    },
-                    {
-                        name: 'Papel Montval 300g (52 páginas)',
-                        value: 122,
                     },
                     {
                         name: 'Marfim 120g (116 págs) + Papel Vegetal',

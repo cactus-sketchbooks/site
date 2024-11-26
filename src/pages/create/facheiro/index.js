@@ -114,7 +114,7 @@ export default function Facheiro() {
                     },
                     {
                         name: 'Papel Canson 200g (80 páginas)',
-                        value: 84,
+                        value: 108,
                     },
                     {
                         name: 'Papel Preto 180g (80 páginas)',
@@ -141,7 +141,31 @@ export default function Facheiro() {
                         value: 148,
                     },
                     {
+                        name: 'Marfim Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
+                        name: 'Marfim Quadriculado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
+                        name: 'Marfim Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
+                        name: 'Reciclado Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
+                        name: 'Reciclado Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
+                        name: 'Reciclado Quadriculado 120g (112 págs) + Papel Vegetal',
                         value: 148,
                     },
                     {
@@ -231,7 +255,7 @@ export default function Facheiro() {
                     },
                     {
                         name: 'Papel Canson 200g (80 páginas)',
-                        value: 84,
+                        value: 108,
                     },
                     {
                         name: 'Papel Preto 180g (80 páginas)',
@@ -258,7 +282,31 @@ export default function Facheiro() {
                         value: 148,
                     },
                     {
+                        name: 'Marfim Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
+                        name: 'Marfim Quadriculado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
+                        name: 'Marfim Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
+                        name: 'Reciclado Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
+                        name: 'Reciclado Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
+                        name: 'Reciclado Quadriculado 120g (112 págs) + Papel Vegetal',
                         value: 148,
                     },
                     {
@@ -375,7 +423,31 @@ export default function Facheiro() {
                         value: 80,
                     },
                     {
+                        name: 'Marfim Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
+                        name: 'Marfim Quadriculado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
+                        name: 'Marfim Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
+                        name: 'Reciclado Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
+                        name: 'Reciclado Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
+                        name: 'Reciclado Quadriculado 120g (112 págs) + Papel Vegetal',
                         value: 80,
                     },
                     {
@@ -492,7 +564,31 @@ export default function Facheiro() {
                         value: 80,
                     },
                     {
+                        name: 'Marfim Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
+                        name: 'Marfim Quadriculado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
+                        name: 'Marfim Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
+                        name: 'Reciclado Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
+                        name: 'Reciclado Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
+                        name: 'Reciclado Quadriculado 120g (112 págs) + Papel Vegetal',
                         value: 80,
                     },
                     {
@@ -609,7 +705,31 @@ export default function Facheiro() {
                         value: 48,
                     },
                     {
+                        name: 'Marfim Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Marfim Quadriculado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Marfim Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Reciclado Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Reciclado Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Reciclado Quadriculado 120g (112 págs) + Papel Vegetal',
                         value: 48,
                     },
                     {
@@ -726,7 +846,31 @@ export default function Facheiro() {
                         value: 48,
                     },
                     {
+                        name: 'Marfim Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Marfim Quadriculado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Marfim Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Reciclado Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Reciclado Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Reciclado Quadriculado 120g (112 págs) + Papel Vegetal',
                         value: 48,
                     },
                     {
@@ -816,7 +960,7 @@ export default function Facheiro() {
                     },
                     {
                         name: 'Papel Canson 200g (80 páginas)',
-                        value: 84,
+                        value: 108,
                     },
                     {
                         name: 'Papel Preto 180g (80 páginas)',
@@ -843,7 +987,31 @@ export default function Facheiro() {
                         value: 148,
                     },
                     {
+                        name: 'Marfim Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
+                        name: 'Marfim Quadriculado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
+                        name: 'Marfim Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
+                        name: 'Reciclado Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
+                        name: 'Reciclado Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
+                        name: 'Reciclado Quadriculado 120g (112 págs) + Papel Vegetal',
                         value: 148,
                     },
                     {
@@ -952,7 +1120,31 @@ export default function Facheiro() {
                         value: 80,
                     },
                     {
+                        name: 'Marfim Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
+                        name: 'Marfim Quadriculado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
+                        name: 'Marfim Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
+                        name: 'Reciclado Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
+                        name: 'Reciclado Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
+                        name: 'Reciclado Quadriculado 120g (112 págs) + Papel Vegetal',
                         value: 80,
                     },
                     {
@@ -1013,6 +1205,10 @@ export default function Facheiro() {
                         value: 32,
                     },
                     {
+                        name: 'Papel Reciclado Pautado 120g (112 páginas)',
+                        value: 32,
+                    },
+                    {
                         name: 'Papel Marfim Liso 120g (112 páginas)',
                         value: 32,
                     },
@@ -1022,6 +1218,10 @@ export default function Facheiro() {
                     },
                     {
                         name: 'Papel Marfim Quadriculado 120g (112 páginas)',
+                        value: 32,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado 120g (112 páginas)',
                         value: 32,
                     },
                     {
@@ -1053,7 +1253,31 @@ export default function Facheiro() {
                         value: 48,
                     },
                     {
+                        name: 'Marfim Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Marfim Quadriculado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Marfim Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Reciclado Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Reciclado Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Reciclado Quadriculado 120g (112 págs) + Papel Vegetal',
                         value: 48,
                     },
                     {
@@ -1078,7 +1302,11 @@ export default function Facheiro() {
                     },
                     {
                         name: 'Montval 300g (48 págs) + Papel Vegetal',
-
+                        value: 53,
+                    },
+                    {
+                        name: 'Papel  Papel Strathmore Bristol 270g (80 páginas) + Papel Vegetal',
+                        value: 136,
                     },
                     {
                         name: 'Papel Hahnemühle Expression 300g (48 páginas) + Papel Vegetal',
@@ -1139,7 +1367,7 @@ export default function Facheiro() {
                     },
                     {
                         name: 'Papel Canson 200g (80 páginas)',
-                        value: 84,
+                        value: 108,
                     },
                     {
                         name: 'Papel Preto 180g (80 páginas)',
@@ -1166,7 +1394,31 @@ export default function Facheiro() {
                         value: 148,
                     },
                     {
+                        name: 'Marfim Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
+                        name: 'Marfim Quadriculado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
+                        name: 'Marfim Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
+                        name: 'Reciclado Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
+                        name: 'Reciclado Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
+                        name: 'Reciclado Quadriculado 120g (112 págs) + Papel Vegetal',
                         value: 148,
                     },
                     {
@@ -1256,7 +1508,7 @@ export default function Facheiro() {
                     },
                     {
                         name: 'Papel Canson 200g (80 páginas)',
-                        value: 84,
+                        value: 108,
                     },
                     {
                         name: 'Papel Preto 180g (80 páginas)',
@@ -1283,7 +1535,31 @@ export default function Facheiro() {
                         value: 148,
                     },
                     {
+                        name: 'Marfim Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
+                        name: 'Marfim Quadriculado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
+                        name: 'Marfim Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
+                        name: 'Reciclado Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
+                        name: 'Reciclado Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 148,
+                    },
+                    {
+                        name: 'Reciclado Quadriculado 120g (112 págs) + Papel Vegetal',
                         value: 148,
                     },
                     {

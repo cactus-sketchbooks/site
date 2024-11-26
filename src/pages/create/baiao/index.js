@@ -168,6 +168,10 @@ export default function Baiao() {
                         value: 48,
                     },
                     {
+                        name: 'Papel Reciclado Pautado 120g (112 páginas)',
+                        value: 48,
+                    },
+                    {
                         name: 'Papel Marfim Liso 120g (112 páginas)',
                         value: 48,
                     },
@@ -177,6 +181,10 @@ export default function Baiao() {
                     },
                     {
                         name: 'Papel Marfim Quadriculado 120g (112 páginas)',
+                        value: 48,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado 120g (112 páginas)',
                         value: 48,
                     },
                     {
@@ -216,7 +224,31 @@ export default function Baiao() {
                         value: 80,
                     },
                     {
+                        name: 'Marfim Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
+                        name: 'Marfim Quadriculado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
+                        name: 'Marfim Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
+                        name: 'Reciclado Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
+                        name: 'Reciclado Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 80,
+                    },
+                    {
+                        name: 'Reciclado Quadriculado 120g (112 págs) + Papel Vegetal',
                         value: 80,
                     },
                     {
@@ -277,6 +309,10 @@ export default function Baiao() {
                         value: 32,
                     },
                     {
+                        name: 'Papel Reciclado Pautado 120g (112 páginas)',
+                        value: 32,
+                    },
+                    {
                         name: 'Papel Marfim Liso 120g (112 páginas)',
                         value: 32,
                     },
@@ -286,6 +322,10 @@ export default function Baiao() {
                     },
                     {
                         name: 'Papel Marfim Quadriculado 120g (112 páginas)',
+                        value: 32,
+                    },
+                    {
+                        name: 'Papel Marfim Pautado 120g (112 páginas)',
                         value: 32,
                     },
                     {
@@ -325,7 +365,31 @@ export default function Baiao() {
                         value: 48,
                     },
                     {
+                        name: 'Marfim Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Marfim Quadriculado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Marfim Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
                         name: 'Reciclado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Reciclado Pontilhado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Reciclado Pautado 120g (112 págs) + Papel Vegetal',
+                        value: 48,
+                    },
+                    {
+                        name: 'Reciclado Quadriculado 120g (112 págs) + Papel Vegetal',
                         value: 48,
                     },
                     {
