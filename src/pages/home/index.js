@@ -141,7 +141,7 @@ function Home() {
                     </div>
 
                     <div className='hero-data'>
-                        <p>Feito com você. 🌵🧡</p>
+                        <p>Feito com você.. 🌵🧡</p>
                     </div>
                 </div>
 
