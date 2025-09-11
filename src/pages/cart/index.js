@@ -1628,15 +1628,19 @@ export default function Cart() {
                                             <a href='/'>
                                                 Continuar comprando...
                                             </a>
+                                        {finalValue > 0 ? (
+                                            <>
+                                                <h3>Produtos: R$ {totalValue.toFixed(2)}</h3>
 
-                                            {finalValue > 0 ? (
-                                                <h3>
-                                                    Valor: R${' '}
-                                                    {finalValue.toFixed(2)}
-                                                </h3>
-                                            ) : (
-                                                ''
-                                            )}
+                                                {pickupSelect === 'Frete Correios por Impresso Módico' && (
+                                                    <h3>Frete: R$ {economicTransportValue.toFixed(2)}</h3>
+                                                )}
+
+                                                <h3>Total: R$ {finalValue.toFixed(2)}</h3>
+                                            </>
+                                        ) : (
+                                            ''
+                                        )}
 
                                             <button
                                                 style={{
