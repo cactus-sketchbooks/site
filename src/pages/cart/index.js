@@ -1217,11 +1217,11 @@ export default function Cart() {
                                                     Selecione como deseja
                                                     receber sua encomenda
                                                 </option>
-                                                {/*<option value='Entrega por aplicativo'>
+                                                <option value='Entrega por aplicativo'>
                                                     Combinar entrega por
                                                     aplicativo de viagem (Uber
                                                     ou 99) com a Cactus
-                                                </option> */}
+                                                </option> 
                                                 <option value='Frete Correios por Impresso Módico'>
                                                     Impresso módico ou Carta
                                                     registrada
@@ -1242,11 +1242,11 @@ export default function Cart() {
                                                     Selecione como deseja
                                                     receber sua encomenda
                                                 </option>
-                                                {/*<option value='Entrega por aplicativo'>
+                                                <option value='Entrega por aplicativo'>
                                                     Combinar entrega por
                                                     aplicativo de viagem (Uber
                                                     ou 99) com a Cactus
-                                                </option> */}
+                                                </option> 
                                                 {/* <option value="Frete Correios por PAC ou SEDEX">
                                                     Frete Correios por PAC ou SEDEX
                                                 </option> */}
