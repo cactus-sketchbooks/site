@@ -1217,20 +1217,19 @@ export default function Cart() {
                                                     Selecione como deseja
                                                     receber sua encomenda
                                                 </option>
-                                                <option value='Entrega por aplicativo'>
+                                                {/*<option value='Entrega por aplicativo'>
                                                     Combinar entrega por
                                                     aplicativo de viagem (Uber
                                                     ou 99) com a Cactus
-                                                </option>
+                                                </option> */}
                                                 <option value='Frete Correios por Impresso Módico'>
                                                     Impresso módico ou Carta
                                                     registrada
                                                 </option>
-                                                <option value='Retirada física'>
-                                                Retirada física: Rua do Outeiro - n° 196 -
-                                                    Centro (andar de cima,
-                                                    avenida do IEMA antigo
-                                                    Marista)
+                                                <option value='Retirada física'>  
+                                                Retirada física: Rua Senador João Pedro - n° 642 -
+                                                    Fabril (praça da 
+                                                    Bíblia)
                                                 </option>
                                             </select>
                                         ) : (
@@ -1243,22 +1242,21 @@ export default function Cart() {
                                                     Selecione como deseja
                                                     receber sua encomenda
                                                 </option>
-                                                <option value='Entrega por aplicativo'>
+                                                {/*<option value='Entrega por aplicativo'>
                                                     Combinar entrega por
                                                     aplicativo de viagem (Uber
                                                     ou 99) com a Cactus
-                                                </option>
-                                                <option value='Frete Correios por PAC ou SEDEX'>
+                                                </option> */}
+                                                {/* <option value="Frete Correios por PAC ou SEDEX">
                                                     Frete Correios por PAC ou SEDEX
-                                                </option>
+                                                </option> */}
                                                 <option value='Frete Correios por Impresso Módico'>
                                                     Frete Correios por Impresso Módico
                                                 </option>
                                                 <option value='Retirada física'>
-                                                Retirada física: Rua do Outeiro - n° 196 -
-                                                    Centro (andar de cima,
-                                                    avenida do IEMA antigo
-                                                    Marista)
+                                                Retirada física: Rua Senador João Pedro - n° 642 -
+                                                    Fabril (praça da 
+                                                    Bíblia)
                                                 </option>
                                             </select>
                                         )}
@@ -1270,10 +1268,7 @@ export default function Cart() {
                                             não é atualizado a todo momento, somente quando é postado na agência, quando
                                             chega na sua cidade e sai para entrega. Tem valor fixo de R$ 15,00 para as
                                             cidades das regiões <b>Norte e Nordeste,</b> e R$ 20,00 para as cidades das regiões
-                                            <b>Sul, Sudeste e Centro-Oeste.</b> Já o frete por PAC ou Sedex, também do Correios,
-                                            são formas de envio com valor mais alto, tem seu status atualizado ao longo do
-                                            envio porém para o PAC ou SEDEX o envio é limitado para apenas 1 único produto,
-                                            logo se você selecionou mais de um produto essa forma de envio não está disponível.
+                                            <b> Sul, Sudeste e Centro-Oeste.</b> 
                                         </span>
                                         <span>
                                             <strong>Atenção: </strong>
