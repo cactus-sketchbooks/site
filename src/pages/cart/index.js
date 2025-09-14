@@ -1597,9 +1597,9 @@ export default function Cart() {
                                                     Selecione o tipo de
                                                     pagamento
                                                 </option>
-                                                <option value='PayPal'>
+                                                {/*<option value='PayPal'>
                                                     PayPal{' '}
-                                                </option>
+                                                </option>*/} 
                                                 <option value='Cartão'>
                                                     Finalizar por Cartão
                                                     (WhatsApp)
