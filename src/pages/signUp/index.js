@@ -42,48 +42,59 @@ export default function SignUp() {
         localStorage.setItem('userEmail', '');
     }
 
-    function makeRegister() {
-        firebase
-            .auth()
-            .createUserWithEmailAndPassword(
-                registerData.email,
-                registerData.password
-            )
-            .then((user) => {
-                const id = firebase.database().ref().child('posts').push().key;
+function makeRegister() {
+    firebase
+        .auth()
+        .createUserWithEmailAndPassword(
+            registerData.email,
+            registerData.password
+        )
+        .then((user) => {
+            const id = firebase.database().ref().child('posts').push().key;
 
-                firebase
-                    .database()
-                    .ref('users/' + id)
-                    .set({
-                        name: registerData.name,
-                        email: registerData.email,
-                        phoneNumber: registerData.phoneNumber,
-                        birthDate: registerData.birthDate,
-                        cepNumber: registerData.cepNumber,
-                        address: registerData.address,
-                        city: registerData.city,
-                        state: selectedUf,
-                        houseNumber: registerData.houseNumber,
-                        district: registerData.district,
-                        complement: registerData.complement,
-                        id: id,
-                    });
+            firebase
+                .database()
+                .ref('users/' + id)
+                .set({
+                    name: registerData.name,
+                    email: registerData.email,
+                    phoneNumber: registerData.phoneNumber,
+                    birthDate: registerData.birthDate,
+                    cepNumber: registerData.cepNumber,
+                    address: registerData.address,
+                    city: registerData.city,
+                    state: selectedUf,
+                    houseNumber: registerData.houseNumber,
+                    district: registerData.district,
+                    complement: registerData.complement,
+                    id: id,
+                });
 
-                localStorage.setItem('id', id);
+            localStorage.setItem('id', id);
 
-                alert('Cadastro realizado com sucesso!');
+            alert('Cadastro realizado com sucesso!');
 
-                setTimeout(() => {
-                    signOut();
-                    setRegisterDone(true);
-                }, 1000);
-            })
-            .catch((error) => {
-                if (error) {
+            setTimeout(() => {
+                signOut();
+                setRegisterDone(true);
+            }, 1000);
+        })
+        .catch((error) => {
+            switch (error.code) {
+                case 'auth/email-already-in-use':
+                    alert('Este email já está cadastrado. Tente fazer login.');
+                    break;
+                case 'auth/invalid-email':
+                    alert('O formato do email não é válido.');
+                    break;
+                case 'auth/weak-password':
+                    alert('A senha deve ter pelo menos 6 caracteres.');
+                    break;
+                default:
                     alert('Ocorreu um erro no cadastro, tente novamente!');
-                }
-            });
+                    console.error(error);
+            }
+        });
     }
 
     function handleInputRegisterChange(event) {
