@@ -17,4 +17,4 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CACTUS_SITE_6C84F }}'
           channelId: live
-          projectId: cactus-site-6c84f
+          projectId: cactus-sketchbooks
