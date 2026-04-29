@@ -115,6 +115,12 @@ export default function Header() {
                                         </Link>
                                     </li>
                                     <li>
+                                        <Link onClick={scrollToTop} to='/produtos'>
+                                            {' '}
+                                            Produtos{' '}
+                                        </Link>
+                                    </li>
+                                    <li>
                                         <Link onClick={scrollToTop} to='/admin'>
                                             {' '}
                                             Admin{' '}
@@ -156,6 +162,12 @@ export default function Header() {
                                         <Link onClick={scrollToTop} to='/sobre'>
                                             {' '}
                                             Quem Somos{' '}
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link onClick={scrollToTop} to='/produtos'>
+                                            {' '}
+                                            Produtos{' '}
                                         </Link>
                                     </li>
                                     <li>

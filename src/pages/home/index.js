@@ -1,4 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
+import firebaseConfig from '../../FirebaseConfig.js';
+
 import './style.scss';
 import Header from '../../components/header/index.js';
 import Footer from '../../components/footer/index.js';
@@ -25,6 +31,42 @@ import mescla2 from '../../images/Mescla2.jpg';
 function Home() {
     const [displayModal, setDisplayModal] = useState('none');
     const [modalData, setModalData] = useState({});
+    const listRef = useRef(null);
+
+    const [produtos, setProdutos] = useState([]);
+
+    const scroll = (direction) => {
+        if (listRef.current) {
+            const { scrollLeft, clientWidth } = listRef.current;
+            const scrollTo = direction === 'left' 
+                ? scrollLeft - clientWidth / 2 
+                : scrollLeft + clientWidth / 2;
+            
+            listRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
+        }
+    };
+    
+
+    useEffect(() => {
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
+
+        let firebaseRef = firebase.database().ref('products/');
+
+        firebaseRef.on('value', (snapshot) => {
+            if (snapshot.exists()) {
+                let data = snapshot.val();
+                let temp = Object.keys(data).map((key) => data[key]);
+                setProdutos(temp);
+
+                console.log(temp)
+            } else {
+                console.log('No data available');
+            }
+        });
+    }, []);
+    
 
     const sketchbooksInfos = [
         {
@@ -146,9 +188,34 @@ function Home() {
                 </div>
 
                 <section id='services-section'>
+
                     <h2>
-                        Quer conhecer nossos produtos pronta-entrega? <br />
-                        <Link to='/produtos'>Ver produtos</Link> <br />
+                        Conheça alguns de nossos produtos a pronta entrega:<br />
+                        {/* <Link to='/produtos'>Ver produtos</Link> <br /> */}
+                    </h2>
+
+                   <div className="carouselContainer">
+                        <button className="navBtn left" onClick={() => scroll('left')}>‹</button>
+                    
+                        <div className='productsList' ref={listRef}>
+                            {produtos.filter(p => p.stock > 0).map((product) => (
+                                <Link className='productWrapper' key={product.id} to={`/produto/${product.id}`}>
+                                    <div className='productImgWrapper'>
+                                        <img src={product.productImage} alt={product.productName} loading='lazy' />
+                                    </div>
+                                    <div className='productInfos'>
+                                        <h2>{product.productName}</h2>
+                                        <h2 className="price">R$ {product.value}</h2>
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
+
+                        <button className="navBtn right" onClick={() => scroll('right')}>›</button>
+                    </div>
+
+                    <h2>
+                        <Link to='/produtos'>Saiba Mais</Link> <br />
                     </h2>
 
                     <h2 id='bottomText'>

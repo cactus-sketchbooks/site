@@ -345,6 +345,90 @@ h1, h2, h3, h4, p {
 
 }
 
+// Carousel de Produtos
+
+.carouselContainer {
+    position: relative; // Para as setas ficarem presas a este container
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    width: 90%;
+
+    .navBtn {
+        position: absolute;
+        z-index: 10;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid #ddd;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+
+        &:hover { background: #fff; transform: scale(1.1); }
+        &.left { left: -20px; }
+        &.right { right: -20px; }
+        z-index: 0;
+    }
+}
+
+.productsList {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+
+    .productWrapper {
+        flex: 0 0 320px; // largura do card
+        min-width: 320px;
+        text-decoration: none;
+        background: #fff;
+        border-radius: 12px;
+        border: 1px solid #eee;
+        overflow: hidden;
+
+        .productImgWrapper {
+            height: 220px;
+            img { width: 100%; height: 100%; object-fit: cover; }
+        }
+
+        .productInfos {
+            padding: 1.2rem;
+            
+            h2 { 
+                font-size: 1.1rem !important;
+                margin-bottom: 0.5rem;
+                color: white !important;
+            }
+
+            span {
+                font-size: 0.9rem;
+                color: #666;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+
+            .price {
+                margin-top: 1rem;
+                font-size: 1.2rem !important;
+                color: white !important;
+                font-weight: 800;
+            }
+        }
+    }
+}
+
 #section-showcase {
 
     display: flex;
@@ -769,3 +853,4 @@ h1, h2, h3, h4, p {
     }
     
 }
+
