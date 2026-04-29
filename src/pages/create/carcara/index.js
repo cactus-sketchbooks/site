@@ -1909,8 +1909,8 @@ export default function Carcara() {
                         <Slider {...settings}>
                             {/* Mostra todas as capas que nao sao ilustres, que sao deste modelo */}
                             {dataColors.map((item, index) =>
-                                item.models.includes('carcara') &&
-                                item.categories.includes('cover') &&
+                                item.models?.includes('carcara') &&
+                                item.categories?.includes('cover') &&
                                 !item.isIlustres ? (
                                     <div className='cardColor' key={index}>
                                         <label
@@ -1966,9 +1966,9 @@ export default function Carcara() {
                             {/* Mostra as capas ilustres ao final para deixar agrupadas, que sao deste modelo, e que estao disponiveis para o tamanho selecionado */}
                             {dataColors.map((item, index) =>
                                 item.availableSizes && selectedPaperWidth ? (
-                                    item.models.includes('carcara') &&
-                                    item.categories.includes('cover') &&
-                                    item.availableSizes.includes(
+                                    item.models?.includes('carcara') &&
+                                    item.categories?.includes('cover') &&
+                                    item.availableSizes?.includes(
                                         selectedPaperWidth
                                     ) ? (
                                         <div className='cardColor' key={index}>
@@ -2071,8 +2071,8 @@ export default function Carcara() {
                                 }}
                             >
                                 {dataColors.map((item, index) =>
-                                    item.models.includes('carcara') &&
-                                    item.categories.includes('elastic') ? (
+                                    item.models?.includes('carcara') &&
+                                    item.categories?.includes('elastic') ? (
                                         <div
                                             className='colorWrapper'
                                             key={index}

@@ -860,8 +860,8 @@ export default function Baiao() {
                     <div className='sliderColors'>
                         <Slider {...settings}>
                             {dataColors.map((item, index) =>
-                                item.models.includes('baiao') &&
-                                item.categories.includes('cover') &&
+                                item.models?.includes('baiao') &&
+                                item.categories?.includes('cover') &&
                                 // não mostra as capas ilustres, caso seja cadastrada errado, pq nao esta disponivel pro baiao
                                 !item.isIlustres ? (
                                     <div className='cardColor' key={index}>
@@ -916,9 +916,9 @@ export default function Baiao() {
                             )}
                             {dataColors.map((item, index) =>
                                 item.availableSizes && selectedPaperWidth ? (
-                                    item.models.includes('baiao') &&
-                                    item.categories.includes('cover') &&
-                                    item.availableSizes.includes(
+                                    item.models?.includes('baiao') &&
+                                    item.categories?.includes('cover') &&
+                                    item.availableSizes?.includes(
                                         selectedPaperWidth
                                     ) ? (
                                         <div className='cardColor' key={index}>
@@ -1003,8 +1003,8 @@ export default function Baiao() {
 
                             <div className='lineColorWrapper'>
                                 {dataColors.map((item, index) =>
-                                    item.models.includes('baiao') &&
-                                    item.categories.includes('line') ? (
+                                    item.models?.includes('baiao') &&
+                                    item.categories?.includes('line') ? (
                                         <div
                                             className='colorWrapper'
                                             key={index}
@@ -1066,8 +1066,8 @@ export default function Baiao() {
 
                             <div className='elasticColorWrapper'>
                                 {dataColors.map((item, index) =>
-                                    item.models.includes('baiao') &&
-                                    item.categories.includes('elastic') ? (
+                                    item.models?.includes('baiao') &&
+                                    item.categories?.includes('elastic') ? (
                                         <div
                                             className='colorWrapper'
                                             key={index}
