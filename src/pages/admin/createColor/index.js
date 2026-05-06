@@ -447,7 +447,7 @@ export default function CreateColor() {
                         </option>
 
                         {colors.map((item, index) =>
-                            item.categories.includes('line') ? (
+                            item.categories?.includes('line') ? (
                                 <option value={index} key={index}>
                                     {item.colorName}
                                 </option>
@@ -465,7 +465,7 @@ export default function CreateColor() {
                         </option>
 
                         {colors.map((item, index) =>
-                            item.categories.includes('elastic') ? (
+                            item.categories?.includes('elastic') ? (
                                 <option value={index} key={index}>
                                     {item.colorName}
                                 </option>

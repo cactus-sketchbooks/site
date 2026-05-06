@@ -538,7 +538,7 @@ export default function RegisterProduct() {
                             />
                             <datalist id='principalCoverColorOption'>
                                 {dataColors.map((color) => {
-                                    return color.categories.includes(
+                                    return color.categories?.includes(
                                         'cover'
                                     ) ? (
                                         <option>{color.colorName}</option>
@@ -565,7 +565,7 @@ export default function RegisterProduct() {
                             />
                             <datalist id='secondaryCoverColorOption'>
                                 {dataColors.map((color) => {
-                                    return color.categories.includes(
+                                    return color.categories?.includes(
                                         'cover'
                                     ) ? (
                                         <option>{color.colorName}</option>
@@ -592,7 +592,7 @@ export default function RegisterProduct() {
                             />
                             <datalist id='lineColorOptions'>
                                 {dataColors.map((color) => {
-                                    return color.categories.includes('line') ? (
+                                    return color.categories?.includes('line') ? (
                                         <option>{color.colorName}</option>
                                     ) : null;
                                 })}
@@ -638,7 +638,7 @@ export default function RegisterProduct() {
                             />
                             <datalist id='elasticColorOptions'>
                                 {dataColors.map((color) => {
-                                    return color.categories.includes(
+                                    return color.categories?.includes(
                                         'elastic'
                                     ) ? (
                                         <option>{color.colorName}</option>

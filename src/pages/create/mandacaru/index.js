@@ -1648,8 +1648,8 @@ export default function Mandacaru() {
                             {/* Mostra todas as capas que nao sao ilustres, que sao deste modelo */}
                             {console.log(dataColors)}
                             {dataColors.map((item, index) =>
-                                item.models.includes('mandacaru') &&
-                                item.categories.includes('cover') &&
+                                item.models?.includes('mandacaru') &&
+                                item.categories?.includes('cover') &&
                                 !item.isIlustres ? (
                                     <div className='cardColor' key={index}>
                                         <label
@@ -1705,10 +1705,10 @@ export default function Mandacaru() {
                             {/* Mostra as capas ilustres ao final para deixar agrupadas, que sao deste modelo, e que estao disponiveis para o tamanho selecionado */}
                             {dataColors.map((item, index) =>
                                 item.availableSizes && selectedPaperWidth ? (
-                                    item.models.includes('mandacaru') &&
-                                    item.categories.includes('cover') &&
+                                    item.models?.includes('mandacaru') &&
+                                    item.categories?.includes('cover') &&
                                     item.isIlustres &&
-                                    item.availableSizes.includes(
+                                    item.availableSizes?.includes(
                                         selectedPaperWidth
                                     ) ? (
                                         <div className='cardColor' key={index}>
@@ -1810,8 +1810,8 @@ export default function Mandacaru() {
                                 style={{ display: displayLineColorSelection }}
                             >
                                 {dataColors.map((item, index) =>
-                                    item.models.includes('mandacaru') &&
-                                    item.categories.includes('line') ? (
+                                    item.models?.includes('mandacaru') &&
+                                    item.categories?.includes('line') ? (
                                         <div
                                             className='colorWrapper'
                                             key={index}
@@ -1891,8 +1891,8 @@ export default function Mandacaru() {
                                 }}
                             >
                                 {dataColors.map((item, index) =>
-                                    item.models.includes('mandacaru') &&
-                                    item.categories.includes('elastic') ? (
+                                    item.models?.includes('mandacaru') &&
+                                    item.categories?.includes('elastic') ? (
                                         <div
                                             className='colorWrapper'
                                             key={index}

@@ -2110,8 +2110,8 @@ export default function Facheiro() {
                         <Slider {...settings}>
                             {/* Mostra todas as capas que nao sao ilustres, que sao deste modelo */}
                             {dataColors.map((item, index) =>
-                                item.models.includes('facheiro') &&
-                                item.categories.includes('cover') &&
+                                item.models?.includes('facheiro') &&
+                                item.categories?.includes('cover') &&
                                 !item.isIlustres ? (
                                     <div className='cardColor' key={index}>
                                         <label
@@ -2167,9 +2167,9 @@ export default function Facheiro() {
                             {/* Mostra as capas ilustres ao final para deixar agrupadas, que sao deste modelo, e que estao disponiveis para o tamanho selecionado */}
                             {dataColors.map((item, index) =>
                                 item.availableSizes && selectedPaperWidth ? (
-                                    item.models.includes('facheiro') &&
-                                    item.categories.includes('cover') &&
-                                    item.availableSizes.includes(
+                                    item.models?.includes('facheiro') &&
+                                    item.categories?.includes('cover') &&
+                                    item.availableSizes?.includes(
                                         selectedPaperWidth
                                     ) ? (
                                         <div className='cardColor' key={index}>
@@ -2323,8 +2323,8 @@ export default function Facheiro() {
                                 }}
                             >
                                 {dataColors.map((item, index) =>
-                                    item.models.includes('facheiro') &&
-                                    item.categories.includes('elastic') ? (
+                                    item.models?.includes('facheiro') &&
+                                    item.categories?.includes('elastic') ? (
                                         <div
                                             className='colorWrapper'
                                             key={index}

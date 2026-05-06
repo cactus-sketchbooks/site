@@ -793,8 +793,8 @@ export default function Sertao() {
                     <div className='sliderColors'>
                         <Slider {...settings}>
                             {dataColors.map((item, index) =>
-                                item.models.includes('sertao') &&
-                                item.categories.includes('cover') &&
+                                item.models?.includes('sertao') &&
+                                item.categories?.includes('cover') &&
                                 // não mostra as capas ilustres, caso seja cadastrada errado, pq nao esta disponivel pro sertao
                                 !item.isIlustres ? (
                                     <div className='cardColor' key={index}>
@@ -849,9 +849,9 @@ export default function Sertao() {
                             )}
                             {dataColors.map((item, index) =>
                                 item.availableSizes && selectedPaperWidth ? (
-                                    item.models.includes('sertao') &&
-                                    item.categories.includes('cover') &&
-                                    item.availableSizes.includes(
+                                    item.models?.includes('sertao') &&
+                                    item.categories?.includes('cover') &&
+                                    item.availableSizes?.includes(
                                         selectedPaperWidth
                                     ) ? (
                                         <div className='cardColor' key={index}>
@@ -936,8 +936,8 @@ export default function Sertao() {
 
                             <div className='lineColorWrapper'>
                                 {dataColors.map((item, index) =>
-                                    item.models.includes('sertao') &&
-                                    item.categories.includes('line') ? (
+                                    item.models?.includes('sertao') &&
+                                    item.categories?.includes('line') ? (
                                         <div
                                             className='colorWrapper'
                                             key={index}

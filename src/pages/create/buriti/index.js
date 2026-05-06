@@ -589,8 +589,8 @@ export default function Buriti() {
                     <div className='sliderColors'>
                         <Slider {...settings}>
                             {dataColors.map((item, index) =>
-                                item.models.includes('buriti') &&
-                                item.categories.includes('cover') &&
+                                item.models?.includes('buriti') &&
+                                item.categories?.includes('cover') &&
                                 // não mostra as capas ilustres, caso seja cadastrada errado, pq nao esta disponivel pro buriti
                                 !item.isIlustres ? (
                                     <div className='cardColor' key={index}>
@@ -645,9 +645,9 @@ export default function Buriti() {
                             )}
                             {dataColors.map((item, index) =>
                                 item.availableSizes && selectedCover ? (
-                                    item.models.includes('buriti') &&
-                                    item.categories.includes('cover') &&
-                                    item.availableSizes.includes(
+                                    item.models?.includes('buriti') &&
+                                    item.categories?.includes('cover') &&
+                                    item.availableSizes?.includes(
                                         selectedCover
                                     ) ? (
                                         <div className='cardColor' key={index}>
@@ -732,8 +732,8 @@ export default function Buriti() {
 
                             <div className='elasticColorWrapper'>
                                 {dataColors.map((item, index) =>
-                                    item.models.includes('buriti') &&
-                                    item.categories.includes('elastic') ? (
+                                    item.models?.includes('buriti') &&
+                                    item.categories?.includes('elastic') ? (
                                         <div
                                             className='colorWrapper'
                                             key={index}
