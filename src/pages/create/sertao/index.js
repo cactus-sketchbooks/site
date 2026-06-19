@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import { Link, useHistory } from 'react-router-dom';
-
 import './style.scss';
 
 import 'slick-carousel/slick/slick.css';
@@ -19,6 +18,8 @@ import Footer from '../../../components/footer/index.js';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import FirebaseConfig from '../../../FirebaseConfig.js';
+
+import initialValues from './data.js';
 
 export default function Sertao() {
     const [dataColors, setDataColors] = useState([]);
@@ -38,351 +39,90 @@ export default function Sertao() {
     const [maxSlides, setMaxSlides] = useState(5);
     const [currentStep, setCurrentStep] = useState(1);
 
+    const [values, setValues] = useState(initialValues);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchPapers = async () => {
+            try {
+                const snapshot = await firebase
+                    .database()
+                    .ref('innerPaper/sertao')
+                    .once('value');
+
+                if (snapshot.exists()) {
+                    const papersData = snapshot.val();
+
+                    // Pega apenas os papéis ativos
+                    const activePapers = Object.values(papersData).filter(
+                        (p) => p.active
+                    );
+
+                    // descobre todos os formatos existentes dinamicamente no banco
+                    const formatosEncontrados = new Set();
+                    activePapers.forEach((paper) => {
+                        if (paper.prices) {
+                            Object.keys(paper.prices).forEach((formato) => {
+                                formatosEncontrados.add(formato);
+                            });
+                        }
+                    });
+
+                    // monta a array de formatos com base no que realmente existe no banco
+                    const formatosAtualizados = Array.from(
+                        formatosEncontrados
+                    ).map((formatName) => {
+                        // Mapeia os papéis que têm esse formato específico
+                        const tiposDePapelMapeados = activePapers
+                            .filter(
+                                (paper) =>
+                                    paper.prices &&
+                                    paper.prices[formatName] !== undefined
+                            )
+                            .map((paper) => ({
+                                name: paper.name,
+                                value: paper.prices[formatName],
+                            }));
+
+                        // Tenta manter as configurações base do initialValues (se existirem),
+                        // senão, cria uma estrutura padrão para o formato novo não quebrar a tela
+                        const formatoAntigo = initialValues.formats.find(
+                            (f) => f.name === formatName
+                        ) || {
+                            id: Math.floor(Math.random() * 100000),
+                            basePrice: 0,
+                            size: { width: 0, length: 0, height: 0, weight: 0 },
+                        };
+
+                        return {
+                            ...formatoAntigo,
+                            name: formatName, // Ex: "A3 - Paisagem" (vindo direto do banco!)
+                            types: tiposDePapelMapeados,
+                        };
+                    });
+
+                    // Atualiza o estado da tela
+                    setValues({
+                        ...initialValues,
+                        formats: formatosAtualizados,
+                    });
+                }
+            } catch (error) {
+                console.error('Erro ao carregar papéis do Sertão:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchPapers();
+    }, []);
+
     const settings = {
         className: 'start',
         infinite: true,
         centerPadding: '60px',
         slidesToShow: maxSlides,
         swipeToSlide: true,
-    };
-
-    const values = {
-        name: 'Sertão',
-        formats: [
-            {
-                name: 'A4 - Retrato (20x28 cm)',
-                id: 32,
-                size: {
-                    width: 21,
-                    length: 29,
-                    height: 3,
-                    weight: 0.7,
-                },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso 120g',
-                        value: 24,
-                    },
-                    {
-                        name: 'Papel Marfim Liso 120g',
-                        value: 24,
-                    },
-                    {
-                        name: 'Papel Kraft 140g',
-                        value: 25,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 25,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 28,
-                    },
-                    {
-                        name: 'Papel Preto 180g',
-                        value: 26,
-                    },
-                ],
-            },
-            {
-                name: 'A5 - Retrato (14x20 cm)',
-                id: 26,
-                size: {
-                    width: 14,
-                    length: 20,
-                    height: 1,
-                    weight: 0.5,
-                },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso 120g',
-                        value: 12,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado 120g',
-                        value: 12,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado 120g',
-                        value: 12,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado 120g',
-                        value: 12,
-                    },
-                    {
-                        name: 'Papel Marfim Liso 120g',
-                        value: 12,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado 120g',
-                        value: 12,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado 120g',
-                        value: 12,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado 120g',
-                        value: 12,
-                    },
-                    {
-                        name: 'Papel Kraft 140g',
-                        value: 14,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 14,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 14,
-                    },
-                    {
-                        name: 'Papel Preto 180g',
-                        value: 14,
-                    },
-                ],
-            },
-            {
-                name: 'A6 - Retrato (10x14 cm)',
-                id: 27,
-                size: {
-                    // width: 9.5,
-                    width: 10,
-                    length: 14,
-                    height: 1,
-                    weight: 0.5,
-                },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso 120g',
-                        value: 8,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado 120g',
-                        value: 8,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado 120g',
-                        value: 8,
-                    },
-                    {
-                        name: 'Papel Reciclado Pautado 120g',
-                        value: 8,
-                    },
-                    {
-                        name: 'Papel Marfim Liso 120g',
-                        value: 8,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado 120g',
-                        value: 8,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado 120g',
-                        value: 8,
-                    },
-                    {
-                        name: 'Papel Marfim Pautado 120g',
-                        value: 8,
-                    },
-                    {
-                        name: 'Papel Kraft 140g',
-                        value: 10,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 10,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 10,
-                    },
-                    {
-                        name: 'Papel Preto 180g',
-                        value: 10,
-                    },
-                ],
-            },
-            {
-                name: '10X10',
-                id: 28,
-                size: {
-                    width: 10,
-                    length: 10,
-                    height: 1,
-                    weight: 0.5,
-                },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso 120g',
-                        value: 8,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado 120g',
-                        value: 8,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado 120g',
-                        value: 8,
-                    },
-                    {
-                        name: 'Papel Marfim Liso 120g',
-                        value: 8,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado 120g',
-                        value: 8,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado 120g',
-                        value: 8,
-                    },
-                    {
-                        name: 'Papel Kraft 140g',
-                        value: 10,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 10,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 10,
-                    },
-                    {
-                        name: 'Papel Preto 180g',
-                        value: 10,
-                    },
-                ],
-            },
-            {
-                name: '14X14',
-                id: 29,
-                size: {
-                    width: 14,
-                    length: 14,
-                    height: 1,
-                    weight: 0.5,
-                },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso 120g',
-                        value: 12,
-                    },
-                    {
-                        name: 'Papel Reciclado Pontilhado 120g',
-                        value: 12,
-                    },
-                    {
-                        name: 'Papel Reciclado Quadriculado 120g',
-                        value: 12,
-                    },
-                    {
-                        name: 'Papel Marfim Liso 120g',
-                        value: 12,
-                    },
-                    {
-                        name: 'Papel Marfim Pontilhado 120g',
-                        value: 12,
-                    },
-                    {
-                        name: 'Papel Marfim Quadriculado 120g',
-                        value: 12,
-                    },
-                    {
-                        name: 'Papel Kraft 140g',
-                        value: 14,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 14,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 14,
-                    },
-                    {
-                        name: 'Papel Preto 180g',
-                        value: 14,
-                    },
-                ],
-            },
-            {
-                name: '20X20',
-                id: 33,
-                size: {
-                    width: 20,
-                    length: 20,
-                    height: 1,
-                    weight: 0.5,
-                },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso 120g',
-                        value: 24,
-                    },
-                    {
-                        name: 'Papel Marfim Liso 120g',
-                        value: 24,
-                    },
-                    {
-                        name: 'Papel Kraft 140g',
-                        value: 25,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 25,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 28,
-                    },
-                    {
-                        name: 'Papel Preto',
-                        value: 26,
-                    },
-                ],
-            },
-            {
-                name: 'Colegial (17x23 cm)',
-                id: 34,
-                size: {
-                    width: 17,
-                    length: 23,
-                    height: 1,
-                    weight: 0.5,
-                },
-                types: [
-                    {
-                        name: 'Papel Reciclado Liso 120g',
-                        value: 24,
-                    },
-                    {
-                        name: 'Papel Marfim Liso 120g',
-                        value: 24,
-                    },
-                    {
-                        name: 'Papel Kraft 140g',
-                        value: 25,
-                    },
-                    {
-                        name: 'Papel Canson 140g',
-                        value: 25,
-                    },
-                    {
-                        name: 'Papel Canson 200g',
-                        value: 28,
-                    },
-                    {
-                        name: 'Papel Preto 180g',
-                        value: 26,
-                    },
-                ],
-            },
-        ],
     };
 
     useEffect(() => {
@@ -760,6 +500,9 @@ export default function Sertao() {
                             </option>
 
                             {formatTypes.map((type, index) => {
+                                if (type.value == 0) {
+                                    return null;
+                                }
                                 return (
                                     <option value={index} key={index}>
                                         {type.name} - R$ {type.value}

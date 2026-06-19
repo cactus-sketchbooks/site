@@ -35,6 +35,7 @@ import Grammage from './pages/grammage';
 import DataChange from './pages/dataChange';
 import Privacy from './pages/privacy';
 import Terms from './pages/terms';
+import ManageInnerPaper from './pages/admin/manageInnerPaper';
 
 const Routes = () => {
     return (
@@ -69,6 +70,7 @@ const Routes = () => {
             <Route component={Terms} path='/termosDeUso' />
             <Route component={RegisterProducts} path='/cadastrarProdutos' />
             <Route component={ManageProducts} path='/gerenciarProdutos' />
+            <Route component={ManageInnerPaper} path='/gerenciarPapeisMiolo' />
             <Route component={ManageVoucher} path='/gerenciarCupons' />
             <Route component={Products} path='/produtos' />
             <Route component={Product} path='/produto/:idProduct' />

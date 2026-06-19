@@ -30,7 +30,7 @@ import Footer from '../../../components/footer/index.js';
 import PaperOption from '../../../components/paperOption';
 
 // vetor com todas as informações dos modelos, preços, tamanhos e papeis disponíveis
-import { models } from '../mescla/modelsInfos';
+// import { models } from '../mescla/modelsInfos';
 
 import firebase from 'firebase/app';
 import 'firebase/auth';
@@ -76,6 +76,10 @@ export default function Mescla() {
     const [displayModal, setDisplayModal] = useState('none');
     const [maxSlides, setMaxSlides] = useState(5);
     const [currentStep, setCurrentStep] = useState(1);
+
+    const [models, setModels] = useState([]);
+    const [loading, setLoading] = useState(true);
+
     const paginasPorBloco = 16;
 
     const settings = {
@@ -85,6 +89,92 @@ export default function Mescla() {
         slidesToShow: maxSlides,
         swipeToSlide: true,
     };
+
+    useEffect(() => {
+        const fetchMesclaData = async () => {
+            try {
+                // Aponta para a raiz 'innerPaper' usando a sintaxe do projeto
+                const snapshot = await firebase
+                    .database()
+                    .ref('innerPaper')
+                    .once('value');
+
+                if (snapshot.exists()) {
+                    const innerPaperData = snapshot.val();
+
+                    // varre todas as chaves dinamicamente (baiao, sertao, carcara, etc.)
+                    const listaModelosFormatada = Object.keys(
+                        innerPaperData
+                    ).map((chaveModelo) => {
+                        const dadosModelo = innerPaperData[chaveModelo]; // Todos os papéis deste modelo
+
+                        // cria um Set para armazenar os formatos únicos deste modelo (ex: '10X10', 'A4 - Paisagem')
+                        const formatosEncontrados = new Set();
+
+                        // varre os papéis para descobrir quais tamanhos existem cadastrados neles
+                        Object.values(dadosModelo).forEach((papel) => {
+                            if (papel.active && papel.prices) {
+                                Object.keys(papel.prices).forEach((formato) => {
+                                    formatosEncontrados.add(formato);
+                                });
+                            }
+                        });
+
+                        // Para cada formato descoberto, estruturamos os dados para a interface antiga
+                        const formatsArray = Array.from(
+                            formatosEncontrados
+                        ).map((nomeFormato) => {
+                            // filtra e monta a array de papéis disponíveis para ESTE formato específico
+                            const typesArray = Object.values(dadosModelo)
+                                .filter(
+                                    (papel) =>
+                                        papel.active &&
+                                        papel.prices &&
+                                        papel.prices[nomeFormato] !== undefined
+                                )
+                                .map((papel) => ({
+                                    name: papel.name,
+                                    value: papel.prices[nomeFormato], // Preço extraído direto do banco
+                                }));
+
+                            return {
+                                name: nomeFormato,
+                                id: Math.floor(Math.random() * 10000),
+                                basePrice: 0,
+                                size: {
+                                    width: 0,
+                                    length: 0,
+                                    height: 0,
+                                    weight: 0,
+                                },
+                                types: typesArray, // Array de papéis antiga reconstruída
+                            };
+                        });
+
+                        return {
+                            // Deixa a primeira letra maiúscula apenas para exibição visual (baiao -> Baiao)
+                            modelName:
+                                chaveModelo.charAt(0).toUpperCase() +
+                                chaveModelo.slice(1),
+                            formats: formatsArray,
+                        };
+                    });
+
+                    // Atualiza o estado "models" com a árvore montada
+                    setModels(listaModelosFormatada);
+                }
+            } catch (error) {
+                console.error(
+                    'Erro ao carregar dados dinâmicos da mescla:',
+                    error
+                );
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchMesclaData();
+    }, []);
 
     useEffect(() => {
         if (window.innerWidth < 820) {
@@ -704,7 +794,7 @@ export default function Mescla() {
                             {values.formats.map((format, index) => {
                                 return (
                                     <option value={index} key={index}>
-                                        {format.name} (+ R$ {format.basePrice})
+                                        {format.name}
                                     </option>
                                 );
                             })}
@@ -896,14 +986,14 @@ export default function Mescla() {
                             <div className='sliderColors'>
                                 <Slider {...settings}>
                                     {dataColors.map((item, index) =>
-                                        item.models.includes(
+                                        item.models?.includes(
                                             // transforma o nome do modelo escolhido para minusculo e sem acento para adequar a como foi criado no cadastro das cores
                                             selectedSketchModel
                                                 .toLowerCase()
                                                 .normalize('NFD')
                                                 .replace(/[\u0300-\u036f]/g, '')
                                         ) &&
-                                        item.categories.includes('cover') &&
+                                        item.categories?.includes('cover') &&
                                         //nao mostra as capas ilustres pq nao estao disponiveis no mescla
                                         !item.isIlustres ? (
                                             <div
@@ -999,7 +1089,7 @@ export default function Mescla() {
 
                                     <div className='lineColorWrapper'>
                                         {dataColors.map((item, index) =>
-                                            item.models.includes(
+                                            item.models?.includes(
                                                 selectedSketchModel
                                                     .toLowerCase()
                                                     .normalize('NFD')
@@ -1008,7 +1098,9 @@ export default function Mescla() {
                                                         ''
                                                     )
                                             ) &&
-                                            item.categories.includes('line') ? (
+                                            item.categories?.includes(
+                                                'line'
+                                            ) ? (
                                                 <div
                                                     className='colorWrapper'
                                                     key={index}
@@ -1127,13 +1219,13 @@ export default function Mescla() {
 
                                 <div className='elasticColorWrapper'>
                                     {dataColors.map((item, index) =>
-                                        item.models.includes(
+                                        item.models?.includes(
                                             selectedSketchModel
                                                 .toLowerCase()
                                                 .normalize('NFD')
                                                 .replace(/[\u0300-\u036f]/g, '')
                                         ) &&
-                                        item.categories.includes('elastic') ? (
+                                        item.categories?.includes('elastic') ? (
                                             <div
                                                 className='colorWrapper'
                                                 key={index}
