@@ -49,7 +49,6 @@
     "sass": "^1.43.4"
   },
   "proxy": "https://melhorenvio.com.br",
-
   "engines": {
     "node": "22.x"
   }
