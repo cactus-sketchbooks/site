@@ -94,9 +94,8 @@ export default function Admin() {
                         <Link to='/gerenciarCores'>Gerenciar cores</Link>
                         <Link to='/cadastrarProdutos'>Cadastrar produtos</Link>
                         <Link to='/gerenciarProdutos'>Gerenciar produtos</Link>
-                        <Link to='/gerenciarPapeisMiolo'>
-                            Gerenciar Papeis Miolo
-                        </Link>
+                        <Link to='/gerenciarModelos'>Gerenciar Modelos</Link>
+                        <Link to='/gerenciarPapeis'>Gerenciar Papéis</Link>
                         <Link to='/gerenciarCupons'>Gerenciar cupons</Link>
                         {/* <Link to="/gerenciarTipos">Gerenciar tipos</Link> */}
                         <Link to='/pedidos'> Pedidos em andamento</Link>

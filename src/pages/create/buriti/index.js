@@ -36,6 +36,9 @@ export default function Buriti() {
     const [isCustomModel, setIsCustomModel] = useState(false);
     const [selectedCover, setSelectedCover] = useState('');
 
+    const [values, setValues] = useState({});
+    const [loading, setLoading] = useState(true);
+
     const [userDimensions, setUserDimensions] = useState({
         width: '',
         length: '',
@@ -50,139 +53,65 @@ export default function Buriti() {
         swipeToSlide: true,
     };
 
-    const values = {
-        name: 'Buriti',
-        formats: [
-            {
-                name: 'Kindle 8ª Geração (16x11,5 cm)',
-                id: 4,
-                size: {
-                    // width: 12.5,
-                    width: 13,
-                    length: 17,
-                    // height: 1.5,
-                    height: 2,
-                    weight: 0.5,
-                },
-                types: [
-                    {
-                        name: 'Kindle 8ª Geração (16x11,5 cm)',
-                        value: 25,
-                    },
-                ],
-            },
-            {
-                name: 'Kindle 10ª Geração (16x11,5 cm)',
-                id: 4,
-                size: {
-                    // width: 12.5,
-                    width: 13,
-                    length: 17,
-                    // height: 1.5,
-                    height: 2,
-                    weight: 0.5,
-                },
-                types: [
-                    {
-                        name: 'Kindle 10ª Geração (16x11,5 cm)',
-                        value: 25,
-                    },
-                ],
-            },
-            {
-                name: 'Kindle Paperwhite (17,5x12,5 cm)',
-                id: 5,
-                size: {
-                    // width: 13.5,
-                    width: 14,
-                    // length: 18.5,
-                    length: 19,
-                    // height: 1.5,
-                    height: 2,
-                    weight: 0.5,
-                },
-                types: [
-                    {
-                        name: 'Kindle Paperwhite (17,5x12,5 cm)',
-                        value: 25,
-                    },
-                ],
-            },
-            {
-                name: 'Kindle 11ª Geração (16x11 cm)',
-                id: 4,
-                size: {
-                    // width: 12.5,
-                    width: 13,
-                    length: 17,
-                    // height: 1.5,
-                    height: 2,
-                    weight: 0.5,
-                },
-                types: [
-                    {
-                        name: 'Kindle 11ª Geração (16x11 cm)',
-                        value: 25,
-                    },
-                ],
-            },
-            {
-                name: 'Kindle Oasis (16x14,1 cm)',
-                id: 4,
-                size: {
-                    // width: 12.5,
-                    width: 13,
-                    length: 17,
-                    // height: 1.5,
-                    height: 2,
-                    weight: 0.5,
-                },
-                types: [
-                    {
-                        name: 'Kindle Oasis (16x14,1 cm)',
-                        value: 25,
-                    },
-                ],
-            },
-            {
-                name: 'Kindle Scribe (19,6x22,9 cm)',
-                id: 4,
-                size: {
-                    // width: 12.5,
-                    width: 13,
-                    length: 17,
-                    // height: 1.5,
-                    height: 2,
-                    weight: 0.5,
-                },
-                types: [
-                    {
-                        name: 'Kindle Scribe (19,6x22,9 cm)',
-                        value: 25,
-                    },
-                ],
-            },
-            {
-                name: 'iPad/Tablet (Personalize o tamanho)',
-                id: 30,
-                size: {
-                    // width: 13.5,
-                    width: 14,
-                    // length: 18.5,
-                    length: 19,
-                    // height: 1.5,
-                    height: 2,
-                    weight: 0.5,
-                },
-                types: [
-                    {
-                        name: 'iPad/Tablet (Personalize o tamanho)',
-                        value: 42,
-                    },
-                ],
-            },
-        ],
-    };
+    useEffect(() => {
+        const fetchModelsData = async () => {
+            try {
+                // busca os dados unificados direto do nó do modelo
+                const snapshot = await firebase
+                    .database()
+                    .ref('models/buriti')
+                    .once('value');
+
+                if (snapshot.exists()) {
+                    const modelData = snapshot.val();
+
+                    // Extrai os formatos e os papéis do modelo
+                    const formatsObj = modelData.formats || {};
+                    const innerPapersObj = modelData.innerPapers || {};
+
+                    // Filtra apenas os papéis ativos
+                    const activePapers = Object.values(innerPapersObj).filter(
+                        (p) => p.active
+                    );
+
+                    // Mapeia os formatos diretamente do que está cadastrado no banco
+                    const formatosAtualizados = Object.values(formatsObj).map(
+                        (formato) => {
+                            // Mapeia os papéis ativos que possuem preço de Bloco Cheio (prices) para este formato
+                            const tiposDePapelMapeados = activePapers
+                                .filter(
+                                    (paper) =>
+                                        paper.prices &&
+                                        paper.prices[formato.name] !== undefined
+                                )
+                                .map((paper) => ({
+                                    name: paper.name,
+                                    value: paper.prices[formato.name], // Puxa o preço do bloco cheio
+                                }));
+
+                            // Retorna o formato estruturado com os dados reais do banco + a array types
+                            return {
+                                ...formato, // Já traz name, basePrice e o objeto size completo
+                                types: tiposDePapelMapeados,
+                            };
+                        }
+                    );
+
+                    // Atualiza o estado da tela sem precisar do 'initialValues' fixo
+                    setValues({
+                        name: modelData.name || 'Mandacaru',
+                        formats: formatosAtualizados,
+                    });
+                }
+            } catch (error) {
+                console.error('Erro ao carregar dados do Mandacaru:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchModelsData();
+    }, []);
 
     useEffect(() => {
         if (window.innerWidth < 820) {
@@ -529,7 +458,13 @@ export default function Buriti() {
                                 Modelo do seu aparelho
                             </option>
 
-                            {values.formats.map((format, index) => {
+                            {values.formats?.map((format, index) => {
+                                if (
+                                    !format.types ||
+                                    format.types.length === 0
+                                ) {
+                                    return null;
+                                }
                                 return (
                                     <option value={index} key={index}>
                                         {format.name}

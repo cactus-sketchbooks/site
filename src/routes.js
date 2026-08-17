@@ -36,6 +36,8 @@ import DataChange from './pages/dataChange';
 import Privacy from './pages/privacy';
 import Terms from './pages/terms';
 import ManageInnerPaper from './pages/admin/manageInnerPaper';
+import AdminModelos from './pages/admin/manageModels/AdminModelo';
+import ManagePappers from './pages/admin/managePappers/ManagePappers';
 
 const Routes = () => {
     return (
@@ -70,7 +72,9 @@ const Routes = () => {
             <Route component={Terms} path='/termosDeUso' />
             <Route component={RegisterProducts} path='/cadastrarProdutos' />
             <Route component={ManageProducts} path='/gerenciarProdutos' />
-            <Route component={ManageInnerPaper} path='/gerenciarPapeisMiolo' />
+            {/* <Route component={ManageInnerPaper} path='/gerenciarPapeisMiolo' /> */}
+            <Route component={AdminModelos} path='/gerenciarModelos' />
+            <Route component={ManagePappers} path='/gerenciarPapeis' />
             <Route component={ManageVoucher} path='/gerenciarCupons' />
             <Route component={Products} path='/produtos' />
             <Route component={Product} path='/produto/:idProduct' />

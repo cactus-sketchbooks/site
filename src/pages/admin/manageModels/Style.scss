@@ -1,0 +1,170 @@
+/* AdminModelos.css */
+
+:root {
+  --branco: #fff;
+  --preto: #000;
+  --dark-green: #24733f;
+  --light-green: #72a67f;
+  --light-blue: #a4bfab;
+  --orange: #de7440;
+  --light-orange: #ff874b;
+  --yellow-green: #ded040;
+}
+
+.admin-container {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: sans-serif;
+  color: var(--preto);
+  background-color: var(--branco);
+}
+
+.admin-title {
+  color: var(--dark-green);
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--light-blue);
+  padding-bottom: 0.5rem;
+  margin-top: 150px;
+
+}
+
+.admin-subtitle {
+  color: var(--dark-green);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Seletor de Modelo */
+.selector-group {
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.selector-group label {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.selector-group select {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--light-blue);
+  border-radius: 4px;
+  outline: none;
+  background-color: var(--branco);
+}
+
+.selector-group select:focus {
+  border-color: var(--dark-green);
+}
+
+/* Formulário */
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #f9fdfa; /* Fundo bem sutil usando a base das suas cores */
+  padding: 1.5rem;
+  border: 1px solid var(--light-blue);
+  border-radius: 8px;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.admin-form input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid var(--light-blue);
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+  min-width: 120px;
+}
+
+.admin-form input:focus {
+  border-color: var(--dark-green);
+  box-shadow: 0 0 0 2px rgba(36, 115, 63, 0.2);
+}
+
+/* Botões */
+.btn-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  color: var(--branco);
+}
+
+.btn-primary {
+  background-color: var(--dark-green);
+}
+
+.btn-primary:hover {
+  background-color: var(--light-green);
+}
+
+.btn-danger {
+  background-color: var(--orange);
+}
+
+.btn-danger:hover {
+  background-color: var(--light-orange);
+}
+
+.btn-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+/* Tabela */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--light-blue);
+}
+
+.admin-table th {
+  background-color: var(--dark-green);
+  color: var(--branco);
+  font-weight: bold;
+}
+
+.admin-table tr:hover {
+  background-color: rgba(164, 191, 171, 0.1); /* light-blue com transparência */
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Linha Divisória */
+.divider {
+  border: 0;
+  height: 1px;
+  background-color: var(--light-blue);
+  margin: 2rem 0;
+}

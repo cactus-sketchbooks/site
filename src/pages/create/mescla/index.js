@@ -29,14 +29,13 @@ import Header from '../../../components/header/index.js';
 import Footer from '../../../components/footer/index.js';
 import PaperOption from '../../../components/paperOption';
 
-// vetor com todas as informações dos modelos, preços, tamanhos e papeis disponíveis
-// import { models } from '../mescla/modelsInfos';
-
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import FirebaseConfig from '../../../FirebaseConfig.js';
 
 export default function Mescla() {
+    const [models, setModels] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [dataColors, setDataColors] = useState([]);
     const [formatTypes, setformatTypes] = useState([]);
     const [formatSize, setFormatSize] = useState({});
@@ -76,10 +75,6 @@ export default function Mescla() {
     const [displayModal, setDisplayModal] = useState('none');
     const [maxSlides, setMaxSlides] = useState(5);
     const [currentStep, setCurrentStep] = useState(1);
-
-    const [models, setModels] = useState([]);
-    const [loading, setLoading] = useState(true);
-
     const paginasPorBloco = 16;
 
     const settings = {
@@ -91,81 +86,84 @@ export default function Mescla() {
     };
 
     useEffect(() => {
-        const fetchMesclaData = async () => {
+        if (window.innerWidth < 820) {
+            setMaxSlides(3);
+        } else {
+            setMaxSlides(5);
+        }
+    }, []);
+
+    useEffect(() => {
+        const fetchModels = async () => {
             try {
-                // Aponta para a raiz 'innerPaper' usando a sintaxe do projeto
+                // 1. Busca TUDO do nó 'models' de uma vez só
                 const snapshot = await firebase
                     .database()
-                    .ref('innerPaper')
+                    .ref('models')
                     .once('value');
 
                 if (snapshot.exists()) {
-                    const innerPaperData = snapshot.val();
+                    const data = snapshot.val();
 
-                    // varre todas as chaves dinamicamente (baiao, sertao, carcara, etc.)
-                    const listaModelosFormatada = Object.keys(
-                        innerPaperData
-                    ).map((chaveModelo) => {
-                        const dadosModelo = innerPaperData[chaveModelo]; // Todos os papéis deste modelo
+                    // 2. O Firebase retorna um objeto. converte para Array.
+                    const modelsArray = Object.values(data).map((modelo) => {
+                        // Transforma o objeto de formatos do banco em array
+                        const formatosArray = modelo.formats
+                            ? Object.values(modelo.formats)
+                            : [];
 
-                        // cria um Set para armazenar os formatos únicos deste modelo (ex: '10X10', 'A4 - Paisagem')
-                        const formatosEncontrados = new Set();
+                        // 3. Recriando a array 'types' que o HTML espera
+                        const formatosComTypes = formatosArray.map(
+                            (formato) => {
+                                const types = [];
 
-                        // varre os papéis para descobrir quais tamanhos existem cadastrados neles
-                        Object.values(dadosModelo).forEach((papel) => {
-                            if (papel.active && papel.prices) {
-                                Object.keys(papel.prices).forEach((formato) => {
-                                    formatosEncontrados.add(formato);
-                                });
+                                // Vasculha os papéis deste modelo procurando preços para o formato atual
+                                if (modelo.innerPapers) {
+                                    Object.values(modelo.innerPapers).forEach(
+                                        (papel) => {
+                                            // Checa se o papel está ativo e se ele tem o preço de mescla para este tamanho
+                                            if (
+                                                papel.active &&
+                                                papel.mesclaPrices &&
+                                                papel.mesclaPrices[
+                                                    formato.name
+                                                ] !== undefined
+                                            ) {
+                                                types.push({
+                                                    name: papel.name,
+                                                    value: papel.mesclaPrices[
+                                                        formato.name
+                                                    ],
+                                                });
+                                            }
+                                        }
+                                    );
+                                }
+
+                                // Retorna o formato exato que o seu JSX antigo usava
+                                return {
+                                    ...formato, // Puxa id, name, basePrice e size
+                                    types: types, // Injeta a lista de papéis compatíveis
+                                };
                             }
-                        });
+                        );
 
-                        // Para cada formato descoberto, estruturamos os dados para a interface antiga
-                        const formatsArray = Array.from(
-                            formatosEncontrados
-                        ).map((nomeFormato) => {
-                            // filtra e monta a array de papéis disponíveis para ESTE formato específico
-                            const typesArray = Object.values(dadosModelo)
-                                .filter(
-                                    (papel) =>
-                                        papel.active &&
-                                        papel.prices &&
-                                        papel.prices[nomeFormato] !== undefined
-                                )
-                                .map((papel) => ({
-                                    name: papel.name,
-                                    value: papel.prices[nomeFormato], // Preço extraído direto do banco
-                                }));
-
-                            return {
-                                name: nomeFormato,
-                                id: Math.floor(Math.random() * 10000),
-                                basePrice: 0,
-                                size: {
-                                    width: 0,
-                                    length: 0,
-                                    height: 0,
-                                    weight: 0,
-                                },
-                                types: typesArray, // Array de papéis antiga reconstruída
-                            };
-                        });
-
+                        // 4. Retorna a estrutura final do modelo
                         return {
-                            // Deixa a primeira letra maiúscula apenas para exibição visual (baiao -> Baiao)
-                            modelName:
-                                chaveModelo.charAt(0).toUpperCase() +
-                                chaveModelo.slice(1),
-                            formats: formatsArray,
+                            modelName: modelo.name, // Mantém a chave 'modelName' antiga
+                            formats: formatosComTypes,
                         };
                     });
 
-                    // Atualiza o estado "models" com a árvore montada
-                    setModels(listaModelosFormatada);
+                    // 5. Salva a nossa nova array dinâmica no estado!
+                    setModels(modelsArray);
+                    console.log(models);
+                } else {
+                    setModels([]); // Se não houver nada no banco
                 }
             } catch (error) {
                 console.error(
-                    'Erro ao carregar dados dinâmicos da mescla:',
+                    'Erro ao buscar os modelos do banco de dados:',
                     error
                 );
             } finally {
@@ -173,15 +171,7 @@ export default function Mescla() {
             }
         };
 
-        fetchMesclaData();
-    }, []);
-
-    useEffect(() => {
-        if (window.innerWidth < 820) {
-            setMaxSlides(3);
-        } else {
-            setMaxSlides(5);
-        }
+        fetchModels();
     }, []);
 
     function handleSelectedSketchModel(event) {
@@ -794,7 +784,7 @@ export default function Mescla() {
                             {values.formats.map((format, index) => {
                                 return (
                                     <option value={index} key={index}>
-                                        {format.name}
+                                        {format.name} (+ R$ {format.basePrice})
                                     </option>
                                 );
                             })}

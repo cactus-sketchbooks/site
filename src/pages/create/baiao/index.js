@@ -41,82 +41,68 @@ export default function Baiao() {
     const [displayModal, setDisplayModal] = useState('none');
     const [maxSlides, setMaxSlides] = useState(5);
     const [currentStep, setCurrentStep] = useState(1);
-    const [values, setValues] = useState(initialValues);
+
+    const [values, setValues] = useState({});
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const fetchPapers = async () => {
+        const fetchBaiaoData = async () => {
             try {
+                // busca os dados unificados direto do nó do modelo
                 const snapshot = await firebase
                     .database()
-                    .ref('innerPaper/baiao')
+                    .ref('models/baiao')
                     .once('value');
 
                 if (snapshot.exists()) {
-                    const papersData = snapshot.val();
+                    const modelData = snapshot.val();
 
-                    // Pega apenas os papéis ativos
-                    const activePapers = Object.values(papersData).filter(
+                    // Extrai os formatos e os papéis do modelo
+                    const formatsObj = modelData.formats || {};
+                    const innerPapersObj = modelData.innerPapers || {};
+
+                    // Filtra apenas os papéis ativos
+                    const activePapers = Object.values(innerPapersObj).filter(
                         (p) => p.active
                     );
 
-                    // descobre todos os formatos existentes dinamicamente no banco
-                    const formatosEncontrados = new Set();
-                    activePapers.forEach((paper) => {
-                        if (paper.prices) {
-                            Object.keys(paper.prices).forEach((formato) => {
-                                formatosEncontrados.add(formato);
-                            });
+                    // Mapeia os formatos diretamente do que está cadastrado no banco
+                    const formatosAtualizados = Object.values(formatsObj).map(
+                        (formato) => {
+                            // Mapeia os papéis ativos que possuem preço de Bloco Cheio (prices) para este formato
+                            const tiposDePapelMapeados = activePapers
+                                .filter(
+                                    (paper) =>
+                                        paper.prices &&
+                                        paper.prices[formato.name] !== undefined
+                                )
+                                .map((paper) => ({
+                                    name: paper.name,
+                                    value: paper.prices[formato.name], // Puxa o preço do bloco cheio
+                                }));
+
+                            // Retorna o formato estruturado com os dados reais do banco + a array types
+                            return {
+                                ...formato, // Já traz name, basePrice e o objeto size completo
+                                types: tiposDePapelMapeados,
+                            };
                         }
-                    });
+                    );
 
-                    // monta a array de formatos com base no que realmente existe no banco
-                    const formatosAtualizados = Array.from(
-                        formatosEncontrados
-                    ).map((formatName) => {
-                        // Mapeia os papéis que têm esse formato específico
-                        const tiposDePapelMapeados = activePapers
-                            .filter(
-                                (paper) =>
-                                    paper.prices &&
-                                    paper.prices[formatName] !== undefined
-                            )
-                            .map((paper) => ({
-                                name: paper.name,
-                                value: paper.prices[formatName],
-                            }));
-
-                        // Tenta manter as configurações base do initialValues (se existirem),
-                        // senão, cria uma estrutura padrão para o formato novo não quebrar a tela
-                        const formatoAntigo = initialValues.formats.find(
-                            (f) => f.name === formatName
-                        ) || {
-                            id: Math.floor(Math.random() * 100000),
-                            basePrice: 0,
-                            size: { width: 0, length: 0, height: 0, weight: 0 },
-                        };
-
-                        return {
-                            ...formatoAntigo,
-                            name: formatName, // Ex: "A3 - Paisagem" (vindo direto do banco!)
-                            types: tiposDePapelMapeados,
-                        };
-                    });
-
-                    // Atualiza o estado da tela
+                    // 2. Atualiza o estado da tela sem precisar do 'initialValues' fixo
                     setValues({
-                        ...initialValues,
+                        name: modelData.name || 'Baião',
                         formats: formatosAtualizados,
                     });
                 }
             } catch (error) {
-                console.error('Erro ao carregar papéis do Sertão:', error);
+                console.error('Erro ao carregar dados do Baião:', error);
             } finally {
                 setLoading(false);
             }
         };
 
-        fetchPapers();
+        fetchBaiaoData();
     }, []);
 
     const settings = {
@@ -482,7 +468,13 @@ export default function Baiao() {
                                 Tamanho do papel
                             </option>
 
-                            {values.formats.map((format, index) => {
+                            {values.formats?.map((format, index) => {
+                                if (
+                                    !format.types ||
+                                    format.types.length === 0
+                                ) {
+                                    return null;
+                                }
                                 return (
                                     <option value={index} key={index}>
                                         {format.name}
