@@ -173,7 +173,10 @@ export default function Requests() {
             .database()
             .ref('requests/' + selectItem)
             .remove()
-            .then(() => alert('Pedido finalizado com sucesso!'));
+            .then(() => {
+                        alert('Pedido finalizado com sucesso!');
+                        setSelectItem('');
+                    });
 
         window.location.reload();
     }
@@ -960,7 +963,7 @@ export default function Requests() {
                                 <select
                                     onChange={handleIdSelected}
                                     className='selectFinishOrder'
-                                    defaultValue=''
+                                    value={selectItem}
                                 >
                                     <option
                                         disabled
@@ -972,30 +975,28 @@ export default function Requests() {
 
                                     {dataPeriod.length > 0
                                         ? dataPeriod.map((item) => (
-                                              <option
-                                                  className='optionSelectOrder'
-                                                  value={item.id}
-                                                  key={item.id}
-                                              >
-                                                  {item.userName.split(' ')[0]}:{' '}
-                                                  {item.id}
-                                              </option>
-                                          ))
+                                            <option
+                                                className='optionSelectOrder'
+                                                value={item.id}
+                                                key={item.id}
+                                            >
+                                                {item.userName.split(' ')[0]}: {item.id}
+                                            </option>
+                                        ))
                                         : dataAdmin.map((item) => (
-                                              <option
-                                                  className='optionSelectOrder'
-                                                  value={item.id}
-                                                  key={item.id}
-                                              >
-                                                  {item.userName.split(' ')[0]}:{' '}
-                                                  {item.id}
-                                              </option>
-                                          ))}
+                                            <option
+                                                className='optionSelectOrder'
+                                                value={item.id}
+                                                key={item.id}
+                                            >
+                                                {item.userName.split(' ')[0]}: {item.id}
+                                            </option>
+                                        ))}
                                 </select>
-
-                                <button
-                                    className='finishButton'
-                                    onClick={() => finishOrder()}
+                                <button 
+                                    className='btnFinishOrder'
+                                    onClick={finishOrder}
+                                    disabled={!selectItem}
                                 >
                                     Finalizar
                                 </button>
