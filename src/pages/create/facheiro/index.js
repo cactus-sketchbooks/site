@@ -54,6 +54,67 @@ export default function Facheiro() {
     const [values, setValues] = useState({});
     const [loading, setLoading] = useState(true);
 
+    // Produtos a pronta entrega
+    const [selectedStockProducts, setSelectedStockProducts] = useState([]);
+    const [stockProducts, setStockProducts] = useState([]);
+
+    useEffect(() => {
+        const fetchStockProducts = async () => {
+            try {
+                const snapshot = await firebase
+                    .database()
+                    .ref('products')
+                    .once('value');
+                if (snapshot.exists()) {
+                    const data = snapshot.val();
+                    // Transforma o objeto do Firebase num Array facilitando o .map()
+                    const productsArray = Object.keys(data).map((key) => ({
+                        id: key,
+                        ...data[key],
+                    }));
+                    setStockProducts(productsArray);
+                }
+            } catch (error) {
+                console.error('Erro ao buscar produtos adicionais:', error);
+            }
+        };
+
+        fetchStockProducts();
+    }, []);
+
+    // Função para lidar com o clique no checkbox
+    const toggleStockProduct = (product) => {
+        setSelectedStockProducts((prevSelected) => {
+            // Verifica se o produto já está selecionado
+            const isAlreadySelected = prevSelected.some(
+                (item) => item.id === product.id
+            );
+
+            if (isAlreadySelected) {
+                // Se já estava, o cliente desmarcou (então removemos da lista)
+                return prevSelected.filter((item) => item.id !== product.id);
+            } else {
+                // Se não estava, adicionamos na lista de selecionados
+                return [...prevSelected, product];
+            }
+        });
+    };
+
+    const getFinalValue = () => {
+        // Pega o valor base do papel/modelo selecionado
+        const baseValue = parseFloat(totalValue || 0);
+
+        // Soma os valores de todos os produtos a pronta entrega selecionados na etapa 7
+        const additionalsValue = selectedStockProducts.reduce(
+            (acc, product) => {
+                return acc + parseFloat(product.value || 0);
+            },
+            0
+        );
+
+        return baseValue + additionalsValue;
+    };
+
     useEffect(() => {
         const fetchModelsData = async () => {
             try {
@@ -201,36 +262,27 @@ export default function Facheiro() {
 
     function addToCart() {
         const temp = JSON.parse(localStorage.getItem('products'));
-        var listOfItems =
+        let listOfItems =
             temp !== null ? Object.keys(temp).map((key) => temp[key]) : [];
-
-        const newItems = [];
 
         const dataToSend = {
             model: 'Facheiro',
             id: formatId,
             paperWidth: selectedPaperWidth,
             paper: sketchbookInfos.name,
-            value: totalValue,
+            value: getFinalValue(),
             spiralColor: selectedSpiralColor,
             elasticColor: selectedElasticColor,
             sketchFinish: selectedSketchFinish,
             coverColors: selectedColors,
             clientNote: clientNote,
             size: formatSize,
+            selectedStockProducts: selectedStockProducts || [],
         };
 
-        newItems.push(dataToSend);
+        listOfItems.push(dataToSend);
 
-        // n lembro o porquê disso (inclusive, length tá escrito errado, então a condição não funciona)
-        if (listOfItems.lenght > 0) {
-            newItems.map((item) => listOfItems.push(item));
-            localStorage.setItem('products', JSON.stringify(listOfItems));
-        } else {
-            newItems.map((item) => listOfItems.push(item));
-            localStorage.setItem('products', JSON.stringify(listOfItems));
-        }
-
+        localStorage.setItem('products', JSON.stringify(listOfItems));
         history.push('/Carrinho');
     }
 
@@ -374,7 +426,7 @@ export default function Facheiro() {
     }
 
     function handleNextStep() {
-        if (currentStep <= 6) {
+        if (currentStep <= 7) {
             setCurrentStep(currentStep + 1);
         }
     }
@@ -412,11 +464,11 @@ export default function Facheiro() {
                     .querySelector('.btn.previous')
                     .classList.remove('hide');
                 break;
-            case 6:
+            case 7:
                 // volta a mostrar o botao de avancar caso o usuario vá ao ultimo passo e volte
                 document.querySelector('.btn.next').classList.remove('hide');
                 break;
-            case 7:
+            case 8:
                 // esconde o botao de proxima pagina se estiver no ultimo passo (pq ja tem o de adicionar ao carrinho)
                 document.querySelector('.btn.next').classList.add('hide');
                 break;
@@ -525,6 +577,9 @@ export default function Facheiro() {
                         <h3>6: Acabamento</h3>
                     </div>
                     <div className='stepTitle title7'>
+                        <h3>7: Adicionais</h3>
+                    </div>
+                    <div className='stepTitle title8'>
                         <h3>Resumo do Pedido</h3>
                     </div>
                 </div>
@@ -930,7 +985,127 @@ export default function Facheiro() {
                     </fieldset>
                 </div>
 
-                <div className='additionalInfos steps step7 hide'>
+                <div className='steps step7 full hide adicionais-container'>
+                    <div className='textWrapper'>
+                        <div className='textBackground'>
+                            <h2>Adicionais (Pronta Entrega)</h2>
+                        </div>
+                    </div>
+
+                    <fieldset className='adicionais-fieldset'>
+                        <label htmlFor='SketchFinish'>
+                            Gostaria de adicionar um produto a pronta entrega ao
+                            seu pedido final?
+                            <div className='skipStockProducts'>
+                                <Link
+                                    to='#stockProductsSection'
+                                    onClick={(e) => handleNextStep()}
+                                >
+                                    Não quero adicionais
+                                </Link>
+                            </div>
+                        </label>
+
+                        {stockProducts.length > 0 ? (
+                            <div
+                                className='produtos-grid'
+                                id='stockProductsSection'
+                            >
+                                {stockProducts
+                                    // Filtra para exibir apenas produtos com estoque disponível
+                                    .filter(
+                                        (product) => Number(product.stock) > 0
+                                    )
+                                    .map((product) => {
+                                        // Verifica se este produto específico está selecionado
+                                        const isSelected =
+                                            selectedStockProducts.some(
+                                                (item) => item.id === product.id
+                                            );
+
+                                        return (
+                                            <div
+                                                key={product.id}
+                                                className={`produto-card ${
+                                                    isSelected ? 'selected' : ''
+                                                }`}
+                                                onClick={() =>
+                                                    toggleStockProduct(product)
+                                                }
+                                            >
+                                                {/* Imagem do Produto */}
+                                                {product.productImage ? (
+                                                    <img
+                                                        src={
+                                                            product.productImage
+                                                        }
+                                                        alt={
+                                                            product.productName
+                                                        }
+                                                        className='produto-img'
+                                                    />
+                                                ) : (
+                                                    <div className='produto-img-placeholder' />
+                                                )}
+
+                                                {/* Informações do Produto */}
+                                                <div className='produto-info'>
+                                                    <span className='produto-titulo'>
+                                                        {product.productName}
+                                                    </span>
+
+                                                    {product.description && (
+                                                        <span className='produto-desc'>
+                                                            {
+                                                                product.description
+                                                            }
+                                                        </span>
+                                                    )}
+
+                                                    <span className='produto-preco'>
+                                                        R${' '}
+                                                        {parseFloat(
+                                                            product.value || 0
+                                                        ).toLocaleString(
+                                                            'pt-BR',
+                                                            {
+                                                                minimumFractionDigits: 2,
+                                                                maximumFractionDigits: 2,
+                                                            }
+                                                        )}
+                                                    </span>
+                                                </div>
+
+                                                {/* Botão de Adicionar / Removido */}
+                                                <button
+                                                    type='button'
+                                                    className={`btn-add ${
+                                                        isSelected
+                                                            ? 'btn-remove'
+                                                            : ''
+                                                    }`}
+                                                    onClick={(e) => {
+                                                        e.stopPropagation(); // Evita disparar dois cliques
+                                                        toggleStockProduct(
+                                                            product
+                                                        );
+                                                    }}
+                                                >
+                                                    {isSelected ? '✓' : '+'}
+                                                </button>
+                                            </div>
+                                        );
+                                    })}
+                            </div>
+                        ) : (
+                            <p className='loading-text'>
+                                Carregando produtos adicionais...
+                            </p>
+                        )}
+                    </fieldset>
+                </div>
+
+                <div className='additionalInfos steps step8 hide'>
                     <label htmlFor='additionalInfos'>
                         Informações adicionais <strong>(opcional)</strong>
                     </label>
@@ -985,9 +1160,38 @@ export default function Facheiro() {
                                         <strong>Tipo de Acabamento: </strong>
                                         {selectedSketchFinish}
                                     </li>
+
+                                    {selectedStockProducts.length > 0 && (
+                                        <li>
+                                            <strong>
+                                                Produtos a pronta entrega
+                                                selecionado:{' '}
+                                            </strong>
+
+                                            <ul
+                                                style={{
+                                                    margin: '5px 0 0 15px',
+                                                    padding: 0,
+                                                }}
+                                            >
+                                                {selectedStockProducts.map(
+                                                    (product) => (
+                                                        <li key={product.id}>
+                                                            {
+                                                                product.productName
+                                                            }{' '}
+                                                            — R$ {product.value}
+                                                        </li>
+                                                    )
+                                                )}
+                                            </ul>
+                                        </li>
+                                    )}
                                 </ul>
 
-                                <h3>Valor do sketchbook: R$ {totalValue}</h3>
+                                <h3>
+                                    Valor do sketchbook: R$ {getFinalValue()}
+                                </h3>
 
                                 <button onClick={() => addToCart()}>
                                     Adicionar ao carrinho

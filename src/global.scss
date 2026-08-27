@@ -574,6 +574,149 @@ $amarelo: #ffff00;
         }
     }
 }
+// PRODUTOS A PRONTA ENTREGA NA CRIAÇÃO DOS MODELOS
+/* Grid de produtos em estilo responsivo */
+.adicionais-container {
+    max-width: 1024px;
+}
+.produtos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  max-height: 400px; /* Limita a altura a cerca de 3-4 cards */
+  overflow-y: auto;  /* Cria a rolagem interna apenas nos produtos */
+  padding-right: 8px; /* Evita que o scroll corte os cards */
+}
+
+/* Deixa a barra de rolagem mais discreta */
+.produtos-grid::-webkit-scrollbar {
+  width: 8px;
+}
+.produtos-grid::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+/* Card individual do produto */
+.produto-card {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  user-select: none;
+}
+
+.produto-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Estado quando o produto está SELECIONADO */
+.produto-card.selected {
+  border-color: #2563eb; /* Azul de destaque (pode trocar pela cor da sua marca) */
+  background-color: #eff6ff;
+}
+
+/* Imagem do produto */
+.produto-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.produto-img-placeholder {
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  background-color: #f1f5f9;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+/* Informações do produto */
+.produto-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-right: 8px;
+}
+
+.produto-titulo {
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.produto-desc {
+  font-size: 0.78rem;
+  color: #64748b;
+  margin-bottom: 6px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limita a descrição a 2 linhas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.produto-preco {
+  font-weight: 700;
+  color: #059669; /* Verde para valor */
+  font-size: 0.9rem;
+}
+
+/* Botão de adicionar (+) e selecionado (✓) */
+.btn-add {
+  background: #f1f5f9;
+  border: none;
+  color: #334155;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.produto-card:hover .btn-add {
+  background: #e2e8f0;
+}
+
+.btn-add.btn-remove {
+  background: #2563eb; /* Fundo ativo */
+  color: #ffffff;
+}
+
+.loading-text {
+  color: #64748b;
+  font-style: italic;
+  padding: 10px 0;
+}
+
+.skipStockProducts {
+    color: white;
+    margin: 15px 0 25px 0;
+    text-align: center;
+    
+    a {
+        color: white;
+        font-weight: 800;
+        font-size: 17px;
+    }
+}
 
 @media screen and (max-width: 768px) {
     #MainSketchbook {

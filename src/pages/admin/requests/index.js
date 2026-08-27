@@ -174,9 +174,9 @@ export default function Requests() {
             .ref('requests/' + selectItem)
             .remove()
             .then(() => {
-                        alert('Pedido finalizado com sucesso!');
-                        setSelectItem('');
-                    });
+                alert('Pedido finalizado com sucesso!');
+                setSelectItem('');
+            });
 
         window.location.reload();
     }
@@ -907,6 +907,42 @@ export default function Requests() {
                                                       ''
                                                   )}
 
+                                                  {product.selectedStockProducts ? (
+                                                      <li>
+                                                          <strong>
+                                                              Adição de produtos
+                                                              a pronta entrega:{' '}
+                                                          </strong>
+
+                                                          <ul
+                                                              style={{
+                                                                  margin: '5px 0 0 15px',
+                                                                  padding: 0,
+                                                              }}
+                                                          >
+                                                              {product.selectedStockProducts.map(
+                                                                  (product) => (
+                                                                      <li
+                                                                          key={
+                                                                              product.id
+                                                                          }
+                                                                      >
+                                                                          {
+                                                                              product.productName
+                                                                          }{' '}
+                                                                          — R${' '}
+                                                                          {
+                                                                              product.value
+                                                                          }
+                                                                      </li>
+                                                                  )
+                                                              )}
+                                                          </ul>
+                                                      </li>
+                                                  ) : (
+                                                      ''
+                                                  )}
+
                                                   <li id='productValue'>
                                                       <b>
                                                           R${' '}
@@ -975,25 +1011,27 @@ export default function Requests() {
 
                                     {dataPeriod.length > 0
                                         ? dataPeriod.map((item) => (
-                                            <option
-                                                className='optionSelectOrder'
-                                                value={item.id}
-                                                key={item.id}
-                                            >
-                                                {item.userName.split(' ')[0]}: {item.id}
-                                            </option>
-                                        ))
+                                              <option
+                                                  className='optionSelectOrder'
+                                                  value={item.id}
+                                                  key={item.id}
+                                              >
+                                                  {item.userName.split(' ')[0]}:{' '}
+                                                  {item.id}
+                                              </option>
+                                          ))
                                         : dataAdmin.map((item) => (
-                                            <option
-                                                className='optionSelectOrder'
-                                                value={item.id}
-                                                key={item.id}
-                                            >
-                                                {item.userName.split(' ')[0]}: {item.id}
-                                            </option>
-                                        ))}
+                                              <option
+                                                  className='optionSelectOrder'
+                                                  value={item.id}
+                                                  key={item.id}
+                                              >
+                                                  {item.userName.split(' ')[0]}:{' '}
+                                                  {item.id}
+                                              </option>
+                                          ))}
                                 </select>
-                                <button 
+                                <button
                                     className='btnFinishOrder'
                                     onClick={finishOrder}
                                     disabled={!selectItem}

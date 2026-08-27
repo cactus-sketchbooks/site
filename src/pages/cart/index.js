@@ -1081,7 +1081,7 @@ export default function Cart() {
                                                             }
                                                         </li>
                                                     )}
-                                                    {console.log(product)}
+                                                {console.log(product)}
 
                                                 {product.quantity ? (
                                                     <li>
@@ -1100,6 +1100,43 @@ export default function Cart() {
                                                             Observações:
                                                         </strong>{' '}
                                                         {product.clientNote}
+                                                    </li>
+                                                ) : (
+                                                    ''
+                                                )}
+
+                                                {product.selectedStockProducts ? (
+                                                    <li>
+                                                        <strong>
+                                                            Produtos a pronta
+                                                            entrega
+                                                            selecionados:{' '}
+                                                        </strong>
+
+                                                        <div
+                                                            style={{
+                                                                margin: '5px 0 0 15px',
+                                                                padding: 0,
+                                                            }}
+                                                        >
+                                                            {product.selectedStockProducts.map(
+                                                                (product) => (
+                                                                    <li
+                                                                        key={
+                                                                            product.id
+                                                                        }
+                                                                    >
+                                                                        {
+                                                                            product.productName
+                                                                        }{' '}
+                                                                        — R${' '}
+                                                                        {
+                                                                            product.value
+                                                                        }
+                                                                    </li>
+                                                                )
+                                                            )}
+                                                        </div>
                                                     </li>
                                                 ) : (
                                                     ''
@@ -1221,15 +1258,15 @@ export default function Cart() {
                                                     Combinar entrega por
                                                     aplicativo de viagem (Uber
                                                     ou 99) com a Cactus
-                                                </option> 
+                                                </option>
                                                 <option value='Frete Correios por Impresso Módico'>
                                                     Impresso módico ou Carta
                                                     registrada
                                                 </option>
-                                                <option value='Retirada física'>  
-                                                Retirada física: Rua Senador João Pedro - n° 642 -
-                                                    Fabril (praça da 
-                                                    Bíblia)
+                                                <option value='Retirada física'>
+                                                    Retirada física: Rua Senador
+                                                    João Pedro - n° 642 - Fabril
+                                                    (praça da Bíblia)
                                                 </option>
                                             </select>
                                         ) : (
@@ -1246,29 +1283,37 @@ export default function Cart() {
                                                     Combinar entrega por
                                                     aplicativo de viagem (Uber
                                                     ou 99) com a Cactus
-                                                </option> 
+                                                </option>
                                                 {/* <option value="Frete Correios por PAC ou SEDEX">
                                                     Frete Correios por PAC ou SEDEX
                                                 </option> */}
                                                 <option value='Frete Correios por Impresso Módico'>
-                                                    Frete Correios por Impresso Módico
+                                                    Frete Correios por Impresso
+                                                    Módico
                                                 </option>
                                                 <option value='Retirada física'>
-                                                Retirada física: Rua Senador João Pedro - n° 642 -
-                                                    Fabril (praça da 
-                                                    Bíblia)
+                                                    Retirada física: Rua Senador
+                                                    João Pedro - n° 642 - Fabril
+                                                    (praça da Bíblia)
                                                 </option>
                                             </select>
                                         )}
                                         <span>
-                                            <strong>Observação: </strong>
-                                            O frete por Impresso Módico é um tipo de envio dos Correios, a
-                                            forma mais barata e a única disponível para pedidos com 1 ou mais produtos.
-                                            Tem prazo de 10 a 13 dias úteis após a postagem. O envio por Impresso Módico
-                                            não é atualizado a todo momento, somente quando é postado na agência, quando
-                                            chega na sua cidade e sai para entrega. Tem valor fixo de R$ 15,00 para as
-                                            cidades das regiões <b>Norte e Nordeste,</b> e R$ 20,00 para as cidades das regiões
-                                            <b> Sul, Sudeste e Centro-Oeste.</b> 
+                                            <strong>Observação: </strong>O frete
+                                            por Impresso Módico é um tipo de
+                                            envio dos Correios, a forma mais
+                                            barata e a única disponível para
+                                            pedidos com 1 ou mais produtos. Tem
+                                            prazo de 10 a 13 dias úteis após a
+                                            postagem. O envio por Impresso
+                                            Módico não é atualizado a todo
+                                            momento, somente quando é postado na
+                                            agência, quando chega na sua cidade
+                                            e sai para entrega. Tem valor fixo
+                                            de R$ 15,00 para as cidades das
+                                            regiões <b>Norte e Nordeste,</b> e
+                                            R$ 20,00 para as cidades das regiões
+                                            <b> Sul, Sudeste e Centro-Oeste.</b>
                                         </span>
                                         <span>
                                             <strong>Atenção: </strong>
@@ -1599,7 +1644,7 @@ export default function Cart() {
                                                 </option>
                                                 {/*<option value='PayPal'>
                                                     PayPal{' '}
-                                                </option>*/} 
+                                                </option>*/}
                                                 <option value='Cartão'>
                                                     Finalizar por Cartão
                                                     (WhatsApp)
@@ -1628,19 +1673,31 @@ export default function Cart() {
                                             <a href='/'>
                                                 Continuar comprando...
                                             </a>
-                                        {finalValue > 0 ? (
-                                            <>
-                                                <h3>Produtos: R$ {totalValue.toFixed(2)}</h3>
+                                            {finalValue > 0 ? (
+                                                <>
+                                                    <h3>
+                                                        Produtos: R${' '}
+                                                        {totalValue.toFixed(2)}
+                                                    </h3>
 
-                                                {pickupSelect === 'Frete Correios por Impresso Módico' && (
-                                                    <h3>Frete: R$ {economicTransportValue.toFixed(2)}</h3>
-                                                )}
+                                                    {pickupSelect ===
+                                                        'Frete Correios por Impresso Módico' && (
+                                                        <h3>
+                                                            Frete: R${' '}
+                                                            {economicTransportValue.toFixed(
+                                                                2
+                                                            )}
+                                                        </h3>
+                                                    )}
 
-                                                <h3>Total: R$ {finalValue.toFixed(2)}</h3>
-                                            </>
-                                        ) : (
-                                            ''
-                                        )}
+                                                    <h3>
+                                                        Total: R${' '}
+                                                        {finalValue.toFixed(2)}
+                                                    </h3>
+                                                </>
+                                            ) : (
+                                                ''
+                                            )}
 
                                             <button
                                                 style={{
@@ -1925,6 +1982,46 @@ export default function Cart() {
                                                               ''
                                                           )}
                                                       </li>
+
+                                                      {product.selectedStockProducts ? (
+                                                          <li>
+                                                              <strong>
+                                                                  Produtos a
+                                                                  pronta entrega
+                                                                  adicionados:{' '}
+                                                              </strong>
+
+                                                              <ul
+                                                                  style={{
+                                                                      margin: '5px 0 0 15px',
+                                                                      padding: 0,
+                                                                  }}
+                                                              >
+                                                                  {product.selectedStockProducts.map(
+                                                                      (
+                                                                          product
+                                                                      ) => (
+                                                                          <li
+                                                                              key={
+                                                                                  product.id
+                                                                              }
+                                                                          >
+                                                                              {
+                                                                                  product.productName
+                                                                              }{' '}
+                                                                              —
+                                                                              R${' '}
+                                                                              {
+                                                                                  product.value
+                                                                              }
+                                                                          </li>
+                                                                      )
+                                                                  )}
+                                                              </ul>
+                                                          </li>
+                                                      ) : (
+                                                          ''
+                                                      )}
                                                   </ul>
                                               ) : (
                                                   <ul className='productInfo'>
@@ -1953,7 +2050,6 @@ export default function Cart() {
                                                               </span>
                                                           </li>
                                                       )}
-
                                                       {product.paper ? (
                                                           typeof product.paper ===
                                                           'string' ? (
@@ -2007,7 +2103,6 @@ export default function Cart() {
                                                       ) : (
                                                           ''
                                                       )}
-
                                                       <div id='coverColorDiv'>
                                                           <b>Cor da capa </b>
 
@@ -2044,7 +2139,6 @@ export default function Cart() {
                                                               )}
                                                           </div>
                                                       </div>
-
                                                       {product.lineColor ? (
                                                           <li>
                                                               <b>
@@ -2063,7 +2157,6 @@ export default function Cart() {
                                                       ) : (
                                                           ''
                                                       )}
-
                                                       {product.elasticColor ? (
                                                           <li>
                                                               <b>
@@ -2083,7 +2176,6 @@ export default function Cart() {
                                                       ) : (
                                                           ''
                                                       )}
-
                                                       {product.spiralColor ? (
                                                           <li>
                                                               <b>
@@ -2113,7 +2205,6 @@ export default function Cart() {
                                                       ) : (
                                                           ''
                                                       )}
-
                                                       {product.quantity ? (
                                                           <li>
                                                               <strong>
@@ -2124,7 +2215,6 @@ export default function Cart() {
                                                       ) : (
                                                           ''
                                                       )}
-
                                                       {product.clientNote ? (
                                                           <li>
                                                               <b>Observação</b>
@@ -2138,7 +2228,38 @@ export default function Cart() {
                                                       ) : (
                                                           ''
                                                       )}
+                                                      {product.selectedStockProducts ? (
+                                                          <li>
+                                                              <strong>
+                                                                  Produtos a
+                                                                  pronta entrega
+                                                                  adicionados:{' '}
+                                                              </strong>
 
+                                                              {product.selectedStockProducts.map(
+                                                                  (product) => (
+                                                                      <p
+                                                                          key={
+                                                                              product.id
+                                                                          }
+                                                                          style={{
+                                                                              margin: '5px 0 5px 0',
+                                                                          }}
+                                                                      >
+                                                                          {
+                                                                              product.productName
+                                                                          }{' '}
+                                                                          — R${' '}
+                                                                          {
+                                                                              product.value
+                                                                          }
+                                                                      </p>
+                                                                  )
+                                                              )}
+                                                          </li>
+                                                      ) : (
+                                                          ''
+                                                      )}
                                                       {product.value > 0 ? (
                                                           <h2>
                                                               R$ {product.value}
