@@ -1322,9 +1322,7 @@ export default function Cart() {
                                             </strong>{' '}
                                             do "pronta entrega" tem um prazo de{' '}
                                             <strong>
-                                                5 DIAS ÚTEIS DE PRODUÇÃO + 2
-                                                DIAS ÚTEIS PARA POSTAGEM OU
-                                                RETIRADA
+                                                8 DIAS ÚTEIS DE PRODUÇÃO + 2 DIAS ÚTEIS PARA POSTAGEM OU RETIRADA
                                             </strong>{' '}
                                             após a produção. Pedidos a pronta
                                             entrega tem apenas o prazo de
